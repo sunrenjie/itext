@@ -258,19 +258,19 @@
 				in HTML. If you add a graphic to a <class>Document</class>, the listening
 				<class>HtmlWriter</class> will ignore this.	Sometimes you may want a writer
 				to deliberately ignore actions performed on a document. This is shown in
-				<link reference="#Chap0108">Example 8</link>.<newline />
+				<link reference="#Chap0109">Example 9</link>.<newline />
 				If we create two writers: writerA and writerB (this is an exception to what was said in
 				<link reference="#step2">step 2</link>):<newline />
 				<code>PdfWriter writerA = PdfWriter.getInstance(document,</code><newline />
-				<code>new FileOutputStream("Chap0108a.pdf"));</code><newline />
+				<code>new FileOutputStream("Chap0109a.pdf"));</code><newline />
 				<code>PdfWriter writerB = PdfWriter.getInstance(document,</code><newline />
-				<code>new FileOutputStream("Chap0108b.pdf"));</code><newline />
+				<code>new FileOutputStream("Chap0109b.pdf"));</code><newline />
 				We can create two documents that are slightly different:<newline />
 				<code>writerA.pause();</code><newline />
-				<code>document.add(new Paragraph("This paragraph will only be added to Chap0108b.pdf, not to Chap0108a.pdf"));</code><newline />
+				<code>document.add(new Paragraph("This paragraph will only be added to Chap0109b.pdf, not to Chap0109a.pdf"));</code><newline />
 				<code>writerA.resume();</code><newline />
-				You can compare the results of example 8 here: <link reference="http://itext.sourceforge.net/examples/Chap0108a.pdf">Chap0108a.pdf</link> vs.
-				<link reference="http://www.lowagie.com/iText/examples/Chap0108b.pdf">Chap0108b.pdf</link>.
+				You can compare the results of example 9 here: <link reference="http://itext.sourceforge.net/examples/Chap0109a.pdf">Chap0109a.pdf</link> vs.
+				<link reference="http://www.lowagie.com/iText/examples/Chap0109b.pdf">Chap0109b.pdf</link>.
 			</text>
 		</section>
 		<section>
