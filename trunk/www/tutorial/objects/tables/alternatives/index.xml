@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Alternatives for PdfPTable</site:title>
+		<site:summary>Some alternative ways to create a Table</site:summary>
+		<site:keywords>PDF, JAVA, iText, Table, JTable, Swing, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:keyword>JAVA</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="JTable2Pdf" standalone="yes" />
+			<site:result>jTable.pdf</site:result>
+			<site:description>Print a Swing jTable to a PDF file</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="MyFirstTable" standalone="yes" />
+			<site:result>MyFirstTable.pdf</site:result>
+			<site:description>Generate a table with the Table object</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="jtable">
+		<site:sectiontitle>JTable to PDF</site:sectiontitle>
+<div>
+<site:source class="JTable2Pdf" />
+</div>
+	</site:section>
+	<site:section name="table">
+		<site:sectiontitle>the Table object</site:sectiontitle>
+<div>
+<site:source class="MyFirstTable" />
+</div>
+	</site:section>
+	</site:chapter>
+</site:page>
