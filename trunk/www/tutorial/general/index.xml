@@ -42,6 +42,11 @@
 			<site:description>Demonstrates the margin functionality</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="HelloSystemOut" standalone="yes" />
+			<site:result>HelloWorld.txt</site:result>
+			<site:description>Writes PDF output to System.out</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="HelloWorldMultiple" standalone="yes" />
 			<site:result>HelloWorldPdf.pdf</site:result>
 			<site:result>HelloWorldRtf.rtf</site:result>
@@ -158,7 +163,10 @@ The first parameter of the getInstance method is the <site:src class="com.lowagi
 created in <a href="#step1">step 1</a>. The second parameter can be any java.io.OutputStream object.
 In this tutorial we always use a java.io.FileOutputStream, but you can also use
 a java.io.ByteArrayOutputStream to create PDF files in memory or a javax.servlet.ServletOutputStream
-(see <site:tutorial chapter="/general/webapp">iText in a Web Application</site:tutorial>).<br /><br />
+(see <site:tutorial chapter="/general/webapp">iText in a Web Application</site:tutorial>).
+You can even write output to System.out if you wanted to:<br />
+<site:image source="systemout.gif">DOSBOX System.out</site:image><br />
+<site:source class="HelloSystemOut" />
 Remark that you can have different writers listening to the same document at the same time.
 For instance: if you want to sent a PDF to a browser directly from a servlet, but keep a copy
 of the PDF in a file on the server, you could invoke getInstance twice with the same document-object,
