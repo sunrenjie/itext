@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Bruno Lowagie <--
+ * --> Copyright 2004 by Mark Hall <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -21,8 +21,11 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.rtf.RtfWriter2;
+import com.lowagie.text.rtf.style.RtfFont;
 
 /**
  * This example creates a RTF document with two chapters and different headers
@@ -35,48 +38,23 @@ public class Chap0802 {
 
     public static void main(String[] args) {
 
-        System.out.println("Chapter 8 example 2: Headers in RTF");
+        System.out.println("Chapter 8 example 2: RTF Special Fonts");
 
-        // step 1: creation of a document-object
         Document document = new Document();
-
         try {
 
-            // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
             RtfWriter2.getInstance(document, new FileOutputStream("Chap0802.rtf"));
-
-            // step 3: we open the document
             document.open();
 
-            // step 4: we create two chapters and add the same content to both.
-            Paragraph par = new Paragraph("This is some sample content.");
-            Chapter chap1 = new Chapter("Chapter 1", 1);
-            chap1.add(par);
-            Chapter chap2 = new Chapter("Chapter 2", 2);
-            chap2.add(par);
-
-            // step 5: we create the header for the first chapter, set the header and
-            // then add the first chapter.
-            HeaderFooter hf1 = new HeaderFooter(new Phrase("This is chapter 1"), false);
-            document.setHeader(hf1);
-            document.add(chap1);
-
-            // step 6: we create a second header, set this one and then add the second
-            // chapter.
-            HeaderFooter hf2 = new HeaderFooter(new Phrase("This is chapter 2"), false);
-            document.setHeader(hf2);
-            document.add(chap2);
-        }
-        catch(DocumentException de) {
+            /* Create the font. The font name must exactly match the font name on the client system. */
+            RtfFont comicSansFont = new RtfFont("Comic Sans MS");
+            Paragraph para = new Paragraph("This was written in Comic Sans MS", comicSansFont);
+            document.add(para);
+        } catch (DocumentException de) {
             System.err.println(de.getMessage());
-        }
-        catch(IOException ioe) {
+        } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-
-        // step 7: we close the document
         document.close();
     }
 }
