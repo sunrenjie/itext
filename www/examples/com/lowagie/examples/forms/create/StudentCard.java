@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.Image;
@@ -52,9 +53,9 @@ public class StudentCard {
         System.out.println("StudentCard");
         
         // step 1: creation of a document-object
-        Rectangle rect = new Rectangle(245, 151);
+        Rectangle rect = new Rectangle(243, 153);
         rect.setBackgroundColor(new Color(0xFF, 0xFF, 0xCC));
-        Document document = new Document(rect);
+        Document document = new Document(rect, 10, 10, 10, 10);
         
         try {
             
@@ -65,28 +66,39 @@ public class StudentCard {
             document.open();
             
             // step 4:
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.BLUE);
+            Paragraph p = new Paragraph("Ghent University", font);
+            p.setAlignment(Element.ALIGN_CENTER);
+            document.add(p);
             PdfContentByte cb = writer.getDirectContent();
-            Font f = FontFactory.getFont(FontFactory.HELVETICA, 9);
-            PdfPTable table = new PdfPTable(2);
-            table.setTotalWidth(200);
-            float[] widths = {35, 65};
-            table.setWidths(widths);
-            table.addCell(new Paragraph("name:", f));
-            table.addCell(new Paragraph("Bruno Lowagie", f));
-            table.addCell(new Paragraph("date of birth:", f));
-            table.addCell(new Paragraph("June 10th 1970", f));
-            table.addCell(new Paragraph("Study Program:", f));
-            table.addCell(new Paragraph("master in civil engineering", f));
-            table.addCell(new Paragraph("option:", f));
-            table.addCell(new Paragraph("architecture", f));
-            table.addCell(new Paragraph("barcode:", f));
+            Font f = FontFactory.getFont(FontFactory.HELVETICA, 8);
+            PdfPTable outertable = new PdfPTable(3);
+            outertable.setTotalWidth(200);
+            outertable.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+            float[] outer = { 60, 25, 15 };
+            outertable.setWidths(outer);
+            PdfPTable innertable = new PdfPTable(2);
+            float[] inner = {35, 65};
+            innertable.setWidths(inner);
+            innertable.addCell(new Paragraph("name:", f));
+            innertable.addCell(new Paragraph("Bruno Lowagie", f));
+            innertable.addCell(new Paragraph("date of birth:", f));
+            innertable.addCell(new Paragraph("June 10th, 1970", f));
+            innertable.addCell(new Paragraph("Study Program:", f));
+            innertable.addCell(new Paragraph("master in civil engineering", f));
+            innertable.addCell(new Paragraph("option:", f));
+            innertable.addCell(new Paragraph("architecture", f));
+            outertable.addCell(innertable);
+			outertable.getDefaultCell().setBackgroundColor(new Color(0xFF, 0xDE, 0xAD));
+			outertable.addCell(Image.getInstance("bruno.jpg"));
             BarcodeEAN codeEAN = new BarcodeEAN();
             codeEAN.setCodeType(Barcode.EAN13);
             codeEAN.setCode("8010012529736");
-			Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
-			table.getDefaultCell().setBackgroundColor(Color.WHITE);
-			table.addCell(imageEAN);
-            table.writeSelectedRows(0, -1, 20, 140, writer.getDirectContent());
+			Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);            
+			imageEAN.setRotationDegrees(90);
+			outertable.getDefaultCell().setBackgroundColor(Color.WHITE);
+			outertable.addCell(imageEAN);
+            outertable.writeSelectedRows(0, -1, 20, 100, writer.getDirectContent());
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

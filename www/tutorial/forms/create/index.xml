@@ -18,6 +18,7 @@
 		<site:example>
 			<site:java src="StudentCard" standalone="yes" />
 			<site:result>studentcard.pdf</site:result>
+			<site:externalresource>bruno.jpg</site:externalresource>
 			<site:description>Generates a studentcard</site:description>
 		</site:example>
 	</site:examples>
