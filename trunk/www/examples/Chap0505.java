@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2000 by Bruno Lowagie, Alan Soukup <--
+ * --> Copyright 2000, 2001 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -29,93 +29,50 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 public class Chap0505 {
-    
     public static void main(String[] args) {
-        // creation of the document with a certain size and certain margins
-        Document document = new Document(PageSize.A4.rotate(), 50, 50, 50, 50);
-        
+        System.out.println("Chapter 5 example 5: colspan, rowspan, padding, spacing, colors");
+        // step 1: creation of a document-object
+        Document document = new Document();
         try {
-            // creation of the different writers
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
             PdfWriter.getInstance(document, new FileOutputStream("Chap0505.pdf"));
-            
-            // we add some meta information to the document
-            document.addAuthor("Alan Soukup");
-            document.addSubject("This is the result of a Test.");
-            
+            // step 3: we open the document
             document.open();
-            Table datatable = new Table(10);
-            
-            datatable.setPadding(0);
-            datatable.setSpacing(4);
-            //datatable.setBorder(Rectangle.NO_BORDER);
-            int headerwidths[] = {10, 24, 12, 12, 7, 7, 7, 7, 7, 7};
-            datatable.setWidths(headerwidths);
-            datatable.setWidth(100);
-            
-            // the first cell spans 10 columns
-            Cell cell = new Cell(new Phrase("Administration -System Users Report", new Font(Font.HELVETICA, 24, Font.BOLD)));
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setLeading(30);
-            cell.setColspan(10);
-            cell.setBorder(Rectangle.NO_BORDER);
-            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
-            datatable.addCell(cell);
-            
-            // These cells span 2 rows
-            datatable.setDefaultCellBorderWidth(2);
-            datatable.setDefaultHorizontalAlignment(1);
-            datatable.setDefaultRowspan(2);
-            datatable.addCell("User Id");
-            datatable.addCell(new Phrase("Name", new Font(Font.HELVETICA, 14, Font.BOLD)));
-            datatable.addCell("Company");
-            datatable.addCell("Department");
-            
-            // This cell spans the remaining 6 columns in 1 row
-            datatable.setDefaultRowspan(1);
-            datatable.setDefaultColspan(6);
-            datatable.addCell("Permissions");
-            
-            // These cells span 1 row and 1 column
-            datatable.setDefaultColspan(1);
-            datatable.addCell("Admin");
-            datatable.addCell("Data");
-            datatable.addCell("Expl");
-            datatable.addCell("Prod");
-            datatable.addCell("Proj");
-            datatable.addCell("Online");
-            
-            // this is the end of the table header
-            datatable.endHeaders();
-            
-            datatable.setDefaultCellBorderWidth(1);
-            datatable.setDefaultRowspan(1);
-            
-            for (int i = 1; i < 30; i++) {
-                
-                datatable.setDefaultHorizontalAlignment(Element.ALIGN_LEFT);
-                
-                datatable.addCell("myUserId");
-                datatable.addCell("Somebody with a very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long long name");
-                datatable.addCell("No Name Company");
-                datatable.addCell("D" + i);
-                
-                datatable.setDefaultHorizontalAlignment(Element.ALIGN_CENTER);
-                datatable.addCell("No");
-                datatable.addCell("Yes");
-                datatable.addCell("No");
-                datatable.addCell("Yes");
-                datatable.addCell("No");
-                datatable.addCell("Yes");
-                
-            }
-            
-            document.add(datatable);
+            // step 4: we create a table and add it to the document
+            Table table = new Table(3);
+            table.setBorderWidth(1);
+            table.setBorderColor(new Color(0, 0, 255));
+            table.setPadding(5);
+            table.setSpacing(5);
+            Cell cell = new Cell("header");
+            cell.setHeader(true);
+            cell.setColspan(3);
+            table.addCell(cell);
+            cell = new Cell("example cell with colspan 1 and rowspan 2");
+            cell.setRowspan(2);
+            cell.setBorderColor(new Color(255, 0, 0));
+            table.addCell(cell);
+            table.addCell("1.1");
+            table.addCell("2.1");
+            table.addCell("1.2");
+            table.addCell("2.2");
+            table.addCell("cell test1");
+            cell = new Cell("big cell");
+            cell.setRowspan(2);
+            cell.setColspan(2);
+            table.addCell(cell);
+            table.addCell("cell test2");
+            document.add(table);
         }
-        catch(Exception e) {
-            e.printStackTrace();
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
         }
-        
-        // we close the document
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        // step 5: we close the document
         document.close();
     }
 }
