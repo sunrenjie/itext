@@ -92,9 +92,17 @@ you should tell the object, that you want to go to the next page.
 In this case, you should add a <site:doc class="com.lowagie.text.Chunk" target="NEXTPAGE">Chunk.NEXPAGE</site:doc>
 to the object.</li>
 <li>If you invoke <span class="commandline">newPage</span>
-and the current page is blank, no new page will be added. You can only insert blank pages by
-adding something 'invisible' to the page. In the example below, a
-<site:doc class="com.lowagie.text.Chunk" target="NEWLINE">Chunk.NEWLINE</site:doc> is added.</li></ul>
+and the current page is blank, no new page will be added. You can insert blank pages if you
+add something 'invisible' to the blank page. In the example below, a
+<site:doc class="com.lowagie.text.Chunk" target="NEWLINE">Chunk.NEWLINE</site:doc> is added.
+<pre class="commandline">document.newPage();
+document.add(Chunk.NEWLINE);
+document.newPage();</pre>
+Or you can tell the writer the page isn't empty (allthough it IS). This is done with the
+method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setPageEmpty(boolean)">setPageEmpty</site:doc>
+<pre class="commandline">document.newPage();
+writer.setPageEmpty(false);
+document.newPage();</pre></li></ul>
 <site:source class="NewPage" />
 </div>
 	</site:section>

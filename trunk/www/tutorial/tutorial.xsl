@@ -112,6 +112,15 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<div id="content">
 					<div class="title">Introduction:</div>
 					<blockquote><xsl:value-of select="site:intro" /></blockquote>
+					<ul>
+					<xsl:for-each select="./site:part">
+						<li><xsl:element name="a">
+							<xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
+							<div class="subtitle"><xsl:value-of select="site:title" /></div>
+						</xsl:element></li>
+					</xsl:for-each>
+					</ul>
+					<br /><br />
 					<xsl:for-each select="./site:part">
 						<xsl:element name="a">
 							<xsl:attribute name="name"><xsl:value-of select="@name" /></xsl:attribute>
