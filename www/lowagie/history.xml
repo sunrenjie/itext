@@ -22,7 +22,7 @@
 <li>Some more Table changes by Steve Appling on top of itext-paulo-144</li>
 <li>Lots of changes in the comment sections: all warnings given by javadoc
 and some of the warnings given by Eclipse.</li>
-<li>2004-12-14: paulo 144 - iText1.1.2<ul>
+<li>2004-12-14: paulo 144 - 2004-12-16: iText1.1.2<ul>
 <li>added support for multiple signatures, revision information and extraction.</li>
 <li>AcroFields can set fields without a /DR key in the original PDF.</li>
 <li>AcroFields can cache the appearance parsing for a 10 fold speed increase in filling the same PDF multiple times with different values. Contribution by Robert Mueller.</li>
