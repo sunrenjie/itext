@@ -260,7 +260,7 @@ but with some changes, you can do a lot of really complex stuff with it.
 </div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="measure">
 		<site:sectiontitle>Measuring and Scaling a Chunk</site:sectiontitle>
 <div>
 If you have a Chunk and you want to know it's width on a page,
@@ -276,7 +276,7 @@ then we print it twice at half its size (scale = 0.5f).
 </div>
 	</site:section>
 
-	<site:section>
+	<site:section name="endline">
 		<site:sectiontitle>When the end of a line is reached</site:sectiontitle>
 <div>
 <div class="subtitle">Phrase</div>
@@ -355,7 +355,7 @@ into the hyph-files used by iText.
 </div>
 	</site:section>
 
-	<site:section>
+	<site:section name="phrase">
 		<site:sectiontitle>The Phrase Object</site:sectiontitle>
 <div>
 This extra section deals with the somewhat quirky class <site:doc class="com.lowagie.text.Phrase">Phrase</site:doc>

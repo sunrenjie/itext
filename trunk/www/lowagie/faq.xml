@@ -428,8 +428,110 @@ response.setHeader("Cache-Control",
 	"must-revalidate, post-check=0, pre-check=0");
 response.setHeader("Pragma", "public");
 </pre><br/>
-And it works.... But don't ask me to explain this!!!
+And it works.... But don't ask me to explain this!!!<br />
+<br />
+David Ewing posted this solution:<br />
+I was trying to create a servlet that would stream a pdf to Internet
+Explorer (IE6 on my PC).  I was posting data to the servlet so that I
+could plug values from my database into my dynamically created pdf.<br /> 
+I first wrote this code:<br />
+<pre class="commandline">
+public void doPost(HttpServletRequest request, HttpServletResponse
+response)throws ServletException, IOException {
+  ServletOutputStream sos = null;
+  PrintWriter out = null;
+  //this builds the pdf using iText
+  ByteArrayOutputStream baos =
+    getMyPdf(request.getParameter("myDatabaseKey"));
+  if(baos == null){
+    response.setContentType("text/html");
+    PrintWriter writer = response.getWriter();
+    writer.print(oRpc.getErrorMessage());
+    writer.close();
+    return;
+  }
+  sos = response.getOutputStream();
+  response.setContentType("application/pdf");
+  response.setHeader("Content-disposition",
+  	"inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
+  response.setHeader("Cache-control", "must-revalidate");
+  response.setContentLength(baos.size());
+  baos.writeTo(sos);
+  sos.flush();
+}</pre>
+I am running this example on Websphere, and the first problem I
+encountered was that in my WEB-INF I named the servlet's url "/rpt"
+since the servlet is rpt.java.  This caused the error "File does not
+begin with '%PDF", it turns out that you need to define your url in your
+WEB-INF so that it ends with ".pdf", and in my case, I defined my
+servlet url as "/rpt.pdf".<br />
+The second problem I encountered was that IE6 tries to repost after it
+sees that a pdf is being sent to it.  This means that since I had only
+coded the doPost, and left the doGet blank, I was seeing a blank page
+instead of my pdf because on the second trip to the Websphere server,
+IE6 calls doGet, which was returning no response. Once again, the fix
+was pretty simple, and the code below worked just fine.<br />
+<pre class="commandline">//this code runs when IE6 tries to do its second trip to the server,
+and my database key has been preserved in the session 
+public void doGet(HttpServletRequest request, HttpServletResponse
+response)throws ServletException, IOException {
+  ServletOutputStream sos = null;
+  PrintWriter out = null;
+  HttpSession session = request.getSession();
+  //this builds the pdf using iText
+  ByteArrayOutputStream baos =
+    getMyPdf((String)session.getAttribute("myDatabaseKey"));
+  if(baos == null){
+    response.setContentType("text/html");
+    PrintWriter writer = response.getWriter();
+    writer.print(oRpc.getErrorMessage());
+    writer.close();
+    return;
+  }
+  sos = response.getOutputStream();
+  response.setContentType("application/pdf");
+  response.setHeader("Content-disposition",
+    "inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
+  response.setHeader("Cache-control", "must-revalidate");
+  response.setContentLength(baos.size());
+  baos.writeTo(sos);
+  sos.flush();
+}
 
+// this code runs first on my initial post to the servlet
+// so that the database key is in a hidden form field
+public void doPost(HttpServletRequest request,
+  HttpServletResponse response)
+  throws ServletException, IOException {
+  ServletOutputStream sos = null;
+  PrintWriter out = null;
+  //this builds the pdf using iText
+  ByteArrayOutputStream baos =
+    getMyPdf((String)request.getParameter("myDatabaseKey"));
+  if(baos == null){
+    response.setContentType("text/html");
+    PrintWriter writer = response.getWriter();
+    writer.print(oRpc.getErrorMessage());
+    writer.close();
+    return;
+  }
+
+  // this is added so that the second trip to the server
+  // can use this session variable to get my database key
+  HttpSession session = request.getSession();
+  session.setAttribute("myDatabaseKey",
+  	request.getParameter("myDatabaseKey"));
+  sos = response.getOutputStream();
+  response.setContentType("application/pdf");
+  response.setHeader("Content-disposition",
+  	"inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
+  response.setHeader("Cache-control", "must-revalidate");
+  response.setContentLength(baos.size());
+  baos.writeTo(sos);
+  sos.flush();
+}</pre>
+I hope you can post this somewhere so that others won't have to spend a
+whole day figuring out why their Microsoft software is broken...
 </site:answer>
 </site:faq-entry>
 
