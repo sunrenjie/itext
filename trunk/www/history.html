@@ -67,7 +67,27 @@
 			<LI><A HREF="#VERSION072">iText0.72</A>: december 2001
 			<LI><A HREF="#VERSION073">iText0.73</A>: december 2001
 			<LI><A HREF="#VERSION080">iText0.80</A>: january 2002
+			<LI><A HREF="#VERSION081">iText0.81</A>: january 2002
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION080">iText0.81</A></B> (bugfixes by Bruno Lowagie + changes by Paulo Soares in paulo-88 + contributions by others)<br>
+		<UL>
+			<LI>added support for spot colors (code provided by Phillip Pan).
+			<LI>added support for Gray, CMYK and spot colors in Paragraph and other high level constructs.
+			<LI>added support to retrieve the full name of the font in BaseFont.
+			<LI>Rectangle.rotate() when applied to a page rotates the page rather
+      			that only changing the dimensions. Ghostscript has troubles with
+      			printing without this change.
+			<LI>minor changes to header detection in PRTokeniser.
+			<LI>minor memory improvement in reading fonts from arrays.
+			<LI>Bugfix when images are added with the XML to PDF functionality.
+			<LI>Support for some STYLE="" attributes in the HTML to PDF functionality.
+			<LI>removal of the classes Assert and AssertionError.
+		</UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
