@@ -14,13 +14,6 @@
  * This code is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * ir-arch Bruno Lowagie,
- * Adolf Baeyensstraat 121
- * 9040 Sint-Amandsberg
- * BELGIUM
- * tel. +32 (0)9 228.10.97
- * bruno@lowagie.com
  */
 
 import java.awt.Color;
@@ -30,7 +23,9 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
 class MyTableEvent implements PdfPTableEvent {
-    public void tableLayout(PdfPTable table, float[] widths, float[] heights, int headerRows, int rowStart, PdfContentByte[] canvases) {
+    
+    public void tableLayout(PdfPTable table, float[][] width, float[] heights, int headerRows, int rowStart, PdfContentByte[] canvases) {
+        float widths[] = width[0];
         PdfContentByte cb = canvases[PdfPTable.TEXTCANVAS];
         cb.saveState();
         cb.setLineWidth(2);
@@ -50,9 +45,10 @@ class MyTableEvent implements PdfPTableEvent {
         cb.saveState();
         cb.setLineWidth(.5f);
         for (int line = 0; line < heights.length - 1; ++line) {
+            widths = width[line];
             for (int col = 0; col < widths.length - 1; ++col) {
                 if (line == 0 && col == 0)
-                    cb.setAction(new PdfAction("http://www.lowagie.com/iText"),
+                    cb.setAction(new PdfAction("http://www.geocities.com/itextpdf"),
                         widths[col], heights[line + 1], widths[col + 1], heights[line]);
                 cb.setRGBColorStrokeF((float)Math.random(), (float)Math.random(), (float)Math.random());
                 cb.moveTo(widths[col], heights[line]);
@@ -77,8 +73,7 @@ public class Chap1202 {
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            // step 2:
-            // we create a writer that listens to the document
+            // step 2: we create a writer that listens to the document
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1202.pdf"));
             // step 3: we open the document
             document.open();
@@ -115,10 +110,11 @@ public class Chap1202 {
             table.setTableEvent(event);
             table.setHeaderRows(3);
             document.add(table);
-            document.close();
         }
         catch (Exception de) {
             de.printStackTrace();
         }
+        // step 5: close the document
+        document.close();
     }
 }
