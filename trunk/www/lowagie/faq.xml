@@ -168,6 +168,8 @@ It seems like a pretty speedy library but can be a pain to learn and use
 (unless it has changed significantly in the last year or so.)</li>
 <li>Pete Gordon (SPS Commerce): We are generating PDF order invoices for online ordering
 e-commerce sites.</li>
+<li>Dirk Wellman (<a href="http://www.pdsoft.de/">pdsoft.de</a>):
+we're using iText to send Orders,Invoices and so on as PDF-Attachment in the ERP-Solution ifaxOPEN.</li>
 <li>Sean C. Sullivan (see <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">OnJava article</a>):
 Our team had plenty of experience with J2EE web applications,
 but we had little experience with PDF documents.
