@@ -119,6 +119,13 @@ To visualize the button, you will set its widget annotations with
 <site:doc class="com.lowagie.text.pdf.PdfFormField" target="setWidget(com.lowagie.text.Rectangle,%20com.lowagie.text.pdf.PdfName)">setWidget(Rectangle rect, PdfName highlight)</site:doc>. Parameter <span class="commandline">rect</span>
 defines the position on the page, <span class="commandline">highlight</span> is one of the following values:
 <ul>
+<li><site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="HIGHLIGHT_NONE">PdfAnnotation.HIGHLIGHT_NONE:</site:doc> no highlighting.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="HIGHLIGHT_INVERT">PdfAnnotation.HIGHLIGHT_INVERT:</site:doc> invert the contents of the highlighted field.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="HIGHLIGHT_OUTLINE">PdfAnnotation.HIGHLIGHT_OUTLINE:</site:doc> invert the border of the field.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="HIGHLIGHT_PUSH">PdfAnnotation.HIGHLIGHT_PUSH:</site:doc> Display the down appearance, if any.
+If no down appearance is defined, offset the contents of the annotation rectangle to appear as if it were being
+pushed below the surface of the page.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="HIGHLIGHT_TOGGLE">PdfAnnotation.HIGHLIGHT_TOGGLE:</site:doc> Same as PdfAnnotation.HIGHLIGHT_PUSH (which is preferred).</li>
 </ul>
 <site:source class="FormPushButton" />
 <site:source class="FormCheckbox" />
