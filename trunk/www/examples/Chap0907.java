@@ -59,6 +59,9 @@ public class Chap0907 {
             code39ext.setStartStopText(false);
             code39ext.setExtended(true);
             Image image39ext = code39ext.createImageWithBarcode(cb, null, null);
+            Barcode128 code128 = new Barcode128();
+            code128.setCode("1Z234786 hello");
+            Image image128 = code128.createImageWithBarcode(cb, null, null);
             BarcodeEAN codeEAN = new BarcodeEAN();
             codeEAN.setCodeType(codeEAN.EAN13);
             codeEAN.setCode("9780201615883");
@@ -92,6 +95,8 @@ public class Chap0907 {
             table.addCell(new Phrase(new Chunk(image39, 0, 0)));
             table.addCell("CODE 39 EXTENDED");
             table.addCell(new Phrase(new Chunk(image39ext, 0, 0)));
+            table.addCell("CODE 128");
+            table.addCell(new Phrase(new Chunk(image128, 0, 0)));
             table.addCell("CODE EAN");
             table.addCell(new Phrase(new Chunk(imageEAN, 0, 0)));
             table.addCell("CODE EAN\nWITH\nSUPPLEMENTAL 5");
