@@ -467,7 +467,7 @@
     <target name="install" depends="download.site, release, examples" description="--> installs iText in one command">
     </target>  
     
-    <target name="install.cvs" depends="download.site, release, examples" description="--> installs the current version of iText in one command">
+    <target name="install.cvs" depends="download.cvs, release, examples" description="--> installs the current version of iText in one command">
     </target>  
 
 </project>
