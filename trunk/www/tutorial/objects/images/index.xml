@@ -33,7 +33,7 @@
 			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:externalresource>hitchcock.png</site:externalresource>
 			<site:result>imagesAlignment.pdf</site:result>
-			<site:description>Testing the aligmment of images.</site:description>
+			<site:description>Alignment and wrapping of images.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DvdCover" standalone="yes" />

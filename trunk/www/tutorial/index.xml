@@ -39,6 +39,7 @@
 		<site:chapter path="objects/fonts" />
 		<site:chapter path="objects/images" />
 		<site:chapter path="objects/images/tiff" />
+		<site:chapter path="objects/images/directcontent" />
 		<site:chapter path="objects/tables" />
 		<site:chapter path="objects/tables/pdfptable" />
 		<site:chapter path="objects/tables/alternatives" />

@@ -51,6 +51,7 @@ public class ImagesAlignment {
             // step 3: we open the document
             document.open();
             
+            // step 4: content
             Image gif = Image.getInstance("vonnegut.gif");
             gif.setAlignment(Image.RIGHT | Image.TEXTWRAP);
             Image jpeg = Image.getInstance("otsoe.jpg");
