@@ -42,6 +42,7 @@
 		<site:chapter path="objects/tables" />
 		<site:chapter path="objects/tables/pdfptable" />
 		<site:chapter path="objects/tables/alternatives" />
+		<site:chapter path="objects/columns" />
 	</site:part>
 	<site:part name="part3">
 		<site:title>Part III: Graphics and Text at Absolute Positions</site:title>
@@ -49,6 +50,8 @@
 		<site:chapter path="directcontent/coordinates" />
 		<site:chapter path="directcontent/graphics" />
 		<site:chapter path="directcontent/colors" />
+		<site:chapter path="directcontent/text" />
+		<site:chapter path="directcontent/fonts" />
 		<site:chapter path="directcontent/pageevents" />
 		<site:chapter path="directcontent/optionalcontent" />
 		<site:chapter path="directcontent/graphics2D" />

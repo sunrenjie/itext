@@ -27,6 +27,52 @@
 			<site:description>Sums up the 14 Standard Type 1 Fonts (using the FontFactory)</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="TrueType" standalone="yes" />
+			<site:result>truetype.pdf</site:result>
+			<site:description>Using a True Type font</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FullFontNames" standalone="yes" />
+			<site:result>fullfontname_arialbi.txt</site:result>
+			<site:description>Retrieving the full font name</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ListEncodings" standalone="yes" />
+			<site:result>encodings.txt</site:result>
+			<site:description>Asking the font for its available encodings</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FontEncoding" standalone="yes" />
+			<site:result>fontencoding.pdf</site:result>
+			<site:description>Displaying unicode characters</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EmbeddedTrueType" standalone="yes" />
+			<site:result>embeddedtruetype.pdf</site:result>
+			<site:description>Using an embedded True Type font</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EncodingFont" standalone="yes" />
+			<site:result>encodingfont.pdf</site:result>
+			<site:description>Using an encoding to display characters from other alphabets</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="RegisterFont" standalone="yes" />
+			<site:result>registerfont.pdf</site:result>
+			<site:result>registered.txt</site:result>
+			<site:description>Registering Fonts with the FontFactory</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FontFactoryStyles" standalone="yes" />
+			<site:result>fontfactorystyles.pdf</site:result>
+			<site:description>Changing the style of a fontfactory font</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="UsingFontFactory" standalone="yes" />
+			<site:result>FontFactory.pdf</site:result>
+			<site:description>Sums up the Fonts that are available in some standard font directories on your system</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="FontStylePropagation" standalone="yes" />
 			<site:result>FontStylePropagation.pdf</site:result>
 			<site:description>Explains the mechanism of Font Style Propagation</site:description>
@@ -44,108 +90,21 @@
 			<site:description>Shows how to change the color of a font</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="FontEncoding" standalone="yes" />
-			<site:result>fontencoding.pdf</site:result>
-			<site:description>Using an encoding</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="TrueType" standalone="yes" />
-			<site:result>truetype.pdf</site:result>
-			<site:description>Using a True Type font</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="EmbeddedTrueType" standalone="yes" />
-			<site:result>embeddedtruetype.pdf</site:result>
-			<site:description>Using an embedded True Type font</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="UsingFontFactory" standalone="yes" />
-			<site:result>FontFactory.pdf</site:result>
-			<site:description>Sums up the Fonts that are available in some standard font directories on your system</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Vertical" standalone="yes" />
-			<site:result>vertical.pdf</site:result>
-			<site:extrajar>iTextAsian.jar</site:extrajar>
-			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
-			<site:description>Writing vertical text</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="EncodingFont" standalone="yes" />
-			<site:result>encodingfont.pdf</site:result>
-			<site:description>Fonts and encoding</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="FixedFontWidth" standalone="yes" />
 			<site:result>fixedfontwidth.pdf</site:result>
 			<site:description>Changing the width of the font glyphs</site:description>
 		</site:example>
-		<site:example>
-			<site:java src="FullFontNames" standalone="yes" />
-			<site:result>fullfontname_arialbi.txt</site:result>
-			<site:description>Retrieving the full font name</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="RegisterFont" standalone="yes" />
-			<site:result>registerfont.pdf</site:result>
-			<site:description>Registering Fonts with the FontFactory</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="TrueTypeCollections" standalone="yes" />
-			<site:result>truetypecollections.pdf</site:result>
-			<site:description>True Type Collections</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="FontFactoryStyles" standalone="yes" />
-			<site:result>fontfactorystyles.pdf</site:result>
-			<site:description>Changing the style of a fontfactory font</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="RightToLeft" standalone="yes" />
-			<site:result>complextext.pdf</site:result>
-			<site:description>Writing text from left to right</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="ComplexText" standalone="yes" />
-			<site:result>complextext.pdf</site:result>
-			<site:description>Writing text from left to right at absolute positions</site:description>
-		</site:example>
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="type1">
-		<site:sectiontitle>Standard Type 1 Fonts</site:sectiontitle>
+	<site:section name="font">
+		<site:sectiontitle>The Font-class</site:sectiontitle>
 <div>
-PDF prescribes a set of 14 standard fonts that can be used without prior definition.
-These include four faces each of three Latin text typefaces (Courier,
-Helvetica and Times), as well as two symbolic fonts (Symbol and ITC Zapf
-Dingbats &#174;). These fonts, or suitable substitute fonts with the same metrics, are
-considered to be available in all PDF consumer applications. You don't have to
-embed them in your PDF document.<br />
-These 'Base14 Fonts' were historically the first fonts supported in iText.
-If you take a look inside the iText jar, you find an AFM file
-for each of these fonts in directory <span class="commandline">com/lowagie/text/pdf/fonts</span>.
-AFM is Adobe's ASCII-based file format used for storing font metric data as
-human-readable data. iText reads these files to retrieve information on the width,
-the kerning and other metrics of each character (or, to use the correct term:
-of each 'glyph').
-<table>
-<tr><th>Font</th><th>AFM file</th></tr>
-<tr><td>Courier</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier.afm">Courier.afm</a></td></tr>
-<tr><td>Courier Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-Bold.afm">Courier-Bold.afm</a></td></tr>
-<tr><td>Courier Italic (Oblique)</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-Oblique.afm">Courier-Oblique.afm</a></td></tr>
-<tr><td>Courier Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-BoldOblique.afm">Courier-BoldOblique.afm</a></td></tr>
-<tr><td>Helvetica</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica.afm</a></td></tr>
-<tr><td>Helvetica Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-Bold.afm</a></td></tr>
-<tr><td>Helvetica Italic (Oblique)</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-Oblique.afm</a></td></tr>
-<tr><td>Helvetica Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-BoldOblique.afm</a></td></tr>
-<tr><td>Times Roman</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Roman.afm">Times-Roman.afm</a></td></tr>
-<tr><td>Times Roman Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Bold.afm">Times-Bold.afm</a></td></tr>
-<tr><td>Times Roman Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Italic.afm">Times-Italic.afm</a></td></tr>
-<tr><td>Times Roman Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-BoldItalic.afm">Times-BoldItalic.afm</a></td></tr>
-<tr><td>Symbol</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Symbol.afm">Symbol.afm</a></td></tr>
-<tr><td>ZapfDingBats&#174;</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/ZapfDingbats.afm">ZapfDingbats.afm</a></td></tr>
-</table>
+There are 14 standard fonts that should be available by default in each PDF reader.
+These fonts are Courier, Courier Bold, Courier Italic (Oblique), Courier Bold and Italic,
+Helvetica, Helvetica Bold, Helvetica Italic (Oblique), Helvetica Bold and Italic,
+Times Roman, Times Roman Bold, Times Roman Italic, Times Roman Bold and Italic,
+Symbol and ZapfDingBats&#174; (see also the chapter on <site:tutorial chapter="/directcontent/fonts">Fonttypes</site:tutorial>).
 As you can see the different faces (normal, bold, italic and bolditalic) of the same type face (Courier, Helvetica, Times Roman)
 are considered to be different fonts. This is an issue that shall recur further on in this chapter
 (so please keep it in mind). iText tries to make these differences more transparant, by asking you
@@ -154,87 +113,196 @@ You can construct a Base 14 <site:doc class="com.lowagie.text.Font">Font</site:d
 of the simple <site:doc class="com.lowagie.text.Font" target="constructor_summary">constructors</site:doc>
 as is done in the next example:
 <pre class="commandline">fonts[0] =
-	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.NORMAL);
+  new Font(Font.COURIER, Font.DEFAULTSIZE, Font.NORMAL);
 fonts[2] =
-	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD);
+  new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD);
 fonts[3] =
-	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD | Font.ITALIC);
+  new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD | Font.ITALIC);
 fonts[7] =
-	new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.BOLDITALIC);
+  new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.BOLDITALIC);
 fonts[9] =
-	new Font(Font.TIMES_ROMAN, Font.DEFAULTSIZE, Font.ITALIC);</pre>
+  new Font(Font.TIMES_ROMAN, Font.DEFAULTSIZE, Font.ITALIC);</pre>
 <site:source class="StandardType1Fonts" />
-But there are other (and better) ways to do this:
-in the next example, we use the class <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>,
+</div>
+	</site:section>
+	<site:section name="fontfactory">
+		<site:sectiontitle>The FontFactory-class</site:sectiontitle>
+<div>
+In the next example, we use the class <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc> to create a Font,
 as this is the safest and most uniform way to get a new <site:doc class="com.lowagie.text.Font">Font</site:doc>-object
 (unless you want to use the mechanism of <site:tutorial chapter="/objects/fonts" section="extrastyles">Font Propagation</site:tutorial>).
-Further on in this chapter, we will see that class <site:doc class="com.lowagie.text.Font">Font</site:doc> is in many
-cases just a wrapper class for the more complex class <site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>.
 <pre class="commandline">fonts[0] =
-	FontFactory.getFont(
-		FontFactory.COURIER,
-		Font.DEFAULTSIZE,
-		Font.NORMAL);
+  FontFactory.getFont(
+    FontFactory.COURIER,
+    Font.DEFAULTSIZE,
+    Font.NORMAL);
 fonts[2] =
-	FontFactory.getFont(
-		FontFactory.COURIER,
-		Font.DEFAULTSIZE,
-		Font.BOLD);
+  FontFactory.getFont(
+    FontFactory.COURIER,
+    Font.DEFAULTSIZE,
+    Font.BOLD);
 fonts[3] =
-	FontFactory.getFont(
-		FontFactory.COURIER,
-		Font.DEFAULTSIZE,
-		Font.BOLD | Font.ITALIC);
+  FontFactory.getFont(
+    FontFactory.COURIER,
+    Font.DEFAULTSIZE,
+    Font.BOLD | Font.ITALIC);
 fonts[7] =
-	FontFactory.getFont(
-		FontFactory.HELVETICA,
-		Font.DEFAULTSIZE,
-		Font.BOLDITALIC);
+  FontFactory.getFont(
+    FontFactory.HELVETICA,
+    Font.DEFAULTSIZE,
+    Font.BOLDITALIC);
 fonts[9] =
-	FontFactory.getFont(
-		FontFactory.TIMES_ROMAN,
-		Font.DEFAULTSIZE,
-		Font.ITALIC);</pre>
+  FontFactory.getFont(
+    FontFactory.TIMES_ROMAN,
+    Font.DEFAULTSIZE,
+    Font.ITALIC);</pre>
 <site:source class="FontFactoryType1Fonts" />
+</div>
+	</site:section>
+	
+	<site:section name="basefont">
+		<site:sectiontitle>The BaseFont-class</site:sectiontitle>
+<div>
+The <site:doc class="com.lowagie.text.Font">Font</site:doc>-object returned by
+the <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>
+is in many cases just a wrapper class for the more complex class
+<site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>.
+You can create such a basefont directly by using one of the
+<site:doc class="com.lowagie.text.pdf.BaseFont" target="createFont(java.lang.String,%20java.lang.String,%20boolean)">BaseFont.createFont</site:doc> methods:
+<pre class="commandline">BaseFont helvetica =
+  BaseFont.createFont(
+    BaseFont.HELVETICA,
+    BaseFont.CP1252,
+    BaseFont.NOT_EMBEDDED);</pre>
+<ol>
+<li>The first parameter should the name of the font or the location where it can be found.
+On windows systems, most fonts are in the directory C:\WINDOWS\FONTS, so this could be a correct way to construct a basefont object for Arial:
+<pre class="commandline">BaseFont arial =
+  BaseFont.createFont(
+    "C:\\WINDOWS\\FONTS\\ARIAL.TTF",
+    BaseFont.CP1252,
+    BaseFont.NOT_EMBEDDED);</pre>
+<site:source class="TrueType" />
+You can ask a font for its full font names. Take a look at the example.
+<site:source class="FullFontNames" />
+We create a font using the path to its ttf-file.
+Then we ask the ttf file for the fontnames.
+Later on, we will be able to use the font name without having to know the location of the ttf-file.
+</li>
+<li>The second parameter is the <i>encoding</i>. A <i>character</i> is an abstract symbol, whereas a <i>glyph</i> is a specific graphical rendering of a character.
+For example, the glyphs A, <b>A</b> and <i>A</i> are renderings of the abstract "A" character.
+The encoding is the association between the character codes (obtained from text strings) and glyph descriptions.
+The same Java character in a Java String object can be rendered in many different ways, depending on the encoding.
+Basefont has some default values, but you could use any of the encodings that are available in the font you are using.
+<table width="100%" border="1">
+<tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="WINANSI">WINANSI</site:doc> = <site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1252">CP1252</site:doc></td><td>Latin 1</td></tr>
+<tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1250">CP1250</site:doc></td><td>Latin 2: Eastern Europe</td></tr>
+<tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1257">CP1257</site:doc>1257</td><td>Windows Baltic</td></tr>
+<tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="MACROMAN">MACROMAN</site:doc></td><td>MacRomanEncoding</td></tr>
+<tr><td rowspan="2">You could easily extend the list with "1251" (Cyrillic), "1253" (Greek), "1254" (Turkish)</td></tr>
+</table>
+You can ask a font for its encodings as is done in the next example:
+<site:source class="ListEncodings" />
+Note that not all fonts contain all the encodings you want. Just go looking for the font that is best suited for your needs.<br />
+These are some examples that use different encodings:
+<site:source class="FontEncoding" />
+<site:source class="EmbeddedTrueType" />
+Characters don't have to be single byte as you can see in the next example with double-byte unicode characters:
+<site:source class="EncodingFont" /></li>
+<li>With the third parameter you specify if you want to embed (a subset of) a font into the PDF document.
+This is necessary if you are using special fonts that aren't on the system used by the consumer of your document.</li>
+</ol>
+</div>
+	</site:section>
+	
+	<site:section name="register">
+		<site:sectiontitle>Registering Fonts with FontFactory</site:sectiontitle>
+<div>
+Instead of creating a <site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>
+and wrap it in a <site:doc class="com.lowagie.text.Font">Font</site:doc>,
+you could use <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>,
+as we said that this is the most uniform way to get your font.
+Unfortunately FontFactory doesn't know where your font-files (ttf or other) are stored.
+So you have to register the fonts you want to use:
+<pre class="commandline">FontFactory.register("c:\\windows\\fonts\\comic.ttf");
+FontFactory.register("c:\\windows\\fonts\\msgothic.ttc");</pre>
+If you register a font file with 
+<site:doc class="com.lowagie.text.FontFactory" target="register(java.lang.String)">register(java.lang.String)</site:doc>,
+you can get the font by its name.
+You can ask the FontFactory for a list with all the registered fonts with
+<site:doc class="com.lowagie.text.FontFactory" target="getRegisteredFonts()">getRegisteredFonts()</site:doc>.
+If you want to use fontnames defined by yourself, just register them with an alias
+(<site:doc class="com.lowagie.text.FontFactory" target="register(java.lang.String,%20java.lang.String)">register(java.lang.String, java.lang.String)</site:doc>)
+and use that alias instead of the actual fontname.
+<site:source class="RegisterFont" />
+Remark that all methods in class FontFactory are static. So if you have different applications in the same JVM,
+you may discover that there were more fonts registered than you expected...<br />
+Remember when we said there was a different font for every fontstyle?
+It can be quite difficult having to switch to another font everytime
+you want to change the style. Sometimes you have to look for the font<i>italic</i>,
+sometimes you have to look for the font<i>oblique</i>. If you register all the styles
+of the same font family in advance, FontFactory looks up which font corresponds with
+which style automatically.
+<site:source class="FontFactoryStyles" />
+Of course it's still not very userfriendly having to point to the location of the font file on the disk everytime you need a new font.
+You could register all the fonts in a directory with
+<site:doc class="com.lowagie.text.FontFactory" target="registerDirectory(java.lang.String)">registerDirectory(java.lang.String)</site:doc>.
+This way you don't have to look up the exact names of the normal, bold, italic or bolditalic font of a same family.
+It gets even easier if you use <site:doc class="com.lowagie.text.FontFactory" target="registerDirectories()">registerDirectories()</site:doc>.
+This method looks in some probable directories such as c:\windows\fonts, /usr/X/lib/X11/fonts/TrueType, /usr/X11R6/lib/X11/fonts/ttf, etc...
+This works on most Windows, Linux and Solaris systems. (If not, you will have to go and look for the font files yourself.)
+In the next example, you can see what fonts are available in the standard directories on my own computer:
+<site:source class="UsingFontFactory" />
 </div>
 	</site:section>
 	
 	<site:section name="extrastyles">
 		<site:sectiontitle>Extra Font Style Characteristics</site:sectiontitle>
 <div>
+<div class="subtitle">Fonts that don't have the style bold and/or italic</div>
+Some font families don't have font definitions to show the font in bold or italic.
+In this case, iText can simulate a bold font by changing the way glyphs are
+rendered (see <site:tutorial chapter="/objects/chunk">Stroking vs. Filling</site:tutorial>).
+Italic can be simulated by <site:tutorial chapter="/objects/chunk">skewing</site:tutorial> chunks.
+<div class="subtitle">Width of a glyph</div>
+The width of each glyph is defined in the font file. In most cases, you shouldn't mess with those values.
+But maybe you have some special requirement for which you need full control over the width of each glyph.
+No problem, just use <site:doc class="com.lowagie.text.pdf.BaseFont" target="getWidths()">BaseFont.getWidths()</site:doc>,
+change the widths and and force the basefont to use these changed widths with <site:doc class="com.lowagie.text.pdf.BaseFont" target="setForceWidthsOutput(boolean)">BaseFont.setForceWidthsOutput(boolean)</site:doc>.
+<site:source class="FixedFontWidth" />
 <div class="subtitle">Font Style Propagation</div>
 There are some rules you should know about 'font propagation'.<br />
 When you create a Phrase or a Paragraph  with some content in a certain font (NOT THE DEFAULT FONT) and you add some more content. The fontstyle of the initial object can be propagated if you want to. This is what happens in 'Hello 1!' and 'Hello 2' of the example.
 <pre class="commandline">Phrase myPhrase =
-	new Phrase("Hello 1! ",
-		new Font(Font.TIMES_ROMAN, 8, Font.BOLD));
+  new Phrase("Hello 1! ",
+    new Font(Font.TIMES_ROMAN, 8, Font.BOLD));
 myPhrase.add(
-	new Phrase("some other font ",
-		new Font(Font.HELVETICA, 8)));
+  new Phrase("some other font ",
+    new Font(Font.HELVETICA, 8)));
 myPhrase.add(
-	new Phrase("This is the end of the sentence.\n",
-		new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre> 
+  new Phrase("This is the end of the sentence.\n",
+    new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre> 
 The initial Phrase with the text 'Hello 1!' was bold, some italic text was added, but style bold is propagated, so the style of the printed text is now bold and italic.<br />
 If the Font(style) of the initial Phrase is undefined, the font is not propagated:
 <pre class="commandline">myPhrase = new Phrase(12);
 myPhrase.add(
-	new Phrase("Hello 2! ",
-		new Font(Font.TIMES_ROMAN, 8, Font.BOLD)));
+  new Phrase("Hello 2! ",
+    new Font(Font.TIMES_ROMAN, 8, Font.BOLD)));
 myPhrase.add(
-	new Phrase("This is the end of the sentence.\n",
-		new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
+  new Phrase("This is the end of the sentence.\n",
+    new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
 As you can see, 'This is the end of the sentence' is italic, but not bold. The font wasn't propagated.
 The same applies if you use <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>
 to get the Font-object. This is because the FontFactory uses another technique to construct a font.
 <pre class="commandline">myPhrase =
-	new Phrase("Hello 3! ",
-		FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));
+  new Phrase("Hello 3! ",
+    FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));
 myPhrase.add(
-	new Phrase("some other font ",
-		FontFactory.getFont(FontFactory.HELVETICA, 8)));
+  new Phrase("some other font ",
+    FontFactory.getFont(FontFactory.HELVETICA, 8)));
 myPhrase.add(
-	new Phrase("This is the end of the sentence.\n",
-		FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
+  new Phrase("This is the end of the sentence.\n",
+    FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
 As mentioned earlier: FontFactory is the safest way to get a Font. It will always give you the font style you are expecting,
 regardless of the font style that was used before. Font Propagation can be useful in some cases, but it's a rather quirky feature.
 <site:source class="FontStylePropagation"/>
@@ -255,11 +323,11 @@ If you want to change the font color, just ask the
 <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>
 for another font with the color of your choice:
 <pre class="commandline">font red =
-	FontFactory.getFont(
-		FontFactory.COURIER,
-		Font.DEFAULTSIZE,
-		Font.NORMAL,
-		new Color(0xFF, 0x00, 0x00));</pre>
+  FontFactory.getFont(
+    FontFactory.COURIER,
+    Font.DEFAULTSIZE,
+    Font.NORMAL,
+    new Color(0xFF, 0x00, 0x00));</pre>
 It's a little more complicated if you want to change the color of some
 text you want to add at an <site:tutorial chapter="" section="part3">absolute position</site:tutorial>.
 As you can read in <site:tutorial chapter="" section="part3">that specific chapter</site:tutorial>,
@@ -269,13 +337,22 @@ the PDF specs, characters are seen as 'shapes'. Those shapes are filled with a c
 So if you want to change the color of the font, you need to change the color with the 'ColorFill'
 of your choice in <site:doc class="com.lowagie.text.pdf.PdfContentByte">PdfContentByte</site:doc>:
 <pre class="commandline">BaseFont bf =
-	FontFactory.getFont(FontFactory.COURIER).getCalculatedBaseFont();
+  FontFactory.getFont(FontFactory.COURIER).getCalculatedBaseFont();
 cb.beginText();
 cb.setRGBColorFill(new Color(0x00, 0x00, 0xFF));
 cb.setFontAndSize(bf, 12);
 cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + "This text is centered", 250, 700, 0);
 cb.endText();</pre>
 <site:source class="FontColor" />
+</div>
+	</site:section>
+	
+	<site:section name="more">
+		<site:sectiontitle>More Font types</site:sectiontitle>
+<div>
+If you read this chapter looking for Chinese, Japanese, Korean, Arabic, Hebrew,... fonts,
+sorry: wrong chapter. Just go to the chapter on <site:tutorial chapter="/directcontent/fonts">font types</site:tutorial>
+and you'll probably find what you're looking for.
 </div>
 	</site:section>
 	

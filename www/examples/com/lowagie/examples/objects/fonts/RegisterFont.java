@@ -19,7 +19,9 @@
  */
 package com.lowagie.examples.objects.fonts;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -47,10 +49,6 @@ public class RegisterFont {
         FontFactory.register("c:\\windows\\fonts\\comicbd.ttf");
         FontFactory.register("c:\\windows\\fonts\\comic.ttf");
         FontFactory.register("c:\\windows\\fonts\\msgothic.ttc");
-        System.out.println("These fonts were registered at the FontFactory");
-        for (Iterator i = FontFactory.getRegisteredFonts().iterator(); i.hasNext(); ) {
-            System.out.println((String) i.next());
-        }
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -75,6 +73,19 @@ public class RegisterFont {
             Font font3= FontFactory.getFont("MS-PGothic", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12);
             String text3 = "\u5951\u7d04\u8005\u4f4f\u6240\u30e9\u30a4\u30f3\uff11";
             document.add(new Paragraph(text3, font3));
+    		BufferedWriter out = new BufferedWriter(new FileWriter("registered.txt"));
+            out.write("These fonts were registered at the FontFactory:\r\n");
+            for (Iterator i = FontFactory.getRegisteredFonts().iterator(); i.hasNext(); ) {
+                out.write((String) i.next());
+                out.write("\r\n");
+            }
+            out.write("\r\n\r\nThese are the families these fonts belong to:\r\n");
+            for (Iterator i = FontFactory.getRegisteredFamilies().iterator(); i.hasNext(); ) {
+                out.write((String) i.next());
+                out.write("\r\n");
+            }
+            out.flush();
+            out.close();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

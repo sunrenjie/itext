@@ -67,7 +67,6 @@ public class EncodingFont {
                 BaseFont bf;
                 bf = BaseFont.createFont(file, file, true);
                 Font f = new Font(bf, 12);
-                Font cou = new Font(Font.COURIER, 12);
                 PdfPTable table = new PdfPTable(16);
                 table.setWidthPercentage(100);
                 table.getDefaultCell().setBorderWidth(1);

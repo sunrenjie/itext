@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.directcontent.fonts;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,17 +27,17 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Specifying an encoding.
+ * Embedding True Type fonts.
  */
-public class FontEncoding {
+public class TrueType {
     
     /**
-     * Specifying an encoding.
+     * Embedding True Type Fonts.
      * @param args no arguments needed
      */
     public static void main(String[] args) {
         
-        System.out.println("Encodings");
+        System.out.println("True Types (embedded)");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -47,16 +47,20 @@ public class FontEncoding {
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            PdfWriter.getInstance(document, new FileOutputStream("fontencoding.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("truetype.pdf"));
             
             // step 3: we open the document
             document.open();
             
             // step 4: we add content to the document
-            BaseFont helvetica = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font font = new Font(helvetica, 12, Font.NORMAL);
-            Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac. These are some special characters: \u0152\u0153\u0160\u0161\u0178\u017D\u0192\u02DC\u2020\u2021\u2030", font);
-            document.add(chunk);
+            BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            Font font = new Font(bfComic, 12);
+            String text1 = "This is the quite popular True Type font 'Comic'.";
+            String text2 = "Some greek characters: \u0393\u0394\u03b6";
+            String text3 = "Some cyrillic characters: \u0418\u044f";
+            document.add(new Paragraph(text1, font));
+            document.add(new Paragraph(text2, font));
+            document.add(new Paragraph(text3, font));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
