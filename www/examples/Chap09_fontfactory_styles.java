@@ -23,7 +23,6 @@ import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.PdfPageEventHelper;
 
 public class Chap09_fontfactory_styles {
     

@@ -18,7 +18,6 @@
  * itext-questions@lists.sourceforge.net
  */
 
-import java.awt.Color;
 import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;

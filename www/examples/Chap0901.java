@@ -18,7 +18,6 @@
  * itext-questions@lists.sourceforge.net
  */
 
-import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 

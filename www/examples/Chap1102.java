@@ -25,7 +25,6 @@ import java.net.URL;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1102 {
     

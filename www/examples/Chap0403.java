@@ -19,7 +19,6 @@
  */
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.awt.Color;
 
 import com.lowagie.text.*;

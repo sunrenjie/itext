@@ -19,7 +19,6 @@
  */
  
 import java.io.*;
-import java.awt.Color;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;

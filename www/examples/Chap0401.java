@@ -22,7 +22,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.html.HtmlWriter;
 public class Chap0401 {
     
     public static void main(String[] args) {
