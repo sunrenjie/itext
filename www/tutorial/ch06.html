@@ -113,7 +113,7 @@
 			to use a given basepath for images:<BR>
 			<FONT FACE="Courier">
 			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));<BR>
-			writer.setBasepath("../../images/kerstmis/");		
+			writer.setImagepath("../../images/kerstmis/");		
 			</FONT><BR>
 			In this <A HREF="Chap0603.java">example</A>, we tell the writer to use a relative
 			path (in this case the path to some <A HREF="../../images/kerstmis/">Christmas photo's</A>)
@@ -138,7 +138,7 @@
 			and hitchcock to the left.<BR><BR>
 			<B>Images and text</B><BR>
 			But there's more, you can also specify that text has to be wrapped around the image
-			(see A HREF="Chap0605.java">example 5</A> and the <A HREF="Chap0605.pdf">resulting PDF</A>):<BR>
+			(see <A HREF="Chap0605.java">example 5</A> and the <A HREF="Chap0605.pdf">resulting PDF</A>):<BR>
 			<FONT FACE="Courier">
 			setAlignment(Image.RIGHT | TEXTWRAP)<BR>
 			setAlignment(Image.MIDDLE)<BR>
