@@ -42,17 +42,39 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Creating the Graphic object</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>PdfContentByte</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			To draw lines and curves, you need to create a <FONT FACE="Courier">Graphic</FONT> object.
-			On this object, you can perform actions such as: <FONT FACE="Courier">rectangle(...)</FONT>,
-			<FONT FACE="Courier">moveTo(...)</FONT>, <FONT FACE="Courier">lineTo(...)</FONT>,...
-			Check out the class <A HREF="http://itext.sourceforge.net/src/com/lowagie/text/pdf/PdfContent.java">PdfContent</A>
-			or the <A HREF="http://itext.sourceforge.net/docs/com/lowagie/text/pdf/PdfContent.html">API</A>
-			for a description of all the possible methods. In the API, I refer to the 1st edition
-			of the PDF Reference Manual version 1.3 (PDFSPEC.PDF).<BR>
-			In <A HREF="Chap1001.java">example 1</A>, you can see how a rectangle and its diagonal
-			are drawn: see the <A HREF="Chap1001.pdf">resulting pdf</A>.
+			Uptil now, we have used <b>Simple iText</b>, we have added text and images, chapters and sections, lists and tables,...
+			without bothering about layout. iText took care of dividing the text into pages and positioning every word, sentence,
+			paragraph on a page. But sometimes we don't want this automatic formatting. Sometimes we want to put some graphic or
+			some text at some exact position on a page. To achieve this, we are going to use the class <font face="Courier">PdfContentByte</font>.
+			<br><br>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<b>Remark:</b><br>
+				the class <font face="Courier">PdfContentByte</font> can only be used in combination with one <font face="Courier">PdfWriter</font>
+				object. It can't be used for HTML or any other format.
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><BR>
+			So instead of what was said in <a href="ch01.html">Chapter 1</a>, it's not sufficient to invoke the
+			method <font face="Courier">getInstance</font> on class <font face="Courier">PdfWriter</font>, you
+			must actually have a <font face="Courier">PdfWriter</font>-object. You can obtain this object by using
+			the method <font face="Courier">getDirectContent()</font> on this writer-object.<br>
+			<font face="Courier">
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));<br>
+			PdfContentByte cb = writer.getDirectContentByte();<br>
+			</font>
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Graphics</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
