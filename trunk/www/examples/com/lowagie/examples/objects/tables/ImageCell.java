@@ -42,7 +42,7 @@ public class ImageCell {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("My First PdfPTable");
+		System.out.println("Image in a Cell");
 
 		// step 1: creation of a document-object
 		Document document = new Document();

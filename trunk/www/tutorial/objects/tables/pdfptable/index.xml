@@ -3,10 +3,11 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>PdfPTable</site:title>
+		<site:title status="finished">PdfPTable</site:title>
 		<site:summary>Some extra PdfPTable functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, PdfPTable, Table, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
@@ -31,9 +32,10 @@
 			<site:description>Break one large Table up into different smaller tables with the same header</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="VerticalTextInCells" standalone="yes" />
-			<site:result>VerticalText.pdf</site:result>
-			<site:description>Demonstrates how to add vertical text in a cell</site:description>
+			<site:java src="CellEvents" standalone="yes" />
+			<site:result>CellEvents.pdf</site:result>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:description>Demonstrates what one can do with cell events</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="TableEvents1" standalone="yes" />
@@ -46,10 +48,9 @@
 			<site:description>Demonstrates what one can do with table events (cells with colspan &gt; 1)</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="CellEvents" standalone="yes" />
-			<site:result>CellEvents.pdf</site:result>
-			<site:externalresource>otsoe.jpg</site:externalresource>
-			<site:description>Demonstrates what one can do with cell events</site:description>
+			<site:java src="VerticalTextInCells" standalone="yes" />
+			<site:result>VerticalText.pdf</site:result>
+			<site:description>Demonstrates how to add vertical text in a cell</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -58,12 +59,13 @@
 	<site:section new="writeselectedrows">
 		<site:sectiontitle>adding a PdfPTable at an absolute position</site:sectiontitle>
 <div>
-You can add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>,
+You can add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>
+as described in the <site:tutorial chapter="/objects/tables">previous chapter</site:tutorial>,
 but you can also choose to put a PdfPTable at an absolute position with the method
 <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
 The mechanisms to add objects at absolute positions will be described in
 <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial.
-All you need to know for now is that you need to pass the following parameters to the method:
+All you need to know for now is that you have to pass the following parameters to the method:
 <ul>
 	<li>rowStart - the first row to be written, zero index</li>
 	<li>rowEnd - the last row to be written + 1. If it is -1 all the rows to the end are written.</li>
@@ -72,7 +74,7 @@ All you need to know for now is that you need to pass the following parameters t
 	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial)</li>
 </ul>
 <site:source class="WriteSelectedRows" />
-As you can see in the example, there are some thing you need to keep in mind
+As you can see in the example, there are some things you need to keep in mind
 when using <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
 If you add a PdfPTable with document.add(), the width of the table
 is always calculated as a percentage of the available page width at the current pointer
@@ -93,6 +95,65 @@ You need the method
 <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows(int colStart, int colEnd, int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas)</site:doc>
 to do this.
 <site:source class="SplitTable" />
+</div>
+	</site:section>
+	
+	<site:section name="memory">
+		<site:sectiontitle>Memory management for large tables</site:sectiontitle>
+<div>
+You have to be very careful with large tables.
+When you add objects to a Document, these objects are written
+to the outputstream 'as soon as possible'. The objects that have
+been written are made eligible for destruction. However, when
+you construct a PdfPTable and keep adding new cells without adding
+the table to the document, the PdfPTable-object keeps on growing,
+taking more and more memory that isn't being released.
+For really large tables, this can become a serious problem.<br />
+The next example shows how to split a table into different sections.
+As the tables are glued to eachother (don't use <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setSpacingBefore(float)">setSpacingBefore</site:doc>
+and 
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setSpacingAfter(float)">setSpacingAfter</site:doc> here),
+nobody will see the difference between 1 large table or several small tables.
+<site:source class="FragmentTable" />
+</div>
+	</site:section>
+	
+	<site:section name="cellevents">
+		<site:sectiontitle>Cell and Table Events</site:sectiontitle>
+<div>
+Remember the class <site:tutorial chapter="/objects/chunk" section="generic">Chunk</site:tutorial>
+and how you could add your own functionality in a generic way with a PageEvent?
+You can do the same with a PdfPCell using a <site:doc class="com.lowagie.text.pdf.PdfPCellEvent">PdfPCellEvent</site:doc>.
+In the example, we want to strike a line OVER the contents from the lowerleft to the upperright corner.
+Using methods that are explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial, we can apply almost every layout that is possible within the PDF syntax.
+We just have to implement the method
+<site:doc class="com.lowagie.text.pdf.PdfPCellEvent" target="cellLayout(com.lowagie.text.pdf.PdfPCell,%20com.lowagie.text.Rectangle,%20com.lowagie.text.pdf.PdfContentByte[])">cellLayout</site:doc>.
+You can use the cell itself that is passed as a parameter and you get a Rectangle object that holds to absolute position of the cell on the page.
+The array of PdfContentByte arrays needs some further explanation:
+<ul>
+<li><site:doc class="com.lowagie.text.pdf.PdfPTable" target="BASECANVAS">PdfPtable.BASECANVAS</site:doc> - the original PdfContentByte. Anything placed here will be under the table.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfPTable" target="BACKGROUNDCANVAS">PdfPtable.BACKGROUNDCANVAS</site:doc> - the layer where the background goes to.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfPTable" target="LINECANVAS">PdfPtable.LINECANVAS</site:doc> - the layer where the lines go to.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfPTable" target="TEXTCANVAS">PdfPtable.TEXTCANVAS</site:doc> - the layer where the text go to. Anything placed here will be over the table.</li>
+</ul>
+<site:source class="CellEvents" />
+If you want the same kind of control over a complete table, it gets a little bit more complicated.
+You need to implement the method <site:doc class="com.lowagie.text.pdf.PdfPTableEvent" target="tableLayout(com.lowagie.text.pdf.PdfPTable,%20float[][],%20float[],%20int,%20int,%20com.lowagie.text.pdf.PdfContentByte[])">tableLayout</site:doc> of
+the <site:doc class="com.lowagie.text.pdf.PdfPTableEvent">PdfPTableEvent</site:doc> interface.
+<site:source class="TableEvents1" />
+<site:source class="TableEvents2" />
+</div>
+	</site:section>
+	
+	<site:section name="verticaltext">
+		<site:sectiontitle>Vertical Text</site:sectiontitle>
+<div>
+Finally the answer to a question that pops up on the mailinglist from time to time:
+is it possible to put vertical text in a Cell. The answer is: yes, but you need to know
+how to use the class <site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc>
+(which is explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial).
+If you can't wait, just take a look at the following example.
+<site:source class="VerticalTextInCells" />
 </div>
 	</site:section>
 	</site:chapter>

@@ -56,6 +56,10 @@ public class CellPaddingLeading {
 			Paragraph p = new Paragraph("Quick brown fox jumps over the lazy dog. Quick brown fox jumps over the lazy dog.");
 			table.addCell("default");
 			table.addCell(p);
+			table.addCell("padding 10");
+			cell = new PdfPCell(p);
+			cell.setPadding(10f);
+			table.addCell(cell);
 			table.addCell("no padding at all");
 			cell = new PdfPCell(p);
 			cell.setPadding(0f);
