@@ -30,11 +30,8 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
-import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.Barcode;
-import com.lowagie.text.pdf.BarcodeEAN;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfFormField;
 import com.lowagie.text.pdf.PdfPCell;
@@ -55,11 +52,8 @@ public class StudentCardForm implements PdfPCellEvent {
 	/**
 	 * Construct an implementation of PdfPCellEvent.
 	 * 
-	 * @param writer
-	 *            the writer with the Acroform that will have to hold the
-	 *            fields.
-	 * @param fieldname
-	 *            the name of the TextField
+	 * @param field
+	 *            a form field
 	 *  
 	 */
 	public StudentCardForm(PdfFormField field) {
