@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>iText in a Web Application</site:title>
+		<site:summary>How-to use iText in Web Applications.</site:summary>
+		<site:keywords>PDF, JAVA, iText, Servlet, JSP, examples, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0596000405">Java Servlet Programming (2nd Edition)</site:book>
+			<site:keyword>JAVA Servlets</site:keyword>
+			<site:keyword>J2EE</site:keyword>
+			<site:keyword>JSP</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="HelloWorldServlet" standalone="no" />
+			<site:extrajar>servlet.jar</site:extrajar>
+			<site:description>Generates a simple 'Hello World' file from a servlet (PDF, HTML or RTF)</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="Hello World">
+		<site:sectiontitle>Hello World</site:sectiontitle>
+<div>
+In the general <site:tutorial chapter="/general" section="5steps">Hello World</site:tutorial> example,
+we created a Hello World PDF file from a standalone Java program.
+<site:source class="HelloWorldServlet" />
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>

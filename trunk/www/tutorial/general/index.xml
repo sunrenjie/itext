@@ -37,8 +37,19 @@ but in a PDF document file.<br />
 This example shows you the 5 basic steps you have to take for every
 new PDF document you are creating from scratch with iText:
 <ul>
-<li><b>Step 1:</b> Creates an <site:doc class="com.lowagie.text.Document" target="constructor_summary">instance</site:doc> of <site:src class="com.lowagie.text.Document" />.</li>
+<li><b>Step 1:</b> Create an <site:doc class="com.lowagie.text.Document" target="constructor_summary">instance</site:doc> of <site:src class="com.lowagie.text.Document" />:
+<div class="commandline"></div>Document document = new Document();</li>
+<li><b>Step 2:</b> Create a Writer (for instance <site:src class="com.lowagie.text.pdf.PdfWriter" />) that listens to this document and writes the document to the OutputStream of your choice:
+<div class="commandline">PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));</div></li>
+<li><b>Step 3: Open the document:</b>
+<div class="commandline">document.open();</div></li>
+<li><b>Step 4:</b> Add content to the document:
+<div class="commandline">document.add(new Paragraph("Hello World"));</div></li>
+<li><b>Step 5:</b> Closes the document:
+<div class="commandline">document.close();</div></li>
 </ul>
+<site:source class="HelloWorld" />
+In the following sections, we will take a closer look into each step.
 </div>
 	</site:section>
 	</site:chapter>

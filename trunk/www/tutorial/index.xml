@@ -14,9 +14,20 @@
 		<site:author>Bruno Lowagie</site:author>
 	</site:metadata>
 	
+	<site:intro>
+		iText is a library that allows developers to extend the capabilities of
+		their web server (and other JAVA) applications with dynamic PDF document
+		generation. In this tutorial, you will find lots of standalone examples
+		to learn how to use most of the iText functionality and features.
+		It should be easy to integrate most of the solutions in a Servlet, a
+		Java Web Start application or some other Java program.<br />
+		This tutorial is far from complete, but it will be updated on a regular
+		basis.
+	</site:intro>
 	<site:part name="part1">
 		<site:title>Part I: general use of iText</site:title>
 		<site:chapter path="general" />
+		<site:chapter path="general/webapp" />
 	</site:part>
 	<site:part name="part2">
 		<site:title>Part II: Advanced PDF functionality</site:title>

@@ -110,15 +110,8 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     <h1>Tutorial: iText by Example</h1>
     <h2><xsl:value-of select="site:metadata/site:title" /></h2>
 	<div id="content">
-		<div class="title">Introduction</div>
-		<blockquote>iText is a library that allows developers to extend the capabilities of
-		their web server (and other JAVA) applications with dynamic PDF document
-		generation. In this tutorial, you will find lots of standalone examples
-		to learn how to use most of the iText functionality and features.
-		It should be easy to integrate most of the solutions in a Servlet, a
-		Java Web Start application or some other Java program.<br />
-		This tutorial is far from complete, but it will be updated on a regular
-		basis.</blockquote><br /><br />
+		<div class="title">Introduction:</div>
+		<blockquote><xsl:value-of select="site:intro" /></blockquote>
 		<xsl:for-each select="./site:part">
 			<xsl:element name="a">
 				<xsl:attribute name="name">#<xsl:value-of select="@name" /></xsl:attribute>
@@ -129,6 +122,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 			</xsl:if>
 			<xsl:for-each select="./site:chapter">
 				<xsl:variable name="dir">/<xsl:value-of select="@path" /></xsl:variable>
+				<xsl:variable name="name"><xsl:value-of select="translate(@path, '/', '_')" /></xsl:variable>
 				<xsl:variable name="path"><xsl:value-of select="@path" />/index.xml</xsl:variable>
 				<xsl:variable name="link"><xsl:value-of select="@path" />/index.html</xsl:variable>
 				<xsl:for-each select="document($path)/site:page">
@@ -138,6 +132,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 								<xsl:element name="a">
 									<xsl:attribute name="class">chapter</xsl:attribute>
 									<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
+									<xsl:attribute name="name"><xsl:value-of select="$name" /></xsl:attribute>
 									<xsl:value-of select="site:metadata/site:title"/>
 								</xsl:element>
 								<xsl:value-of select="site:metadata/site:summary"/>
@@ -195,11 +190,17 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 </xsl:template>
 
 <xsl:template match="site:doc">
-  <xsl:param name="class" select="@class" />
   <xsl:element name="a">
-		<xsl:attribute name="href">..<xsl:value-of select="$root" />/docs/<xsl:value-of select="translate($class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
+		<xsl:attribute name="href">..<xsl:value-of select="$root" />/docs/<xsl:value-of select="translate(@class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
   		<xsl:value-of select="." />
   </xsl:element>
+</xsl:template>
+
+<xsl:template match="site:tutorial">
+	<xsl:element name="a">
+		<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="@chapter" />/index.html#<xsl:value-of select="@section" /></xsl:attribute>
+		<xsl:value-of select="." />
+	</xsl:element>
 </xsl:template>
 
 <!-- examples -->
@@ -217,14 +218,17 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     <xsl:if test="count(site:argument)!=0" >
       <xsl:for-each select="site:argument"><xsl:value-of select="string(' ')" /><xsl:value-of select="." /></xsl:for-each>
     </xsl:if><br />
-    <xsl:value-of select="site:description/." />: see
-	<xsl:for-each select="site:result">
-	  <xsl:value-of select="string(' ')" />
-	  <xsl:element name="a">
-      	<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
-  		<xsl:value-of select="." />
-  	  </xsl:element>
-    </xsl:for-each><br />
+    <xsl:value-of select="site:description/." />
+    <xsl:if test="count(site:result)!=0" >: see
+		<xsl:for-each select="site:result">
+			  <xsl:value-of select="string(' ')" />
+			  <xsl:element name="a">
+		      	<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+		  		<xsl:value-of select="." />
+		  	  </xsl:element>
+	    </xsl:for-each>
+	</xsl:if>
+	<br />
     <xsl:if test="count(site:externalresource)!=0" >
       External resources for this example:
       <xsl:for-each select="site:externalresource">
@@ -272,14 +276,16 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
   		<li><xsl:element name="a"><xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute><xsl:value-of select="." /></xsl:element></li>
       </xsl:for-each></ul>
     </xsl:if>
- 	<div class="small">Output:</div>
- 	<ul><xsl:for-each select="site:result">
-      <li><xsl:element name="a">
-      	<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
-  		<xsl:value-of select="." />
-  	  </xsl:element></li>
-    </xsl:for-each></ul>
-    </div>
+    <xsl:if test="count(site:result)!=0" >
+	 	<div class="small">Output:</div>
+ 		<ul><xsl:for-each select="site:result">
+	      <li><xsl:element name="a">
+	      	<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
+  			<xsl:value-of select="." />
+	  	  </xsl:element></li>
+    	</xsl:for-each></ul>
+	 </xsl:if>
+	    </div>
   </xsl:for-each>
   <div class="example"><div class="small">ANT script (all examples):</div><ul><li>
   <xsl:element name="a">
@@ -319,7 +325,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		<xsl:attribute name="id">sidebar</xsl:attribute>
 		<xsl:element name="a">
 		  <xsl:attribute name="class">toc</xsl:attribute>
-          <xsl:attribute name="href">.<xsl:value-of select="$root" />/index.html</xsl:attribute>
+          <xsl:attribute name="href">.<xsl:value-of select="$root" />/index.html#<xsl:value-of select="translate(substring($branch, 2), '/', '_')" /></xsl:attribute>
 		  Table of Contents
 	    </xsl:element>
 		<div class="sidetitle">Sections:</div>
