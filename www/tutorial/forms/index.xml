@@ -15,6 +15,16 @@
 	</site:metadata>
 	
 	<site:examples>
+		<site:example>
+			<site:java src="SimpleRegistrationForm" standalone="yes" />
+			<site:result>SimpleRegistrationForm.pdf</site:result>
+			<site:description>Generates a PdfPTable with some TextFields</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TextFields" standalone="yes" />
+			<site:result>TextFields.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing text fields</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -25,10 +35,10 @@ Extract from the Portable Document Format Reference Manual Version 1.6 (section 
 <blockquote>An <i>interactive form (PDF 1.2)</i>&#150;sometimes referred to as an <i>Acroform</i>&#150;is a collection
 of <i>fields</i> for gathering information interactively from the user. A PDF document may contain any number of fields
 appearing on any combination of pages, all of which make up a single, global interactive form spanning the entire document.</blockquote>
-Do not confuse Acroforms with HTML forms (&lt;form&gt;-tags). They share some of the same purposes (e.g. getting userdata),
+Do not confuse Acroforms with HTML forms (&lt;form&gt;-tags). They share some of the same purposes (e.g. getting userdata in an interactive way),
 but they are completely different. You can't have more than one form in a PDF document. Fields in an acroform can be organized
-hierarchically and can inherit attributes from their ancestors in the field hierarchy. Each field has a name, but
-as is stated in the Portable Document Format Reference Manual Version 1.6 (section 8.6.2 'Field Dictionaries' page 638):
+hierarchically and can inherit attributes from their ancestors in the field hierarchy. Each field has a name
+(See the Portable Document Format Reference Manual Version 1.6 section 8.6.2 'Field Dictionaries' page 638):
 <blockquote>The <i>fully qualified filed name</i> is not explicitly defined
 but is constructed from the partial field names of the field and all of its
 ancestors. For a field with no parent, the partial and fully qualified names are the same.
@@ -40,6 +50,13 @@ which in turn has a child with the partial name <span class="commandline">ZipCod
 <pre class="commandline">PersonalData.Address.ZipCode</pre>
 Thus, all fields descended from a common ancestor share the ancestor's fully qualified field name
 as a common prefix in their own filly qualified names.</blockquote>
+</div>
+	</site:section>
+	<site:section name="Fieldtypes">
+		<site:sectiontitle>Field types</site:sectiontitle>
+<div>
+<site:doc class="com.lowagie.text.pdf.TextField">TextField</site:doc>.
+<site:source class="SimpleRegistrationForm" />
 </div>
 	</site:section>
 	</site:chapter>
