@@ -19,6 +19,32 @@
 			<site:result>MyFirstTable.pdf</site:result>
 			<site:description>Use a PdfPTable to add a table to a PDF document</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="AddBigTable" standalone="yes" />
+			<site:result>AddBigTable.pdf</site:result>
+			<site:description>A very big table added with document.add()</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FragmentTable" standalone="yes" />
+			<site:result>FragmentTable.pdf</site:result>
+			<site:argument>50</site:argument>
+			<site:description>Break one large Table up into different smaller tables with the same header</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="VerticalTextInCells" standalone="yes" />
+			<site:result>VerticalText.pdf</site:result>
+			<site:description>Demonstrates how to add vertical text in a cell</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TableEvents1" standalone="yes" />
+			<site:result>TableEvents1.pdf</site:result>
+			<site:description>Demonstrates what one can do with table events</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TableEvents2" standalone="yes" />
+			<site:result>TableEvents2.pdf</site:result>
+			<site:description>Demonstrates what one can do with table events (cells with colspan &gt; 1)</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
