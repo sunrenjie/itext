@@ -52,6 +52,13 @@ public class Chap0902 {
             
             // step 4: we add content to the document
             BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            
+            System.out.println("postscriptname: " + bfComic.getPostscriptFontName());
+            String[] codePages = bfComic.getCodePagesSupported();
+            for (int i = 0; i < codePages.length; i++) {
+                System.out.println(codePages[i]);                
+            }
+            
             Font font = new Font(bfComic, 12);
             String text1 = "This is the quite popular True Type font 'Comic'.";
             document.add(new Paragraph(text1, font));
