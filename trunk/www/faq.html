@@ -70,6 +70,7 @@
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
 				<LI><A HREF="#measurements">What measurement unit is used?</A>
+				<LI><A HREF="#celldimensions">Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</A>
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
 				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
 				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
@@ -340,6 +341,21 @@
 			The default measurement system roughly corresponds to the various definitions
 			of the typographic unit of measurement known as the <I>point</I>.
 			This is covered in the <A HREF="tutorial/ch01.html#measurements">tutorial</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="celldimensions"><B>Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			When you construct or shape the objects Cell (and/or Table), you create content and metadata that will
+			allow a writer to make a representation of a Cell (and/or Table). At the moment you are doing this, the
+			Cells nor the Table are aware of the presentation format. You could add the object to a Document that is
+			listened to by an HtmlWriter, a PdfWriter, an XmlWriter, an RtfWriter, or a combination of any of these writers.
+			You can have several PdfWriters listening to one Document. For instance one writer that writes to a file
+			that represents a document with A4 portrait as Page Size and another with A4 landscape. Both documents will
+			show the same content and metadata, but the cells (and/or table) will have different dimensions. That is
+			why it doesn't make sense to ask a Cell (and/or Table) object for its dimensions.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
