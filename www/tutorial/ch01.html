@@ -45,20 +45,21 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Creation of a document in 5 steps: Hello World</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Download the source code of the first example: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.java">Chap0101.java</A>.<BR>
+			This example contains the 5 most important steps to create a PDF file using iText:<br>
 			<BR><A HREF="#step1"><B>Step 1:</B></A><BR>
-			Create an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
+			Creates an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
 			<FONT FACE="Courier">Document document = new Document();</FONT><BR>
 			<BR><A HREF="#step2"><B>Step 2:</B></A><BR>
-			Create a Writer that listens to this document and writes the document to the OutputStream of your choice:<BR>
+			Creates a Writer that listens to this document and writes the document to the OutputStream of your choice:<BR>
 			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));</FONT><BR>
 			<BR><A HREF="#step3"><B>Step 3:</B></A><BR>
-			Open the document:<BR>
+			Opens the document:<BR>
 			<FONT FACE="Courier">document.open();</FONT><BR>
 			<BR><A HREF="#step4"><B>Step 4:</B></A><BR>
-			Add content to the document:<BR>
+			Adds content to the document:<BR>
 			<FONT FACE="Courier">document.add(new Paragraph("Hello World"));</FONT><BR>
 			<BR><A HREF="step5"><B>Step 5:</B></A><BR>
-			Close the document:<BR>
+			Closes the document:<BR>
 			<FONT FACE="Courier">document.close();</FONT><BR><BR>
 			Check the result here: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.pdf">Chap0101.pdf</A>.<BR>
 			</FONT><BR>		
@@ -143,7 +144,7 @@
 			<A NAME="step2"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 2: the Writer-object</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Once our document is created, we can create one or more instances of writer
+			Once our document is created, we can create one or more instances of writers
 			that listen to this document. All writers should be derived from the abstract class
 			<FONT FACE="Courier">com.lowagie.text.DocWriter</FONT>.<BR>For the moment there are two
 			possibilities: you can use <FONT FACE="Courier">com.lowagie.text.pdf.PdfWriter</FONT>
@@ -159,38 +160,39 @@
 				<B>Remark:</B><BR>
 				I wrote the HTML classes only for testing purposes. You really shouldn't
 				use them in a production environment. The resulting HTML isn't very
-				nice and there are lots of better tools around. If you do want to use
-				it, please read <A HREF="ch08.html">Chapter 8</A> first.<BR>The HTML-package
+				nice and there are lots of better tools around. The iText HTML-package
 				can be useful for debugging reasons. HTML is a lot more straightforward
 				than PDF. When an error occurs while generating a PDF file, it is very hard
 				to find what bug caused the error. The resulting PDF-file is too damaged
-				to examine its contents. So while testing I always generate an HTML file
+				to examin its contents. So while testing I always generate an HTML file
 				at the same time in order to retrieve the exact place where the error occurs
 				or the exact object that throws the exception.<BR>
-				There is also a package <FONT FACE="Courier">com.lowagie.text.xml</FONT>,
-				but for the moment it isn't producing correct XML
-				(see <A HREF="ch09.html">Chapter 9</A>).
+				There is also a package <FONT FACE="Courier">com.lowagie.text.xml</FONT>
+				and a package <FONT FACE="Courier">com.lowagie.text.rtf</FONT>,
+				but the XML and RTF generation functionality isn't that stable yet
+				(see <A HREF="ch07.html">Chapter 7</A> and <A HREF="ch08.html">Chapter 8</A>).
 				</FONT>
 				</TD>
 				</TR>
 			</TABLE><BR>
 			The constructor of these writer-classes is made private. You can only create an
-			instance with the following method:
+			instance with the following method:<br>
 			<FONT FACE="Courier">public static xxxWriter getInstance(Document document, OutputStream os) throws DocumentException</FONT><BR>
 			(<FONT FACE="Courier">xxx</FONT> being Pdf or Html)<BR><BR>
 			You can create an instance this way:<BR>
 			<FONT FACE="Courier">PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR>
-			but you will hardly ever need the object <FONT FACE="Courier">writer</FONT> (except if you want to create <A HREF="ch10.html">Advanced PDF</A>).<BR>
+			but you will hardly ever need the object <FONT FACE="Courier">writer</FONT> (except if you want to create <A HREF="ch10.html">Advanced PDF</A>
+			or if you want to use some very specific functionalities such as <a href="#viewerprefs">ViewerPreferences</a>).
 			So it's sufficient to just get the instance:<BR>
 			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR><BR>
 			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
 			The second parameter can be an outputStream of any kind.<BR>
 			Until now, we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
-			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.<BR>
-			You will have to test this code on a Servlet Engine.<BR>
-			The first URL should return a PDF file with the current date and time. If you use MSIE as browser, you will only see a blank page due to a bug (see the
-			<A HREF="http://www.lowagie.com/iText/faq.html#msie">FAQ</A>). The second URL shows you the current time as an HTML-file.<BR><BR>
-			If you want to try a more difficult example (using the workaround in the FAQ), try the
+			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
+			(This is not a standalone example; you will have to test this code on a Servlet Engine).<BR>
+			If you use MSIE as browser, you will only see a blank page due to a bug in some specific versions of MicroSofts browser (see the
+			<A HREF="http://www.lowagie.com/iText/faq.html#msie">FAQ</A>). This has been discussed over and over in the mailing list archives and even
+			in the newsgroup comp.text.pdf. If you want to try a more difficult example (using the workaround in the FAQ), try the
 			following code: <A HREF="http://www.lowagie.com/iText/examples/Calendar.java">Calendar.java</A> and <A HREF="http://www.lowagie.com/iText/examples/Month.java">Month.java</A>.
 			</FONT><BR><BR>
 		</TD>
@@ -200,6 +202,7 @@
 			<A NAME="step3"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 3: Meta data + opening the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<B>Metadata</B><BR>
 			Before you add any actual data (= content), you might want to add some metadata
 			about the document with one of these methods:<BR>
 			<FONT FACE="Courier">
@@ -272,6 +275,7 @@
 			In PDF, the metadata is kept in a <FONT FACE="Courier">PdfInfo</FONT>-object,
 			written to the PdfWriter when the document is closed. So there is no reason why one
 			couldn't alter the library to be able to add or change the metadata at any time.<BR><BR>
+			<B>Page initialisations</B><BR>
 			<A NAME="firstpage">The <FONT FACE="Courier">open</FONT>-method</A> also triggers some initialisations
 			in the different writers. For instance if you want a <FONT FACE="Courier">Watermark</FONT>
 			or a <FONT FACE="Courier">HeaderFooter</FONT>-object to appear starting on the FIRST page
@@ -292,7 +296,11 @@
 			initialisation methods of this page are called). This is illustrated in
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0107.java">example 7</A>. If you want to try this example,
 			you will need an image file called <A HREF="http://www.lowagie.com/iText/examples/watermark.jpg">watermark.jpg</A>.
-			The result should look like <A HREF="http://www.lowagie.com/iText/examples/Chap0107.pdf">Chap0107.pdf</A>.
+			The result should look like <A HREF="http://www.lowagie.com/iText/examples/Chap0107.pdf">Chap0107.pdf</A>.<br>
+			<B><a name="viewerprefs">Viewerpreferences</a></B><BR>
+			For PDF files you can also set some viewer preferences with the method:<br>
+			<FONT FACE="Courier">public void setViewerPreferences(int preferences)</FONT><BR>
+			Remark: you can invoke this method only on a class of type <FACE FONT="Courier">PdfWriter</FONT>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -309,21 +317,21 @@
 			in HTML. If you add a graphic to a <FONT FACE="Courier">Document</FONT>, the listening
 			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
 			Sometimes you may want a writer to deliberately ignore actions performed on a document.
-			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0108.java">example 8</A>.<BR>
+			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0109.java">example 9</A>.<BR>
 			If we create two writers: writerA and writerB (this is an exception to what was said in
 			<A HREF="#step2">step 2</A>):<BR>
 			<FONT FACE="Courier">
-			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0108a.pdf"));<BR>
-			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));<BR>
+			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0109a.pdf"));<BR>
+			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0109b.pdf"));<BR>
 			</FONT>
 			We can create two documents that are slightly different:<BR>
 			<FONT FACE="Courier">
 			writerA.pause();<BR>
-			document.add(new Paragraph("This paragraph will only be added to Chap0108b.pdf, not to Chap0108a.pdf"));<BR>
+			document.add(new Paragraph("This paragraph will only be added to Chap0109b.pdf, not to Chap0109a.pdf"));<BR>
 			writerA.resume();<BR>
 			</FONT>
-			You can compare the results of example 8 here: <A HREF="http://www.lowagie.com/iText/examples/Chap0108a.pdf">Chap0108a.pdf</A> vs.
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0108b.pdf">Chap0108b.pdf</A>.
+			You can compare the results of example 8 here: <A HREF="http://www.lowagie.com/iText/examples/Chap0109a.pdf">Chap0109a.pdf</A> vs.
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0109b.pdf">Chap0109b.pdf</A>.
 			</FONT><BR>
 		</TD>
 	</TR>
