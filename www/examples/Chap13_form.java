@@ -35,8 +35,6 @@ public class Chap13_form extends java.lang.Object {
 
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-
-        Document.compress = false;
         try {
             // step 2: we create a writer that listens to the document
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap13_form.pdf"));
@@ -81,6 +79,7 @@ public class Chap13_form extends java.lang.Object {
             cb.arc(48, 48, 52, 52, 0, 360);
             cb.fill();
             acroForm.addMap("map", null, "Chap13.php", cb, 171, 300, 271, 400);
+            acroForm.addHiddenField("hidden", "secret");
         }
         catch (Exception de) {
             de.printStackTrace();
