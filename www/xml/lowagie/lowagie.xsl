@@ -212,6 +212,7 @@ mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@li
 <div id="sourceforge"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 
 <div id="commercial">
+<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" width="120" height="26" /></a>
 <a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
 <xsl:choose>
 	<xsl:when test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
