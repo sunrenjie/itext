@@ -624,27 +624,27 @@
         <java fork="yes" dir="${itext.examples}" classname="Chap13_pdfreader">
             <classpath refid="classpath" />
         </java>
-        <java fork="yes" dir="${itext.examples}" classname="concat_pdf">
+        <java fork="yes" dir="${itext.examples}" classname="com.lowagie.tools.concat_pdf">
             <arg value="Chap0101.pdf"/>
             <arg value="Chap0102.pdf"/>
             <arg value="Chap0103.pdf"/>
             <arg value="result.pdf"/>
             <classpath refid="classpath" />
         </java>
-        <java fork="yes" dir="${itext.examples}" classname="split_pdf">
+        <java fork="yes" dir="${itext.examples}" classname="com.lowagie.tools.split_pdf">
             <arg value="result.pdf"/>
             <arg value="result1.pdf"/>
             <arg value="result2.pdf"/>
             <arg value="2"/>
             <classpath refid="classpath" />
         </java>
-        <java fork="yes" dir="${itext.examples}" classname="handout_pdf">
+        <java fork="yes" dir="${itext.examples}" classname="com.lowagie.tools.handout_pdf">
             <arg value="result.pdf"/>
             <arg value="handout.pdf"/>
             <arg value="2"/>
             <classpath refid="classpath" />
         </java>
-        <java fork="yes" dir="${itext.examples}" classname="encrypt_pdf">
+        <java fork="yes" dir="${itext.examples}" classname="com.lowagie.tools.encrypt_pdf">
             <arg value="result.pdf"/>
             <arg value="encrypted.pdf"/>
             <arg value="user"/>
