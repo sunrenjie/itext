@@ -2,7 +2,6 @@
 page import="java.io.*,
 			 com.lowagie.text.*,
 			 com.lowagie.text.pdf.*"
-errorPage="error.jsp"
 %><%
 //
 // Template JSP file for iText
