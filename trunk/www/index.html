@@ -93,18 +93,68 @@
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica"><B>Download section - the ANT way</B></FONT><BR><BR>
-			This is the easiest way to obtain the most recent version. Just download ANT from
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			This is the easiest way to obtain the most recent release and/or version
+			(a release contains the most recent working code / a version contains the most
+			recent code, but it's not guaranteed to work).
+			Just download ANT from
 			<a href="http://jakarta.apache.org/ant/">jakarta.apache.org</a>, install it and
-			run it with the <a href="build.xml">iText build.xml file</a>. Use 'download' as
-			target to download the full source code from CVS and all the files you need to
-			run the examples from my download section. Use 'jarWithXML' to compile and jar
-			the complete source code (or just 'jar' if you don't need XML functionality).<br><br>
+			run it with the <a href="build.xml">iText build.xml file</a>.<br>
+			If you don't specify a target, the 'help' target will be called:
+			</FONT><pre>
+Buildfile: build.xml
+
+help:
+     [echo] Using ANT for iText
+     [echo] 
+     [echo] INSTALLING iText
+     [echo] ant install: downloads and installs the most recent release in one command
+     [echo] ant install.cvs: downloads and installs the current CVS version in one command
+     [echo] 
+     [echo] GETTING THE CODE
+     [echo] ant checkout: checks out the code from CVS
+     [echo] ant download: downloads some files needed to build a release
+     [echo] ant download.cvs: downloads the most recent VERSION of the code
+     [echo] ant download.site: downloads the most recent RELEASE of the code
+     [echo] 
+     [echo] COMPILING THE CODE
+     [echo] ant compile: compiles iText without RTF and XML functionality
+     [echo] ant compileWithXML: compiles iText completely
+     [echo] 
+     [echo] JARRING THE CODE
+     [echo] ant jar: compiles and jars iText without RTF and XML functionality
+     [echo] ant jarWithXML: compiles and jars iText completely
+     [echo] 
+     [echo] ARCHIVING THE SOURCE
+     [echo] ant srczip: makes zipfiles with the sourcecode
+     [echo] ant srctargz: makes tar.gz-files with the sourcecode
+     [echo] 
+     [echo] DOCUMENTATION
+     [echo] ant javadoc: generates the API documentation
+     [echo] ant docstargz: generates the API docs and puts them in a tar.gz-file
+     [echo] ant tutorialtargz: generates several tar.gz-files with documentation (tutorial, examples,...)
+     [echo] ant examples: generates most of the PDF files of the tutorial
+     [echo] 
+     [echo] RELEASE
+     [echo] ant release: makes a complete iText release
+     [echo] ant release.sf -Drelease=XXX: prepares a release XXX for sourceforge
+
+BUILD SUCCESSFUL
+
+Total time: 2 seconds</pre><FONT FACE="Arial,Helvetica" SIZE="-1">
+			If you really want the whole iText (source, jars, documentation, tutorial, source of the examples and the resulting pdf's),
+			you should run 'ant install'. This will install the most recent working release.
+			If you want the most recent version, you can run 'ant install.cvs'.<br>
+			<font face="" color="#FF0000">Important:</font> to use the CVS functionality,
+			you need a CVS client on your system!<br>
+			In most cases, you will only need to run 'ant download.site' (or 'ant download.cvs'),
+			followed by 'ant jar' or 'ant jarWithXML'.<br><br></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica"><B>Download section - the classical way</B></FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">Important: Check the mailing list archives for the latest release!</FONT> The current release on this site is 0.72!<br>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">The current release on this site is 0.72!<br>
 			If you need the most recent version, please use ANT!<br>
 			If the downloaded code doesn't compile because of ClassNotFound errors or exception's, don't mail us, read the <a href="faq.html#compile">FAQ</a>.
 			<br><br>
@@ -140,7 +190,7 @@
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://www.lowagie.com/iText/downloads/docs.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">docs.tar.gz</FONT></A></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://prdownloads.sourceforge.net/itext/iText040.www.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">tutorial</FONT></A></TD>
 			</TR>
-			</TABLE><br><br>
+			</TABLE><br><br></FONT>
 		</TD>
 	</TR>
 	<TR>
