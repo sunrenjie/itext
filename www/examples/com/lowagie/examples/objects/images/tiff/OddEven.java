@@ -65,7 +65,7 @@ public class OddEven {
 			PdfContentByte cb = writer.getDirectContent();
 			int count = Math.max(TiffImage.getNumberOfPages(odd), TiffImage
 					.getNumberOfPages(even));
-			System.out.println("Processing");
+			System.out.println("Combining 2 TIFF files into 1 PDF");
 			for (int c = 0; c < count; ++c) {
 				try {
 					Image imgOdd = TiffImage.getTiffImage(odd, c + 1);
