@@ -1,0 +1,870 @@
+<itext title="Getting started" author="Bruno Lowagie" subject="5 steps to create a PDF document using iText" keywords="tutorial, document, writer, outputstream, content, PDF, JAVA, iText, Bruno, Lowagie">
+	<newline />
+	<newline />
+	<paragraph font="Helvetica" size="11">$Date$</paragraph>
+	<newline />
+	<newline />
+	<newline />
+	<chapter numberdepth="0">
+		<title font="Helvetica" size="18" leading="30">Chapter I: Getting Started</title>
+		<newline />
+		<section>
+			<title size="14" color="#008080" leading="25">Creation of a document in 5 steps: Hello World</title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+				It's a good tradition to start a tutorial with a very simple example.
+				So that's why we start with a small standalone application that creates a PDF document
+				containing one simple and universal message:
+				<anchor reference="#Chap0101" font="Helvetica" size="11" color="#008080">Hello World</anchor>.<newline />
+				<table width="85.0%" align="center" columns="1" cellpadding="3" cellspacing="3" grayfill="0.8">
+					<row>
+						<cell>
+							<paragraph font="Helvetica" size="11"> 
+								<chunk style="bold">Important:</chunk> You can find the source code of all
+								the examples at the end of each chapter. If an example is mentioned in the
+								text, just click on the colored word (for instance: the words 'Hello World' in
+								the above paragraph) to jump to the sample code.
+							</paragraph>
+						</cell>
+					</row>
+				</table>
+			</paragraph>
+			<newline />
+			<paragraph font="Helvetica" size="11" align="Justify">
+				These are the 5 steps to create a PDF document using iText:<newline /><newline />
+				<anchor reference="#step1" font="Helvetica" size="11" color="#008080" style="bold">Step 1:</anchor><newline />
+				Create an instance of the <chunk font="Courier">com.lowagie.text.Document</chunk>-object:<newline />
+				<chunk font="Courier" size="9">Document document = new Document();</chunk><newline />
+				<newline />
+				<anchor reference="#step2" font="Helvetica" size="11" color="#008080" style="bold">Step 2:</anchor><newline />
+				Create a Writer that listens to this document and writes the document to the OutputStream of your choice:<newline />
+				<chunk font="Courier" size="9">PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));</chunk><newline />
+				<newline />
+				<anchor reference="#step3" font="Helvetica" size="11" color="#008080" style="bold">Step 3:</anchor><newline />
+				Open the document:<newline />
+				<chunk font="Courier" size="9">document.open();</chunk><newline />
+				<newline />
+				<anchor reference="#step4" font="Helvetica" size="11" color="#008080" style="bold">Step 4:</anchor><newline />
+				Add content to the document:<newline />
+				<chunk font="Courier" size="9">document.add(new Paragraph("Hello World"));</chunk><newline />
+				<newline />
+				<anchor reference="#step5" font="Helvetica" size="11" color="#008080" style="bold">Step 5:</anchor><newline />
+				Close the document:<newline />
+				<chunk font="Courier" size="9">document.close();</chunk><newline />
+			</paragraph>
+		</section>
+		<newpage />
+		<section>
+			<title size="14" color="#008080" leading="25"><anchor name="step1" size="14" color="#008080" leading="25">Examining step 1: The Document Object</anchor></title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+				The <chunk font="Courier">com.lowagie.text.Document</chunk>-object has 3 constructors:<newline />
+				<chunk font="Courier" size="9">public Document();</chunk><newline />
+				<chunk font="Courier" size="9">public Document(Rectangle pageSize);</chunk><newline />
+				<chunk font="Courier" size="9">public Document(Rectangle pageSize, int marginLeft, int marginRight, int marginTop, int marginBottom);</chunk>
+				<newline />
+				The first constructor calls the second one, with
+				<chunk font="Courier">PageSize.A4</chunk> as parameter.	The second constructor calls the third one, with
+				<chunk font="Courier">36</chunk> as value for each margin.
+			</paragraph>
+			<newline />
+			<section numberdepth="0">
+				<title><anchor name="pagesize" font="Helvetica" size="11" style="bold">PageSize</anchor></title>
+				<paragraph font="Helvetica" size="11" align="Justify">
+					You could create your own <chunk font="Courier">Rectangle</chunk>-object in a certain
+					color and use this as pageSize.<newline />
+					In <anchor color="#008080" reference="#Chap0102">Example 2</anchor>, we create a long, narrow
+					document with a yellowish backgroundcolor:<newline />
+					<chunk font="Courier">Rectangle pageSize = new Rectangle(144, 720);</chunk><newline />
+					<chunk font="Courier">pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));</chunk><newline />
+					<chunk font="Courier">Document document = new Document(pageSize);</chunk><newline />
+					Normally, you don't have to worry about creating this rectangle, since you can use one of the statics in class
+					<anchor reference="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java" font="Courier">PageSize.java</anchor>.
+					These are the pagesizes that are provided: A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E,
+					FLSA and FLSE.<newline />
+					Most of these pageSizes are in PORTRAIT-format. If you want them to be in <anchor name="landscape">LANDSCAPE</anchor>,
+					all you have to do is <chunk font="Courier">rotate()</chunk> the <chunk font="Courier">Rectangle</chunk>:<newline />
+					<chunk font="Courier">Document document = new Document(PageSize.A4.rotate()); </chunk><newline />
+					This is demonstrated in <anchor color="#008080" reference="#Chap0103">Example 3</anchor>.
+				</paragraph>
+			</section>
+			<section numberdepth="0">
+				<title><anchor name="margins" font="Helvetica" size="12" style="bold">Margins</anchor></title>
+				<paragraph font="Helvetica" size="11" align="Justify">
+					When creating a document, you can also define left, right, upper and lower margins:<newline />
+					<chunk font="Courier">Document document = new Document(PageSize.A5, 36, 72, 108, 180);</chunk><newline />
+					In <anchor reference="Chap0104">Example 4</anchor>, you will see that this document has a left margin
+					of 0.5 inch and a right margin of 1 inch. The upper margin is 1.5 inch, the lower 2.5 inch.
+				</paragraph>
+				<table width="85.0%" align="center" columns="1" cellpadding="3" cellspacing="3" grayfill="0.8">
+					<row>
+						<cell>
+							<paragraph font="Helvetica" size="11"> 
+								<anchor name="measurements" style="bold">measurements</anchor><newline />
+								When creating a rectangle or choosing a margin, you might wonder what measurement unit
+								is used: centimeters, inches or pixels. In fact, the default measurement system
+								roughly corresponds to the various definitions of the typographic unit of
+								measurement known as the <chunk style="italic">point</chunk>. There are 72 points in 1 inch.
+								If you want to create a rectangle in PDF that has the size of an A4-page,
+								you have to calculate the number of points:
+							</paragraph>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem font="Helvetica" size="11">
+									21 cm / 2.54 = 8.2677 inch
+								</listitem>
+								<listitem font="Helvetica" size="11">
+									8.2677 * 72 = 595 points
+								</listitem>
+								<listitem font="Helvetica" size="11">
+									29.7 cm / 2.54 = 11.6929 inch
+								</listitem>
+								<listitem font="Helvetica" size="11">
+									11.6929 * 72 = 842 points
+								</listitem>
+							</list>
+							<paragraph font="Helvetica" size="11">
+								The default border of 36 points corresponds with half an inch.
+								The rectangle we created in Example 2 was 2 by 10 inches.
+							</paragraph>
+						</cell>
+					</row>
+				</table>
+			</section>
+		</section>
+		<newpage />
+		<section>
+			<title size="14" color="#008080">Source code of the examples</title>
+			<section numberdepth="2">
+				<title><anchor name="Chap0101">Example 1: Hello World</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0101.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0101.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0101 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 1: Hello World");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            document.add(new Paragraph("Hello World"));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0102">Example 2: PageSize</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0102.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0102.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0102 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 2: PageSize");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Rectangle pageSize = new Rectangle(144, 720);<newline />
+					        pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));<newline />
+					        Document document = new Document(pageSize);<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0102.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add some paragraphs to the document<newline />
+					            for (int i = 0; i &lt; 5; i++) {<newline />
+					                document.add(new Paragraph("Hello World"));<newline />
+					            }<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0103">Example 3: PageSize</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0103.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0103.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0103 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 3: PageSize");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document(PageSize.A4.rotate());<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0103.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add some phrases to the document<newline />
+					            for (int i = 0; i &lt; 20; i++) {<newline />
+					                document.add(new Phrase("Hello World, Hello Sun, Hello Moon, Hello Stars, Hello Sea, Hello Land, Hello People. "));<newline />
+					            }<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0104">Example 4: Margins</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0104.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0104.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0104 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 4: Margins");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document(PageSize.A5, 36, 72, 108, 180);<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0104.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            Paragraph paragraph = new Paragraph();<newline />
+					            paragraph.setAlignment(Element.ALIGN_JUSTIFIED);<newline />
+					            for (int i = 0; i &lt; 20; i++) {<newline />
+					                paragraph.add("Hello World, Hello Sun, Hello Moon, Hello Stars, Hello Sea, Hello Land, Hello People. ");<newline />
+					            }<newline />
+					            document.add(paragraph);<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0105">Example 5: Servlet example</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0105.java" color="#008080">source code</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.PrintWriter;<newline />
+					import java.io.IOException;<newline />
+					import java.io.File;<newline />
+					<newline />
+					import java.util.Date;<newline />
+					<newline />
+					import javax.servlet.http.*;<newline />
+					import javax.servlet.*;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0105 extends HttpServlet {<newline />
+					    <newline />
+					    public void doGet (HttpServletRequest request, HttpServletResponse response)<newline />
+					    throws IOException, ServletException {<newline />
+					        <newline />
+					        // we retrieve the presentationtype<newline />
+					        String presentationtype = request.getParameter("presentationtype");<newline />
+					        <newline />
+					        // step 1<newline />
+					        Document document = new Document();<newline />
+					        try {<newline />
+					            // step 2: we set the ContentType and create an instance<newline />
+					            // of the corresponding Writer<newline />
+					            if ("pdf".equals(presentationtype)) {<newline />
+					                response.setContentType("application/pdf");<newline />
+					                PdfWriter.getInstance(document, response.getOutputStream());<newline />
+					            }<newline />
+					            else if ("html".equals(presentationtype)) {<newline />
+					                response.setContentType("text/html");<newline />
+					                HtmlWriter.getInstance(document, response.getOutputStream());<newline />
+					            }<newline />
+					            else {<newline />
+					                response.sendRedirect(<newline />
+					                    "http://www.lowagie.com/iText/tutorial/ch01.html#step2");<newline />
+					            }<newline />
+					            <newline />
+					            // step 3<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4<newline />
+					            document.add(new Paragraph(new Date().toString()));<newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            de.printStackTrace();<newline />
+					            System.err.println("document: " + de.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document (the outputstream is also closed internally)<newline />
+					        document.close();<newline />
+					    }
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0106">Example 6: Meta Information</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0106.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0106.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0106 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 6: Meta Information");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0106.pdf"));<newline />
+					            HtmlWriter.getInstance(document, System.out);<newline />
+					            <newline />
+					            // step 3: we add some metadata and open the document<newline />
+					            <newline />
+					            document.addTitle("Hello World example");<newline />
+					            document.addSubject("This example explains step 3 in Chapter 1");<newline />
+					            document.addKeywords("Metadata, iText, step 3, tutorial");<newline />
+					            document.addAuthor("Bruno Lowagie");<newline />
+					            document.addHeader("Expires", "0");<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            document.add(new Paragraph("Hello World"));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0107">Example 7: newPage()</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0107.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0107.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0107 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 7: newPage()");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0107.pdf"));<newline />
+					            <newline />
+					            // step 3:<newline />
+					            <newline />
+					            // we add a Watermark that will show up on PAGE 1<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 200, 420);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            // we add a Header that will show up on PAGE 1<newline />
+					            HeaderFooter header = new HeaderFooter(new Phrase("This is a header"),<newline />
+					                false);<newline />
+					            document.setHeader(header);<newline />
+					            <newline />
+					            // we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // we rotate the page, starting from PAGE 2<newline />
+					            document.setPageSize(PageSize.A4.rotate());<newline />
+					            <newline />
+					            // we need to change the position of the Watermark<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 320, 200);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            // we add a Footer that will show up on PAGE 2<newline />
+					            HeaderFooter footer = new HeaderFooter(new Phrase("This is page: "),<newline />
+					                true);<newline />
+					            document.setFooter(footer);<newline />
+					            <newline />
+					            // step 4: we add content to the document<newline />
+					            <newline />
+					            // PAGE 1<newline />
+					            <newline />
+					            document.add(new Paragraph("Hello World"));<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 2<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Earth"));<newline />
+					            <newline />
+					            // we remove the header starting from PAGE 3<newline />
+					            document.resetHeader();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 3<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Sun"));<newline />
+					            document.add(new Paragraph("Remark: the header has vanished!"));<newline />
+					            <newline />
+					            // we reset the page numbering<newline />
+					            document.resetPageCount();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 4<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Moon"));<newline />
+					            document.add(new Paragraph("Remark: the pagenumber has been reset!"));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0108">Example 8: Viewerpreferences</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0108.java" color="#008080">source code</anchor> and
+					the resulting PDFs: <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0108a.pdf" color="#008080">(a)</anchor>,
+					<anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0108b.pdf" color="#008080">(b)</anchor> and
+					<anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0108c.pdf" color="#008080">(c)</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0108 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 8: Viewerpreferences");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter writerA = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0108a.pdf"));<newline />
+					            writerA.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);<newline />
+					            PdfWriter writerB = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0108b.pdf"));<newline />
+					            writerB.setViewerPreferences(PdfWriter.HideMenubar<newline />
+					                | PdfWriter.HideToolbar);<newline />
+					            PdfWriter writerC = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0108c.pdf"));<newline />
+					            writerC.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft<newline />
+					                | PdfWriter.PageModeFullScreen<newline />
+					                | PdfWriter.NonFullScreenPageModeUseThumbs);<newline />
+					            <newline />
+					            // step 3:<newline />
+					            <newline />
+					            // we add a Watermark that will show up on PAGE 1<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 200, 420);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            // we add a Header that will show up on PAGE 1<newline />
+					            HeaderFooter header = new HeaderFooter(new Phrase("This is a header"),<newline />
+					                false);<newline />
+					            document.setHeader(header);<newline />
+					            <newline />
+					            // we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // we rotate the page, starting from PAGE 2<newline />
+					            document.setPageSize(PageSize.A4.rotate());<newline />
+					            <newline />
+					            // we need to change the position of the Watermark<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 320, 200);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            // we add a Footer that will show up on PAGE 2<newline />
+					            HeaderFooter footer = new HeaderFooter(new Phrase("This is page: "),<newline />
+					                true);<newline />
+					            document.setFooter(footer);<newline />
+					            <newline />
+					            // step 4: we add content to the document<newline />
+					            <newline />
+					            // PAGE 1<newline />
+					            <newline />
+					            document.add(new Paragraph("Hello World"));<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 2<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Earth"));<newline />
+					            <newline />
+					            // we remove the header starting from PAGE 3<newline />
+					            document.resetHeader();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 3<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Sun"));<newline />
+					            document.add(new Paragraph("Remark: the header has vanished!"));<newline />
+					            <newline />
+					            // we reset the page numbering<newline />
+					            document.resetPageCount();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 4<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Moon"));<newline />
+					            document.add(new Paragraph("Remark: the pagenumber has been reset!"));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0109">Example 9: pause() and resume()</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0109.java" color="#008080">source code</anchor> and
+					the resulting PDFs: <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0109a.pdf" color="#008080">(a)</anchor> and
+					<anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0109b.pdf" color="#008080">(b)</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0109 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 1 example 9: pause() and resume()");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            <newline />
+					            PdfWriter writerA = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0109a.pdf"));<newline />
+					            <newline />
+					            PdfWriter writerB = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0109b.pdf"));<newline />
+					            <newline />
+					            // step 3:<newline />
+					            <newline />
+					            // we add a Watermark that will show up on PAGE 1<newline />
+					            <newline />
+					            writerB.pause();<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 200, 420);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            writerB.resume();<newline />
+					            <newline />
+					            // we add a Header that will show up on PAGE 1<newline />
+					            HeaderFooter header = new HeaderFooter(new Phrase("This is a header"),<newline />
+					                false);<newline />
+					            document.setHeader(header);<newline />
+					            <newline />
+					            // we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // we rotate the page, starting from PAGE 2<newline />
+					            document.setPageSize(PageSize.A4.rotate());<newline />
+					            <newline />
+					            // we need to change the position of the Watermark<newline />
+					            try {<newline />
+					                Watermark watermark =<newline />
+					                    new Watermark(Image.getInstance("watermark.jpg"), 320, 200);<newline />
+					                document.add(watermark);<newline />
+					            }<newline />
+					            catch(Exception e) {<newline />
+					                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");<newline />
+					            }<newline />
+					            <newline />
+					            // we add a Footer that will show up on PAGE 2<newline />
+					            HeaderFooter footer = new HeaderFooter(<newline />
+					                new Phrase("This is page: "), true);<newline />
+					            document.setFooter(footer);<newline />
+					            <newline />
+					            // step 4: we add content to the document<newline />
+					            <newline />
+					            // PAGE 1<newline />
+					            <newline />
+					            document.add(new Paragraph("Hello World"));<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 2<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Earth"));<newline />
+					            <newline />
+					            // we remove the header starting from PAGE 3<newline />
+					            <newline />
+					            writerA.pause();<newline />
+					            document.resetHeader();<newline />
+					            <newline />
+					            writerA.resume();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 3<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Sun"));<newline />
+					            <newline />
+					            writerA.pause();<newline />
+					            document.add(new Paragraph("Remark: the header has vanished!"));<newline />
+					            <newline />
+					            writerA.resume();<newline />
+					            <newline />
+					            // we reset the page numbering<newline />
+					            <newline />
+					            writerB.pause();<newline />
+					            document.resetPageCount();<newline />
+					            <newline />
+					            writerB.resume();<newline />
+					            <newline />
+					            // we trigger a page break<newline />
+					            document.newPage();<newline />
+					            <newline />
+					            // PAGE 4<newline />
+					            <newline />
+					            // we add some more content<newline />
+					            document.add(new Paragraph("Hello Moon"));<newline />
+					            <newline />
+					            writerB.pause();<newline />
+					            document.add(new Paragraph("Remark: the pagenumber has been reset!"));<newline />
+					            <newline />
+					            writerB.resume();<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+		</section>
+	</chapter>
+</itext>
