@@ -530,6 +530,8 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0909">
            <classpath refid="classpath" />
 		</java>
+		<echo>Chapter 9 fontfactory_styles: this example requires a correct filepath to some arial ttf's</echo>
+		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
            <classpath refid="classpath" />
 		</java>
