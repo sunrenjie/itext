@@ -57,6 +57,8 @@ public class TableBorders {
 			// step3
 			document.open();
 			// step4
+			
+			// page 1
 	        Font tableFont = FontFactory.getFont("Helvetica", 8, Font.BOLD, Color.BLACK);
 	        float padding = 0f;
 	        Rectangle border = new Rectangle(0f, 0f);
@@ -76,6 +78,7 @@ public class TableBorders {
 	        
 	        document.newPage();
 	        
+	        // page 2
 	        padding = 2f;
 	        border = new Rectangle(0f, 0f);
 	        border.setBorderWidthLeft(1f);
@@ -89,6 +92,7 @@ public class TableBorders {
 	        
 	        document.newPage();
 	        
+	        // page 3
 	        padding = 0f;
 	        border = new Rectangle(0f, 0f);
 	        border.setBorderWidthLeft(1f);
@@ -96,12 +100,13 @@ public class TableBorders {
 	        border.setBorderWidthRight(1f);
 	        border.setBorderWidthTop(2f);
 	        border.setBorderColor(Color.BLACK);
-	        makeTestPage(tableFont, border, writer, document, padding, true, true);
-	        p = new Paragraph("\nuseBorderPadding=true, useAscender=true, useDescender=true", font);
+	        makeTestPage(tableFont, border, writer, document, padding, false, true);
+	        p = new Paragraph("\nuseBorderPadding=true, useAscender=false, useDescender=true", font);
 	        document.add(p);
 	        
 	        document.newPage();
 	        
+	        // page 4
 	        padding = 0f;
 	        border = new Rectangle(0f, 0f);
 	        border.setBorderWidthLeft(1f);
@@ -115,6 +120,7 @@ public class TableBorders {
 	        
 	        document.newPage();
 	        
+	        // page 5
 	        padding = 0f;
 	        border = new Rectangle(0f, 0f);
 	        border.setBorderWidthLeft(1f);

@@ -182,5 +182,7 @@ public class JTable2Pdf extends JFrame {
         JTable2Pdf frame = new JTable2Pdf();
         frame.pack();
         frame.setVisible(true);
+        frame.print();
+        frame.exit();
 	}
 }
