@@ -24,6 +24,13 @@
 			<site:result>MyFirstTable.pdf</site:result>
 			<site:description>Generate a table with the Table object</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="TableWithImage" standalone="yes" />
+			<site:result>imageTable.pdf</site:result>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>iText.gif</site:externalresource>
+			<site:description>Generate a table with the Table object containing Images</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
