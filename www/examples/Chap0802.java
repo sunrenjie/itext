@@ -31,39 +31,54 @@ import com.lowagie.text.*;
 import com.lowagie.text.rtf.RtfWriter;
 
 public class Chap0802 {
-    
+
     public static void main(String[] args) {
-        
-        System.out.println("Chapter 8 example 2: Lists and RTF");
-        
+
+        System.out.println("Chapter 8 example 2: RTF");
+
         // step 1: creation of a document-object
         Document document = new Document();
-        
+
         try {
-            
+
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
             RtfWriter.getInstance(document, new FileOutputStream("Chap0802.rtf"));
-            
+
             // step 3: we open the document
             document.open();
-            
-            // step 4:
-            
-            document.add(new Paragraph("some books I really like:"));
-            ListItem listItem;
-            List list = new List(true, 15);
-            listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
-            list.add(listItem);
-            listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
-            list.add(listItem);
-            listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
-            list.add(listItem);
-            document.add(list);
+
+            // step 4: we add a paragraph to the document
+            Paragraph paragraph0 = new Paragraph();
+            Paragraph paragraph1 = new Paragraph("(1) this is a Paragraph");
+            // When a Font is passed (explicitely or embedded in a chunk),
+            // the default leading = 1.5 * size of the font
+            Paragraph paragraph3 = new Paragraph("(3) this is a Paragraph with a red, normal font Courier, size 20.", new Font(Font.COURIER, 20, Font.NORMAL, new Color(255, 0, 0)));
+            Paragraph paragraph4 = new Paragraph(new Chunk("(4) this is a Paragraph"));
+            Paragraph paragraph5 = new Paragraph(new Chunk("(5) this is a Paragraph in Helvetica, bold, red and size 16.", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0))));
+            // A Paragraph can contains several chunks with different fonts
+            Paragraph paragraph6 = new Paragraph("(6)");
+            Chunk chunk = new Chunk(" This is a font: ");
+            paragraph6.add(chunk);
+            paragraph6.add(new Chunk("Helvetica", new Font(Font.HELVETICA)));
+            paragraph6.add(chunk);
+            paragraph6.add(new Chunk("Times New Roman", new Font(Font.TIMES_NEW_ROMAN)));
+            paragraph6.add(chunk);
+            paragraph6.add(new Chunk("Courier", new Font(Font.COURIER)));
+            paragraph6.add(chunk);
+            paragraph6.add(new Chunk("Symbol", new Font(Font.SYMBOL)));
+            paragraph6.add(chunk);
+            paragraph6.add(new Chunk("ZapfDingBats", new Font(Font.ZAPFDINGBATS)));
+            Anchor anchor1 = new Anchor("website (external reference)", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
+            anchor1.setReference("http://www.lowagie.com/iText/");
+            document.add(paragraph1);
+            document.add(paragraph3);
+            document.add(paragraph4);
+            document.add(paragraph5);
+            document.add(paragraph6);
+            document.add(anchor1);
+
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -71,7 +86,7 @@ public class Chap0802 {
         catch(IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-        
+
         // step 5: we close the document
         document.close();
     }
