@@ -46,7 +46,7 @@
 		<fail message="You didn't enter a version number: ant -Dnumber=XXX release.sf"/>
 	</target>
 	
-	<target name="release.sf" depends="properties" description="--> makes a complete iText release ready to publish on SourceForge">
+	<target name="release.sf" description="--> makes a complete iText release ready to publish on SourceForge">
 		<property name="number" value="${defaultnumber}"/>
 		<property name="number.is.${number}" value="true"/>
 		<antcall target="no.version.number"/>
