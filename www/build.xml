@@ -88,6 +88,10 @@
     </target>
     
     <target name="download" description="--> downloads some files needed to make a release">
+        <mkdir dir="${itext.tutorial}" />
+        <get src="http://www.lowagie.com/iText/tutorial/Chap0101.png" dest="${itext.tutorial}/Chap0101.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/tutorial/Chap0106.png" dest="${itext.tutorial}/Chap0106.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/tutorial/Chap0106dos.png" dest="${itext.tutorial}/Chap0106dos.png" verbose="true" />
         <mkdir dir="${itext.examples}" />
         <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.examples}/pngnow.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.examples}/H.gif" verbose="true" />
