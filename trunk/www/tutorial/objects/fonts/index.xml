@@ -44,9 +44,29 @@
 			<site:description>Shows how to change the color of a font</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FontEncoding" standalone="yes" />
+			<site:result>fontencoding.pdf</site:result>
+			<site:description>Using an encoding</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TrueType" standalone="yes" />
+			<site:result>truetype.pdf</site:result>
+			<site:description>Using a True Type font</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EmbeddedTrueType" standalone="yes" />
+			<site:result>embeddedtruetype.pdf</site:result>
+			<site:description>Using an embedded True Type font</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="UsingFontFactory" standalone="yes" />
 			<site:result>FontFactory.pdf</site:result>
 			<site:description>Sums up the Fonts that are available in some standard font directories on your system</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ComplexText" standalone="yes" />
+			<site:result>complextext.pdf</site:result>
+			<site:description>Adding text at absolute positions</site:description>
 		</site:example>
 	</site:examples>
 	
