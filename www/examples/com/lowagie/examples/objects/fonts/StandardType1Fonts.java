@@ -61,7 +61,7 @@ public class StandardType1Fonts {
 			fonts[0] = new Font(Font.COURIER, Font.DEFAULTSIZE, Font.NORMAL);
 			fonts[1] = new Font(Font.COURIER, Font.DEFAULTSIZE, Font.ITALIC);
 			fonts[2] = new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD);
-			fonts[3] = new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLDITALIC);
+			fonts[3] = new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD | Font.ITALIC);
 			fonts[4] = new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.NORMAL);
 			fonts[5] = new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.ITALIC);
 			fonts[6] = new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.BOLD);

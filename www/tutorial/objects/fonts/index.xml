@@ -21,6 +21,11 @@
 			<site:result>StandardType1Fonts.pdf</site:result>
 			<site:description>Sums up the 14 Standard Type 1 Fonts</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="FontFactoryType1Fonts" standalone="yes" />
+			<site:result>FontFactoryType1Fonts.pdf</site:result>
+			<site:description>Sums up the 14 Standard Type 1 Fonts (using the FontFactory)</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -30,9 +35,80 @@
 PDF prescribes a set of 14 standard fonts that can be used without prior definition.
 These include four faces each of three Latin text typefaces (Courier,
 Helvetica and Times), as well as two symbolic fonts (Symbol and ITC Zapf
-Dingbats &#210;). These fonts, or suitable substitute fonts with the same metrics, are
+Dingbats &#174;). These fonts, or suitable substitute fonts with the same metrics, are
 considered to be available in all PDF consumer applications. You don't have to
-embed them in your PDF document.
+embed them in your PDF document.<br />
+These 'Base14 Fonts' were historically the first fonts supported in iText.
+If you take a look inside the iText jar, you find an AFM file
+for each of these fonts in directory <span class="commandline">com/lowagie/text/pdf/fonts</span>.
+AFM is Adobe's ASCII-based file format used for storing font metric data as
+human-readable data. iText reads these files to retrieve information on the width,
+the kerning and other metrics of each character (or, to use the correct term:
+of each 'glyph').
+<table>
+<tr><th>Font</th><th>AFM file</th></tr>
+<tr><td>Courier</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier.afm">Courier.afm</a></td></tr>
+<tr><td>Courier Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-Bold.afm">Courier-Bold.afm</a></td></tr>
+<tr><td>Courier Italic (Oblique)</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-Oblique.afm">Courier-Oblique.afm</a></td></tr>
+<tr><td>Courier Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Courier-BoldOblique.afm">Courier-BoldOblique.afm</a></td></tr>
+<tr><td>Helvetica</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica.afm</a></td></tr>
+<tr><td>Helvetica Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-Bold.afm</a></td></tr>
+<tr><td>Helvetica Italic (Oblique)</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-Oblique.afm</a></td></tr>
+<tr><td>Helvetica Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Helvetica.afm">Helvetica-BoldOblique.afm</a></td></tr>
+<tr><td>Times Roman</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Roman.afm">Times-Roman.afm</a></td></tr>
+<tr><td>Times Roman Bold</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Bold.afm">Times-Bold.afm</a></td></tr>
+<tr><td>Times Roman Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-Italic.afm">Times-Italic.afm</a></td></tr>
+<tr><td>Times Roman Bold and Italic</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Times-BoldItalic.afm">Times-BoldItalic.afm</a></td></tr>
+<tr><td>Symbol</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/Symbol.afm">Symbol.afm</a></td></tr>
+<tr><td>ZapfDingBats&#174;</td><td><a href="http://itext.sourceforge.net/src/com/lowagie/text/pdf/fonts/ZapfDingbats.afm">ZapfDingbats.afm</a></td></tr>
+</table>
+As you can see the different faces (normal, bold, italic and bolditalic) of the same type face (Courier, Helvetica, Times Roman)
+are considered to be different fonts. This is an issue that shall recur further on in this chapter
+(so please keep it in mind). iText tries to make these differences more transparant, by asking you
+for the font 'family' (Courier, Helvetica, Times Roman) and the font style (normal, bold, italic).<br />
+You can construct a Base 14 <site:doc class="com.lowagie.text.Font">Font</site:doc>-object with one
+of the simple <site:doc class="com.lowagie.text.Font" target="constructor_summary">constructors</site:doc>
+as is done in the next example:
+<pre class="commandline">fonts[0] =
+	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.NORMAL);
+fonts[2] =
+	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD);
+fonts[3] =
+	new Font(Font.COURIER, Font.DEFAULTSIZE, Font.BOLD | Font.ITALIC);
+fonts[7] =
+	new Font(Font.HELVETICA, Font.DEFAULTSIZE, Font.BOLDITALIC);
+fonts[9] =
+	new Font(Font.TIMES_ROMAN, Font.DEFAULTSIZE, Font.ITALIC);</pre>
+<site:source class="StandardType1Fonts" />
+But there are other (and better) ways to do this:
+in the next example, we use the class <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>,
+as this is the safest and most uniform way to get a new <site:doc class="com.lowagie.text.Font">Font</site:doc>-object.
+<pre class="commandline">fonts[0] =
+	FontFactory.getFont(
+		FontFactory.COURIER,
+		Font.DEFAULTSIZE,
+		Font.NORMAL);
+fonts[2] =
+	FontFactory.getFont(
+		FontFactory.COURIER,
+		Font.DEFAULTSIZE,
+		Font.BOLD);
+fonts[3] =
+	FontFactory.getFont(
+		FontFactory.COURIER,
+		Font.DEFAULTSIZE,
+		Font.BOLD | Font.ITALIC);
+fonts[7] =
+	FontFactory.getFont(
+		FontFactory.HELVETICA,
+		Font.DEFAULTSIZE,
+		Font.BOLDITALIC);
+fonts[9] =
+	FontFactory.getFont(
+		FontFactory.TIMES_ROMAN,
+		Font.DEFAULTSIZE,
+		Font.ITALIC);</pre>
+<site:source class="FontFactoryType1Fonts" />
 </div>
 	</site:section>
 	
