@@ -33,27 +33,27 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
 
 public class Chap1004 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 10 example 4: Templates");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1004.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we grab the ContentByte and do some stuff with it
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 10 example 4: Templates");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1004.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
-
+            
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(50, 50);
             BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
@@ -74,15 +74,15 @@ public class Chap1004 {
             template.setFontAndSize(bf, 12);
             template.showText(String.valueOf(writer.getPageNumber() - 1));
             template.endText();
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

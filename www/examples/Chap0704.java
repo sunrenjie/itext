@@ -31,33 +31,33 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.xml.XmlParser;
 
 public class Chap0704 {
+    
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 7 example 4: making life easy");
-
-		// step 1: creation of a document-object
-		Document documentA = new Document(PageSize.A4, 80, 50, 30, 65);
-
-		// step 1: creation of a document-object
-		Document documentB = new Document(PageSize.A4, 80, 50, 30, 65);
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a XML-stream to a file
- 			PdfWriter.getInstance(documentA, new FileOutputStream("Chap0704a.pdf"));
- 			PdfWriter.getInstance(documentB, new FileOutputStream("Chap0704b.pdf"));
-
-			// step 3: we parse the document
-            XmlParser.parse(documentA, "Chap0701.xml");
-            XmlParser.parse(documentB, "Chap0703.xml", "tagmap0703.xml");         
+        System.out.println("Chapter 7 example 4: making life easy");
+        
+        // step 1: creation of a document-object
+        Document documentA = new Document(PageSize.A4, 80, 50, 30, 65);
+        
+        // step 1: creation of a document-object
+        Document documentB = new Document(PageSize.A4, 80, 50, 30, 65);
+        
+        try {
             
-		}
-		catch(Exception e) {
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a XML-stream to a file
+            PdfWriter.getInstance(documentA, new FileOutputStream("Chap0704a.pdf"));
+            PdfWriter.getInstance(documentB, new FileOutputStream("Chap0704b.pdf"));
+            
+            // step 3: we parse the document
+            XmlParser.parse(documentA, "Chap0701.xml");
+            XmlParser.parse(documentB, "Chap0703.xml", "tagmap0703.xml");
+            
+        }
+        catch(Exception e) {
             e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

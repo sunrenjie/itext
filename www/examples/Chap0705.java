@@ -37,64 +37,64 @@ import com.lowagie.text.xml.XmlParser;
 import com.lowagie.text.xml.XmlPeer;
 
 public class Chap0705 {
+    
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 7 example 5: simple database example");
-
-		int i = 0;
-		try {
-        	BufferedReader reader = new BufferedReader(new FileReader("simpleDB0705.txt"));
-
+        System.out.println("Chapter 7 example 5: simple database example");
+        
+        int i = 0;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("simpleDB0705.txt"));
+            
             String line;
             while ((line = reader.readLine()) != null) {
-				HashMap tagmap = new HashMap();
-				StringTokenizer tokenizer = new StringTokenizer(line, "|");
-				
-				XmlPeer peer = new XmlPeer(ElementTags.ITEXT, "letter");
-				tagmap.put(peer.getAlias(), peer);
-				if (tokenizer.hasMoreTokens()) {
-					peer = new XmlPeer(ElementTags.CHUNK, "givenname");
-					peer.setContent(tokenizer.nextToken());
-					tagmap.put(peer.getAlias(), peer);
-
-				}
-				if (tokenizer.hasMoreTokens()) {
-					peer = new XmlPeer(ElementTags.CHUNK, "name");
-					peer.setContent(tokenizer.nextToken());
-					tagmap.put(peer.getAlias(), peer);
-
-				}
-				if (tokenizer.hasMoreTokens()) {
-					peer = new XmlPeer(ElementTags.CHUNK, "mail");
-					peer.setContent(tokenizer.nextToken());
-					tagmap.put(peer.getAlias(), peer);
-
-				}
-				if (tokenizer.hasMoreTokens()) {
-					peer = new XmlPeer(ElementTags.ANCHOR, "website");
-					String reference = tokenizer.nextToken();
-					peer.setContent(reference);
-					peer.addValue(ElementTags.REFERENCE, reference);
-					peer.addValue(ElementTags.COLOR, "#0000FF");
-					tagmap.put(peer.getAlias(), peer);
-
-				}
-				
-				// step 1: creation of a document-object
-				Document document = new Document(PageSize.A4, 80, 50, 30, 65);
-				
-				// step 2:
-				// we create a writer that listens to the document
-	 			PdfWriter.getInstance(document, new FileOutputStream("Chap0705_" + (++i) + ".pdf"));
-				
-				// step 3: we parse the document
-	            XmlParser.parse(document, "simpleLetter0705.xml", tagmap); 
-			}				
-		}
-		catch(Exception e) {
+                HashMap tagmap = new HashMap();
+                StringTokenizer tokenizer = new StringTokenizer(line, "|");
+                
+                XmlPeer peer = new XmlPeer(ElementTags.ITEXT, "letter");
+                tagmap.put(peer.getAlias(), peer);
+                if (tokenizer.hasMoreTokens()) {
+                    peer = new XmlPeer(ElementTags.CHUNK, "givenname");
+                    peer.setContent(tokenizer.nextToken());
+                    tagmap.put(peer.getAlias(), peer);
+                    
+                }
+                if (tokenizer.hasMoreTokens()) {
+                    peer = new XmlPeer(ElementTags.CHUNK, "name");
+                    peer.setContent(tokenizer.nextToken());
+                    tagmap.put(peer.getAlias(), peer);
+                    
+                }
+                if (tokenizer.hasMoreTokens()) {
+                    peer = new XmlPeer(ElementTags.CHUNK, "mail");
+                    peer.setContent(tokenizer.nextToken());
+                    tagmap.put(peer.getAlias(), peer);
+                    
+                }
+                if (tokenizer.hasMoreTokens()) {
+                    peer = new XmlPeer(ElementTags.ANCHOR, "website");
+                    String reference = tokenizer.nextToken();
+                    peer.setContent(reference);
+                    peer.addValue(ElementTags.REFERENCE, reference);
+                    peer.addValue(ElementTags.COLOR, "#0000FF");
+                    tagmap.put(peer.getAlias(), peer);
+                    
+                }
+                
+                // step 1: creation of a document-object
+                Document document = new Document(PageSize.A4, 80, 50, 30, 65);
+                
+                // step 2:
+                // we create a writer that listens to the document
+                PdfWriter.getInstance(document, new FileOutputStream("Chap0705_" + (++i) + ".pdf"));
+                
+                // step 3: we parse the document
+                XmlParser.parse(document, "simpleLetter0705.xml", tagmap);
+            }
+        }
+        catch(Exception e) {
             e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

@@ -69,12 +69,12 @@ public class Chap0201 {
                 Chunk chunk = new Chunk("This is some", fonts[i]);
                 document.add(new Phrase(chunk));
                 document.add(new Phrase(new Chunk(" font. ",
-                    fonts[i]).setTextRise((i % 2 == 0) ? -6 : 6)));
+                fonts[i]).setTextRise((i % 2 == 0) ? -6 : 6)));
             }
             document.add(new Phrase(new Chunk("This text is underlined",
-                new Font(Font.HELVETICA, 12, Font.UNDERLINE))));
+            new Font(Font.HELVETICA, 12, Font.UNDERLINE))));
             document.add(new Phrase(new Chunk("This font is of type ITALIC | STRIKETHRU",
-                new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));
+            new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));
             
         }
         catch(DocumentException de) {

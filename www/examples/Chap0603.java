@@ -31,42 +31,42 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.html.HtmlWriter;
 
 public class Chap0603 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 6 example 2: Adding a Gif, Jpeg and Png-file using filenames");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-
-			PdfWriter.getInstance(document, new FileOutputStream("Chap0603.pdf"));
-			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));
-			
-			writer.setImagepath("../../images/kerstmis/");
-
-			// step 3: we open the document
-			document.open();
-			
-			// step 4: we add content
-			Image jpg = Image.getInstance("raf.jpg");
-			jpg.scalePercent(50);
-			document.add(jpg);
-
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 6 example 2: Adding a Gif, Jpeg and Png-file using filenames");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0603.pdf"));
+            HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));
+            
+            writer.setImagepath("../../images/kerstmis/");
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we add content
+            Image jpg = Image.getInstance("raf.jpg");
+            jpg.scalePercent(50);
+            document.add(jpg);
+            
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

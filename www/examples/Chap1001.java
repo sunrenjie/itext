@@ -31,36 +31,36 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1001 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 10 example 1: Simple Graphic");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1001.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we grab the ContentByte and do some stuff with it
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 10 example 1: Simple Graphic");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1001.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
             
             // an example of a rectangle with a diagonal in very thick lines
-			cb.setLineWidth(10f);
+            cb.setLineWidth(10f);
             // draw a rectangle
             cb.rectangle(100, 700, 100, 100);
-			// add the diagonal
-			cb.moveTo(100, 700);
-			cb.lineTo(200, 800);
-			// stroke the lines
-			cb.stroke();
+            // add the diagonal
+            cb.moveTo(100, 700);
+            cb.lineTo(200, 800);
+            // stroke the lines
+            cb.stroke();
             
             // an example of some circles
             cb.setLineDash(3, 3, 0);
@@ -68,7 +68,7 @@ public class Chap1001 {
             cb.circle(150f, 500f, 100f);
             cb.stroke();
             
- 			cb.setLineWidth(5f);           
+            cb.setLineWidth(5f);
             cb.resetRGBColorStroke();
             cb.circle(150f, 500f, 50f);
             cb.stroke();
@@ -82,15 +82,15 @@ public class Chap1001 {
             // the color of the triangle will be red instead of green
             cb.setRGBColorFillF(255f, 0f, 0f);
             cb.closePathFillStroke();
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

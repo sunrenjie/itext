@@ -50,7 +50,7 @@ public class Chap0203 {
             
             // step 4: we add a paragraph to the document
             document.add(new Phrase("What is the " + (char) 945 + "-coefficient of the "
-                + (char) 946 + "-factor in the " + (char) 947 + "-equation?\n"));
+            + (char) 946 + "-factor in the " + (char) 947 + "-equation?\n"));
             for (int i = 913; i < 970; i++) {
                 document.add(new Phrase(" " + String.valueOf(i) + ": " + (char) i));
             }

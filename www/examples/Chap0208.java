@@ -63,19 +63,19 @@ public class Chap0208 {
             ListItem listItem;
             list = new List(true, 15);
             listItem = new ListItem("When Harlie was one",
-                new Font(Font.TIMES_NEW_ROMAN, 12));
+            new Font(Font.TIMES_NEW_ROMAN, 12));
             listItem.add(new Chunk(" by David Gerrold",
-                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             listItem = new ListItem("The World according to Garp",
-                new Font(Font.TIMES_NEW_ROMAN, 12));
+            new Font(Font.TIMES_NEW_ROMAN, 12));
             listItem.add(new Chunk(" by John Irving",
-                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             listItem = new ListItem("Decamerone",
-                new Font(Font.TIMES_NEW_ROMAN, 12));
+            new Font(Font.TIMES_NEW_ROMAN, 12));
             listItem.add(new Chunk(" by Giovanni Boccaccio",
-                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             document.add(list);
             
