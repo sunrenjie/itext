@@ -25,20 +25,13 @@
 				<property name="tutorialsrc" value="${{basedir}}/../www/tutorial" />
 				<property name="tutorial" value="${{basedir}}/tutorial" />
 				<xsl:for-each select="site:example">
-					<xsl:if test="count(site:externalresource)!=0" >
+					<xsl:for-each select="site:externalresource">
 						<xsl:element name="copy">
+							<xsl:attribute name="file">${tutorialsrc}<xsl:value-of select="$branch" />/<xsl:value-of select="." /></xsl:attribute>
 							<xsl:attribute name="todir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
 							<xsl:attribute name="overwrite">no</xsl:attribute>
-							<xsl:element name="fileset">
-								<xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="$branch" /></xsl:attribute>
-								<xsl:for-each select="site:externalresource">
-									<xsl:element name="filename">
-										<xsl:attribute name="name"><xsl:value-of select="." /></xsl:attribute>
-									</xsl:element>
-								</xsl:for-each>
-							</xsl:element>
 						</xsl:element>
-					</xsl:if>
+					</xsl:for-each>
 				</xsl:for-each>
 				<antcall target="examples" />
 			</target>
