@@ -54,7 +54,7 @@ public class Chap1005 {
             // step 4:
             
             // we create some content
-            BaseFont bf = BaseFont.createFont("Courier", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            BaseFont bf = BaseFont.createFont(BaseFont.COURIER, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font font = new Font(bf, 11, Font.NORMAL);
             
             Phrase unicodes = new Phrase(15, "UNI\n", font);

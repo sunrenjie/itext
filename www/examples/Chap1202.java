@@ -83,7 +83,7 @@ public class Chap1202 {
             // step 3: we open the document
             document.open();
             // step 4: we add some content
-            BaseFont bf = BaseFont.createFont("Helvetica", "winansi", false);
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
             // table 1
             PdfPTable table = new PdfPTable(4);
             table.getDefaultCell().setBorder(Rectangle.NO_BORDER);

@@ -161,7 +161,7 @@ class MyPageEvents extends PdfPageEventHelper {
     // we override the onOpenDocument method
     public void onOpenDocument(PdfWriter writer, Document document) {
         try {
-            bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             cb = writer.getDirectContent();
             template = cb.createTemplate(50, 50);
         }
