@@ -16,6 +16,26 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="FormTextField" standalone="yes" />
+			<site:result>textfield.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a text field</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FormCombo" standalone="yes" />
+			<site:result>combo.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a combobox</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FormCheckbox" standalone="yes" />
+			<site:result>checkbox.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a checkbox</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FormRadioButton" standalone="yes" />
+			<site:result>radiobutton.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a radiobutton</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="SimpleRegistrationForm" standalone="yes" />
 			<site:result>SimpleRegistrationForm.pdf</site:result>
 			<site:description>Generates a PdfPTable with some TextFields</site:description>
