@@ -28,12 +28,12 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates the use of PageSize.
+ * Demonstrates the measurement system.
  * @author blowagie
  */
 public class Measurements {
     /**
-     * Creates a PDF document with a certain pagesize
+     * Creates a PDF document explaining the measurement system.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {

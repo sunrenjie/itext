@@ -28,12 +28,12 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates the use of PageSize.
+ * Demonstrates the use of margins.
  * @author blowagie
  */
 public class Margins {
     /**
-     * Creates a PDF document with a certain pagesize
+     * Creates a PDF document with different pages that have different margins.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {

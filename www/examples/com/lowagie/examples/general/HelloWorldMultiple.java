@@ -29,7 +29,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.rtf.RtfWriter2;
 
 /**
- * Generates a simple 'Hello World' PDF file.
+ * Generates simple 'Hello World' PDF, RTF and HTML files.
  * 
  * @author blowagie
  */
@@ -37,7 +37,7 @@ import com.lowagie.text.rtf.RtfWriter2;
 public class HelloWorldMultiple {
 
 	/**
-	 * Generates a PDF file with the text 'Hello World'
+	 * Generates simple PDF, RTF and HTML files using only one Document object.
 	 * 
 	 * @param args no arguments needed here
 	 */

@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.general;
+package com.lowagie.examples.general.faq;
 
 
 import java.io.FileOutputStream;
@@ -28,37 +28,32 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates the creating PDF in portrait/landscape.
+ * Demonstrates the use of getVersion.
  * @author blowagie
  */
-public class LandscapePortrait {
+public class iTextVersion {
     /**
-     * Creates a PDF document with pages in portrait/landscape.
+     * Creates a PDF document and shows the iText version.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
         
-        System.out.println("Documents in Landscape and Portrait format");
+        System.out.println("iText version " + Document.getVersion());        
         // step 1: creation of a document-object
-        Document document = new Document(PageSize.A4.rotate());
+        Document document = new Document();
         
         try {
             
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            
-            PdfWriter.getInstance(document, new FileOutputStream("LandscapePortrait.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("version.pdf"));
             
             // step 3: we open the document
             document.open();
             
-            // step 4: we add some content
-            document.add(new Paragraph("To create a document in landscape format, just make the height smaller than the width. For instance by rotating the PageSize Rectangle: PageSize.A4.rotate()"));
-            document.setPageSize(PageSize.A4);
-            document.newPage();
-            document.add(new Paragraph("This is portrait again"));
-            
+            // step 4:
+            document.add(new Paragraph("This page was made using " + Document.getVersion()));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

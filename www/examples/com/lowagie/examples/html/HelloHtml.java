@@ -29,7 +29,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.html.HtmlWriter;
 
 /**
- * Generates a simple 'Hello World' PDF file.
+ * Generates a simple 'Hello World' HTML page.
  * 
  * @author blowagie
  */
@@ -37,7 +37,7 @@ import com.lowagie.text.html.HtmlWriter;
 public class HelloHtml {
 
 	/**
-	 * Generates a PDF file with the text 'Hello World'
+	 * Generates an HTML page with the text 'Hello World'
 	 * 
 	 * @param args no arguments needed here
 	 */

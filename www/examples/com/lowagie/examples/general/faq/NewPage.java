@@ -28,17 +28,17 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates the use of PageSize.
+ * Demonstrates the use of newPage.
  * @author blowagie
  */
 public class NewPage {
     /**
-     * Creates a PDF document with a certain pagesize
+     * Creates a PDF document with different pages.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
         
-        System.out.println("Measurements");        
+        System.out.println("Using newPage()");        
         // step 1: creation of a document-object
         Document document = new Document();
         
