@@ -19,7 +19,14 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
-<li>Rtf bugfixes setTextRise() and anchors by Mark Hall</li>
+<li>2005-01-11: paulo 149 - iText 1.2.1<ul>
+<li>fixed a bug that broke PDF 1.5 compression. The bug was introduced in itext-paulo-144.</li>
+<li>fixed PdfCopy to not throw an exception with acroform that is not indirect.</li>
+<li>fixed PdfGraphics2D to match the pdf text width with the awt text width.</li></ul></li>
+<li>Rtf bugfixes by Mark Hall<ul>
+<li>solved a problem with the way fonts are propagated form RtfPhrase to RtfChunk</li>
+<li>fixed a bug in the way fonts were handled that derive from a BaseFont. The BaseFont is now no longer ignored.</li>
+<li>solved problems with setTextRise() and anchors</li></ul></li>
 </ul>
 </site:changelog>
 </site:release>
