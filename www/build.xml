@@ -348,6 +348,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0303">
            <classpath refid="classpath" />
 		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0304">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0401">
            <classpath refid="classpath" />
 		</java>
@@ -597,9 +600,6 @@
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1110">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1111">
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1201">

@@ -127,17 +127,44 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="annotation"><B>Annotations</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-            Annotations are small pieces of information you can add to your text, but that are not
-            really part of the content. Annotations have a title and some content.<br>
-            <FONT FACE="Courier">	
-			Annotation a = new Annotation(<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;"authors",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;"Maybe it's because I wanted to be an author myself that I wrote iText.");<br>
+			In iText, different types of annotations are supported:
+			<UL>
+				<LI><b>Text:</b> you can add small pieces of text to your document that are not
+                    really part of the content. Annotations have a title and some content.<br>
+                    <FONT FACE="Courier">	
+		            Annotation a = new Annotation(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"authors",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"Maybe it's because I wanted to be an author myself that I wrote iText.");
+					</FONT>
+				<LI><b>External links:</b> you have to specify a clickable rectangle and a String (representing the URL) or an URL-object.<br>
+					<FONT FACE="Courier">
+					Annotation annot = new Annotation(100f, 700f, 200f, 800f, new URL("http://www.lowagie.com"));<br>
+					Annotation annot = new Annotation(100f, 700f, 200f, 800f, "http://www.lowagie.com");
+					</FONT>
+				<LI><b>External PDF file:</b> you have to specify a clickable rectangle and a String (the filename) and a destination or pagenumber.<br>
+					<FONT FACE="Courier">
+					Annotation annot = new Annotation(100f, 700f, 200f, 800f, "other.pdf", "mark");<br>
+					Annotation annot = new Annotation(100f, 700f, 200f, 800f, "other.pdf", 2);
+					</FONT>
+				<LI><b>Named action:</b> you have to specify a clickable rectangle and a named action:<br>
+					<FONT FACE="Courier">
+					Annotation annot = new Annotation(100f, 700f, 200f, 800f, PdfAction.FIRSTPAGE);
+					</FONT>
+				<LI><b>Application:</b> you have to specify a clickable rectangle and an application:<br>
+					<FONT FACE="Courier">
+					Annotation annot = new Annotation(300f, 700f, 400f, 800f, "C://winnt/notepad.exe", null, null, null);
+					</FONT>
+			</UL>
             </FONT>
-            If you look at the <A HREF="../examples/Chap0303.pdf">result</A>
-            of <A HREF="../examples/Chap0303.java">Example 3</A>. You can
-            see that iText adds the annotations just below the current location on the page. The first one
+            If you look at the <A HREF="../examples/Chap0303.pdf">Chap0303.pdf</A> is the result
+            of <A HREF="../examples/Chap0303.java">example 3</A>. We didn't need to specify a position
+			on the page, so iText took care of this internally. You can see that iText adds the
+			text-annotations just below the current location on the page. The first one
             below the first line after the paragraph. The second one just below the end of the phrase.<BR>
+			All other types of annotations need you to specify the coordinates of a rectangle.
+			In <A HREF="../examples/Chap0304.java">example 4</A>, we draw some squares (using
+			functionality that is discussed in <A HREF="ch10.html">Chapter 10</A>) and we
+			add an annotation to each square. See <A HREF="../examples/Chap0304.pdf">Chap0304.pdf</A>.
             </FONT><BR><BR><BR>
 		</TD>
 	</TR>
