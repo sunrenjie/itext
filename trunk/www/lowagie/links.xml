@@ -40,6 +40,16 @@
 		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.<br />
 		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.<br />
 		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.<br />
+		<a href="http://www.pdfill.com/" class="topic">PDFill Form Filler:</a>
+		iText makes it possible to come up with a PDF Form Filler at only
+		$9.99.  This form filler allows you to fill PDF form
+		fields, insert formatted text, check box, image, URL,
+		whiteout and blank page without Adobe Acrobat. The
+		edited file can be saved locally for email and
+		archiving with options of password, information and
+		view preference. The filling can be stopped now and
+		resumed later. It has Spell-Checker for the filled
+		texts and Smart Positioning for accurate alignment. 
 		<div class="title">Free / Open Source Software links</div>
 		<a href="http://sourceforge.net/" class="topic">SourceForge:</a>  the world's largest Open Source software development website.
 		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
@@ -47,6 +57,7 @@
 		<div class="title">Other technical links</div>
 		<a href="http://www.chrispederick.com/work/firefox/webdeveloper/" class="topic">Web Developer:</a> a plugin for <a href="http://www.mozilla.org/products/firefox/">Mozilla Firefox</a>. I use it to design my site. It has some awesome CSS functionalities.
 		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
+		<a href="http://www.mulberrytech.com/quickref/XSLTquickref.pdf" class="topic">Mullberry Technologies:</a> XSLT and XPath Quick Reference
 		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
 		<a href="http://www.vbxml.com/xsl/xsltref.asp" class="topic">Top XML:</a> XSLT Reference
 		<div class="title">Miscellaneous links</div>

@@ -191,6 +191,10 @@ Japanese. It's a great tool, I absolutely could not have done without it.</li>
 they can install the open-source iText software for generating PDF files on the fly
 (instructions for downloading and installing iText in your OS/400 environment will
 be included in the beta's README file).</li>
+<li>iText makes it possible to come up with a <a href="http://www.pdfill.com/">PDFill Form Filler</a> at only $9.99.  This form filler allows you to fill PDF form
+fields, insert formatted text, check box, image, URL, whiteout and blank page without Adobe Acrobat. The edited file can be saved locally for email and
+archiving with options of password, information and view preference. The filling can be stopped now and	resumed later. It has Spell-Checker for the filled
+texts and Smart Positioning for accurate alignment.</li>
 </ul>
 </site:answer>
 </site:faq-entry>
