@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Fonts in iText</site:title>
+		<site:summary>Different types of Fonts supported in iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Fonts, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:book asin="0201570440">Adobe type 1 font format</site:book>
+			<site:keyword>Fonts</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="StandardType1Fonts" standalone="yes" />
+			<site:result>StandardType1Fonts.pdf</site:result>
+			<site:description>Sums up the 14 Standard Type 1 Fonts</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="type1">
+		<site:sectiontitle>Standard Type 1 Fonts</site:sectiontitle>
+<div>
+PDF prescribes a set of 14 standard fonts that can be used without prior definition.
+These include four faces each of three Latin text typefaces (Courier,
+Helvetica and Times), as well as two symbolic fonts (Symbol and ITC Zapf
+Dingbats &#210;). These fonts, or suitable substitute fonts with the same metrics, are
+considered to be available in all PDF consumer applications. You don't have to
+embed them in your PDF document.
+</div>
+	</site:section>
+	
+	</site:chapter>
+
+</site:page>

@@ -80,10 +80,16 @@ the printed result.
 It strikes me how many times this question is asked on the mailing-list.
 The method you need to create a new page isn't that cryptic:
 <site:doc class="com.lowagie.text.Document" target="newPage()">document.newPage()</site:doc>.
-Of course, there is a little caveat. If you invoke <span class="commandline">newPage</span>
+Of course, there are some little caveats:
+<ul><li>If you are construction an Object such as <site:doc class="com.lowagie.text.Section">Section</site:doc>,
+you can't just invoke <site:doc class="com.lowagie.text.Document">newPage()</site:doc> on the document;
+you should tell the object, that you want to go to the next page.
+In this case, you should add a <site:doc class="com.lowagie.text.Chunk" target="NEXTPAGE">Chunk.NEXPAGE</site:doc>
+to the object.</li>
+<li>If you invoke <span class="commandline">newPage</span>
 and the current page is blank, no new page will be added. You can only insert blank pages by
 adding something 'invisible' to the page. In the example below, a
-<site:doc class="com.lowagie.text.Chunk" target="NEWLINE">Chunk.NEWLINE</site:doc> is added.
+<site:doc class="com.lowagie.text.Chunk" target="NEWLINE">Chunk.NEWLINE</site:doc> is added.</li></ul>
 <site:source class="NewPage" />
 </div>
 	</site:section>
