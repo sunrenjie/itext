@@ -96,8 +96,13 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="msie"><B>Problems with the Internet Explorer plugin</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			There is a bug in MSIE that still has to be fixed by the developers at MicroSoft.
-			When you send dynamically created CORRECT (!) PDFs, you only get a blank browser window.
+			See also the Support Knowledge Base at Adobe: <A HREF="http://www.adobe.com/support/techdocs/3d76.htm">document 311184</A>.<BR>
+			Solution 8 is very polite about this, but there is a bug in MSIE that
+			still has to be fixed by the developers at MicroSoft.
+			When you send dynamically created CORRECT (!) PDFs
+			(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
+			a blank browser window. This is because MSIE needs to know
+			the exact content length of the PDF file in advance!<BR>
 			You can use the following workaround to avoid this:<BR><BR>
 			&nbsp;<CODE>res.setContentType("application/pdf");</CODE><BR>
 			&nbsp;<CODE>ByteArrayOutputStream ba = new ByteArrayOutputStream();</CODE><BR>
@@ -244,3 +249,4 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 
 </BODY>
 </HTML>
+
