@@ -23,7 +23,6 @@ package com.lowagie.examples.rtf;
 import java.io.*;
 import java.awt.Color;
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.rtf.RtfWriter;
 import com.lowagie.text.rtf.RtfWriter2;
 import com.lowagie.text.rtf.headerfooter.*;
