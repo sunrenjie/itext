@@ -62,12 +62,81 @@
 			<LI><A HREF="#VERSION040">iText0.40</A>: spring 2001
 			<LI><A HREF="#VERSION041">iText0.41</A>: summer 2001
 			<LI><A HREF="#VERSION050">iText0.50</A>: 13 August 2001
+			<LI><A HREF="#VERSION051">iText0.51 - iText0.70</A>: september-october 2001
+			<LI><A HREF="#VERSION071">iText0.71</A>: november 2001
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B>iText0.50</B><br>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION071">iText0.71</A></B> (Changes by Paulo Soares in paulo-84 + bugfixes from several other people)<br>
+		<UL>
+			<LI>Ameliorations in the Table-class
+			<LI>correction in PdfEncryption. The mask permission bits were incorrect and
+      			allowed the security parameters to be changed in Acrobat.
+			<LI>corrected PdfPTable. Some cases of tables were not crossing correctly the
+      			pages.
+			<LI>chapters and sections have the option of presenting themselves as opened or
+      			colapsed.
+			<LI>improved line breaking for CJK fonts.
+			<LI>support for windows metafiles.
+			<LI>support for getting the dots-per-inch in an image. Usefull to get the image
+      			dimensions. This information is always available in WMF and sometimes in
+      			PNG and JPEG.
+			<LI>the last row in a nested PdfPTable is stretched to occupy the entire cell.
+      			Fix provided by Jin-Hsia Yang.
+			<LI>corrected the parameters bounds in PdfContentByte.setLineCap and
+      			PdfContentByte.setLineJoin.
+			<LI>added PdfContentByte.setLiteral. Allows the insertion of arbitrary content
+      			in the stream.
+			<LI>several new font descriptors are available in BaseFont.getFontDescriptor.
+      			These are all related to the font box dimensions.
+		</UL>
+		</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION051">iText0.51 - iText0.70</A></B> (Changes by Paulo Soares in paulo-80, paulo-81, paulo-82 and paulo-83)<br>
+		<UL>
+			<LI>several font descriptors are available in BaseFont.getFontDescriptor. These
+      			are ascent, descent, cap height and italic angle.
+			<LI>added class PdfPTableEvent. This event is called when the table is rendered.
+      			Can be used to customize backgrounds with images, different borders, etc.
+			<LI>added Document.addCreator.
+			<LI>support for PdfAction in defined regions in PdfContentByte.
+			<LI>support for PdfAction in outlines.
+			<LI>added pdf encryption. Supports 40 bit and 128 bit key length and all
+      			the permissions/restrictions.
+			<LI>corrected error in Image when the rotation was in the 3rd or 4th
+      			quadrant.
+			<LI>PdfPCell(PdfPTable) was made public.
+			<LI>a newline as added to the final %%EOF line. A version of ghostscript
+      			choked without it.
+			<LI>some correction made when adding templates as images.
+			<LI>several speed and memory optimizations. Arrays are only copied when
+      			necessary and PdfDocument just caches the Id of the image, not the
+      			full image.
+			<LI>corrected a bug when adding very big images. The images would be added
+      			forever.
+			<LI>minimumHeight was added to PdfPCell. This does what fixedHeight used to
+      			do.
+			<LI>change of behavior for fixedHeight in PdfPCell. fixedHeight sets the fixed
+      			cell's height and truncates any text out boundaries.
+			<LI>added CCITT support.
+			<LI>anchors are inserted into the pdf document unchanged, not using the URL class.
+			<LI>changes to Image. A template can be used as an Image. Useful
+      			to include rotated text in tables or to create new characters.
+			<LI>changes to Image. A java.awt.Image can be forced to render in black
+      			and white.
+			<LI>jdk 1.4 support. The font encoding had problems in jdk 1.4.
+		</UL>
+		</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION050">iText0.50</A></B><br>
 		<UL>
 		<LI>Xml support: you can generate XML that follows an iText.dtd.
 			You can convert these file to PDF, or you can convert XML file that obey to
