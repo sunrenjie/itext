@@ -55,7 +55,10 @@ When asked for the <span class="commandline">CVS password:</span> just press ent
 You can obtain todays complete sourcecode tree using this statement:
 <div class="commandline">cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext export -D now src</div>
 The complete iText site, tutorial and examples are in another module:
-<div class="commandline">cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext export -D now www</div>
+<div class="commandline">cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext export -D now www</div><br /><br />
+The three actions described above are also combined in the <a href="ant.html">ANT scripts</a>.
+You can get the source with this command <span class="commandline">ant getFromCvs</span>.<br /><br />
+If all this doesn't work, please check the SourceForge status information. Anonymous CVS could be down.
 <div class="title">Developer Access</div>
 For the moment only 3 developers have been granted <a href="http://sourceforge.net/cvs/?group_id=15255">Developer CVS Access via SSH</a>.
 They are the only ones allowed to commit changes to the CVS repository. All other users only have anonymous ReadOnly access.

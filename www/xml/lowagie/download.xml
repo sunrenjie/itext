@@ -41,7 +41,7 @@ There was no money involved in this deal; the developers of iText are not
 on the paylist of PDF Sages.  The responsibility for these contracts lies
 with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
 <div class="title">Current release</div>
-The current release on this site is <site:releasenumber />. This is considered a STABLE release ( <site:releasedate />).
+The current release on this site is <site:releasenumber />. This is considered a STABLE release (<site:releasedate />).
 iText<site:releasenumber /> was based on the Early Access release itext-paulo-<site:earlyaccessnumber />.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
 	<tr><th colspan="5">Download the library:</th></tr>
