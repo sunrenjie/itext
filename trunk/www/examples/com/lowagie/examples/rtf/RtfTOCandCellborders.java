@@ -38,7 +38,18 @@ import com.lowagie.text.rtf.table.RtfCell;
 import com.lowagie.text.rtf.table.RtfBorder;
 import com.lowagie.text.rtf.table.RtfBorderGroup;
 
+/**
+ * Generates an RTF document with a Table of Contents and a Table with special Cellborders.
+ * 
+ * @author Mark Hall
+ */
 public class RtfTOCandCellborders {
+
+    /**
+     * Creates an RTF document with a TOC and Table with special Cellborders.
+     * 
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
         System.out.println("Table of contents and Cell borders");
         Document document = new Document();

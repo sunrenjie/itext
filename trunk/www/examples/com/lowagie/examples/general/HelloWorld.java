@@ -34,9 +34,14 @@ import com.lowagie.text.pdf.PdfWriter;
 
 public class HelloWorld {
 
+	/**
+	 * Generates a PDF file with the text 'Hello World'
+	 * 
+	 * @param args no arguments needed here
+	 */
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 1 example 1: Hello World");
+		System.out.println("Hello World");
 
 		// step 1: creation of a document-object
 		Document document = new Document();

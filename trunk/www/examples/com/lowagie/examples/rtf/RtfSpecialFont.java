@@ -30,12 +30,17 @@ import com.lowagie.text.rtf.RtfWriter2;
 import com.lowagie.text.rtf.style.RtfFont;
 
 /**
- * This example creates a RTF document with the font 'Comic'
+ * This example creates a RTF document with the font 'Comic'.
  *
  * @author <a href="mailto:mhall@myrealbox.com">Mark.Hall@myrealbox.com</a>
  */
 public class RtfSpecialFont {
 
+    /**
+     * Creates an RTF with a special font (Comic).
+     * 
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
 
         System.out.println("RTF Special Fonts");

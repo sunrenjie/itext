@@ -28,8 +28,18 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.rtf.RtfWriter2;
 
+/**
+ * Generates an RTF document with the text 'Hello'
+ * 
+ * @author Mark Hall
+ */
 public class HelloRtf {
     
+    /**
+     * Creates an RTF file.
+     * 
+     * @param args some text. For instance: if you add 'World' as argument, the RTF will contain the text 'Hello World'.
+     */
     public static void main(String[] args) {
         
         System.out.println("Hello World example in RTF");

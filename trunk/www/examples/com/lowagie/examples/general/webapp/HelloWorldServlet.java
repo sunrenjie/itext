@@ -43,6 +43,8 @@ import com.lowagie.text.rtf.RtfWriter;
 public class HelloWorldServlet extends HttpServlet {
 	   
     /**
+     * Returns a PDF, RTF or HTML document.
+     * 
      * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
     public void doGet (HttpServletRequest request, HttpServletResponse response)

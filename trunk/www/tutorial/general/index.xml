@@ -17,7 +17,7 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="HelloWorld" />
+			<site:java src="HelloWorld" standalone="yes" />
 			<site:result>HelloWorld.pdf</site:result>
 			<site:description>Generates a simple 'Hello World' PDF file</site:description>
 		</site:example>
