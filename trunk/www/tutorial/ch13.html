@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, Tutorial, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - Tutorial</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
+	<TR>
+		<TD COLSPAN="2" ALIGN="center">
+			<FONT FACE="Times New Roman" SIZE="+3" COLOR="#FFFFFF"><I>i</I></FONT><FONT FACE="Arial,Helvetica" SIZE="+3" COLOR="#FFFFFF">Text Tutorial</FONT>
+		</TD>
+		<TD BGCOLOR="#808080">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">iText, a Free Java-PDF library<BR>
+			by </FONT><A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.lowagie.com/iText/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch12.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center">&nbsp;</TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="notyet.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">PDF</FONT></A>]</FONT></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<BR>
+			<FONT FACE="Arial,Helvetica" SIZE="+1">Part IV: Simple iText</FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 13: Reading PDF</B></FONT><BR>
+		</TD>
+	</TR>
+
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>PdfReader</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			You can't 'parse' an existing PDF file using iText, you can only 'read' it page per page.<br>
+			What does this mean?<br>
+			The pdf format is just a canvas where text and graphics are placed without
+            any structure information. As such there aren't any 'iText-objects' in a PDF file.
+			In each page there will probably be a number of 'Strings', but you can't reconstruct
+			a phrase or a paragraph using these strings. There are probably a number of lines drawn,
+			but you can't retrieve a Table-object based on these lines. In short: parsing the content
+			of a PDF-file is NOT POSSIBLE with iText (not if you want good results: there are ways
+            to retrieve text from an existing PDF). Post your question on the newsgroup
+			<A HREF="news://comp.text.pdf">news://comp.text.pdf</A> and maybe you will get some
+			answers from people that have built tools that can parse PDF and extract some of its contents,
+			but don't expect tools that will perform a bullet-proof conversion to structured text.<br>
+			What iText DOES provide is the possibility to READ a PDF document and copy an entire
+			page of this file into the PDF file you are constructing from scratch. This can be useful
+			if you want to create a new document based on (an) existing document(s). You can add
+			a Watermark, pagenumbers,...<br>
+			<A HREF="../examples/Chap13_pdfreader.java">Chap13_pdfreader</A> takes a pdf
+			file from Chapter 7 and creates a new document where 4 pages of the original document
+			are painted on 1 page of the new document. We also added a Watermark and pagenumbers
+			(see <A HREF="../examples/Chap13_pdfreader.pdf">Chap13_pdfreader.pdf</A>).
+			In order to fully understand the code (an how to adapt it to your needs, you will
+			have to read <a href="ch10.html">Chapter 10</A> first)<br>
+			If you have an existing PDF file that represents a form, you could copy the pages
+			of this form and paint text at precise locations on this form. You can't edit an
+			existing PDF document, by saying: for instance replace the word Louagie by Lowagie.
+			To achieve this, you would have to know the exact location of the word Louagie,
+			paint a white rectangle over it and paint the word Lowagie on this white rectangle.
+			Please avoid this kind of 'patch' work. Do your PDF editing with an Adobe product.<br><br>
+            </FONT><A NAME="tools"></a>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>com.lowagie.tools.*</a></B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In package com.lowagie.tools, there are 4 little tools that can be called from the command line:<br>
+			<UL>
+<LI><a href="http://itext.sourceforge.net/src/com/lowagie/tools/concat_pdf.java">com.lowagie.tools.concat_pdf</a><br>
+    This class can be used from the commandline to concatenate existing PDF files.<br>
+    arguments: the filenames of the PDF documents you want to concatenate, followed by the filename of the destination file.<br>
+    Command line example:<br>
+    <FONT FACE="Courier">java -cp itext.jar com.lowagie.tools.concat_pdf Chap0101.pdf Chap0102.pdf Chap0103.pdf result.pdf</FONT><br>
+    <a href="../examples/result.pdf">result.pdf</a> contains the three first examples from Chapter 1.
+<LI><a href="http://itext.sourceforge.net/src/com/lowagie/tools/split_pdf.java">com.lowagie.tools.split_pdf</a><br>
+    This class can be used from the commandline to split an existing PDF file into two new files.<br>
+    Remark: some information from the original file (for instance annotations) will get lost in the process!<br>
+    arguments: srcfile destfile1 destfile2 pagenumber<br>
+    Command line example:<br>
+    <FONT FACE="Courier">java -cp itext.jar com.lowagie.tools.split_pdf result.pdf result1.pdf result2.pdf 2</FONT><br>
+    <a href="../examples/result.pdf">result.pdf</a> will be split into a one page document <a href="../examples/result1.pdf">result1.pdf</a> and a 2 page document <a href="../examples/result2.pdf">result2.pdf</a>
+    (result2.pdf starts with the second page of result.pdf).
+<LI><a href="http://itext.sourceforge.net/src/com/lowagie/tools/handout_pdf.java">com.lowagie.tools.handout_pdf</a><br>
+    This class can be used from the commandline to make handouts from an existing PDF file. You can choose the number of slides per page.<br>
+    arguments: srcfile destfile pages<br>
+    Command line example:<br>
+    <FONT FACE="Courier">java -cp itext.jar com.lowagie.tools.handout_pdf concat.pdf handout.pdf 2</FONT><br>
+    <a href="../examples/handout.pdf">handout.pdf</a> is a two page overview (2 slides per page) of the three page document <a href="../examples/result.pdf">result.pdf</a>.
+<LI><a href="http://itext.sourceforge.net/src/com/lowagie/tools/encrypt_pdf.java">com.lowagie.tools.encrypt_pdf</a><br>
+    This class can be used from the commandline to encrypt a PDF file.<br>
+    arguments: input_file output_file user_password owner_password permissions 128|40<br>
+    permissions is 8 digit long 0 or 1. Each digit has a particular security function:
+    <ol>
+    <li>AllowPrinting
+    <li>AllowModifyContents
+    <li>AllowCopy
+    <li>AllowModifyAnnotations
+    <li>AllowFillIn (128 bit only)
+    <li>AllowScreenReaders (128 bit only)
+    <li>AllowAssembly (128 bit only)
+    <li>AllowDegradedPrinting (128 bit only)
+    </ol>
+    Example permissions to copy and print would be: 10100000<br>
+    Command line example:<br>
+    <FONT FACE="Courier">java -cp itext.jar com.lowagie.tools.encrypt_pdf Chap0101.pdf encrypted.pdf user master 00000000 128</FONT><br>
+    You will only be able to open the file <a href="../examples/encrypted.pdf">encrypted.pdf</a>
+	if you know the password (= user). You won't be able to print the file, modify the contents, copy parts of it,...
+</UL>
+</FONT><BR><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center">&nbsp;</TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch02.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="notyet.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">PDF</FONT></A>]</FONT></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" SIZE="-3">
+			<B>Page Updated: </B> $Date$<br>
+			Copyright &copy; 2000, 2001 by Bruno Lowagie
+			</FONT>
+		</TD>
+		<TD COLSPAN="3" ALIGN="right" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" SIZE="-3">
+			Adolf Baeyensstraat 121, 9040 Gent, BELGIUM,<br>
+			tel +00 32 92 28 10 97 mailto:<A HREF="mailto:itext@lowagie.com"><FONT COLOR="#000000">itext@lowagie.com</FONT></A>
+			</FONT>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TABLE>
+
+</BODY>
+</HTML>
