@@ -200,10 +200,13 @@
 
     <target name="srctargz" description="--> makes two tar.gz-files (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
+        <tar tarfile="${itext.dist}/classes.tar" basedir="${itext.classes}" />
         <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
+        <gzip zipfile="${itext.dist}/classes.tar.gz" src="${itext.dist}/classes.tar" />
+		<gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
         <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
+        <delete file="${itext.dist}/classes.tar" />
         <delete file="${itext.dist}/src.tar" />
         <delete file="${itext.dist}/srcXML.tar" />
     </target>
