@@ -28,30 +28,31 @@ import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Chap1105 {
+public class Chap1111 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 5: Open action");
+        System.out.println("Chapter 11 example 11: page labels");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            
             // step 2:
             // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1105.pdf"));
-            
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1111.pdf"));
             // step 3: we open the document
             document.open();
-            
-            // step 4: we add content
-            PdfAction action = PdfAction.gotoLocalPage(2, new PdfDestination(PdfDestination.XYZ, -1, 10000, 0), writer);
-            writer.setOpenAction(action);
-            document.add(new Paragraph("Page 1"));
-            document.newPage();
-            document.add(new Paragraph("Page 2"));
+            // step 4:
+            // we add some content
+            for (int k = 1; k <= 10; ++k) {
+                document.add(new Paragraph("This document has the logical page numbers: i,ii,iii,iv,1,2,3,A-8,A-9,A-10\nReal page " + k));
+                document.newPage();
+            }
+            PdfPageLabels pageLabels = new PdfPageLabels();
+            pageLabels.addPageLabel(1, PdfPageLabels.LOWERCASE_ROMAN_NUMERALS);
+            pageLabels.addPageLabel(5, PdfPageLabels.DECIMAL_ARABIC_NUMERALS);
+            pageLabels.addPageLabel(8, PdfPageLabels.DECIMAL_ARABIC_NUMERALS, "A-", 8);
+            writer.setPageLabels(pageLabels);
         }
         catch (Exception de) {
             de.printStackTrace();
