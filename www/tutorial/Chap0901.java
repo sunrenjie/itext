@@ -51,9 +51,9 @@ public class Chap0901 {
 			document.open();
 
 			// step 4: we add content to the document
-			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);
-			Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
-			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);
+			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", false);
+			Font font = new Font(helvetica, 12, Font.NORMAL);
+			Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac. These are some special characters: \u0152\u0153\u0160\u0161\u0178\u017D\u0192\u02DC\u2020\u2021\u2030", font);
 			document.add(chunk);
 		}
 		catch(DocumentException de) {

@@ -55,13 +55,13 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Other encodings</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Lots of special characters are not supported in ISO 8859-1 (also known as Latin 1).
-			In the <a href="Chap0902.java">following example</a> we will use a known font (Helvetica)
+			In the <a href="Chap0901.java">following example</a> we will use a known font (Helvetica)
 			with an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
             27 characters; the encoding is also known as 'winansi').<br>
 			<FONT FACE="Courier">
 			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", false);<br>
 			Font font = new Font(helvetica, 12, Font.NORMAL);<br>
-			Chunk chunk = new Chunk("Sponser this example and send me 1\u20ac.", font);<br>
+			Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac.", font);<br>
 			document.add(chunk);<br>
 			</FONT>
 			As you can see, the EURO symbol is added by using its UNICODE value.
