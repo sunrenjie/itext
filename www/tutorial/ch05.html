@@ -1,88 +1,86 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head>
 	<!-- $Header$ -->
-	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
-	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, Tutorial, generate, internet, documents, Lowagie, Bruno">
-	<TITLE>iText - Tutorial</TITLE>
-</HEAD>
+	<meta name="Description" content="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<meta name="Keywords" content="PDF, JAVA, servlets, iText, Tutorial, generate, internet, documents, Lowagie, Bruno">
+	<title>iText - Tutorial</title></head>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
 
-<A NAME="top"></A>
+<body bgcolor="#ffffff" text="#000000" link="#008080" vlink="#008080" alink="#00cccc">
 
-<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
-<TR>
-	<TD>
-	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
-	<TR>
-		<TD COLSPAN="2" ALIGN="center">
-			<FONT FACE="Times New Roman" SIZE="+3" COLOR="#FFFFFF"><I>i</I></FONT><FONT FACE="Arial,Helvetica" SIZE="+3" COLOR="#FFFFFF">Text Tutorial</FONT>
-		</TD>
-		<TD BGCOLOR="#808080">
-			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
-		</TD>
-		<TD COLSPAN="2" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">iText, a Free Java-PDF library<BR>
-			by </FONT><A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.lowagie.com/iText/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch04.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch06.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="notyet.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">PDF</FONT></A>]</FONT></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<BR>
-			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Simple iText</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 5: Tables</B></FONT><br>
+<a name="top"></a>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" align="center" bgcolor="#808080">
+<tbody><tr>
+	<td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="7" bgcolor="#008080">
+	<tbody><tr>
+		<td colspan="2" align="center">
+			<font face="Times New Roman" size="+3" color="#ffffff"><i>i</i></font><font face="Arial,Helvetica" size="+3" color="#ffffff">Text Tutorial</font>
+		</td>
+		<td bgcolor="#808080">
+			<a href="http://sourceforge.net/"><img src="ch05_files/sflogo.png" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</td>
+		<td colspan="2" bgcolor="#808080">
+			<font face="Arial,Helvetica" color="#ffffff">iText, a Free Java-PDF library<br>
+			by </font><a href="http://www.lowagie.com/"><font face="Arial,Helvetica" color="#ffffff">Bruno Lowagie</font></a><br>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/"><font face="Arial,Helvetica" color="#ffffff">Home</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/ch04.html"><font face="Arial,Helvetica" color="#ffffff">Previous</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/index.html"><font face="Arial,Helvetica" color="#ffffff">TOC</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/ch06.html"><font face="Arial,Helvetica" color="#ffffff">Next</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/notyet.html"><font face="Arial,Helvetica" color="#ffffff">PDF</font></a>]</font></td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<br>
+			<font face="Arial,Helvetica" size="+1">Part I: Simple iText</font><br><br>
+			<font face="Arial,Helvetica"><b>Chapter 5: Tables</b></font><br>
 			<br>
 			<font face="Arial,Helvetica" size="-1">IMPORTANT: if you only have to generate PDF (no XML, HTML, RTF,...), it is better
-			to use the class <a href="#pdfptable"><FONT FACE="Courier">PdfPTable</FONT></a> instead of class <FONT FACE="Courier">Table</FONT>.</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<BR>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Some simple tables</B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			A <FONT FACE="Courier">Table</FONT> is a <FONT FACE="Courier">Rectangle</FONT>
-			that contains <FONT FACE="Courier">Cell</FONT>s, ordered in some kind of matrix.<BR>
+			to use the class <a href="#pdfptable"><font face="Courier">PdfPTable</font></a> instead of class <font face="Courier">Table</font>.</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<br>
+			<font face="Arial,Helvetica" color="#008080"><b>Some simple tables</b></font><br>
+			<font face="Arial,Helvetica" size="-1">
+			A <font face="Courier">Table</font> is a <font face="Courier">Rectangle</font>
+			that contains <font face="Courier">Cell</font>s, ordered in some kind of matrix.<br>
 			The matrix of a table is not necessarily an m x n-matrix. It can contain holes
-			or cells that are bigger than the unit.<BR><BR>
+			or cells that are bigger than the unit.<br><br>
 			The most common way to construct a table, is to say in advance how many columns and rows you will need:<br>
-			<FONT FACE="Courier">
+			<font face="Courier">
     		public Table(int columns, int rows) throws BadElementException;
-			</FONT><br><br>
-			In <A HREF="../examples/Chap0501.java" name="cells">example 1</A> we construct a very simple table:<BR>
-			<FONT FACE="Courier">
+			</font><br><br>
+			In <a href="http://www.lowagie.com/iText/examples/Chap0501.java" name="cells">example 1</a> we construct a very simple table:<br>
+			<font face="Courier">
 			Table aTable = new Table(2,2);<br>
             aTable.addCell("0.0");<br>
             aTable.addCell("0.1");<br>
             aTable.addCell("1.0");<br>
             aTable.addCell("1.1");
-			</FONT><br>
-			This table has 2 columns and 2 colums. Cells are added automatically, starting with the first column in the first row, than the second column.
-			When a row if full, the next cell is added in the first column of the next row. You can see this in the
-			<A HREF="../examples/Chap0501.pdf">PDF-file</A> generated by example 1.
+			</font><br> 
+			This table has 2 columns and 2 colums. Cells are added automatically,
+starting with the first column in the first row, than the second column. 			When
+a row if full, the next cell is added in the first column of the next row.
+You can see this in the 			<a href="http://www.lowagie.com/iText/examples/Chap0501.pdf">PDF-file</a> generated by example 1.
 			<br><br>
 			It is also possible to add cells at a certain position in the table.
-			This is shown in <A HREF="../examples/Chap0502.java" name="random">example 2</A> and its
-			<A HREF="../examples/Chap0502.pdf">resulting PDF</A>. We made a table we 4 columns and 4 rows and
+			This is shown in <a href="http://www.lowagie.com/iText/examples/Chap0502.java" name="random">example 2</a> and its
+			<a href="http://www.lowagie.com/iText/examples/Chap0502.pdf">resulting PDF</a>. We made a table we 4 columns and 4 rows and
 			then added some cells at random positions:<br>
-			<FONT FACE="Courier">
+			<font face="Courier">
             Table aTable = new Table(4,4);<br>
             aTable.setAutoFillEmptyCells(true);<br>
             aTable.addCell("2.2", new Point(2,2));<br>
             aTable.addCell("3.3", new Point(3,3));<br>
             aTable.addCell("2.1", new Point(2,1));<br>
             aTable.addCell("1.3", new Point(1,3));<br>
-			</FONT><br>
-			As you can see we have to set a parameter 'AutoFillEmptyCells' to <FONT FACE="Courier">true</FONT>.
+			</font><br>
+			As you can see we have to set a parameter 'AutoFillEmptyCells' to <font face="Courier">true</font>.
 			This automagically fills the empty cells with a cell that follows the default cell layout.
 			If we forget to do this (as in the second table in the example), there will be no extra
 			cells added and rows that don't contain any cells will be omitted. In the example, the
@@ -91,322 +89,331 @@
 			Often a table will be filled with the results of a database query.
 			In most cases, you don't know in advance how many rows you will need.
 			That's why there is also a second constructor:<br>
-			<FONT FACE="Courier">
+			<font face="Courier">
     		public Table(int columns) throws BadElementException;
-			</FONT><br><br>
-			iText automatically adds rows when needed. In <A HREF="../examples/Chap0503.java">example 3</A>,
+			</font><br><br>
+			iText automatically adds rows when needed. In <a href="http://www.lowagie.com/iText/examples/Chap0503.java">example 3</a>,
 			we initially start with 4 colums and 4 rows. When we add cells in the 6th and 7th row, iText automatically increments
-			the number of rows to 7. See the <A HREF="../examples/Chap0503.pdf">resulting PDF</A>.<br><br>
+			the number of rows to 7. See the <a href="http://www.lowagie.com/iText/examples/Chap0503.pdf">resulting PDF</a>.<br><br>
 			Incrementing the number of colums is also possible, but it's a little bit more difficult.
-			It doesn't work automatically. You have to use the method <FONT FACE="Courier">addColumns</FONT> and set the widths of the
-			columns. This is shown in <A HREF="../examples/Chap0504.java">example 4</A>
-			and its <A HREF="../examples/Chap0504.pdf">resulting PDF</A>.
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<BR>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Some Table parameters</B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			It doesn't work automatically. You have to use the method <font face="Courier">addColumns</font> and set the widths of the
+			columns. This is shown in <a href="http://www.lowagie.com/iText/examples/Chap0504.java">example 4</a>
+			and its <a href="http://www.lowagie.com/iText/examples/Chap0504.pdf">resulting PDF</a>.
+		</font></td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<br>
+			<font face="Arial,Helvetica" color="#008080"><b>Some Table parameters</b></font><br>
+			<font face="Arial,Helvetica" size="-1">
 			The tables in the previous examples weren't very nice. We can set a lot of table parameters to
-			change the look of the table. Class <FONT FACE="Courier">Table</FONT> and class <FONT FACE="Courier">Cell</FONT>
-			are derived from class <FONT FACE="Courier">Rectangle</FONT> and we can use a lot of typical rectangle-methods.
-			Let's take a look at <A HREF="../examples/Chap0505.java">example 5</A> (<A HREF="../examples/Chap0505.pdf">Chap0505.pdf</A>):<br>
-			<FONT FACE="Courier">
-			<TABLE>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">Table table = new Table(3);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.setBorderWidth(1);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.setBorderColor(new Color(0, 0, 255));</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.setCellpadding(5);</FONT></TD>
-			</TR>
-			<TR>
-				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">5.&nbsp;</FONT></TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.setCellspacing(5);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">Cell cell = new Cell("header");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setHeader(true);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setColspan(3);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
-			</TR>
-			<TR>
-				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">10.&nbsp;</FONT></TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell = new Cell("example cell with colspan 1 and rowspan 2");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setRowspan(2);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setBorderColor(new Color(255, 0, 0));</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("1.1");</FONT></TD>
-			</TR>
-			<TR>
-				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">15.&nbsp;</FONT></TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("2.1");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("1.2");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("2.2");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("cell test1");</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell = new Cell("big cell");</FONT></TD>
-			</TR>
-			<TR>
-				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">20.&nbsp;</FONT></TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setRowspan(2);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setColspan(2);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
-			</TR>
-			<TR>
-				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("cell test2");</FONT></TD>
-			</TR>
-			<TR>
-				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">25.&nbsp;</FONT></TD>
-				<TD><FONT FACE="Courier" SIZE="-1">document.add(table);</FONT></TD>
-			</TR>
-			</TABLE><BR>
-			</FONT><br>
-			<A NAME="paddingspacing"><b>cellspacing / cellpadding:</b></A><br>
+			change the look of the table. Class <font face="Courier">Table</font> and class <font face="Courier">Cell</font>
+			are derived from class <font face="Courier">Rectangle</font> and we can use a lot of typical rectangle-methods.
+			Let's take a look at <a href="http://www.lowagie.com/iText/examples/Chap0505.java">example 5</a> (<a href="http://www.lowagie.com/iText/examples/Chap0505.pdf">Chap0505.pdf</a>):<br>
+			<font face="Courier">
+			<table>
+			<tbody><tr>
+
+				<td>     </td>
+				<td><font face="Courier" size="-1">Table table = new Table(3);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.setBorderWidth(1);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.setBorderColor(new Color(0, 0, 255));</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.setCellpadding(5);</font></td>
+			</tr>
+			<tr>
+				<td align="right"><font face="Courier" size="-1">5. </font></td>
+				<td><font face="Courier" size="-1">table.setCellspacing(5);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">Cell cell = new Cell("header");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setHeader(true);</font></td>
+
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setColspan(3);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell(cell);</font></td>
+			</tr>
+			<tr>
+				<td align="right"><font face="Courier" size="-1">10. </font></td>
+				<td><font face="Courier" size="-1">cell = new Cell("example cell with colspan 1 and rowspan 2");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setRowspan(2);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setBorderColor(new Color(255, 0, 0));</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell(cell);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell("1.1");</font></td>
+			</tr>
+			<tr>
+				<td align="right"><font face="Courier" size="-1">15. </font></td>
+				<td><font face="Courier" size="-1">table.addCell("2.1");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell("1.2");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell("2.2");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell("cell test1");</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell = new Cell("big cell");</font></td>
+			</tr>
+			<tr>
+				<td align="right"><font face="Courier" size="-1">20. </font></td>
+				<td><font face="Courier" size="-1">cell.setRowspan(2);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setColspan(2);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell(cell);</font></td>
+			</tr>
+			<tr>
+				<td>     </td>
+				<td><font face="Courier" size="-1">table.addCell("cell test2");</font></td>
+			</tr>
+			<tr>
+				<td align="right"><font face="Courier" size="-1">25. </font></td>
+				<td><font face="Courier" size="-1">document.add(table);</font></td>
+			</tr>
+			</tbody></table><br>
+			</font><br>
+			<a name="paddingspacing"><b>cellspacing / cellpadding:</b></a><br>
 			In line 4, we set the padding of the table. This is the amount of space that is between the cellborder
 			and its content. In the previous examples, we saw that the text was glued to the border. By using a
 			certain padding, we can avoid this.<br>
 			In line 5, we set the spacing of the table. This is the amount of space that is between the cells
 			and the table border and half of the amount of space between the different cells.<br>
-			In <A HREF="../examples/Chap0506.java">example 6</A>, you can
-			see the effect on the table in the <A HREF="../examples/Chap0506.pdf">resulting PDF file</A>
+			In <a href="http://www.lowagie.com/iText/examples/Chap0506.java">example 6</a>, you can
+			see the effect on the table in the <a href="http://www.lowagie.com/iText/examples/Chap0506.pdf">resulting PDF file</a>
 			when you change these values.<br><br>
-			<A NAME="alignment"><b>alignment:</b></A><br>
-			In <A HREF="../examples/Chap0506.java">example 6</A>, we have also changed
+			<a name="widthheight"><b>cellwidth / cellheight:</b></a><br>
+			The cellwidth is determined at the level of the table: you decide the total percentage the table will take
+            on the page (the default is 80%). You also set the relative widths of all cells. If you set the widths of
+            a 3 column table like this: { 1, 1, 2 }; the first and second column will use 25% of the total space; the
+            third column will take 50%.<br>The height of the cell depends on the content and the alignment of the cell.
+            You can't control it yourself. If you have only one line in your cell, you can use the method Cell.setLeading
+            to change the height.<br><br>
+			<a name="alignment"><b>alignment:</b></a><br>
+			In <a href="http://www.lowagie.com/iText/examples/Chap0506.java">example 6</a>, we have also changed
 			the alignment of the 'big cell'.<br>
-			<FONT FACE="Courier" SIZE="-1">cell.setHorizontalAlignment(Element.ALIGN_CENTER);<br>
-            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);</FONT><br>
+			<font face="Courier" size="-1">cell.setHorizontalAlignment(Element.ALIGN_CENTER);<br>
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);</font><br>
 			Remark: you can't always trust on the vertical alignment.<br><br>
-			<A NAME="borders"><b>borders:</b></A><br>
+			<a name="borders"><b>borders:</b></a><br>
 			If we add a cell as we do in line 14, a default cell layout is used (this default layout can be changed
-			using some <FONT FACE="Courier">setDefault</FONT>-methods). If we add a cell using a <FONT FACE="Courier">Cell</FONT>-object,
+			using some <font face="Courier">setDefault</font>-methods). If we add a cell using a <font face="Courier">Cell</font>-object,
 			we can control the layout cell per cell.<br>
 			In line 2 and 3, we set the borderwidth and bordercolor of the complete table. We can use the same methods on a cell,
-			see line 12. Each cell is drawn with a 'box' as border (as in HTML), but <A HREF="../examples/Chap0507.java">example 7</A>
-			(<A HREF="../examples/Chap0507.pdf">Chap0507.pdf</A>) shows us that we have a lot more
+			see line 12. Each cell is drawn with a 'box' as border (as in HTML), but <a href="http://www.lowagie.com/iText/examples/Chap0507.java">example 7</a>
+			(<a href="http://www.lowagie.com/iText/examples/Chap0507.pdf">Chap0507.pdf</a>) shows us that we have a lot more
 			possibilities in PDF.<br><br>
-			<A NAME="colors"><b>colors:</b></A><br>
-			You can also define the backgroundcolor of a cell as in line 22. In <A HREF="../examples/Chap0507.java">example 7</A>
+			<a name="colors"><b>colors:</b></a><br>
+			You can also define the backgroundcolor of a cell as in line 22. In <a href="http://www.lowagie.com/iText/examples/Chap0507.java">example 7</a>
 			we don't use a color, but a 'grayfill' percentage.<br><br>
-			<A NAME="rowspancolspan"><b>rowspan / colspan:</b></A><br>
+			<a name="rowspancolspan"><b>rowspan / colspan:</b></a><br>
 			Finally you can also set the rowspan (line 11 / 20) and the colspan (line 8 / 21) of a cell.
 			This way you can merge several cells into one big cell.
 			<br><br>
-			<b>Remark:</b><br>
-			line 7 has no meaning in PDF, it is of use if you generate HTML it's not always possible to have the same layout in HTML. The PDF table looks a little bit like this:
-        	<TABLE BORDER="1" BORDERCOLOR="#0000ff" CELLPADDING="5" CELLSPACING="5">
-                <TR ALIGN="Left" VALIGN="Left">
-                        <TH ALIGN="Left" COLSPAN="3" VALIGN="Left">
+			<b>Remark:</b><br> 
+			line 7 has no meaning in PDF, it is of use if you generate HTML it's not
+always possible to have the same layout in HTML. The PDF table looks a little
+bit like this:         	<table border="1" bordercolor="#0000ff" cellpadding="5" cellspacing="5">
+                <tbody><tr align="left" valign="Left">
+                        <th align="left" colspan="3" valign="Left">
                                 header
-                        </TH>
-                </TR>
-                <TR ALIGN="Left" VALIGN="Left">
-                        <TD ALIGN="Left" BORDERCOLOR="#ff0000" ROWSPAN="2" VALIGN="Left">
+                        </th>
+                </tr>
+                <tr align="left" valign="Left">
+                        <td align="left" bordercolor="#ff0000" rowspan="2" valign="Left">
                                 example cell with colspan 1 and rowspan 2
-                        </TD>
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                        <td align="left" valign="Left">
                                 1.1
-                        </TD>
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                        <td align="left" valign="Left">
                                 2.1
-                        </TD>
-                </TR>
-                <TR ALIGN="Left" VALIGN="Left">
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                </tr>
+                <tr align="left" valign="Left">
+                        <td align="left" valign="Left">
                                 1.2
-                        </TD>
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                        <td align="left" valign="Left">
                                 2.2
-                        </TD>
-                </TR>
-                <TR ALIGN="Left" VALIGN="Left">
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                </tr>
+                <tr align="left" valign="Left">
+                        <td align="left" valign="Left">
                                 cell test1
-                        </TD>
-                        <td colspan="2" rowspan="2" align="LEFT" valign="Left" bgcolor="#C0C0C0">
+                        </td>
+                        <td colspan="2" rowspan="2" align="left" valign="Left" bgcolor="#c0c0c0">
                                 big cell
-                        </TD>
-                </TR>
-                <TR ALIGN="Left" VALIGN="Left">
-                        <TD ALIGN="Left" VALIGN="Left">
+                        </td>
+                </tr>
+                <tr align="left" valign="Left">
+                        <td align="left" valign="Left">
                                 cell test2
-                        </TD>
-                </TR>
-        	</TABLE>
+                        </td>
+                </tr>
+        	</tbody></table>
 			<br>
-			<A NAME="splitting"><b>Table splitting:</b></A><br>
+			<a name="splitting"><b>Table splitting:</b></a><br>
 			If a table doesn't fit on the page, it is split automatically.
-			<A HREF="../examples/Chap0508.java">Example 8</A>
-			(<A HREF="../examples/Chap0508.pdf">Chap0508.pdf</A>)
+			<a href="http://www.lowagie.com/iText/examples/Chap0508.java">Example 8</a>
+			(<a href="http://www.lowagie.com/iText/examples/Chap0508.pdf">Chap0508.pdf</a>)
 			shows you what happens when a table reaches the end of the page. This is explained
 			in depth in the next section.
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<BR>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="large"><B>Large tables</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">		
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<br>
+			<font face="Arial,Helvetica" color="#008080"><a name="large"><b>Large tables</b></a></font><br>
+			<font face="Arial,Helvetica" size="-1">		
 			Tables that span multiple pages are cut into different parts automatically.<br>
-			<A HREF="../examples/Chap0509.java">Example 9</A>
-			(<A HREF="../examples/Chap0509.pdf">Chap0509.pdf</A>
+			<a href="http://www.lowagie.com/iText/examples/Chap0509.java">Example 9</a>
+			(<a href="http://www.lowagie.com/iText/examples/Chap0509.pdf">Chap0509.pdf</a>
 			shows a report that spans multiple pages. This report has a table header.
 			If you want this table header to be repeated on every page, you can
 			mark the end of the header section by using the method
-			<FONT FACE="Courier">endHeaders()</FONT>. This is done in <A HREF="../examples/Chap0510.java">Example 10</A> (see <A HREF="../examples/Chap0510.pdf">Chap0510.pdf</A>).<br>
+			<font face="Courier">endHeaders()</font>. This is done in <a href="http://www.lowagie.com/iText/examples/Chap0510.java">Example 10</a> (see <a href="http://www.lowagie.com/iText/examples/Chap0510.pdf">Chap0510.pdf</a>).<br>
 			For reports like this, it is advised to set the cellspacing to 0 and to use only a certain cellpadding.<br>
 			You may have noticed that when a table is split, some borders seem to be missing.
 			This is because cells that are completely drawn on the previous page, are not transfered
 			to the next page. They are gone and their border isn't drawn.<br><br>
-			<A NAME="fitspage"><b>Force a table or a cell to fit a page</b></A><br>
+			<a name="fitspage"><b>Force a table or a cell to fit a page</b></a><br>
 			In some cases, you may want to avoid cells or even the complete table to be split into two parts.
-			<A HREF="../examples/Chap0511.java">Example 11</A> has almost exactly the same code as <A HREF="../examples/Chap0508.java">Example 8</A>,
-			but we have set the parameter 'TableHasToFit' to <CODE FONT="Courier">true</CODE>.Take a look at the differences
-			between the <A HREF="../examples/Chap0508.pdf">original example 8</A> and
-			<A HREF="../examples/Chap0511.pdf">example 11</A>. In <A HREF="../examples/Chap0512.java">example 12</A>
-			we have changed <A HREF="../examples/Chap0510.java">Example 10</A> and we have set the parameter 'CellsHaveToFit'
-			to <CODE FONT="Courier">true</CODE>.  (Compare <A HREF="../examples/Chap0510.pdf">Chap0510.pdf</A> and <A HREF="../examples/Chap0512.pdf">Chap0512.pdf</A>.)<br><br>
-			<A NAME="memory"><b>Memory management</b></A><br>
+			<a href="http://www.lowagie.com/iText/examples/Chap0511.java">Example 11</a> has almost exactly the same code as <a href="http://www.lowagie.com/iText/examples/Chap0508.java">Example 8</a>,
+			but we have set the parameter 'TableHasToFit' to <code font="Courier">true</code>.Take a look at the differences
+			between the <a href="http://www.lowagie.com/iText/examples/Chap0508.pdf">original example 8</a> and
+			<a href="http://www.lowagie.com/iText/examples/Chap0511.pdf">example 11</a>. In <a href="http://www.lowagie.com/iText/examples/Chap0512.java">example 12</a>
+			we have changed <a href="http://www.lowagie.com/iText/examples/Chap0510.java">Example 10</a> and we have set the parameter 'CellsHaveToFit'
+			to <code font="Courier">true</code>.  (Compare <a href="http://www.lowagie.com/iText/examples/Chap0510.pdf">Chap0510.pdf</a> and <a href="http://www.lowagie.com/iText/examples/Chap0512.pdf">Chap0512.pdf</a>.)<br><br>
+			<a name="memory"><b>Memory management</b></a><br>
 			When you add objects to a Document, these objects are written to the outputstream as soon as possible.
-			But when you construct a table, the <FONT FACE="Courier">Table</FONT>-object keeps on growing.
+			But when you construct a table, the <font face="Courier">Table</font>-object keeps on growing.
 			For really large tables, this can become a problem.<br>
-			Also, if you are writing to a the outputstream of a <FONT FACE="Courier">HttpServletResponse</FONT>-object,
+			Also, if you are writing to a the outputstream of a <font face="Courier">HttpServletResponse</font>-object,
 			the timeout of the browser can be reached.<br>
-			That is why it can be useful to control the 'table-breaks' yourself, using the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
-			<FONT FACE="Courier">PdfWriter</FONT>. <A HREF="../examples/Chap0513.java">Example 13</A>
-			(<A HREF="../examples/Chap0513.pdf">Chap0513.pdf</A>) shows you how to do this.<BR>
-			</FONT><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="nested"><B>Nested tables</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">	
+			That is why it can be useful to control the 'table-breaks' yourself, using the <font face="Courier">fitsPage()</font>-methods in class
+			<font face="Courier">PdfWriter</font>. <a href="http://www.lowagie.com/iText/examples/Chap0513.java">Example 13</a>
+			(<a href="http://www.lowagie.com/iText/examples/Chap0513.pdf">Chap0513.pdf</a>) shows you how to do this.<br>
+			</font><br>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<font face="Arial,Helvetica" color="#008080"><a name="nested"><b>Nested tables</b></a></font><br>
+			<font face="Arial,Helvetica" size="-1">	
 			There are 2 different ways to nest tables. The first way, is to explicitly insert
 			one table into another table, using	the method 'insertTable'.
-			<A HREF="../examples/Chap0514.java">Example 14</A> (<A HREF="../examples/Chap0514.pdf">Chap0514.pdf</A>)
+			<a href="http://www.lowagie.com/iText/examples/Chap0514.java">Example 14</a> (<a href="http://www.lowagie.com/iText/examples/Chap0514.pdf">Chap0514.pdf</a>)
 			shows 5 tables that were constructed by inserting tables into eachother. As you can see in the first
 			2 tables, all empty cells automatically get split, thus changing the original table grid.
 			If a cell isn't empty, the colspan and/or rowspan are adjusted to the new situation.
 			The third table on this page shows that all the relative widths of the columns in the original
 			tables are preserved. The fourth table shows we can add other cells after we have inserted a
-			table: the cell is added in the next cell that is free. Finally there is a table that uses 'deep nesting'.<BR>
-			<BR>
+			table: the cell is added in the next cell that is free. Finally there is a table that uses 'deep nesting'.<br>
+			<br>
 			When you use the 'insertTable' method, the widthpercentage of the table you are inserting
 			is not taken into account. If you want the table to take only 80% of the width of the cell
 			(this is the default width percentage), you have to wrap the table into a Cell.
-			This is shown in <A HREF="../examples/Chap0515.java">example 15</A>	(<A HREF="../examples/Chap0515.pdf">Chap0515.pdf</A>).
+			This is shown in <a href="http://www.lowagie.com/iText/examples/Chap0515.java">example 15</a>	(<a href="http://www.lowagie.com/iText/examples/Chap0515.pdf">Chap0515.pdf</a>).
 			This is also to only way to have a table in combination with other elements in the same cell.
-			This is demonstrated in <A HREF="../examples/Chap0516.java">example 16</A> (<A HREF="../examples/Chap0516.pdf">Chap0516.pdf</A>).<br>
+			This is demonstrated in <a href="http://www.lowagie.com/iText/examples/Chap0516.java">example 16</a> (<a href="http://www.lowagie.com/iText/examples/Chap0516.pdf">Chap0516.pdf</a>).<br>
 			<b>Remark:</b> you can only add a Table to a Cell with colspan and rowspan equal to 1.
 			<br><br>
-			</FONT>
-		</TD>
-	</TR>	
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="tableoffset"><B>Table offset</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			</font>
+		</td>
+	</tr>	
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<font face="Arial,Helvetica" color="#008080"><a name="tableoffset"><b>Table offset</b></a></font><br>
+			<font face="Arial,Helvetica" size="-1">
 			Before a table is added to a document. A newline is added using the current leading (i.e.
 			the leading of the previous object that was added).	Sometimes you don't want this because
 			the space between the table and the previous object is to large/small. If you want to
 			change this space, you have to set the offset of the table as shown in
-			<A HREF="../examples/Chap0517.java">Example 17</A> (<A HREF="../examples/Chap0517.pdf">Chap0517.pdf</A>).<br><br>
-			</FONT>
-		</TD>
-	</TR>		
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><a name="pdfptable">Tables at an absolute position</a></B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">	
-			<FONT FACE="Courier">com.lowagie.text.Table</FONT> is a rather simple class that generates tables
+			<a href="http://www.lowagie.com/iText/examples/Chap0517.java">Example 17</a> (<a href="http://www.lowagie.com/iText/examples/Chap0517.pdf">Chap0517.pdf</a>).<br><br>
+			</font>
+		</td>
+	</tr>		
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<font face="Arial,Helvetica" color="#008080"><b><a name="pdfptable">Tables at an absolute position</a></b></font><br>
+			<font face="Arial,Helvetica" size="-1">	
+			<font face="Courier">com.lowagie.text.Table</font> is a rather simple class that generates tables
 			in a standard way, but sometimes you want a table to have some specific behaviour.
-			In those cases you will need to use the more complex class <FONT FACE="Courier">com.lowagie.text.pdf.PdfPTable</FONT>.
-			<A HREF="../examples/Chap0518.java">Example 18</A> (<A HREF="../examples/Chap0518.pdf">Chap0518.pdf</A>)
+			In those cases you will need to use the more complex class <font face="Courier">com.lowagie.text.pdf.PdfPTable</font>.
+			<a href="http://www.lowagie.com/iText/examples/Chap0518.java">Example 18</a> (<a href="http://www.lowagie.com/iText/examples/Chap0518.pdf">Chap0518.pdf</a>)
 			is a very simple example.
-			In <a href="ch10.html#abspdfptable">Chapter 10</a> and <a href="ch12.html#eventtable">Chapter 12</a> some more complex examples will follow.
-			</FONT><br><br><br><br>
-		</TD>
-	</TR>	
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch04.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch06.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="notyet.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">PDF</FONT></A>]</FONT></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" SIZE="-3">
-			<B>Page Updated: </B> $Date$<br>
-			Copyright &copy; 2000, 2001 by Bruno Lowagie
-			</FONT>
-		</TD>
-		<TD COLSPAN="3" ALIGN="right" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" SIZE="-3">
+			In <a href="http://www.lowagie.com/iText/tutorial/ch10.html#abspdfptable">Chapter 10</a> and <a href="http://www.lowagie.com/iText/tutorial/ch12.html#eventtable">Chapter 12</a> some more complex examples will follow.
+			</font><br><br><br><br>
+		</td>
+	</tr>	
+	<tr>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="#top"><font face="Arial,Helvetica" color="#ffffff">Top</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/ch04.html"><font face="Arial,Helvetica" color="#ffffff">Previous</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/index.html"><font face="Arial,Helvetica" color="#ffffff">TOC</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/ch06.html"><font face="Arial,Helvetica" color="#ffffff">Next</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/tutorial/notyet.html"><font face="Arial,Helvetica" color="#ffffff">PDF</font></a>]</font></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="left" valign="top" bgcolor="#808080">
+			<font face="Arial,Helvetica" size="-3">
+			<b>Page Updated: </b> $Date$<br>
+			Copyright © 2000, 2001 by Bruno Lowagie
+			</font>
+		</td>
+		<td colspan="3" align="right" bgcolor="#808080">
+			<font face="Arial,Helvetica" size="-3">
 			Adolf Baeyensstraat 121, 9040 Gent, BELGIUM,<br>
-			tel +00 32 92 28 10 97 mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net"><FONT COLOR="#000000">itext-questions@lists.sourceforge.net</FONT></A>
-			</FONT>
-		</TD>
-	</TR>
-	</TABLE>
-	</TD>
-</TABLE>
+			tel +00 32 92 28 10 97 mailto:<a href="mailto:itext-questions@lists.sourceforge.net"><font color="#000000">itext-questions@lists.sourceforge.net</font></a>
+			</font>
+		</td>
+	</tr>
+	</tbody></table>
+	</td>
+</tr></tbody></table>
 
-</BODY>
-</HTML>
+</body></html>
