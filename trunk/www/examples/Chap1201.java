@@ -51,7 +51,7 @@ class MyHandler extends SAXmyHandler {
  * We only alter the handling of some endtags.
  */
     
-    public void endElement(String name) {
+    public void endElement(String uri, String lname, String name) {
         if (myTags.containsKey(name)) {
             XmlPeer peer = (XmlPeer) myTags.get(name);
             // we don't want the document to be close
