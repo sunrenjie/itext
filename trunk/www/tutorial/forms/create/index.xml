@@ -21,6 +21,11 @@
 			<site:externalresource>bruno.jpg</site:externalresource>
 			<site:description>Generates a studentcard</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="StudentCardForm" standalone="yes" />
+			<site:result>studentcardform.pdf</site:result>
+			<site:description>Generates a studentcard as a form</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
