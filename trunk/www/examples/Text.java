@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.html.HtmlWriter;
-import com.lowagie.text.xml.XmlWriter;
+//import com.lowagie.text.xml.XmlWriter;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
