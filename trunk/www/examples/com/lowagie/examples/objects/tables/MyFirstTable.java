@@ -31,12 +31,12 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * General Images example.
+ * A very simple PdfPTable example.
  */
 public class MyFirstTable {
 
 	/**
-	 * General Images example
+	 * A very simple PdfPTable example.
 	 * 
 	 * @param args
 	 *            no arguments needed
