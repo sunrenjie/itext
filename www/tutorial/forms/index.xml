@@ -36,6 +36,11 @@
 			<site:description>Generates a PDF with an Acroform containing a radiobutton</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FormSignature" standalone="yes" />
+			<site:result>signature.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a signature</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="SimpleRegistrationForm" standalone="yes" />
 			<site:result>SimpleRegistrationForm.pdf</site:result>
 			<site:description>Generates a PdfPTable with some TextFields</site:description>
