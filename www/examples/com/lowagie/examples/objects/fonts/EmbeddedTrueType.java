@@ -44,9 +44,7 @@ public class EmbeddedTrueType {
         
         try {
             
-            // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
+            // step 2: creation of the writer-object
             PdfWriter.getInstance(document, new FileOutputStream("embeddedtruetype.pdf"));
             
             // step 3: we open the document
