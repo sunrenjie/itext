@@ -159,53 +159,57 @@
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<A NAME="fontpropagation"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Font propagation</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Propagation of the font style</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			There are some rules you should know about 'font propagation'.
 			These rules are explained using <a href="../examples/Chap0207.java">example 7</A>
 			(<a href="../examples/Chap0207.pdf">Chap0207.pdf</A>).<br><br>
 			When you create a <FONT FACE="Courier">Phrase</FONT> or a <FONT FACE="Courier">Paragraph</FONT>
 			with some content in a certain font (NOT THE DEFAULT FONT) and you add some more content.
-			The font you created the initial object with is propagated. This is what happens in 'Hello 1!'
+			The fontstyle of the initial object can be propagated if you want to. This is what happens in 'Hello 1!'
 			and 'Hello 2':<br><br>
 			<FONT FACE="Courier">
-            Paragraph myParagraph = new Paragraph("Hello 1! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
-            myParagraph.add(new Paragraph("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
-            document.add(myParagraph);<br>
-            <br>
-            Phrase myPhrase = new Phrase("Hello 2! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
-            myPhrase.add(new Phrase("This is the end of the sentence.\n", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
+            Phrase myPhrase = new Phrase("Hello 2! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
+			myPhrase.add(new Phrase("some other font ", new Font(Font.HELVETICA, 8, Font.ITALIC)));<br>
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myPhrase);<br>
 			</FONT><br>
-			We start with BOLD and add an ITALIC font. The result is a BOLDITALIC font. You also see
-			that we added a <FONT FACE="Courier">Paragraph</FONT> and the added <FONT FACE="Courier">Paragraph</FONT>
-			behaved as a <FONT FACE="Courier">Phrase</FONT>!
-			If you want to avoid this, first create your <FONT FACE="Courier">Paragraph</FONT> (or <FONT FACE="Courier">Phrase</FONT>)
+			We start with Times New Roman BOLD, add some text in Helvetica WITHOUT specifying a style
+			and we see the text was changed into BOLD. Then we added some text in Times New Roman with
+			ITALIC as style, the result is a BOLDITALIC font.<br />
+			If we use the FontFactory to create the Font, the style will not be propagated.
+			This is because the FontFactory uses another technique to construct a font:
+			<br /><br />
+			<FONT FACE="Courier">
+            myPhrase = new Phrase("Hello 1bis! ", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
+			myPhrase.add(new Phrase("some other font ", FontFactory.getFont(FontFactory.HELVETICA, 8, Font.ITALIC)));<br>
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            document.add(myPhrase);<br>
+			</FONT><br>
+			With the above code, the style of the text in Helvetica is undefined (so it isn't bold or italic).
+			The extra text in Times New Roman is only printed in italic.<br><br>
+			You also see that we added a <FONT FACE="Courier">Paragraph</FONT> and the added
+			<FONT FACE="Courier">Paragraph</FONT> behaved as a <FONT FACE="Courier">Phrase</FONT>!<br><br>
+			<FONT FACE="Courier">
+            Paragraph myParagraph = new Paragraph("Hello 1! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
+            myParagraph.add(new Paragraph("This is the end of the sentence.",FontFactory.getFont(new Font.TIMES_NEW_ROMAN, 8)));<br>
+            document.add(myParagraph);<br>
+			</FONT><br>
+			You can avoid this, but you will loose the style propagation. First create your <FONT FACE="Courier">Paragraph</FONT>
 			WITHOUT specifying a font (in the example, we only give up the leading that is 1.5 times the fontsize); then add
 			the different parts of content.<br>
 			<br>
 			<FONT FACE="Courier">
             myParagraph = new Paragraph(12);<br>
-            myParagraph.add(new Paragraph("Hello 3! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
-            myParagraph.add(new Paragraph("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
+            myParagraph.add(new Paragraph("Hello 3! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));<br>
+            myParagraph.add(new Paragraph("This is the end of the sentence.", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myParagraph);<br>
-            <br>
-            myParagraph = new Paragraph(12);<br>
-            myParagraph.add(new Phrase("Hello 4! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
-            myParagraph.add(new Phrase("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
-            document.add(myParagraph);<br>
-            <br>
-            myPhrase = new Phrase(12);<br>
-            myPhrase.add(new Phrase("Hello 5! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
-            myPhrase.add(new Phrase("This is the end of the sentence.\n",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
-            document.add(myPhrase);<br>
 			</FONT><br>
-			(Remark that we added a '\n' manually to the <FONT FACE="Courier">Phrase</FONT>.)<br><br>
-			Of course, you have no reason to concatenate Phrases, it is far more performant to do it this way:<br><br>
-			<FONT FACE="Courier">
-            myPhrase = new Phrase("Hello 6! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
-            document.add(myPhrase);<br>
-            myPhrase = new Phrase("This is the end of the sentence.", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC));<br>
+			You also loose the style propagation if you do this with the <FONT FACE="Courier">Phrase</FONT>-object:<br>
+			<FONT FACE="Courier"><br>
+            myPhrase = new Phrase(12);<br>
+            myPhrase.add(new Phrase("Hello 4! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));<br>
+            myPhrase.add(new Phrase("This is the end of the sentence.", newFont(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myPhrase);<br>
 			</FONT>
 			</FONT><BR>
