@@ -27,6 +27,11 @@
 			<site:description>Sums up the 14 Standard Type 1 Fonts (using the FontFactory)</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FontStylePropagation" standalone="yes" />
+			<site:result>FontStylePropagation.pdf</site:result>
+			<site:description>Explains the mechanism of Font Style Propagation</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="ExtraStyles" standalone="yes" />
 			<site:result>ExtraStyles.pdf</site:result>
 			<site:result>ExtraStyles.rtf</site:result>
@@ -99,7 +104,8 @@ fonts[9] =
 <site:source class="StandardType1Fonts" />
 But there are other (and better) ways to do this:
 in the next example, we use the class <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>,
-as this is the safest and most uniform way to get a new <site:doc class="com.lowagie.text.Font">Font</site:doc>-object.
+as this is the safest and most uniform way to get a new <site:doc class="com.lowagie.text.Font">Font</site:doc>-object
+(unless you want to use the mechanism of <site:tutorial chapter="/objects/fonts" section="extrastyles">Font Propagation</site:tutorial>).
 Further on in this chapter, we will see that class <site:doc class="com.lowagie.text.Font">Font</site:doc> is in many
 cases just a wrapper class for the more complex class <site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>.
 <pre class="commandline">fonts[0] =
@@ -134,6 +140,42 @@ fonts[9] =
 	<site:section name="extrastyles">
 		<site:sectiontitle>Extra Font Style Characteristics</site:sectiontitle>
 <div>
+<div class="subtitle">Font Style Propagation</div>
+There are some rules you should know about 'font propagation'.<br />
+When you create a Phrase or a Paragraph  with some content in a certain font (NOT THE DEFAULT FONT) and you add some more content. The fontstyle of the initial object can be propagated if you want to. This is what happens in 'Hello 1!' and 'Hello 2' of the example.
+<pre class="commandline">Phrase myPhrase =
+	new Phrase("Hello 1! ",
+		new Font(Font.TIMES_ROMAN, 8, Font.BOLD));
+myPhrase.add(
+	new Phrase("some other font ",
+		new Font(Font.HELVETICA, 8)));
+myPhrase.add(
+	new Phrase("This is the end of the sentence.\n",
+		new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre> 
+The initial Phrase with the text 'Hello 1!' was bold, some italic text was added, but style bold is propagated, so the style of the printed text is now bold and italic.<br />
+If the Font(style) of the initial Phrase is undefined, the font is not propagated:
+<pre class="commandline">myPhrase = new Phrase(12);
+myPhrase.add(
+	new Phrase("Hello 2! ",
+		new Font(Font.TIMES_ROMAN, 8, Font.BOLD)));
+myPhrase.add(
+	new Phrase("This is the end of the sentence.\n",
+		new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
+As you can see, 'This is the end of the sentence' is italic, but not bold. The font wasn't propagated.
+The same applies if you use <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>
+to get the Font-object. This is because the FontFactory uses another technique to construct a font.
+<pre class="commandline">myPhrase =
+	new Phrase("Hello 3! ",
+		FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));
+myPhrase.add(
+	new Phrase("some other font ",
+		FontFactory.getFont(FontFactory.HELVETICA, 8)));
+myPhrase.add(
+	new Phrase("This is the end of the sentence.\n",
+		FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));</pre>
+As mentioned earlier: FontFactory is the safest way to get a Font. It will always give you the font style you are expecting,
+regardless of the font style that was used before. Font Propagation can be useful in some cases, but it's a rather quirky feature.
+<site:source class="FontStylePropagation"/>
 <div class="subtitle">Underline and strike through</div>
 Allthough underlining and striking through text isn't really font-related,
 both 'style-types' are added to the <site:doc class="com.lowagie.text.Font">Font</site:doc>-class:
