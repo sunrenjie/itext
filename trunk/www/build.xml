@@ -1,91 +1,83 @@
 <?xml version="1.0"?>
 
-<project name="iText" default="release" basedir=".">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- iText, a JAVA - PDF library                                      -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <target name="properties">
-        <property name="itext.home" value="." />
-        <property name="itext.src" value="${itext.home}/src" />
-        <property name="itext.classes" value="${itext.home}/classes" />
-        <property name="itext.lib" value="${itext.home}/lib" />
-        <property name="itext.docs" value="${itext.home}/docs" />
-        <property name="itext.www" value="${itext.home}/www" />
-        <property name="itext.dist" value="${itext.home}/dist" />
-        <property name="itext.bin" value="${itext.home}/bin" />
-        <property name="itext.cvsroot" value=":pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext" />
-    </target>
+<project name="iText" default="help" basedir=".">
 
-    <target name="compile" depends="properties">
-        <mkdir dir="${itext.classes}" />
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-    </target>
-	
-	<target name="compileWithXML" depends="properties">
-        <mkdir dir="${itext.classes}" />	
-		<echo>You need xerces_1_3_1.jar in the bin-directory</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar" />
-    </target>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Some general properties                                          -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <target name="jar" depends="compile, properties">
-        <mkdir dir="${itext.dist}" />
-        <mkdir dir="${itext.bin}" />
-        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
-		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
-    </target>
-
-    <target name="jarWithXML" depends="compileWithXML, properties">
-        <mkdir dir="${itext.dist}" />
-        <mkdir dir="${itext.bin}" />
-        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/Logging.class,**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
-		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
-        <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
-		<copy file="${itext.dist}/iTextXML.jar" todir="${itext.bin}" overwrite="yes" />
-    </target>
-
-    <target name="srczip" depends="properties">
-        <mkdir dir="${itext.dist}" />
-        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-    </target>
-
-    <target name="srctargz" depends="properties">
-        <mkdir dir="${itext.dist}" />
-        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
-        <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
-        <delete file="${itext.dist}/src.tar" />
-        <delete file="${itext.dist}/srcXML.tar" />
-    </target>
-
-    <target name="javadoc" depends="properties">
-        <mkdir dir="${itext.docs}" />
-        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
-            sourcepath="${itext.src}"
-            destdir="${itext.docs}"
-            author="true"
-            private="true">
-            <link href="http://java.sun.com/products/jdk/1.2/docs/api/" />
-        </javadoc>
-    </target>
-
-    <target name="docstargz" depends="javadoc, properties">
-        <mkdir dir="${itext.dist}" />
-        <tar tarfile="${itext.dist}/docs.tar" basedir="${itext.docs}" />
-        <gzip zipfile="${itext.dist}/docs.tar.gz" src="${itext.dist}/docs.tar" />
-        <delete file="${itext.dist}/docs.tar" />
-    </target>
-
-	<target name="checkout" depends="properties">
-		<echo>Logging in: the password for user anonymous is empty;
-just press enter when asked for it</echo>
-		<cvs cvsroot="${itext.cvsroot}" command="login" />
-		<cvs cvsroot="${itext.cvsroot}" package="www" dest="${itext.home}" />
-		<cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
-	</target>
+    <property name="itext.home" value="." />
+    <property name="itext.src" value="${itext.home}/src" />
+    <property name="itext.classes" value="${itext.home}/classes" />
+    <property name="itext.lib" value="${itext.home}/lib" />
+    <property name="itext.docs" value="${itext.home}/docs" />
+    <property name="itext.www" value="${itext.home}/www" />
+    <property name="itext.examples" value="${itext.www}/examples" />
+    <property name="itext.dist" value="${itext.home}/dist" />
+    <property name="itext.bin" value="${itext.home}/bin" />
+    <property name="itext.cvsroot" value=":pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext" />
     
-    <target name="download" depends="properties, checkout">
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- The classpath when the release is done                           -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <path id="classpath">
+      <pathelement location="${itext.bin}/xerces_1_3_1.jar" />
+      <pathelement location="${itext.bin}/iText.jar" />
+      <pathelement location="${itext.bin}/iTextXML.jar" />
+      <pathelement location="${itext.examples}" />
+    </path>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Help                                                             -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <target name="help" description="--> shows the help screen">
+        <echo>Using ANT for ${ant.project.name}</echo>
+        <echo />
+        <echo>GETTING THE CODE</echo>
+        <echo>ant checkout: checks out the code from CVS</echo>
+        <echo>ant download: checks out the code from CVS and downloads all needed files</echo>
+        <echo />
+        <echo>COMPILING THE CODE</echo>
+        <echo>ant compile: compiles iText without RTF and XML functionality</echo>
+        <echo>ant compileWithXML: compiles iText completely</echo>
+        <echo />
+        <echo>JARRING THE CODE</echo>
+        <echo>ant jar: compiles and jars iText without RTF and XML functionality</echo>
+        <echo>ant jarWithXML: compiles and jars iText completely</echo>
+        <echo />
+        <echo>ARCHIVING THE SOURCE</echo>
+        <echo>ant srczip: makes zipfiles with the sourcecode</echo>
+        <echo>ant srctargz: makes tar.gz-files with the sourcecode</echo>
+        <echo />
+        <echo>DOCUMENTATION</echo>
+        <echo>ant javadoc: generates the API documentation</echo>
+        <echo>ant docstargz: generates the API docs and puts them in a tar.gz-file</echo>
+        <echo />
+        <echo>RELEASE</echo>
+        <echo>ant release: make a complete iText release</echo>
+      </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Getting the code                                                 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="checkout" description="--> checks out the source code form CVS">
+        <echo>Logging in: the password for user anonymous is empty;</echo>
+        <echo>just press enter when asked for it</echo>
+        <cvs cvsroot="${itext.cvsroot}" command="login" />
+        <cvs cvsroot="${itext.cvsroot}" package="www" dest="${itext.home}" />
+        <cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
+    </target>
+    
+    <target name="download" depends="checkout">
         <mkdir dir="${itext.bin}" />
-        <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.www}/examples/H.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.www}/examples/pngnow.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.www}/examples/H.gif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.www}/examples/caesar_coin.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/hitchcock.png" dest="${itext.www}/examples/hitchcock.png" verbose="true" />
@@ -96,7 +88,309 @@ just press enter when asked for it</echo>
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Compiling the code                                               -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <target name="compile">
+        <mkdir dir="${itext.classes}" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}"
+            excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+    </target>
+    
+    <target name="compileWithXML">
+        <mkdir dir="${itext.classes}" />    
+        <echo>You need xerces_1_3_1.jar in the bin-directory</echo>
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar" />
+    </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Jarring the code                                                 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${itext.dist}" />
+        <mkdir dir="${itext.bin}" />
+        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
+        <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
+    </target>
+
+    <target name="jarWithXML" depends="compileWithXML">
+        <mkdir dir="${itext.dist}" />
+        <mkdir dir="${itext.bin}" />
+        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/Logging.class,**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
+        <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
+        <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
+        <copy file="${itext.dist}/iTextXML.jar" todir="${itext.bin}" overwrite="yes" />
+    </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Achiving the source                                              -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="srczip">
+        <mkdir dir="${itext.dist}" />
+        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+    </target>
+
+    <target name="srctargz">
+        <mkdir dir="${itext.dist}" />
+        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
+        <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
+        <delete file="${itext.dist}/src.tar" />
+        <delete file="${itext.dist}/srcXML.tar" />
+    </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Achiving the source                                              -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="javadoc">
+        <mkdir dir="${itext.docs}" />
+        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
+            sourcepath="${itext.src}"
+            destdir="${itext.docs}"
+            author="true"
+            private="true">
+            <link href="http://java.sun.com/j2se/1.3/docs/api/" />
+        </javadoc>
+    </target>
+
+    <target name="docstargz" depends="javadoc">
+        <mkdir dir="${itext.dist}" />
+        <tar tarfile="${itext.dist}/docs.tar" basedir="${itext.docs}" />
+        <gzip zipfile="${itext.dist}/docs.tar.gz" src="${itext.dist}/docs.tar" />
+        <delete file="${itext.dist}/docs.tar" />
+    </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Compiling all the examples                                       -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	
+	<target name="examples" depends="jar">
+	    <echo>Examples Chap0105.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
+	    <echo>They will not compile without a servlet library.</echo>
+        <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, Calendar.java, Month.java" >
+           <classpath refid="classpath" />
+        </javac>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0101">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0102">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0103">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0104">
+           <classpath refid="classpath" />
+		</java>
+		<echo>Chapter 1 example 5: this is a Servlet example!</echo>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0106">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0107">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0108">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0109">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0201">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0202">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0203">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0204">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0205">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0206">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0207">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0208">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0501">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0502">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0503">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0504">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0505">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0506">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0507">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0508">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0509">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0510">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0511">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0512">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0513">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0514">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0515">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0516">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0601">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0602">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0603">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0604">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0605">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0606">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0607">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0608">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0609">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0610">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0701">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0702">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0703">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0704">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0705">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0706">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0707">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0901">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0902">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0903">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0904">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0905">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1002">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1003">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1004">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1005">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1006">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1007">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1008">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1101">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1102">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1103">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1104">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1301">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1302">
+           <classpath refid="classpath" />
+		</java>
+        <delete>
+            <fileset dir="${itext.examples}" includes="**/*.class"/>
+        </delete>
+	</target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Making a release                                                 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
     <target name="release" depends="jarWithXML, srczip, srctargz, docstargz">
     </target>
 
