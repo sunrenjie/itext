@@ -29,16 +29,14 @@ import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
-public class Chap0102 {
+public class Chap0104 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 1 example 2: PageSize");
+		System.out.println("Chapter 1 example 4: Margins");
 
 		// step 1: creation of a document-object
-		Rectangle pageSize = new Rectangle(144, 720);
-		pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));
-		Document document = new Document(pageSize);
+		Document document = new Document(PageSize.A5, 36, 72, 108, 180);
 
 		try {
 
@@ -46,15 +44,18 @@ public class Chap0102 {
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
 
-			PdfWriter.getInstance(document, new FileOutputStream("Chap0102.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("Chap0104.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
-			// step 4: we add some paragraphs to the document
-			for (int i = 0; i < 5; i++) {
-				document.add(new Paragraph("Hello World"));
+			// step 4: we add a paragraph to the document
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_JUSTIFIED);
+			for (int i = 0; i < 20; i++) {
+				paragraph.add("Hello World, Hello Sun, Hello Moon, Hello Stars, Hello Sea, Hello Land, Hello People. ");
 			}
+			document.add(paragraph);
 
 		}
 		catch(DocumentException de) {
