@@ -7,6 +7,8 @@
 		<site:summary>Deals with all the RemoteGoto, LocalGoto,... functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, anchors, remoteGoto, LocalGoto, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:book asin="3540608540">Postscript and Acrobat/Pdf Bible: Applications, Troubleshooting and Cross-Platform Publishing</site:book>
 			<site:keyword>PDF</site:keyword>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
@@ -32,15 +34,15 @@
 			<site:description>Creates two documents with links to eachother and to an external URL</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="NamedActions" standalone="yes" />
+			<site:result>NamedActions.pdf</site:result>
+			<site:description>Creates a document with named actions.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Actions" standalone="yes" />
 			<site:result>Actions.pdf</site:result>
 			<site:result>remote.html</site:result>
 			<site:description>Creates a document with some goto actions</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="NamedActions" standalone="yes" />
-			<site:result>NamedActions.pdf</site:result>
-			<site:description>Creates a document with named actions.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="JavaScriptAction" standalone="yes" />
@@ -62,8 +64,67 @@
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="intro">
-		<site:sectiontitle>the Anchor class</site:sectiontitle>
+	<site:section name="localgoto">
+		<site:sectiontitle>Local Goto and Local Destination</site:sectiontitle>
+<div>
+Sometimes you need a link to allow the reader of your document to jump from one position (LocalGoto) in the text to another (LocalDestination).
+You can achieve this with two methods of class Chunk: <site:doc class="com.lowagie.text.Chunk" target="setLocalGoto(java.lang.String)">setLocalGoto</site:doc> and <site:doc class="com.lowagie.text.Chunk" target="setLocalDestination(java.lang.String)">setLocalDestination</site:doc>.
+Both methods take 1 parameter: this is the unique name you want to give to the destination.
+<pre class="commandline">new Chunk("localgoto").setLocalGoto("test");
+new Chunk("localdestination").setLocalDestination("test");</pre>
+The HTML equivalent of the first line is <span class="commandline">&lt;A HREF="#test"&gt;localgoto&lt;A&gt;</span>;
+The equivalent of the second is <span class="commandline">&lt;A NAME="test"&gt;localdestination&lt;A&gt;</span>.
+However if we want to produce HTML (with <site:tutorial chapter="/html">HtmlWriter</site:tutorial>), we will use the <site:tutorial chapter="/objects/anchors" section="anchor">Anchor object</site:tutorial>.
+<site:source class="LocalGoto" />
+A LocalGoto-chunk isn't the only way to reach a LocalDestination.
+As you will see later on in this chapter and in the chapter on <site:tutorial chapter="/objects/bookmarks">bookmarks</site:tutorial>, local destinations can be used in actions too.
+<site:source class="LocalDestination" />
+</div>
+	</site:section>
+	<site:section name="remotegoto">
+		<site:sectiontitle>Remote Goto</site:sectiontitle>
+<div>
+If you have defined a local destination in a certain document (see <site:tutorial chapter="/objects/anchors" section="localgoto">above</site:tutorial>),
+you can jump to this destination from another document. This is done with the method
+<site:doc class="com.lowagie.text.Chunk" target="setRemoteGoto(java.lang.String,%20java.lang.String)">setRemoteGoto(String filename, String name)</site:doc>.
+You don't necessarily need a local destination in the other document. You can also jump to a certain page with<site:doc class="com.lowagie.text.Chunk" target="setRemoteGoto(java.lang.String,%20int)">setRemoteGoto(String filename, int page)</site:doc>.
+<pre class="commandline">new Chunk("go to a destination in document B")
+	.setRemoteGoto("DocumentB.pdf", "test");
+new Chunk("go to page 3 in document B")
+	.setRemoteGoto("DocumentB.pdf", 3);</pre>
+<site:source class="RemoteGoto" />
+</div>
+	</site:section>
+	<site:section name="actions">
+		<site:sectiontitle>Actions</site:sectiontitle>
+<div>
+A PDF document can have a certain interactivity: you can create several 'actions' to jump to another page or location, to start an other application,...
+In the next subsections, some actions that are supported in iText will be explained; see the javadocs (<site:doc class="com.lowagie.text.PdfAction">class PdfAction</site:doc>) for more types of actions.<br /><br />
+<div class="subtitle">Named Actions</div>
+There are 5 predefined named actions in iText:
+<ul>
+<li>PdfAction.<b>FIRSTPAGE</b>: jumps to the first page</li>
+<li>PdfAction.<b>PREVPAGE</b>: jumps to the previous page</li>
+<li>PdfAction.<b>NEXTPAGE</b>: jumps to the next page</li>
+<li>PdfAction.<b>LASTPAGE</b>: jumps to the last page</li>
+<li>PdfAction.<b>PRINTDIALOG</b>: opens a PrintDialog</li>
+</ul>
+It is very easy to use one of these named destinations:
+<pre class="commandline">new Chunk("First Page")
+	.setAction(new PdfAction(PdfAction.FIRSTPAGE));</pre>
+<site:source class="NamedActions" />
+<div class="subtitle">Goto Actions</div>
+<site:source class="Actions" />
+<div class="subtitle">Open Action</div>
+<site:source class="RemoteGoto" />
+<div class="subtitle">JavaScript</div>
+<site:source class="JavaScriptAction" />
+<div class="subtitle">Application</div>
+<site:source class="OpenApplication" />
+</div>
+	</site:section>
+	<site:section name="anchor">
+		<site:sectiontitle>the Anchor object</site:sectiontitle>
 <div>
 <site:source class="AHref" />
 </div>

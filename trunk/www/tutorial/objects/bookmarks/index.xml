@@ -3,10 +3,12 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Viewerpreferences, Bookmarks and Labels</site:title>
+		<site:title>Viewerpreferences, Pagelabels and Bookmarks</site:title>
 		<site:summary>Deals with all the PDF Viewerpreferences, Bookmarks, Outlines, Destinations,... functionality</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, Chapter, Section, Lowagie, Bruno</site:keywords>
+		<site:keywords>PDF, JAVA, iText, examples, pagelabels, viewerpreferences, bookmarks, outlines, destinations, Chapter, Section, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:book asin="3540608540">Postscript and Acrobat/Pdf Bible: Applications, Troubleshooting and Cross-Platform Publishing</site:book>
 			<site:keyword>PDF</site:keyword>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
@@ -28,14 +30,14 @@
 			<site:description>Creates a document with pagelabels</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="Destinations" standalone="yes" />
-			<site:result>Destinations.pdf</site:result>
-			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="Bookmarks" standalone="yes" />
 			<site:result>Bookmarks.pdf</site:result>
 			<site:description>Creates a document with Bookmarks for every new Paragraph that is added</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Destinations" standalone="yes" />
+			<site:result>Destinations.pdf</site:result>
+			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="OutlineActions" standalone="yes" />
@@ -51,8 +53,96 @@
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="intro">
-		<site:sectiontitle>the Chapter class</site:sectiontitle>
+	
+	<site:section name="viewerprefs">
+		<site:sectiontitle>Viewerpreferences</site:sectiontitle>
+<div>
+<site:source class="ViewerPreferences" />
+</div>
+	</site:section>
+	<site:section name="pagelabels">
+		<site:sectiontitle>Pagelabels</site:sectiontitle>
+<div>
+<site:source class="PageLabels" />
+</div>
+	</site:section>
+	<site:section name="bookmarks">
+		<site:sectiontitle>Bookmarks</site:sectiontitle>
+<div>
+<site:source class="Bookmarks" />
+</div>
+	</site:section>
+	
+		<site:section name="destinations">
+		<site:sectiontitle>Creating Destinations</site:sectiontitle>
+<div>
+In the chapter on <site:tutorial chapter="/objects/anchors" section="localgoto">Anchors</site:tutorial>,
+we already defined destinations, by giving a name to a Chunk object (<site:doc class="com.lowagie.text.Chunk" target="setLocalDestination(java.lang.String)">setLocalDestination</site:doc>).
+The position on the page of this Chunk defined the destination.<br />
+In this section, we are going to create destinations of the following types:
+<ul>
+<li>Destination.XYZ</li>
+<li>Destination.FIT</li>
+<li>Destination.FITH</li>
+<li>Destination.FITV</li>
+<li>Destination.FITR</li>
+<li>Destination.FITB</li>
+<li>Destination.FITBH</li>
+<li>Destination.FITBV</li>
+</ul>
+This is how you will create them:
+<ul>
+<li><site:doc class="com.lowagie.text.pdf.PdfDestination" target="PdfDestination(int)">public PdfDestination(int type)</site:doc>
+can be used for types FIT and FITB.
+<b>FIT</b> points to the current page, with its contents magnified just enough to fit the entire page within the window
+both horizontally and vertically.
+<b>FITB</b> does the same, but the contents are magnified just enough to fit
+its bounding box.</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfDestination" target="PdfDestination(int,%20float)">public PdfDestination(int type, float parameter)</site:doc>
+can be used for types FITH, FITV, FITBH and FITBV.<br />
+If type equals <b>FITBV</b>, the height of the bounding box of a page will fit the window of the Reader.
+The parameter will specify the x coordinate of the left edge of the window.<br />
+If the type equals <b>FITV</b> the height of the entire page will fit the window and
+the parameter will specify the x coordinate of the left edge.<br />
+If type equals <b>FITBH</b>, the width of the bounding box of a page will fit the window of the Reader.
+The parameter will specify the y coordinate of the top edge of the window.<br />
+If the type equals <b>FITH</b> the width of the entire page will fit the window and
+the parameter will specify the y coordinate of the top edge.<br />
+</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfDestination" target="PdfDestination(int,%20float,%20float,%20float)">public PdfDestination(int type, float left, float top, float zoom)</site:doc>
+can be used for type <b>XYZ</b> with the coordinates (left, top) as the top-left corner of the destination window
+and the contents of the page magnified by the factor zoom.
+A negative value for any of the parameters left or top, or a zoom value of 0
+specifies that the current value of that parameter is to be retained unchanged.
+</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfDestination" target="PdfDestination(int,%20float,%20float,%20float,%20float)">public PdfDestination(int type, float left, float bottom, float right, float top)</site:doc>
+can be used for type <b>FITR</b> the destination will be a rectangle specified by the coordinates left, bottom, right, and top.
+If the required horizontal and vertical magnification factors are different,
+use the smaller of the two, centering the rectangle within the window in the other dimension.
+</li>
+</ul>
+<pre class="commandline">PdfDestination d1 = new PdfDestination(PdfDestination.XYZ, 300, 800, 0);
+PdfDestination d2 = new PdfDestination(PdfDestination.FITH, 500);
+PdfDestination d3 = new PdfDestination(PdfDestination.FITR, 200, 300, 400, 500);
+PdfDestination d4 = new PdfDestination(PdfDestination.FITBV, 100);
+PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
+</pre>
+When a destination is created, it is not linked to a certain page in the document.
+Only when add the destination the outline tree, it will point to the 'current' page.
+In the chapter on <site:tutorial chapter="/objects/anchors" section="localgoto">Anchors</site:tutorial>,
+we already used some destinations in Actions. Now we are going to use destinations as targets for our bookmarks.
+We will draw several crosses on a page and jumps to these crosses from the outline tree.
+<site:source class="Destinations" />
+</div>
+	</site:section>
+	<site:section name="outlineactions">
+		<site:sectiontitle>Outlines and Actions</site:sectiontitle>
+<div>
+<site:source class="OutlineActions" />
+</div>
+	</site:section>
+	<site:section name="chapter">
+		<site:sectiontitle>the Chapter object</site:sectiontitle>
 <div>
 <site:source class="ChapterSection" />
 </div>

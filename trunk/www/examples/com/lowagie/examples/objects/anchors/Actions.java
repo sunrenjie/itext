@@ -53,25 +53,30 @@ public class Actions {
 		try {
 
 			// step 2:
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Actions.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(document,
+					new FileOutputStream("Actions.pdf"));
 			PdfWriter.getInstance(remote, new FileOutputStream("remote.pdf"));
-			// step 3:        
+			// step 3:
 			document.open();
 			remote.open();
 			// step 4: we add some content
-            PdfAction action = PdfAction.gotoLocalPage(2, new PdfDestination(PdfDestination.XYZ, -1, 10000, 0), writer);
-            writer.setOpenAction(action);
-            document.add(new Paragraph("Page 1"));
-            document.newPage();
-            document.add(new Paragraph("Page 2"));
-            document.add(new Chunk("goto page 1").setAction(PdfAction.gotoLocalPage(1, new PdfDestination(PdfDestination.FITH, 500), writer)));
-            document.add(Chunk.NEWLINE);
-            document.add(new Chunk("goto another document").setAction(PdfAction.gotoRemotePage("remote.pdf", "test", false, true)));
-            remote.add(new Paragraph("Some remote document"));
-            remote.newPage();
-            Paragraph p = new Paragraph("This paragraph contains a ");
-            p.add(new Chunk("local destination").setLocalDestination("test"));
-            remote.add(p);
+			PdfAction action = PdfAction.gotoLocalPage(2, new PdfDestination(
+					PdfDestination.XYZ, -1, 10000, 0), writer);
+			writer.setOpenAction(action);
+			document.add(new Paragraph("Page 1"));
+			document.newPage();
+			document.add(new Paragraph("Page 2"));
+			document.add(new Chunk("goto page 1").setAction(PdfAction
+					.gotoLocalPage(1, new PdfDestination(PdfDestination.FITH,
+							500), writer)));
+			document.add(Chunk.NEWLINE);
+			document.add(new Chunk("goto another document").setAction(PdfAction
+					.gotoRemotePage("remote.pdf", "test", false, true)));
+			remote.add(new Paragraph("Some remote document"));
+			remote.newPage();
+			Paragraph p = new Paragraph("This paragraph contains a ");
+			p.add(new Chunk("local destination").setLocalDestination("test"));
+			remote.add(p);
 		} catch (Exception de) {
 			de.printStackTrace();
 		}
