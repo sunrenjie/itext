@@ -182,7 +182,8 @@
 			You can create an instance this way:<BR>
 			<FONT FACE="Courier">PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR>
 			but you will hardly ever need the object <FONT FACE="Courier">writer</FONT> (except if you want to create <A HREF="ch10.html">Advanced PDF</A>
-			or if you want to use some very specific functionalities such as <a href="#viewerprefs">ViewerPreferences</a>).
+			or if you want to use some very specific functionalities such as <a href="#viewerprefs">ViewerPreferences</a> or
+			<a href="#encryption">Encryption</a>).
 			So it's sufficient to just get the instance:<BR>
 			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR><BR>
 			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
@@ -210,6 +211,7 @@
 				public boolean addSubject(String subject)<BR>
 				public boolean addKeywords(String keywords)<BR>
 				public boolean addAuthor(String author)<BR>
+				public boolean addCreator(String creator)<BR>
 				public boolean addProducer()<BR>
 				public boolean addCreationDate()<BR>
 				public boolean addHeader(String name, String content)<BR>
@@ -300,7 +302,8 @@
 			<B><a name="viewerprefs">Viewerpreferences</a></B><BR>
 			For PDF files you can also set some viewer preferences with the method:<br>
 			<FONT FACE="Courier">public void setViewerPreferences(int preferences)</FONT><BR>
-			Remark: you can invoke this method only on a class of type <FACE FONT="Courier">PdfWriter</FONT>.
+			Remark: you can invoke this method only on a class of type <FACE FONT="Courier">PdfWriter</FONT>.<br>
+			<B><a name="encryption">Encryption</a></B><BR>
 			</FONT><BR><BR>
 		</TD>
 	</TR>

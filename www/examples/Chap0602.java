@@ -27,9 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-
 import com.lowagie.text.pdf.PdfWriter;
-
 import com.lowagie.text.html.HtmlWriter;
 
 public class Chap0602 {
@@ -42,34 +40,23 @@ public class Chap0602 {
         Document document = new Document();
         
         try {
-            
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
             
             PdfWriter.getInstance(document, new FileOutputStream("Chap0602.pdf"));
-            
             HtmlWriter.getInstance(document, new FileOutputStream("Chap0602.html"));
             
             // step 3: we open the document
             document.open();
             
-            
-            
             Image gif = Image.getInstance("vonnegut.gif");
-            
             Image jpeg = Image.getInstance("myKids.jpg");
-            
             Image png = Image.getInstance("hitchcock.png");
             
-            
-            
             document.add(gif);
-            
             document.add(jpeg);
-            
             document.add(png);
-            
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
