@@ -71,6 +71,7 @@
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
 				<LI><A HREF="#measurements">What measurement unit is used?</A>
 				<LI><A HREF="#celldimensions">Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</A>
+                <li><a href="#pdfviewer">Can I view PDFs using iText.</a>
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
 				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
 				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
@@ -375,6 +376,24 @@
 			show the same content and metadata, but the cells (and/or table) will have different dimensions. That is
 			why it doesn't make sense to ask a Cell (and/or Table) object for its dimensions.
 			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><A NAME="pdfviewer"><B>Can I view PDFs using iText?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			No, use Acrobat Reader or GhostView or any other PDF viewer instead.<br>
+            Carsten Hammer made the following suggestions if you REALLY need a Java solution to view PDFs:
+            <ul>
+            <li>Use <a href="http://www.jpedal.org/">jpedal</a>. There is an example on their site.
+            <li>Adobe once release a PDF Viewer library: <a href="http://www.adobe.com/products/acrviewer/main.html">Adobe Acrobat Viewer (for Java)</a>.
+            Unfortunately they discontinued the development, so it only supports older versions of PDF and JAVA.<br>
+            Carsten provided a jar with an example on how to use the library.
+            You can find this jar <a href="http://itext.sourceforge.net/downloads/pdfviewer.zip">here</a>.
+            Just do <code>java -jar pdfviewer.jar</code>. Before you download the zip, please read the
+            <a href="http://www.adobe.com/products/acrviewer/eula.html">License Agreement</a> from Adobe first.
+            </ul>
+			</FONT>
 		</TD>
 	</TR>
 	<TR>
