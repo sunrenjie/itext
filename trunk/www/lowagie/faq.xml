@@ -131,6 +131,60 @@ Note that if you do not distribute the iText source code with your application, 
 
 </site:faq-entry>
 
+<site:faq-entry name="references">
+<site:question>Who is using iText?</site:question>
+<site:answer>This question was posted to the mailinglist on december 8th, 2004.<br />
+These were some companies that were mentioned:
+<ul>
+<li><a href="http://www.ugent.be/">Ghent University</a></li>
+<li><a href="http://www.trasys.be/">Trasys</a></li>
+<li><a href="http://www.dolmen.be/">Dolmen</a></li>
+<li><a href="http://www.siemens.be/ic/sbs/">Siemens Business Services</a></li>
+<li><a href="http://www.svenskborsinfo.se/">svenskborsinfo.se</a></li>
+<li><a href="http://www.bearprinting.com/">bearprinting.com</a></li>
+<li><a href="http://www.abacus.ch/">abacus.ch</a></li>
+<li><a href="http://www.trackstudio.com/">trackstudio.com</a></li>
+<li><a href="http://www.windward.net/">windward.net</a></li>
+<li><a href="http://www.bibalex.org/">bibalex.org</a></li>
+<li><a href="http://www.wellsfargo.com/">wellsfargo.com</a></li>
+<li><a href="http://www.epredix.com/">epredix.com</a></li>
+<li><a href="http://www.sas.se/">sas.se</a></li>
+<li>BBVA, a Spanish bank</li>
+<li>the Portuguese IRS</li>
+</ul>
+These were some testimonials:
+<ul>
+<li>Daniel Wellman (<a href="http://www.ustrust.com/">U.S. Trust</a>,
+an affiliate of <a href="http://www.schwab.com/">Schwab &amp; Co</a>):
+Our application is a financial web application that clients
+of U.S. Trust use to get reports about their investments.
+The reports are a fairly simple 'everything in a table' format,
+flushing pages as they fill up, strictly text with some color
+and font formatting, and events to print a standard header
+and footer at the bottom of every page.</li>
+<li>James Linder: we are using it in our reporting product.  The reports are usually various
+financial reports for a number of large companies (read fortune 50 on down).  
+It seems like a pretty speedy library but can be a pain to learn and use
+(unless it has changed significantly in the last year or so.)</li>
+<li>Pete Gordon (SPS Commerce): We are generating PDF order invoices for online ordering
+e-commerce sites.</li>
+<li>Sean C. Sullivan (see <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">OnJava article</a>):
+Our team had plenty of experience with J2EE web applications,
+but we had little experience with PDF documents.
+We needed to find a pure Java class library
+that could produce sophisticated PDF documents in a server-side web application.
+We found a solution that completely met our needs: iText.</li>
+<li>Reto Stamm (<a href="http://teach2go.com/">Teach2go.com</a>):
+I have used iText for teach2go.com, to make flashcards to learn
+Japanese. It's a great tool, I absolutely could not have done without it.</li>
+<li>Joe Hertvik (<a href="http://www.itjungle.com/tfh/tfh031802-story04.html">IBM iSeries and AS/400</a>):
+they can install the open-source iText software for generating PDF files on the fly
+(instructions for downloading and installing iText in your OS/400 environment will
+be included in the beta's README file).</li>
+</ul>
+</site:answer>
+</site:faq-entry>
+
 <site:faq-entry name="support">
 <site:question>Is support available?</site:question>
 <site:answer>
