@@ -70,7 +70,7 @@ public class Annotations {
 					PdfAction.javaScript("app.alert('Hello');\r", writer));
 			document.add(new Chunk("click to trigger javascript").setAnnotation(a).setLocalDestination("top"));
 			writer.addAnnotation(a);
-			writer.addAnnotation(PdfAnnotation.createFileAttachment(writer, new Rectangle(100f, 650f, 150f, 700f), "This is some text", PdfFileSpecification.fileExtern(writer, "some.txt")));
+			writer.addAnnotation(PdfAnnotation.createFileAttachment(writer, new Rectangle(100f, 650f, 150f, 700f), "This is some text", "some text".getBytes(), null, "some.txt"));
 			writer.addAnnotation(PdfAnnotation.createText(writer, new Rectangle(200f, 400f, 300f, 500f), "Help", "This Help annotation was made with 'createText'", false, "Help"));
 			writer.addAnnotation(PdfAnnotation.createText(writer, new Rectangle(200f, 250f, 300f, 350f), "Help", "This Comment annotation was made with 'createText'", true, "Comment"));
 			cb.rectangle(200, 700, 100, 100);
