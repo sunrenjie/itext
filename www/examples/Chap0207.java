@@ -46,28 +46,28 @@ public class Chap0207 {
             
             // step 4:
             // we add some content
-            Phrase myPhrase = new Phrase("Hello 1! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));
+            Phrase myPhrase = new Phrase("Hello 1! ", new Font(Font.TIMES_ROMAN, 8, Font.BOLD));
             myPhrase.add(new Phrase("some other font ", new Font(Font.HELVETICA, 8)));
-            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));
             document.add(myPhrase);
             
-            myPhrase = new Phrase("Hello 1bis! ", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 8, Font.BOLD));
+            myPhrase = new Phrase("Hello 1bis! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));
             myPhrase.add(new Phrase("some other font ", FontFactory.getFont(FontFactory.HELVETICA, 8)));
-            myPhrase.add(new Phrase("This is the end of the sentence.\n", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 8, Font.ITALIC)));
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));
             document.add(myPhrase);
             
-            Paragraph myParagraph = new Paragraph("Hello 2! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));
-            myParagraph.add(new Paragraph("This is the end of the sentence.", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));
+            Paragraph myParagraph = new Paragraph("Hello 2! ", new Font(Font.TIMES_ROMAN, 8, Font.BOLD));
+            myParagraph.add(new Paragraph("This is the end of the sentence.", new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));
             document.add(myParagraph);
             
             myParagraph = new Paragraph(12);
-            myParagraph.add(new Paragraph("Hello 3! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));
-            myParagraph.add(new Paragraph("This is the end of the sentence.", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));
+            myParagraph.add(new Paragraph("Hello 3! ", new Font(Font.TIMES_ROMAN, 8, Font.BOLD)));
+            myParagraph.add(new Paragraph("This is the end of the sentence.", new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));
             document.add(myParagraph);
             
             myPhrase = new Phrase(12);
-            myPhrase.add(new Phrase("Hello 4! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));
-            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));
+            myPhrase.add(new Phrase("Hello 4! ", new Font(Font.TIMES_ROMAN, 8, Font.BOLD)));
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_ROMAN, 8, Font.ITALIC)));
             document.add(myPhrase);
         }
         catch(DocumentException de) {

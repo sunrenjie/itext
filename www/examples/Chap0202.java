@@ -60,7 +60,7 @@ public class Chap0202 {
             phrase6.add(chunk);
             phrase6.add(new Chunk("Helvetica", FontFactory.getFont(FontFactory.HELVETICA, 12)));
             phrase6.add(chunk);
-            phrase6.add(new Chunk("Times New Roman", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12)));
+            phrase6.add(new Chunk("Times New Roman", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12)));
             phrase6.add(chunk);
             phrase6.add(new Chunk("Courier", FontFactory.getFont(FontFactory.COURIER, 12)));
             phrase6.add(chunk);
