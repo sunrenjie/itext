@@ -62,7 +62,7 @@
 	<site:chapter>
 	
 	<site:section new="writeselectedrows">
-		<site:sectiontitle>adding a PdfPTable at an absolute position</site:sectiontitle>
+		<site:sectiontitle>Adding a PdfPTable at an absolute position</site:sectiontitle>
 <div>
 You can add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>
 as described in the <site:tutorial chapter="/objects/tables">previous chapter</site:tutorial>,
