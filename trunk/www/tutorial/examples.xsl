@@ -7,8 +7,8 @@ xmlns:site="http://www.lowagie.com/iText/site"
 exclude-result-prefixes="site">
   <xsl:output method="xml" indent="yes" media-type="text/xml" />
 
-  <xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
-  <xsl:param name="branch" select="/site:page/site:metadata/site:tree/@branch" />
+  <xsl:param name="root" />
+  <xsl:param name="branch" />
 
   <xsl:template match="site:metadata" />
   <xsl:template match="site:section" />

@@ -14,7 +14,6 @@
 		<site:updated>$Date$</site:updated>
 		<site:author>Mark Hall</site:author>
 		<site:author>Bruno Lowagie</site:author>
-		<site:tree branch="/rtf" root="/.." />
 	</site:metadata>
 	
 	<site:examples>
