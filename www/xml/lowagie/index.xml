@@ -17,12 +17,12 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
+		        <b>Nov 20th 2004:</b>
+				<br />Updated of the <a href="history.html">history page</a>.<br />
 		        <b>Nov 19th 2004:</b>
 				<br />Redesign FAQ and links page.<br />
 				<b>Nov 18th 2004:</b>
 				<br />The ANT scripts were published and the XSL generating this site was updated.<br />
-		        <b>Nov 16th 2004:</b>
-				<br />iText 1.1 was released!<br />
 				<br />
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
