@@ -41,6 +41,10 @@ public class Chap0904 {
         Document document = new Document();
         
         try {
+            String[] names = BaseFont.enumerateTTCNames("c:\\winnt\\fonts\\msgothic.ttc");
+            for (int i = 0; i < names.length; i++) {
+                System.out.println(names[i]);                
+            }
             
             // step 2:
             // we create a writer that listens to the document
@@ -51,12 +55,12 @@ public class Chap0904 {
             document.open();
             
             // step 4: we add content to the document
-        	BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\msgothic.ttc,1", BaseFont.IDENTITY_H, true);
-        	Font font = new Font(bf, 16);
-        	String text1 = "\u5951\u7d04\u8005\u4f4f\u6240\u30e9\u30a4\u30f3\uff11";
-        	String text2 = "\u5951\u7d04\u8005\u96fb\u8a71\u756a\u53f7";
-        	document.add(new Paragraph(text1, font));
-        	document.add(new Paragraph(text2, font));
+            BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\msgothic.ttc,1", BaseFont.IDENTITY_H, true);
+            Font font = new Font(bf, 16);
+            String text1 = "\u5951\u7d04\u8005\u4f4f\u6240\u30e9\u30a4\u30f3\uff11";
+            String text2 = "\u5951\u7d04\u8005\u96fb\u8a71\u756a\u53f7";
+            document.add(new Paragraph(text1, font));
+            document.add(new Paragraph(text2, font));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
