@@ -251,7 +251,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 							</xsl:element>
 						</xsl:for-each>
 					</xsl:if>
-					<br />
 					<xsl:if test="count(site:path)!=0" ><br />Test this example:
 						<xsl:for-each select="site:path">
 							<xsl:value-of select="string(' ')" />
@@ -261,6 +260,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 							</xsl:element>
 						</xsl:for-each>
 					</xsl:if>
+					<br />
 					<xsl:if test="count(site:externalresource)!=0" >
 						External resources for this example:
 						<xsl:for-each select="site:externalresource">
@@ -280,15 +280,49 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		</div>
 	</xsl:template>
 
+	<xsl:template match="site:jsp">
+		<xsl:param name="jsp" select="@jsp" />
+		<div id="example">
+			<xsl:for-each select="/site:page/site:examples/site:example">
+				<xsl:if test="$jsp=./site:java/@jsp">
+					Example:
+					<xsl:element name="a">
+						<xsl:attribute name="href"><xsl:value-of select="site:java/@jsp" /></xsl:attribute>
+						<xsl:value-of select="site:java/@jsp" />
+					</xsl:element><br />
+					<xsl:value-of select="site:description/." />
+					<xsl:if test="count(site:path)!=0" ><br />Test this example:
+						<xsl:for-each select="site:path">
+							<xsl:value-of select="string(' ')" />
+							<xsl:element name="a">
+								<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+								<xsl:value-of select="@name" />
+							</xsl:element>
+						</xsl:for-each>
+					</xsl:if>
+				</xsl:if>
+			</xsl:for-each>
+		</div>
+	</xsl:template>
+
 	<xsl:template match="site:examples">
 		<xsl:param name="dir" />
 		<xsl:for-each select="site:example">
 			<div class="example">
-				<xsl:element name="a">
-					<xsl:attribute name="class">source</xsl:attribute>
-					<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
-					<xsl:value-of select="site:java/@src" />
-				</xsl:element><br />
+				<xsl:if test="site:java/@src">
+					<xsl:element name="a">
+						<xsl:attribute name="class">source</xsl:attribute>
+						<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+						<xsl:value-of select="site:java/@src" />
+					</xsl:element><br />
+				</xsl:if>
+				<xsl:if test="site:java/@jsp">
+					<xsl:element name="a">
+						<xsl:attribute name="class">source</xsl:attribute>
+						<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@jsp" /></xsl:attribute>
+						<xsl:value-of select="site:java/@jsp" />
+					</xsl:element><br />
+				</xsl:if>
 				<div class="description"><xsl:value-of select="site:description/." /></div>
 				<xsl:if test="count(site:extrajar)>0">
 					<div class="small">Extra jars needed:</div>

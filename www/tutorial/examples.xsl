@@ -114,6 +114,22 @@
 						<xsl:attribute name="todir">${webapp}/<xsl:value-of select="@name" /></xsl:attribute>
 						<xsl:attribute name="overwrite">yes</xsl:attribute>
 					</xsl:element>
+					<xsl:element name="copy">
+						<xsl:attribute name="todir">${webapp}/<xsl:value-of select="@name" /></xsl:attribute>
+						<xsl:attribute name="overwrite">yes</xsl:attribute>
+						<xsl:element name="fileset">
+							<xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="$branch" /></xsl:attribute>
+							<include name="*.jsp" />
+						</xsl:element>
+					</xsl:element>
+					<xsl:element name="copy">
+						<xsl:attribute name="todir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
+						<xsl:attribute name="overwrite">yes</xsl:attribute>
+						<xsl:element name="fileset">
+							<xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="$branch" /></xsl:attribute>
+							<include name="*.jsp" />
+						</xsl:element>
+					</xsl:element>
 					<xsl:element name="war">
 						<xsl:attribute name="destfile">${webapp}/<xsl:value-of select="@name" />.war</xsl:attribute>
 						<xsl:attribute name="basedir">${webapp}/<xsl:value-of select="@name" /></xsl:attribute>

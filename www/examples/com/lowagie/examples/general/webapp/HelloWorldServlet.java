@@ -77,6 +77,7 @@ public class HelloWorldServlet extends HttpServlet {
             document.open();
             
             // step 4
+            document.add(new Paragraph("Hello World"));
             document.add(new Paragraph(new Date().toString()));
         }
         catch(DocumentException de) {
