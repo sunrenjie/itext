@@ -20,7 +20,12 @@
 	author		CDATA	#IMPLIED
 >
 
-<!ELEMENT chunk (#PCDATA | newline | newpage)*> 
+<!ELEMENT symbol EMPTY>
+<!ATTLIST symbol
+          id      CDATA #REQUIRED
+>
+		  
+<!ELEMENT chunk (#PCDATA | newline | newpage | symbol)*> 
 <!ATTLIST chunk
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -35,7 +40,7 @@
     generictag          CDATA   #IMPLIED
 >
 
-<!ELEMENT phrase (#PCDATA | newline | newpage | chunk | anchor | list | table | annotation)*> 
+<!ELEMENT phrase (#PCDATA | newline | newpage | symbol | chunk | anchor | list | table | annotation)*> 
 <!ATTLIST phrase
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -47,7 +52,7 @@
     leading    CDATA   #IMPLIED
 >
 
-<!ELEMENT anchor (#PCDATA | chunk | annotation | newline | newpage)*> 
+<!ELEMENT anchor (#PCDATA | chunk | annotation | newline | newpage | symbol)*> 
 <!ATTLIST anchor
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -61,7 +66,7 @@
     reference  CDATA   #IMPLIED
 >
 
-<!ELEMENT paragraph (#PCDATA | newline | newpage | chunk | anchor | list | table | annotation | phrase | image)*> 
+<!ELEMENT paragraph (#PCDATA | newline | newpage | symbol | chunk | anchor | list | table | annotation | phrase | image)*> 
 <!ATTLIST paragraph
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -93,7 +98,7 @@
     listsymbol     CDATA   #IMPLIED
 >
 
-<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | image)*> 
+<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | symbol | image)*> 
 <!ATTLIST listitem
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -126,7 +131,7 @@
     indentationright   CDATA   #IMPLIED
 >
 
-<!ELEMENT title (#PCDATA | newline | newpage | phrase | chunk | annotation)*> 
+<!ELEMENT title (#PCDATA | newline | newpage | symbol | phrase | chunk | annotation)*> 
 <!ATTLIST title
     font   CDATA   #IMPLIED
     size   CDATA   #IMPLIED
@@ -141,7 +146,7 @@
     indentationright   CDATA   #IMPLIED
 >
 
-<!ELEMENT sectioncontent (#PCDATA | newline | newpage | chunk | anchor | list | table | annotation | section | paragraph | phrase | image)*>
+<!ELEMENT sectioncontent (#PCDATA | newline | newpage | symbol | chunk | anchor | list | table | annotation | section | paragraph | phrase | image)*>
 
 <!ELEMENT table (cell*)>
 <!ATTLIST table
@@ -169,7 +174,7 @@
 >
 
 <!ELEMENT row (cell*)>
-<!ELEMENT cell (#PCDATA | paragraph | anchor | phrase | list | chunk | newline | newpage | table | image | annotation)*>
+<!ELEMENT cell (#PCDATA | paragraph | anchor | phrase | list | chunk | newline | newpage | symbol | table | image | annotation)*>
 <!ATTLIST cell
     red    CDATA   #IMPLIED
     green  CDATA   #IMPLIED
