@@ -28,24 +28,37 @@ import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Chap1009 {
+public class Chap1010 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 10 example 9: a PdfPTable at an absolute position");
+        System.out.println("Chapter 10 example 10: nested PdfPTables");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            // step 2:  we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1009.pdf"));
+            // step 2: we create a writer that listens to the document
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1010.pdf"));
             // step 3: we open the document
             document.open();
             // step 4: we add some content
             PdfPTable table = new PdfPTable(4);
-            table.getDefaultCell().setBorder(Rectangle.LEFT | Rectangle.RIGHT);
+            PdfPTable nested1 = new PdfPTable(2);
+            nested1.addCell("1.1");
+            nested1.addCell("1.2");
+            PdfPTable nested2 = new PdfPTable(1);
+            nested2.addCell("2.1");
+            nested2.addCell("2.2");
             for (int k = 0; k < 24; ++k) {
-                table.addCell("cell " + k);
+                if (k == 1) {
+                    table.addCell(nested1);
+                }
+                else if (k == 20) {
+                    table.addCell(nested2);
+                }
+                else {
+                    table.addCell("cell " + k);
+                }
             }
             table.setTotalWidth(300);
             table.writeSelectedRows(0, -1, 100, 600, writer.getDirectContent());

@@ -96,6 +96,7 @@
         <mkdir dir="${itext.examples}" />
         <get src="http://www.lowagie.com/iText/examples/harbour.wmf" dest="${itext.examples}/harbour.wmf" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.examples}/pngnow.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/cover.png" dest="${itext.examples}/cover.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.examples}/H.gif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.examples}/caesar_coin.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/hitchcock.png" dest="${itext.examples}/hitchcock.png" verbose="true" />
@@ -455,6 +456,18 @@
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1008">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1009">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1010">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1011">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1012">
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1101">
