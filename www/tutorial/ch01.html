@@ -37,7 +37,95 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Document Generation</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 1: Creating a document</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 1: Creating a document</B></FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Creation of a document in 5 steps: Hello World</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Download the source code of the first example: <A HREF="Chap0101.java">Chap0101.java</A>.<BR>
+			<BR><B>Step 1:</B><BR>
+			Create an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
+			<FONT FACE="Courier">Document document = new Document();</FONT><BR>
+			<BR><B>Step 2:</B><BR>
+			Create a Writer that listens to this document and writes the document to the OutputStream of your choice:<BR>
+			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));</FONT><BR>
+			<BR><B>Step 3:</B><BR>
+			Open the document:<BR>
+			<FONT FACE="Courier">document.open();</FONT><BR>
+			<BR><B>Step 4:</B><BR>
+			Add content to the document:<BR>
+			<FONT FACE="Courier">document.add(new Paragraph("Hello World"));</FONT><BR>
+			<BR><B>Step 5:</B><BR>
+			Close the document:<BR>
+			<FONT FACE="Courier">document.close();</FONT><BR><BR>
+			Check the result here: <A HREF="Chap0101.pdf">Chap0101.pdf</A>.<BR>
+			</FONT><BR>		
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 1: the Document-object</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			The <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object has 3 constructors:<BR><BR>
+			<FONT FACE="Courier">
+			public Document();<BR>
+			public Document(Rectangle pageSize);<BR>
+			public Document(Rectangle pageSize,<BR>
+			&nbsp;&nbsp;&nbsp;int marginLeft,<BR>
+			&nbsp;&nbsp;&nbsp;int marginRight,<BR>
+			&nbsp;&nbsp;&nbsp;int marginTop,<BR>
+			&nbsp;&nbsp;&nbsp;int marginBottom);<BR>
+			</FONT><BR>
+			The first constructor calls the second one, with
+			<FONT FACE="Courier">PageSize.A4</FONT> as parameter.<BR>
+			The second constructor calls the third one, with
+			<FONT FACE="Courier">30</FONT> as value for each margin.<BR>
+			<BR>
+			<B>PageSize</B><BR>
+			You could create your own <FONT FACE="Courier">Rectangle</FONT>-object in a certain
+			color and use this as pagesize.<BR>
+			In example <A HREF="Chap0102.java">Chap0102.java</A>, we create a long, small
+			document with a yellowish backgroundcolor:<BR><BR>
+			<FONT FACE="Courier">
+			Rectangle pageSize = new Rectangle(120, 720);<BR>
+			pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));<BR>
+			Document document = new Document(pageSize);<BR>
+			</FONT><BR>
+			This is the result: <A HREF="Chap0102.pdf">Chap0102.pdf</A>.<BR><BR>
+			Normally, you don't have to worry about creating this rectangle,
+			you can use one of the statics in class
+			<A HREF="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java"><FONT FACE="Courier">PageSize.java</FONT></A>.
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 2: the Writer-object</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 3: Meta data + opening the document</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 4: adding content</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 5: closing the document</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -50,8 +138,8 @@
 	<TR>
 		<TD COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
 			<FONT FACE="Arial,Helvetica" SIZE="-3">
-			<B>Page Updated: </B> $Date $<br>
-			Copyright &copy; 2000  Bruno Lowagie
+			<B>Page Updated: </B> $Date$<br>
+			Copyright &copy; 2000, 2001 by Bruno Lowagie
 			</FONT>
 		</TD>
 		<TD COLSPAN="3" ALIGN="right" BGCOLOR="#808080">
