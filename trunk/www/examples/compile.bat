@@ -1,2 +1,2 @@
 javac -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;%J2EE_HOME%/lib/j2ee.jar;. %1.java
-java -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;../../bin/iTextHYPH.jar;%JAVA_HOME%/jre/lib/ext/jai_core.jar;%JAVA_HOME%/jre/lib/ext/jai_codec.jar;%J2EE_HOME%/lib/j2ee.jar;. %1
+java -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;../../bin/iTextHYPH.jar;../../bin/iTextAsian.jar;%JAVA_HOME%/jre/lib/ext/jai_core.jar;%JAVA_HOME%/jre/lib/ext/jai_codec.jar;%J2EE_HOME%/lib/j2ee.jar;. %1
