@@ -32,7 +32,7 @@ public class Chap1108 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 8: page labels");
+        System.out.println("Chapter 11 example 8: annotations");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
@@ -42,18 +42,39 @@ public class Chap1108 {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1108.pdf"));
             // step 3: we open the document
             document.open();
-            // step 4:
-            // we add some content
-            for (int k = 1; k <= 10; ++k) {
-                document.add(new Paragraph("This document has the logical page numbers: i,ii,iii,iv,1,2,3,A-8,A-9,A-10\nReal page " + k));
-                document.newPage();
+            // step 4: we add some content
+            
+            PdfContentByte cb = writer.getDirectContent();
+            // draw a rectangle
+            cb.setRGBColorStroke(0x00, 0x00, 0xFF);
+            cb.rectangle(100, 700, 100, 100);
+            cb.stroke();
+            Annotation annot = new Annotation(100f, 700f, 200f, 800f, "http://www.lowagie.com");
+            document.add(annot);
+            cb.setRGBColorStroke(0xFF, 0x00, 0x00);
+            cb.rectangle(200, 700, 100, 100);
+            cb.stroke();
+            try {
+                document.add(new Annotation(200f, 700f, 300f, 800f, new java.net.URL("http://www.lowagie.com")));
             }
-            PdfPageLabels pageLabels = new PdfPageLabels();
-            pageLabels.addPageLabel(1, PdfPageLabels.LOWERCASE_ROMAN_NUMERALS);
-            pageLabels.addPageLabel(5, PdfPageLabels.DECIMAL_ARABIC_NUMERALS);
-            pageLabels.addPageLabel(8, PdfPageLabels.DECIMAL_ARABIC_NUMERALS, "A-", 8);
-            writer.setPageLabels(pageLabels);
-            document.close();
+            catch(Exception e) {
+            }
+            cb.setRGBColorStroke(0x00, 0xFF, 0x00);
+            cb.rectangle(300, 700, 100, 100);
+            cb.stroke();
+            document.add(new Annotation(300f, 700f, 400f, 800f, "C://winnt/notepad.exe", null, null, null));
+            cb.setRGBColorStroke(0x00, 0x00, 0xFF);
+            cb.rectangle(100, 500, 100, 100);
+            cb.stroke();
+            document.add(new Annotation("annotation", "This annotation is placed on an absolute position", 100f, 500f, 200f, 600f));
+            cb.setRGBColorStroke(0xFF, 0x00, 0x00);
+            cb.rectangle(200, 500, 100, 100);
+            cb.stroke();
+            document.add(new Annotation(200f, 500f, 300f, 600f, "Chap1102a.pdf", "test"));
+            cb.setRGBColorStroke(0x00, 0xFF, 0x00);
+            cb.rectangle(300, 500, 100, 100);
+            cb.stroke();
+            document.add(new Annotation(300f, 500f, 400f, 600f, "Chap1102b.pdf", 3));
         }
         catch (Exception de) {
             de.printStackTrace();

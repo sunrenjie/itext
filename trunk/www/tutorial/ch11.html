@@ -203,6 +203,8 @@
             PdfDestination d4 = new PdfDestination(PdfDestination.FITBV, 100);<BR>
             PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
             </FONT><BR><BR>
+			When a destination is created, it is not linked to a certain page in the document.
+			Only when add the destination the outline tree, it will point to the 'current' page.<BR><BR>
             We will use these destinations in the next section:
             </FONT><BR><BR>
 		</TD>
@@ -238,9 +240,20 @@
             page events in the <A HREF="ch12.html">next chapter</A>. Check out
             <A HREF="../examples/Chap1106.pdf">Chap1106.pdf</A> (and read all about some
             brave belgians).<br>
-			It is also possible to add destinations to an outline tree.
+			It is also possible to add actions to an outline tree.
 			This is demonstrated in <A HREF="../examples/Chap1107.java">example 7</A>
 			(<A HREF="../examples/Chap1107.pdf">Chap1107.pdf</A>).
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="annot"><B>Annotations</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In <A HREF="ch03.html">Chapter 3</A>, we added text annotations, but you can do more
+			with annotations than just adding text. <A HREF="../examples/Chap1108.java">Example 8</A>
+			(<A HREF="../examples/Chap1108.pdf">Chap1108.pdf</A>) shows us how we can add actions
+			at absolute positions.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -261,8 +274,8 @@
 				<LI>PdfPageLabels.LOWERCASE_LETTERS
 				<LI>PdfPageLabels.EMPTY
 			</UL>
-			Please take a look at <A HREF="../examples/Chap1108.java">example 8</A>
-			and the <A HREF="../examples/Chap1108.pdf">resulting PDF file</A>.
+			Please take a look at <A HREF="../examples/Chap1109.java">example 9</A>
+			and the <A HREF="../examples/Chap1109.pdf">resulting PDF file</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
