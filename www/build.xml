@@ -265,6 +265,12 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0109">
            <classpath refid="classpath" />
 		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0110">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0111">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0201">
            <classpath refid="classpath" />
 		</java>
