@@ -477,8 +477,10 @@
 			are set on the level of each individual cell. Of course you can define the default behaviour of a Cell; to change the defaults
 			of a cell, just use the method <FONT FACE="Courier">getDefaultCell()</FONT> and invoke one or more methods of class
 			<FONT FACE="Courier">PdfPCell</FONT> on it (you can set alignments, padding, borders, colors, even a minimum height).<br>
-			Another difference is colspan and rowspan: there is no way to set these values, but you can become the same result by
-			using nested tables or you can cheat and use a negative right or left padding to extend the cell.<br><br>
+			<b>Important remark:</b> With PdfPTable you can change the colspan of a Cell, but you can't change the rowspan!
+			Internally a PdfPTable is a stack of independent rows. Supporting rowspan would involve a massive restructuring
+			of the class PdfPTable. It is not expected that this will happen in the near future. You can work around this problem
+			by using nested tables.<br><br>
 			You can add a PdfPTable to a document as we did in <A HREF="ch05.html#pdfptable">Chapter 5</A>, but you can also
 			add the table on an absolute position of the current page:<br><br>
 			<FONT FACE="Courier">
