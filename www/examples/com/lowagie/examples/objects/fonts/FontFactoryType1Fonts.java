@@ -73,7 +73,7 @@ public class FontFactoryType1Fonts {
             fonts[13] = FontFactory.getFont(FontFactory.ZAPFDINGBATS, Font.DEFAULTSIZE, Font.NORMAL);
 			// add the content
 			for (int i = 0; i < 14; i++) {
-				document.add(new Paragraph("quick brown fox jumps over the lazy dog", fonts[i]));
+					document.add(new Paragraph("quick brown fox jumps over the lazy dog", fonts[i]));
 			}
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());

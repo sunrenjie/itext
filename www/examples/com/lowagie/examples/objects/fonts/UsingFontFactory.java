@@ -78,8 +78,13 @@ public class UsingFontFactory {
 				name = (String) i.next();
 				p = new Paragraph(name);
 				document.add(p);
-				p = new Paragraph(quick, FontFactory.getFont(name, BaseFont.WINANSI, BaseFont.EMBEDDED));
-				document.add(p);
+				try {
+					p = new Paragraph(quick, FontFactory.getFont(name, BaseFont.WINANSI, BaseFont.EMBEDDED));
+					document.add(p);
+				}
+				catch (Exception e) {
+					document.add(new Paragraph(e.getMessage()));
+				}
 			}
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
