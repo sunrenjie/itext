@@ -75,6 +75,32 @@
 	</site:examples>
 	
 	<site:chapter>
+	<site:section name="introduction">
+		<site:sectiontitle>Introduction</site:sectiontitle>
+<div>
+iText is a library that produces PDF, but you don't need to know anything about PDF syntax,
+PDF objects, PDF operators or operands to use it (allthough it's possible to add <site:tutorial chapter="/directcontent">direct content</site:tutorial> if you want to).
+iText comes with a large number of its own high level objects that can be used to add content to a PDF document.<br />
+This is a short (and incomplete) list of iText high-level objects:
+<ul>
+<li><site:tutorial chapter="/objects/chunk">Chunk</site:tutorial></li>
+<li><site:tutorial chapter="/objects" section="paragraph">Paragraph</site:tutorial></li>
+<li><site:tutorial chapter="/objects/font">Font</site:tutorial></li>
+<li><site:tutorial chapter="/objects/anchor">Anchors</site:tutorial></li>
+<li><site:tutorial chapter="/objects/bookmarks">Bookmarks</site:tutorial></li>
+<li><site:tutorial chapter="/objects" section="list">List</site:tutorial></li>
+<li><site:tutorial chapter="/objects/images">Images</site:tutorial></li>
+<li><site:tutorial chapter="/objects/table">Tables</site:tutorial></li>
+<li><site:tutorial chapter="/objects/columns">Columns</site:tutorial></li>
+<li>...</li>
+</ul>
+Remark: some objects such as HeaderFooter and Graphic are not in the list (and not documented) because they are no longer supported.
+There are sufficient alternatives for those objects (see for instance
+<site:tutorial chapter="/directcontent/pageevents">page events</site:tutorial> and
+<site:tutorial chapter="/directcontent/graphics2D">graphics2D</site:tutorial>).
+</div>
+	</site:section>
+	
 	<site:section name="chunk">
 		<site:sectiontitle>The Chunk object</site:sectiontitle>
 <div>
