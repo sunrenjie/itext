@@ -118,6 +118,19 @@ lots of time and money, you can support the developers in several ways:<br />
 </site:answer>
 </site:faq-entry>
 
+<site:faq-entry name="license_string">
+<site:question>How should I cite the iText copyright message in my program?</site:question>
+<site:answer>The following text can be used:
+<p>
+<b>iText Library - Copyright (C) 1999-2004 by Bruno Lowagie and Paulo Soares. All Rights Reserved.</b>
+</p>
+The ending date in the above date range should be the current year.<br />
+Note that if you do not distribute the iText source code with your application, a valid alternative is to include a link to the iText site where users can find the source online.<br />
+(faq-entry by Daniel Wellman)
+</site:answer>
+
+</site:faq-entry>
+
 <site:faq-entry name="support">
 <site:question>Is support available?</site:question>
 <site:answer>
