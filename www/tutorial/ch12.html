@@ -165,6 +165,35 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="eventtable"><B>Table events</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			If you are using the <FONT FACE="Courier">PdfPTable</FONT>-object, you can also
+			set the PdfPTableEvent:<br>
+			<br>
+			<font face="Courier">
+			MyTableEvent event = new MyTableEvent();<br>
+            table.setTableEvent(event);</font>
+			<br><br>
+			The table event interface has only one method you have to implement:<br>
+			<br>
+			<font face="Courier">public void <B>tableLayout</B>(dfPTable table, float[] widths, float[] heights, int headerRows, int rowStart, PdfContentByte[] canvases);</font>
+			<br><br>
+			This method is called at the end of the table rendering. You can add text or graphics to
+            one of the 4 <FONT FACE="Courier">PdfContentByte</FONT> contained in parameter <FONT FACE="Courier">canvases</FONT>:<br>
+			<ul>
+			<li>PdfPtable.<b>BASECANVAS</b> - the original PdfContentByte. Anything placed here will be under the table.
+			<li>PdfPtable.<b>BACKGROUNDCANVAS</b> - the layer where the background goes to.
+			<li>PdfPtable.<b>LINECANVAS</b> - the layer where the lines go to.
+			<li>PdfPtable.<b>TEXTCANVAS</b> - the layer where the text go to. Anything placed here will be over the table.
+			</ul>
+			The layers are placed in sequence on top of each other.<br><br>
+			The widths- and heightsarrays have the coordinates of the cells.
+			For the widthsarray the first element is the x coordinate of the left table border and the last
+			element is the x coordinate of the right table border. For the heightsarray the first element is
+			the y coordinate of the top table border and the last element is the y coordinate of the bottom
+			table border. Parameter headerRows is the number of rows defined for the header. It is always 0 if
+			the table is not rendered with <FONT FACE="Courier">Document.add</FONT>.
+			Parameter rowStart is the first row number after the header.<br><br>
+			<A HREF="http://www.lowagie.com/iText/examples/Chap1202.java">Example 2</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1202.pdf">Chap1202.pdf</A>)
+			shows you how you can add an action to a cell and draw some lines on certain canvases.
 			</FONT><BR><BR><br><br>
 		</TD>
 	</TR>
