@@ -20,9 +20,71 @@
 			<site:description>Use a PdfPTable to add a table to a PDF document</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="TableWidthAlignment" standalone="yes" />
+			<site:result>TableWidthAligment.pdf</site:result>
+			<site:description>Changing the width and the alignment of the complete table</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TableSpacing" standalone="yes" />
+			<site:result>TableSpacing.pdf</site:result>
+			<site:description>Defining the spacing between the table and other content</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="DefaultCell" standalone="yes" />
+			<site:result>DefaultCell.pdf</site:result>
+			<site:description>Using getDefaultCell to change the default style</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="NestedTables" standalone="yes" />
+			<site:result>NestedTables.pdf</site:result>
+			<site:description>Using nested tables</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ImageCell" standalone="yes" />
+			<site:result>ImageCell.pdf</site:result>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:description>Adding an Image to a table</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellWidths" standalone="yes" />
+			<site:result>CellWidths.pdf</site:result>
+			<site:description>Changing the widths of columns</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="WriteSelectedRows" standalone="yes" />
+			<site:result>WriteSelectedRows.pdf</site:result>
+			<site:description>Demonstrates the writeSelectedRows method</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SplitTable" standalone="yes" />
+			<site:result>SplitTable.pdf</site:result>
+			<site:description>Demonstrates how to split a Table in two sections of columns</site:description>
+		</site:example>
+		
+		<site:example>
 			<site:java src="AddBigTable" standalone="yes" />
 			<site:result>AddBigTable.pdf</site:result>
 			<site:description>A very big table added with document.add()</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellColors" standalone="yes" />
+			<site:result>CellColors.pdf</site:result>
+			<site:description>Using some Rectangle methods on PdfPCell</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellHeights" standalone="yes" />
+			<site:result>CellHeights.pdf</site:result>
+			<site:description>Playing with heights of PdfPCells</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellIndentationAlignment" standalone="yes" />
+			<site:result>IndentationAlignment.pdf</site:result>
+			<site:description>Changing the alignment and the indentation of the contents of a PdfPCell</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellPaddingLeading" standalone="yes" />
+			<site:result>PaddingLeading.pdf</site:result>
+			<site:description>Changing the padding and the leading of the contents of a PdfPCell</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="SplitRows" standalone="yes" />
@@ -46,11 +108,6 @@
 			<site:description>Demonstrates how to add vertical text in a cell</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="SplitTable" standalone="yes" />
-			<site:result>SplitTable.pdf</site:result>
-			<site:description>Demonstrates how to split a Table in two sections of columns</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="TableEvents1" standalone="yes" />
 			<site:result>TableEvents1.pdf</site:result>
 			<site:description>Demonstrates what one can do with table events</site:description>
@@ -72,7 +129,151 @@
 	<site:section name="intro">
 		<site:sectiontitle>My First PdfPTable</site:sectiontitle>
 <div>
+If you want to use iText to make bills, invoices, list, reports, etc...
+you will probably want to present your data in a tabular form.
+That's why the objects <site:doc class="com.lowagie.text.pdf.PdfPTable">PdfPTable</site:doc>
+and <site:doc class="com.lowagie.text.pdf.PdfPCell">PdfPCell</site:doc> were created.
+Just construct a table with a certain number of columns and add cells to it:
+<pre class="commandline">PdfPTable table = new PdfPTable(3);
+PdfPCell cell = new PdfPCell(new Paragraph("header with colspan 3"));
+cell.setColspan(3);
+table.addCell(cell);
+table.addCell("1.1");
+table.addCell("2.1");
+table.addCell("3.1");
+table.addCell("1.2");
+table.addCell("2.2");
+table.addCell("3.2");
+document.add(table);</pre>
+The result is the PDF equivalent of the HTML table:
+<pre class="commandline">&lt;table border="1" width="80%" cellpadding="2"&gt;
+&lt;tr&gt;&lt;td colspan="3"&gt;header with colspan 3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1.1&lt;/td&gt;&lt;td&gt;1.2&lt;/td&gt;&lt;td&gt;1.3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2.1&lt;/td&gt;&lt;td&gt;2.2&lt;/td&gt;&lt;td&gt;2.3&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table border="1" width="80%" cellpadding="2">
+<tr><td colspan="3">header with colspan 3</td></tr>
+<tr><td>1.1</td><td>1.2</td><td>1.3</td></tr>
+<tr><td>2.1</td><td>2.2</td><td>2.3</td></tr>
+</table>
 <site:source class="MyFirstTable" />
+PdfPTable is a very powerful and flexible object, but for some specific needs, you can also use
+one of the <site:tutorial chapter="/objects/tables/alternatives">alternatives for PdfPTable</site:tutorial>.
+If you have a Swing application with JTables, you can look at the
+<site:tutorial chapter="/objects/tables/alternatives" section="jtable">JTable2Pdf</site:tutorial> section.
+PdfPTable only works for generating PDF. If you need to generate HTML or RTF, you need the (no longer supported)
+<site:tutorial chapter="/objects/tables/alternatives" section="table">Table</site:tutorial> object.
+</div>
+	</site:section>
+	<site:section new="tablewidths">
+		<site:sectiontitle>Widths, alignment and spacing</site:sectiontitle>
+<div>
+If you add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>,
+the default width of the table is 80 percent of the available space and the table is aligned in the center.
+You can change these defaults with
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidthPercentage(float)">setWidthPercentage</site:doc>
+and <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidthPercentage(float)">setWidthPercentage</site:doc>.
+<site:source class="TableWidthAlignment" />
+If you don't change the defaults, all tables will be glued to eachother or to the other content of the page unless you add the necessary newlines.
+If you want to avoid this, you can also use the methods
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setSpacingBefore(float)">setSpacingBefore</site:doc>
+and 
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setSpacingAfter(float)">setSpacingAfter</site:doc>
+<site:source class="TableSpacing" />
+</div>
+	</site:section>
+	
+	<site:section new="addingcells">
+		<site:sectiontitle>Adding PdfPCells</site:sectiontitle>
+<div>
+The easiest way to add a new cell to a table is using the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(java.lang.String)">addCell(String text)</site:doc>.
+In our first example, we also use the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(com.lowagie.text.pdf.PdfPCell)">addCell(PdfPCell cell)</site:doc>
+because we wanted to set some style attributes for the new PdfPCell.
+If we use <site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(java.lang.String)">addCell(String text)</site:doc>
+a new PdfPCell is constructed internally with the string as content and
+using the layout of the 'default cell'. We can change the style attributes of
+this default cell with the help of the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="getDefaultCell()">getDefaultCell</site:doc>.
+This also works for <site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(com.lowagie.text.Phrase)">addCell(Phrase phrase)</site:doc>
+which is very similar to <site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(java.lang.String)">addCell(String text)</site:doc>.
+<pre class="commandline">table.getDefaultCell().setGrayFill(0.8f);
+table.getDefaultCell().setBorderColor(new Color(255, 0, 0));
+table.getDefaultCell().setColspan(2);</pre>
+<site:source class="DefaultCell" />
+<div class="subtitle">Nested Tables</div>
+In the examples we already used
+<site:doc class="com.lowagie.text.pdf.PdfPCell" target="setColspan(int)">setColspan</site:doc>
+to change the colspan of a Cell. Unfortunately, due to the design of PdfPTable, setRowspan is not supported.
+You have to use a workaround. Instead of spanning a cell over different rows, you will have to use nested tables
+for the other cells. You can use
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(com.lowagie.text.pdf.PdfPTable)">addCell(PdfPTable table)</site:doc>
+to achieve this:
+<site:source class="NestedTables" />
+<div class="subtitle">Images in a PdfPCell</div>
+<site:source class="ImageCell" />
+</div>
+	</site:section>
+	
+	<site:section new="cellwidths">
+		<site:sectiontitle>Cellwidths, cellpadding, cellalignment and indentation</site:sectiontitle>
+<div>
+We have defined the number of columns of the table and based on
+the widthpercentage, iText calculated an absolute width.
+The default absolute width of each cell is (absolute width table / number):
+all cells have the same width. Of course you may want to change this.
+You can do this in different ways:<br />
+Use another constructor: <site:doc class="com.lowagie.text.pdf.PdfPTable" target="PdfPTable(float[])">PdfPTable(float[] relativeWidths)</site:doc>.
+For instance, if you want two 'normal' columns and a third column that's double the size of a 'normal' column,
+use {1f, 1f, 2f} as relativewidths. iText will calculate the absolute width for you.
+You can also use the method <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidths(float[])">setWidths</site:doc>
+to change this array after you constructed the PdfPTable (but be carefull: the array needs to have the same size as the number of columns).<br />
+If you want to work with absolute widths for the columns. You have to let iText calculate a widthpercentage for the table.
+In this case you should use: <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidthPercentage(float[],%20com.lowagie.text.Rectangle)">setWidthPercentage(float[] columnWidth, Rectangle pageSize)</site:doc>.
+As you can see in the example, you need to do some calculations first to get the right pagesize.
+<site:source class="CellWidths" />
+</div>
+	</site:section>
+	
+	<site:section new="writeselectedrows">
+		<site:sectiontitle>adding a PdfPTable at an absolute position</site:sectiontitle>
+<div>
+You can add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>,
+but you can also choose to put a PdfPTable at an absolute position with the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
+The mechanisms to add objects at absolute positions will be described in
+<site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial.
+All you need to know for now is that you need to pass the following parameters to the method:
+<ul>
+	<li>rowStart - the first row to be written, zero index</li>
+	<li>rowEnd - the last row to be written + 1. If it is -1 all the rows to the end are written.</li>
+	<li>xPos - the x write coodinate of the upper left corner of the table</li>
+	<li>yPos - the y write coodinate of the upper left corner of the table (remark: the 0 is at the bottom of the page as explained in the <site:tutorial chapter="/general/faq" section="xycoordinates">FAQ</site:tutorial>)</li>
+	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial)</li>
+</ul>
+<site:source class="WriteSelectedRows" />
+As you can see in the example, there are some thing you need to keep in mind
+when using <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
+If you add a PdfPTable with document.add(), the width of the table
+is always calculated as a percentage of the available page width at the current pointer
+(see page 2 of the PDF in the example). But if you add a PdfPTable at
+an absolute position, iText can't know what you are up to with the rest
+of the page. What is the available space?
+That's something iText can't know, so you need to set a total width of the Table with the methods
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setTotalWidth(float)">setTotalWidth(float totalWidth)</site:doc>
+or <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setTotalWidth(float[])">setTotalWidth(float[] columnWidth)</site:doc>.<br />
+You are also responsible for checking it the PdfPTable fits on the page.
+On page 5, rows 100-150 don't fit on the page because we started writing the rows at y = 200 instead of y = 820.
+Rows 112-149 are written, but you can't see them because they are outside the visible area of your page.<br />
+As you can see in the example, you can use
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows(int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas)</site:doc>
+to split your table horizontally over different pages if you have too many rows to fit on one page.
+If your table is too wide, you can also split the table vertically between columns.
+You need the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows(int colStart, int colEnd, int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas)</site:doc>
+to do this.
+<site:source class="SplitTable" />
 </div>
 	</site:section>
 	</site:chapter>
