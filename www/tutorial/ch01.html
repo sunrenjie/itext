@@ -186,16 +186,12 @@
 			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
 			The second parameter can be an outputStream of any kind.<BR>
 			Until now, we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
-			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
-			<A NAME="servlet">You can test this code</A> by trying the following URLs:
-			<UL>
-			<LI><A HREF="http://webappcabaret.com/blowagie/Chap0105?presentationtype=pdf">http://webappcabaret.com/blowagie/Chap0105?presentationtype=pdf</A>
-			<LI><A HREF="http://webappcabaret.com/blowagie/Chap0105?presentationtype=html">http://webappcabaret.com/blowagie/Chap0105?presentationtype=html</A>
-			</UL>
+			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.<BR>
+			You will have to test this code on a Servlet Engine.<BR>
 			The first URL should return a PDF file with the current date and time. If you use MSIE as browser, you will only see a blank page due to a bug (see the
 			<A HREF="http://www.lowagie.com/iText/faq.html#msie">FAQ</A>). The second URL shows you the current time as an HTML-file.<BR><BR>
 			If you want to try a more difficult example (using the workaround in the FAQ), try the
-			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar application</A> or take look at the
+			Calendar application or take look at the
 			following code: <A HREF="http://www.lowagie.com/iText/examples/Calendar.java">Calendar.java</A> and <A HREF="http://www.lowagie.com/iText/examples/Month.java">Month.java</A>.
 			(These two classes will be used throughout the tutorial.)
 			</FONT><BR><BR>
