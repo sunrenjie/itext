@@ -43,8 +43,10 @@ with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
 The current release on this site is <site:releasenumber />. This is considered a STABLE release.
 If you need a more recent release (because you need extra functionality or some specific bugfixes
 that was added more recently), please go the the <a href="http://itextpdf.sourceforge.net/">Early Access</a>
-site (maintained by Paulo Soares) and check the version number.
-iText<site:releasenumber /> was based on the Early Access release itext-paulo-<site:earlyaccessnumber />.<br /><br />
+site (maintained by Paulo Soares) and check the version number. iText<site:releasenumber /> was
+based on the Early Access release itext-paulo-<site:earlyaccessnumber />. If you want to know
+the relation between the older version numbers of the release on this site and older version
+of the Early Access release, please consult the <a href="history.html">history overview</a>.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
 	<tr><th colspan="5">Download the library:</th></tr>
 	<tr>
