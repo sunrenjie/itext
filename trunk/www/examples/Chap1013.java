@@ -30,7 +30,7 @@ import java.awt.Color;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Pantone {
+public class Chap1013 {
     
     public static void main(String[] args) {
         
