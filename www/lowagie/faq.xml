@@ -90,6 +90,18 @@ to the Portable Document Format.
 </site:answer>
 </site:faq-entry>
 
+<site:faq-entry name="support">
+<site:question>Is support available?</site:question>
+<site:answer>
+Support is given on a voluntary basis throught the mailing-list.<br />
+Some companies have a policy not to use Free / Open Source Software without a license or a support contract. The iText developers can't and won't sell you
+such a contract, but they have granted Leonard Rosenthol and his company <a href="http://www.pdfsages.com/">PDF Sages</a> the right to sell licenses
+and support contracts on a case per case basis. There was no money involved in this deal; the developers of iText are not
+on the paylist of PDF Sages.  The responsibility for these contracts lies with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
+
+</site:answer>
+</site:faq-entry>
+
 <site:faq-entry name="free">
 <site:question>Is iText really free?</site:question>
 <site:answer>
@@ -114,6 +126,48 @@ lots of time and money, you can support the developers in several ways:<br />
 <li>If iText really, really saved your company time and money, you can ask your company to <a href="#donate">donate something</a> to the original developer (Bruno Lowagie) and the co-developer (Paulo Soares). Personally, I prefer gifts (some <a href="http://shop.lego.com/wishlist/wishlist_search.asp?mode=email&amp;guid=A68BB5BE-B60E-4647-94DA-08D142CC5C4F&amp;user=Bruno">LEGO</a> for my kids, some books or DVDs from my wishlist at <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fregistry%2Fregistry.html%2Fref%3Dwlem-si-ht_gotowl%3F%255Fencoding%3DUTF8%26id%3D349FGS15S1PYV">amazon.com</a>, <A HREF="http://www.amazon.co.uk/exec/obidos/redirect?tag=catloogjecom-21&amp;path=registry/2NDAUO412HPTH/ref%253Dwl%255Fem%255Fto">amazon.co.uk</A>,
 <a href="http://www.dvdzone2.com/affiliate.asp?aid=100519&amp;redirect=http://www.dvdzone2.com/dvd/page.asp?do=9%26pid=155705%26pw=45641XICRPJITAU">DvdZone2</a>,...) above money. Money is rather impersonal, don't you agree?</li>
 </ul>
+
+</site:answer>
+</site:faq-entry>
+
+<site:faq-entry name="lgpl">
+<site:question>What is MPL / LGPL?</site:question>
+<site:answer>First of all: LGPL IS NOT GPL!<br />
+
+If you work for a commercial company and you download a program that is published with a GPL,
+I would recommend you to stay away from it, unless you want to use the product AS-IS.
+GPL is like a virus. It affects all the software you add yourself to the product.
+That is my point of view. Not everyone has to agree.<br /><br />
+iText was originally published by me (Bruno Lowagie) as LGPL (very different from GPL!
+Especially less viral). because of some quirky details in the LGPL, people developing
+commercial products using iText asked me to move to a less strict license. That's why
+I made iText multiple licensed. iText can be used under MPL too. As a matter of fact,
+new iText users are recommended to use the MPL. The LGPL is only kept for backwards
+compatibility.<br /><br />
+I published iText as a Free / Open Source Software Library because I want to <em>encourage</em>
+people to use iText in their project, even if it concerns closed source or propriety software.
+I myself use iText in closed source projects for Ghent University (as there is a lot of sensitive data
+in the student's database, we want to keep the code closed for security reasons).<br />
+It is allowed to use iText in your own product as long as you don't change the copyright notices.
+You also have to distribute the source code of iText to your clients. An even better solution
+is to give them a link to the iText site. For instance: if you have a web application using iText,
+giving a link to <a href="http://www.lowagie.com/">the iText Home Page</a> is more practical
+than sending them the code.<br />
+You can't charge your client for iText, nor for the work you have done 'ameliorating iText'.
+All enhancements or bugfixes have to be published for free.<br />
+Of course you may charge people for your own application, for the service and content you
+are offering and/or for the work you did integrating iText in your product. Your own code
+may of course remain closed source. For instance: if you write an editor that produces PDF,
+you can charge your customers for the work you have done on the editor, but not for the PDF
+generating part. If you have fixed some bugs in iText while writing the code of your product,
+you have to send a bugreport to the mailing list telling the community of iText users how
+to fix these bugs. Lots of people have contributed to the code; you will find lots of names
+in the source code.<br />
+Once you decide to use iText, you accept the code AS-IS. You can't force any of the developers
+to give support (allthough you will get lots of free support through the mailing list). You
+can't sue any of the developers if anything goes wrong. After all, iText is a FREE product.<br /><br />
+You can read the LGPL  (<a href="lgpl.txt">lgpl.txt</a>) and MPL (<a href="MPL-1.1.txt">MPL-1.1.txt</a>),
+but I think the above is a good summary.
 
 </site:answer>
 </site:faq-entry>
@@ -196,60 +250,6 @@ fields, insert formatted text, check box, image, URL, whiteout and blank page wi
 archiving with options of password, information and view preference. The filling can be stopped now and	resumed later. It has Spell-Checker for the filled
 texts and Smart Positioning for accurate alignment.</li>
 </ul>
-</site:answer>
-</site:faq-entry>
-
-<site:faq-entry name="support">
-<site:question>Is support available?</site:question>
-<site:answer>
-Support is given on a voluntary basis throught the mailing-list.<br />
-Some companies have a policy not to use Free / Open Source Software without a license or a support contract. The iText developers can't and won't sell you
-such a contract, but they have granted Leonard Rosenthol and his company <a href="http://www.pdfsages.com/">PDF Sages</a> the right to sell licenses
-and support contracts on a case per case basis. There was no money involved in this deal; the developers of iText are not
-on the paylist of PDF Sages.  The responsibility for these contracts lies with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
-
-</site:answer>
-</site:faq-entry>
-
-<site:faq-entry name="lgpl">
-<site:question>What is MPL / LGPL?</site:question>
-<site:answer>First of all: LGPL IS NOT GPL!<br />
-
-If you work for a commercial company and you download a program that is published with a GPL,
-I would recommend you to stay away from it, unless you want to use the product AS-IS.
-GPL is like a virus. It affects all the software you add yourself to the product.
-That is my point of view. Not everyone has to agree.<br /><br />
-iText was originally published by me (Bruno Lowagie) as LGPL (very different from GPL!
-Especially less viral). because of some quirky details in the LGPL, people developing
-commercial products using iText asked me to move to a less strict license. That's why
-I made iText multiple licensed. iText can be used under MPL too. As a matter of fact,
-new iText users are recommended to use the MPL. The LGPL is only kept for backwards
-compatibility.<br /><br />
-I published iText as a Free / Open Source Software Library because I want to <em>encourage</em>
-people to use iText in their project, even if it concerns closed source or propriety software.
-I myself use iText in closed source projects for Ghent University (as there is a lot of sensitive data
-in the student's database, we want to keep the code closed for security reasons).<br />
-It is allowed to use iText in your own product as long as you don't change the copyright notices.
-You also have to distribute the source code of iText to your clients. An even better solution
-is to give them a link to the iText site. For instance: if you have a web application using iText,
-giving a link to <a href="http://www.lowagie.com/">the iText Home Page</a> is more practical
-than sending them the code.<br />
-You can't charge your client for iText, nor for the work you have done 'ameliorating iText'.
-All enhancements or bugfixes have to be published for free.<br />
-Of course you may charge people for your own application, for the service and content you
-are offering and/or for the work you did integrating iText in your product. Your own code
-may of course remain closed source. For instance: if you write an editor that produces PDF,
-you can charge your customers for the work you have done on the editor, but not for the PDF
-generating part. If you have fixed some bugs in iText while writing the code of your product,
-you have to send a bugreport to the mailing list telling the community of iText users how
-to fix these bugs. Lots of people have contributed to the code; you will find lots of names
-in the source code.<br />
-Once you decide to use iText, you accept the code AS-IS. You can't force any of the developers
-to give support (allthough you will get lots of free support through the mailing list). You
-can't sue any of the developers if anything goes wrong. After all, iText is a FREE product.<br /><br />
-You can read the LGPL  (<a href="lgpl.txt">lgpl.txt</a>) and MPL (<a href="MPL-1.1.txt">MPL-1.1.txt</a>),
-but I think the above is a good summary.
-
 </site:answer>
 </site:faq-entry>
 
