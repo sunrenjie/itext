@@ -77,6 +77,7 @@
 				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
 				<li><a href="#images">On the subject of images!</A>
+				<li><a href="#preformattedtext">How can I convert preformatted text to PDF?</A>
 			</UL>
 			</FONT><BR>
 		</TD>
@@ -472,6 +473,39 @@
 			so if you use this functionality (as described in the advanced example in
 			<a href="tutorial/ch06.html#advanced">Chapter 6</a>), you can add all the types of
 			images that are supported by the JDK (all kinds of GIFs, TIFF,...).
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><a name="preformattedtext"><B>How can I convert preformatted text to PDF?</B></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			First you will need to read the file you want to convert:<BR>
+			<FONT FACE="Courier">
+			Reader in = new InputStreamReader(new FileInputStream("your_file_name.txt"), yourEncoding);<br>
+			</FONT><BR>
+			If it's just a plain ASCII-file, you don't need to specify the encoding, but this
+			parameter is added to show this functionality can also be used for (a.o.) Asian texts.
+			If you have a Japanese text with encoding Shift JIS, the value of parameter yourEncoding should be "SJIS".
+			With this reader, you can put the text into a String with UNICODE characters.<br><br>
+			If your text is preformatted and you don't want to loose the 'layout', you need to
+			put this String in a Paragraph-object that uses a 'fixed width' font and add this
+			paragraph to a document. If you use only romanic characters, you can use the font 'Courier'.
+			Or you can change the width of the characters yourself as demonstrated in
+			<A HREF="tutorial/ch09.html#fontwidths">Chapter 9</A> of the tutorial), but
+			keep in mind that width change only works with type1 and true-type fonts with
+			encodings other then IDENTITY-H or IDENTITY-V.<br><br>
+			If you are using an Asian Font, you will have to manipulate the String first.<br>
+			In the case of Japanese, you can create this BaseFont:<BR>
+			<FONT FACE="Courier">
+			BaseFont bf = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", BaseFont.NOT_EMBEDDED);
+			</FONT><BR>
+			(Remark: the embedding flag does nothing with built-in fonts and CJK fonts from the
+            Adobe font pack. Other option is to use msgothic.ttc or msmincho.ttc.)<br>
+			Then you will have to move all characters in the range \u0020-\u007f to the range \uff00-\uff5f.
+			That's the "Halfwidth and Fullwidth Forms" Unicode range. (An other option is to use courier with
+			the romanic characters, but you'll have to change the default widths of 600 to 1000 to match
+			the ideographs.) You can put the resulting String in a Paragraph and add it to a document.<br>
 			</FONT><BR><BR><br><br>
 		</TD>
 	</TR>
