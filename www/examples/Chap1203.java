@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Paulo Soares <--
+ * --> Copyright 2002 by Paulo Soares <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -24,7 +24,7 @@ import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-class MyTableEvent implements PdfPTableEvent {
+class MyTableEventColspan implements PdfPTableEvent {
     
     public void tableLayout(PdfPTable table, float[][] width, float[] heights, int headerRows, int rowStart, PdfContentByte[] canvases) {
         float widths[] = width[0];
@@ -51,7 +51,7 @@ class MyTableEvent implements PdfPTableEvent {
             for (int col = 0; col < widths.length - 1; ++col) {
                 if (line == 0 && col == 0)
                     cb.setAction(new PdfAction("http://www.geocities.com/itextpdf"),
-                        widths[col], heights[line + 1], widths[col + 1], heights[line]);
+                    widths[col], heights[line + 1], widths[col + 1], heights[line]);
                 cb.setRGBColorStrokeF((float)Math.random(), (float)Math.random(), (float)Math.random());
                 cb.moveTo(widths[col], heights[line]);
                 cb.lineTo(widths[col + 1], heights[line]);
@@ -66,17 +66,17 @@ class MyTableEvent implements PdfPTableEvent {
     }
 }
 
-public class Chap1202 {
+public class Chap1203 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 12 example 2: Table events");
+        System.out.println("Chapter 12 example 3: Table events with rowspan");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
             // step 2: we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1202.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1203.pdf"));
             // step 3: we open the document
             document.open();
             // step 4: we add some content
@@ -87,10 +87,16 @@ public class Chap1202 {
             for (int k = 0; k < 24; ++k) {
                 if (k != 0)
                     table.addCell("" + k);
-                else
-                    table.addCell("This is an URL");
+                else {
+                    table.getDefaultCell().setColspan(3);
+                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell("This is a very big URL");
+                    table.getDefaultCell().setColspan(1);
+                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+                    k += 2;
+                }
             }
-            MyTableEvent event = new MyTableEvent();
+            MyTableEventColspan event = new MyTableEventColspan();
             table.setTableEvent(event);
             table.setTotalWidth(300);
             // write table 1 at some position
@@ -104,8 +110,14 @@ public class Chap1202 {
             table.getDefaultCell().setPaddingTop(bf.getFontDescriptor(BaseFont.ASCENT, fontSize) - fontSize + 2);
             table.getDefaultCell().setBorder(Rectangle.NO_BORDER);
             for (int k = 0; k < 500 * 4; ++k) {
-                if (k == 0)
-                    table.addCell(new Phrase("This is an URL", new Font(bf, fontSize)));
+                if (k == 0) {
+                    table.getDefaultCell().setColspan(4);
+                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(new Phrase("This is an URL", new Font(bf, fontSize * 2)));
+                    table.getDefaultCell().setColspan(1);
+                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+                    k += 3;
+                }
                 else
                     table.addCell(new Phrase("" + k, new Font(bf, fontSize)));
             }

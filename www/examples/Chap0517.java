@@ -15,12 +15,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * ir-arch Bruno Lowagie,
- * Adolf Baeyensstraat 121
- * 9040 Sint-Amandsberg
- * BELGIUM
- * tel. +32 (0)9 228.10.97
- * bruno@lowagie.com
+ * itext@lowagie.com
  */
 import java.awt.Point;
 import java.io.FileOutputStream;
