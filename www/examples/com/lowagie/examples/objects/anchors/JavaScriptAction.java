@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright2001-2005 by Bruno Lowagie <--
+ * --> Copyright 2001-2005 by Paulo Soares and Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -18,53 +18,54 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.html;
+package com.lowagie.examples.objects.anchors;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.html.HtmlWriter;
+import com.lowagie.text.pdf.PdfAction;
+import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Generates a simple 'Hello World' HTML page.
+ * Creates a documents with different named actions.
  * 
  * @author blowagie
  */
 
-public class HelloHtml {
+public class JavaScriptAction {
 
 	/**
-	 * Generates an HTML page with the text 'Hello World'
+	 * Creates a document with Named Actions.
 	 * 
-	 * @param args no arguments needed here
+	 * @param args
+	 *            no arguments needed
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Hello World");
+		System.out.println("JavaScript");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
-		try {
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a HTML-stream to a file
-			HtmlWriter.getInstance(document,
-					new FileOutputStream("HelloWorld.html"));
 
-			// step 3: we open the document
+		try {
+
+			// step 2:
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(
+					"JavaScriptAction.pdf"));
+			// step 3: we add Javascript as Metadata and we open the document        
 			document.open();
-			// step 4: we add a paragraph to the document
-			document.add(new Paragraph("Hello World"));
-		} catch (DocumentException de) {
-			System.err.println(de.getMessage());
-		} catch (IOException ioe) {
-			System.err.println(ioe.getMessage());
+			// step 4: we add some content
+			Paragraph p = new Paragraph(new Chunk("Click to say Hello")
+					.setAction(PdfAction.javaScript("app.alert('Hello');\r", writer)));
+			document.add(p);
+		} catch (Exception de) {
+			de.printStackTrace();
 		}
 
 		// step 5: we close the document
 		document.close();
+
 	}
 }

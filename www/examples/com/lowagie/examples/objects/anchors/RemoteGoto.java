@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001-2004 by Bruno Lowagie <--
+ * --> Copyright 2001-2005 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -42,7 +42,7 @@ import com.lowagie.text.pdf.PdfWriter;
 public class RemoteGoto {
 
 	/**
-	 * Creates document with Remote Goto functionality.
+	 * Creates documents with Remote Goto functionality.
 	 * 
 	 * @param args no arguments needed here
 	 */    public static void main(String[] args) {
@@ -61,20 +61,33 @@ public class RemoteGoto {
             // step 3: we open the document
             document.open();
             
-            // step 4: we add some content
+            // step 4:
             
+            // we create some content
+            
+            // a paragraph with a link to an external url
             Paragraph p1 = new Paragraph("You can turn a Chunk into an ", FontFactory.getFont(FontFactory.HELVETICA, 12));
             p1.add(new Chunk("anchor", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255))).setAnchor(new URL("http://www.lowagie.com/iText/")));
             p1.add(", for instance to the iText site.");
+            
+            // some paragraph
             Paragraph p2 = new Paragraph("blah, blah, blah");
+            
+            // two paragraphs with a local destination
             Paragraph p3a = new Paragraph("This paragraph contains a ");
             p3a.add(new Chunk("local destination in document A", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             Paragraph p3b = new Paragraph("This paragraph contains a local ");
             p3b.add(new Chunk("local destination in document B", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
+            
+            // two paragraphs with a remote goto
             Paragraph p4a = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document B").setRemoteGoto("DocumentB.pdf", "test"));
             Paragraph p4b = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document A").setRemoteGoto("DocumentA.pdf", "test"));
+            
+            // a special remote goto
             Paragraph p5a = new Paragraph("you can also jump to a ");
             p5a.add(new Chunk("specific page on another document", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("DocumentB.pdf", 3));
+            
+            // we add all the content
             document.add(p1);
             document.add(p2);
             document.add(p2);
@@ -83,17 +96,21 @@ public class RemoteGoto {
             document.add(p2);
             document.add(p2);
             document.add(p2);
+            // only for DocumentB.pdf:
             writerA.pause();
             document.add(p4b);
             writerA.resume();
+            // only for DocumentA.pdf:
             writerB.pause();
             document.add(p4a);
             document.add(p5a);
             writerB.resume();
+            // for both documents:
             document.add(p2);
             document.add(p2);
             document.add(p2);
             document.add(p2);
+            // only for DocumentB.pdf:
             writerA.pause();
             document.add(p3b);
             document.add(p2);
@@ -103,9 +120,11 @@ public class RemoteGoto {
             document.add(p2);
             document.newPage();
             writerA.resume();
+            // only for documentA.pdf
             writerB.pause();
             document.add(p3a);
             writerB.resume();
+            // for both documents
             document.add(p2);
             document.add(p2);
         }

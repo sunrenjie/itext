@@ -27,6 +27,11 @@
 			<site:result>HelloWorldMeta.html</site:result>
 			<site:description>Generates an HTML file with metadata</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="JavaScriptAction" standalone="yes" />
+			<site:result>JavaScriptAction.html</site:result>
+			<site:description>Generates an HTML file with JavaScript</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

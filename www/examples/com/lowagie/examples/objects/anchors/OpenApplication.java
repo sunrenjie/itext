@@ -18,52 +18,57 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.general;
+package com.lowagie.examples.objects.anchors;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfAction;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Generates an encrypted 'Hello World' PDF file.
+ * Creates a documents with different named actions.
  * 
  * @author blowagie
  */
 
-public class HelloEncrypted {
+public class OpenApplication {
 
 	/**
-	 * Generates a PDF file with the text 'Hello World'
-	 * that is protected with the password 'Hello'.
+	 * Creates a document with Named Actions.
 	 * 
-	 * @param args no arguments needed here
+	 * @param args
+	 *            the system root (for instance "C:\windows\")
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Hello World Encrypted");
+		System.out.println("Open Application");
 
 		// step 1: creation of a document-object
-		Document document = new Document();
+		Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+
 		try {
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
+
+			// step 2: we create a writer that listens to the document
 			PdfWriter writer = PdfWriter.getInstance(document,
-					new FileOutputStream("HelloEncrypted.pdf"));
-			writer.setEncryption(PdfWriter.STRENGTH128BITS, "Hello", "World", PdfWriter.AllowCopy | PdfWriter.AllowPrinting);
+					new FileOutputStream("OpenApplication.pdf"));
 			// step 3: we open the document
 			document.open();
-			// step 4: we add a paragraph to the document
-			document.add(new Paragraph("Hello World"));
-		} catch (DocumentException de) {
-			System.err.println(de.getMessage());
-		} catch (IOException ioe) {
-			System.err.println(ioe.getMessage());
+			// step 4: we add some content
+			String application = args[0] + "notepad.exe";
+			Paragraph p = new Paragraph(new Chunk("Click to open "
+					+ application).setAction(new PdfAction(application, null,
+					null, null)));
+			document.add(p);
+		} catch (Exception de) {
+			de.printStackTrace();
 		}
 
 		// step 5: we close the document
 		document.close();
+
 	}
 }
