@@ -56,16 +56,19 @@ public class Chap0801 {
             anchor1.setName("top");
             paragraph.add(anchor1);
             document.add(paragraph);
+			
+			Paragraph entities = new Paragraph("These are some special characters: <, >, &, \" and '");
+			document.add(entities);
             
             document.add(new Paragraph("some books I really like:"));
             List list;
             ListItem listItem;
             list = new List(true, 15);
             listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(8.0f));
             list.add(listItem);
             listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(-8.0f));
             list.add(listItem);
             listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));
             listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
@@ -114,6 +117,32 @@ public class Chap0801 {
             sublist.add("Galapagos");
             list.add(sublist);
             document.add(list);
+			
+			Table table = new Table(3);
+			table.setBorderWidth(1); 
+			table.setBorderColor(new Color(0, 0, 255)); 
+			table.setCellpadding(5); 
+			table.setCellspacing(5); 
+			Cell cell = new Cell("header"); 
+			cell.setHeader(true); 
+			cell.setColspan(3); 
+			table.addCell(cell); 
+			table.endHeaders(); 
+			cell = new Cell("example cell with colspan 1 and rowspan 2"); 
+			cell.setRowspan(2); 
+			cell.setBorderColor(new Color(255, 0, 0)); 
+			table.addCell(cell); 
+			table.addCell("1.1"); 
+			table.addCell("2.1"); 
+			table.addCell("1.2"); 
+			table.addCell("2.2"); 
+			table.addCell("cell test1"); 
+			cell = new Cell("big cell"); 
+			cell.setRowspan(2); 
+			cell.setColspan(2); 
+			table.addCell(cell);
+			table.addCell("cell test2");
+			document.add(table);
             
             paragraph = new Paragraph("\n\n\n\n\n\n\n\n\n");
 			document.add(paragraph);
