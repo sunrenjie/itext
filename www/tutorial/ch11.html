@@ -37,7 +37,155 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part III: Advanced PDF</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 11: Outlines, Destinations, Local and Remote Goto's</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 11: Local and Remote Goto's, Destinations and Outlines</B></FONT><BR><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="localgoto"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Local goto</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Sometimes you need a link to allow the reader of your document to jump from
+            one position in the text to another. You can achieve this with two methods of
+            class <FONT FACE="Courier">Chunk</FONT>: <FONT FACE="Courier">setLocalGoto</FONT>
+            and <FONT FACE="Courier">setLocalDestination</FONT>. Both methods take 1 parameter:
+            this is the unique name you want to give to the destination.<BR><BR>
+            <B>Example:</B>
+            <FONT FACE="Courier">
+            Chunk localgoto = new Chunk("this word", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test");<br>
+            Chunk destination = new Chunk("local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test");
+            </FONT><br><BR>
+            The 'local goto' functionality is demonstrated in <A HREF="Chap1101.java">example 1</A>
+            and it can be tested in the resulting document <A HREF="Chap1101.pdf">Chap1101.pdf</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="remotegoto"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Remote goto</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<A NAME="anchor"></A>
+            <B>anchors again</B><BR>
+            In <A HREF="ch03.html">Chapter 3</A> we showed how an <FONT FACE="Courier">Anchor</FONT>
+            to an external URL could be created. Class <FONT FACE="Courier">Anchor</FONT> extended
+            class <FONT FACE="Courier">Phrase</FONT>, so an anchor could contains different chunks
+            with different fonts, styles and colors. In advanced iText, there is another way to define
+            a link to an URL:<br>
+            <FONT FACE="Courier">
+            Chunk chunk = new Chunk("anchor", new Font(Font.HELVETICA, 12)).setAnchor(new URL("http://www.lowagie.com/iText/"));
+            </FONT><br><BR>
+            <B>Jump to a specific position in another PDF document</B><br>
+            If you have defined a local destination in a certain document (see section
+            <A HREF="#localgoto">local goto</A>), you can jump to this destination from
+            another document. To achieve this, you can use the method
+            <FONT FACE="Courier">setRemoteGoto</FONT>:
+            <FONT FACE="Courier">
+            Chunk chunk = new Chunk("jump", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", "test"));
+            </FONT><br>
+            'test.pdf' being another document and 'test' a local destination in this document.
+			<BR><BR>
+            <B>Jump to a specific page in another PDF document</B><br>
+            It's even easier to jump to a specific page in another document,
+            just use the method <FONT FACE="Courier">setRemoteGoto</FONT> with a
+            pagenumber instead of the name of some local destination:
+            <FONT FACE="Courier">
+            Chunk chunk = new Chunk("jump", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", 3));
+            </FONT><br><BR>
+            Check out <A HREF="Chap1102.java">example 2</A> and <A HREF="Chap1102.pdf">Chap1102.pdf</A>
+            for a little demonstration.</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="destinations"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Destinations</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Uptill now the destinations we used allways were related to a chunk,
+            but it's also possible to create your own destinations.
+            This is a list of the possible types:
+            <UL>
+            <LI>Destination.XYZ
+            <LI>Destination.FIT
+            <LI>Destination.FITH
+            <LI>Destination.FITV
+            <LI>Destination.FITR
+            <LI>Destination.FITB
+            <LI>Destination.FITBH
+            <LI>Destination.FITBV
+            </UL>
+            You can't use any constructor to create any type of destination. This is a list of
+            constructors:
+            <UL>
+            <LI><FONT FACE="Courier">public PdfDestination(int type)</FONT> can be used for types
+            FIT and FITB. FIT points to the current page designated by page, with its contents
+            magnified just enough to fit the entire page within the window both horizontally and
+            vertically. FITB does the same, but the contents are magnified just enough to fit its
+            bounding box.
+            <LI><FONT FACE="Courier">public PdfDestination(int type, float parameter)</FONT> can be
+            used for types FITH, FITV, FITBH and FITBV.If type<BR>
+            equals FITBV, the height of the bounding box of a page will fit the window of the Reader.
+            The parameter will specify the x coordinate of the left edge of the window.<BR>If the type
+            equals FITV the height of the entire page will fit the window and the parameter will specify
+            the x coordinate of the left edge.<BR>If type equals FITBH, the width of the bounding
+            box of a page will fit the window of the Reader. The parameter will specify the y coordinate
+            of the top edge of the window.<BR>If the type equals FITH the width of the entire page will
+            fit the window and the parameter will specify the y coordinate of the top edge.<BR>
+            <LI><FONT FACE="Courier">public PdfDestination(int type, float left, float top, float zoom)</FONT> can be used for type XYZ.
+            with the coordinates (left, top) as the top-left corner of the destination window and the
+            contents of the page magnified  by the factor zoom. A negative value for any of the
+            parameters left or top, or a zoom value of 0 specifies that the current value of that
+            parameter is to be retained unchanged.
+            <LI><FONT FACE="Courier">public PdfDestination(int type, float left, float bottom, float right, float top)</FONT> can be used for type FITR
+            the destination will be a rectangle specified by the coordinates left, bottom, right, and top. If the required
+            horizontal and vertical magnification factors are different, use the smaller of
+            the two, centering the rectangle within the window in the other dimension.
+            </UL>
+            <B>Examples:</B><BR>
+            <FONT FACE="Courier">
+            PdfDestination d1 = new PdfDestination(PdfDestination.XYZ, 300, 800, 0);<BR>
+            PdfDestination d2 = new PdfDestination(PdfDestination.FITH, 500);<BR>
+            PdfDestination d3 = new PdfDestination(PdfDestination.FITR, 200, 300, 400, 500);<BR>
+            PdfDestination d4 = new PdfDestination(PdfDestination.FITBV, 100);<BR>
+            PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
+            </FONT><BR><BR>
+            We will use these destinations in the next section:
+            </FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="outlines"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Outlines</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            In <A HREF="ch04.html">Chapter 4</A>, we were able to build an outline tree
+            by using the objects <FONT FACE="Courier">Chapter</FONT> and <FONT FACE="Courier">Section</FONT>.
+            Now we are going to build an outline tree manually. First of all we have to ask the contentbyte
+            of the writer for the root of the outline tree:<BR>
+            <FONT FACE="Courier">
+            PdfContentByte cb = writer.getDirectContent();<br>
+            PdfOutline root = cb.getRootOutline();
+            </FONT><br>
+            To this root we can add several branches and subbranches:<br>
+            <FONT FACE="Courier">
+            PdfOutline out1 = new PdfOutline(root, d1, "root");<BR>
+            PdfOutline out2 = new PdfOutline(out1, d2, "sub 1");<BR>
+            PdfOutline out3 = new PdfOutline(out1, d3, "sub 2");<BR>
+            PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");<BR>
+            PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");<BR>
+            </FONT><br>
+            In <A HREF="Chap1103.java">example 3</A>, we first place some crosses.
+            These crosses will mark different destinations. Click on the different
+            outline entries in document <A HREF="Chap1104.pdf">Chap1104.pdf</A> to
+            test the destination functionality.<BR>
+            In <A HREF="Chap1104.java">example 4</A>, we build the outline tree
+            automatically again, just as when we used Chapters and Sections.
+            This time however, we use a PageEventHelper class that adds an
+            outline every time a new paragraph is started. But more about these
+            page events in the <A HREF="ch12.html">next chapter</A>. Check out
+            <A HREF="Chap1104.pdf">Chap1104.pdf</A> (and read all about some
+            brave belgians).
+			</FONT><BR><BR><br>
 		</TD>
 	</TR>
 	<TR>

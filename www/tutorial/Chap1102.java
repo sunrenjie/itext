@@ -65,6 +65,7 @@ public class Chap1102 {
             Paragraph p4a = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document B").setRemoteGoto("Chap1102b.pdf", "test"));
             Paragraph p4b = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document A").setRemoteGoto("Chap1102a.pdf", "test"));
             Paragraph p5a = new Paragraph("you can also jump to a ");
+            p5a.add(new Chunk("specific page on another document", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("Chap1102b.pdf", 3));
             document.add(p1);
             document.add(p2);
             document.add(p2);
@@ -78,6 +79,7 @@ public class Chap1102 {
             writerA.resume();
             writerB.pause();
             document.add(p4a);
+            document.add(p5a);
             writerB.resume();
             document.add(p2);
             document.add(p2);
@@ -85,6 +87,12 @@ public class Chap1102 {
             document.add(p2);
             writerA.pause();
             document.add(p3b);
+            document.add(p2);
+            document.add(p2);
+            document.newPage();
+            document.add(p2);
+            document.add(p2);
+            document.newPage();
             writerA.resume();
             writerB.pause();
             document.add(p3a);
