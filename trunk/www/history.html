@@ -79,7 +79,33 @@
 			<LI><A HREF="#VERSION091">iText0.91</A>: april 2002
 			<LI><A HREF="#VERSION092">iText0.92</A>: april 2002
 			<LI><A HREF="#VERSION093">iText0.93 and 0.93b</A>: july 2002
+			<LI><A HREF="#VERSION094">iText0.94</A>: august 2002
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION094">iText0.94 (based on paulo's versions 102)</A></B><br
+		    <UL>
+		        <LI>fixed a problem with multiple repeated images in Table
+		        <LI>fixed the kerning in TrueTypeFont.java
+		        <LI>PdfContentByte.showText(PdfTextArray text) was made public
+		        <LI>added PdfContentByte.createGraphicsShapes(). Instead of using pdf
+                    fonts, only the shapes are used. The advantage is that the alignment
+                    is more precise and all Graphics2D text is allowed including arabic
+                    and hebrew. The disavantage is that the text is not searchable and
+                    the fonts look like type3 fonts (remember old tex->dvips->gs?)
+                <LI>more consistent setPageSize() in pdf.
+                <LI>added PdfWriter.setSpaceCharRatio(). Sets the ratio between the extra
+                    word spacing and the extra character spacing when the text is fully
+                    justified. This is also extended to ColumnText and PdfPCell for finer
+                    control
+                <LI>Some RTF bugfixes by Scott Dietrich
+                <LI>Small update by Marcelo Vanzin in the package com.lowagie.servlets
+                <LI>Some small changes to the XML package
+                <LI>Asian fonts are in a separate jar now. The AFM fonts are in the src as well as in the jar.
+		    </UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
