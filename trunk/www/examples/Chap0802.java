@@ -52,6 +52,7 @@ public class Chap0802 {
 			// and directs a XML-stream to a file
  			PdfWriter.getInstance(document, new FileOutputStream("Chap0802.pdf"));
  			HtmlWriter.getInstance(document, new FileOutputStream("Chap0802.html"));
+ 			XmlWriter.getInstance(document, new FileOutputStream("Chap0802.xml"));
 
 			// step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
