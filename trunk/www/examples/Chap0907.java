@@ -58,7 +58,7 @@ public class Chap0907 {
             code128.setCode("1Z234786 hello");
             Image image128 = code128.createImageWithBarcode(cb, null, null);
             BarcodeEAN codeEAN = new BarcodeEAN();
-            codeEAN.setCodeType(codeEAN.EAN13);
+            codeEAN.setCodeType(Barcode.EAN13);
             codeEAN.setCode("9780201615883");
             Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);
             BarcodeInter25 code25 = new BarcodeInter25();
@@ -70,12 +70,12 @@ public class Chap0907 {
             Image imagePost = codePost.createImageWithBarcode(cb, null, null);
             BarcodePostnet codePlanet = new BarcodePostnet();
             codePlanet.setCode("50201402356");
-            codePlanet.setCodeType(codePlanet.PLANET);
+            codePlanet.setCodeType(Barcode.PLANET);
             Image imagePlanet = codePlanet.createImageWithBarcode(cb, null, null);
             PdfTemplate tp = cb.createTemplate(0, 0);
             PdfTemplate ean = codeEAN.createTemplateWithBarcode(cb, null, Color.blue);
             BarcodeEAN codeSUPP = new BarcodeEAN();
-            codeSUPP.setCodeType(codeEAN.SUPP5);
+            codeSUPP.setCodeType(Barcode.SUPP5);
             codeSUPP.setCode("54995");
             codeSUPP.setBaseline(-2);
             BarcodeEANSUPP eanSupp = new BarcodeEANSUPP(codeEAN, codeSUPP);

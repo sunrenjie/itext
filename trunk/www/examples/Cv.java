@@ -23,8 +23,6 @@ import java.io.FileOutputStream;
 import com.lowagie.text.Document;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.html.HtmlWriter;
-import com.lowagie.text.rtf.RtfWriter;
 import com.lowagie.text.xml.XmlParser;
 
 public class Cv {

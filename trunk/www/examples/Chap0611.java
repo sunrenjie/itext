@@ -18,7 +18,6 @@
  * itext-questions@lists.sourceforge.net
  */
 
-import java.awt.Color;
 import java.io.*;
 
 import com.lowagie.text.*;
@@ -27,8 +26,6 @@ import java.awt.image.RenderedImage;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.util.Hashtable;
-import javax.media.jai.NullOpImage;
-import javax.media.jai.OpImage;
 import com.sun.media.jai.codec.SeekableStream;
 import com.sun.media.jai.codec.FileSeekableStream;
 import com.sun.media.jai.codec.TIFFDecodeParam;
