@@ -8,6 +8,12 @@ SPAN  {
 	font-size : 12;
 }
 
+SPAN.topic  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+    font-weight : bold;
+}
+
 DIV  {
 	font-family : Arial, Helvetica;
 	font-size : 12;
