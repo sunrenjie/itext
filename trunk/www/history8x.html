@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
+	<TR>
+		<TD COLSPAN="2" CLASS="innerborder">
+			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
+		</TD>
+		<TD CLASS="outerborder">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[History]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">MailArch1</A> <A CLASS="lightsmall" HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">MailArch2</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/bugs/?group_id=15255">Bugs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><div class="title"><A NAME="VERSION089">iText0.89</A></div>
+        <div class="text"><UL>
+		<LI>Let's forget about release 0.88.
+		Some ameliorations turned out to be bugs, the zip-files and tar.gz-files
+		at SourceForge were corrupt, etc, etc... Let's hope 0.89 is a better number.
+		</UL></div>
+        
+        <div class="title"><A NAME="VERSION088">iText0.88</A> (changes by Bruno Lowagie)</div>
+        <div class="text"><UL>
+		<LI>Some bugfixes:
+			<UL>
+			<LI>table layout (borders and backgroundcolor) is put in directContentUnder
+			<LI>Watermark is put in directContentUnder
+			</UL>
+		<LI>some small changes in FontFactory
+		<LI>improved HTML generation (size of the generated HTML is reduced)
+		<LI>improved HTML parsing (the style attribute is being parsed)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION087">iText0.87</A> (changes by Bruno Lowagie, Mark Hall and Steffen Stundzig)</div>
+        <div class="text"><UL>
+		<LI>class FontFactory:
+			<UL>
+			<LI>size of a font changed from int to float
+			<LI>new getFont method taking attributes (Properties-object)
+			<LI>added names of the built in fonts
+			<LI>added a way to register an alias for a fontname
+			<LI>added public static variables for encoding and embedding
+			</UL>
+		<LI>XML: nested tables, images in tables, remotegoto in Chunks,... are now supported
+		<LI>class Table:
+			<UL>
+			<LI>possibility to force a Table (or it's cells) to be kept on one page
+			<LI>possibility to set an offset
+			<LI>cellborders and background disappeared if a table had a backgroundcolor
+			<LI>empty elements are no longer being added to a Cell
+			<LI>empty cells are not automatically filled anymore
+			<LI>extended support for nested tables
+			<LI>throwing an UnsupportedOperationException when one tries to get dimensions
+			    of the Table or Cell.
+			<LI>it is now possible to add an Image to a Cell
+			</UL>
+		<LI>class Image:
+			<UL>
+			<LI>fixed some bugs in the constructor that takes a Properties list
+			<LI>possibility to add an annotation => clickable image
+			</UL>
+		<LI>RTF package:
+			<UL>
+			<LI>Padding table cells works correctly now
+			<LI>Borders for rows are now possible
+			<LI>Cellspacing now works correctly
+			<LI>\n are now automatically parsed into new lines
+			<LI>support for HeaderFooters
+			<LI>TOC generation
+			<LI>page breaks are only inserted before top-level chapters
+			</UL>
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION086">iText0.86</A> (changes by Paulo Soares in paulo-91 and paulo-92 + changes by Bruno Lowagie)</div>
+        <div class="text"><UL>
+		<LI>added a Font Factory that allows you to register fonts and use them afterwards
+		    by specifying their postscript fontname instead of the path to their ttf- or ttc-file
+		<LI>added colspan to PdfPTable
+		<LI>the interface PdfPTableEvent changed because of colspan.
+		    True, interfaces shouldn't change but this interface is used
+			only by a few and the change takes no time to fix.
+		<LI>added BARCODE128 and the special encoding UCC/EAN-128.
+		    Other encodings using this symbology are possible
+		<LI>added PdfWriter.setCropBoxSize()
+		<LI>fixed the problem while trying to add 2 images, a big and a small,
+            near the bottom of a page. The first image was too large to fit, so it should
+            have gone to the next page. However, the resulting pdf contained the second
+            (smaller) image at the bottom of the page, while the larger image did
+            not appear in the file.
+		<LI>simplified PdfReader.getPageSizeWithRotation()
+		<LI>fixed a bug in Rectangle that prevented page rotations bigger than 90
+            degrees.
+		<LI>fixed a bug that prevented annotations to be in the right place with
+            rotated pages.
+    	<LI>eliminated Rectangle.setRotation(). This can create inconsistencies.
+		<LI>fixed a bug that prevented deep nesting in Tables
+		<LI>fixed a bug in RtfWriter (escaping of the backslash)
+		<LI>moved all the code from com.lowagie.text.markup.* to com.lowagie.text.*
+			The code Matt Benson added (see <A HREF="#VERSION085">iText0.85</A>)
+			allows you to generate HTMLs with a CSS file.
+		<LI>changed all the constructors that created elements taking a Properties-object
+		    as parameter (For future use in the XML functionality).
+		<LI>fixed broken functionality: background color of a page
+		</UL></div>
+
+        <div class="title"><A NAME="VERSION085">iText0.85</A></div>
+        <div class="text"><UL>
+		<LI>update of the tutorial
+		<LI>corrected the rotation of the pages in the tools Concat, Split, Encrypt and Handout
+		<LI>contribution by Matt Benson: package com.lowagie.text.markup allows you to create
+		    iText objects with extra attributes
+		<LI>iText0.84 came with a jar-file that could only be used with J2SDK1.4
+		</UL></div>
+
+        <div class="title"><A NAME="VERSION084">iText0.84</A> (changes by Paulo Soares in paulo-90)</div>
+        <div class="text"><UL>
+		<LI>added support for barcodes without using external fonts. Barcodes supported are:
+			<UL>
+			<LI>EAN13
+			<LI>EAN8
+			<LI>UPCA
+			<LI>UPCE
+			<LI>Supplemental 2 and 5
+			<LI>CODE39
+			<LI>CODE39 EXTENDED
+			<LI>INTERLEAVED 2 OF 5
+			<LI>POSTNET
+			<LI>PLANET
+			</UL>
+		<LI>added JavaScript actions.
+		<LI>added document level JavaScript.
+		<LI>added local goto action by page.
+		<LI>added chained actions.
+		<LI>font widths can be changed.
+    	</UL></div>
+
+		<div class="title"><A NAME="VERSION083">iText0.83</A></div>
+        <div class="text"><UL>
+		<LI>RTF:
+			<UL>bugfixes
+			<LI>Rowspan & Colspan now work correctly (contributed by Steffen Stundzig)
+			<LI>setWidths(...) works correctly now (contributed by Steffen Stundzig)
+			<LI>Paragraphs in Cells are displayed correctly
+			<LI>Anchors in Paragraphs and Phrases work correctly now
+			</UL>
+			<UL>New Features:
+			<LI>Header rows which are repeated at the top of each page are now supported (contributed by Steffen Stundzig)
+			<LI>Non alphanumeric characters are saved as their Unicode value (contributed by Steffen Stundzig)
+			</UL>
+		<LI>Extended Annotation functionality: it is now possible to define clickable areas to jump
+		    to other documents, urls, applications,... (Bruno)
+		<LI>PDFs with LZW compression can be read. The decompressor is from Sun JAI
+            codecs and from the license in the file we are shielded from Unisys. (Paulo)
+    	<LI>Bugfix: some PDFs made with Ghostscript failed. (Paulo)
+		<LI>small changes to class Table (Bruno)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION082">iText0.82</A> (changes by Paulo Soares in paulo-89)</div>
+        <div class="text"><UL>
+		<LI>added colored and uncolored tiled patterns (code provided by Phillip Pan).
+		<LI>added named actions and launch actions.
+		<LI>java.awt.Images and raw images in BW are compressed with CCITT G4.
+		<LI>corrected bug in using templates as images used in PdfContentByte.addImage().
+   			This also fixs the bug with WMF in the same situation.
+		<LI>fixed bug in reading pdf with multiple uncompressed page contents.
+		<LI>the pdf reader is now less strict in reading streams. Some documents don't
+			follow the specs and failed although Acrobat Reader could open them.
+		<LI>finalize() eliminated from iText.
+		<LI>better error handling, mainly in close().
+		<LI>added page breaks in HtmlWriter (code provided by Antoine Blanc)
+		<LI>bugfix cell alignment in RTF (code provided by Mark Hall)
+		<LI>bugfix anchors in tables (Bruno Lowagie)
+		<LI>removed references to my email-address in the hope this will reduce mail sent to me personally (Bruno Lowagie)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION081">iText0.81</A></B> (bugfixes by Bruno Lowagie + changes by Paulo Soares in paulo-88 + contributions by others)</div>
+        <div class="text"><UL>
+		<LI>added support for spot colors (code provided by Phillip Pan).
+		<LI>added support for Gray, CMYK and spot colors in Paragraph and other high level constructs.
+		<LI>added support to retrieve the full name of the font in BaseFont.
+		<LI>Rectangle.rotate() when applied to a page rotates the page rather
+  			that only changing the dimensions. Ghostscript has troubles with
+   			printing without this change.
+		<LI>minor changes to header detection in PRTokeniser.
+		<LI>minor memory improvement in reading fonts from arrays.
+		<LI>Bugfix when images are added with the XML to PDF functionality.
+		<LI>Support for some STYLE="" attributes in the HTML to PDF functionality.
+		<LI>removal of the classes Assert and AssertionError.
+		<LI>iText is now published under a multiple license: MPL / LGPL
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION080">iText0.80</A> (bugfixes by Bruno Lowagie + changes by Paulo Soares in paulo-87 + contributions by others)</div>
+        <div class="text"><UL>
+		<LI>HTML and CSS by Steve Ogryzek
+		<LI>Images as a listsymbol
+		<LI>fixed the paragraph indent bug
+		<LI>tutorial Chapter on RTF by Mark Hall
+		<LI>fonts can also be loaded from byte arrays, not only from files
+		<LI>fonts can be loaded without being cached
+		<LI>added BaseFont.getPostscriptFontName(), BaseFont.getCodePagesSupported() (this gets the code pages
+            supported by the font. This has only meaning with True Type fonts.) and BaseFont.enumerateTTCNames()
+    		(to list all the names inside a TTC font)
+		<LI>added support to import pages from other PDF documents
+		<LI>added explicit masking and stencil masking to images
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION073">iText0.73</A> (Changes by Paulo Soares in paulo-86)</div>
+        <div class="text"><UL>
+		<LI>added suport for True Type Collections. Quite useful for using CJK
+	      	fonts in Windows, such as msgothic.ttc, where the fonts are in this
+   			format.
+		<LI>added support for page labels. Page labels are used to identify each
+            page visually on the screen or in print.
+		<LI>some changes to different comments (while writing the tutorial)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION072">iText0.72</A> (Changes by Paulo Soares in paulo-85 + bugfixes by Bruno Lowagie)</div>
+        <div class="text"><UL>
+		<LI>Further ameliorations in the Table-class (all Table bugs should be fixed now)
+		<LI>corrected bug with jpg images input as a byte array.
+		<LI>added open actions. When the document is opened an action can be called
+            to position the document in a certain page or to call an URL, for example.
+		<LI>support for unicode meta tags in pdf such as author.
+		<LI>true type fonts can be used in unicode addressing mode. This is the only way
+            to use this fonts with some encodings, such as Thai. CJK fonts can also be
+            used this way, in fact, all the encodings can be used this way at the expense
+            of 2 bytes per character instead of one.
+		<LI>support for true type font subsets. Only the glyphs actually used in the
+            document are stored. The reduction of document size with fonts embedded
+            is dramatic.
+		<LI>support for having different line break characters.
+		<LI>changed greek character handling in Phrase. Only the fonts (class Font) not
+            constructed with BaseFont are elected to be automatically replaced with
+            Symbol when greek characters are present. It was impossible to use a font
+            with greek characters without them being replaced automatically.
+		<LI>some bugfixes by Mark Hall to the rtf package
+		<LI>some methods were changed from private to protected in the html package
+		</UL>
+		</div>
+
+		<div class="title"><A NAME="VERSION071">iText0.71</A> (Changes by Paulo Soares in paulo-84 + bugfixes from several other people)</div>
+        <div class="text"><UL>
+		<LI>Ameliorations in the Table-class
+		<LI>correction in PdfEncryption. The mask permission bits were incorrect and
+   			allowed the security parameters to be changed in Acrobat.
+		<LI>corrected PdfPTable. Some cases of tables were not crossing correctly the
+   			pages.
+		<LI>chapters and sections have the option of presenting themselves as opened or
+   			colapsed.
+		<LI>improved line breaking for CJK fonts.
+		<LI>support for windows metafiles.
+		<LI>support for getting the dots-per-inch in an image. Usefull to get the image
+   			dimensions. This information is always available in WMF and sometimes in
+   			PNG and JPEG.
+		<LI>the last row in a nested PdfPTable is stretched to occupy the entire cell.
+   			Fix provided by Jin-Hsia Yang.
+		<LI>corrected the parameters bounds in PdfContentByte.setLineCap and
+   			PdfContentByte.setLineJoin.
+		<LI>added PdfContentByte.setLiteral. Allows the insertion of arbitrary content
+   			in the stream.
+		<LI>several new font descriptors are available in BaseFont.getFontDescriptor.
+   			These are all related to the font box dimensions.
+    	</UL></div>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5"><span class="lightsmall">[<A HREF="history.html" class="lightsmall">History Overview</A>]</span></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
+		</TD>
+		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
+	<TR>
+		<TD COLSPAN="2" CLASS="innerborder">
+			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
+		</TD>
+		<TD CLASS="outerborder">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[History]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">MailArch1</A> <A CLASS="lightsmall" HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">MailArch2</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/bugs/?group_id=15255">Bugs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" class="content">
+		<div class="title"><A NAME="VERSION051">iText0.51 - iText0.70</A> (Changes by Paulo Soares in paulo-80, paulo-81, paulo-82 and paulo-83)</div>
+        <div class="text"><UL>
+		<LI>several font descriptors are available in BaseFont.getFontDescriptor. These
+   			are ascent, descent, cap height and italic angle.
+		<LI>added class PdfPTableEvent. This event is called when the table is rendered.
+   			Can be used to customize backgrounds with images, different borders, etc.
+		<LI>added Document.addCreator.
+		<LI>support for PdfAction in defined regions in PdfContentByte.
+		<LI>support for PdfAction in outlines.
+		<LI>added pdf encryption. Supports 40 bit and 128 bit key length and all
+     			the permissions/restrictions.
+		<LI>corrected error in Image when the rotation was in the 3rd or 4th
+   			quadrant.
+    	<LI>PdfPCell(PdfPTable) was made public.
+		<LI>a newline as added to the final %%EOF line. A version of ghostscript
+   			choked without it.
+		<LI>some correction made when adding templates as images.
+		<LI>several speed and memory optimizations. Arrays are only copied when
+   			necessary and PdfDocument just caches the Id of the image, not the
+   			full image.
+    	<LI>corrected a bug when adding very big images. The images would be added
+   			forever.
+		<LI>minimumHeight was added to PdfPCell. This does what fixedHeight used to
+   			do.
+		<LI>change of behavior for fixedHeight in PdfPCell. fixedHeight sets the fixed
+   			cell's height and truncates any text out boundaries.
+		<LI>added CCITT support.
+		<LI>anchors are inserted into the pdf document unchanged, not using the URL class.
+		<LI>changes to Image. A template can be used as an Image. Useful
+   			to include rotated text in tables or to create new characters.
+    	<LI>changes to Image. A java.awt.Image can be forced to render in black
+   			and white.
+		<LI>jdk 1.4 support. The font encoding had problems in jdk 1.4.
+    	</UL></div>
+        
+        <div class="title"><A NAME="VERSION050">iText0.50</A></div>
+        <div class="text"><UL>
+		<LI>Xml support: you can generate XML that follows an iText.dtd.
+			You can convert these file to PDF, or you can convert XML file that obey to
+			your own custom DTD to PDF. Very tidy HTML can be converted to PDF as well.
+		<LI>added nested tables to Table. This code was all provided by
+      		Geert Poels.
+		<LI>added the ptable. This is a new kind of pdf table where each
+      		cell is a ColumnText. The usable classes are PdfPTable and PdfPCell.<br>
+			Main features are:
+			<UL>Simple XY table without rowspan or colspan. Uses nested ptables instead.
+			<LI>Each cell is a ColumnText with all the capabilities.
+			<LI>Aligns correctly in the horizontal and vertical directions.
+			<LI>Can be added to the document or placed at precise positions.
+			<LI>When added to the document always break at full rows. If the
+            row does not fit in the full page it is dropped.
+			<LI>Precise table dimensioning. The resulting ptables dimensions
+            are always available.
+			<LI>If using fitsPage only the new rows since the last call are
+            calculated.
+			<LI>Supports minimum cell height and no wrap.
+			</UL>
+		<LI>changes to PdfChunk. Corrected the encoding. Corrected the placement
+      		of images when they were the last element of the line. Corrected the
+      		split position that was off by 2. CJK characters are also used as split
+      		characters.
+		<LI>changes to PdfContentByte. Added clipping paths.
+		<LI>added PdfWriter.setViewerPreferences. Added the ability to change the
+      		way the documents open in Acrobat.
+		<LI>prevented the double close in PdfWriter.
+		<LI>added PdfWriter.getPageNumber.
+		<LI>added extra encoding checks in type1 and truetype fonts.
+		<LI>correction in PdfAction. Remote gotos by page now work correctly.
+		<LI>changed ColumnText. The PdfContentByte can be null if only the
+      		simulation is needed.
+		<LI>changed HtmlWriter. In HTML, anchors now work inside tables.
+		<LI>correction in Table.deleteRow. Multiple rows can be deleted and added.
+		</UL></div>
+        
+        <div class="title"><A NAME="VERSION041">iText0.41</A></div>
+        <div class="text"><UL>
+		<LI>added EBCDIC support. It works in OS/390 and probably in AS/400.
+		It should work in other platforms with other character encodings.
+		<LI>added auto-leading to ColumnText. Leading is now defined as
+		fixed+variable*x where x is the size of the largest font in
+		the line.
+		<LI>removed the *.afm resources. Some web servers had trouble finding
+		the resource files. This resources are now inside classes.
+		This takes care of the message "document with no pages".
+		<LI>added inline images with text. Images can now be used inside tables.
+		<LI>added Document.compress. If set to false all the documents generated
+		come out without compression. For debugging.
+		<LI>added support to read java.awt.Image. It reads all gifs too!
+		<LI>added transparency support to images.
+		<LI>added Evelyne De Cordier changes to Table and HtmlWriter.
+		<LI>added named destinations. Also works with outlines.
+		<LI>added remote gotos. The remote destination can be a name or a page number
+		<LI>added PdfContentByte.roundRectangle.
+		<LI>added PdfWriter.getDirectContentUnder. A direct content that will
+		be placed under all the other contents. For watermarks.
+		<LI>corrected a bug in PdfDocument. If an image was the last element
+		added to the document and that caused a new page, the image would not show.
+		</UL></div>
+        
+		<div class="title"><A NAME="VERSION040">iText0.40</A></div>
+        <div class="text"><UL>
+		<LI>added class PdfPageEventHelper. Makes the use of page events easier.
+		<LI>added Chunk.setGenericTag. Attachs text to a Chunk that can be
+		retrieved in a page event. Very usefull to implement bookmarks with fine control.
+		<LI>added local links. Links can be placed to jump to other parts of the document.
+		<LI>correction to Image. Absolute positioning was not being detected.
+		This had the effect that images were being placed in the lower
+		left corner of the page.
+		<LI>added clear() to Cell.
+		<LI>added getPageSize to Document.
+		<LI>added class ColumnText. It formates and displays text columnwise.
+      	The columns can be irregular and are described by an arbritary
+		number of lines. With this feature it is easy to place text that
+		flows around images.
+		<LI>added attributes to Chunks. The new attributes supported are
+		anchors and sub/superscript.
+		<LI>correction of leading rounding
+		<LI>code changes to ease the port to jdk1.1.x
+		<LI>PdfpageEvent was changed to an interface
+		<LI>Added support for memory images. This will allow you to create an image
+		in a byte array in the form of a gif, png or jpeg. As an added bonus
+		images can also be created in raw mode but you'll have to read chapter
+		4.8 of the pdfref manual to know what you are doing.
+		<LI>TrueType font embedding
+		<LI>Type1 font embedding (AFM with PFB)
+		<LI>CJK Adobe font pack support with full metrics
+		<LI>All the java encodings allowed as long as your jvm has the encodings (Cp1251, etc)
+		<LI>support for all kind of fonts in Table, Paragraph, etc.
+		<LI>fonts are cached. There's only a performance hit the first time the font is accessed
+		<LI>outlines are output in Unicode. Now it's possible to have the outlines in
+		kanji or cyrillic if you platform supports it
+		<LI>images can be added directly to PdfContentByte
+		<LI>TrueType and CJK fonts can have a modifier (Bold, Italic and
+		BoldItalic). Note that it only works with fonts not embedded
+		<LI>Added circles, ellipses, arcs to PdfContentByte
+		<LI>Added outlines (bookmarks) to PdfContentByte
+		<LI>Added simple text alignment and rotation
+		<LI>Added templates (form XObjects). This solves the dreaded problem of "Page 1 of 15"
+		<LI>Optimized PdfIndirectObject. toPdf was beeing called twice.
+		<LI>Added a PdfPageEvent that is called with certain events, like new page.
+		<LI>All the dimensions were changed from int or double to float. It is possible that
+		some of your code breaks but it should be trivial to fix.
+		<LI>Improved text justification with word spacing, character spacing and
+		hanging punctuation.
+		<LI>Text justification works with CJK fonts.
+		<LI>Underline, strikeout and anchors work everywhere (main text and tables)
+		</UL></div>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5"><span class="lightsmall">[<A HREF="history.html" class="lightsmall">History Overview</A>]</span></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
+		</TD>
+		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

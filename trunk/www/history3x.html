@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
+	<TR>
+		<TD COLSPAN="2" CLASS="innerborder">
+			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
+		</TD>
+		<TD CLASS="outerborder">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[History]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">MailArch1</A> <A CLASS="lightsmall" HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">MailArch2</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/bugs/?group_id=15255">Bugs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" CLASS="Content">
+		<div class="title"><A NAME="VERSION039">iText0.39</A></div>
+        <div class="text"><UL>
+		<LI>Omission of the PdfListener-interface
+		<LI>Omission of the PdfRoot-object
+		<LI>Changes in the way pages and page are managed
+		<LI>Outlines
+		<LI>All Chapters and Sections are put in an outline tree
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION038">iText0.38</A></div>
+        <div class="text"><UL>
+		<LI>Possibility to underline/strike chunks
+		<LI>Nested lists
+		<LI>Better management of Page Resources (1 Resource Dictionary per page)
+		<LI>Destinations (doesn't work yet)
+		</UL></div>
+        
+        <div class="title"><A NAME="VERSION037">iText0.37</A></div>
+        <div class="text"><UL>
+		<LI>Bugfix: PNG-support and Rotation (fixed by Paulo Soares)
+		<LI>Bugfix: Error in class Watermark fixed
+		<LI>Possibility to add graphic elements (lines, curves,...) with the Graphic-object.
+		<LI>Implementation of the Anchor-object for PDF (not yet as I want it to be)
+		<LI>Possibility to add Text Annotations
+		</UL></div>
+		
+        <div class="title"><A NAME="VERSION036">iText0.36</A></div>
+        <div class="text"><UL>
+		<LI>Bugfix: pagenumbers were reals. This gave problems in Ghostview
+		<LI>Bugfix: some shades of Gray gave problems in the Gif Color Table
+		<LI>BugFix: when you changed the backgroundcolor of the rectangle that describes
+ 			the pagesize of a document, this color was not shown on the document.
+		<LI>Bugfix: centering of images
+		<LI>Support of Png-images (by Paulo Soares)
+		</UL></div>
+		
+        <div class="title"><A NAME="VERSION035">iText0.35</A></div>
+        <div class="text"><UL>
+		<LI>Fonts of type Symbol/Zapfdingbats were not shown on some devices
+		<LI>Minor bugfixes concerning tables
+		<LI>Support of Jpeg-images
+		<LI>Support of Gif-images
+		</UL></div>
+        
+        <div class="title"><A NAME="VERSION030">iText0.30</A></div>
+        <div class="text"><UL>
+		<LI>Some errors in the metrics are corrected using an AFM-parser
+			written by Stefan Mainz.
+		<LI>I made some changes in the class <CODE>PdfFont</CODE>.
+			Some methods are moved to the class <CODE>PdfFontMetrics</CODE>.
+			I also solved a bug submitted by Brent Stains, who had a list of
+			names that he'd liked to put in a single cell. The HTML equivalent
+			was "&lt;TD&gt;name1&lt;BR&gt; name2&lt;BR&gt;....&lt;/TD&gt;".
+		<LI>If you ran the old Test-class on a PC (Windows), character 128 to 159
+			is replaced by a question mark. I solved this problem by specifying
+			the encoding (latin1) when I invoke <CODE>getBytes()</CODE> or
+			when I construct a new <CODE>String</CODE>.
+		<LI>The use of color is added to the library
+		<LI>I made some new classes in package com.lowagie.text:
+			<UL>
+			<LI>class Anchor extends Phrase implements Element
+			<LI>class BadElementException extends DocumentException
+			<LI>class Cell extends Rectangle implements Element
+			<LI>class Chapter extends Section implements Element
+			<LI>class Chunk implements Element
+			<LI>interface DocListener extends EventListener
+			<LI>class Document implements DocListener
+			<LI>class DocumentException extends Exception
+			<LI>abstract class DocWriter implements DocListener
+			<LI>interface Element
+			<LI>class Font implements Comparable
+			<LI>class Header extends Meta implements Element
+			<LI>class HeaderFooter extends Rectangle
+			<LI>class List implements Element
+			<LI>class ListItem extends Paragraph implements Element
+			<LI>class Meta implements Element
+			<LI>class PageSize
+			<LI>class Paragraph extends Phrase implements Element
+			<LI>class Phrase extends ArrayList implements Element
+			<LI>class Rectangle implements Element
+			<LI>class Row implements Element
+			<LI>class Section extends ArrayList implements Element
+			<LI>class Table extends Rectangle implements Element
+			</UL>
+			I have also made some classes to generate HTML:
+			<UL>
+			<LI>class HtmlWriter extends DocListener
+			<LI>class HtmlEncoder
+			<LI>class HtmlAttributes extends TreeMap
+			</UL>
+			and XML:
+			<UL>
+			<LI>class XmlWriter extends DocListener
+			</UL>
+			The following classes in com.lowagie.text.pdf are new or have been changed in a drastic way.
+			<UL>
+			<LI>class PdfBody, PdfCatalog, PdfInfo have become inner classes
+			<LI>class PdfCell extends Rectangle
+			<LI>class PdfChunk extends PdfString
+			<LI>class PdfDocument extends Document implements DocListener, PdfListener
+			<LI>class PdfLine
+			<LI>class PdfListener extends EventListener
+			<LI>class PdfRectangle extends Rectangle
+			<LI>class PdfTable extends Rectangle
+			<LI>class PdfWriter extends DocWriter implements PdfListener
+			</UL>
+			<LI>Document are now generated in a whole other way:
+			<UL>
+				<LI>constructing a document is a lot more userfriendly
+				<LI>documents are now written directly to an <CODE>OutputStream</CODE>.
+			</UL>
+		</UL></div>
+        
+        <div class="title"><A NAME="VERSION020">rugPdf0.20</A></div>
+        <div class="text"><UL>
+		<LI>I reinitialized all the versions of the Pdf Classes (version numbers)
+		<LI>Most references to the reference manual version 1.2 are changed into
+			references to the reference manual version 1.3.
+		<LI>I made a distinction between a <CODE>PdfException</CODE> and a
+			<CODE>BadPdfFormatException</CODE> (for future use)
+		<LI>Some extra methods were added to check the type of a <CODE>PdfObject</CODE>.
+		<LI>The method type() was removed from the <CODE>PdfPrintable</CODE>-interface.
+			The method toPdfString() was alse removed. A <CODE>PdfString</CODE> can now
+			be constructed with a <CODE>PdfPrintable</CODE> as parameter.
+		<LI>Some methods are made final to improve performance (more will follow).
+		<LI>I am changing most of the String manipulations into <CODE>StringBuffer</CODE>
+			or <CODE>ByteArrayOutputstream</CODE> manipulations.
+			This avoids creating many temporary strings and improves the performance.
+		<LI>The content of each <CODE>PdfObject</CODE> is now stored as an array of byte.
+			The method toPdf() returns <CODE>byte[]</CODE>. This was necessary because
+			the constructor <CODE>new String(byte[] bytes)</CODE> and the method <CODE>
+			toBytes()</CODE> did funny things with some bytes.<BR>
+			On UNIX everything worked just fine, but on Windows every PDF document
+			opened correctly (because the PDF syntax was still OK), however since some
+			bytes of the stream were corrupted, the streams were never decompressed
+			and every page remained blank...<BR>
+			This was caused by: DATA TRANSFER PROBLEMS ON WINDOWS
+			see: <A HREF="http://java.sun.com/products/jdk/1.1.7B/README">
+			http://java.sun.com/products/jdk/1.1.7B/README</A><BR>
+			Or run this code on a windows PC to understand the problem:
+			<A HREF="http://www.lowagie.com/iText/docs/Encoding.java">Encoding.java</A>.
+		<LI>I have made a static final list of the most common <CODE>PdfName</CODE>-objects.
+			This way these objects are constructed only once. There is no more need
+			to catch a <CODE>BadPdfFormatException</CODE>.
+		<LI><CODE>PdfName</CODE> has been made comparable; Items in a
+			<CODE>PdfDictionary</CODE> are now sorted alfabetically.
+		<LI><CODE>PdfStream</CODE>-object are now compressed.
+			This way the size of the generated PDF-documents
+			has been reduced a lot.
+		<LI>4 new functions have been added to <CODE>PdfDocument.java</CODE>:
+			<UL>
+			<LI>public int left(int margin)
+			<LI>public int right(int margin)
+			<LI>public int top(int margin)
+			<LI>public int bottom(int margin)
+			</UL>
+		<LI>I changed the values of the static variables concerning the size of
+			a font. You can still use them, but they aren't really necessary anymore.
+			You have now the freedom to choose any size you want (as long as it's an
+			integer).
+		</UL></div>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5"><span class="lightsmall">[<A HREF="history.html" class="lightsmall">History Overview</A>]</span></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
+		</TD>
+		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
