@@ -156,6 +156,8 @@ be removed at the end of 2007. The same goes for all extensions of the old
 <li>Nested tables</li>
 <li>Images other than JPEG, PNG, BMP and WMF</li>
 <li>Rotated images</li>
+<li>Paragraph.setSpacingAfter and Paragraph.setSpacingBefore</li>
+<li>Table.setSpaceInsideCell and Table.setSpaceBetweenCells</li>
 </ul>
 </div>
 	</site:section>
