@@ -24,10 +24,10 @@
 		<div class="title">JAVA links</div>
 		<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" align="left" alt="RefactorIT"/></a> All important software systems evolve, but over time entropy causes structural rot. Refactoring instills efficiency to the internal structure of a system and refactoring can restore evolving software to vibrant health. Manual refactoring can be an involved process, hence use of RefactorIT, the world's fastest and easiest automated way to refactor Java systems can save you considerable time, effort, and financial resources.
 		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.<br />
-		<a href="http://www.javalobby.org " class="topic">>Javalobby:</a> The heart of the Java community<br />
-		<a href="http://www.myjavaserver.com/" class="topic">>MyJavaServer:</a> free application deployment<br />(MyJavaServer WILL HOST iText SERVLET AND JSP EXAMPLES STARTING january 2005!!!)<br />
-		<a href="http://www.jdocs.com/" class="topic">>JDocs:</a> Your javadocs super center<br />
-		<a href="http://www.jroller.com/" class="topic">>JRoller:</a> Free, Java-powered weblogs<br />
+		<a href="http://www.javalobby.org " class="topic">Javalobby:</a> The heart of the Java community<br />
+		<a href="http://www.myjavaserver.com/" class="topic">MyJavaServer:</a> free application deployment<br />(MyJavaServer WILL HOST iText SERVLET AND JSP EXAMPLES STARTING january 2005!!!)<br />
+		<a href="http://www.jdocs.com/" class="topic">JDocs:</a> Your javadocs super center<br />
+		<a href="http://www.jroller.com/" class="topic">JRoller:</a> Free, Java-powered weblogs<br />
 		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java<br />
 		<a href="http://ant.apache.org/" class="topic">Apache ANT</a> a Java-based build tool.
 		<a href="http://www.junlu.com/">JUNLU:</a> some major mailinglists (including iText) made searchable.
