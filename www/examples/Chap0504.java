@@ -40,6 +40,7 @@ public class Chap0504 {
             document.open();
             // step 4: we create a table and add it to the document
             Table aTable = new Table(2,2);    // 2 rows, 2 columns
+            aTable.setAutoFillEmptyCells(true);
             aTable.addCell("0.0");
             aTable.addCell("0.1");
             aTable.addCell("1.0");

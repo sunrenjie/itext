@@ -37,32 +37,26 @@ public class Chap0516 {
             // step 3: we open the document
             document.open();
             // step 4: we create a table and add it to the document
-            Table a = new Table( 2 );
-            a.setWidths( new float[] { 85, 15 } );
-            a.addCell("a-1");
-            a.addCell("a-2");
+            Table secondTable = new Table(2);
+            secondTable.addCell("2nd table 0.0");
+            secondTable.addCell("2nd table 0.1");
+            secondTable.addCell("2nd table 1.0");
+            secondTable.addCell("2nd table 1.1");
+            Cell tableCell = new Cell("This is a nested table");
+            tableCell.add(secondTable);
+            //tableCell.add(new Phrase("This was a nested table"));
             
-            Table b = new Table(10);
-            b.setWidths( new float[] { 15, 7, 4, 25, 7, 7, 7, 7, 7, 7 } );
-            b.addCell("b-1");
-            b.addCell("b-2");
-            b.addCell("b-3");
-            b.addCell("b-4");
-            b.addCell("b-5");
-            b.addCell("b-6");
-            b.addCell("b-7");
-            b.addCell("b-8");
-            b.addCell("b-9");
-            b.addCell("b-10");
-            
-            // now, insert these 2 tables into a third for layout purposes
-            Table c = new Table( 3, 1 );
-            c.setWidth( 100.0f );
-            c.setWidths( new float[] { 20, 2, 78 } );
-            c.insertTable(a, new Point(0,0) );
-            c.insertTable(b, new Point(0,2) );
-
-            document.add(c);
+            Table aTable = new Table(3,3);    // 3 rows, 3 columns
+            aTable.addCell("0.0", new Point(0,0));
+            aTable.addCell("0.1", new Point(0,1));
+            aTable.addCell("0.2", new Point(0,2));
+            aTable.addCell("0.0", new Point(1,0));
+            aTable.addCell(tableCell, new Point(1,1));
+            aTable.addCell("2.2", new Point(1,2));
+            aTable.addCell("2.0", new Point(2,0));
+            aTable.addCell("2.1", new Point(2,1));
+            aTable.addCell("2.2", new Point(2,2));
+            document.add(aTable);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
