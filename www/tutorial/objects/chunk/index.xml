@@ -33,6 +33,13 @@ In the following sections, all Chunk-functionality will be described:
 </div>
 	</site:section>
 	
+	<site:section name="underline">
+		<site:sectiontitle>Adding lines under, through or above a Chunk</site:sectiontitle>
+<div>
+
+</div>
+	</site:section>
+	
 	<site:section name="subsup">
 		<site:sectiontitle>Sub- and Superscript</site:sectiontitle>
 <div>
