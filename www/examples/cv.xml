@@ -138,10 +138,9 @@ Adolf Baeyensstraat 121<newline />
 </table>
 </section>
 <section numberdepth="0">
-<title font="Times New Roman" size="13" align="Center" leading="16">Ervaring</title>
-<newline />
+<title font="Times New Roman" size="13" align="Center" leading="13">Ervaring</title>
 <section numberdepth="0">
-<title font="Times New Roman" size="12" align="Center" style="bold" leading="12">Universiteit Gent</title>
+<title font="Times New Roman" size="12" align="Center" style="bold" leading="16">Universiteit Gent</title>
 <table width="100%" cellspacing="0" cellpadding="2" columns="2" grayfill="0.90">
 <row>
 	<cell width="20%"><phrase font="Times New Roman" size="12" style="bold">Informaticus</phrase></cell>
