@@ -16,6 +16,17 @@ H1 {
 }
 
 
+
+.toc {
+	color: #FFFFFF;
+	font-size: 12pt;
+	font-weight: bold;
+	display: block;
+	padding: 5px;
+	border: outset #8F8F8F;
+	background-color: #817BBD;
+}
+
 H2 {
 	display: block;
 	text-align: right;
@@ -58,7 +69,7 @@ li {
 }
 
 #example {
-	font-size: 9pt;
+	font-size: 10pt;
 	border-left: double #100670;
 	margin: 15px;
 	padding: 5px;
