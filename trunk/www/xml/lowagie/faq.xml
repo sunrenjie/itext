@@ -343,6 +343,28 @@ And it works.... But don't ask me to explain this!!!
 
 <site:faq-separator />
 
+<site:faq-entry name="dotnet">
+<site:question>Can I use iText in .NET applications?</site:question>
+<site:answer>
+
+There are 2 iText-.NET ports: one in J++ and one in C#.
+The one in J++ is recommended as it is still maintained and updated
+to a recent version of iText: <a href="http://www.ujihara.jp/iTextdotNET/">iTextdotNET</a>
+by Kazuya Ujihara. It has a lot of examples in J# and C#.
+You can also visit the iText.NET-site @ <a href="http://sourceforge.net/projects/itextdotnet/">SourceForge</a>
+and <a href="http://www.ujihara.jp/iTextFront/en/">iTextFront</a>, an End User tool, also written
+by Kazuya Ujihara.<br />
+<a HREF="http://itextsharp.sourceforge.net/">iTextSharp</a> is the C# port of iText,
+but you should check what version of iText is ported (the current iText version is
+<site:releasenumber />).<br />
+From time to time, the developers of the original iText (in JAVA) receive questions
+about the .NET ports, but in most cases, we can't answer them, because we know
+only some basic stuff about .NET. It is better to turn to the developers of the
+port with your questions.
+
+</site:answer>
+</site:faq-entry>
+
 <site:faq-entry name="linearization">
 <site:question>Does iText support Linearization?</site:question>
 <site:answer>
