@@ -25,11 +25,18 @@ import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.rtf.RtfWriter;
 
+/**
+ * This example creates a RTF document with two chapters and different headers
+ * for both chapters. The same works for footers. Just replace setHeader with
+ * setFooter.
+ *
+ * @author <a href="mailto:mhall@myrealbox.com">Mark.Hall@myrealbox.com</a>
+ */
 public class Chap0802 {
 
     public static void main(String[] args) {
 
-        System.out.println("Chapter 8 example 2: RTF");
+        System.out.println("Chapter 8 example 2: Headers in RTF");
 
         // step 1: creation of a document-object
         Document document = new Document();
@@ -44,36 +51,24 @@ public class Chap0802 {
             // step 3: we open the document
             document.open();
 
-            // step 4: we add a paragraph to the document
-            Paragraph paragraph0 = new Paragraph();
-            Paragraph paragraph1 = new Paragraph("(1) this is a Paragraph");
-            // When a Font is passed (explicitely or embedded in a chunk),
-            // the default leading = 1.5 * size of the font
-            Paragraph paragraph3 = new Paragraph("(3) this is a Paragraph with a red, normal font Courier, size 20.", new Font(Font.COURIER, 20, Font.NORMAL, new Color(255, 0, 0)));
-            Paragraph paragraph4 = new Paragraph(new Chunk("(4) this is a Paragraph"));
-            Paragraph paragraph5 = new Paragraph(new Chunk("(5) this is a Paragraph in Helvetica, bold, red and size 16.", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0))));
-            // A Paragraph can contains several chunks with different fonts
-            Paragraph paragraph6 = new Paragraph("(6)");
-            Chunk chunk = new Chunk(" This is a font: ");
-            paragraph6.add(chunk);
-            paragraph6.add(new Chunk("Helvetica", new Font(Font.HELVETICA)));
-            paragraph6.add(chunk);
-            paragraph6.add(new Chunk("Times New Roman", new Font(Font.TIMES_NEW_ROMAN)));
-            paragraph6.add(chunk);
-            paragraph6.add(new Chunk("Courier", new Font(Font.COURIER)));
-            paragraph6.add(chunk);
-            paragraph6.add(new Chunk("Symbol", new Font(Font.SYMBOL)));
-            paragraph6.add(chunk);
-            paragraph6.add(new Chunk("ZapfDingBats", new Font(Font.ZAPFDINGBATS)));
-            Anchor anchor1 = new Anchor("website (external reference)", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
-            anchor1.setReference("http://www.lowagie.com/iText/");
-            document.add(paragraph1);
-            document.add(paragraph3);
-            document.add(paragraph4);
-            document.add(paragraph5);
-            document.add(paragraph6);
-            document.add(anchor1);
+            // step 4: we create two chapters and add the same content to both.
+            Paragraph par = new Paragraph("This is some sample content.");
+            Chapter chap1 = new Chapter("Chapter 1", 1);
+            chap1.add(par);
+            Chapter chap2 = new Chapter("Chapter 2", 2);
+            chap2.add(par);
 
+            // step 5: we create the header for the first chapter, set the header and
+            // then add the first chapter.
+            HeaderFooter hf1 = new HeaderFooter(new Phrase("This is chapter 1"), false);
+            document.setHeader(hf1);
+            document.add(chap1);
+
+            // step 6: we create a second header, set this one and then add the second
+            // chapter.
+            HeaderFooter hf2 = new HeaderFooter(new Phrase("This is chapter 2"), false);
+            document.setHeader(hf2);
+            document.add(chap2);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -82,7 +77,7 @@ public class Chap0802 {
             System.err.println(ioe.getMessage());
         }
 
-        // step 5: we close the document
+        // step 7: we close the document
         document.close();
     }
 }
