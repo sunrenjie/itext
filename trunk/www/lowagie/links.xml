@@ -12,34 +12,41 @@
 	<site:content>
 	<div class="small" xmlns="http://www.w3.org/1999/xhtml">
 		<div class="header">Useful links</div>
-		<div class="title">People</div>
+<a name="people"><div class="title">People</div></a>
 		<a href="http://www.lowagie.com/" class="topic">Bruno Lowagie:</a> original developer of iText
 		<a href="http://itextpdf.sourceforge.net/" class="topic">Paulo Soares</a> this is the most active iText developer of the moment
-		<b class="topic">Mark Hall:</b> the author of the RTF functionality<br />
+		<b class="topic">Mark Hall:</b> the author of the RTF functionality
 		<a href="http://www.pdfsages.com/" class="topic">Leonard Rosenthol:</a> CTO of PDF Sages, a company dedicated to providing unmatched PDF-oriented consulting and development services.
 		<a href="http://www.ujihara.jp/iTextdotNET/" class="topic">Kazuya Ujihara:</a> author of the iText .NET port
 		<br />
-		<a href="http://www.jrefinery.com/" class="topic">David Gilbert:</a> JREFINERY<br />
-		<a href="http://servlets.com/" class="topic">Jason Hunter</a> author of JDOM and the book I read to learn all about Servlets<br />
+		<a href="http://www.jfree.org/" class="topic">David Gilbert:</a> JFree.org
+		<a href="http://servlets.com/" class="topic">Jason Hunter</a> author of JDOM and the book I read to learn all about Servlets
 		if you think your name should be on this list, just send me a mail.
-		<div class="title">JAVA links</div>
+<a name="java"><div class="title">JAVA links</div></a>
 		<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" align="left" alt="RefactorIT"/></a> All important software systems evolve, but over time entropy causes structural rot. Refactoring instills efficiency to the internal structure of a system and refactoring can restore evolving software to vibrant health. Manual refactoring can be an involved process, hence use of RefactorIT, the world's fastest and easiest automated way to refactor Java systems can save you considerable time, effort, and financial resources.
-		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.<br />
-		<a href="http://www.javalobby.org " class="topic">Javalobby:</a> The heart of the Java community<br />
-		<a href="http://www.myjavaserver.com/" class="topic">MyJavaServer:</a> free application deployment<br />(MyJavaServer WILL HOST iText SERVLET AND JSP EXAMPLES STARTING january 2005!!!)<br />
-		<a href="http://www.jdocs.com/" class="topic">JDocs:</a> Your javadocs super center<br />
-		<a href="http://www.jroller.com/" class="topic">JRoller:</a> Free, Java-powered weblogs<br />
-		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java<br />
+		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.
+		<a href="http://www.javalobby.org " class="topic">Javalobby:</a> The heart of the Java community
+		<a href="http://www.myjavaserver.com/" class="topic">MyJavaServer:</a> free application deployment
+		<a href="http://www.jdocs.com/" class="topic">JDocs:</a> Your javadocs super center
+		<a href="http://www.jroller.com/" class="topic">JRoller:</a> Free, Java-powered weblogs
+		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java
 		<a href="http://ant.apache.org/" class="topic">Apache ANT</a> a Java-based build tool.
 		<a href="http://www.junlu.com/">JUNLU:</a> some major mailinglists (including iText) made searchable.
-		<div class="title">PDF links</div>
-		<a href="http://www.adobe.com/" class="topic">ADOBE:</a> ADOBE SYSTEMS INC.<br />
-		<a href="http://www.quite.com/personal/aandi.htm" class="topic">Quite Software:</a> The home of Aandi Inston, PDF expert<br />
-		<a href="http://www.ghostscript.com/" class="topic">Ghostscript:</a> a suite of free PDF tools<br />
-		<a href="http://www.planetpdf.com/" class="topic">Planet PDF:</a> A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses. Planet PDF also incorporates <a href="http://forum.planetpdf.com/">Planet PDF Forum</a> and <a href="http://www.pdfstore.com/">Planet PDF Store</a>.<br />
-		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.<br />
-		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.<br />
-		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.<br />
+<a name="pdf"><div class="title">PDF links</div></a>
+		<a href="http://www.adobe.com/" class="topic">ADOBE:</a> ADOBE SYSTEMS INC.
+		<a href="http://www.quite.com/personal/aandi.htm" class="topic">Quite Software:</a> The home of Aandi Inston, PDF expert
+		<a href="http://www.ghostscript.com/" class="topic">Ghostscript:</a> a suite of free PDF tools
+		<a href="http://www.planetpdf.com/" class="topic">Planet PDF:</a> A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses. Planet PDF also incorporates <a href="http://forum.planetpdf.com/">Planet PDF Forum</a> and <a href="http://www.pdfstore.com/">Planet PDF Store</a>.
+		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.
+		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.
+		<a href="http://pangopdf.sourceforge.net/" class="topic">PangoPDF:</a> a PDF backend for Pango for creating PDF output (using PDFLib).
+		<a href="http://www.pdfx3.org/" class="topic">PDF/X:</a>  PDF/X is not an alternative to PDF, it’s a focused subset of PDF designed specifically for reliable prepress data interchange.
+		<a href="http://xmlroff.sourceforge.net/" class="topic">xmlroff:</a> an XSL formatter written in C that produces PDF and PostScript.
+		<a href="http://www.tug.org/applications/pdftex/" class="topic">PdfTeX:</a> pdfTeX (by Han The Thanh) is a TeX variant that can generate PDF output directly instead of dvi.
+		<a href="http://www.pdfbox.org/" class="topic">PDFBox:</a> PDFBox is a Java PDF Library. This project will allow access to all of the components in a PDF document.
+		<a href="http://doc2pdf.sourceforge.net/" class="topic">Doc2pdf:</a> Doc2pdf is an email robot that converts Microsoft Office attachments (.doc, .ppt, and .xls) to PDF.
+		<a href="http://gnujpdf.sourceforge.net/" class="topic">gnujpdf:</a> a Java package (gnu.jpdf.*) licensed under the LGPL. It provides a simple API to create pdf files and print using subclasses of java.awt.Graphics and java.awt.PrintJob
+		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.
 		<a href="http://www.pdfill.com/" class="topic">PDFill Form Filler:</a>
 		iText makes it possible to come up with a PDF Form Filler at only
 		$9.99.  This form filler allows you to fill PDF form
@@ -50,17 +57,24 @@
 		view preference. The filling can be stopped now and
 		resumed later. It has Spell-Checker for the filled
 		texts and Smart Positioning for accurate alignment. 
-		<div class="title">Free / Open Source Software links</div>
+<a name="reports"><div class="title">Reporting tools</div></a>
+		<a href="http://jasperreports.sourceforge.net/" class="topic">JasperReports:</a> a powerful open source Java reporting tool that has the ability to deliver rich content onto the screen, to the printer or into PDF, HTML, XLS, CSV and XML files.
+		<a href="http://www.jfree.org/jfreereport/index.html" class="topic">JFreeReport:</a> a free Java report library (using iText for PDF output).
+		<a href="http://ujac.sourceforge.net/" class="topic">UJAC:</a>  UJAC provides a collection of JAVA components which may be useful in some projects. (Improved XML to PDF using iText included.)
+		<a href="http://reportman.sourceforge.net/" class="topic">reportman:</a> Report manager is a reporting application (Report Manager Designer) and also a set of components for Delphi , Builder and Kylix, also supports development environment accepting ActiveX controls (Visual Basic,Visual FoxPro,any Visual Studio.Net language...), also a C dynamic standard library  with exported functions is provided to use the engine with any other language like GNU C.
+		<a href="http://sourceforge.net/projects/tagprint/" class="topic">TagPrint:</a> a DOM serialization library. It prints DOM documents with various format, such as XML, HTML, PDF, RTF, etc... You can write these documents very easily.
+		<a href="http://datavision.sourceforge.net/" class="topic">Datavision:</a> an Open Source reporting tool similar to Crystal Reports.
+<a name="fos"><div class="title">Free / Open Source Software links</div></a>
 		<a href="http://sourceforge.net/" class="topic">SourceForge:</a>  the world's largest Open Source software development website.
 		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
 		<a href="http://java-source.net/" class="topic">Java-source:</a> Open Source Software in JAVA (tm)
-		<div class="title">Other technical links</div>
+<a name="tech"><div class="title">Other technical links</div></a>
 		<a href="http://www.chrispederick.com/work/firefox/webdeveloper/" class="topic">Web Developer:</a> a plugin for <a href="http://www.mozilla.org/products/firefox/">Mozilla Firefox</a>. I use it to design my site. It has some awesome CSS functionalities.
 		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
 		<a href="http://www.mulberrytech.com/quickref/XSLTquickref.pdf" class="topic">Mullberry Technologies:</a> XSLT and XPath Quick Reference
 		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
 		<a href="http://www.vbxml.com/xsl/xsltref.asp" class="topic">Top XML:</a> XSLT Reference
-		<div class="title">Miscellaneous links</div>
+<a name="misc"><div class="title">Miscellaneous links</div></a>
 		<a href="http://slashdot.org/" class="topic">Slashdot:</a> News for Nerds, Stuff that Matters
 		<a href="http://www.retostamm.com/" class="topic">Learn Japanese:</a> if you register at this site ($17.99 for 30 lessons), you receive daily mails with Japanese lessons.
 		Each lesson teaches you 5 to 10 new words, expressions, pronunciations, grammatical and cultural information you need to know for the daily conversation. The flashcards are made using iText!
