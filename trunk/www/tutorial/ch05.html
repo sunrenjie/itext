@@ -37,7 +37,10 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Simple PDF</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 5: Tables</B></FONT>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 5: Tables</B></FONT><br>
+			<br>
+			IMPORTANT: if you only have to generate PDF (no XML, HTML, RTF,...), it is better
+			to use the class <a href="#pdfptable"><FONT FACE="Courier">PdfPTable</FONT></a> instead of class <FONT FACE="Courier">Table</FONT>.
 		</TD>
 	</TR>
 	<TR>
@@ -213,6 +216,12 @@
 			In <A HREF="http://www.lowagie.com/iText/examples/Chap0506.java">example 6</A>, you can
 			see the effect on the table in the <A HREF="http://www.lowagie.com/iText/examples/Chap0506.pdf">resulting PDF file</A>
 			when you change these values.<br><br>
+			<b>alignment:</b><br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0506.java">example 6</A>, we have also changed
+			the alignment of the 'big cell'.<br>
+			<FONT FACE="Courier" SIZE="-1">cell.setHorizontalAlignment(Element.ALIGN_CENTER);<br>
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);</FONT><br>
+			Remark: you can't always trust on the vertical alignment.<br><br>
 			<b>borders:</b><br>
 			If we add a cell as we do in line 14, a default cell layout is used (this default layout can be changed
 			using some <FONT FACE="Courier">setDefault</FONT>-methods). If we add a cell using a <FONT FACE="Courier">Cell</FONT>-object,
@@ -333,6 +342,18 @@
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0516.java">Example 16</A>
 			(<A HREF="http://www.lowagie.com/iText/examples/Chap0516.pdf">Chap0516.pdf</A>)
 			shows you a workaround for images.
+			</FONT><br><br>
+		</TD>
+	</TR>		
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><a name="pdfptable">Tables at an absolute position</a></B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">	
+			<FONT FACE="Courier">com.lowagie.text.Table</FONT> is a rather simple class that generates tables
+			in a standard way, but sometimes you want a table to have some specific behaviour.
+			In those cases you will need to use the more complex class <FONT FACE="Courier">com.lowagie.text.pdf.PdfPTable</FONT>.
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0517.java">Example 17</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap0517.pdf">Chap0517.pdf</A>)
+			is a very simple example. In <a href="ch10.html">Chapter 10</a> some more complex examples will follow.
 			</FONT><br><br><br>
 		</TD>
 	</TR>	

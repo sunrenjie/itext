@@ -235,9 +235,9 @@
     </target>
 	
 	<target name="examples" depends="jarWithXML" description="--> executes (almost) all examples from the tutorial">
-	    <echo>Examples Chap0105.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
+	    <echo>Examples Chap0105.java, OutSimplePDF.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
 	    <echo>They will not compile without a servlet library.</echo>
-        <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, Calendar.java, Month.java" >
+        <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, OutSimplePDF.java, Calendar.java, Month.java" >
            <classpath refid="classpath" />
         </javac>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0101">
