@@ -58,18 +58,20 @@
 			if you have questions about rejected images.<BR><BR>
 			<B>Getting an instance of an image using an URL</B><BR>
 			This is the most simple way to add an Image. In <A HREF="http://www.lowagie.com/iText/examples/Chap0601.java">example 1</A>,
-			we add a GIF (<A HREF="../examples/vonnegut.gif">a picture of SF-writer Kurt Vonnegut 26 kByte</A>),
+			we add a WMF (<A HREF="../examples/harbour.wmf">a Windows Meta File 33kByte</A>),
+			a GIF (<A HREF="../examples/vonnegut.gif">a picture of SF-writer Kurt Vonnegut 26 kByte</A>),
 			a Jpeg (<A HREF="../examples/myKids.jpg">a picture of my children 7 kByte</A>) and a PNG
 			(<A HREF="../examples/hitchcock.png">a picture of Alfred Hitchcock 16 kByte</A>) to the document,
 			using 3 URLs referring to my site:<BR>
 			<FONT FACE="Courier">
+			Image wmf = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/harbour.wmf"));<BR>
 			Image gif = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/vonnegut.gif"));<BR>
 			Image jpeg = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/myKids.jpg"));<BR>
 			Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/hitchcock.png"));
 			</FONT><BR>
-			The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.pdf">resulting PDF file</A> is 50 kByte: it contains the image data
-			of the 3 images. The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
-			the references to the urls of the 3 images.<BR><BR>
+			The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.pdf">resulting PDF file</A> is 74 kByte: it contains the image data
+			of the 4 images. The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
+			the references to the urls of the 4 images.<BR><BR>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
@@ -215,7 +217,7 @@
 			In the example an image of 100 by 100 pixels is created. The images is 100 x 100 x 3 bytes
 			large, because every pixels is described by a RGB-value. You can see the result
 			of the algorithm in file <A HREF="http://www.lowagie.com/iText/examples/Chap0609.pdf">Chap0609.pdf</A>.
-			</FONT><BR><BR><BR>
+			</FONT><BR><BR>
 		</TD>
 	</TR> 
 	<TR>

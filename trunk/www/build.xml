@@ -93,6 +93,7 @@
         <get src="http://www.lowagie.com/iText/tutorial/Chap0106.png" dest="${itext.tutorial}/Chap0106.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/tutorial/Chap0106dos.png" dest="${itext.tutorial}/Chap0106dos.png" verbose="true" />
         <mkdir dir="${itext.examples}" />
+        <get src="http://www.lowagie.com/iText/examples/harbour.wmf" dest="${itext.examples}/harbour.wmf" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.examples}/pngnow.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.examples}/H.gif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.examples}/caesar_coin.jpg" verbose="true" />
@@ -101,6 +102,8 @@
         <get src="http://www.lowagie.com/iText/examples/raf.jpg" dest="${itext.examples}/raf.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/vonnegut.gif" dest="${itext.examples}/vonnegut.gif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/watermark.jpg" dest="${itext.examples}/watermark.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
@@ -237,7 +240,9 @@
 	<target name="examples" depends="jarWithXML" description="--> executes (almost) all examples from the tutorial">
 	    <echo>Examples Chap0105.java, OutSimplePDF.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
 	    <echo>They will not compile without a servlet library.</echo>
-        <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, OutSimplePDF.java, Calendar.java, Month.java" >
+	    <echo>Examples Chap0611.java and Chap0612.java require JAI.</echo>
+	    <echo>They will not compile without this extra library.</echo>
+        <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, OutSimplePDF.java, Calendar.java, Month.java, Chap0611.java, Chap0612.java" >
            <classpath refid="classpath" />
         </javac>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0101">
@@ -382,6 +387,10 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0610">
            <classpath refid="classpath" />
 		</java>
+		<echo>Chapter 6 example 10: this example requires JAI</echo>
+		<echo>Please compile and execute it seperately</echo>
+		<echo>Chapter 6 example 11: this example requires JAI</echo>
+		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0701">
            <classpath refid="classpath" />
 		</java>
