@@ -51,7 +51,7 @@ public class Chap0902 {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", false);
+            BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", "winansi", false);
             Font FontComic = new Font(bfComic, 12, Font.NORMAL);
             Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);
             document.add(chunk);

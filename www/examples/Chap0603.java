@@ -34,7 +34,7 @@ public class Chap0603 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 6 example 2: Adding a Gif, Jpeg and Png-file using filenames");
+        System.out.println("Chapter 6 example 3: using a relative path for HTML");
         
         // step 1: creation of a document-object
         Document document = new Document();
