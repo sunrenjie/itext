@@ -45,7 +45,6 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="encoding">Specifying an encoding</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			In the <a href="http://www.lowagie.com/iText/examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
@@ -164,8 +163,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="barcode"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Barcodes</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="barcode">Barcodes</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">Example 6</A> is a very specific
             example in which we are going to use a special True Type font.<br />
@@ -185,7 +183,24 @@
 			The third and fourth parameter are the fontsize and finally the number you want to turn
 			into a barcode.<br />
             For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">example 6</A> and the <a href="http://www.lowagie.com/iText/examples/Chap0906.pdf">resulting PDF file</a>.<BR>
-			</FONT><BR><BR>
+			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="measuringtext">Measuring text</A></B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Sometimes it's necessary to know the length of a certain piece of text.
+			If you have created a <FONT FACE="Courier">BaseFont</FONT> object, you can use the method:<br>
+			<FONT FACE="Courier">public float getWidthPoint(String text, float fontSize);</FONT><br>
+			
+			So if you are using some barcode font with size 36 as in the previous example and
+			you want to know how much space you need on the line to print this barcode, you just
+			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f);</FONT>.<br>
+			The result is the width in points. There are 72 points in 1 inch. So if you have
+			a result of 595 points / 72 = 8.2677 inch * 2.54 = 21 cm (see <A HREF="ch01.html#measurements">Chapter 1</A>).
+			<BR><BR>
+			</FONT><br><br>
 		</TD>
 	</TR>
 	<TR>
