@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Bruno Lowagie <--
+ * --> Copyright 2001 by Bruno Lowagie, Geert Poels <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -23,14 +23,16 @@
  * bruno@lowagie.com
  */
 
-import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
+
 public class Chap0501 {
+    
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 1: My first table");
+        System.out.println("Chapter 5 example 1: my first table");
         // step 1: creation of a document-object
         Document document = new Document();
         try {
@@ -41,31 +43,12 @@ public class Chap0501 {
             // step 3: we open the document
             document.open();
             // step 4: we create a table and add it to the document
-            Table table = new Table(3);
-            table.setBorderWidth(1);
-            table.setBorderColor(new Color(0, 0, 255));
-            table.setPadding(5);
-            table.setSpacing(5);
-            Cell cell = new Cell("header");
-            cell.setHeader(true);
-            cell.setColspan(3);
-            table.addCell(cell);
-            table.endHeaders();
-            cell = new Cell("example cell with colspan 1 and rowspan 2");
-            cell.setRowspan(2);
-            cell.setBorderColor(new Color(255, 0, 0));
-            table.addCell(cell);
-            table.addCell("1.1");
-            table.addCell("2.1");
-            table.addCell("1.2");
-            table.addCell("2.2");
-            table.addCell("cell test1");
-            cell = new Cell("big cell");
-            cell.setRowspan(2);
-            cell.setColspan(2);
-            table.addCell(cell);
-            table.addCell("cell test2");
-            document.add(table);
+            Table aTable = new Table(2,2);    // 2 rows, 2 columns
+            aTable.addCell("0.0");
+            aTable.addCell("0.1");
+            aTable.addCell("1.0");
+            aTable.addCell("1.1");
+            document.add(aTable);           
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -76,4 +59,5 @@ public class Chap0501 {
         // step 5: we close the document
         document.close();
     }
+    
 }
