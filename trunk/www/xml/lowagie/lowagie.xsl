@@ -7,6 +7,14 @@
 
 <xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" indent="no" media-type="text/html" />
 
+<xsl:template match="site:releasenumber" name="site:releasenumber">
+<xsl:value-of select="1.1"/>
+</xsl:template>
+
+<xsl:template match="site:earlyaccessnumber">
+<xsl:value-of select="142"/>
+</xsl:template>
+
 <xsl:template match="site:page">
 <html>
 <head>
@@ -41,11 +49,11 @@ a Free Java-PDF library<br />by <a class="author" HREF="http://www.lowagie.com/"
 and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
 	</div>
 	<div id="links">
-	<a class="navigation" href="index.html">Home @ lowagie.com</a>
+	<a class="navigation" href="http://www.lowagie.com/iText/index.html">Home @ lowagie.com</a>
 	<a class="navigation" href="http://sourceforge.net/projects/itext/">Home @ Sourceforge.net</a>
 	<a class="navigation" href="http://itextpdf.sourceforge.net/">Early Access (Paulo)</a>
 	<br />
-	<a class="navigation" href="download.html">Download <![CDATA[&amp;]]> Compile</a>
+	<a class="navigation" href="download.html">Download &amp; Compile</a>
 	<a class="navigation" href="http://itext.sourceforge.net/src/">Browse Source Code</a>
 	<a class="navigation" href="cvs.html">CVS repository</a>
 	<br />
@@ -97,7 +105,28 @@ google_color_text = "FF2200";
 	</xsl:copy>
 </xsl:template>
 <xsl:template match="@*">
-		<xsl:attribute name="{local-name()}"><xsl:value-of select="."/></xsl:attribute>
+	<xsl:attribute name="{local-name()}"><xsl:value-of select="."/></xsl:attribute>
+</xsl:template>
+
+<xsl:template match="site:releasesrc">
+<xsl:element name="a">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-src-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
+itext-src-<xsl:call-template name="site:releasenumber" />.tar.gz
+</xsl:element>
+</xsl:template>
+
+<xsl:template match="site:releasejar">
+<xsl:element name="a">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
+itext-<xsl:call-template name="site:releasenumber" />.jar
+</xsl:element>
+</xsl:template>
+
+<xsl:template match="site:releasedocs">
+<xsl:element name="a">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
+itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
+</xsl:element>
 </xsl:template>
 
 <xsl:variable name="amazonlink"><xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:book"><xsl:value-of select="string(@asin)" /><xsl:if test="position()!=last()">,</xsl:if></xsl:for-each></xsl:variable>

@@ -7,7 +7,7 @@
 		<site:summary>iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).</site:summary>
 		<site:keywords>PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
-			<site:book asin="0201758393" />
+			<site:book asin="0201758393">PDF Reference: Version 1.4 (3rd Edition)</site:book>
 		</site:amazonbooks>
 	</site:metadata>
 	<site:content>
@@ -38,10 +38,10 @@
 			</div>
 			<div class="news">
 				<div class="sidetitle">NEWS</div>
-		        <b>Nov 7th 2004:</b>
-				<br />Some classes were removed from the CVS repository; 1.03 will be released soon. The <a href="docs.html">documentation</a> page was updated and the feature list was moved to the <a href="tutorial/">Tutorial TOC</a>.<br />
-				<b>Nov 6th 2004:</b>
-				<br />Paulo's version 140 was uploaded to the <a href="cvs.html">CVS repository</a> and prepared to make iText 1.03.<br />
+		        <b>Nov 14th 2004:</b>
+				<br />Module 'www' in CVS was cleaned up, except for the RTF tutorial page. New tutorial pages are being written.<br />
+				<b>Nov 12th 2004:</b>
+				<br />The build.xml is being replaced by different ANT-scripts. The site/tutorial will be generated from XML using XSLT.<br />
 				<br />
 			</div>
 		</div>
@@ -57,20 +57,7 @@
         how your servlet's output will look.<br />
 		<br />
 		iText requires JDK 1.2. It's available for free under a multiple license: MPL and LGPL.
-		<div class="title">New release / new tutorial</div>
-		I will be working on a new release and a new tutorial from 11/11 till 11/20.
-		I will make a temporary release the first week of november and a more definitive release
-		the last week of november.
-		<DIV CLASS="title">An ideal introduction for new iText users:</DIV>
-		If the <a href="docs.html">tutorial</a> is too difficult or outdated,
-		you can start with these <a href="http://www.cdjdn.com/downloads/itextexample.zip">examples</a>.
-		Mark Stark has made a powerpoint presentation and a war file, introducing
-		the generation of PDFs, filling/reading Acrobat forms and deploying iText in a web application.<br />
-		Another interesting presentation is the powerpoint Sean Sullivan made for the Portland Java Users Group in Portland Oregon USA.
-		The topic was iText and PDF. You can download his PowerPoint slides <a href="http://itext.sourceforge.net/docs/pdf-itext-pjug-2003-05-27.ppt">here</a>
-        or you can read the <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">article</a>
-        he wrote for O'Reilly's <a href="http://www.onjava.com/">onJava.com</a>:
-        <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">Dynamically Creating PDFs in a Web Application</a>.
+
 		<DIV CLASS="title">Technical Requirements</DIV>
 		In order to be able to use these classes you should be
 		acquainted with JAVA (TM) programming.<br />
@@ -89,6 +76,25 @@
 		</A>
 		</li>
 		</ul>
+		<div class="title">Getting started with iText</div>
+		There are three pages that are extremely important if you want to work with iText.<br />
+		<ol>
+		<li>The first is the <a href="tutorial/">list of features</a>. This list is limited.
+		Not all of iText functionalities are listed, but it's a good place to start.
+		If you click on one of the features you get some explanation and some examples
+		on how to use these features. As you can read on the <a href="documentation.html">documentation</a>
+		page, you will find lots of iText code samples, just by doing some simple Google searches.</li>
+		<li>If the examples don't work or you experience some typical newbie problems,
+		please consult the <a href="faq.html">Frequently Asked Questions</a> page.</li>
+		<li>If you need something that isn't on the feature list, please check the
+		<a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list archives</a>.
+		Lots of features are yet to be documented, but most of the iText functionality
+		has been commented in the mailing-list. If you have a problem that has not been
+		dealt with yet (or that should be in the FAQ), you can post it to the
+		<a href="http://lists.sourceforge.net/lists/listinfo/itext-questions">mailing-list</a>.
+		But it's always a good idea to check <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">archives</a>	first.
+		</li>
+		</ol>
 	</div>
 	</site:content>
 </site:page>
