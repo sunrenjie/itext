@@ -347,8 +347,8 @@ And it works.... But don't ask me to explain this!!!
 <site:question>Can I use iText in .NET applications?</site:question>
 <site:answer>
 
-There are 2 iText-.NET ports: one in J++ and one in C#.
-The one in J++ is recommended as it is still maintained and updated
+There are 2 iText-.NET ports: one in J# and one in C#.
+The one in J# is recommended as it is still maintained and updated
 to a recent version of iText: <a href="http://www.ujihara.jp/iTextdotNET/">iTextdotNET</a>
 by Kazuya Ujihara. It has a lot of examples in J# and C#.
 You can also visit the iText.NET-site @ <a href="http://sourceforge.net/projects/itextdotnet/">SourceForge</a>
