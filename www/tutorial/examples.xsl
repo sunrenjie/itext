@@ -4,8 +4,7 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:site="http://www.lowagie.com/iText/site"
-xmlns:ant="antlib:org.apache.tools.ant"
-exclude-result-prefixes="site ant">
+exclude-result-prefixes="site">
   <xsl:output method="xml" indent="yes" media-type="text/xml" />
   <xsl:template match="site:metadata" />
   <xsl:template match="site:content" />
