@@ -22,6 +22,7 @@ javadoc. You can consult the API <a href="http://itext.sourceforge.net/docs/">on
 or download a <a href="http://itext.sourceforge.net/downloads/docs.tar.gz">tar.gz</a> file with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
 There is a very old <a href="http://www.lowagie.com/iText/tutorial/index.html">tutorial</a> available, containing over a hundred examples.
+The new tutorial (<a href="http://itext.sourceforge.net/tutorial/">iText by Example</a>) is under construction.
 Another good place to start, is the examples-xxx.zip available on
 <a href="http://itextpdf.sourceforge.net/">Paulo's Early Access page</a>
 (replace the xxx with the current early access release number).

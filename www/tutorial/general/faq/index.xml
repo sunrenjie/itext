@@ -61,6 +61,10 @@ null position (x = 0; y = 0) in the PDF coordinate system is located in the
 lower left corner of your page (not the upper left corner as is sometimes assumed).
 This is not an iText specific choice. This is documented in the PDF Reference Manual.
 <site:source class="XandYcoordinates" />
+Remark: if you measure the locations on the page, you will see that the distances
+measured from the bottom or the left side of the page are not always correct.
+Adobe's print dialog has several options (like "fit to paper") that change
+the printed result.
 </div>
 	</site:section>
 	
