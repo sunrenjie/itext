@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
+	<TR>
+		<TD COLSPAN="2" CLASS="innerborder">
+			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
+		</TD>
+		<TD CLASS="outerborder">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="download.html" CLASS="lightsmall">Download</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://news.gmane.org/thread.php?group=gmane.comp.java.lib.itext.general">Mail Archives</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="amazon.html" CLASS="lightsmall">Amazon</a>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" Class="content">
+        <br>
+		<div class="title"><A NAME="VERSION100">iText1.00</A> (based on paulo's version 119-120-121</div>
+        <div class="text"><UL>
+        <LI>paulo 121<UL>
+            <li>
+            </ul>
+        <LI>paulo 120<UL>
+            <li>FontFactory register all the TTF names for the different locales.<li>added FontFactory.registerDirectory and FontFactory.registerDirectories.<li>the image types GIF and PNG were eliminated together with the classes gif and png. This images are now identified by IMGRAW. HtmlWriter was changed to support it. The RTF part will probably also have to be changed. The good news is that all the gif and png will open without the awt Toolkit.<li>fixed AcroFields to set the /V key only in the dictionary with the /T key.<li>symbolic TrueType fonts with Identity-H have a linear mapping.<li>TIFFFaxDEcoder fixed (again) to work with some damaged images. Contribution by Danox.<li>added support to read encrypted PDFs. Contribution by Kazuya Ujihara, the maker of the iText port to .NET.<li>fixed in PdfGraphics2D a problem with incorrect line widths with rotated transforms.<li>PdfGraphics2D.setTransform() now creates a copy.<li>PdfGraphics2D.drawImage() waits for the loading of the image to be drawn.<li>fixed PdfPTable.setWidthPercentage(float columnWidth[], Rectangle pageSize).<li>PdfStamper can set the output pdf version. If not set, the version of the original is kept.<li>fixed the LZW stream decoder to be more lenient with errors.<li>fixed the ASCII85 stream decoder to correct the output of the last bytes.<li>fixed in PdfReader the stream sharing problem that files created with Distiller 3.01 may have.<li>new constructor in Chunk for a single char.
+            </ul>
+        <LI>paulo 119<UL>
+            <li>all the changes in the official version 0.99<li>added FULL support for BMP images in com.lowagie.text.pdf.codec.BmpImage. Well, maybe not full but if anyone has any BMP with an alpha channel, CMYK or some other that this class cannot open but works with other viewer, I would like to see it.<li>The binary characters that follow the header were changed to match those generated by Acrobat.<li>PdfReader can read PDF files with garbage in the first 1024 bytes.<li>added fractional metrics support to Type1 fonts.<li>added support for AffineTransform in PdfContentByte. This will simplify the rotations and translations.<li>some more fixes in PdfGraphics2D regarding clipping paths.<li>added the 'Times-Roman' family to FontFactory. Only 'Times' was recognized.<li>TrueType fonts with the extension OTF can be used with Identity-H. 
+            </ul>
+        </UL></div>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5"><span class="lightsmall">[<A HREF="history.html" class="lightsmall">History Overview</A>]</span></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
+		</TD>
+		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
