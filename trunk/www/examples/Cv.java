@@ -36,7 +36,7 @@ public class Cv {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 7 example 10: combining all formats");
+        System.out.println("Chapter 7 extra: my resume");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 80, 50, 30, 65);
