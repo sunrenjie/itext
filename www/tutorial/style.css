@@ -57,6 +57,12 @@ li {
 	font-size: 9pt;
 }
 
+#example {
+	padding: 3px;
+	font-size: 9pt;
+	background-color: #C0C0C0;
+}
+
 .commercial {
 	float: left;
 	width: 125px;
