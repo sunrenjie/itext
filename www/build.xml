@@ -10,6 +10,7 @@
         <property name="itext.docs" value="${itext.home}/docs" />
         <property name="itext.www" value="${itext.home}/www" />
         <property name="itext.dist" value="${itext.home}/dist" />
+        <property name="itext.bin" value="${itext.home}/bin" />
         <property name="itext.cvsroot" value=":pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext" />
     </target>
 
@@ -20,8 +21,9 @@
 
     <target name="jar" depends="compile, properties">
         <mkdir dir="${itext.dist}" />
+        <mkdir dir="${itext.bin}" />
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" />
-        <deltree dir="${itext.classes}" />
+		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
 
     <target name="srczip" depends="properties">
@@ -61,16 +63,105 @@ just press enter when asked for it</echo>
 		<cvs cvsroot="${itext.cvsroot}" package="www" dest="${itext.home}" />
 		<cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
 	</target>
-
-	<target name="update" depends="properties">
-		<echo>Logging in: the password for user anonymous is empty;
-just press enter when asked for it</echo>
-		<cvs cvsroot="${itext.cvsroot}" command="login" />
-		<cvs cvsroot="${itext.cvsroot}" command="update" package="${itext.home}" />
-		<cvs cvsroot="${itext.cvsroot}" command="update" package="${itext.www}" />
-		<cvs cvsroot="${itext.cvsroot}" command="update" package="${itext.src}" />
+	
+	<target name="examples" depends="jar, properties">
+        <mkdir dir="${itext.bin}" />
+        <javac srcdir="${itext.www}/examples" destdir="${itext.www}/examples" classpath="${itext.bin}/iText.jar" excludes="OutSimplePdf.java" />
+		<echo message="example align2: simple text alignment" />
+		<java dir="${itext.www}/examples" fork="yes" classname="align2">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example columns: multi-columns with ColumnText, hand drawn tables" />
+		<java dir="${itext.www}/examples" fork="yes" classname="columns">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example columns2: multi-columns with ColumnText, hand drawn tables, auto leading" />
+		<java dir="${itext.www}/examples" fork="yes" classname="columns2">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example Formtest: templates (XForms), arcs, CJK, line justification, anchors, bookmarks, page events, solution to the problem of 'Page 1 of 12', superscript" />
+		<java dir="${itext.www}/examples" fork="yes" classname="Formtest">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example irregular: several ways to format columns with ColumnText" />
+		<java dir="${itext.www}/examples" fork="yes" classname="irregular">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example local_goto: links to different parts of the document, generic tag, PdfPageEventHelper" />
+		<java dir="${itext.www}/examples" fork="yes" classname="local_goto">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example path: bookmarks" />
+		<java dir="${itext.www}/examples" fork="yes" classname="path">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example remote_goto_1: remote destinations, named destinations, works with remote_goto_2.java" />
+		<java dir="${itext.www}/examples" fork="yes" classname="remote_goto_1">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example remote_goto_2: remote destinations, named destinations, works with remote_goto_1.java" />
+		<java dir="${itext.www}/examples" fork="yes" classname="remote_goto_2">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example table_image: inline images with text, images in tables" />
+		<java dir="${itext.www}/examples" fork="yes" classname="table_image">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="example Tables: table example" />
+		<java dir="${itext.www}/examples" fork="yes" classname="Tables">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="TestAwtImage: java.awt.Image reading, gif reading, transparency" />
+		<java dir="${itext.www}/examples" fork="yes" classname="TestAwtImage">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
+		<echo message="Text: first example ever made with iText" />
+		<java dir="${itext.www}/examples" fork="yes" classname="Text">
+            <classpath>
+                <pathelement location="${itext.bin}/iText.jar" />
+                <pathelement path="${itext.www}/examples/" />
+            </classpath>
+        </java>
 	</target>
 	
-    <target name="release" depends="jar, srczip, srctargz, docstargz" />
+    <target name="release" depends="jar, srczip, srctargz, docstargz">
+        <deltree dir="${itext.classes}" />
+    </target>
 
 </project>

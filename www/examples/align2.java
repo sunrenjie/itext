@@ -14,7 +14,7 @@ public static void main(String[] args)
 	try
 	{
 		// creation of the different writers
-		PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\pdfalign2.pdf"));
+		PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("pdfalign2.pdf"));
 
 		document.open();
         BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);

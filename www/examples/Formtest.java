@@ -89,7 +89,7 @@ public class Formtest {
         try
         {
             // creation of the different writers
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\pdform.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("pdform.pdf"));
             OutPage pageEvent = new OutPage();
             writer.setPageEvent(pageEvent);
             BaseFont bfc = BaseFont.createFont("STSong-Light","UniGB-UCS2-H",false);

@@ -76,7 +76,7 @@ public class Tables {
             for (int i = 1; i < 30; i++) {
 				
 				if (i % 2 == 1) {
-					datatable.setDefaultCellGrayFill(0.9);
+					datatable.setDefaultCellGrayFill(0.9f);
 				}
 
 				datatable.addCell("myUserId");
@@ -94,7 +94,7 @@ public class Tables {
 				datatable.setDefaultHorizontalAlignment(Element.ALIGN_LEFT);
 
 				if (i % 2 == 1) {
-					datatable.setDefaultCellGrayFill(0.0);
+					datatable.setDefaultCellGrayFill(0.0f);
 				}
 			}
 

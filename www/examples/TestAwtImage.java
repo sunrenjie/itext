@@ -10,7 +10,7 @@ public class TestAwtImage {
     public static void main(String[] args) {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\test_awt_image.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("test_awt_image.pdf"));
             document.open();
             for (int k = 0; k < 39; ++k) {
                 String s = "";
