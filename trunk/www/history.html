@@ -68,12 +68,33 @@
 			<LI><A HREF="#VERSION073">iText0.73</A>: december 2001
 			<LI><A HREF="#VERSION080">iText0.80</A>: january 2002
 			<LI><A HREF="#VERSION081">iText0.81</A>: january 2002
+			<LI><A HREF="#VERSION082">iText0.82</A>: february 2002
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION080">iText0.81</A></B> (bugfixes by Bruno Lowagie + changes by Paulo Soares in paulo-88 + contributions by others)<br>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION081">iText0.82</A></B> (changes by Paulo Soares in paulo-89)<br>
+		<UL>
+			<LI>added colored and uncolored tiled patterns (code provided by Phillip Pan).
+			<LI>added named actions and launch actions.
+			<LI>java.awt.Images and raw images in BW are compressed with CCITT G4.
+			<LI>corrected bug in using templates as images used in PdfContentByte.addImage().
+      			This also fixs the bug with WMF in the same situation.
+			<LI>fixed bug in reading pdf with multiple uncompressed page contents.
+			<LI>the pdf reader is now less strict in reading streams. Some documents don't
+				follow the specs and failed although Acrobat Reader could open them.
+			<LI>finalize() eliminated from iText.
+			<LI>better error handling, mainly in close().
+			<LI>added page breaks in HtmlWriter (code provided by Antoine Blanc)
+			<LI>bugfix cell alignment in RTF (code provided by Mark Hall)
+		</UL>
+		</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION081">iText0.81</A></B> (bugfixes by Bruno Lowagie + changes by Paulo Soares in paulo-88 + contributions by others)<br>
 		<UL>
 			<LI>added support for spot colors (code provided by Phillip Pan).
 			<LI>added support for Gray, CMYK and spot colors in Paragraph and other high level constructs.
