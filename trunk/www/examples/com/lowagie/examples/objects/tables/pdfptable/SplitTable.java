@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.tables;
+package com.lowagie.examples.objects.tables.pdfptable;
 
 import java.io.FileOutputStream;
 

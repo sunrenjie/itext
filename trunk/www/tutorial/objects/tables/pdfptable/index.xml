@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Tables</site:title>
+		<site:summary>How to organize text and data in tables with iText</site:summary>
+		<site:keywords>PDF, JAVA, iText, PdfPTable, Table, PdfTable, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:keyword>JAVA</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="WriteSelectedRows" standalone="yes" />
+			<site:result>WriteSelectedRows.pdf</site:result>
+			<site:description>Demonstrates the writeSelectedRows method</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SplitTable" standalone="yes" />
+			<site:result>SplitTable.pdf</site:result>
+			<site:description>Demonstrates how to split a Table in two sections of columns</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FragmentTable" standalone="yes" />
+			<site:result>FragmentTable.pdf</site:result>
+			<site:argument>50</site:argument>
+			<site:description>Break one large Table up into different smaller tables with the same header</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="VerticalTextInCells" standalone="yes" />
+			<site:result>VerticalText.pdf</site:result>
+			<site:description>Demonstrates how to add vertical text in a cell</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TableEvents1" standalone="yes" />
+			<site:result>TableEvents1.pdf</site:result>
+			<site:description>Demonstrates what one can do with table events</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TableEvents2" standalone="yes" />
+			<site:result>TableEvents2.pdf</site:result>
+			<site:description>Demonstrates what one can do with table events (cells with colspan &gt; 1)</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellEvents" standalone="yes" />
+			<site:result>CellEvents.pdf</site:result>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:description>Demonstrates what one can do with cell events</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	
+	<site:section new="writeselectedrows">
+		<site:sectiontitle>adding a PdfPTable at an absolute position</site:sectiontitle>
+<div>
+You can add a PdfPTable with <site:doc class="com.lowagie.text.Document" target="add(com.lowagie.text.Element)">Document.add()</site:doc>,
+but you can also choose to put a PdfPTable at an absolute position with the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
+The mechanisms to add objects at absolute positions will be described in
+<site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial.
+All you need to know for now is that you need to pass the following parameters to the method:
+<ul>
+	<li>rowStart - the first row to be written, zero index</li>
+	<li>rowEnd - the last row to be written + 1. If it is -1 all the rows to the end are written.</li>
+	<li>xPos - the x write coodinate of the upper left corner of the table</li>
+	<li>yPos - the y write coodinate of the upper left corner of the table (remark: the 0 is at the bottom of the page as explained in the <site:tutorial chapter="/general/faq" section="xycoordinates">FAQ</site:tutorial>)</li>
+	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial)</li>
+</ul>
+<site:source class="WriteSelectedRows" />
+As you can see in the example, there are some thing you need to keep in mind
+when using <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
+If you add a PdfPTable with document.add(), the width of the table
+is always calculated as a percentage of the available page width at the current pointer
+(see page 2 of the PDF in the example). But if you add a PdfPTable at
+an absolute position, iText can't know what you are up to with the rest
+of the page. What is the available space?
+That's something iText can't know, so you need to set a total width of the Table with the methods
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setTotalWidth(float)">setTotalWidth(float totalWidth)</site:doc>
+or <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setTotalWidth(float[])">setTotalWidth(float[] columnWidth)</site:doc>.<br />
+You are also responsible for checking it the PdfPTable fits on the page.
+On page 5, rows 100-150 don't fit on the page because we started writing the rows at y = 200 instead of y = 820.
+Rows 112-149 are written, but you can't see them because they are outside the visible area of your page.<br />
+As you can see in the example, you can use
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows(int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas)</site:doc>
+to split your table horizontally over different pages if you have too many rows to fit on one page.
+If your table is too wide, you can also split the table vertically between columns.
+You need the method
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows(int colStart, int colEnd, int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas)</site:doc>
+to do this.
+<site:source class="SplitTable" />
+</div>
+	</site:section>
+	</site:chapter>
+</site:page>

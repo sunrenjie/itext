@@ -17,12 +17,11 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.tables;
+package com.lowagie.examples.objects.tables.pdfptable;
 
 import java.io.FileOutputStream;
 
 import com.lowagie.text.Document;
-import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Phrase;
@@ -35,9 +34,9 @@ import com.lowagie.text.pdf.PdfPTableEvent;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * General example using TableEvents (with colspan).
+ * General example using TableEvents.
  */
-public class TableEvents2 implements PdfPTableEvent {
+public class TableEvents1 implements PdfPTableEvent {
     /**
      * @see com.lowagie.text.pdf.PdfPTableEvent#tableLayout(com.lowagie.text.pdf.PdfPTable, float[][], float[], int, int, com.lowagie.text.pdf.PdfContentByte[])
      */
@@ -71,7 +70,6 @@ public class TableEvents2 implements PdfPTableEvent {
         cb.setLineWidth(.5f);
         // loop over the rows
         for (int line = 0; line < heights.length - 1; ++line) {
-            widths = width[line];
         	// loop over the columns
             for (int col = 0; col < widths.length - 1; ++col) {
                 if (line == 0 && col == 0)
@@ -93,18 +91,18 @@ public class TableEvents2 implements PdfPTableEvent {
     }
     
     /**
-     * General example using table events (with colspan).
+     * General example using table events.
      * @param args
      * 		no arguments needed
      */
     public static void main(String[] args) {
 
-		System.out.println("Table Events 2");
+		System.out.println("TableEvents 1");
         // step1
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
             // step2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("TableEvents2.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("TableEvents1.pdf"));
             // step3
             document.open();
             // step4
@@ -113,23 +111,18 @@ public class TableEvents2 implements PdfPTableEvent {
             for (int k = 0; k < 24; ++k) {
                 if (k != 0)
                     table.addCell(String.valueOf(k));
-                else {
-                    table.getDefaultCell().setColspan(3);
-                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-                    table.addCell("This is a very big URL");
-                    table.getDefaultCell().setColspan(1);
-                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-                    k += 2;
-                }
+                else
+                    table.addCell("This is an URL");
             }
-            TableEvents2 event = new TableEvents2();
+            TableEvents1 event = new TableEvents1();
             table.setTableEvent(event);
-
+            
             // add the table with document add
             document.add(table);
             // add the table at an absolute position
             table.setTotalWidth(300);
             table.writeSelectedRows(0, -1, 100, 600, writer.getDirectContent());
+            
             document.newPage();
             
             table = new PdfPTable(4);
@@ -138,14 +131,8 @@ public class TableEvents2 implements PdfPTableEvent {
             table.getDefaultCell().setPaddingTop(bf.getFontDescriptor(BaseFont.ASCENT, fontSize) - fontSize + 2);
             table.getDefaultCell().setBorder(Rectangle.NO_BORDER);
             for (int k = 0; k < 500 * 4; ++k) {
-                if (k == 0) {
-                    table.getDefaultCell().setColspan(4);
-                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-                    table.addCell(new Phrase("This is an URL", new Font(bf, fontSize * 2)));
-                    table.getDefaultCell().setColspan(1);
-                    table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-                    k += 3;
-                }
+                if (k == 0)
+                    table.addCell(new Phrase("This is an URL", new Font(bf, fontSize)));
                 else
                     table.addCell(new Phrase(String.valueOf(k), new Font(bf, fontSize)));
             }
