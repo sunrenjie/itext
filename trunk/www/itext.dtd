@@ -12,7 +12,7 @@
 
 -->
 
-<!ENTITY % chunk.content "#PCDATA | newline | newpage | symbol">
+<!ENTITY % chunk.content "#PCDATA | newline | newpage | entity | ignore">
 <!ENTITY % phrase.content "chunk | anchor | phrase | list | table | annotation">
 
 <!ENTITY % color.attributes
@@ -101,7 +101,7 @@
     %paragraph.attributes;
 >
 
-<!ELEMENT list (listitem*)> 
+<!ELEMENT list (listitem | ignore)*> 
 <!ATTLIST list
     %font.attributes;
     %indentation.attributes;
