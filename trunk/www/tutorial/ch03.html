@@ -42,8 +42,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="anchor"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Anchors</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="anchor"><B>Anchors</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             We all know what hypertext links are in HTML. If you click on certain words, you can jump
             to another page on the net. This kind of functionality is also possible in PDF. In fact
@@ -54,7 +53,7 @@
             <FONT FACE="Courier">Phrase</FONT>-object and it's used in the same way. There are only
             two extra methods to define two extra variables: <FONT FACE="Courier">setName</FONT> and
 			<FONT FACE="Courier">setReference</FONT>.<BR><BR>
-            <B>Example external link:</B><BR>
+            <A NAME="external"><B>Example external link:</B></A><BR>
             <FONT FACE="Courier">
             Anchor anchor = new Anchor("website", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));<BR>
             anchor.setReference("http://www.lowagie.com/iText/");<BR>
@@ -63,7 +62,7 @@
             If you want to add internal links, you need to choose a unique name for this link, just like
             you would do in HTML and use this as name for the anchor. When you make a reference to this destination,
             you need to add a #-character.<BR><BR>
-            <B>Example internal link:</B><BR>
+            <A NAME="internal"><B>Example internal link:</B></A><BR>
             <FONT FACE="Courier">
             Anchor anchor1 = new Anchor("This is an internal link");<BR>
             anchor1.setName("link1");<BR>
@@ -76,13 +75,12 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="list"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Lists</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="list"><B>Lists</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             With classes <FONT FACE="Courier">List</FONT> and <FONT FACE="Courier">ListItem</FONT>,
             you can add lists to a PDF file. You can choose if you want ordered or unordered lists:
             <BR><BR>
-            <B>Example ordered list:</B><BR>
+            <A NAME="ordered"><B>Example ordered list:</B></A><BR>
             <FONT FACE="Courier">
             List list = new List(true, 20);<BR>
             list.add(new ListItem("First line"));<BR>
@@ -101,7 +99,7 @@
                     Third line
                 </LI>
             </OL>
-            <B>Example unordered list:</B><BR>
+            <A NAME="unordered"><B>Example unordered list:</B></A><BR>
             <FONT FACE="Courier">
             List overview = new List(false, 10);<BR>
             overview.add(new ListItem("This is an item"));<BR>
@@ -120,6 +118,24 @@
             also some methods to change the indentation of the list.
             You can find more examples here: <A HREF="http://www.lowagie.com/iText/examples/Chap0302.java">Chap0302.java</A> and look at the <A HREF="http://www.lowagie.com/iText/examples/Chap0302.pdf">result</A>.
             </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="annotation"><B>Annotations</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Annotations are small pieces of information you can add to your text, but that are not
+            really part of the content. Annotations have a title and some content.<br>
+            <FONT FACE="Courier">	
+			Annotation a = new Annotation(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"authors",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"Maybe it's because I wanted to be an author myself that I wrote iText.");<br>
+            </FONT>
+            If you look at the <A HREF="http://www.lowagie.com/iText/examples/Chap0303.pdf">result</A>
+            of <A HREF="http://www.lowagie.com/iText/examples/Chap0303.java">Example 3</A>. You can
+            see that iText adds the annotations just below the current location on the page. The first one
+            below the first line after the paragraph. The second one just below the end of the phrase.<BR>
+            </FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
