@@ -228,7 +228,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 	</xsl:when>
 	<xsl:otherwise>
 <script type="text/javascript"><![CDATA[<!--
-document.write('<iframe marginwidth="0" marginheight="0" src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=10&l=st1&mode=books&search=JAVA&=1&fc1=&lc1=&lt1=&bg1=&f=ifr" width="130" height="460" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>');
+document.write('<iframe marginwidth="0" marginheight="0" src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=10&l=st1&mode=books&search=JAVA&=1&fc1=&lc1=&lt1=&bg1=&f=ifr" width="120" height="460" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>');
 //-->]]></script>
 	</xsl:otherwise>
 </xsl:choose>
