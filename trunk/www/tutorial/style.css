@@ -60,8 +60,8 @@ li {
 #example {
 	font-size: 9pt;
 	border-left: double #100670;
-	margin-left: 15px;
-	padding-left: 5px;
+	margin: 15px;
+	padding: 5px;
 }
 
 .commercial {

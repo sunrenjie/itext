@@ -79,10 +79,8 @@ RtfWriter2.getInstance(document,
 	new FileOutputStream("testRTFdocument.rtf"));
 document.open();
 document.add(new Paragraph("Hello World!"));
-document.close();
-</pre>
-<site:source class="HelloRtf" /><br />
-<br />
+document.close();</pre>
+<site:source class="HelloRtf" />
 <div class="subtitle">RtfWriter2 and RtfWriter. Which one to use?</div>
 Short version: If you are starting a new project using the RTF package,
 use the new <span class="commandline">RtfWriter2</span>.<br /><br />
@@ -141,7 +139,7 @@ in the new extensions.<br /><br />
 The old <span class="commandline">RtfWriter</span> will continue to exist in its
 current form until the end of 2005 when it will be deprecated. It will finally
 be removed at the end of 2007. The same goes for all extensions of the old
-<span class="commandline">RtfWriter</span>.<br />
+<span class="commandline">RtfWriter</span>.
 <site:source class="RtfTest" />
 </div>
 	</site:section>
@@ -179,7 +177,7 @@ document.add(para);
 For this to work, the correct font must be installed on the machine
 that is used to view the RTF document, not on the machine that creates
 the document. Also the given font name must match the name of the font
-on the viewer machine exactely.<br /><br />
+on the viewer machine exactely.
 <site:source class="RtfSpecialFont" />
 </div>
 	</site:section>
@@ -256,8 +254,7 @@ pageNumberCell.add(new RtfPageNumber());
 headerTable.addCell(pageNumberCell);
 headerTable.addCell("Company Name");
 HeaderFooter header = new RtfHeaderFooter(headerTable);
-document.setHeader(header);
-</pre>
+document.setHeader(header);</pre>
 <site:source class="RtfWithHeadersFooters" />
 </div>
 	</site:section>
@@ -299,8 +296,7 @@ The second possibility is to let the
 <span class="commandline">RtfWriter2</span> automatically add
 <span class="commandline">RtfTOCEntry</span>s for every Chapter you add.
 <pre class="codeBlock">
-document.setAutogenerateTOCEntries(true);
-</pre>
+document.setAutogenerateTOCEntries(true);</pre>
 <site:source class="RtfTOCandCellborders" />
 </div>
 	</site:section>
@@ -327,7 +323,7 @@ table.addCell(cellEmbossed);
 table.addCell(cellNoBorder);
 </pre>
 The RtfCell supports a long list of border styles. Please consult the javadoc documentation
-for an exhaustive list.<br />
+for an exhaustive list.
 <site:source class="RtfTOCandCellborders" />
 </div>
 	</site:section>
@@ -346,8 +342,7 @@ pageNumberCell.add(new RtfPageNumber());
 headerTable.addCell(pageNumberCell);
 headerTable.addCell("Company Name");
 HeaderFooter header = new RtfHeaderFooter(headerTable);
-document.setHeader(header);
-</pre>
+document.setHeader(header);</pre>
 <site:source class="RtfWithHeadersFooters" />.
 </div>
 	</site:section>
