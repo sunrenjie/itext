@@ -56,7 +56,7 @@ public class Chap1004 {
             
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(50, 50);
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             // we add a number of pages
             int i;
             for (i = 1; i < 5; i++) {

@@ -74,7 +74,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Graphics</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphics"><B>Graphics</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             In <A HREF="http://www.lowagie.com/iText/examples/Chap1001.java">example 1</A>, some simple graphics are drawn.
             We use methods such as <FONT FACE="Courier">moveTo</FONT> and <FONT FACE="Courier">lineTo</FONT>
@@ -111,7 +111,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Text</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="text"><B>Text</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             When you want to write text to the contentbyte, you have to use the methods
             <FONT FACE="Courier">beginText()</FONT> and <FONT FACE="Courier">endText()</FONT>.
@@ -121,7 +121,7 @@
             <FONT FACE="Courier">showText</FONT> in combination with <FONT FACE="Courier">setTextMatrix</FONT>.<br>
             <B>Example 1:</B><br>
             <FONT FACE="Courier">
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);&nbsp;
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);&nbsp;
             cb.beginText();<BR>
             cb.setFontAndSize(bf, 12);<BR>
             cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + "This text is centered", 250, 700, 0);<BR>
@@ -129,7 +129,7 @@
             </FONT><BR>
             <B>Example 2:</B><br>
             <FONT FACE="Courier">
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);<BR>
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>
             cb.beginText();<BR>
             cb.setFontAndSize(bf, 12);<BR>
             cb.setTextMatrix(100, 400);<BR>
@@ -142,7 +142,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Templates (Form XObjects)</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="templates">Templates</A> (Form XObjects)</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             When we discussed the HeaderFooter object in <A HREF="ch04.html">Chapter 4</A>, we defined a piece
             of information that was added on each page. In fact, this piece of information was written to the file
@@ -163,7 +163,7 @@
 			template.lineTo(500, 0);<BR>
             template.stroke();<BR>
             template.beginText();<BR>
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);<BR>            
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>            
             template.setFontAndSize(bf, 12);<BR>
             template.setTextMatrix(100, 100);<BR>
             template.showText("Text at the position 100,100 (relative to the template!)");<BR>
@@ -186,7 +186,7 @@
             </FONT><BR>
             This is demonstrated in <a href="http://www.lowagie.com/iText/examples/Chap1003.java">example 3</A> (see <A HREF="http://www.lowagie.com/iText/examples/Chap1003.pdf">Chap1003.pdf</A>).
             <BR><BR>
-            <B>Another useful feature</B><BR>
+            <B><A NAME="pageXofY">Page x of y</A></B><BR>
             In some cases, you may want to add information that is not available yet at the moment
             you write a certain page to the outputstream. For instance: on the first page of a document,
             you don't know how many pages the document will count in total. You only know the total
@@ -204,8 +204,8 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="columntext">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Columns</B></FONT><BR>
+			
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="columntext"><B>Columns</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Earlier in this chapter, you have learned how to put text on an absolute position.
             In casu: we were able to enter a coordinate where iText had to start writing text.
@@ -242,7 +242,7 @@
             <A HREF="http://www.lowagie.com/iText/examples/Chap1006.pdf">resulting PDF</A> of this example is identical
             to the result of example 5.<BR>
             <BR>
-            <B>Multiple columns</B><BR>
+            <B><A NAME="multiple">Multiple columns</A></B><BR>
             Of course, if there is more text than space in the rectangle,
             we don't want to loose the text that didn't fit. Maybe we want
             this text to be shown in another column. That's why we are going
@@ -252,7 +252,7 @@
             the flag '<FONT FACE="Courier">NO_MORE_TEXT</FONT>' is on.<BR>
             Please take a close look at <A HREF="http://www.lowagie.com/iText/examples/Chap1007.java">example 7</A> and see how we
             obtain a result like <A HREF="http://www.lowagie.com/iText/examples/Chap1007.pdf">this</A>.<BR><BR>
-            <B>Irregular columns</B><BR>
+            <B><A NAME="irregular">Irregular columns</A></B><BR>
             It is also possible to define an non rectangular area with to visualize
             columns. With the method <FONT FACE="Courier">setColumns</FONT>, we can
             define a left and right boundary for the text:<BR>

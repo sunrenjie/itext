@@ -42,7 +42,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Creation of a document in 5 steps: Hello World</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><a name="steps">Creation of a document in 5 steps: Hello World</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Download the source code of the first example: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.java">Chap0101.java</A>.<BR>
 			This example contains the 5 most important steps to create a PDF file using iText:<br>
@@ -85,7 +85,7 @@
 			The second constructor calls the third one, with
 			<FONT FACE="Courier">36</FONT> as value for each margin.<BR>
 			<BR>
-			<B>PageSize</B><BR>
+			<A NAME="pagesize"><B>PageSize</B></A><BR>
 			You could create your own <FONT FACE="Courier">Rectangle</FONT>-object in a certain
 			color and use this as pageSize.<BR>
 			In example <A HREF="http://www.lowagie.com/iText/examples/Chap0102.java">Chap0102.java</A>, we create a long, narrow
@@ -107,7 +107,7 @@
 			</FONT><BR>
 			Check out example <A HREF="http://www.lowagie.com/iText/examples/Chap0103.java">Chap0103.java</A> and its <A HREF="http://www.lowagie.com/iText/examples/Chap0103.pdf">result</A>.
 			<BR><BR>
-			<B>Margins</B><BR>
+			<A NAME="margins"><B>Margins</B></A><BR>
 			When creating a document, you can also define left, right, upper and lower margins:<BR>
 			<FONT FACE="Courier">
 			Document document = new Document(PageSize.A5, 36, 72, 108, 180);
@@ -188,7 +188,7 @@
 			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR><BR>
 			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
 			The second parameter can be an outputStream of any kind.<BR>
-			Until now, we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
+			<A NAME="servlets">Until now,</A> we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
 			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
 			(This is not a standalone example; you will have to test this code on a Servlet Engine).<BR>
 			If you use MSIE as browser, you will only see a blank page due to a bug in some specific versions of MicroSofts browser (see the
@@ -203,7 +203,7 @@
 			<A NAME="step3"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 3: Meta data + opening the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<B>Metadata</B><BR>
+			<A NAME="metadata"><B>Metadata</B></A><BR>
 			Before you add any actual data (= content), you might want to add some metadata
 			about the document with one of these methods:<BR>
 			<FONT FACE="Courier">
@@ -239,7 +239,7 @@
 			results in:
 			<FONT FACE="Courier">&lt;link rel=&quot;STYLESHEET&quot; type=&quot;text/css&quot; href=&quot;my.css&quot;></FONT><BR>
 			<BR>
-			<B>Things to do BEFORE you open the document</B><BR>
+			<A NAME="before"><B>Things to do BEFORE you open the document</B></A><BR>
 			You can only add metadata BEFORE the <FONT FACE="Courier">open</FONT>-method
 			is invoked. This is a choice made by the developer of iText.<BR>In HTML meta-information is
 			put between the <FONT FACE="Courier">HEAD</FONT>-tags at the beginning of the document
@@ -275,8 +275,8 @@
 			written to the PdfWriter when the document is closed. So there is no technical reason why one
 			couldn't alter the library to be able to add or change the metadata at any time. It's a design choice that
 			was made.<BR><BR>
-			<B>Page initialisations</B><BR>
-			<A NAME="firstpage">The <FONT FACE="Courier">open</FONT>-method</A> also triggers some initialisations
+			<A NAME="firstpage"><B>Page initialisations</B></A><BR>
+			The <FONT FACE="Courier">open</FONT>-method also triggers some initialisations
 			in the different writers. For instance if you want a <FONT FACE="Courier">Watermark</FONT>
 			or a <FONT FACE="Courier">HeaderFooter</FONT>-object to appear starting on the FIRST page
 			of the document, you have to add it BEFORE you open the document.
@@ -396,7 +396,7 @@
 			of writers. For instance: the <FONT FACE="Courier">Graphic</FONT>-object isn't supported
 			in HTML. If you add a graphic to a <FONT FACE="Courier">Document</FONT>, the listening
 			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
-			Sometimes you may want a writer to deliberately ignore actions performed on a document.
+			Sometimes you may want a writer to deliberately <A NAME="pause">ignore actions</A> performed on a document.
 			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0111.java">example 11</A>.<BR>
 			If we create two writers: writerA and writerB (this is an exception to what was said in
 			<A HREF="#step2">step 2</A>):<BR>

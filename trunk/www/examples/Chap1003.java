@@ -67,7 +67,7 @@ public class Chap1003 {
             
             // we add some text
             template.beginText();
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             template.setFontAndSize(bf, 12);
             template.setTextMatrix(100, 100);
             template.showText("Text at the position 100,100 (relative to the template!)");

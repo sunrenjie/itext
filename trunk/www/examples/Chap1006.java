@@ -56,7 +56,7 @@ public class Chap1006 {
             // we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
             
-            BaseFont bf = BaseFont.createFont("Courier", "Cp1252", false);
+            BaseFont bf = BaseFont.createFont("Courier", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font font = new Font(bf, 11, Font.NORMAL);
             
             ColumnText ct = new ColumnText(cb);

@@ -53,7 +53,7 @@ public class Chap1007 {
             document.open();
             
             // step 4:
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font font = new Font(bf, 11, Font.NORMAL);
             
             // we grab the ContentByte and do some stuff with it
