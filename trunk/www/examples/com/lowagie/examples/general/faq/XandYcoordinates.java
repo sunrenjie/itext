@@ -31,12 +31,12 @@ import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates the use of PageSize.
+ * Demonstrates how the PDF coordinate system works.
  * @author blowagie
  */
 public class XandYcoordinates {
     /**
-     * Creates a PDF document with a certain pagesize
+     * Creates a PDF document with shapes, lines and text at specific X and Y coordinates.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
