@@ -237,7 +237,12 @@
 			As an additional illustration of the fact that you can send documents to any
 			outputstream, example 6 sends HTML to <FONT FACE="Courier">System.out</FONT>.<BR>
 			<DIV ALIGN="center"><IMG SRC="Chap0106dos.png" WIDTH=668 HEIGHT=331 ALT="System.out" BORDER="0"></DIV><BR>
-			You can see that a custom header was used to add an 'Expires' META-tag.<BR>
+			You can see that a custom header was used to add an 'Expires' META-tag.<BR>There is 1 exception:
+			if you add a custom header with as name <FONT SOURCE="Courier">HtmlWriter.STYLESHEET</FONT>,
+			you get a link to a stylesheet:<BR>
+			<FONT FACE="Courier">document.add(new Header(HtmlWriter.STYLESHEET, "my.css"));</FONT><BR>
+			results in:
+			<FONT FACE="Courier">&lt;link rel=&quot;STYLESHEET&quot; type=&quot;text/css&quot; href=&quot;my.css&quot;></FONT><BR>
 			<BR>
 			You can only add metadata this BEFORE the <FONT FACE="Courier">open</FONT>-method
 			is invoked. This is a choice made by the developer of iText.<BR>In HTML meta-information is

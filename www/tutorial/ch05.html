@@ -37,7 +37,175 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Document Generation</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 5: Tables</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 5: Tables</B></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Introduction</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			A <FONT FACE="Courier">Table</FONT> is a <FONT FACE="Courier">Rectangle</FONT>
+			that contains <FONT>Cell</FONT>s, ordered in some kind of matrix.<BR>
+			The matrix of a table is not necessarily an m x n-matrix. It can contain holes
+			or cells that are bigger than the unit. Believe me or not, but it took some serious
+			thinking to make this as userfriendly as possible. I hope you wil find the result
+			quite simple (I love simple solutions, especially for complex problems).
+			I didn't want it to be something as complex as the Java
+			<FONT FACE="Courier">GridBagLayout</FONT>.<BR><BR>
+			This is how you create a simple table (see <A HREF="Chap0501.java">Chap0501.java</A>):<BR>
+			<FONT FACE="Courier">
+			<TABLE>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">Table table = new Table(3);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.setBorderWidth(1);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.setBorderColor(new Color(0, 0, 255));</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.setCellpadding(5);</FONT></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">5.&nbsp;</FONT></TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.setCellspacing(5);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">Cell cell = new Cell("header");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setHeader(true);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setColspan(3);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">10.&nbsp;</FONT></TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.endHeaders();</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell = new Cell("example cell with colspan 1 and rowspan 2");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setRowspan(2);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setBorderColor(new Color(255, 0, 0));</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">15.&nbsp;</FONT></TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("1.1");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("2.1");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("1.2");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("2.2");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("cell test1");</FONT></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">20.&nbsp;</FONT></TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell = new Cell("big cell");</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setRowspan(2);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">cell.setColspan(2);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell(cell);</FONT></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+				<TD><FONT FACE="Courier" SIZE="-1">table.addCell("cell test2");</FONT></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="right"><FONT FACE="Courier" SIZE="-1">25.&nbsp;</FONT></TD>
+				<TD><FONT FACE="Courier" SIZE="-1">document.add(table);</FONT></TD>
+			</TR>
+			</TABLE><BR>
+			</FONT>
+			The result of this code is a table like this (see <A HREF="Chap0501.pdf">Chap0501.pdf</A>):
+        	<TABLE BORDER="1" BORDERCOLOR="#0000ff" CELLPADDING="5" CELLSPACING="5">
+                <TR ALIGN="Left" VALIGN="Left">
+                        <TH ALIGN="Left" COLSPAN="3" VALIGN="Left">
+                                header
+                        </TH>
+                </TR>
+                <TR ALIGN="Left" VALIGN="Left">
+                        <TD ALIGN="Left" BORDERCOLOR="#ff0000" ROWSPAN="2" VALIGN="Left">
+                                example cell with colspan 1 and rowspan 2
+                        </TD>
+                        <TD ALIGN="Left" VALIGN="Left">
+                                1.1
+                        </TD>
+                        <TD ALIGN="Left" VALIGN="Left">
+                                2.1
+                        </TD>
+                </TR>
+                <TR ALIGN="Left" VALIGN="Left">
+                        <TD ALIGN="Left" VALIGN="Left">
+                                1.2
+                        </TD>
+                        <TD ALIGN="Left" VALIGN="Left">
+                                2.2
+                        </TD>
+                </TR>
+                <TR ALIGN="Left" VALIGN="Left">
+                        <TD ALIGN="Left" VALIGN="Left">
+                                cell test1
+                        </TD>
+                        <TD ALIGN="Left" COLSPAN="2" ROWSPAN="2" VALIGN="Left">
+                                big cell
+                        </TD>
+                </TR>
+                <TR ALIGN="Left" VALIGN="Left">
+                        <TD ALIGN="Left" VALIGN="Left">
+                                cell test2
+                        </TD>
+                </TR>
+        	</TABLE>
+			<BR><BR><BR>	
+			<!--- Tables that span multiple pages are cut into different parts automatically
+			(unless you use the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
+			<FONT FACE="Courier">PdfWriter</FONT> to control the 'table-breaks').<BR>
+			If you want a table header to be repeated on every page, you may not forget to
+			mark the end of the header section by using the method
+			<FONT FACE="Courier">endHeaders()</FONT>.<BR> --->
+			</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
