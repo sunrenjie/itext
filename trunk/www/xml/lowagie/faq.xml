@@ -511,6 +511,18 @@ Just use writer.getPageNumber() for the correct value.
 </site:answer>
 </site:faq-entry>
 
+<site:faq-entry name="pdfversion">
+<site:question>How to generate PDF documents with another version that the default PDF version?</site:question>
+<site:answer>
+
+The pdf version can be changed with PdfWriter.setPdfVersion(). This
+only alters the number (for instance %PDF-1.4 into %PDF-1.3),
+it doesn't check if the objects inside are valid for the version.
+(With very few exceptions the pdf generated is 1.3. compliant.)
+
+</site:answer>
+</site:faq-entry>
+
 </site:faq>
 
 	</div>

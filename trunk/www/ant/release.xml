@@ -41,7 +41,7 @@
 
 	<target name="ant.zip" description="--> makes a zipfile with the ANT scripts">
 		<mkdir dir="${itext.dist}"/>
-		<zip zipfile="${itext.dist}/ant.zip" basedir="${itext.www}" includes="ant/*.*" />
+		<zip zipfile="${itext.dist}/iTextAnt.zip" basedir="${itext.home}" includes="www/ant/*.*" />
 	</target>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -54,7 +54,7 @@
 		<copy file="${itext.dist}/src.zip" tofile="${itext.sf}/itext-src-${releasenumber}.zip" overwrite="yes"/>
 		<copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/itext-src-${releasenumber}.tar.gz" overwrite="yes"/>
 		<copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${releasenumber}.tar.gz" overwrite="yes"/>
-		<copy file="${itext.dist}/ant.zip" tofile="${itext.sf}/ant-${releasenumber}.zip" overwrite="yes"/>
+		<copy file="${itext.dist}/iTextAnt.zip" tofile="${itext.sf}/iTextAnt-${releasenumber}.zip" overwrite="yes"/>
 	</target>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
