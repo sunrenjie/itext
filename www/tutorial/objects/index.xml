@@ -32,6 +32,16 @@
 			<site:description>Demonstrates some more Paragraph functionality</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="DifferentFonts" standalone="yes" />
+			<site:result>differentfonts.pdf</site:result>
+			<site:description>A Paragraph can contain text in different fonts</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FontSelection" standalone="yes" />
+			<site:result>fontselection.pdf</site:result>
+			<site:description>Selects the appropriate fonts that contain the glyphs needed to render text correctly</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Lists" standalone="yes" />
 			<site:result>lists.pdf</site:result>
 			<site:result>lists.html</site:result>
