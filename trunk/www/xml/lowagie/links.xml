@@ -30,6 +30,7 @@
 		<a href="http://www.jroller.com/" class="topic">>JRoller:</a> Free, Java-powered weblogs<br />
 		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java<br />
 		<a href="http://ant.apache.org/" class="topic">Apache ANT</a> a Java-based build tool.
+		<a href="http://www.junlu.com/">JUNLU:</a> some major mailinglists (including iText) made searchable.
 		<div class="title">PDF links</div>
 		<a href="http://www.adobe.com/" class="topic">ADOBE:</a> ADOBE SYSTEMS INC.<br />
 		<a href="http://www.quite.com/personal/aandi.htm" class="topic">Quite Software:</a> The home of Aandi Inston, PDF expert<br />
@@ -41,10 +42,11 @@
 		<div class="title">Free / Open Source Software links</div>
 		<a href="http://sourceforge.net/" class="topic">SourceForge:</a>  the world's largest Open Source software development website.
 		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
+		<a href="http://java-source.net/" class="topic">Java-source:</a> Open Source Software in JAVA (tm)
 		<div class="title">Other technical links</div>
 		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
 		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
-		<div class="title">Miscelaneous links</div>
+		<div class="title">Miscellaneous links</div>
 		<a href="http://slashdot.org/" class="topic">Slashdot:</a> News for Nerds, Stuff that Matters
 	</div>
 	</site:content>
