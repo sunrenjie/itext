@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- iText, a JAVA - PDF library                                      -->
+<!-- $Id$         -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<project name="iText.site" default="help">
+	
+	<property file=".ant.properties" />
+	
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Help                                                             -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="help" description="--> shows the help screen">
+        <echo>BUILDING THE iText SITE (site.xml)</echo>
+        <echo>ant lowagie.com: Building the lowagie.com part</echo>
+        <echo />
+	</target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Building the pages for lowagie.com                               -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="lowagie.com" description="--> building the pages for lowagie.com">
+        <mkdir dir="${itext.lowagie}" />
+        <java classname="com.lowagie.tools.BuildSite">
+			<arg value="${itext.xml.lowagie}" />
+			<arg value="lowagie.xsl" />
+			<arg value="${itext.lowagie}" />
+	        <classpath>
+    	        <pathelement location="${itext.bin}/iText.jar" />
+    	        <pathelement location="${itext.bin}/crimson.jar" />
+        	</classpath>
+		</java>
+    </target>
+
+
+</project>
