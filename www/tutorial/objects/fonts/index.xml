@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Fonts in iText</site:title>
+		<site:title status="finished">Fonts in iText</site:title>
 		<site:summary>Different types of Fonts supported in iText.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Fonts, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
