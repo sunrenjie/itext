@@ -31,11 +31,11 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
 
-public class Chap0902 {
+public class Chap0904 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 9 example 2: True Type fonts (not embedded)");
+		System.out.println("Chapter 9 example 4: Asian Fonts");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -45,15 +45,15 @@ public class Chap0902 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0902.pdf"));
+ 			PdfWriter.getInstance(document, new FileOutputStream("Chap0904.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
 			// step 4: we add content to the document
-			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", false);
-			Font FontComic = new Font(bfComic, 12, Font.NORMAL);
-			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);
+			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);
+			Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
+			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);
 			document.add(chunk);
 		}
 		catch(DocumentException de) {
