@@ -21,8 +21,8 @@
 		<a href="http://servlets.com/" class="topic">Jason Hunter</a> author of JDOM and the book I read to learn all about Servlets<br />
 		if you think your name should be on this list, just send me a mail.
 		<div class="title">JAVA links</div>
-		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.<br />
-		<a href="http://www.refactorit.com/" class="topic">RefactorIT:</a> All important software systems evolve, but over time entropy causes structural rot. Refactoring instills efficiency to the internal structure of a system and refactoring can restore evolving software to vibrant health. Manual refactoring can be an involved process, hence use of RefactorIT, the world's fastest and easiest automated way to refactor Java systems can save you considerable time, effort, and financial resources.
+		<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" align="left" alt="RefactorIT"/></a> All important software systems evolve, but over time entropy causes structural rot. Refactoring instills efficiency to the internal structure of a system and refactoring can restore evolving software to vibrant health. Manual refactoring can be an involved process, hence use of RefactorIT, the world's fastest and easiest automated way to refactor Java systems can save you considerable time, effort, and financial resources.
+		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.
 		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java
 		<a href="http://ant.apache.org/" class="topic">Apache ANT</a> a Java-based build tool.
 		<div class="title">PDF links</div>

@@ -78,6 +78,40 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 	</xsl:for-each>
 </xsl:template>
 
+<!-- History entries -->
+
+<xsl:template match="site:history">
+	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Releases</div>
+	<br xmlns="http://www.w3.org/1999/xhtml" />
+	<xsl:for-each select="./*">
+		<xsl:if test="local-name()='release'">
+			<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+				<xsl:attribute name="href">#<xsl:value-of select="@number" /></xsl:attribute>
+				<xsl:attribute name="class">small</xsl:attribute>
+				<xsl:value-of select="@name" />
+			</xsl:element>
+			<xsl:value-of select="@date" />
+		</xsl:if>
+		<br xmlns="http://www.w3.org/1999/xhtml" />
+	</xsl:for-each>
+	<br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="80%" /><br xmlns="http://www.w3.org/1999/xhtml" />
+	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Changelogs</div>
+	<br xmlns="http://www.w3.org/1999/xhtml" />
+	<xsl:for-each select="./*">
+		<xsl:choose>
+			<xsl:when test="local-name()='release'">
+				<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+					<xsl:attribute name="name"><xsl:value-of select="@number" /></xsl:attribute>
+				</xsl:element>
+				<b>(<xsl:apply-templates select="./site:remark" />)</b>
+				<div class="small" xmlns="http://www.w3.org/1999/xhtml"><xsl:apply-templates select="./site:changelog" /></div>
+			</xsl:when>
+			<xsl:otherwise><br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="10%" /></xsl:otherwise>
+		</xsl:choose>
+		<br xmlns="http://www.w3.org/1999/xhtml" />
+	</xsl:for-each>
+</xsl:template>
+
 <!-- Amazon related stuff -->
 
 <xsl:template match="site:amazonlist">
@@ -178,10 +212,17 @@ mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@li
 <div id="sourceforge"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 
 <div id="commercial">
-	<xsl:if test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
-		<a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
+<a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
+<xsl:choose>
+	<xsl:when test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
 		<xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:book"><xsl:value-of select="string(@asin)" /><xsl:if test="position()!=last()">,</xsl:if></xsl:for-each></xsl:with-param></xsl:call-template>
-	</xsl:if>
+	</xsl:when>
+	<xsl:otherwise>
+<script type="text/javascript"><![CDATA[<!--
+document.write('<iframe marginwidth="0" marginheight="0" src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=10&l=st1&mode=books&search=JAVA&=1&fc1=&lc1=&lt1=&bg1=&f=ifr" width="130" height="460" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>');
+//-->]]></script>
+	</xsl:otherwise>
+</xsl:choose>
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
