@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- $Date$ -->
-<!-- author: Bruno Lowagie        -->
+<!-- $Header$ -->
+<!-- author: Bruno Lowagie -->
 
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -166,9 +166,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 <html>
 
 <head>
-	<xsl:text disable-output-escaping="yes">
-	<![CDATA[<!-- $Header$ -->]]>
-	</xsl:text>
 	<xsl:element name="title">iText, a Free Java-PDF Library: <xsl:value-of select="site:metadata/site:title" />
 	</xsl:element>
 	<xsl:element name="meta">
