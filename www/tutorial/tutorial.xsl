@@ -144,6 +144,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 											<ul><xsl:for-each select="site:chapter/site:section">
 												<li><xsl:element name="a">
 													<xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
+													<xsl:attribute name="class">small</xsl:attribute>
 													<xsl:value-of select="site:sectiontitle" />
 												</xsl:element></li>
 											</xsl:for-each></ul>
