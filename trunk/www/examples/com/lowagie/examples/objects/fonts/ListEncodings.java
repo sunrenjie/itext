@@ -31,6 +31,10 @@ import com.lowagie.text.pdf.BaseFont;
  */
 public class ListEncodings {
 
+	/**
+	 * Listing the encodings of font comic.
+	 * @param args no arguments needed
+	 */
 	public static void main(String[] args) {
 		System.out.println("Listing Font properties");
 		try {
