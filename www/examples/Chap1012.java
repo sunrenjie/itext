@@ -67,11 +67,11 @@ public class Chap1012 {
                 allColumns[k] = document.left() + (columnWidth + gutter) * k;
             }
             // set the fonts
-            Font font24B = new Font(Font.TIMES_NEW_ROMAN, 24, Font.BOLD);
-            Font font10B = new Font(Font.TIMES_NEW_ROMAN, 10, Font.BOLD);
-            Font font14B = new Font(Font.TIMES_NEW_ROMAN, 14, Font.BOLD, new Color(255, 0, 0));
-            Font font9 = new Font(Font.TIMES_NEW_ROMAN, 9);
-            Font font11 = new Font(Font.TIMES_NEW_ROMAN, 11);
+            Font font24B = FontFactory.getFont(FontFactory.TIMES_ROMAN, 24, Font.BOLD);
+            Font font10B = FontFactory.getFont(FontFactory.TIMES_ROMAN, 10, Font.BOLD);
+            Font font14B = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.BOLD, new Color(255, 0, 0));
+            Font font9 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 9);
+            Font font11 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 11);
             
             // step 3: we open the document
             document.open();            

@@ -51,11 +51,11 @@ public class Chap0208 implements SplitCharacter {
             // we add some content
             String text = "Some.text.to.show.the.splitting.action.of.the.interface.";
             Chap0208 split = new Chap0208();
-            Chunk ck = new Chunk(text, new Font(Font.HELVETICA, 24));
+            Chunk ck = new Chunk(text, FontFactory.getFont(FontFactory.HELVETICA, 24));
             Paragraph p = new Paragraph(24, ck);
             document.add(new Paragraph("Normal split."));
             document.add(p);
-            ck = new Chunk(text, new Font(Font.HELVETICA, 24));
+            ck = new Chunk(text, FontFactory.getFont(FontFactory.HELVETICA, 24));
             ck.setSplitCharacter(split);
             p = new Paragraph(24, ck);
             document.add(new Paragraph("The dot '.' is the split character."));

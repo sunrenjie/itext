@@ -51,22 +51,22 @@ public class Chap0202 {
             Phrase phrase2 = new Phrase(24, "(2) this is a phrase with leading 24. You can only see the difference if the line is long enough. Do you see it? There is more space between this line and the previous one.\n");
             // When a Font is passed (explicitely or embedded in a chunk),
             // the default leading = 1.5 * size of the font
-            Phrase phrase3 = new Phrase("(3) this is a phrase with a red, normal font Courier, size 20. As you can see the leading is automatically changed.\n", new Font(Font.COURIER, 20, Font.NORMAL, new Color(255, 0, 0)));
+            Phrase phrase3 = new Phrase("(3) this is a phrase with a red, normal font Courier, size 20. As you can see the leading is automatically changed.\n", FontFactory.getFont(FontFactory.COURIER, 20, Font.NORMAL, new Color(255, 0, 0)));
             Phrase phrase4 = new Phrase(new Chunk("(4) this is a phrase\n"));
-            Phrase phrase5 = new Phrase(18, new Chunk("(5) this is a phrase in Helvetica, bold, red and size 16 with a given leading of 18 points.\n", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0))));
+            Phrase phrase5 = new Phrase(18, new Chunk("(5) this is a phrase in Helvetica, bold, red and size 16 with a given leading of 18 points.\n", FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0))));
             // A Phrase can contains several chunks with different fonts
             Phrase phrase6 = new Phrase("(6)");
             Chunk chunk = new Chunk(" This is a font: ");
             phrase6.add(chunk);
-            phrase6.add(new Chunk("Helvetica", new Font(Font.HELVETICA)));
+            phrase6.add(new Chunk("Helvetica", FontFactory.getFont(FontFactory.HELVETICA, 12)));
             phrase6.add(chunk);
-            phrase6.add(new Chunk("Times New Roman", new Font(Font.TIMES_NEW_ROMAN)));
+            phrase6.add(new Chunk("Times New Roman", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12)));
             phrase6.add(chunk);
-            phrase6.add(new Chunk("Courier", new Font(Font.COURIER)));
+            phrase6.add(new Chunk("Courier", FontFactory.getFont(FontFactory.COURIER, 12)));
             phrase6.add(chunk);
-            phrase6.add(new Chunk("Symbol", new Font(Font.SYMBOL)));
+            phrase6.add(new Chunk("Symbol", FontFactory.getFont(FontFactory.SYMBOL, 12)));
             phrase6.add(chunk);
-            phrase6.add(new Chunk("ZapfDingBats", new Font(Font.ZAPFDINGBATS)));
+            phrase6.add(new Chunk("ZapfDingBats", FontFactory.getFont(FontFactory.ZAPFDINGBATS, 12)));
             Phrase phrase7 = new Phrase("(7) if you don't add a newline yourself, all phrases are glued to eachother!");
             
             document.add(phrase1);

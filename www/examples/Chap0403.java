@@ -39,22 +39,22 @@ public class Chap0403 {
             // step 3: we open the document
             document.open();
             // step 4: we add content to the document
-            Paragraph title1 = new Paragraph("This is Chapter 1", new Font(Font.HELVETICA, 18, Font.BOLDITALIC, new Color(0, 0, 255)));
+            Paragraph title1 = new Paragraph("This is Chapter 1", FontFactory.getFont(FontFactory.HELVETICA, 18, Font.BOLDITALIC, new Color(0, 0, 255)));
             Chapter chapter1 = new Chapter(title1, 2);
             chapter1.setNumberDepth(0);
             Paragraph someText = new Paragraph("This is some text");
             chapter1.add(someText);
-            Paragraph title11 = new Paragraph("This is Section 1 in Chapter 1", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0)));
+            Paragraph title11 = new Paragraph("This is Section 1 in Chapter 1", FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0)));
             Section section1 = chapter1.addSection(title11);
             Paragraph someSectionText = new Paragraph("This is some silly paragraph in a chapter and/or section. It contains some text to test the functionality of Chapters and Section.");
             section1.add(someSectionText);
             document.add(chapter1);
             
-            Paragraph title2 = new Paragraph("This is Chapter 2", new Font(Font.HELVETICA, 18, Font.BOLDITALIC, new Color(0, 0, 255)));
+            Paragraph title2 = new Paragraph("This is Chapter 2", FontFactory.getFont(FontFactory.HELVETICA, 18, Font.BOLDITALIC, new Color(0, 0, 255)));
             Chapter chapter2 = new Chapter(title2, 2);
             chapter2.setNumberDepth(0);
             chapter2.add(someText);
-            Paragraph title21 = new Paragraph("This is Section 1 in Chapter 2", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0)));
+            Paragraph title21 = new Paragraph("This is Section 1 in Chapter 2", FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0)));
             Section section2 = chapter2.addSection(title21);
             section2.add(someSectionText);
             chapter2.setBookmarkOpen(false);

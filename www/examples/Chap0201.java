@@ -46,20 +46,20 @@ public class Chap0201 {
             
             // step 4: we add content to the document
             Font[] fonts = new Font[14];
-            fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);
-            fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);
-            fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);
-            fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);
-            fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);
-            fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);
-            fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);
-            fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);
-            fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);
-            fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);
-            fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);
-            fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);
-            fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);
-            fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);
+            fonts[0] = FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL);
+            fonts[1] = FontFactory.getFont(FontFactory.COURIER, 12, Font.BOLD);
+            fonts[2] = FontFactory.getFont(FontFactory.COURIER, 12, Font.ITALIC);
+            fonts[3] = FontFactory.getFont(FontFactory.COURIER, 12, Font.BOLD | Font.ITALIC);
+            fonts[4] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL);
+            fonts[5] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
+            fonts[6] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC);
+            fonts[7] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD | Font.ITALIC);
+            fonts[8] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL);
+            fonts[9] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD);
+            fonts[10] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.ITALIC);
+            fonts[11] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD | Font.ITALIC);
+            fonts[12] = FontFactory.getFont(FontFactory.SYMBOL, 12, Font.NORMAL);
+            fonts[13] = FontFactory.getFont(FontFactory.ZAPFDINGBATS, 12, Font.NORMAL);
             for (int i = 0; i < 14; i++) {
                 Chunk chunk = new Chunk("This is some", fonts[i]);
                 document.add(new Phrase(chunk));
@@ -67,9 +67,9 @@ public class Chap0201 {
                 fonts[i]).setTextRise((i % 2 == 0) ? -6 : 6)));
             }
             document.add(new Phrase(new Chunk("This text is underlined",
-            new Font(Font.HELVETICA, 12, Font.UNDERLINE))));
+            FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE))));
             document.add(new Phrase(new Chunk("This font is of type ITALIC | STRIKETHRU",
-            new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));
+            FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));
             
         }
         catch(DocumentException de) {
