@@ -52,6 +52,9 @@
             <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts">
                 <include name="**/*.afm"/>
             </fileset>
+            <fileset dir="${itext.src}/com/lowagie/text/">
+                <include name="**/*.txt"/>
+            </fileset>
         </copy>
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" />
         <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />

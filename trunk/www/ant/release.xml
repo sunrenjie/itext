@@ -49,4 +49,12 @@
 		<copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/itext-src-${releasenumber}.tar.gz" overwrite="yes"/>
 		<copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${releasenumber}.tar.gz" overwrite="yes"/>
 	</target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Making the jars with the Asian Fontfiles                         -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<target name="asian.jar" description="--> makes iTextAsian.jar and iTextAsianCmaps.jar">
+        <jar jarfile="${itext.bin}/iTextAsian.jar" basedir="${itext.src}" includes="**/*.cmap,**/*.properties" />
+        <jar jarfile="${itext.bin}/iTextAsianCmaps.jar" basedir="${itext.src}" excludes="**/*.java,**/*.txt,**/*.afm,**/*.cmap,**/*.properties" />
+	</target>
 </project>
