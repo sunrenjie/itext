@@ -112,9 +112,9 @@
         <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
-        <get src="http://www.lowagie.com/iText/downloads/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
+        <get src="http://itext.sourceforge.net/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
 
     <target name="download.cvs" depends="checkout, download" description="--> downloads the most recent version of the code">
@@ -126,11 +126,11 @@
 
     <target name="download.site" depends="download" description="--> downloads the most recent release of the code">
         <mkdir dir="${itext.dist}" />
-        <get src="http://www.lowagie.com/iText/downloads/src.tar.gz" dest="${itext.dist}/src.tar.gz" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/srcXML.tar.gz" dest="${itext.dist}/srcXML.tar.gz" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/www.tar.gz" dest="${itext.dist}/www.tar.gz" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/tutorial.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/examples.tar.gz" dest="${itext.dist}/examples.tar.gz" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/src.tar.gz" dest="${itext.dist}/src.tar.gz" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/srcXML.tar.gz" dest="${itext.dist}/srcXML.tar.gz" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/www.tar.gz" dest="${itext.dist}/www.tar.gz" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/tutorial.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
+        <get src="http://itext.sourceforge.net/downloads/examples.tar.gz" dest="${itext.dist}/examples.tar.gz" verbose="true" />
 		
         <mkdir dir="${itext.src}" />
 		<gunzip src="${itext.dist}/src.tar.gz" dest="${itext.dist}/temp.tar" />
