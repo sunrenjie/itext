@@ -9,6 +9,7 @@
 		<site:amazonbooks>
 			<site:book asin="0201758393">PDF Reference: Version 1.4 (3rd Edition)</site:book>
 		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
@@ -16,10 +17,12 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
+		        <b>Nov 19th 2004:</b>
+				<br />Redesign FAQ and links page.<br />
+				<b>Nov 18th 2004:</b>
+				<br />The ANT scripts were published and the XSL generating this site was updated.<br />
 		        <b>Nov 16th 2004:</b>
 				<br />iText 1.1 was released!<br />
-				<b>Nov 15th 2004:</b>
-				<br />The ANT build.xml script was split up in different subscripts. The site is now being generated from XML.<br />
 				<br />
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />

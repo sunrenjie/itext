@@ -6,6 +6,7 @@
 		<site:title>Amazon books and products</site:title>
 		<site:summary>An overview of books @ Amazon.com</site:summary>
 		<site:keywords>PDF, JAVA, Amazon, Lowagie, Bruno</site:keywords>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
@@ -28,6 +29,10 @@ Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/exter
 	<site:amazonproduct asin="0201758393">
 		<site:amazontitle>PDF Reference </site:amazontitle>
 		PDF Reference Version 1.4 is a thorough, updated reference for software developers looking to incorporate PDF capabilities into their applications.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0596006551">
+		<site:amazontitle>PDF Hacks</site:amazontitle>
+		PDF Hacks unveils the true promise of Portable Document Format, going way beyond the usual PDF as paged output mechanism.
 	</site:amazonproduct>
 	<site:amazonproduct asin="0321193741">
 		<site:amazontitle>Adobe Acrobat 6.0 Standard Classroom in a Book </site:amazontitle>
@@ -54,27 +59,61 @@ Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/exter
 <site:amazonlist>
 	<site:amazonproduct asin="B00008ZGRY">
 		<site:amazontitle>Adobe Acrobat 6.0 Standard Edition</site:amazontitle>
-		<ul><li class="small">Easily convert any paper or electronic document to Adobe PDF</li><li class="small">Capture research information from the Web and combine it with reports</li><li class="small">Makes it easy to track, manage, and incorporate feedback into original documents</li><li class="small">Batch process PDF files with settings for adding security</li><li class="small">Control whether users are allowed to view, edit, comment on, sign, or print PDF files</li></ul>
+		<ul><li>Easily convert any paper or electronic document to Adobe PDF</li><li>Capture research information from the Web and combine it with reports</li><li>Makes it easy to track, manage, and incorporate feedback into original documents</li><li>Batch process PDF files with settings for adding security</li><li>Control whether users are allowed to view, edit, comment on, sign, or print PDF files</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00008ZGS2">
 		<site:amazontitle>Adobe Acrobat 6.0 Professional</site:amazontitle>
-		<ul><li class="small">Create PDF files with the click of a button from Microsoft applications and AutoCAD</li><li class="small">Convert and combine application files into one compact PDF file in a single step</li><li class="small">Create lists of reviewers and track the feedback you receive</li><li class="small">Create interactive electronic forms that can be completed and submitted online</li><li class="small">View two areas of a large drawing simultaneously by using a split-pane view</li></ul>
+		<ul><li>Create PDF files with the click of a button from Microsoft applications and AutoCAD</li><li>Convert and combine application files into one compact PDF file in a single step</li><li>Create lists of reviewers and track the feedback you receive</li><li>Create interactive electronic forms that can be completed and submitted online</li><li>View two areas of a large drawing simultaneously by using a split-pane view</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00005M63M">
 		<site:amazontitle>Adobe PageMaker 7.0</site:amazontitle>
-		<ul><li class="small">Create professional-quality publications</li><li class="small">Build from scratch or choose from hundreds of templates</li><li class="small">Achieve a uniform look with master frames to hold text and graphics</li><li class="small">Professional typesetting with kerning and tracking</li><li class="small">Includes thousands of clip art photos and illustrations</li></ul>
+		<ul><li>Create professional-quality publications</li><li>Build from scratch or choose from hundreds of templates</li><li>Achieve a uniform look with master frames to hold text and graphics</li><li>Professional typesetting with kerning and tracking</li><li>Includes thousands of clip art photos and illustrations</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00005QVPY">
 		<site:amazontitle>Adobe Illustrator 10.0</site:amazontitle>
-		<ul><li class="small">Create vector-based graphics for the Web, emerging media, and print</li><li class="small">Keep file sizes small and manage repeating graphics with new symbolism tools</li><li class="small">Bend, stretch, and twist design elements and retain editability</li><li class="small">Generate custom artwork variations using dynamic data-driven graphics</li><li class="small">Optimize Web graphics with object-based slicing and cascading style sheet layers</li></ul>
+		<ul><li>Create vector-based graphics for the Web, emerging media, and print</li><li>Keep file sizes small and manage repeating graphics with new symbolism tools</li><li>Bend, stretch, and twist design elements and retain editability</li><li>Generate custom artwork variations using dynamic data-driven graphics</li><li>Optimize Web graphics with object-based slicing and cascading style sheet layers</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00004S85Q">
 		<site:amazontitle>Adobe Acrobat Capture 3.0 Personal Edition</site:amazontitle>
-		<ul><li class="small">Convert scanned pages to searchable Adobe PDF files that you can view, navigate, and print</li><li class="small">Create reusable document-processing workflows tailored to different types of conversion projects</li><li class="small">Accurately perform OCR, font, and page recognition</li><li class="small">Automatically create intradocument links, including tables of contents, cross references, and indexes</li><li class="small">Use the new Zone tool to define areas of scanned pages as images, text, or even keywords</li></ul>
+		<ul><li>Convert scanned pages to searchable Adobe PDF files that you can view, navigate, and print</li><li>Create reusable document-processing workflows tailored to different types of conversion projects</li><li>Accurately perform OCR, font, and page recognition</li><li>Automatically create intradocument links, including tables of contents, cross references, and indexes</li><li>Use the new Zone tool to define areas of scanned pages as images, text, or even keywords</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00006661W">
 		<site:amazontitle>Adobe FrameMaker 7.0</site:amazontitle>
-		<ul><li class="small">Full support for XML authoring and publishing </li><li class="small">Support for tagged Adobe PDF (Portable Document Format)</li><li class="small">Enhanced HTML publishing capabilities</li><li class="small">SVG (Scalable Vector Graphics) support</li><li class="small">Starter applications, starter templates, and an XML cookbook</li></ul>
+		<ul><li>Full support for XML authoring and publishing </li><li>Support for tagged Adobe PDF (Portable Document Format)</li><li>Enhanced HTML publishing capabilities</li><li>SVG (Scalable Vector Graphics) support</li><li>Starter applications, starter templates, and an XML cookbook</li></ul>
+	</site:amazonproduct>
+</site:amazonlist>
+<tr><td colspan="3"><div class="title">Books on JAVA Development</div></td></tr>
+<site:amazonlist>
+	<site:amazonproduct asin="1930110588">
+		<site:amazontitle>Java Development With Ant</site:amazontitle>
+		Explaining the use of Ant, a Java-based build tool, Hatcher and Loughan, both part of Ant's active development community, explore managing software projects, third party Ant tasks, the integration of XML into the build process, working with Enterprise Java Beans, writing custom tasks, and other...
+	</site:amazonproduct>
+	<site:amazonproduct asin="0596001843">
+		<site:amazontitle>Ant</site:amazontitle>
+		Describes the modules involved in a build, and the dependencies between those modules. Discover how to build applications by having Ant compile the necessary source files in the proper order.
+	</site:amazonproduct>
+</site:amazonlist>
+<tr><td colspan="3"><div class="title">miscellaneous</div></td></tr>
+<site:amazonlist>
+	<site:amazonproduct asin="1932111816">
+		<site:amazontitle>Open Source Development with CVS</site:amazontitle>
+		The need for a modern source-code management strategy in the distributed open-source community is paramount. The benevolent dictatorship model of open-source maintainers is only quasi-stable, but it is far better than the other extreme: the chaos of democratic code development.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0596004591">
+		<site:amazontitle>Essential CVS</site:amazontitle>
+		Essential CVS is a complete and easy-to-follow reference that helps programmers and system administrators apply order to the task of managing large quantities of documents.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0764546600">
+		<site:amazontitle>Open Source: The Unauthorized White Papers</site:amazontitle>
+		These days everyone is talking about Linux. But does Linux and other Open Source software really make good business sense? What are the opportunities -- and risks? This book provides the answers.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0596005814">
+		<site:amazontitle>Understanding Open Source and Free Software Licensing</site:amazontitle>
+		If you've considered developing open source or free software projects, but hesitated because of confusion about the types of licensing, then Understanding Open Source and Free Software Licensing can help you make sense of the different options available.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0817998926">
+		<site:amazontitle>Public Policy and the Internet</site:amazontitle>
+		Privacy, Taxes, and Contract
 	</site:amazonproduct>
 </site:amazonlist>
 </table>

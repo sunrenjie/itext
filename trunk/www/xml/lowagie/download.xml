@@ -10,6 +10,7 @@
 			<site:book asin="0764546600">Open Source: The Unauthorized White Papers</site:book>
 			<site:book asin="0596005814">Understanding Open Source and Free Software Licensing </site:book>
 		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
@@ -47,22 +48,22 @@ iText<site:releasenumber /> was based on the Early Access release itext-paulo-<s
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
 	<tr><th colspan="5">Download the library:</th></tr>
 	<tr>
-		<td width="40%">Mirror</td>
-		<td width="20%">Source code</td>
-		<td width="20%">Compiled code</td>
-		<td width="20%">Documentation</td>
+		<td width="40%" class="small">Mirror</td>
+		<td width="20%" class="small">Source code</td>
+		<td width="20%" class="small">Compiled code</td>
+		<td width="20%" class="small">Documentation</td>
 	</tr>
 	<tr>
-		<td>prdownloads @ Sourceforge</td>
-		<td><site:releasesrc /></td>
-		<td><site:releasejar /></td>
-		<td><site:releasedocs /></td>
+		<td class="small">prdownloads @ Sourceforge</td>
+		<td class="small"><site:releasesrc /></td>
+		<td class="small"><site:releasejar /></td>
+		<td class="small"><site:releasedocs /></td>
 	</tr>
 	<tr>
-		<td>downloads @ itext.sourceforge.net</td>
-		<td><a href="http://itext.sourceforge.net/downloads/src.tar.gz">src.tar.gz</a> or <a href="http://itext.sourceforge.net/downloads/src.zip">src.zip</a></td>
-		<td><a href="http://itext.sourceforge.net/downloads/iText.jar">jar</a></td>
-		<td><a href="http://itext.sourceforge.net/downloads/docs.tar.gz">docs.tar.gz</a></td>
+		<td class="small">downloads @ itext.sourceforge.net</td>
+		<td class="small"><a href="http://itext.sourceforge.net/downloads/src.tar.gz">src.tar.gz</a> or <a href="http://itext.sourceforge.net/downloads/src.zip">src.zip</a></td>
+		<td class="small"><a href="http://itext.sourceforge.net/downloads/iText.jar">jar</a></td>
+		<td class="small"><a href="http://itext.sourceforge.net/downloads/docs.tar.gz">docs.tar.gz</a></td>
 	</tr>
 </table><br />
 Another option to get the Source Code is to download it from the <a href="cvs.html">CVS repository</a>.

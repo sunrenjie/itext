@@ -10,6 +10,7 @@
 			<site:book asin="1930110588">Java Development With Ant</site:book>
 			<site:book asin="0596001843">Ant: The Definitive Guide</site:book>
 		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
@@ -118,7 +119,7 @@ constructed and the files that will need to be uploaded to SourceForge
 will get a releasenumber in their filename. Later on, more
 functionality will be added to generate examples and tutorial chapters.
 Usually I (Bruno) will do this. You won't need this target, nor
-<span class="commandline">ant lowagie.com</span>, not some other
+<span class="commandline">ant lowagie.com</span>, nor some other
 hidden targets.
 	</div>
 	</site:content>

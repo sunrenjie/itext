@@ -45,6 +45,39 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
 </xsl:template>
 
+<!-- FAQ entries -->
+
+<xsl:template match="site:faq">
+	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Questions</div>
+	<br xmlns="http://www.w3.org/1999/xhtml" />
+	<xsl:for-each select="./*">
+		<xsl:if test="local-name()='faq-entry'">
+			<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+				<xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
+				<xsl:attribute name="class">small</xsl:attribute>
+				<xsl:value-of select="./site:question" />
+			</xsl:element>
+		</xsl:if>
+		<br xmlns="http://www.w3.org/1999/xhtml" />
+	</xsl:for-each>
+	<br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="80%" /><br xmlns="http://www.w3.org/1999/xhtml" />
+	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Answers</div>
+	<br xmlns="http://www.w3.org/1999/xhtml" />
+	<xsl:for-each select="./*">
+		<xsl:choose>
+			<xsl:when test="local-name()='faq-entry'">
+				<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+					<xsl:attribute name="name"><xsl:value-of select="@name" /></xsl:attribute>
+					<xsl:apply-templates select="./site:question" />
+				</xsl:element>
+				<div class="small" xmlns="http://www.w3.org/1999/xhtml"><xsl:apply-templates select="./site:answer" /></div>
+			</xsl:when>
+			<xsl:otherwise><br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="10%" /></xsl:otherwise>
+		</xsl:choose>
+		<br xmlns="http://www.w3.org/1999/xhtml" />
+	</xsl:for-each>
+</xsl:template>
+
 <!-- Amazon related stuff -->
 
 <xsl:template match="site:amazonlist">
@@ -53,12 +86,12 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 		<tr>
 		<th><xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:value-of select="@asin" /></xsl:with-param></xsl:call-template></th>
 		<th><xsl:if test="position()!=last()"><xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:value-of select="following-sibling::site:amazonproduct[position()=1]/@asin" /></xsl:with-param></xsl:call-template></xsl:if></th>
-		<th><xsl:if test="position()!=last()-1"><xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:value-of select="following-sibling::site:amazonproduct[position()=2]/@asin" /></xsl:with-param></xsl:call-template></xsl:if></th>
+		<th><xsl:if test="position()!=last()-1 and position()!=last()"><xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:value-of select="following-sibling::site:amazonproduct[position()=2]/@asin" /></xsl:with-param></xsl:call-template></xsl:if></th>
 		</tr>
 		<tr>
-		<td valign="Top"><xsl:apply-templates select="." /></td>
-		<td valign="Top"><xsl:if test="position()!=last()"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=1]" /></xsl:if></td>
-		<td valign="Top"><xsl:if test="position()!=last()-1"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=2]" /></xsl:if></td>
+		<td valign="Top" class="small"><xsl:apply-templates select="." /></td>
+		<td valign="Top" class="small"><xsl:if test="position()!=last()"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=1]" /></xsl:if></td>
+		<td valign="Top" class="small"><xsl:if test="position()!=last()-1 and position()!=last()"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=2]" /></xsl:if></td>
 		</tr>
 		</xsl:if>
     </xsl:for-each>
@@ -112,7 +145,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:attribute name="id">content</xsl:attribute>
 	<xsl:apply-templates select="site:content" />
 
-<div id="footer">Page Updated: $Date$<br />
+<div id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
 Copyright <![CDATA[&copy;]]> 1999-2004 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
 Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com;
 mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A></div>
