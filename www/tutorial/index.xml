@@ -46,6 +46,9 @@
 	<site:part name="part3">
 		<site:title>Part III: Graphics and Text at Absolute Positions</site:title>
 		<site:chapter path="directcontent" />
+		<site:chapter path="directcontent/coordinates" />
+		<site:chapter path="directcontent/graphics" />
+		<site:chapter path="directcontent/colors" />
 	</site:part>
 	<site:part name="part4">
 		<site:title>Part IV: Reading, Encrypting, Manipulating PDF files</site:title>

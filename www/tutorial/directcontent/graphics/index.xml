@@ -18,6 +18,11 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="Literal" standalone="yes" />
+			<site:result>literal.pdf</site:result>
+			<site:description>Writing PDF Syntax directly to iText</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="State" standalone="yes" />
 			<site:result>state.pdf</site:result>
 			<site:description>Changing the Graphics State with saveState and restoreState</site:description>
@@ -40,6 +45,53 @@
 	</site:examples>
 	
 	<site:chapter>
+
+	<site:section name="pdfsyntax">
+		<site:sectiontitle>PDF Syntax</site:sectiontitle>
+<div>
+PDF Syntax looks like this:
+<pre class="commandline">0.3 g
+15.000 27.000 m
+7.947 5.292 l
+26.413 18.708 l
+3.587 18.708 l
+22.053 5.292 l
+f
+45.000 57.000 m
+37.947 35.292 l
+56.413 48.708 l
+33.587 48.708 l
+52.053 35.292 l
+f
+0.7 g
+15.000 57.000 m
+7.947 35.292 l
+26.413 48.708 l
+3.587 48.708 l
+22.053 35.292 l
+f
+45.000 27.000 m
+37.947 5.292 l
+56.413 18.708 l
+33.587 18.708 l
+52.053 5.292 l
+f</pre>
+The example above draws 4 little stars in 2 different grayscales in the lower left corner of your page.
+You could write all this syntax by hand, there's even some methods
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setLiteral(String)">PdfContentByte.setLiteral</site:doc>
+that allow you to do this in iText, but trust me: that's not an easy job. If you want to write a complete PDF file from scratch,
+you also need to know a lot about the byte position of every object.
+I have set compression to false in the first example, so you can read the PDF file with a plain text editor,
+just to convince you, you really shouldn't start writing PDFs manually.
+<site:source class="Literal" />
+The PDF syntax of the example can be generated using simple iText methods such as
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setGrayFill(float)">setGrayFill(float)</site:doc> (the lines ending with g),
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="moveTo(float,%20float)">moveTo(float, float)</site:doc> (the lines ending with m),
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="lineTo(float,%20float)">lineTo(float, float)</site:doc> (the lines ending with l)
+and <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="fill()">fill()</site:doc> (the f).<br />
+All these methods are described in this chapter.
+</div>
+	</site:section>
 
 	<site:section name="state">
 		<site:sectiontitle>Graphics State</site:sectiontitle>
