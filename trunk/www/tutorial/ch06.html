@@ -251,7 +251,7 @@
 			Finally, you will notice that the image used in this example is a <b>transparent gif</b>.
 			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0610.pdf">resulting PDF-file</a>.
 			</ol>
-			</FONT><BR>
+			</FONT>
 		</TD>
 	</TR> 
 	<TR>
@@ -268,7 +268,128 @@
 			You need the <a href="http://java.sun.com/products/java-media/jai/index.html">Java Advanced Imaging API</a>
 			from SUN in order to compile and execute these examples. More specific: you need to add two extra jars to your classpath:
 			jai_codec.jar and jai_core.jar. You can find these jars at <a href="http://java.sun.com/">http://java.sun.com/</a>.
-			</FONT><BR><BR><BR>
+			</FONT><BR><br>
+		</TD>
+	</TR>  
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><A NAME="maskimage"><B>Image masks</B></A></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In <a href="http://www.lowagie.com/iText/examples/Chap0613.java">example 13</a>, we create an image that can be used as mask:
+			<table border="0" cellspacing="1" cellpadding="0">
+<tr>
+    <td bgcolor="#C0C0C0">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>3C</td>
+</tr>
+<tr>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td>7E</td>
+</tr>
+<tr>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td>E7</td>
+</tr>
+<tr>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td>C3</td>
+</tr>
+<tr>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td>C3</td>
+</tr>
+<tr>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td>E7</td>
+</tr>
+<tr>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td>7E</td>
+</tr>
+<tr>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#000000">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td bgcolor="#C0C0C0">&nbsp;</td>
+    <td>3C</td>
+</tr>
+</table>
+<br>
+			This image has a size of 8 by 8 pixels, 1 component and 1 byte per component. Using the method
+			<FONT FACE="Courier">makeMask()</FONT>, it can be turned into a mask:<br><br>
+			<FONT FACE="Courier">
+			byte maskr[] = {(byte)0x3c, (byte)0x7e, (byte)0xe7, (byte)0xc3, (byte)0xc3, (byte)0xe7, (byte)0x7e, (byte)0x3c};<br>
+            Image mask = Image.getInstance(8, 8, 1, 1, maskr);<br>
+            mask.makeMask();<br>
+            mask.setInvertMask(true);<br>
+			</FONT><br>
+			We can use this mask for explicit masking to clip some parts of an image:<br><br>
+			<FONT FACE="Courier">
+            PdfContentByte cb = writer.getDirectContent();<br>
+			Image image = Image.getInstance("vonnegut.gif");<br>
+            image.setImageMask(mask);<br>
+			</FONT><br>
+			Or we can use this mask for stencil masking:<br><br>
+			<FONT FACE="Courier">
+            PdfContentByte cb = writer.getDirectContent();<br>
+            cb.setRGBColorFill(255, 0, 0);<br>
+            cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 400);<br>
+			</FONT><br>
+			Please take a look at the <a href="http://www.lowagie.com/iText/examples/Chap0613.pdf">resulting PDF</a>.<br>
+			(for more info on the ContentByte-object read <a href="ch10.html">Chapter 10</a>).
+			</FONT><BR><BR><BR><br>
 		</TD>
 	</TR>
 	<TR>
