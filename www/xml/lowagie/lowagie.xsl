@@ -5,7 +5,7 @@
 	xmlns:site="http://www.lowagie.com/iText/site"
 	exclude-result-prefixes="site html" >
 
-<xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" indent="yes" media-type="text/html" />
+<xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" indent="no" media-type="text/html" />
 
 <xsl:template match="site:page">
 <html>
@@ -37,8 +37,8 @@ mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@li
 
 <div id="navigation">
 	<div id="itext"><a href="http://www.lowagie.com/iText/"><img class="logo" src="http://www.lowagie.com/iText/logo.gif" border="0" /></a><br />
-	a Free Java-PDF library<br />by <a class="author" HREF="http://www.lowagie.com/">Bruno Lowagie</a><br />
-	and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
+a Free Java-PDF library<br />by <a class="author" HREF="http://www.lowagie.com/">Bruno Lowagie</a><br />
+and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
 	</div>
 	<div id="links">
 	<a class="navigation" href="index.html">Home @ lowagie.com</a>
@@ -63,21 +63,12 @@ mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@li
 <div id="sourceforge"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 <div id="commercial">
 <xsl:if test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
-	<a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
-	<xsl:element name="iframe">
-		<xsl:attribute name="source"><xsl:copy-of select="$amazonlink" /></xsl:attribute>
-		<xsl:attribute name="width">120</xsl:attribute>
-		<xsl:attribute name="height">240</xsl:attribute>
-		<xsl:attribute name="scrolling">no</xsl:attribute>
-		<xsl:attribute name="marginwidth">0</xsl:attribute>
-		<xsl:attribute name="marginheight">0</xsl:attribute>
-		<xsl:attribute name="frameborder">0</xsl:attribute>
-	</xsl:element>
-</xsl:if>
-
+<a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
 <script type="text/javascript"><![CDATA[<!--
 document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=8&l=as1&asins=]]><xsl:value-of select="$amazonlink" /><![CDATA[&fc1=000000&lc1=0000ff&bc1=&lt1=_blank&IS2=1&bg1=ffffff&f=ifr" width="120" height="240" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
-
+//-->]]></script>
+</xsl:if>
+<script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
 google_ad_height = 600;
