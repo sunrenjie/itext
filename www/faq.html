@@ -530,8 +530,19 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Printing is a very platform dependent functionality.
             On Windows, you can print a PDF file by executing Acrobat Reader:<br>
-            <FONT FACE="Courier">Runtime.getRuntime().exec("start acrord32 /p "  + filename);</FONT><br>
-            If you want to suppress the Acrobat Reader Dialog Box add the /h-option.
+            <FONT FACE="Courier">
+            String osName = System.getProperty("os.name" );<br>
+            //FOR WINDOWS 95 AND 98 USE COMMAND.COM<br>
+            if( osName.equals( "Windows 95" ) || osName.equals( "Windows 98" )){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Runtime.getRuntime().exec("command.com /C start acrord32 /p /h" + claim.pdf);<br>
+            }<br>
+            //FOR WINDOWS NT/XP/2000 USE CMD.EXE<br>
+            else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Runtime.getRuntime().exec("cmd.exe /C acrord32 /p /h" + claim.pdf);<br>
+            }<br>
+            </FONT><br>
+            (Code provided by Jasperlan Guela)<br>
+            Remark: the /h-option suppresses the Acrobat Reader Dialog Box.
             <br>
 			</FONT><BR><BR><br><br>
 		</TD>
