@@ -48,6 +48,11 @@
 			<site:result>HelloWorldHtml.html</site:result>
 			<site:description>Writing to different writers at the same time; using pause() and resume()</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="HelloWorldMeta" standalone="yes" />
+			<site:result>HelloWorldMeta.pdf</site:result>
+			<site:description>Adding metadata to a new PDF document</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -170,6 +175,39 @@ demonstrated in the next example:
 	<site:section name="step3">
 		<site:sectiontitle>step 3: metadata + opening the document</site:sectiontitle>
 		<div>
+<div class="subtitle">Metadata</div>
+if we look at the Document Properties in Acrobat (under File in the menu),
+we see that several fields are empty by default:<br />
+<site:image source="metadata.gif">HelloWorld without metadata</site:image><br />
+<br />
+Only two metadata methods are called by default:
+<site:doc class="com.lowagie.text.Document" target="addProducer()">addProducer()</site:doc>
+and
+<site:doc class="com.lowagie.text.Document" target="addCreationDate()">addCreationDate()</site:doc>.
+It's possible to change the producer and creation date, but you shouldn't.<br />
+We'll only document the methods to change the rest of the metadata in the
+'Description' area:<br />
+<table border="1" cellpadding="3">
+<tr><td>Title:</td><td><site:doc class="com.lowagie.text.Document" target="addTitle(java.lang.String)">addTitle(java.lang.String)</site:doc></td></tr>
+<tr><td>Author:</td><td><site:doc class="com.lowagie.text.Document" target="addAuthor(java.lang.String)">addAuthor(java.lang.String)</site:doc></td></tr>
+<tr><td>Subject:</td><td><site:doc class="com.lowagie.text.Document" target="addSubject(java.lang.String)">addSubject(java.lang.String)</site:doc></td></tr>
+<tr><td>Keywords:</td><td><site:doc class="com.lowagie.text.Document" target="addKeywords(java.lang.String)">addKeywords(java.lang.String)</site:doc></td></tr>
+<tr><td>Application:</td><td><site:doc class="com.lowagie.text.Document" target="addCreator(java.lang.String)">addCreator(java.lang.String)</site:doc></td></tr>
+</table><br />
+This is a small code sample:
+<pre class="commandline">document.addTitle("Hello World example");
+document.addAuthor("Bruno Lowagie");
+document.addSubject("This example explains how to add metadata.");
+document.addKeywords("iText, Hello World, step 3, metadata");
+document.addCreator("My program using iText");
+</pre>
+Compare the result on this screenshot:<br />
+<site:image source="meta.gif">HelloWorld with metadata</site:image><br />
+<site:source class="HelloWorldMeta" />
+If you study the API, you will see there is also a generic method
+<site:doc class="com.lowagie.text.Document" target="addHeader(java.lang.String,%20java.lang.String)">addHeader(java.lang.String,%20java.lang.String)</site:doc>.
+That method has no effect on PdfWriter, but you can use it with
+<site:tutorial chapter="/html" section="metadata">HtmlWriter</site:tutorial>.
 		</div>
 	</site:section>
 	
