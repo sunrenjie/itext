@@ -19,8 +19,11 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
-<li>Not yet released: iText 1.2.3
+<li>2005-02-17: iText 1.2.3
 <li>Fixes and updates to RtfWriter2 by Mark Hall<ul>
+<li>Fixed the fitspage problem with thanks to Jon Strabala.
+The RtfWriter2 now fully supports both Table.tableFitsPage() and Table.cellsFitPage().
+As a side effect support for the keeptogether property of Paragraph has also been added.</li>
 <li>Fix for incorrect table widths.</li>
 <li>Fix for RtfPageNumber and other field not showing in tables.</li>
 <li>Super/Subscript should now always work.</li>
