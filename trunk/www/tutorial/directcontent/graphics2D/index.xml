@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Direct Content</site:title>
+		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="G2D" standalone="yes" />
+			<site:result>graphics2D.pdf</site:result>
+			<site:description>A Simple Graphics2D example</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="JFreeChartExample" standalone="yes" />
+			<site:result>barchart.pdf</site:result>
+			<site:result>piechart.pdf</site:result>
+			<site:result>xychart.pdf</site:result>
+			<site:extrajar>jfreechart.jar</site:extrajar>
+			<site:extrajar>jcommon.jar</site:extrajar>
+			<site:description>Some JFreeChart examples</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+
+	<site:section name="graphics2D">
+		<site:sectiontitle>The java.awt.Graphics2D object</site:sectiontitle>
+<div>
+<site:source class="G2D" />
+</div>
+	</site:section>
+	
+	</site:chapter>
+
+</site:page>
