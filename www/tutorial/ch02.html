@@ -80,8 +80,8 @@
 			in the following chapters, only one of them in this chapter: the method <font face="Courier">setTextRise(float f)</font>.
 			You can use this method to write chunks in super- or subscript.<br>
 			<br>
-			In <a href="Chap0201.java">example 1</a>, you can find an overview of the Type 1 fonts and
-			an example of the method <font face="Courier">setTextRise</font> (see <a href="Chap0201.pdf">Chap0201.pdf</a>).
+			In <a href="http://www.lowagie.com/iText/examples/Chap0201.java">example 1</a>, you can find an overview of the Type 1 fonts and
+			an example of the method <font face="Courier">setTextRise</font> (see <a href="http://www.lowagie.com/iText/examples/Chap0201.pdf">Chap0201.pdf</a>).
 			</FONT><BR><br>
 		</TD>
 	</TR>
@@ -95,15 +95,15 @@
 			A phrase has a main font, but some chunks within the phrase can have
 			a font that differs from the main font.
 			You can choose from a wide variety of constructors to create a Phrase.
-			Some of them are used in <A HREF="Chap0202.java">example 2</A> (see
-			also the <A HREF="Chap0202.pdf">resulting pdf</A>).<BR><BR>
+			Some of them are used in <A HREF="http://www.lowagie.com/iText/examples/Chap0202.java">example 2</A> (see
+			also the <A HREF="http://www.lowagie.com/iText/examples/Chap0202.pdf">resulting pdf</A>).<BR><BR>
 			<B>Ancient Greek</B><BR>
 			Because greek characters are used very often, there is a feature in
 			the constructors of class Phrase (and derived classes) that take a
 			String as parameter (so if you want to avoid this feature, you should
 			always work with chunks, not with strings).<BR>
-			As you can see in <A HREF="Chap0203.java">example 3</A>
-			(<A HREF="Chap0203.pdf">Chap0203.pdf</A>), this feature automatically
+			As you can see in <A HREF="http://www.lowagie.com/iText/examples/Chap0203.java">example 3</A>
+			(<A HREF="http://www.lowagie.com/iText/examples/Chap0203.pdf">Chap0203.pdf</A>), this feature automatically
 			changes the font to Symbol for all characters in the range from 913 to
 			937 (except 930) and from 945 to 969 (these are
 			the ASCII-values of the ancient greek characters).<BR>
@@ -112,7 +112,7 @@
 			This is rather a bug than a feature, but anyway: it is possible to create
 			a phrase (or paragraph) with a negative leading. This has the odd effect
 			of sentences that are written from bottom to top (see
-			<A HREF="Chap0204.java">Chap0204.java</A> and <A HREF="Chap0204.pdf">Chap0204.pdf</A>).
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0204.java">Chap0204.java</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap0204.pdf">Chap0204.pdf</A>).
 			This can be useful for instance if you want to move some positions up in a page.
 			Remark: there is no check to see when you are crossing the upper borderline and there
 			is no way to go back to a previous page.
@@ -144,7 +144,7 @@
             Remark: a paragraph has 1 and only 1 leading. If you add phrases or chunks with other fonts, the original
             leading remains valid. You can change the leading with method <FONT FACE="Courier">setLeading</FONT>, but
             then the whole content of the paragraph will have this new leading.<br>
-            You may want to try <a href="Chap0205.java">example 5</A> to obtain the following <A HREF="Chap0205.pdf">result</A>.
+            You may want to try <a href="http://www.lowagie.com/iText/examples/Chap0205.java">example 5</A> to obtain the following <A HREF="http://www.lowagie.com/iText/examples/Chap0205.pdf">result</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -154,17 +154,17 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Some advanced stuff</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Because 'simple iText' is so easy to use, the previous sections were pretty trivial.
-            With <a href="Chap0206.java">example 6</A>, I want to spice up this chapter a little
+            With <a href="http://www.lowagie.com/iText/examples/Chap0206.java">example 6</A>, I want to spice up this chapter a little
             bit and demonstrate one of the many nice features of 'advanced PDF'.<br>
             In <a href="ch12.html">Chapter 12</A>, we will discuss PageEvents. One of these events
             is called <FONT FACE="Courier">onGenericTag</FONT>. This event can be triggered by
             invoking the method <FONT FACE="Courier">setGenericTag</FONT> on a chunk. This feature
-            can be used for a wide variety of functionalities. In <A HREF="Chap0206.java">example 6</A>,
+            can be used for a wide variety of functionalities. In <A HREF="http://www.lowagie.com/iText/examples/Chap0206.java">example 6</A>,
             we want to build a simple glossary. When we add a certain keyword to the document, we
             trigger an event that adds this keyword and the pagenumber of the page where
             the keyword is written to a TreeMap. Once we have finished adding content, we retrieve
             the TreeMap and add a glossary to the document. Please take a look at the
-            <A HREF="Chap0206.pdf">resulting pdf</A>. We will use this feature in other context
+            <A HREF="http://www.lowagie.com/iText/examples/Chap0206.pdf">resulting pdf</A>. We will use this feature in other context
             later on in this tutorial.
 			</FONT><BR><BR><BR>
 		</TD>
