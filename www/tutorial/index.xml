@@ -39,13 +39,13 @@
 		<site:chapter path="objects/fonts" />
 		<site:chapter path="objects/images" />
 		<site:chapter path="objects/images/tiff" />
-		<site:chapter path="objects/images/directcontent" />
 		<site:chapter path="objects/tables" />
 		<site:chapter path="objects/tables/pdfptable" />
 		<site:chapter path="objects/tables/alternatives" />
 	</site:part>
 	<site:part name="part3">
 		<site:title>Part III: Graphics and Text at Absolute Positions</site:title>
+		<site:chapter path="directcontent" />
 	</site:part>
 	<site:part name="part4">
 		<site:title>Part IV: Reading, Encrypting, Manipulating PDF files</site:title>

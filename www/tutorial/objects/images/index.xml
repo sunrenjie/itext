@@ -89,6 +89,12 @@
 			<site:description>Adds images to a document, once respecting the order in which they were added, once in the default order.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="ImageMasks" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>maskedImages.pdf</site:result>
+			<site:description>Applying a mask to an image.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="DvdCover" standalone="yes" />
 			<site:externalresource>sunflower-front.jpg</site:externalresource>
 			<site:externalresource>sunflower-back.jpg</site:externalresource>
