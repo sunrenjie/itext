@@ -21,6 +21,27 @@
 			<site:result>circles.pdf</site:result>
 			<site:description>Draws some concentric circles</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Shapes" standalone="yes" />
+			<site:result>shapes.pdf</site:result>
+			<site:description>Draws some shapes</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Text" standalone="yes" />
+			<site:result>text.pdf</site:result>
+			<site:description>Adding text at absolute positions</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Templates" standalone="yes" />
+			<site:result>templates.pdf</site:result>
+			<site:description>Using templates</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="PageNumbersWatermark" standalone="yes" />
+			<site:result>pageNumbersWatermark.pdf</site:result>
+			<site:externalresource>logo.gif</site:externalresource>
+			<site:description>Making a document with a header containing 'page x of y' and with a watermark on every page.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -28,6 +49,7 @@
 		<site:sectiontitle>PdfContentByte</site:sectiontitle>
 <div>
 <site:source class="Circles" />
+Other examples: PdfPTable, Images,...
 </div>
 	</site:section>
 	</site:chapter>
