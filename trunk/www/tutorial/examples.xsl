@@ -40,6 +40,7 @@
 				<property name="bin" value="${{basedir}}/bin" />
 				<property name="tutorial" value="${{basedir}}/tutorial" />
 				<property name="examples" value="${{basedir}}/examples" />
+				<property name="webapp" value="${{basedir}}/webapp" />
 				<path id="classpath">
 					<pathelement location="${{examples}}" />
 					<pathelement location="${{bin}}/iText.jar" />
@@ -85,6 +86,39 @@
 							<classpath refid="classpath" />
 						</xsl:element>
 					</xsl:if>
+					<xsl:if test="site:java/@webapp">
+						<xsl:element name="mkdir">
+							<xsl:attribute name="dir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/lib</xsl:attribute>
+						</xsl:element>
+						<xsl:element name="copy">
+							<xsl:attribute name="file">${bin}/iText.jar</xsl:attribute>
+							<xsl:attribute name="todir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/lib</xsl:attribute>
+							<xsl:attribute name="overwrite">no</xsl:attribute>
+						</xsl:element>
+						<xsl:element name="mkdir">
+							<xsl:attribute name="dir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/classes/com/lowagie/examples<xsl:value-of select="$branch" /></xsl:attribute>
+						</xsl:element>
+						<xsl:element name="copy">
+							<xsl:attribute name="todir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/classes/com/lowagie/examples<xsl:value-of select="$branch" /></xsl:attribute>
+							<xsl:attribute name="overwrite">yes</xsl:attribute>
+							<xsl:element name="fileset">
+								<xsl:attribute name="dir">${examples}/com/lowagie/examples<xsl:value-of select="$branch" /></xsl:attribute>
+								<include name="*.class" />
+							</xsl:element>
+						</xsl:element>
+					</xsl:if>
+				</xsl:for-each>
+				<xsl:for-each select="site:webapp">
+					<xsl:element name="copy">
+						<xsl:attribute name="file">${tutorialsrc}<xsl:value-of select="$branch" />/<xsl:value-of select="site:welcome" /></xsl:attribute>
+						<xsl:attribute name="todir">${webapp}/<xsl:value-of select="@name" /></xsl:attribute>
+						<xsl:attribute name="overwrite">yes</xsl:attribute>
+					</xsl:element>
+					<xsl:element name="war">
+						<xsl:attribute name="destfile">${webapp}/<xsl:value-of select="@name" />.war</xsl:attribute>
+						<xsl:attribute name="basedir">${webapp}/<xsl:value-of select="@name" /></xsl:attribute>
+						<xsl:attribute name="webxml">${tutorialsrc}<xsl:value-of select="$branch" />/<xsl:value-of select="site:webxml" /></xsl:attribute>
+					</xsl:element>
 				</xsl:for-each>
 				<delete>
 					<fileset dir="${{examples}}" includes="**/*.class"/>
