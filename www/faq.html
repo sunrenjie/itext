@@ -48,20 +48,22 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<BR><BR>
 			<FONT FACE="Arial,Helvetica">
-			<B>These are some frequently asked questions</B>
+			<B>These are some frequently asked questions</B><br>
+			If you don't find the answer to your question here and it's mainly a technical question,
+			please consult the <a href="http://www.lowagie.com/iText/tutorial/">tutorial</a>.
+			On the <a href="index.html">HOME</a>-page you'll find a complete overview of all the
+			topics that are discussed in the tutorial.
 			<UL>
 				<LI><A HREF="#whatis">What is PDF?</A>
+				<LI><A HREF="#lgpl">What is LGPL?</A>
 				<li><a href="#ftp">I have troubles downloading the source/jarfile from the ftp-site.</A>
-				<li><a href="#latest">Where do I find the most source of iText?</a>
 				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
-				<li><a href="#servlet">Where can I find an example of iText used in a Servlet application?</A>
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
 				<LI><A HREF="#measurements">What measurement unit is used?</A>
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
 				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
 				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
-				<li><a href="#javadoc">How do I generate documentation files (the API)?</a>
 				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
 				<li><a href="#images">On the subject of images!</A>
@@ -89,6 +91,39 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="lgpl"><B>What is LGPL?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			First of all: LGPL IS NOT GPL!<br>
+			I you work for a commercial company and you download a program that is published with a GPL,
+            I would recommend you to stay away from it, unless you want to use the product AS-IS.
+            GPL is like a virus. It affects all the software you add yourself to the product.
+			That is my point of view. Not everyone has to agree.<br><br>
+			iText is LGPL!<br>
+            In my opinion that LGPL is a lot better. I made iText LGPL because I want to
+            <em>encourage</em> people to use iText in their commercial/closed source/propriety software.
+			I myself use iText in closed source projects.<br>
+            It is allowed to use iText in your own product as long as you don't change the copyright notices.
+			You also have to distribute the source code of iText to your clients (or even better, add
+			a link to the iText site).<br>
+			You can't charge your client for iText, nor for the work you have done 'ameliorating iText'.
+			All enhancements or bugfixes have to be published for free.<br>
+			Of course you may charge people for your own application and for the work you did integrating
+			iText in your product. Your own code may of course remain closed source. For instance:
+            if you write an editor that produces PDF, you can charge your customers for the work you
+			have done on the editor, but not for the PDF generating part. If you have fixed some bugs
+			in iText while writing the code of your product, you have to send a bugreport telling the
+			community how to fix these bugs to the mailing list. Lots of people have contributed to the
+			code; you will find lots of names in the source code.<br>
+			Once you decide to use iText, you accept the code AS-IS. You can't force any of the developers
+			to give support (allthough you will get lots of free support through the mailing list). You
+			can't sue any of the developers if anything goes wrong. After all, iText is a FREE product.<br><br>
+            You can read the LGPL for more detail (see <a href="lgpl.txt">lgpl.txt</a>), but I think the above
+            is a good summary.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="ftp"><B>I have troubles downloading the source/jarfile from the ftp-site.</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Maybe you're behind a Firewall or IP-masquerading setup.
@@ -100,25 +135,8 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="latest"><B>Where do I find the most recent source of iText?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			You can always consult the CVS repository. You can do this by following the <A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">link to CVS</a>
-			or by checking out the source with a CVS client. On *NIX this is done as follows:
-			<pre>export CVS_RSH=ssh
-cvs -d:pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext login
-cvs -d:pserver:anonumous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
-			There is no password for user anonymous, just press enter.<br>
-			If you want to use CVS on Windows, please consult the <A HREF="http://sourceforge.net/docman/display_doc.php?docid=763&group_id=1">site docs</a> at Sourceforge.<br>
-			</FONT><BR><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="msie"><B>Problems with the Internet Explorer plugin</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			See also the Support Knowledge Base at Adobe: <A HREF="http://www.adobe.com/support/techdocs/3d76.htm">document 311184</A>.<BR>
-			Solution 8 is very polite about this, but there is a bug in MSIE that
-			still has to be fixed by the developers at MicroSoft.
 			When you send dynamically created CORRECT (!) PDFs
 			(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
 			a blank browser window. This is because MSIE needs to know
@@ -132,19 +150,7 @@ cvs -d:pserver:anonumous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
 			&nbsp;<CODE>ba.writeTo(out);</CODE><BR>
 			&nbsp;<CODE>out.flush();</CODE><BR>
 			<BR>
-			If you don't include the content lenght it only works sometimes, if ever.
-			</FONT><BR><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="servlet"><B>Where can I find an example of iText used in a Servlet application?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">					
-			I have an account on this server: <A HREF="http://webappcabaret.com/">
-			http://webappcabaret.com/</A>. This service is FREE and offers Servlet Support.
-			You can find my demo-application here: <A HREF="http://webappcabaret.com/blowagie/itext/">
-			http://webappcabaret.com/blowagie/itext/</A> or you can try the example in the
-			<A HREF="tutorial/ch01.html#servlet">tutorial</A>.
+			If you don't include the content length it only works sometimes, if ever.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -211,24 +217,14 @@ cvs -d:pserver:anonumous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="html2pdf"><B>Can I convert a HTML file to a PDF document?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			This is not supported by iText, but there are people who use iText to convert HTML pages to PDF.
-			You can find some examples here:
+			This is not really supported by iText. In <A href="http://www.lowagie.com/iText/tutorial/ch07.html#htmlparsing">Chapter 7</a>,
+			you find a (very experimental) example. There are people who have succeeded in using this functionality in combination with
+			the HtmlTidy and there are also some examples here (but the links are broken most of the time):
 			<A HREF="http://128.146.118.49/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
-			and <A HREF="http://128.146.118.49/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.
+			and <A HREF="http://128.146.118.49/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.<br>
+			If you really need HTML to PDF conversion, use HtmlDoc or post your question to the mailing list to hear
+			from other subscribers how they achieved to parse their HTML.
 			</FONT><BR><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="javadoc"><B>How do I generate documentation files (the API)? </B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			I have generated the API-pages using the <CODE>javadoc</CODE> tool that comes
-			with the JDK. This is the command line I used on Windows:
-			</FONT>
-<PRE>javadoc -use -windowtitle iText -doctitle "Java-Pdf-Html Library"
--link http://java.sun.com/products/jdk/1.2/docs/api -classpath .
--version -author -private -d D:/docs com.lowagie.text com.lowagie.text.pdf
-com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 		</TD>
 	</TR>
 	<TR>
@@ -249,21 +245,14 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 			classpath. You and you alone can solve these kind of errors, so please don't mail us
 			before you're absolutely sure you've checked every detail on your system, or else...
 			</ol>
-			</FONT><br>
+			</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><a name="jdk11"><B>Can I use iText with the JDK1.1?</B></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Yes, the original code was written for the JDK1.2, but it was ported
-			to the JDK 1.1.x by Volker Richert. You can download the source from
-			my <A HREF="ftp://ftp.lowagie.com/iText/jdk1.1-version/">FTP</A>-site.
-			(Remark: This 1.1 compatible version was tested by Rico Kahnert.)<BR>
-			There is also a 1.1.x port of iText0.35 by Paulo Soares.<BR>
-			<FONT COLOR="#FF0000">Important:</FONT> the zip- and jar-file only
-			contain the SOURCE CODE. You will have to unzip/unjar and compile
-			this code first!
+			You can download a 1.1 distribution from <A HREF="http://www.geocities.com/itextpdf">Paulo's site</A>.
 			You will also need to download the
 			<A HREF="http://java.sun.com/beans/infobus/index.html#DOWNLOAD_COLLECTIONS"><FONT FACE="Arial,Helvetica" SIZE="-1">Collection</FONT></A>
 			classes to make the library work (more
@@ -275,7 +264,8 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<b>Simple iText</b> supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
+			First read <A href="http://www.lowagie.com/iText/tutorial/ch06.html">Chapter 6</a> of the tutorial.
+			iText supports images (WMF, plain GIFs, JPEGs and PNGs), but there are some limitations!
 			<UL>These are the exceptions:
 			<LI>GIF
 				<UL>
@@ -313,7 +303,7 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 			so if you use this functionality (as described in the advanced example in
 			<a href="tutorial/ch06.html#advanced">Chapter 6</a>), you can add all the types of
 			images that are supported by the JDK (all kinds of GIFs, TIFF,...).
-			</FONT><BR><BR>
+			</FONT><BR><BR><br><br>
 		</TD>
 	</TR>
 	<TR>
