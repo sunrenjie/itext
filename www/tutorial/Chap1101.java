@@ -25,18 +25,17 @@
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.awt.Color;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfTemplate;
 
-public class Chap1004 {
+public class Chap1101 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 10 example 4: Templates");
+		System.out.println("Chapter 11 example 1: local goto");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -46,34 +45,28 @@ public class Chap1004 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1004.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1101.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
-			// step 4: we grab the ContentByte and do some stuff with it
-            PdfContentByte cb = writer.getDirectContent();
-
-            // we create a PdfTemplate
-            PdfTemplate template = cb.createTemplate(50, 50);
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
-            // we add a number of pages
-            int i;
-            for (i = 1; i < 5; i++) {
-                String text = "Page " + writer.getPageNumber() + " of ";
-                float len = bf.getWidthPoint(text, 12);
-                cb.beginText();
-                cb.setFontAndSize(bf, 12);
-                cb.setTextMatrix(280, 40);
-                cb.showText(text);
-                cb.endText();
-                cb.addTemplate(template, 280 + len, 40);
-                document.newPage();
-            }
-            template.beginText();
-            template.setFontAndSize(bf, 12);
-            template.showText(String.valueOf(i - 1));
-            template.endText();
+			// step 4: we add some content
+            
+            Paragraph p1 = new Paragraph("We will do something special with this paragraph. If you click on ", new Font(Font.HELVETICA, 12));
+            p1.add(new Chunk("this word", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test"));
+            p1.add(" you will automatically jump to another location in this document.");
+            Paragraph p2 = new Paragraph("som blah, blah, blah");
+            Paragraph p3 = new Paragraph("This paragraph contains a local ");
+            p3.add(new Chunk("local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
+            document.add(p1);
+            document.add(p2);
+            document.add(p2);
+            document.add(p2);
+            document.add(p2);
+            document.add(p2);
+            document.add(p2);
+            document.add(p2);
+            document.add(p3);
 		}
 		catch(DocumentException de) {
 			System.err.println(de.getMessage());

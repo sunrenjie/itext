@@ -66,6 +66,15 @@
 			<li>Symbol
 			<li>ZapfDingbats
 			</ul>
+			<a name="superscript"><b>Underline / strikethrough</b></a>
+			If you want some chunks to be underlined, or if you want to strike a line through a chunk,
+            you can do this simply by changing the style of the font.<br>
+            <FONT FACE="Courier">
+            Chunk chunk1 = new Chunk("This text is underlined", new Font(Font.HELVETICA, 12, Font.UNDERLINE));<BR>
+            Chunk chunk2 = new Chunk("This font is of type ITALIC | STRIKETHRU", new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU));<BR>
+            </FONT>
+            <br>
+			<br>
 			<a name="superscript"><b>Superscript / subscript</b></a>
 			There are some methods that can be invoked on a <font face="Courier">Chunk</font>. Most of them will be explained
 			in the following chapters, only one of them in this chapter: the method <font face="Courier">setTextRise(float f)</font>.
@@ -115,10 +124,28 @@
 			<A NAME="paragraph"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Paragraph</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Under construction<BR>
+			A paragraph is a series of chunks and/or phrases. Just like a phrase, a paragraph
+            has a certain leading. The user can also define a certain indentation; this is the
+            amount of space that is left blank on the right and/or left. A paragraph can also
+            be aligned (to the right, to the left, centered or justified). Every paragraph
+            that is added to a document, starts automatically on a new line.<BR>
+            There are several ways a paragraph can be constructed, here are some examples:<br>
 			<FONT FACE="Courier">
+            Paragraph p1 = new Paragraph(new Chunk("This is my first paragraph.", new Font(Font.HELVETICA, 12)));<BR>
+            Paragraph p2 = new Paragraph(new Phrase("This is my second paragraph.", new Font(Font.HELVETICA, 12)));<BR>           
+            Paragraph p3 = new Paragraph("This is my third paragraph.", new Font(Font.HELVETICA, 12));
 			</FONT><BR>
-			</FONT>
+            All kinds of objects can be added to a paragraph:<br>
+            <FONT FACE="Courier">
+            p1.add("you can add strings, ");
+            p1.add(new Chunk("you can add chunks "));
+            p1.add(new Phrase("or you can add phrases."));
+            </FONT>
+            Remark: a paragraph has 1 and only 1 leading. If you add phrases or chunks with other fonts, the original
+            leading remains valid. You can change the leading with method <FONT FACE="Courier">setLeading</FONT>, but
+            then the whole content of the paragraph will have this new leading.<br>
+            You may want to try <a href="Chap0205.java">example 5</A> to obtain the following <A HREF="Chap0205.pdf">result</A>.
+			</FONT><BR><BR><BR>
 		</TD>
 	</TR>	
 	<TR>

@@ -27,16 +27,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfTemplate;
 
-public class Chap1004 {
+public class Chap0205 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 10 example 4: Templates");
+		System.out.println("Chapter 2 example 5: Paragraphs");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -46,34 +43,24 @@ public class Chap1004 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1004.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("Chap0205.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
-			// step 4: we grab the ContentByte and do some stuff with it
-            PdfContentByte cb = writer.getDirectContent();
-
-            // we create a PdfTemplate
-            PdfTemplate template = cb.createTemplate(50, 50);
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
-            // we add a number of pages
-            int i;
-            for (i = 1; i < 5; i++) {
-                String text = "Page " + writer.getPageNumber() + " of ";
-                float len = bf.getWidthPoint(text, 12);
-                cb.beginText();
-                cb.setFontAndSize(bf, 12);
-                cb.setTextMatrix(280, 40);
-                cb.showText(text);
-                cb.endText();
-                cb.addTemplate(template, 280 + len, 40);
-                document.newPage();
-            }
-            template.beginText();
-            template.setFontAndSize(bf, 12);
-            template.showText(String.valueOf(i - 1));
-            template.endText();
+			// step 4: we add a paragraph to the document
+            Paragraph p1 = new Paragraph(new Chunk("This is my first paragraph. ", new Font(Font.HELVETICA, 10)));
+            p1.add("The leading of this paragraph is calculated automagically. ");
+            p1.add("The default leading is 1.5 times the fontsize. ");
+            p1.add(new Chunk("You can add chunks "));
+            p1.add(new Phrase("or you can add phrases. "));
+            p1.add(new Phrase("Unless you change the leading with the method setLeading, the leading doesn't change if you add text with another leading. This can lead to some problems.", new Font(Font.HELVETICA, 18)));
+            document.add(p1);
+            Paragraph p2 = new Paragraph(new Phrase("This is my second paragraph.", new Font(Font.HELVETICA, 12)));
+            p2.add("As you can see, it started on a new line.");
+            document.add(p2);
+            Paragraph p3 = new Paragraph("This is my third paragraph.", new Font(Font.HELVETICA, 12));
+            document.add(p3);
 		}
 		catch(DocumentException de) {
 			System.err.println(de.getMessage());
