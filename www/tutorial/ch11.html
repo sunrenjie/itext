@@ -55,8 +55,8 @@
             Chunk localgoto = new Chunk("this word", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test");<br>
             Chunk destination = new Chunk("local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test");
             </FONT><br><BR>
-            The 'local goto' functionality is demonstrated in <A HREF="Chap1101.java">example 1</A>
-            and it can be tested in the resulting document <A HREF="Chap1101.pdf">Chap1101.pdf</A>.
+            The 'local goto' functionality is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap1101.java">example 1</A>
+            and it can be tested in the resulting document <A HREF="http://www.lowagie.com/iText/examples/Chap1101.pdf">Chap1101.pdf</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -67,7 +67,7 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<A NAME="anchor"></A>
             <B>anchors again</B><BR>
-            In <A HREF="ch03.html">Chapter 3</A> we showed how an <FONT FACE="Courier">Anchor</FONT>
+            In <A HREF="http://www.lowagie.com/iText/examples/ch03.html">Chapter 3</A> we showed how an <FONT FACE="Courier">Anchor</FONT>
             to an external URL could be created. Class <FONT FACE="Courier">Anchor</FONT> extended
             class <FONT FACE="Courier">Phrase</FONT>, so an anchor could contains different chunks
             with different fonts, styles and colors. In advanced iText, there is another way to define
@@ -92,7 +92,7 @@
             <FONT FACE="Courier">
             Chunk chunk = new Chunk("jump", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", 3));
             </FONT><br><BR>
-            Check out <A HREF="Chap1102.java">example 2</A> and <A HREF="Chap1102a.pdf">Chap1102a.pdf</A>/<A HREF="Chap1102b.pdf">Chap1102b.pdf</A>
+            Check out <A HREF="http://www.lowagie.com/iText/examples/Chap1102.java">example 2</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1102a.pdf">Chap1102a.pdf</A>/<A HREF="http://www.lowagie.com/iText/examples/Chap1102b.pdf">Chap1102b.pdf</A>
             for a little demonstration.</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -158,7 +158,7 @@
 			<A NAME="outlines"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Outlines</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-            In <A HREF="ch04.html">Chapter 4</A>, we were able to build an outline tree
+            In <A HREF="http://www.lowagie.com/iText/examples/ch04.html">Chapter 4</A>, we were able to build an outline tree
             by using the objects <FONT FACE="Courier">Chapter</FONT> and <FONT FACE="Courier">Section</FONT>.
             Now we are going to build an outline tree manually. First of all we have to ask the contentbyte
             of the writer for the root of the outline tree:<BR>
@@ -174,16 +174,16 @@
             PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");<BR>
             PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");<BR>
             </FONT><br>
-            In <A HREF="Chap1103.java">example 3</A>, we first place some crosses.
+            In <A HREF="http://www.lowagie.com/iText/examples/Chap1103.java">example 3</A>, we first place some crosses.
             These crosses will mark different destinations. Click on the different
-            outline entries in document <A HREF="Chap1103.pdf">Chap1103.pdf</A> to
+            outline entries in document <A HREF="http://www.lowagie.com/iText/examples/Chap1103.pdf">Chap1103.pdf</A> to
             test the destination functionality.<BR>
-            In <A HREF="Chap1104.java">example 4</A>, we build the outline tree
+            In <A HREF="http://www.lowagie.com/iText/examples/Chap1104.java">example 4</A>, we build the outline tree
             automatically again, just as when we used Chapters and Sections.
             This time however, we use a PageEventHelper class that adds an
             outline every time a new paragraph is started. But more about these
             page events in the <A HREF="ch12.html">next chapter</A>. Check out
-            <A HREF="Chap1104.pdf">Chap1104.pdf</A> (and read all about some
+            <A HREF="http://www.lowagie.com/iText/examples/Chap1104.pdf">Chap1104.pdf</A> (and read all about some
             brave belgians).
 			</FONT><BR><BR><br>
 		</TD>

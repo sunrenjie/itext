@@ -55,7 +55,7 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Other encodings</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Lots of special characters are not supported in ISO 8859-1 (also known as Latin 1).
-			In the <a href="Chap0901.java">following example</a> we will use a known font (Helvetica)
+			In the <a href="http://www.lowagie.com/iText/examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
 			with an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
             27 characters; the encoding is also known as 'winansi').<br>
 			<FONT FACE="Courier">
@@ -65,7 +65,7 @@
 			document.add(chunk);<br>
 			</FONT>
 			As you can see, the EURO symbol is added by using its UNICODE value.
-			Check out the <a href="Chap0901.pdf">result</a>.<BR><BR>
+			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0901.pdf">result</a>.<BR><BR>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
@@ -86,7 +86,7 @@
 			<A NAME="truetype"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>True Type Fonts</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			In <A HREF="Chap0902.java">example 2</A>, we are going to use a very popular
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
             True Type font:<br>
 			<FONT FACE="Courier">
 			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", false);<BR>
@@ -99,7 +99,7 @@
             you will have to change this path. Also, if the used TrueType font is not
             found on your machine, Acrobat Reader will throw an error such as: 'a font
             is missing or corrupted'. This can be the case when you try to open
-            <A HREF="Chap0902.pdf">Chap0902.pdf</A>.<BR><BR>
+            <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.<BR><BR>
             That is why it's safer to embed the font in the PDF file, by setting the last parameter
             of method <FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">true</FONT>:<br>
 			<FONT FACE="Courier">
@@ -108,7 +108,7 @@
 			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);<BR>
 			document.add(chunk);
 			</FONT><BR>
-            As you can see in <A HREF="Chap0903.java">example 3</A>, the <a href="Chap0903.pdf">resulting PDF file</a>
+            As you can see in <A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>, the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
             is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font.<BR>
 			</FONT>
 		</TD>
@@ -125,16 +125,19 @@
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
 			</FONT>
-			This piece of code is used in <a href="Chap0904.java">example4</a> and you can take
-			a look a the result <a href="Chap0904.pdf">here</a>.<br><br>	
+			This piece of code is used in <a href="http://www.lowagie.com/iText/examples/Chap0904.java">example4</a> and you can take
+			a look a the result <a href="http://www.lowagie.com/iText/examples/Chap0904.pdf">here</a>.<br><br>	
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
 				<B>Important:</B><BR>
-				You can't embed these Asian fonts. Before trying to view a pdf with Asian characters,
-                you must download the Asian font pack from Adobe.<br>
-				You can download font packs at:
+				You can't embed these Asian fonts with iText. Acrobat can do it and
+                so can ghostscript but iText can't. Embedding fonts is
+                not trivial, embedding CJK fonts is even less trivial. In iText either you
+                use the Adobe CJK fonts or use another library (I never saw a library that
+                could do this but it probably exists). Before trying to view a pdf with Asian
+                characters, you must download the Asian font pack from Adobe at:
 				<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>
 				</FONT>
 				</TD>
