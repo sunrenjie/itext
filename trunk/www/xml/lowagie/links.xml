@@ -38,9 +38,14 @@
 		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.<br />
 		<a href="http://jpedal.sourceforge.net/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.<br />
 		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.<br />
+		<div class="title">Free / Open Source Software links</div>
+		<a href="http://sourceforge.net/" class="topic">SourceForge:</a>  the world's largest Open Source software development website.
+		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
 		<div class="title">Other technical links</div>
-		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/">zvon.org:</a> CSS 2 reference with examples
-		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp">w3schools on XSL:</a> XSLT Elements Reference
+		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
+		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
+		<div class="title">Miscelaneous links</div>
+		<a href="http://slashdot.org/" class="topic">Slashdot:</a> News for Nerds, Stuff that Matters
 	</div>
 	</site:content>
 </site:page>
