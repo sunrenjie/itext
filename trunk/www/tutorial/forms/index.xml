@@ -60,6 +60,20 @@
 			<site:result>signature.pdf</site:result>
 			<site:description>Generates a PDF with an Acroform containing a signature</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ListFields" standalone="yes" />
+			<site:argument>pushbutton.pdf</site:argument>
+			<site:argument>radiobutton.pdf</site:argument>
+			<site:argument>checkbox.pdf</site:argument>
+			<site:argument>textfield.pdf</site:argument>
+			<site:argument>SimpleRegistrationForm.pdf</site:argument>
+			<site:argument>combo.pdf</site:argument>
+			<site:argument>list.pdf</site:argument>
+			<site:argument>TextFields.pdf</site:argument>
+			<site:argument>signature.pdf</site:argument>
+			<site:result>listfields.txt</site:result>
+			<site:description>Reads different pdf fields and lists the acrofields</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
