@@ -427,6 +427,41 @@
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="readingPDF"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Advanced: reading PDF</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			You can't 'parse' an existing PDF file using iText, you can only 'read' it page per page.<br>
+			What does this mean?<br>
+			The pdf format is just a canvas where text and graphics are placed without
+            any structure information. As such there aren't any 'iText-objects' in a PDF file.
+			In each page there will probably be a number of 'Strings', but you can't reconstruct
+			a phrase or a paragraph using these strings. There are probably a number of lines drawn,
+			but you can't retrieve a Table-object based on these lines. In short: parsing the content
+			of a PDF-file is NOT POSSIBLE with iText. Post your question on the newsgroup
+			<A HREF="news://comp.text.pdf">news://comp.text.pdf</A> and maybe you will get some
+			answers from people that have built tools that can parse PDF and extract some of its contents,
+			but don't expect tools that will perform a bullet-proof conversion to structured text.<br>
+			What iText DOES provide is the possibility to READ a PDF document and copy an entire
+			page of this file into the PDF file you are constructing from scratch. This can be useful
+			if you want to create a new document based on an existing document, but with the addition
+			of a Watermark, pagenumbers,...<br>
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0112.java">Example 12</A> takes a pdf
+			file from Chapter 7 and creates a new document where 4 pages of the original document
+			are painted on 1 page of the new document. We also added a Watermark and pagenumbers
+			(see <A HREF="http://www.lowagie.com/iText/examples/Chap0112.pdf">Chap0112.pdf</A>).
+			In order to fully understand the code (an how to adapt it to your needs, you will
+			have to read <a href="ch10.html">Chapter 10</A> first)<br>
+			If you have an existing PDF file that represents a form, you could copy the pages
+			of this form and paint text at precise locations on this form. You can't edit an
+			existing PDF document, by saying: for instance replace the word Louagie by Lowagie.
+			To achieve this, you would have to know the exact location of the word Louagie,
+			paint a white rectangle over it and paint the word Lowagie on this white rectangle.
+			Please avoid this kind of 'patch' work. Do your PDF editing with an Adobe product.
+			</FONT><BR><BR><BR><br>
+		</TD>
+	</TR>
+	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center">&nbsp;</TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
