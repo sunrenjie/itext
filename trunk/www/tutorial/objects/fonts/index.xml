@@ -70,14 +70,21 @@
 			<site:description>Using an Open Type Font with Compact Font Format (CFF) data only (no true type outlines)</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="Vertical" standalone="yes" />
+			<site:result>vertical.pdf</site:result>
+			<site:extrajar>iTextAsian.jar</site:extrajar>
+			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
+			<site:description>Writing vertical text</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="RightToLeft" standalone="yes" />
 			<site:result>complextext.pdf</site:result>
-			<site:description>Adding text at absolute positions</site:description>
+			<site:description>Writing text from left to right</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ComplexText" standalone="yes" />
 			<site:result>complextext.pdf</site:result>
-			<site:description>Adding text at absolute positions</site:description>
+			<site:description>Writing text from left to right at absolute positions</site:description>
 		</site:example>
 	</site:examples>
 	
