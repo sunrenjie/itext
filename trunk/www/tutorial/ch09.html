@@ -146,6 +146,31 @@
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="barcode"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Barcodes</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0905.java">Example 5</A> is a very specific
+            example in which we are going to use a special True Type font. iText has a class called
+			<FONT FACE="Courier">PdfBarcode</FONT> that can be used to generate 4 types of barcodes:
+			CODE 39, UPC-A, EAN-13 and Interleaved 2/5. This class has to be used in combination with
+			some specific TTF-files that can be downloaded from
+			<A HREF="http://www.lowagie.com/iText/downloads/barcodefonts.zip">http://www.lowagie.com/iText/downloads/barcodefonts.zip</A>
+			(not all these fonts are free; please read the txt-files first before you use any of these fonts).<br>
+			The PdfBarcode-object can be constructed like this:
+			<FONT FACE="Courier">
+			Chunk chunk = new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")
+			</FONT><BR>
+			As you can see, you need to tell the system where you have put the ttf-file
+			and you also need to mention the type. If you want to use another barcode font than the
+			ones provided, you will have to make some changes to the class <FONT FACE="Courier">PdfBarcode</FONT>!<br />
+			The third and fourth parameter are the fontsize and finally the number you want to turn
+			into a barcode.<br />
+            For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="http://www.lowagie.com/iText/examples/Chap0905.java">example 5</A> and the <a href="http://www.lowagie.com/iText/examples/Chap0905.pdf">resulting PDF file</a>.<BR>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch08.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>

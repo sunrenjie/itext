@@ -93,6 +93,7 @@ just press enter when asked for it</echo>
         <get src="http://www.lowagie.com/iText/examples/vonnegut.gif" dest="${itext.www}/examples/vonnegut.gif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/watermark.jpg" dest="${itext.www}/examples/watermark.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
 	
     <target name="release" depends="jarWithXML, srczip, srctargz, docstargz">
