@@ -28,7 +28,7 @@
 		<site:title>Part I: general use of iText</site:title>
 		<site:chapter path="general" />
 		<site:chapter path="general/faq" />
-		<!--<site:chapter path="general/webapp" />-->
+		<site:chapter path="general/webapp" />
 	</site:part>
 	<site:part name="part2">
 		<site:title>Part II: High Level Text Objects</site:title>
@@ -51,6 +51,7 @@
 	</site:part>
 	<site:part name="part8">
 		<site:title>Part VIII: HTML</site:title>
+		<site:chapter path="html" />
 	</site:part>
 	
 </site:toc>

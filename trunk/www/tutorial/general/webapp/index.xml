@@ -33,6 +33,51 @@ we created a Hello World PDF file from a standalone Java program.
 <site:source class="HelloWorldServlet" />
 </div>
 	</site:section>
+	
+	<site:section name="msie">
+		<site:sectiontitle>Workarounds in the case of browser incompatibilities</site:sectiontitle>
+<div>In theory the example in the previous section should work with every application server
+for every webbrowser. Unfortunately there are lots of features in different browser versions
+that make it rather difficult to show a dynamically generated PDF file in every browser.<br />
+In some cases the client only sees a blank browser window when you send dynamically created CORRECT (!) PDFs
+(with ASP, JSP, a Servlet, Cold Fusion) in response to a request. One of the main reasons is because
+some browsers need to know the exact content length of the PDF file in advance!
+Other problems are caused by the fact that the browser doesn't know you are sending PDF syntax
+(instead of HTML or plain text).<br /><br />
+These are some workarounds:<br />
+<pre class="commandline">res.setContentType("application/pdf");
+ByteArrayOutputStream ba = new ByteArrayOutputStream();
+generate_pdf(ba);
+res.setContentLength(ba.size());
+ServletOutputStream out = res.getOutputStream();
+ba.writeTo(out);
+out.flush();</pre>
+If you don't include the content length it only works sometimes, if ever.<br /><br />
+Another known feature (especially when using MSIE): every time a client requests a dynamically generated PDF
+you see the server receives the same request 2 or 3 times. You can work around this using
+the following construction posted by Anis H.:<br />
+<pre class="commandline"><![CDATA[<html>
+<body leftMargin="0" topMargin="0" scroll="no">
+  <embed src="http://myserver/pdfCreationServlet"
+  	width="100%" height="100%"
+	type="application/pdf" fullscreen="yes" />
+</body>
+</html>]]></pre>
+When you invoke your servlet which creates PDF as
+shown above only one request will be sent to the server.<br /><br />
+In another context (dynamic CSV files over SSL), Nicolas Guichard posted
+this solution to the mailing-list:<br />
+I have the same problem with CSV files, and i just found the solution on a
+<a href="http://php3.de/manual/en/function.session-cache-limiter.php">php forum</a>:
+Following their advice, I add the following parameters to the response's headers:<br />
+<pre class="commandline">
+response.setHeader("Expires", "0");
+response.setHeader("Cache-Control",
+	"must-revalidate, post-check=0, pre-check=0");
+response.setHeader("Pragma", "public");</pre>
+And it works.... But don't ask me to explain this!!!
+</div>
+	</site:section>
 	</site:chapter>
 
 </site:page>
