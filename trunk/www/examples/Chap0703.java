@@ -34,35 +34,35 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.xml.*;
 
 public class Chap0703 {
-
+    
     private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
+    
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 7 example 3: parsing an XML document with custom tags");
-
-		// step 1: creation of a document-object
-		Document document = new Document(PageSize.A4, 80, 50, 30, 65);
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a XML-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0703.pdf"));
-
-			// step 3: we create a parser and set the document handler
+        System.out.println("Chapter 7 example 3: parsing an XML document with custom tags");
+        
+        // step 1: creation of a document-object
+        Document document = new Document(PageSize.A4, 80, 50, 30, 65);
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a XML-stream to a file
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0703.pdf"));
+            
+            // step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
             parser.setDocumentHandler(new SAXmyHandler(document, new TagMap("tagmap0703.xml")));
-
-			// step 4: we parse the document
+            
+            // step 4: we parse the document
             parser.parse("Chap0703.xml");
             
             
-		}
-		catch(Exception e) {
+        }
+        catch(Exception e) {
             e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

@@ -35,36 +35,36 @@ import com.lowagie.text.html.HtmlWriter;
 import com.lowagie.text.xml.*;
 
 public class Chap0702 {
-
+    
     private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
+    
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 7 example 2: parsing the result of example 1");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a XML-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0702.pdf"));
- 			HtmlWriter.getInstance(document, new FileOutputStream("Chap0702.html"));
-
-			// step 3: we create a parser and set the document handler
+        System.out.println("Chapter 7 example 2: parsing the result of example 1");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a XML-stream to a file
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0702.pdf"));
+            HtmlWriter.getInstance(document, new FileOutputStream("Chap0702.html"));
+            
+            // step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
             parser.setDocumentHandler(new SAXiTextHandler(document));
-
-			// step 4: we parse the document
+            
+            // step 4: we parse the document
             parser.parse("Chap0701.xml");
             
             
-		}
-		catch(Exception e) {
+        }
+        catch(Exception e) {
             e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

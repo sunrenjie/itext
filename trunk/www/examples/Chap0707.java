@@ -31,28 +31,28 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.html.HtmlParser;
 
 public class Chap0707 {
+    
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 7 example 7: parsing the HTML from example 2");
-
-		// step 1: creation of a document-object
-		Document document = new Document(PageSize.A4, 80, 50, 30, 65);
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a XML-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0707.pdf"));
-
-			// step 3: we parse the document
-            HtmlParser.parse(document, "Chap0702.html");         
+        System.out.println("Chapter 7 example 7: parsing the HTML from example 2");
+        
+        // step 1: creation of a document-object
+        Document document = new Document(PageSize.A4, 80, 50, 30, 65);
+        
+        try {
             
-		}
-		catch(Exception e) {
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a XML-stream to a file
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0707.pdf"));
+            
+            // step 3: we parse the document
+            HtmlParser.parse(document, "Chap0702.html");
+            
+        }
+        catch(Exception e) {
             e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-	}
+            System.err.println(e.getMessage());
+        }
+    }
 }

@@ -32,25 +32,25 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1002 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 10 example 2: Text at absolute positions");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1002.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we grab the ContentByte and do some stuff with it
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 10 example 2: Text at absolute positions");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1002.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
             
             // first we draw some lines to be able to visualize the text alignment functions
@@ -67,8 +67,8 @@ public class Chap1002 {
             
             // we tell the ContentByte we're ready to draw text
             cb.beginText();
-
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);            
+            
+            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
             cb.setFontAndSize(bf, 12);
             String text = "Sample text for alignment";
             // we show some text starting on some absolute position with a given alignment
@@ -83,22 +83,22 @@ public class Chap1002 {
             // we draw some rotated text on a certain position
             cb.setTextMatrix(0, 1, -1, 0, 100, 300);
             cb.showText("Text at position 100,300, rotated 90 degrees.");
-                        
+            
             // we draw some mirrored, rotated text on a certain position
             cb.setTextMatrix(0, 1, 1, 0, 200, 200);
             cb.showText("Text at position 200,200, mirrored and rotated 90 degrees.");
             
             // we tell the contentByte, we've finished drawing text
             cb.endText();
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

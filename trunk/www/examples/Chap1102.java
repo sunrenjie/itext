@@ -33,26 +33,26 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1102 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 11 example 2: anchor and remote goto");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap1102a.pdf"));
-			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap1102b.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we add some content
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 11 example 2: anchor and remote goto");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap1102a.pdf"));
+            PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap1102b.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we add some content
             
             Paragraph p1 = new Paragraph("We discussed anchors in chapter 3, but you can add an URL to a chunk to to make it an ", new Font(Font.HELVETICA, 12));
             p1.add(new Chunk("anchor", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255))).setAnchor(new URL("http://www.lowagie.com/iText/")));
@@ -99,18 +99,18 @@ public class Chap1102 {
             writerB.resume();
             document.add(p2);
             document.add(p2);
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-		catch(Exception e) {
-			System.err.println(e.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

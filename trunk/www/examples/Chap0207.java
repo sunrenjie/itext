@@ -54,14 +54,14 @@ public class Chap0207 {
             // step 4:
             Paragraph paragraph = new Paragraph("Please visit my ");
             Anchor anchor1 = new Anchor("website (external reference)",
-                new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
+            new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
             anchor1.setReference("http://www.lowagie.com/iText/");
             anchor1.setName("top");
             paragraph.add(anchor1);
             paragraph.add(new Chunk(".\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"));
             document.add(paragraph);
             Anchor anchor2 = new Anchor("please jump to a local destination",
-                new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));
+            new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));
             anchor2.setReference("#top");
             document.add(anchor2);
         }

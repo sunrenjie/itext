@@ -32,25 +32,25 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1101 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 11 example 1: local goto");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1101.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we add some content
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 11 example 1: local goto");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1101.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we add some content
             
             Paragraph p1 = new Paragraph("We will do something special with this paragraph. If you click on ", new Font(Font.HELVETICA, 12));
             p1.add(new Chunk("this word", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test"));
@@ -67,15 +67,15 @@ public class Chap1101 {
             document.add(p2);
             document.add(p2);
             document.add(p3);
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }

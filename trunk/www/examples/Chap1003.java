@@ -33,33 +33,33 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
 
 public class Chap1003 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 10 example 3: Templates");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1003.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we grab the ContentByte and do some stuff with it
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 10 example 3: Templates");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1003.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
-
+            
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(500, 200);
-
+            
             // we add some graphics
-			template.moveTo(0, 200);
-			template.lineTo(500, 0);
+            template.moveTo(0, 200);
+            template.lineTo(500, 0);
             template.stroke();
             template.setRGBColorStrokeF(255f, 0f, 0f);
             template.circle(250f, 100f, 80f);
@@ -67,7 +67,7 @@ public class Chap1003 {
             
             // we add some text
             template.beginText();
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);            
+            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
             template.setFontAndSize(bf, 12);
             template.setTextMatrix(100, 100);
             template.showText("Text at the position 100,100 (relative to the template!)");
@@ -82,15 +82,15 @@ public class Chap1003 {
             document.newPage();
             cb.addTemplate(template, 0, 400);
             cb.addTemplate(template, 2, 0, 0, 2, -200, 400);
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }
