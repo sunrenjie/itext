@@ -39,7 +39,7 @@ class PageOutline extends PdfPageEventHelper {
     // the paragraph number
     private int n = 0;
     
-    // we override only the onGenericTag method
+    // we override only the onParagraph method
     public void onParagraph(PdfWriter writer, Document document, float position) {
         n++;
         PdfContentByte cb = writer.getDirectContent();
