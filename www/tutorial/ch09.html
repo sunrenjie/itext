@@ -148,12 +148,6 @@
 				</TR>
 			</TABLE><br>
 			</FONT><BR>
-			<b><A NAME="ttfOS">ttf-files and Operating Systems</A></b><br>
-			As you can see, you need to create a font using the path to the ttf-file.
-            The above example works on a Win2K machine, but if you use another OS,
-            you will have to change this path. Remark: the ttf file can be placed on
-			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
-			and Solaris too.<br><br>
 			<A NAME="unicode"><b>Unicode</b></A><br>
 			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
 			added in unicode (but this will make the resulting PDF file larger). Please take a look at
@@ -198,15 +192,107 @@
 			If you want to know the names of the fonts in a certain TTC-file, you can use the method
 			<FONT FACE="Courier">enumerateTTCNames</FONT> as shown in the example.
 			The file msgothic.ttc contains 3 fonts: (0) MS-Gothic, (1) MS-PGothic and (2) MS-UIGothic.
-			In the example, we want to use MS-PGothic.
+			In the example, we want to use MS-PGothic.<br>
 			<BR>
-			<BR><br>
-			<b><A NAME="adobefonts">Adobe fonts</A></b><br>
-			If you have some .AFM and .PFB files, describing an Adobe font, you can put them in the same directory and then use:<br>
-			<Font face="Courier">BaseBont bf = BaseFont.createFont("myfont.afm", BaseFont.WINANSI, BaseFont.EMBEDDED);</Font><br>
-			But if you have the alternative, use a true type font: the font will be subset and the resulting document will be a lot smaller.
-			<BR>
+			<B><A NAME="fontwidths">Font widths</A></B><br>
+			The width of each character in a certain font is extracted from a ttf-file, an afm-file,...
+			but it is possible to change the widths of each character yourself. This is demonstrated in
+			<A HREF="../examples/Chap0905.java">example 5</A> (<a href="../examples/Chap0905.pdf">Chap0905.pdf</a>).
+			<BR><BR>
+			<b><A NAME="ttfOS">ttf-files and Operating Systems</A></b><br>
+			As you can see, you need to create a font using the path to the ttf-file.
+            The above example works on a Win2K machine, but if you use another OS,
+            you will have to change this path. Remark: the ttf file can be placed on
+			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
+			and Solaris too.<br><br>
+			<B><A NAME="fontfactory">Font Factory</A></B></FONT><BR>
+			Working with paths to a certain file on a disk can be very annoying.
+			If you change from OS or deployment machine, you risk getting errors.
+			That's why you may want to consider using class <CODE>FontFactory</CODE>
+			to create your fonts. You still need the actual paths to the ttf- or ttc-file,
+			but you can register them to the <CODE>FontFactory</CODE>-class at the
+			startup of you JVM. If a path is illegal or not found, a Runtime Exception
+			is thrown. Once a font is registered, it can be used by specifying its
+			postscript fontname. This is demonstrated in <A HREF="../examples/Chap0906.java">example 6</A>
+			(<a href="../examples/Chap0906.pdf">Chap0906.pdf</a>).
+			<br><br>
 			</FONT><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="barcode">Barcodes</A></B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			There are two ways to generate Barcodes with iText.
+			One where you need one of the ttf-files (provided in barcodefonts.zip)
+			and one that doesn't need external ttf's (Barcodes are generated as images).<br><br>
+			<b>Barcodes generated as images (without a ttf)</b><br>
+			<A HREF="../examples/Chap0907.java">Example 7</A> (<a href="../examples/Chap0907.pdf">Chap0907.pdf</a>)
+			shows you how to add a barcode without using a ttf-file.
+			The following types are supported (use the corresponding classname):
+			<UL>
+				<LI><b>Barcode39:</b> code 39 and code 39 extended
+				<LI><b>Barcode128:</b> code 128 and the special encoding UCC/EAN-128
+				<LI><b>BarcodeEAN:</b> EAN13, EAN8, UPCA, UPCE, and EAN with supplemental 5, EAN with supplemental 5, EAN with supplemental 2
+				<LI><b>BarcodeInter25:</b> interleaved 2 of 5
+				<LI><b>BarcodePostnet:</b> postnet and planet
+			</UL>
+			This is an code example to generate an EAN-barcode with value 9780201615883:<br>
+			<font face="Courier"><br>
+            PdfContentByte cb = writer.getDirectContent();<br>
+			BarcodeEAN codeEAN = new BarcodeEAN();<br>
+            codeEAN.setCodeType(codeEAN.EAN13);<br>
+            codeEAN.setCode("9780201615883");<br>
+            Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);<br>
+			document.add(new Phrase(new Chunk(imageEAN, 0, 0)));<br>
+			</font><br>
+			To change to 'look' of these barcodes, please read the API documentation.<br>			
+			<b>Barcodes using a ttf-file</b><br>
+			iText has a class called <FONT FACE="Courier">PdfBarcode</FONT> that can be used to generate
+			4 types of barcodes:
+			<UL>
+			<LI>CODE 39
+				<UL><LI>CODE39.TTF</UL>
+			<LI>UPC-A
+				<UL><LI>UPC-A.TTF<LI>UPC-AHH.TTF</UL>
+			<LI>EAN-13
+				<UL><LI>EAN-13.TTF<LI>EAN-13B.TTF<LI>EAN-13BH.TTF<LI>EAN-13HH.TTF</UL>
+			<LI>Interleaved 2/5
+				<UL><LI>I2OF5.TTF<LI>I2OF5NT.TTF</UL>
+			</UL>
+			This class has to be used in combination with some specific TTF-files that can be downloaded from
+			<A HREF="http://www.lowagie.com/iText/downloads/barcodefonts.zip">http://www.lowagie.com/iText/downloads/barcodefonts.zip</A>
+			(not all these fonts are free; please read the txt-files first before you use any of these fonts).<br /><br />
+			The PdfBarcode-object can be constructed like this:<br />
+			<FONT FACE="Courier">
+			Chunk chunk = new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789");
+			</FONT><br /><br />
+			Remark: you will always need to tell the system where you have put the ttf-file and the type
+			of Barcode you are using. It is also important to know that if you want to use another barcode
+			font than the ones provided, you will have to make some changes to the class
+			<FONT FACE="Courier">PdfBarcode</FONT>!<br />
+			The third and fourth parameter are the fontsize and finally the number you want to turn
+			into a barcode.<br />
+            For UPC, EAN en I2/5, you can choose between different styles of fonts:
+			see <A HREF="../examples/Chap0908.java">example 8</A> (<a href="../examples/Chap0908.pdf">Chap0908.pdf</a>).<BR><br>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="measuringtext">Measuring text</A></B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Sometimes it's necessary to know the length of a certain piece of text.
+			If you have created a <FONT FACE="Courier">BaseFont</FONT> object, you can use the method:<br>
+			<FONT FACE="Courier">public float getWidthPoint(String text, float fontSize);</FONT><br>
+			So if you are using some barcode font with size 36 as in the previous example and
+			you want to know how much space you need on the line to print this barcode, you just
+			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f)</FONT>.<br>
+			The result is the width in points. There are 72 points in 1 inch. So if you have
+			a result of 252 points (as in <A HREF="../examples/Chap0908.java">example 8</A>),
+			you can convert this to inches and centimeters like this:
+			252 / 72 = 3.5 inch * 2.54 = 8.89 cm (see also <A HREF="ch01.html#measurements">Chapter 1</A>).
+			</FONT>
 		</TD>
 	</TR>
 	<TR>
@@ -221,8 +307,8 @@
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
 			</FONT>
-			This piece of code is used in <a href="../examples/Chap0905.java">example 5</a> and you can take
-			a look a the result <a href="../examples/Chap0905.pdf">here</a>.<br><br>	
+			This piece of code is used in <a href="../examples/Chap0909.java">example 9</a> and you can take
+			a look a the result <a href="../examples/Chap0909.pdf">here</a>.<br><br>	
 			You can create PDF-documents with the following fonts:<br>
 			<ul>
 			<li><b>Chinese Simplified</b><br>
@@ -251,94 +337,19 @@
                 document.</FONT>
 				</TD>
 				</TR>
-			</TABLE><br>
+			</TABLE><br><br>
 			</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="barcode">Barcodes</A></B></FONT><BR>
+			<A NAME="adobefonts"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><b>Adobe fonts</b></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			There are two ways to generate Barcodes with iText.
-			One where you need one of the ttf-files (provided in barcodefonts.zip)
-			and one that doesn't need external ttf's (Barcodes are generated as images).<br><br>
-			<b>Barcodes using a ttf-file</b><br>
-			iText has a class called <FONT FACE="Courier">PdfBarcode</FONT> that can be used to generate
-			4 types of barcodes:
-			<UL>
-			<LI>CODE 39
-				<UL><LI>CODE39.TTF</UL>
-			<LI>UPC-A
-				<UL><LI>UPC-A.TTF<LI>UPC-AHH.TTF</UL>
-			<LI>EAN-13
-				<UL><LI>EAN-13.TTF<LI>EAN-13B.TTF<LI>EAN-13BH.TTF<LI>EAN-13HH.TTF</UL>
-			<LI>Interleaved 2/5
-				<UL><LI>I2OF5.TTF<LI>I2OF5NT.TTF</UL>
-			</UL>
-			This class has to be used in combination with some specific TTF-files that can be downloaded from
-			<A HREF="http://www.lowagie.com/iText/downloads/barcodefonts.zip">http://www.lowagie.com/iText/downloads/barcodefonts.zip</A>
-			(not all these fonts are free; please read the txt-files first before you use any of these fonts).<br /><br />
-			The PdfBarcode-object can be constructed like this:<br />
-			<FONT FACE="Courier">
-			Chunk chunk = new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789");
-			</FONT><br /><br />
-			Remark: you will always need to tell the system where you have put the ttf-file and the type
-			of Barcode you are using. It is also important to know that if you want to use another barcode
-			font than the ones provided, you will have to make some changes to the class
-			<FONT FACE="Courier">PdfBarcode</FONT>!<br />
-			The third and fourth parameter are the fontsize and finally the number you want to turn
-			into a barcode.<br />
-            For UPC, EAN en I2/5, you can choose between different styles of fonts:
-			see <A HREF="../examples/Chap0906.java">example 6</A> (<a href="../examples/Chap0906.pdf">Chap0906.pdf</a>).<BR><br>
-			<b>Barcodes generated as images (without a ttf)</b><br>
-			<A HREF="../examples/Chap0907.java">Example 7</A> (<a href="../examples/Chap0907.pdf">Chap0907.pdf</a>)
-			shows you how to add a barcode without using a ttf-file.
-			The following types are supported (use the corresponding classname):
-			<UL>
-				<LI><b>Barcode39:</b> code 39 and code 39 extended
-				<LI><b>BarcodeEAN:</b> EAN13, EAN8, UPCA, UPCE, and EAN with supplemental 5, EAN with supplemental 5, EAN with supplemental 2
-				<LI><b>BarcodeInter25:</b> interleaved 2 of 5
-				<LI><b>BarcodePostnet:</b> postnet and planet
-			</UL>
-			This is an code example to generate an EAN-barcode with value 9780201615883:<br>
-			<font face="Courier"><br>
-            PdfContentByte cb = writer.getDirectContent();<br>
-			BarcodeEAN codeEAN = new BarcodeEAN();<br>
-            codeEAN.setCodeType(codeEAN.EAN13);<br>
-            codeEAN.setCode("9780201615883");<br>
-            Image imageEAN = codeEAN.createImageWithBarcode(cb, null, null);<br>
-			document.add(new Phrase(new Chunk(imageEAN, 0, 0)));<br>
-			</font><br>
-			To change to 'look' of these barcodes, please read the API documentation.
-			</FONT><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="measuringtext">Measuring text</A></B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Sometimes it's necessary to know the length of a certain piece of text.
-			If you have created a <FONT FACE="Courier">BaseFont</FONT> object, you can use the method:<br>
-			<FONT FACE="Courier">public float getWidthPoint(String text, float fontSize);</FONT><br>
-			So if you are using some barcode font with size 36 as in the previous example and
-			you want to know how much space you need on the line to print this barcode, you just
-			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f)</FONT>.<br>
-			The result is the width in points. There are 72 points in 1 inch. So if you have
-			a result of 252 points (as in <A HREF="../examples/Chap0906.java">example 6</A>),
-			you can convert this to inches and centimeters like this:
-			252 / 72 = 3.5 inch * 2.54 = 8.89 cm (see also <A HREF="ch01.html#measurements">Chapter 1</A>).
-			<BR><BR>
-			</FONT><br><br>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="fontwidths">Font widths</A></B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			The width of each character in a certain font is extracted from a ttf-file, an afm-file,...
-			but it is possible to change the widths of each character yourself. This is demonstrated in
-			<A HREF="../examples/Chap0908.java">example 8</A> (<a href="../examples/Chap0908.pdf">Chap0908.pdf</a>).
-			<BR><BR>
+			If you have some .AFM and .PFB files, describing an Adobe font, you can put them in the same directory and then use:<br>
+			<Font face="Courier">BaseBont bf = BaseFont.createFont("myfont.afm", BaseFont.WINANSI, BaseFont.EMBEDDED);</Font><br>
+			But if you have the alternative, use a true type font: the font will be subset and the resulting document will be a lot smaller.
+			<BR>
 			</FONT><br><br>
 		</TD>
 	</TR>
