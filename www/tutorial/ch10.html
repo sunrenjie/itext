@@ -217,7 +217,7 @@
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
 				<a name="transformationmatrix"><b>The Transformation Matrix:</b></a><br>
-				If you want to scale or rotate images or text, you need to use a Transformation Matrix.
+				If you want to translate, scale or rotate images or text, you need to use a Transformation Matrix.
 				In the code you are asked for the transformation matrix parameters a, b, c, d, e and f.
 				But what do these parameters exactly mean?<br>
 				This is the Transformation Matrix:<br>
@@ -303,6 +303,10 @@
 					<td>1</td>
 					</tr>
 				</table>
+				There is one serious caveat when you rotate an object: the coordinate of the
+				rotation pivot is (0, 0). If you rotate something, you have to watch out that
+				it is not rotated 'off' your page. you may have to perform a
+				translation to keep the object on the page.
 				Of course you can combine translation (tX, tY), scaling (sX, sY) rotation (angle) in one matrix:
 				<table>
 					<tr>
