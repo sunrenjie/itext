@@ -8,10 +8,12 @@
 		<site:keywords>PDF, JAVA, iText, RTF, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0596004753">RTF Pocket Guide</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>RTF</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
-		<site:author>Bruno Lowagie</site:author>
 		<site:author>Mark Hall</site:author>
+		<site:author>Bruno Lowagie</site:author>
 		<site:tree branch="/rtf" root=".." />
 	</site:metadata>
 	<site:examples>
@@ -19,32 +21,33 @@
 			<site:java src="HelloRtf" />
 			<site:argument>World</site:argument>
 			<site:result>HelloWorld.rtf</site:result>
-			Generates a simple 'Hello World' RTF file.
+			<site:description>Generates a simple 'Hello World' RTF file.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="RtfSpecialFont" />
 			<site:result>specialfont.rtf</site:result>
-			Special fonts
+			<site:description>Special fonts</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="RtfWithHeadersFooters" />
 			<site:result>headerfooter.rtf</site:result>
-			Headers/footers and page numbers
+			<site:description>Headers/footers and page numbers</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="RtfTOCandCellborders" />
 			<site:result>toc.rtf</site:result>
-			Table of contents and cell borders
+			<site:description>Table of contents and cell borders</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="RtfTest" />
 			<site:externalresource>pngnow.png</site:externalresource>
 			<site:result>testNew.rtf</site:result>
 			<site:result>testOld.rtf</site:result>
-			The TestSuite used to test RtfWriter2 functionality
+			<site:description>The TestSuite used to test RtfWriter2 functionality</site:description>
 		</site:example>
 	</site:examples>
 	<site:content>
+<div>
 <div class="header">Rich Text Format</div>
 <div class="title"><a name="rtfpackage"></a>The RTF package</div>
 The RTF package is an extension of the iText package and allows iText
@@ -315,6 +318,6 @@ HeaderFooter header = new RtfHeaderFooter(headerTable);
 document.setHeader(header);
 </pre>
 <a href="/examples/com/lowagie/examples/rtf/RtfWithHeadersFooters.java">Full example source code</a>.
-
+</div>
 	</site:content>
 </site:page>
