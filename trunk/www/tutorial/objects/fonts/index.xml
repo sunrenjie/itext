@@ -26,6 +26,13 @@
 			<site:result>FontFactoryType1Fonts.pdf</site:result>
 			<site:description>Sums up the 14 Standard Type 1 Fonts (using the FontFactory)</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ExtraStyles" standalone="yes" />
+			<site:result>ExtraStyles.pdf</site:result>
+			<site:result>ExtraStyles.rtf</site:result>
+			<site:result>ExtraStyles.html</site:result>
+			<site:description>Demonstrates how to underline or strike through text</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -109,6 +116,24 @@ fonts[9] =
 		Font.DEFAULTSIZE,
 		Font.ITALIC);</pre>
 <site:source class="FontFactoryType1Fonts" />
+</div>
+	</site:section>
+	
+	<site:section name="extrastyles">
+		<site:sectiontitle>Extra Font Style Characteristics</site:sectiontitle>
+<div>
+<div class="subtitle">Underline and strike through</div>
+Allthough underlining and striking through text isn't really font-related,
+both 'style-types' are added to the <site:doc class="com.lowagie.text.Font">Font</site:doc>-class:
+<site:doc class="com.lowagie.text.Font" target="UNDERLINE">Font.UNDERLINE</site:doc> and
+<site:doc class="com.lowagie.text.Font" target="STRIKETHRU">Font.STRIKETHRU</site:doc>.
+In the example, we generate PDF, RTF and HTML. If however, you only need to generate PDF,
+it is much better to use <site:tutorial chapter="/objects/chunk" section="underline">Chunk-functionality</site:tutorial>.
+Font.UNDERLINE and Font.STRIKETHRU use some default values of this functionality.
+If you want complete control over the height, width, color,... of the line,
+you should use the method <site:doc class="Chunk" target="setUnderline(java.awt.Color,%20float,%20float,%20float,%20float,%20int)">Chunk.setUnderline</site:doc>
+as described in the chapter on <site:tutorial chapter="/objects/chunk" section="underline">Chunks</site:tutorial>.
+<site:source class="ExtraStyles" />
 </div>
 	</site:section>
 	

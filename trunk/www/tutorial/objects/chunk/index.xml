@@ -16,9 +16,24 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="Lines" standalone="yes" />
+			<site:result>Lines.pdf</site:result>
+			<site:description>Demonstrates how to add lines under, through,... a Chunk</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="SubSupScript" standalone="yes" />
 			<site:result>SubSupScript.pdf</site:result>
-			<site:description>Demonstrates the use of sub- and superscript.</site:description>
+			<site:description>Demonstrates the use of sub- and superscript</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Background" standalone="yes" />
+			<site:result>Background.pdf</site:result>
+			<site:description>How to change the background color of a Chunk</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Width" standalone="yes" />
+			<site:result>Width.pdf</site:result>
+			<site:description>How to measure and scale the width of a Chunk</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -42,6 +57,13 @@ In the following sections, all Chunk-functionality will be described:
 	
 	<site:section name="subsup">
 		<site:sectiontitle>Sub- and Superscript</site:sectiontitle>
+<div>
+
+</div>
+	</site:section>
+	
+	<site:section name="background">
+		<site:sectiontitle>Changing the background color</site:sectiontitle>
 <div>
 
 </div>
