@@ -21,6 +21,27 @@
 			<site:result>XandY.pdf</site:result>
 			<site:description>Puts some marks at specific X and Y coordinates; connects the marks with a line and puts some text next to the marks</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="UpsideDown" standalone="yes" />
+			<site:result>upsidedown.pdf</site:result>
+			<site:description>Same example as above, but now the origin is in the upper left corner</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="AffineTransformation" standalone="yes" />
+			<site:result>affinetransformation.pdf</site:result>
+			<site:description>Same example as above, but now the X and Y coordinates are scaled</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Transformations" standalone="yes" />
+			<site:result>transformations.pdf</site:result>
+			<site:description>Add a template using different transformation matrices</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TransformImage" standalone="yes" />
+			<site:result>transformimage.pdf</site:result>
+			<site:externalresource>hitchcock.png</site:externalresource>
+			<site:description>Add an image using different transformation matrices</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

@@ -17,43 +17,45 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-
 package com.lowagie.examples.directcontent.coordinates;
-
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates how the PDF coordinate system works.
- * @author blowagie
+ * Changes the default coordinate system so that the origin is in the upper left corner
+ * instead of the lower left corner.
  */
-public class XandYcoordinates {
+public class UpsideDown {
     /**
-     * Creates a PDF document with shapes, lines and text at specific X and Y coordinates.
+     * Changes the default coordinate system so that the origin is in the upper left corner
+     * instead of the lower left corner.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
         
-        System.out.println("X and Y coordinate system");        
+        System.out.println("UpsideDown");        
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A4);
         
-        try {      
+        try {
             // step 2: creation of the writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("XandY.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("upsidedown.pdf"));
             
             // step 3: we open the document
             document.open();
             
             // step 4:
             PdfContentByte cb = writer.getDirectContent();
+            cb.concatCTM(1f, 0f, 0f, -1f, 0f, PageSize.A4.height());
             
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(25, 25);
@@ -99,4 +101,5 @@ public class XandYcoordinates {
         // step 5: we close the document
         document.close();
     }
+
 }

@@ -17,43 +17,45 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-
 package com.lowagie.examples.directcontent.coordinates;
 
-
+import java.awt.geom.AffineTransform;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates how the PDF coordinate system works.
- * @author blowagie
+ * Uses the AffineTransform class to change the transformation matrix.
  */
-public class XandYcoordinates {
-    /**
-     * Creates a PDF document with shapes, lines and text at specific X and Y coordinates.
+public class AffineTransformation {
+
+	/**
+     * Changes the transformation matrix with AffineTransform.
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
         
-        System.out.println("X and Y coordinate system");        
+        System.out.println("Affine Transformation");        
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A4);
         
-        try {      
+        try {
             // step 2: creation of the writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("XandY.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("affinetransformation.pdf"));
             
             // step 3: we open the document
             document.open();
             
             // step 4:
             PdfContentByte cb = writer.getDirectContent();
+            cb.transform(AffineTransform.getScaleInstance(1.2, 0.75));
             
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(25, 25);
@@ -82,11 +84,11 @@ public class XandYcoordinates {
             BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             cb.beginText();
             cb.setFontAndSize(bf, 12);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(3\", 10\")", 216 + 25, 720 + 5, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(5\", 5\")", 360 + 25, 360 + 5, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(5\", 7\")", 360 + 25, 504 + 5, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(1\", 2\")", 72 + 25, 144 + 5, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(2\", 4\")", 144 + 25, 288 + 5, 0);
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(3\" * 1.2, 10\" * .75)", 216 + 25, 720 + 5, 0);
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(5\" * 1.2, 5\" * .75)", 360 + 25, 360 + 5, 0);
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(5\" * 1.2, 7\" * .75)", 360 + 25, 504 + 5, 0);
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(1\" * 1.2, 2\" * .75)", 72 + 25, 144 + 5, 0);
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "(2\" * 1.2, 4\" * .75)", 144 + 25, 288 + 5, 0);
             cb.endText(); 
         }
         catch(DocumentException de) {
