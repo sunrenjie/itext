@@ -18,7 +18,9 @@
 <site:release number="V120" name="iText 1.2" date="NOT YET RELEASED">
 <site:remark>scheduled for january/february 2005</site:remark>
 <site:changelog>
-<ul><li>paulo 143 (2004-11-29) - iText 1.1.1<ul>
+<ul>
+<li>Bruno removed some 'import' statements (based on Eclipse warnings)</li>
+<li>2004-11-29: paulo 143 - iText 1.1.1<ul>
 <li>when form filling, eliminated an extra vertical space that prevented the text to fit in the field.</li>
 <li>added in BaseFont: getDescent(), getAscent() and getCharBBox().</li>
 <li>added PdfContentByte.createPrinterGraphics(). Contribution by Alexandru Carstoiu.</li>
