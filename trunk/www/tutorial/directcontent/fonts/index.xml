@@ -17,15 +17,20 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="OpenTypeFont" standalone="yes" />
+			<site:result>opentypefont.pdf</site:result>
+			<site:externalresource>liz.otf</site:externalresource>
+			<site:description>Using an Open Type Font with Compact Font Format (CFF) data only (no true type outlines)</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="TrueType" standalone="yes" />
 			<site:result>truetype.pdf</site:result>
 			<site:description>Using a True Type font</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="OpenTypeFont" standalone="yes" />
-			<site:result>opentypefont.pdf</site:result>
-			<site:externalresource>liz.otf</site:externalresource>
-			<site:description>Using an Open Type Font with Compact Font Format (CFF) data only (no true type outlines)</site:description>
+			<site:java src="TrueTypeCollections" standalone="yes" />
+			<site:result>truetypecollections.pdf</site:result>
+			<site:description>True Type Collections</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ChineseJapaneseKorean" standalone="yes" />
@@ -35,19 +40,14 @@
 			<site:description>Using CJK Fonts</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="ComplexText" standalone="yes" />
-			<site:result>complextext.pdf</site:result>
-			<site:description>Writing text from left to right at absolute positions</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="TrueTypeCollections" standalone="yes" />
-			<site:result>truetypecollections.pdf</site:result>
-			<site:description>True Type Collections</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="RightToLeft" standalone="yes" />
 			<site:result>complextext.pdf</site:result>
 			<site:description>Writing text from left to right</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ComplexText" standalone="yes" />
+			<site:result>complextext.pdf</site:result>
+			<site:description>Writing text from left to right at absolute positions</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Vertical" standalone="yes" />
@@ -60,7 +60,7 @@
 	
 	<site:chapter>
 	<site:section name="text">
-		<site:sectiontitle>Fonttypes</site:sectiontitle>
+		<site:sectiontitle>Standard Type 1 Fonts</site:sectiontitle>
 <div>
 The first part of Chapter 5 of the PDF Reference Manual deals with
 <site:tutorial chapter="/directcontent/text">Text State</site:tutorial>;
@@ -99,6 +99,28 @@ of each 'glyph').
 As you can see the different faces (normal, bold, italic and bolditalic) of the same type face (Courier, Helvetica, Times Roman)
 are considered to be different fonts.
 The use of these fonts is discussed in the chapter on <site:tutorial chapter="/objects/fonts">Font objects</site:tutorial>.
+</div>
+	</site:section>
+	<site:section name="fontfiles">
+		<site:sectiontitle>Fonts from files</site:sectiontitle>
+<div>
+<site:source class="OpenTypeFont" />
+<site:source class="TrueType" />
+<site:source class="TrueTypeCollections" />
+</div>
+	</site:section>
+	<site:section name="external">
+		<site:sectiontitle>Fonts using external font packs</site:sectiontitle>
+<div>
+<site:source class="ChineseJapaneseKorean" />
+</div>
+	</site:section>
+	<site:section name="direction">
+		<site:sectiontitle>Direction</site:sectiontitle>
+<div>
+<site:source class="RightToLeft" />
+<site:source class="ComplexText" />
+<site:source class="Vertical" />
 </div>
 	</site:section>
 	</site:chapter>
