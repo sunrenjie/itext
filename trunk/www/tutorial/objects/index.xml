@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Basic Text Objects</site:title>
+		<site:title status="finished">Basic Text Objects</site:title>
 		<site:summary>Some basic text objects that are used in iText.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Chunk, Phrase, Paragraph, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -22,14 +22,14 @@
 			<site:description>Demonstrates some Chunk functionality</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="DifferentFonts" standalone="yes" />
+			<site:result>differentfonts.pdf</site:result>
+			<site:description>A Paragraph can contain text in different fonts</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Paragraphs" standalone="yes" />
 			<site:result>Paragraphs.pdf</site:result>
 			<site:description>Demonstrates some Paragraph functionality</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="ParagraphAttributes" standalone="yes" />
-			<site:result>ParagraphAttributes.pdf</site:result>
-			<site:description>Demonstrates some more Paragraph functionality</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="SpaceWordRatio" standalone="yes" />
@@ -37,9 +37,24 @@
 			<site:description>Space Word Ratio</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="DifferentFonts" standalone="yes" />
-			<site:result>differentfonts.pdf</site:result>
-			<site:description>A Paragraph can contain text in different fonts</site:description>
+			<site:java src="ParagraphAttributes" standalone="yes" />
+			<site:result>ParagraphAttributes.pdf</site:result>
+			<site:description>Demonstrates some more Paragraph functionality</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Phrases" standalone="yes" />
+			<site:result>Phrases.pdf</site:result>
+			<site:description>Demonstrates the different constructors of class Phrase</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="NegativeLeading" standalone="yes" />
+			<site:result>NegativeLeading.pdf</site:result>
+			<site:description>Shows the effect of a negative leading</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SymbolSubstitution" standalone="yes" />
+			<site:result>SymbolSubstitution.pdf</site:result>
+			<site:description>Demonstrates how special characters are substituted by Symbols with Phrase.getInstance</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="FontSelection" standalone="yes" />
@@ -77,7 +92,9 @@ Also related are the chapters on <site:tutorial chapter="/objects/anchors">Ancho
 		<site:sectiontitle>The Paragraph object</site:sectiontitle>
 <div>
 <site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc> is the text object you are likely to use the most.
-It is an ArrayList of one or more other high level elements, such as Chunk, Phrase, List, Image,...<br />
+It is an ArrayList of one or more other high level elements, such as Chunk, Phrase, List, Image,...
+Unlike a Chunk, a Paragraph can contain text in different fonts.
+<site:source class="DifferentFonts" />
 The most important thing you need to know about paragraph, is that they have a <site:tutorial chapter="/objects/chunk" section="endline">leading</site:tutorial>
 and that every new Paragraph starts on a <site:tutorial chapter="/objects/chunk" section="endline">new line</site:tutorial>.
 <site:source class="Paragraphs" />
@@ -90,7 +107,15 @@ The alignment can be one of the following values:
 <li>Element.ALIGN_RIGHT</li>
 <li>Element.ALIGN_JUSTIFIED</li>
 </ul>
-The following method names need no further explanation, they are pretty straightforward:
+If you want the alignment to be justified, the space between the words can
+be stretched, as well as the space between the characters of a word.
+The default ratio of this word-char space is 2.5. You can change this
+ratio with <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setSpaceCharRatio(float)">setSpaceCharRatio</site:doc>.
+For instance, if you don't want the space between the characters of a word to be stretched, just do:
+<pre class="commandline">writer.setSpaceCharRatio(PdfWriter.NO_SPACE_CHAR_RATIO);</pre>
+The effect can be seen in the next example (compare page 1 and page 2 of the resulting PDF).
+<site:source class="SpaceWordRatio" />
+The following methods need no further explanation, they are pretty straightforward:
 <ul>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationLeft(float)">setIndentationLeft(float indentation)</site:doc></li>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationRight(float)">setIndentationRight(float indentation)</site:doc></li>
@@ -103,6 +128,24 @@ only works for paragraphs inside a ColumnText or PdfPTable object.
 </div>
 	</site:section>
 	
+	<site:section name="phrase">
+		<site:sectiontitle>The Phrase Object</site:sectiontitle>
+<div>
+This extra section deals with the somewhat quirky class <site:doc class="com.lowagie.text.Phrase">Phrase</site:doc>
+for the sake of completeness. In most cases you will prefer to use the class <site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc>.
+<site:source class="Phrases" />
+The 'leading' parameter is very important for all other High Level Objects in iText, it's the space between two line and should therefore be a positive value.
+<site:source class="NegativeLeading" />
+You can use a <site:doc class="com.lowagie.text.Phrase" target="constructor_summary">constructor</site:doc> to create a Phrase-object,
+but if you have special symbols in your text-string, you can use <site:doc class="com.lowagie.text.Phrase" target="getInstance(String)">Phrase.getInstance</site:doc>
+to have your special symbols substituted (this only works with the base 14 fonts, Symbol and ZapfDingBats not included).
+<site:source class="SymbolSubstitution" />
+A more safe way to do font substitution, is be using class
+<site:doc class="com.lowagie.text.pdf.FontSelector">FontSelector</site:doc>:
+<site:source class="FontSelection" />
+</div>
+	</site:section>
+		
 	<site:section name="list">
 		<site:sectiontitle>The List object</site:sectiontitle>
 <div>

@@ -76,21 +76,6 @@
 			<site:extrajar>iTextHYPH.jar</site:extrajar>
 			<site:description>Using auto-hyphenation</site:description>
 		</site:example>
-		<site:example>
-			<site:java src="Phrases" standalone="yes" />
-			<site:result>Phrases.pdf</site:result>
-			<site:description>Demonstrates the different constructors of class Phrase</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="NegativeLeading" standalone="yes" />
-			<site:result>NegativeLeading.pdf</site:result>
-			<site:description>Shows the effect of a negative leading</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="SymbolSubstitution" standalone="yes" />
-			<site:result>SymbolSubstitution.pdf</site:result>
-			<site:description>Demonstrates how special characters are substituted by Symbols with Phrase.getInstance</site:description>
-		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -352,21 +337,6 @@ many characters may be 'orphaned' at the start of a word resp. at the end of a w
 If you want to build a hyph-file yourself for a language that is not supported, you can download a
 <site:download>hyph-tools.zip</site:download>, a tool to convert standard XML files (used in TeX and FOP)
 into the hyph-files used by iText.		
-</div>
-	</site:section>
-
-	<site:section name="phrase">
-		<site:sectiontitle>The Phrase Object</site:sectiontitle>
-<div>
-This extra section deals with the somewhat quirky class <site:doc class="com.lowagie.text.Phrase">Phrase</site:doc>
-for the sake of completeness. In most cases you will prefer to use the class <site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc>.
-<site:source class="Phrases" />
-The 'leading' parameter is very important for all other High Level Objects in iText, it's the space between two line and should therefore be a positive value.
-<site:source class="NegativeLeading" />
-You can use a <site:doc class="com.lowagie.text.Phrase" target="constructor_summary">constructor</site:doc> to create a Phrase-object,
-but if you have special symbols in your text-string, you can use <site:doc class="com.lowagie.text.Phrase" target="getInstance(String)">Phrase.getInstance</site:doc>
-to have your special symbols substituted (this only works with the base 14 fonts, Symbol and ZapfDingBats not included).
-<site:source class="SymbolSubstitution" />
 </div>
 	</site:section>
 	
