@@ -32,10 +32,11 @@ public class Chap1109 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 9: page labels");
+        System.out.println("Chapter 11 example 9: outlines with actions");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        
         try {
             // step 2:
             // we create a writer that listens to the document
@@ -44,15 +45,12 @@ public class Chap1109 {
             document.open();
             // step 4:
             // we add some content
-            for (int k = 1; k <= 10; ++k) {
-                document.add(new Paragraph("This document has the logical page numbers: i,ii,iii,iv,1,2,3,A-8,A-9,A-10\nReal page " + k));
-                document.newPage();
-            }
-            PdfPageLabels pageLabels = new PdfPageLabels();
-            pageLabels.addPageLabel(1, PdfPageLabels.LOWERCASE_ROMAN_NUMERALS);
-            pageLabels.addPageLabel(5, PdfPageLabels.DECIMAL_ARABIC_NUMERALS);
-            pageLabels.addPageLabel(8, PdfPageLabels.DECIMAL_ARABIC_NUMERALS, "A-", 8);
-            writer.setPageLabels(pageLabels);
+            document.add(new Paragraph("Outline action example"));
+            // we add the outline
+            PdfContentByte cb = writer.getDirectContent();
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.geocities.com/itextpdf"), "http://www.geocities.com/itextpdf"));
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.lowagie.com/iText"), "http://www.lowagie.com/iText"));
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("Chap1102b.pdf", 3), "Chap1102b.pdf"));
         }
         catch (Exception de) {
             de.printStackTrace();
