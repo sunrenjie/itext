@@ -1,0 +1,124 @@
+BODY  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+}
+
+SPAN  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+}
+
+DIV  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+}
+
+LI  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+}
+
+TD  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+}
+
+A  {
+	font-family : Arial, Helvetica;
+	color : #008080;
+}
+
+DIV.title  {
+	font-size : 14;
+	font-weight : bold;
+	text-align : left;
+}
+
+TABLE.outertable  {
+	background-color : #808080;
+	text-align : center;
+}
+
+TABLE.innertable  {
+	background-color : #008080;
+}
+
+TD.content  {
+	background-color : #FFFFFF;
+	text-align : center;
+}
+
+div.announcement  {
+	font-size : 12;
+}
+
+a.normal  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+	color : #008080;
+}
+
+div.text  {
+	text-align : left;
+}
+
+TD.innerborder  {
+	background-color : #008080;
+}
+
+TD.outerborder  {
+	background-color : #808080;
+}
+
+SPAN.light  {
+	color : #FFFFFF;
+	font-size : 14;
+}
+
+SPAN.lightsmallbold  {
+	font-size : 12;
+	color : #FFFFFF;
+	font-weight : bold;
+}
+
+SPAN.lightsmall  {
+	font-size : 12;
+	color : #FFFFFF;
+}
+
+a.lightsmall  {
+	font-size : 12;
+	color : #FFFFFF;
+}
+
+a.light  {
+	font-size : 12;
+	color : #FFFFFF;
+}
+
+SPAN.part  {
+	font-size : 16;
+	font-weight : bold;
+}
+
+A.chapter  {
+	font-size : 12;
+	font-weight : bold;
+	text-decoration : none;
+	color : #008080;
+}
+
+A.topic  {
+	font-size : 12;
+	color : #008080;
+}
+
+SPAN.verysmall  {
+	font-size : 9;
+}
+
+A.verysmall  {
+	font-size : 9;
+	color : #000000;
+}
+
