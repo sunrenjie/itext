@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Basic Text Objects</site:title>
+		<site:summary>Some basic text objects that are used in iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Chunk, Phrase, Paragraph, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Column" standalone="yes" />
+			<site:result>column.pdf</site:result>
+			<site:description>Defining a simple single object ColumnText object</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ColumnSimple" standalone="yes" />
+			<site:result>columnsimple.pdf</site:result>
+			<site:description>Adding phrases to a simple ColumnText object</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ColumnObjects" standalone="yes" />
+			<site:result>columnobjects.pdf</site:result>
+			<site:externalresource>cover.png</site:externalresource>
+			<site:description>Adding different objects to a simple ColumnText object</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ColumnIrregular" standalone="yes" />
+			<site:result>columnirregular.pdf</site:result>
+			<site:externalresource>caesar_coin.jpg</site:externalresource>
+			<site:description>Defining an irregular ColumnText object</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="MultiColumnSimple" standalone="yes" />
+			<site:result>multicolumnsimple.pdf</site:result>
+			<site:description>Defining a simple MultiColumnText object</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="MultiColumnIrregular" standalone="yes" />
+			<site:result>multicolumnirregular.pdf</site:result>
+			<site:description>Defining an irregular MultiColumnText object</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	
+	<site:section name="dummy">
+		<site:sectiontitle>Dummy</site:sectiontitle>
+<div>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>
