@@ -41,6 +41,10 @@
     <target name="help" description="--> shows the help screen">
         <echo>Using ANT for ${ant.project.name}</echo>
         <echo />
+		<echo>INSTALLING iText</echo>
+		<echo>ant install: downloads and installs the most recent release in one command</echo>
+		<echo>ant install.cvs: downloads and installs the current CVS version in one command</echo>
+        <echo />
         <echo>GETTING THE CODE</echo>
         <echo>ant checkout: checks out the code from CVS</echo>
         <echo>ant download: downloads some files needed to build a release</echo>
@@ -104,13 +108,34 @@
 		<echo>Use ant download.site to download working code.</echo>
     </target>
 
-    <target name="download.site" description="--> downloads the most recent release of the code">
+    <target name="download.site" depends="download" description="--> downloads the most recent release of the code">
         <mkdir dir="${itext.dist}" />
         <get src="http://www.lowagie.com/iText/downloads/src.tar.gz" dest="${itext.dist}/src.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/srcXML.tar.gz" dest="${itext.dist}/srcXML.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/www.tar.gz" dest="${itext.dist}/www.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/tutorial.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/examples.tar.gz" dest="${itext.dist}/examples.tar.gz" verbose="true" />
+		
+        <mkdir dir="${itext.src}" />
+		<gunzip src="${itext.dist}/src.tar.gz" dest="${itext.dist}/temp.tar" />
+		<untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
+        <delete file="${itext.dist}/temp.tar" />
+		<gunzip src="${itext.dist}/srcXML.tar.gz" dest="${itext.dist}/temp.tar" />
+		<untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
+        <delete file="${itext.dist}/temp.tar" />
+				
+        <mkdir dir="${itext.www}" />
+		<gunzip src="${itext.dist}/www.tar.gz" dest="${itext.dist}/temp.tar" />
+		<untar src="${itext.dist}/temp.tar" dest="${itext.www}" />
+        <delete file="${itext.dist}/temp.tar" />				
+        <mkdir dir="${itext.tutorial}" />
+		<gunzip src="${itext.dist}/tutorial.tar.gz" dest="${itext.dist}/temp.tar" />
+		<untar src="${itext.dist}/temp.tar" dest="${itext.tutorial}" />
+        <delete file="${itext.dist}/temp.tar" />				
+        <mkdir dir="${itext.examples}" />
+		<gunzip src="${itext.dist}/examples.tar.gz" dest="${itext.dist}/temp.tar" />
+		<untar src="${itext.dist}/temp.tar" dest="${itext.examples}" />
+        <delete file="${itext.dist}/temp.tar" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -434,5 +459,15 @@
         <copy file="${itext.dist}/srcXML.tar.gz" tofile="${itext.sf}/itext-xml-src-${release}.tar.gz" overwrite="yes" />
         <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${release}.tar.gz" overwrite="yes" />
     </target>
+  
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Installing iText in one command                                  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <target name="install" depends="download.site, release, examples" description="--> installs iText in one command">
+    </target>  
+    
+    <target name="install.cvs" depends="download.site, release, examples" description="--> installs the current version of iText in one command">
+    </target>  
 
 </project>
