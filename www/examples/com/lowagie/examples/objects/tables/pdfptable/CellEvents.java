@@ -32,57 +32,60 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * General example using TableEvents (with colspan).
+ * General example using CellEvents.
  */
 public class CellEvents implements PdfPCellEvent {
-	
-    /**
-     * @see com.lowagie.text.pdf.PdfPCellEvent#cellLayout(com.lowagie.text.pdf.PdfPCell, com.lowagie.text.Rectangle, com.lowagie.text.pdf.PdfContentByte[])
-     */
-    public void cellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases){
-        PdfContentByte cb = canvases[PdfPTable.TEXTCANVAS];
-        cb.moveTo(position.left(), position.bottom());
-        cb.lineTo(position.right(), position.top());
-        cb.stroke();
-    }
-    
-    /**
-     * General example using table events (with colspan).
-     * @param args
-     * 		no arguments needed
-     */
-    public static void main(String[] args) {
 
-		System.out.println("Table Events 2");
-        // step1
-        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-        try {
-            // step2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("CellEvents.pdf"));
-            // step3
-            document.open();
-            // step4
-            CellEvents event = new CellEvents();
-            Image im = Image.getInstance("otsoe.jpg");
-            im.setRotationDegrees(30);
-            PdfPTable table = new PdfPTable(4);
-            table.addCell("text 1");
-            PdfPCell cell = new PdfPCell(im, true);
-            cell.setCellEvent(event);
-            table.addCell(cell);
-            table.addCell("text 3");
-            im.setRotationDegrees(0);
-            table.addCell(im);
-            table.setTotalWidth(300);
-            PdfContentByte cb = writer.getDirectContent();
-            table.writeSelectedRows(0, -1, 50, 600, cb);
-            table.setHeaderRows(3);
-            document.add(table);
-        }
-        catch (Exception de) {
-            de.printStackTrace();
-        }
-        // step5
-        document.close();
-    }
+	/**
+	 * @see com.lowagie.text.pdf.PdfPCellEvent#cellLayout(com.lowagie.text.pdf.PdfPCell,
+	 *      com.lowagie.text.Rectangle, com.lowagie.text.pdf.PdfContentByte[])
+	 */
+	public void cellLayout(PdfPCell cell, Rectangle position,
+			PdfContentByte[] canvases) {
+		PdfContentByte cb = canvases[PdfPTable.TEXTCANVAS];
+		cb.moveTo(position.left(), position.bottom());
+		cb.lineTo(position.right(), position.top());
+		cb.stroke();
+	}
+
+	/**
+	 * General example using cell events.
+	 * 
+	 * @param args
+	 *            no arguments needed
+	 */
+	public static void main(String[] args) {
+
+		System.out.println("CellEvents");
+		// step1
+		Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+		try {
+			// step2
+			PdfWriter writer = PdfWriter.getInstance(document,
+					new FileOutputStream("CellEvents.pdf"));
+			// step3
+			document.open();
+			// step4
+			CellEvents event = new CellEvents();
+			Image im = Image.getInstance("otsoe.jpg");
+			im.setRotationDegrees(30);
+			PdfPTable table = new PdfPTable(4);
+			table.addCell("text 1");
+			PdfPCell cell = new PdfPCell(im, true);
+			cell.setCellEvent(event);
+			table.addCell(cell);
+			table.addCell("text 3");
+			im.setRotationDegrees(0);
+			table.addCell(im);
+			table.setTotalWidth(300);
+			PdfContentByte cb = writer.getDirectContent();
+			table.writeSelectedRows(0, -1, 50, 600, cb);
+			table.setHeaderRows(3);
+			document.add(table);
+		} catch (Exception de) {
+			de.printStackTrace();
+		}
+		// step5
+		document.close();
+	}
 }
