@@ -384,173 +384,24 @@ on Paulo's site too).
 <site:faq-entry name="msie">
 <site:question>Problems with the Internet Explorer plugin</site:question>
 <site:answer>
-
-There are lots of features in different versions of MSIE that make it rather
-difficult to show a dynamically generated PDF file in every browser.
-I used to have a list with links to MicroSoft's Knowledge Base here, but
-that list was very hard to maintain.<br /><br />
-When you send dynamically created CORRECT (!) PDFs
-(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
-a blank browser window. This is because MSIE needs to know
-the exact content length of the PDF file in advance!<br />
-You can use the following workaround to avoid this:<br />
-<pre class="commandline">res.setContentType("application/pdf");
-ByteArrayOutputStream ba = new ByteArrayOutputStream();
-generate_pdf(ba);
-res.setContentLength(ba.size());
-ServletOutputStream out = res.getOutputStream();
-ba.writeTo(out);
-out.flush();
-</pre>
-If you don't include the content length it only works sometimes, if ever.<br /><br />
-Another known feature of MSIE: every time a client requests a dynamically generated PDF
-you see the server receives the same request 2 or 3 times. You can work around this using
-the following construction posted by Anis H.:<br />
-<pre class="commandline">
-<![CDATA[<html>
-<body leftMargin="0" topMargin="0" scroll="no">
-  <embed src="http://myserver/pdfCreationServlet"
-  	width="100%" height="100%"
-	type="application/pdf" fullscreen="yes" />
-</body>
-</html>]]>
-</pre>
-When you invoke your servlet which creates PDF as
-shown above only one request will be sent to the server.<br /><br />
-Bill Ensley uses a JSP buffer page that writes itself based on the browser type:
-<pre class="commandline">&lt;%
-  String user = request.getHeader("User-Agent");
-  if(user.indexOf("MSIE") != -1 &amp;&amp; user.indexOf("Windows") != -1){
-    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
-    out.print("&lt;EMBED src=\"PDFPreview.pdf?type=pdf\" "
-      + "width=\"100%\" height=\"100%\" "
-      + "fullscreen=\"yes\" type=\"application/pdf\"&gt;");
-  }
-  else{
-    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
-    out.print("&lt;script&gt;document.location = 'PDFPreview.pdf?type=pdf';&lt;/script&gt;");
-  }
-%&gt;</pre>
-<br />
-In another context (dynamic CSV files over SSL), Nicolas Guichard posted
-this solution to the mailing-list:<br />
-I have the same problem with CSV files, and i just found the solution on a
-<a href="http://php3.de/manual/en/function.session-cache-limiter.php">php forum</a>:
-Following their advice, I add the following parameters to the response's headers:<br />
-<pre class="commandline">
-response.setHeader("Expires", "0");
-response.setHeader("Cache-Control",
-	"must-revalidate, post-check=0, pre-check=0");
-response.setHeader("Pragma", "public");
-</pre>
-'And it works...,' Nicholas says, 'But don't ask me to explain this!!!'<br />
-<br />
-David Ewing posted this solution:<br />
-I was trying to create a servlet that would stream a pdf to Internet
-Explorer (IE6 on my PC).  I was posting data to the servlet so that I
-could plug values from my database into my dynamically created pdf.<br /> 
-I first wrote this code:<br />
-<pre class="commandline">
-public void doPost(HttpServletRequest request, HttpServletResponse
-response)throws ServletException, IOException {
-  ServletOutputStream sos = null;
-  PrintWriter out = null;
-  //this builds the pdf using iText
-  ByteArrayOutputStream baos =
-    getMyPdf(request.getParameter("myDatabaseKey"));
-  if(baos == null){
-    response.setContentType("text/html");
-    PrintWriter writer = response.getWriter();
-    writer.print(oRpc.getErrorMessage());
-    writer.close();
-    return;
-  }
-  sos = response.getOutputStream();
-  response.setContentType("application/pdf");
-  response.setHeader("Content-disposition",
-  	"inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
-  response.setHeader("Cache-control", "must-revalidate");
-  response.setContentLength(baos.size());
-  baos.writeTo(sos);
-  sos.flush();
-}</pre>
-I am running this example on Websphere, and the first problem I
-encountered was that in my WEB-INF I named the servlet's url "/rpt"
-since the servlet is rpt.java.  This caused the error "File does not
-begin with '%PDF", it turns out that you need to define your url in your
-WEB-INF so that it ends with ".pdf", and in my case, I defined my
-servlet url as "/rpt.pdf".<br />
-The second problem I encountered was that IE6 tries to repost after it
-sees that a pdf is being sent to it.  This means that since I had only
-coded the doPost, and left the doGet blank, I was seeing a blank page
-instead of my pdf because on the second trip to the Websphere server,
-IE6 calls doGet, which was returning no response. Once again, the fix
-was pretty simple, and the code below worked just fine.<br />
-<pre class="commandline">//this code runs when IE6 tries to do its second trip to the server,
-and my database key has been preserved in the session 
-public void doGet(HttpServletRequest request, HttpServletResponse
-response)throws ServletException, IOException {
-  ServletOutputStream sos = null;
-  PrintWriter out = null;
-  HttpSession session = request.getSession();
-  //this builds the pdf using iText
-  ByteArrayOutputStream baos =
-    getMyPdf((String)session.getAttribute("myDatabaseKey"));
-  if(baos == null){
-    response.setContentType("text/html");
-    PrintWriter writer = response.getWriter();
-    writer.print(oRpc.getErrorMessage());
-    writer.close();
-    return;
-  }
-  sos = response.getOutputStream();
-  response.setContentType("application/pdf");
-  response.setHeader("Content-disposition",
-    "inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
-  response.setHeader("Cache-control", "must-revalidate");
-  response.setContentLength(baos.size());
-  baos.writeTo(sos);
-  sos.flush();
-}
-
-// this code runs first on my initial post to the servlet
-// so that the database key is in a hidden form field
-public void doPost(HttpServletRequest request,
-  HttpServletResponse response)
-  throws ServletException, IOException {
-  ServletOutputStream sos = null;
-  PrintWriter out = null;
-  //this builds the pdf using iText
-  ByteArrayOutputStream baos =
-    getMyPdf((String)request.getParameter("myDatabaseKey"));
-  if(baos == null){
-    response.setContentType("text/html");
-    PrintWriter writer = response.getWriter();
-    writer.print(oRpc.getErrorMessage());
-    writer.close();
-    return;
-  }
-
-  // this is added so that the second trip to the server
-  // can use this session variable to get my database key
-  HttpSession session = request.getSession();
-  session.setAttribute("myDatabaseKey",
-  	request.getParameter("myDatabaseKey"));
-  sos = response.getOutputStream();
-  response.setContentType("application/pdf");
-  response.setHeader("Content-disposition",
-  	"inline; filename=rpt.pdf;size=" + String.valueOf(baos.size()));
-  response.setHeader("Cache-control", "must-revalidate");
-  response.setContentLength(baos.size());
-  baos.writeTo(sos);
-  sos.flush();
-}</pre>
-I hope you can post this somewhere so that others won't have to spend a
-whole day figuring out why their Microsoft software is broken...
+There are a lot of known issues with Internet Explorer.
+They aren't a problem in any version of MSIE, but it is always safe to
+use some standard workarounds in order to avoid unforeseen problems.
+All these workarounds are described in the tutorial:
+<a href="http://itext.sourceforge.net/tutorial/general/webapp/">iText in Web Applications</a>
 </site:answer>
 </site:faq-entry>
 
 <site:faq-separator />
+
+<site:faq-entry name="jsp">
+<site:question>Can I use iText in a JSP file</site:question>
+<site:answer>
+Yes, but why would you? I haven't found one argument that makes sense to do so.
+You can read the most important reasons why you shouldn't to this in the
+<a href="http://itext.sourceforge.net/tutorial/general/webapp/index.html#jsp">tutorial</a>
+</site:answer>
+</site:faq-entry>
 
 <site:faq-entry name="dotnet">
 <site:question>Can I use iText in .NET applications?</site:question>
@@ -700,10 +551,10 @@ iText, you may want to take a look at <a href="http://ujac.sourceforge.net/">UJA
 </site:faq-entry>
 
 <site:faq-entry name="doc2pdf">
-<site:question>Can I convert WORD doc-files to PDF using iText?</site:question>
+<site:question>Can I convert WORD doc-files or RTF to PDF using iText?</site:question>
 <site:answer>
-
-No, the generation of RTF files is the closest iText gets to MicroSoft WORD.
+No, iText is only able to generate RTF.
+It doesn't do RTF or Word-doc parsing.
 Try <a href="http://jakarta.apache.org/poi/">Apache POI</a>.
 
 </site:answer>
