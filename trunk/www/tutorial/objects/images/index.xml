@@ -27,6 +27,12 @@
 			<site:result>Images.pdf</site:result>
 			<site:description>Adds different formats of images to a document.</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ImagesAlignment" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>imagesAlignment.pdf</site:result>
+			<site:description>Testing the aligmment of images.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
