@@ -22,12 +22,10 @@
  * tel. +32 (0)9 228.10.97
  * bruno@lowagie.com
  */
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
-
 public class Chap0515 {
     
     public static void main(String[] args) {
@@ -46,7 +44,6 @@ public class Chap0515 {
             t1.addCell("1.1");
             t1.addCell("1.2");
             t1.addCell("1.3");
-
             // nested
             Table t2 = new Table(2);
             t2.addCell("2.1");
@@ -55,7 +52,7 @@ public class Chap0515 {
             // now insert the nested
             t1.insertTable(t2);
             t1.addCell("new cell");    // correct row/column ?
-            document.add(t1);           
+            document.add(t1);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -66,4 +63,4 @@ public class Chap0515 {
         // step 5: we close the document
         document.close();
     }
-    }
+}
