@@ -78,6 +78,7 @@
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
 				<li><a href="#images">On the subject of images!</A>
 				<li><a href="#preformattedtext">How can I convert preformatted text to PDF?</A>
+				<li><a href="#jsp">I can't find the code for the pdf.jsp example?</A>
 				<li><a href="#printing">How can I send a PDF file to a printer directly?</A>
 			</UL>
 			</FONT><BR>
@@ -521,6 +522,26 @@
 			That's the "Halfwidth and Fullwidth Forms" Unicode range. (Another option is to use courier with
 			the romanic characters, but you'll have to change the default widths of 600 to 1000 to match
 			the ideographs.) You can put the resulting String in a Paragraph and add it to a document.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><a name="jsp"><B>I can't find the code for the pdf.jsp example?</B></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            No offense, but if you are reading this question because you need the answer,
+            chances are you are not a very good programmer. Or you are a programmer with
+            bad taste. You just DON'T GENERATE binaries using JSP.<br>
+            However if you want to see how it is done, you can look up the code in the
+            <A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/www/examples/pdf.jsp">CVS repository</A>
+            or download the <A HREF="http://itext.sourceforge.net/downloads/examples.tar.gz">tar.gz</A> or
+            <A HREF="http://itext.sourceforge.net/downloads/examples.zip"></A> containing the complete set
+            of examples. DO NOT COMPLAIN TO THE MAILING LIST THAT THE EXAMPLE DOESN'T WORK BEFORE YOU
+            CHECK <A HREF="http://www.lowagie.com/iText/examples/pdf.jsp">pdf.jsp</A> ON MY SITE.
+            If this example doesn't work for you, it is probably because you added newlines, spaces, carriage returns,...
+            to the original JSP-code. These newlines, spaces, carriage returns,... are added to the PDF
+            and make the file corrupt: the crossreference table doesn't point to the correct bytepositions
+            anymore. SUMMARIZED: iText for JSP is possible, but don't expect to get any support for it.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
