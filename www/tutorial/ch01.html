@@ -315,13 +315,13 @@
 			<A HREF="#step2">step 2</A>):<BR>
 			<FONT FACE="Courier">
 			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0108a.pdf"));<BR>
-			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));
+			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));<BR>
 			</FONT>
 			We can create two documents that are slightly different:<BR>
 			<FONT FACE="Courier">
 			writerA.pause();<BR>
 			document.add(new Paragraph("This paragraph will only be added to Chap0108b.pdf, not to Chap0108a.pdf"));<BR>
-			writerA.resume();
+			writerA.resume();<BR>
 			</FONT>
 			You can compare the results of example 8 here: <A HREF="Chap0108a.pdf">Chap0108a.pdf</A> vs.
 			<A HREF="Chap0108b.pdf">Chap0108b.pdf</A>.
