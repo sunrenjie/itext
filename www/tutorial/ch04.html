@@ -53,7 +53,7 @@
 			to each page of the document. Such a header or footer contains a standard phrase and (if needed) the current
 			page number. If you need a more complex header or footer (with a table, or with 'page X of Y'), please read
 			<A HREF="ch12.html#openclose">Chapter 12</A>.<br>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0401.java">example 1</A> you see that we first add
+			In <A HREF="../examples/Chap0401.java">example 1</A> you see that we first add
 			a footer containing a page number and without any borders:<br><br>
 			<FONT FACE="Courier">      
 			HeaderFooter footer = new HeaderFooter(new Phrase("This is page: "), true);<br>
@@ -71,7 +71,7 @@
 			HeaderFooter header = new HeaderFooter(new Phrase("This is a header without a page number"), false);<br>
             document.setHeader(header);<br>
 			</FONT><br>
-			You can see this in <A HREF="http://www.lowagie.com/iText/examples/Chap0401.pdf">Chap0401.pdf</A>.
+			You can see this in <A HREF="../examples/Chap0401.pdf">Chap0401.pdf</A>.
             </FONT><BR><BR>
 		</TD>
 	</TR>
@@ -88,12 +88,12 @@
 				Paragraph sTitle = new Paragraph("This is section 1 in chapter 1", sectionFont);<br>
                 Section section = chapter.addSection(sTitle, 1);<br>
 			</FONT><br>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0402.java">example 2</A>, we add a series of
-			chapters and subsections and if you look at <A HREF="http://www.lowagie.com/iText/examples/Chap0402.pdf">Chap0402.pdf</A>,
+			In <A HREF="../examples/Chap0402.java">example 2</A>, we add a series of
+			chapters and subsections and if you look at <A HREF="../examples/Chap0402.pdf">Chap0402.pdf</A>,
 			you see a complete outline tree. This outline tree is open by default. If you want some parts of the outline closed,
 			you have to use the method <FONT FACE="Courier">setBookmarkOpen(boolean open)</FONT> with false as parameter.
-			This is done in <A HREF="http://www.lowagie.com/iText/examples/Chap0403.java">example 3</A>
-			(<A HREF="http://www.lowagie.com/iText/examples/Chap0403.pdf">Chap0403.pdf</A>).
+			This is done in <A HREF="../examples/Chap0403.java">example 3</A>
+			(<A HREF="../examples/Chap0403.pdf">Chap0403.pdf</A>).
             </FONT><BR><BR>
 		</TD>
 	</TR>
@@ -115,8 +115,8 @@
 			grx.stroke();<br>
 			document.add(grx);<br>
 			</FONT><br>
-			This is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0404.java">example 4</A>
-			(<A HREF="http://www.lowagie.com/iText/examples/Chap0404.pdf">Chap0404.pdf</A>).
+			This is demonstrated in <A HREF="../examples/Chap0404.java">example 4</A>
+			(<A HREF="../examples/Chap0404.pdf">Chap0404.pdf</A>).
 			For a complete overview of all the methods, please consult the
 			<a href="http://itext.sourceforge.net/docs/com/lowagie/text/pdf/PdfContentByte.html">API of class
             PdfContentByte</A> of which the <FONT FACE="Courier">Graphic</FONT>-object is derived.<br><br>
@@ -135,8 +135,8 @@
 			public void setHorizontalLine(float linewidth, float percentage)<br>
 			public void setHorizontalLine(float linewidth, float percentage, Color color)<br>
 			</FONT><br>
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0405.java">Example 5</A>
-			(<A HREF="http://www.lowagie.com/iText/examples/Chap0405.pdf">Chap0405.pdf</A>)
+			<A HREF="../examples/Chap0405.java">Example 5</A>
+			(<A HREF="../examples/Chap0405.pdf">Chap0405.pdf</A>)
 			has a border of 3 points, 5 points inside the margins. There are also two horizontal
 			lines, one in black of 5 points that takes 100% of the available space, another in
 			red of 3 points that takes only 80% of the available space.

@@ -50,7 +50,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="encoding">Specifying an encoding</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			In the <a href="http://www.lowagie.com/iText/examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
+			In the <a href="../examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
 			specifying an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
             27 characters; the encoding is also known as 'winansi'). You can use BaseFont.CP1252 or BaseFont.WINANSI
             as parameter. Another encoding that is supported by iText is MacRoman (BaseFont.MACROMAN).<br><br>
@@ -61,7 +61,7 @@
 			document.add(chunk);<br>
 			</FONT><br>
 			As you can see, the EURO symbol is added by using its UNICODE value.
-			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0901.pdf">result</a>.<BR><BR>
+			Check out the <a href="../examples/Chap0901.pdf">result</a>.<BR><BR>
 			</FONT>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
@@ -81,7 +81,7 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="truetype">True Type Fonts</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<b>Using a ttf font</b><br>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
+			In <A HREF="../examples/Chap0902.java">example 2</A>, we are going to use a very popular
             True Type font:<br><br>
 			<FONT FACE="Courier">
 			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comicbd.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<br>
@@ -116,7 +116,7 @@
 			<A NAME="embedttf"><b>Embedding a ttf font</b></A><br>
 			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
             is missing or corrupted'. This can be the case when you try to open
-            <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.
+            <A HREF="../examples/Chap0902.pdf">Chap0902.pdf</A>.
 			To embed the font, you just have to set the last parameter of method
 			<FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">BaseFont.EMBEDDED</FONT>:<br>
 			<FONT FACE="Courier">
@@ -157,7 +157,7 @@
 			<A NAME="unicode"><b>Unicode</b></A><br>
 			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
 			added in unicode (but this will make the resulting PDF file larger). Please take a look at
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>:<BR>
+			<A HREF="../examples/Chap0903.java">example 3</A>:<BR>
 			<br>
 			<FONT FACE="Courier">
 			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
@@ -169,7 +169,7 @@
             document.add(new Paragraph(text2, font));<br>
             document.add(new Paragraph(text3, font));<br>
 			</FONT><BR>
-            As you can see the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
+            As you can see the <a href="../examples/Chap0903.pdf">resulting PDF file</a>
             is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font<br><br>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
@@ -188,7 +188,7 @@
 			</TABLE>
 			<BR><br>
 			<b><A NAME="ttc">True Type Collections</A></b><br>
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0904.java">Example 4</A> shows you how to use
+			<A HREF="../examples/Chap0904.java">Example 4</A> shows you how to use
 			a True Type Collection. This is very similar to using a True Type Font:<br>
 			<FONT>
             BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\msgothic.ttc,1", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
@@ -221,8 +221,8 @@
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
 			</FONT>
-			This piece of code is used in <a href="http://www.lowagie.com/iText/examples/Chap0905.java">example 5</a> and you can take
-			a look a the result <a href="http://www.lowagie.com/iText/examples/Chap0905.pdf">here</a>.<br><br>	
+			This piece of code is used in <a href="../examples/Chap0905.java">example 5</a> and you can take
+			a look a the result <a href="../examples/Chap0905.pdf">here</a>.<br><br>	
 			You can create PDF-documents with the following fonts:<br>
 			<ul>
 			<li><b>Chinese Simplified</b><br>
@@ -259,7 +259,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="barcode">Barcodes</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">Example 6</A> is a very specific
+			<A HREF="../examples/Chap0906.java">Example 6</A> is a very specific
             example in which we are going to use a special True Type font.<br />
 			iText has a class called <FONT FACE="Courier">PdfBarcode</FONT> that can be used to generate
 			4 types of barcodes: CODE 39, UPC-A, EAN-13 and Interleaved 2/5. This class has to be used in
@@ -276,7 +276,7 @@
 			you will have to make some changes to the class <FONT FACE="Courier">PdfBarcode</FONT>!<br />
 			The third and fourth parameter are the fontsize and finally the number you want to turn
 			into a barcode.<br />
-            For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">example 6</A> and the <a href="http://www.lowagie.com/iText/examples/Chap0906.pdf">resulting PDF file</a>.<BR>
+            For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="../examples/Chap0906.java">example 6</A> and the <a href="../examples/Chap0906.pdf">resulting PDF file</a>.<BR>
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -291,7 +291,7 @@
 			you want to know how much space you need on the line to print this barcode, you just
 			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f)</FONT>.<br>
 			The result is the width in points. There are 72 points in 1 inch. So if you have
-			a result of 252 points (as in <A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">example 6</A>),
+			a result of 252 points (as in <A HREF="../examples/Chap0906.java">example 6</A>),
 			you can convert this to inches and centimeters like this:
 			252 / 72 = 3.5 inch * 2.54 = 8.89 cm (see also <A HREF="ch01.html#measurements">Chapter 1</A>).
 			<BR><BR>

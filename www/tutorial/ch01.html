@@ -47,7 +47,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><a name="steps">Creation of a document in 5 steps: Hello World</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Download the source code of the first example: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.java">Chap0101.java</A>.<BR>
+			Download the source code of the first example: <A HREF="../examples/Chap0101.java">Chap0101.java</A>.<BR>
 			This example contains the 5 most important steps to create a PDF file using iText:<br>
 			<BR><A HREF="#step1"><B>Step 1:</B></A><BR>
 			Creates an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
@@ -64,7 +64,7 @@
 			<BR><A HREF="step5"><B>Step 5:</B></A><BR>
 			Closes the document:<BR>
 			<FONT FACE="Courier">document.close();</FONT><BR><BR>
-			Check the result here: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.pdf">Chap0101.pdf</A>.<BR>
+			Check the result here: <A HREF="../examples/Chap0101.pdf">Chap0101.pdf</A>.<BR>
 			</FONT><BR>		
 		</TD>
 	</TR>
@@ -91,14 +91,14 @@
 			<A NAME="pagesize"><B>PageSize</B></A><BR>
 			You could create your own <FONT FACE="Courier">Rectangle</FONT>-object in a certain
 			color and use this as pageSize.<BR>
-			In example <A HREF="http://www.lowagie.com/iText/examples/Chap0102.java">Chap0102.java</A>, we create a long, narrow
+			In example <A HREF="../examples/Chap0102.java">Chap0102.java</A>, we create a long, narrow
 			document with a yellowish backgroundcolor:<BR>
 			<FONT FACE="Courier">
 			Rectangle pageSize = new Rectangle(144, 720);<BR>
 			pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));<BR>
 			Document document = new Document(pageSize);
 			</FONT><BR>
-			This is the result: <A HREF="http://www.lowagie.com/iText/examples/Chap0102.pdf">Chap0102.pdf</A>.
+			This is the result: <A HREF="../examples/Chap0102.pdf">Chap0102.pdf</A>.
 			Normally, you don't have to worry about creating this rectangle, since
 			you can use one of the statics in class
 			<A HREF="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java"><FONT FACE="Courier">PageSize.java</FONT></A>.
@@ -108,14 +108,14 @@
 			<FONT FACE="Courier">
 			Document document = new Document(PageSize.A4.rotate());
 			</FONT><BR>
-			Check out example <A HREF="http://www.lowagie.com/iText/examples/Chap0103.java">Chap0103.java</A> and its <A HREF="http://www.lowagie.com/iText/examples/Chap0103.pdf">result</A>.
+			Check out example <A HREF="../examples/Chap0103.java">Chap0103.java</A> and its <A HREF="../examples/Chap0103.pdf">result</A>.
 			<BR><BR>
 			<A NAME="margins"><B>Margins</B></A><BR>
 			When creating a document, you can also define left, right, upper and lower margins:<BR>
 			<FONT FACE="Courier">
 			Document document = new Document(PageSize.A5, 36, 72, 108, 180);
 			</FONT><BR>
-			In example <A HREF="http://www.lowagie.com/iText/examples/Chap0104.java">Chap0104.java</A> (and its result: <A HREF="http://www.lowagie.com/iText/examples/Chap0104.pdf">Chap0104.pdf</A>),
+			In example <A HREF="../examples/Chap0104.java">Chap0104.java</A> (and its result: <A HREF="../examples/Chap0104.pdf">Chap0104.pdf</A>),
 			you will see that this document has a left margin of 0.5 inch and a right margin of 1 inch.			
 			The upper margin is 1.5 inch, the lower 2.5 inch.
 			<BR><BR>
@@ -194,13 +194,13 @@
 			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
 			The second parameter can be an outputStream of any kind.<BR>
 			<A NAME="servlets">Until now,</A> we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
-			but in example <A HREF="http://www.lowagie.com/iText/examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
+			but in example <A HREF="../examples/Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
 			(This is not a standalone example; you will have to test this code on a Servlet Engine).<BR>
 			If you use MSIE as browser, you will only see a blank page due to a bug in some specific versions of MicroSofts browser (see the
 			<A HREF="http://www.lowagie.com/iText/faq.html#msie">FAQ</A>). This has been discussed over and over in the mailing list archives and even
 			in the newsgroup comp.text.pdf. If you want to try a more difficult example (using the workaround in the FAQ), try the
-			following code: <A HREF="http://www.lowagie.com/iText/examples/Calendar.java">Calendar.java</A> and <A HREF="http://www.lowagie.com/iText/examples/Month.java">Month.java</A>.<br>
-			A JSP example was provided by Tal Liron: <A HREF="http://www.lowagie.com/iText/examples/pdf.jsp">pdf.jsp</A>.			
+			following code: <A HREF="../examples/Calendar.java">Calendar.java</A> and <A HREF="../examples/Month.java">Month.java</A>.<br>
+			A JSP example was provided by Tal Liron: <A HREF="../examples/pdf.jsp">pdf.jsp</A>.			
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -228,16 +228,16 @@
 			(as a matter of fact, these two methods are called automatically).<BR>
 			You can also add a header with a custom name, but this will have no effect on the
 			PdfWriter (for the moment it is only used in the HtmlWriter).<BR>
-			If we look at the example in step 1: <A HREF="http://www.lowagie.com/iText/examples/Chap0101.pdf">Chap0101.pdf</A>,
+			If we look at the example in step 1: <A HREF="../examples/Chap0101.pdf">Chap0101.pdf</A>,
 			we see that only the producer and date are shown in the infobox. If we run
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0106.java">Chap0106.java</A>, the result is a similar document:
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0106.pdf">Chap0106.pdf</A>, but there are more items added to
+			<A HREF="../examples/Chap0106.java">Chap0106.java</A>, the result is a similar document:
+			<A HREF="../examples/Chap0106.pdf">Chap0106.pdf</A>, but there are more items added to
 			the infobox:<BR>
-			<div align="center"><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0101.png" ALT="info" BORDER="0"><br>
-			<IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0106.png" ALT="info" BORDER="0"><br></div><br>
+			<div align="center"><IMG SRC="Chap0101.png" ALT="info" BORDER="0"><br>
+			<IMG SRC="Chap0106.png" ALT="info" BORDER="0"><br></div><br>
 			As an additional illustration of the fact that you can send documents to any
 			outputstream; example 6 sends HTML to <FONT FACE="Courier">System.out</FONT>.<BR>
-			<DIV ALIGN="center"><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0106dos.png" WIDTH=668 HEIGHT=331 ALT="System.out" BORDER="0"></DIV><BR>
+			<DIV ALIGN="center"><IMG SRC="Chap0106dos.png" WIDTH=668 HEIGHT=331 ALT="System.out" BORDER="0"></DIV><BR>
 			You can see that a custom header was used to add an 'Expires' META-tag.<BR>There is 1 exception:
 			if you add a custom header with as name <FONT SOURCE="Courier">HtmlWriter.STYLESHEET</FONT>,
 			you get a link to a stylesheet:<BR>
@@ -300,17 +300,17 @@
 			<FONT FACE="Courier">public void setPageCount(int pageN)</FONT><BR>
 			the result of these methods will only be seen on the next new page (when the
 			initialisation methods of this page are called). This is illustrated in
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0107.java">example 7</A>. If you want to try this example,
-			you will need an image file called <A HREF="http://www.lowagie.com/iText/examples/watermark.jpg">watermark.jpg</A>.
-			The result should look like <A HREF="http://www.lowagie.com/iText/examples/Chap0107.pdf">Chap0107.pdf</A>.<br><br>
+			<A HREF="../examples/Chap0107.java">example 7</A>. If you want to try this example,
+			you will need an image file called <A HREF="../examples/watermark.jpg">watermark.jpg</A>.
+			The result should look like <A HREF="../examples/Chap0107.pdf">Chap0107.pdf</A>.<br><br>
 			<B><a name="viewerprefs">Viewerpreferences</a></B><BR>
 			For PDF files you can also set some viewer preferences with the method:<br>
 			<FONT FACE="Courier">public void setViewerPreferences(int preferences)</FONT><BR><br>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0108.java">example 8</A>, some
+			In <A HREF="../examples/Chap0108.java">example 8</A>, some
 			of the possibilities are demonstrated:<br>
-			<FONT FACE="Courier">writerA.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108a.pdf">Chap0108a.pdf</A>)<br>
-			<FONT FACE="Courier">writerB.setViewerPreferences(PdfWriter.HideMenubar | PdfWriter.HideToolbar);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108b.pdf">Chap0108b.pdf</A>)<br>
-			<FONT FACE="Courier">writerC.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft | PdfWriter.PageModeFullScreen | PdfWriter.NonFullScreenPageModeUseThumbs);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108c.pdf">Chap0108c.pdf</A>)<br>
+			<FONT FACE="Courier">writerA.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);</FONT><BR>(see <A HREF="../examples/Chap0108a.pdf">Chap0108a.pdf</A>)<br>
+			<FONT FACE="Courier">writerB.setViewerPreferences(PdfWriter.HideMenubar | PdfWriter.HideToolbar);</FONT><BR>(see <A HREF="../examples/Chap0108b.pdf">Chap0108b.pdf</A>)<br>
+			<FONT FACE="Courier">writerC.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft | PdfWriter.PageModeFullScreen | PdfWriter.NonFullScreenPageModeUseThumbs);</FONT><BR>(see <A HREF="../examples/Chap0108c.pdf">Chap0108c.pdf</A>)<br>
 			As you can see, the preferences can be set by ORing some of these constants:
  			<ul>
 			 <li>The page layout to be used when the document is opened (choose one).
@@ -377,13 +377,13 @@
 				<li>PdfWriter.<b>AllowDegradedPrinting</b>
 			</ul>
 			</ul>
-			This functionality is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0109.java">example 9</A>
-			and <A HREF="http://www.lowagie.com/iText/examples/Chap0110.java">example 10</A>.<br><br>
+			This functionality is demonstrated in <A HREF="../examples/Chap0109.java">example 9</A>
+			and <A HREF="../examples/Chap0110.java">example 10</A>.<br><br>
 			<FONT FACE="Courier">writer.setEncryption(PdfWriter.STRENGTH40BITS, null, null, PdfWriter.AllowCopy);</FONT><br>
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0109.pdf">Chap0109.pdf</A> can be opened without using a password,
+			<A HREF="../examples/Chap0109.pdf">Chap0109.pdf</A> can be opened without using a password,
 			but the user is not allowed to Print, Modify,... the document.<br><br>
 			<FONT FACE="Courier">writer.setEncryption(PdfWriter.STRENGTH128BITS, "userpass", "ownerpass", PdfWriter.AllowCopy | PdfWriter.AllowPrinting);</FONT><br>
-			When you try to open <A HREF="http://www.lowagie.com/iText/examples/Chap0110.pdf">Chap0110.pdf</A>, you
+			When you try to open <A HREF="../examples/Chap0110.pdf">Chap0110.pdf</A>, you
 			are asked for a password (type in 'userpass'). Because the AllowPrinting-preference was added, you can
 			print this document without any problem.
 			</FONT>
@@ -403,7 +403,7 @@
 			in HTML. If you add a graphic to a <FONT FACE="Courier">Document</FONT>, the listening
 			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
 			Sometimes you may want a writer to deliberately <A NAME="pause">ignore actions</A> performed on a document.
-			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0111.java">example 11</A>.<BR>
+			This is shown in <A HREF="../examples/Chap0111.java">example 11</A>.<BR>
 			If we create two writers: writerA and writerB (this is an exception to what was said in
 			<A HREF="#step2">step 2</A>):<BR>
 			<FONT FACE="Courier">
@@ -416,8 +416,8 @@
 			document.add(new Paragraph("This paragraph will only be added to Chap0111b.pdf, not to Chap0111a.pdf"));<BR>
 			writerA.resume();<BR>
 			</FONT>
-			You can compare the results of example 11 here: <A HREF="http://www.lowagie.com/iText/examples/Chap0111a.pdf">Chap0111a.pdf</A> vs.
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0111b.pdf">Chap0111b.pdf</A>.
+			You can compare the results of example 11 here: <A HREF="../examples/Chap0111a.pdf">Chap0111a.pdf</A> vs.
+			<A HREF="../examples/Chap0111b.pdf">Chap0111b.pdf</A>.
 			</FONT><BR><br>
 		</TD>
 	</TR>
@@ -452,10 +452,10 @@
 			page of this file into the PDF file you are constructing from scratch. This can be useful
 			if you want to create a new document based on (an) existing document(s). You can add
 			a Watermark, pagenumbers,...<br>
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0112.java">Example 12</A> takes a pdf
+			<A HREF="../examples/Chap0112.java">Example 12</A> takes a pdf
 			file from Chapter 7 and creates a new document where 4 pages of the original document
 			are painted on 1 page of the new document. We also added a Watermark and pagenumbers
-			(see <A HREF="http://www.lowagie.com/iText/examples/Chap0112.pdf">Chap0112.pdf</A>).
+			(see <A HREF="../examples/Chap0112.pdf">Chap0112.pdf</A>).
 			In order to fully understand the code (an how to adapt it to your needs, you will
 			have to read <a href="ch10.html">Chapter 10</A> first)<br>
 			If you have an existing PDF file that represents a form, you could copy the pages
@@ -469,32 +469,32 @@
 			Using the functionality to read PDFs, I have made 4 little tools that can be
 			called from the commandline:<br>
 			<UL>
-				<LI>java <a href="http://www.lowagie.com/iText/examples/Concat.java">Concat</a> destfile file1 file2 [file3 ...]<br>
+				<LI>java <a href="../examples/Concat.java">Concat</a> destfile file1 file2 [file3 ...]<br>
 				concatenates the files file1, file2(, file3,...) and puts the result in destfile.<br><br>
 				<FONT FACE="Courier">
 				java Concat concat.pdf Chap0101.pdf Chap0102.pdf Chap0103.pdf Chap0107.pdf<br>
 				</FONT><br>
-				In the command above, we concatenate 4 files and put the result in file <a href="http://www.lowagie.com/iText/examples/concat.pdf">concat.pdf</a>.<br><br>
-				<LI>java <a href="http://www.lowagie.com/iText/examples/Split.java">Split</a> srcfile destfile1 destfile2 pagenumber<br>
+				In the command above, we concatenate 4 files and put the result in file <a href="../examples/concat.pdf">concat.pdf</a>.<br><br>
+				<LI>java <a href="../examples/Split.java">Split</a> srcfile destfile1 destfile2 pagenumber<br>
 				splits the srcfile and puts pages 1 to (pagenumber - 1) in destfile1 and the rest of the pages
 				starting with pagenumber in destfile2.<br><br>
 				<FONT FACE="Courier">
 				java Split concat.pdf split1.pdf split2.pdf 4<br>
 				</FONT><br>
-				In the command above, we split a file and put pages 1-3 in file <a href="http://www.lowagie.com/iText/examples/split1.pdf">split1.pdf</a> and pages 4-... in file <a href="http://www.lowagie.com/iText/examples/split2.pdf">split2.pdf</a>.<br><br>
-				<LI>java <a href="http://www.lowagie.com/iText/examples/Handout.java">Handout</a> srcfile destfile pages<br>
+				In the command above, we split a file and put pages 1-3 in file <a href="../examples/split1.pdf">split1.pdf</a> and pages 4-... in file <a href="../examples/split2.pdf">split2.pdf</a>.<br><br>
+				<LI>java <a href="../examples/Handout.java">Handout</a> srcfile destfile pages<br>
 				For instance<br><br>
 				<FONT FACE="Courier">
 				java Handout concat.pdf handouts.pdf 4<br>
 				</FONT><br>
 				The command above creates a file handouts.pdf that put all the pages of concat.pdf 4 by 4 per page
-				and leaves some extra room for note, as shown in <a href="http://www.lowagie.com/iText/examples/handouts.pdf">handouts.pdf</a>.<br><br>
-				<LI>java <a href="http://www.lowagie.com/iText/examples/Encrypt.java">Encrypt</a> srcfile destfile password<br>
+				and leaves some extra room for note, as shown in <a href="../examples/handouts.pdf">handouts.pdf</a>.<br><br>
+				<LI>java <a href="../examples/Encrypt.java">Encrypt</a> srcfile destfile password<br>
 				encrypts srcfile using password and put the result in destfile.<br><br>
 				<FONT FACE="Courier">
 				java Encrypt concat.pdf encrypted.pdf iText<br>
 				</FONT><br>
-				You will only be able to open the file <a href="http://www.lowagie.com/iText/examples/encrypted.pdf">encrypted.pdf</a>
+				You will only be able to open the file <a href="../examples/encrypted.pdf">encrypted.pdf</a>
 				if you know the password (= iText).
 			</UL>
 			</FONT><BR><BR><BR>

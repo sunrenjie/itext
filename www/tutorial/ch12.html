@@ -111,10 +111,10 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="paragraphchaptersection"><B>Adding paragraphs, chapters, section</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			When a paragraph is added, you might want to know the current Y position on your page.
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap1104.java">example 4</A> of chapter 11,
+			In <A HREF="../examples/Chap1104.java">example 4</A> of chapter 11,
 			we already used the <FONT FACE="Courier">onParagraph</FONT>-method
 			to construct an outline tree. Each entry in the outline tree points at the starting position
-			of a paragraph (see <A HREF="http://www.lowagie.com/iText/examples/Chap1104.pdf">Chap1104.pdf</A>).
+			of a paragraph (see <A HREF="../examples/Chap1104.pdf">Chap1104.pdf</A>).
 			If you need to add some object at an absolute place just after a paragraph, just use
 			the <FONT FACE="Courier">onParagraphEnd</FONT>-method.<br>
 			The methods <FONT FACE="Courier">onChapter</FONT>, <FONT FACE="Courier">onSection</FONT>,
@@ -128,7 +128,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="generictagevent"><B>Generic tags</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0208.java">example 8</A> of chapter 2, we
+			In <A HREF="../examples/Chap0208.java">example 8</A> of chapter 2, we
 			already saw one example using generic tags to construct a glossary. In the next example, we are
 			going to use this method to count the number of interventions of each character in the play
 			'Romeo and Juliet' by William Shakespeare.
@@ -139,11 +139,11 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="eventexample"><B>An example says a thousand words</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<A HREF="http://www.lowagie.com/iText/examples/Chap1201.java">Chap1201.java</A> really says it all.
-			We use XML parsing from <A HREF="http://www.lowagie.com/iText/tutorial/ch07.html">chapter 7</A> and
-			we will trigger some page events on <A HREF="http://www.lowagie.com/iText/examples/Chap0703.xml">Chap0703.xml</A>
+			<A HREF="../examples/Chap1201.java">Chap1201.java</A> really says it all.
+			We use XML parsing from <A HREF="ch07.html">chapter 7</A> and
+			we will trigger some page events on <A HREF="../examples/Chap0703.xml">Chap0703.xml</A>
 			while generating the PDF file.<br>
-			We will again use <A HREF="http://www.lowagie.com/iText/examples/tagmap0703.xml">tagmap0703.xml</A>, but
+			We will again use <A HREF="../examples/tagmap0703.xml">tagmap0703.xml</A>, but
 			to be able to use the generictag functionality, we are going to change the behaviour of 1 element
 			in our own tagmap class that extends <FONT FACE="Courier">com.lowagie.text.xml.TagMap</FONT>
 			(remark: if this wasn't an example, I would write a class that extends <FONT FACE="Courier">java.util.HashMap</FONT>
@@ -159,7 +159,7 @@
 			and finally, we set the value of this Y in the <FONT FACE="Courier">onCloseDocument</FONT> method.
 			After the document is parsed, we retrieve the alphabetical list of speaker from out event class
 			and add an extra page with this info.<br>The result is a very nice document:
-			<A HREF="http://www.lowagie.com/iText/examples/Chap1201.pdf">Chap1201.pdf</A>
+			<A HREF="../examples/Chap1201.pdf">Chap1201.pdf</A>
 			combining some of the most interesting functionalities of iText.
 			</FONT><BR><BR>
 		</TD>
@@ -195,7 +195,7 @@
 			table border. Parameter headerRows is the number of rows defined for the header. It is always 0 if
 			the table is not rendered with <FONT FACE="Courier">Document.add</FONT>.
 			Parameter rowStart is the first row number after the header.<br><br>
-			<A HREF="http://www.lowagie.com/iText/examples/Chap1202.java">Example 2</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1202.pdf">Chap1202.pdf</A>)
+			<A HREF="../examples/Chap1202.java">Example 2</A> (<A HREF="../examples/Chap1202.pdf">Chap1202.pdf</A>)
 			shows you how you can add an action to a cell and draw some lines on certain canvases.
 			</FONT><BR><BR><br><br>
 		</TD>
