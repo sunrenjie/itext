@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Date$ -->
+<!-- author: Bruno Lowagie        -->
+
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:html="http://www.w3.org/1999/xhtml"
@@ -17,7 +21,7 @@
 <xsl:value-of select="142"/>
 </xsl:template>
 
-<!-- releaselinks to SorceForge -->
+<!-- releaselinks to SourceForge -->
 
 <xsl:template match="site:releasesrc">
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
@@ -80,6 +84,8 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 
 <!-- History entries -->
 
+<xsl:template match="site:remark"> (<xsl:value-of select="." />)</xsl:template>
+
 <xsl:template match="site:history">
 	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Releases</div>
 	<br xmlns="http://www.w3.org/1999/xhtml" />
@@ -90,6 +96,7 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 				<xsl:attribute name="class">small</xsl:attribute>
 				<xsl:value-of select="@name" />
 			</xsl:element>
+			<xsl:value-of select="string(' ')" />
 			<xsl:value-of select="@date" />
 		</xsl:if>
 		<br xmlns="http://www.w3.org/1999/xhtml" />
@@ -102,8 +109,9 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 			<xsl:when test="local-name()='release'">
 				<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
 					<xsl:attribute name="name"><xsl:value-of select="@number" /></xsl:attribute>
+					<xsl:value-of select="@name" />
 				</xsl:element>
-				<b>(<xsl:apply-templates select="./site:remark" />)</b>
+				<xsl:apply-templates select="./site:remark" />
 				<div class="small" xmlns="http://www.w3.org/1999/xhtml"><xsl:apply-templates select="./site:changelog" /></div>
 			</xsl:when>
 			<xsl:otherwise><br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="10%" /></xsl:otherwise>
@@ -180,9 +188,9 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:apply-templates select="site:content" />
 
 <div id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
-Copyright <![CDATA[&copy;]]> 1999-2004 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
+Copyright &#169; 1999-2004 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
 Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com;
-mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A></div>
+mailto: <A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A></div>
 
 </xsl:element>
 
