@@ -152,12 +152,10 @@ be removed at the end of 2007. The same goes for all extensions of the old
 <li>Viewer preferences</li>
 <li>Encryption</li>
 <li>Embedded fonts</li>
-<li>Phrases with a leading</li>
 <li>Lists with non-bullet symbols</li>
 <li>Nested tables</li>
 <li>Images other than JPEG, PNG, BMP and WMF</li>
 <li>Rotated images</li>
-<li>Paragraph.setSpacingAfter and Paragraph.setSpacingBefore</li>
 <li>Table.setSpaceInsideCell and Table.setSpaceBetweenCells</li>
 <li>Table.padding</li>
 </ul>
