@@ -1,0 +1,1 @@
+<% response.sendRedirect("http://itext.sourceforge.net/tutorial/general/webapp/"); %>

@@ -13,14 +13,32 @@
     <servlet-name>HelloWorld</servlet-name>
     <servlet-class>com.lowagie.examples.general.webapp.HelloWorldServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>OutSimplePdf</servlet-name>
+    <servlet-class>com.lowagie.examples.general.webapp.OutSimplePdf</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SilentPrint</servlet-name>
+    <servlet-class>com.lowagie.examples.general.webapp.SilentPrintServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>HelloWorld</servlet-name>
     <url-pattern>/servlet/HelloWorld</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>OutSimplePdf</servlet-name>
+    <url-pattern>/servlet/simple.pdf</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SilentPrint</servlet-name>
+    <url-pattern>/servlet/silentprint</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
 </web-app>

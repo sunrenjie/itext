@@ -19,15 +19,28 @@
 	<site:examples>
 		<site:webapp name="ROOT">
 			<site:webxml>web.xml</site:webxml>
-			<site:welcome>index.html</site:welcome>
+			<site:welcome>index.jsp</site:welcome>
 		</site:webapp>
 		<site:example>
 			<site:java src="HelloWorldServlet" standalone="no" webapp="ROOT" />
 			<site:extrajar>servlet.jar</site:extrajar>
 			<site:description>Generates a simple 'Hello World' file from a servlet (PDF, HTML or RTF)</site:description>
-			<site:path name="pdf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=pdf</site:path>
-			<site:path name="html">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=html</site:path>
-			<site:path name="rtf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=rtf</site:path>
+			<site:path name="presentationtype=pdf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=pdf</site:path>
+			<site:path name="presentationtype=html">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=html</site:path>
+			<site:path name="presentationtype=rtf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=rtf</site:path>
+		</site:example>
+		<site:example>
+			<site:java src="OutSimplePdf" standalone="no" webapp="ROOT" />
+			<site:extrajar>servlet.jar</site:extrajar>
+			<site:description>Generates a simple PDF file</site:description>
+			<site:path name="without message">http://blowagie.users.mcs2.netarray.com/servlet/simple.pdf</site:path>
+			<site:path name="with message">http://blowagie.users.mcs2.netarray.com/servlet/simple.pdf?msg=Hello+World</site:path>
+		</site:example>
+		<site:example>
+			<site:java src="SilentPrintServlet" standalone="no" webapp="ROOT" />
+			<site:extrajar>servlet.jar</site:extrajar>
+			<site:description>Explains how to print silently via Servlet/Browser.</site:description>
+			<site:path name="try it!">http://blowagie.users.mcs2.netarray.com/servlet/silentprint</site:path>
 		</site:example>
 		<site:example>
 			<site:java jsp="HelloWorld.jsp" standalone="no" webapp="ROOT" />
@@ -60,7 +73,56 @@ create your own free Java blog at the Java blogging site,
 <div>
 In the general <site:tutorial chapter="/general" section="5steps">Hello World</site:tutorial> example,
 we created a Hello World PDF file from a standalone Java program.
+Now we are going to do exactly the same thing, but instead of sending the generated document to
+a FileOutputStream, we are going to send everything to the OutputStream of a HttpServletResponse object:
+<pre class="commandline">PdfWriter.getInstance(document, response.getOutputStream());</pre>
+In the example, we accept a parameter <span class="commandline">presentationtype</span> that
+can be one of the following values:<ul><li>pdf</li><li>html</li><li>rtf</li></ul>
+Depending on the parameter you passed, you should see a PDF, HTML or RTF page in your browser.
 <site:source class="HelloWorldServlet" />
+Remark that I didn't say 'you <i>will</i> see a PDF, HTML or RTF page in your browser'.
+It <i>should</i> work on all browsers, but we know it <i>won't</i> work on some.
+For instance: we have set the ContentType to PDF:
+<pre class="commandline">response.setContentType("application/pdf");</pre>
+but some browsers look at the file extension, rather than the content-type
+(don't ask me why, don't ask me which browsers). That's why we are going to
+use something that looks like a pdf-file (with the correct extension) as url-pattern
+in out <a href="web.xml">web.xml</a> file:
+<pre class="commandline">&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;OutSimplePdf&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;/servlet/simple.pdf&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</pre>
+Another thing some browsers need to know in advance (otherwise they just give
+you a blank page), is the content-length of the PDF. The
+only way we can work around this, is by buffering the complete file in a
+ByteArrayOutputStream. That's a pity, because you risk a timeout in the
+browser-server communication if you need to send really big PDFs.
+<pre class="commandline">Document document = new Document();
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+PdfWriter.getInstance(document, baos);
+document.open();
+document.add(new Paragraph(msg));
+document.close();
+response.setContentType("application/pdf");
+response.setContentLength(baos.size());
+ServletOutputStream out = response.getOutputStream();
+baos.writeTo(out);
+out.flush();</pre>
+<site:source class="OutSimplePdf" />
+</div>
+	</site:section>
+	
+	<site:section name="timeout">
+		<site:sectiontitle>Workaround for timeout problem</site:sectiontitle>
+<div>
+
+</div>
+	</site:section>
+	
+	<site:section name="silentprint">
+		<site:sectiontitle>Silent printing</site:sectiontitle>
+<div>
+
 </div>
 	</site:section>
 	
@@ -70,51 +132,7 @@ we created a Hello World PDF file from a standalone Java program.
 <site:jsp jsp="HelloWorld.jsp" />
 </div>
 	</site:section>
-	
-	<site:section name="msie">
-		<site:sectiontitle>Workarounds in the case of browser incompatibilities</site:sectiontitle>
-<div>In theory the example in the previous section should work with every application server
-for every webbrowser. Unfortunately there are lots of features in different browser versions
-that make it rather difficult to show a dynamically generated PDF file in every browser.<br />
-In some cases the client only sees a blank browser window when you send dynamically created CORRECT (!) PDFs
-(with ASP, JSP, a Servlet, Cold Fusion) in response to a request. One of the main reasons is because
-some browsers need to know the exact content length of the PDF file in advance!
-Other problems are caused by the fact that the browser doesn't know you are sending PDF syntax
-(instead of HTML or plain text).<br /><br />
-These are some workarounds:<br />
-<pre class="commandline">res.setContentType("application/pdf");
-ByteArrayOutputStream ba = new ByteArrayOutputStream();
-generate_pdf(ba);
-res.setContentLength(ba.size());
-ServletOutputStream out = res.getOutputStream();
-ba.writeTo(out);
-out.flush();</pre>
-If you don't include the content length it only works sometimes, if ever.<br /><br />
-Another known feature (especially when using MSIE): every time a client requests a dynamically generated PDF
-you see the server receives the same request 2 or 3 times. You can work around this using
-the following construction posted by Anis H.:<br />
-<pre class="commandline"><![CDATA[<html>
-<body leftMargin="0" topMargin="0" scroll="no">
-  <embed src="http://myserver/pdfCreationServlet"
-  	width="100%" height="100%"
-	type="application/pdf" fullscreen="yes" />
-</body>
-</html>]]></pre>
-When you invoke your servlet which creates PDF as
-shown above only one request will be sent to the server.<br /><br />
-In another context (dynamic CSV files over SSL), Nicolas Guichard posted
-this solution to the mailing-list:<br />
-I have the same problem with CSV files, and i just found the solution on a
-<a href="http://php3.de/manual/en/function.session-cache-limiter.php">php forum</a>:
-Following their advice, I add the following parameters to the response's headers:<br />
-<pre class="commandline">
-response.setHeader("Expires", "0");
-response.setHeader("Cache-Control",
-	"must-revalidate, post-check=0, pre-check=0");
-response.setHeader("Pragma", "public");</pre>
-And it works.... But don't ask me to explain this!!!
-</div>
-	</site:section>
+
 	</site:chapter>
 
 </site:page>
