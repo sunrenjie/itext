@@ -8,6 +8,8 @@
 		<site:summary>How-to download iText (sourcecode and released jars) and how to compile it.</site:summary>
 		<site:keywords>PDF, JAVA, iText, download, compile, release, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:book asin="0321305310">Adobe Reader 7 Revealed</site:book>
 			<site:book asin="0764546600">Open Source: The Unauthorized White Papers</site:book>
 			<site:book asin="0596005814">Understanding Open Source and Free Software Licensing </site:book>
 		</site:amazonbooks>
