@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Direct Content</site:title>
+		<site:title status="finished">Direct Content</site:title>
 		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -28,23 +28,9 @@
 			<site:description>Using templates</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="EndPage" standalone="yes" />
-			<site:result>endpage.pdf</site:result>
-			<site:description>Using page events</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Events" standalone="yes" />
-			<site:result>RomeoJuliet.pdf</site:result>
-			<site:extrajar>crimson.jar</site:extrajar>
-			<site:externalresource>tagmapRomeoJuliet.xml</site:externalresource>
-			<site:externalresource>playRomeoJuliet.xml</site:externalresource>
-			<site:description>Using PageEvents</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="PageNumbersWatermark" standalone="yes" />
-			<site:result>pageNumbersWatermark.pdf</site:result>
-			<site:externalresource>logo.gif</site:externalresource>
-			<site:description>Making a document with a header containing 'page x of y' and with a watermark on every page.</site:description>
+			<site:java src="TemplateImages" standalone="yes" />
+			<site:result>templateImages.pdf</site:result>
+			<site:description>Templates used as image</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -95,8 +81,9 @@ objects. These include sampled images, geometrically defined shadings, and
 entire content streams that in turn contain sequences of graphics operators.
 <div class="small">For more info on how iText deals with this, see:
 <ul>
-<li><site:tutorial chapter="/directcontent" section="templates">Templates</site:tutorial></li>
-<li><site:tutorial chapter="/objects/images">Images</site:tutorial></li>
+<li><site:tutorial chapter="/objects/images">Image XObjects</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent" section="templates">Form XObjects</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent" section="postscript">PostScript XObjects</site:tutorial></li>
 </ul></div></li>
 <li><i>Text operators</i> select and show <i>character glyphs</i> from
 <i>fonts</i> (descriptions of typefaces for representing text characters).
@@ -156,26 +143,57 @@ the <site:tutorial chapter="/directcontent/optionalcontent">Optional Content</si
 </div>
 	</site:section>
 	<site:section name="templates">
-		<site:sectiontitle>Using templates</site:sectiontitle>
+		<site:sectiontitle>Using templates (Form XObjects)</site:sectiontitle>
 <div>
 The 4 iText layers (direct content, high level text, high level graphics and direct content under)
 are written to a PDF stream of a page. However, there is a possibility to get a layer, a canvas, a <i>PdfTemplate</i>
-that can be external to the PDF page stream. It will be treated as a <i>Form XObject</i> (see section 4.9 of the PDF Reference Manual).<br />
-In iText these PdfTemplates are mainly used for two reasons:
+that can be external to the PDF page stream. It will be treated as an <i>external object</i>.<br />
+There are 3 types of external objects in PDF:
+<ol>
+<li><site:tutorial chapter="/objects/images">Image XObjects</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent" section="templates">Form XObjects</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent" section="postscript">PostScript XObjects</site:tutorial></li>
+</ol>
+In iText, you can use a <i>Form XObject</i> by creating a <site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc>.
+<site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc>.
+This is done with the method <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createTemplate(float,%20float)">PdfContentByte.createTemplate(float, float)</site:doc>
+(the parameters specify the width and height). You can add a template with on of the
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float)">PdfContentByte.addTemplate</site:doc> methods.
+But you should read more about the <site:tutorial chapter="/directcontent/coordinates" section="templates">Transformation Matrix</site:tutorial> first if you want to know what the parameters of these methods represent.<br />
+<site:source class="Templates" />
+If all those transformation parameters are too complex to understand, you might want to wrap a PdfTemplate in an Image object
+(class Image has methods that are much easier to understand).
+<site:source class="TemplateImages" />
+Summarized: a Form XObject is a PDF content stream that is a self-contained description of any sequence of graphics objects.
+A form XObject may be painted multiple times, either on several pages or at several locations on the same page.
+It produces the same results each time, subject only to the graphics state at the time it is invoked.<br />
+DO NOT confuse Form XObjects with <i>AcroForms</i>. A Form XObjects isn't a form(field) as in the context of
+<i>interactive forms</i> (see <site:tutorial chapter="/forms">Forms</site:tutorial>). That's why we prefer to use
+<site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc> when refering to Form XObjects.<br />
+In iText PdfTemplates are mainly used for two reasons:
 <ol>
 <li>You want to <i>repeat</i> a certain sequence of PDF syntax, but you want to save on disc space (reuse the stream) and processing time (write the stream only once).</li>
 <li>You want to add some content to a page, but you <i>don't know in advance</i> what the content will be. For instance: you want to add a footer saying 'this it is page x of y',
 but you don't know the value of y yet. In this case, you can add a template for y, but you can wait to add content to the template untill you know the exact number of pages
 in your document.</li>
 </ol>
-<br />
-<br />
-Other examples: PdfPTable, Images,...
-
-
-createTemplate createAppearance
-
-
+There's probably only one thing left that keeps you from using PdfTemplates: you will have to learn about <site:tutorial chapter="/directcontent/pageevents" section="eps">Page Events</site:tutorial> first,
+to know how to add a PdfTemplate each time a page is finished, or to fill the contents of a PdfTemplate, just before the Document is closed.
+</div>
+	</site:section>
+	<site:section name="Postscript">
+		<site:sectiontitle>PostScript XObjects</site:sectiontitle>
+<div>
+There is also basic support for PostScript XObjects (in iText <site:doc class="com.lowagie.text.pdf.PdfPSXObject">PdfPSXObject</site:doc> extends
+<site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc>). You can add PS Syntax to this object with
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setLiteral(String)">setLiteral</site:doc>
+and add the PS XObject with
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addPSXObject(com.lowagie.text.pdf.PdfPSXObject)">PdfContentByte.addPSXObject</site:doc>).
+However, it is no longer recommended to use Postscript XObjects in PDF.
+These PS fragments are used only when printing to a PostScript output device.
+They should be used with extreme caution, because they can cause PDF files
+to print incorrectly (See section 4.7.1 if the PDF Reference Manual: this feature is likely to be removed from PDF in a future version).<br />
+Remark that there is also basic support for <site:tutorial chapter="/objects/images/tiff" section="eps">Encapsulated PostScript</site:tutorial> in iText.
 </div>
 	</site:section>
 	</site:chapter>

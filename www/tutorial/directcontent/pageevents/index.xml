@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Direct Content</site:title>
+		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="EndPage" standalone="yes" />
+			<site:result>endpage.pdf</site:result>
+			<site:description>Using page events</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Events" standalone="yes" />
+			<site:result>RomeoJuliet.pdf</site:result>
+			<site:extrajar>crimson.jar</site:extrajar>
+			<site:externalresource>tagmapRomeoJuliet.xml</site:externalresource>
+			<site:externalresource>playRomeoJuliet.xml</site:externalresource>
+			<site:description>Using PageEvents</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="PageNumbersWatermark" standalone="yes" />
+			<site:result>pageNumbersWatermark.pdf</site:result>
+			<site:externalresource>logo.gif</site:externalresource>
+			<site:description>Making a document with a header containing 'page x of y' and with a watermark on every page.</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	
+	<site:section name="headerfooter">
+		<site:sectiontitle>headerfooter</site:sectiontitle>
+<div>
+</div>
+	</site:section>
+	
+	<site:section name="pageXofY">
+		<site:sectiontitle>Page X of Y</site:sectiontitle>
+<div>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>

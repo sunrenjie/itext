@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Colors</site:title>
+		<site:title status="finished">Colors</site:title>
 		<site:summary>Colors, Transparency, Spotcolors, Patterns and Shading.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, patterns, shading, transparency, colors, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -172,6 +172,8 @@ This can be used to paint a path (<site:doc class="com.lowagie.text.pdf.PdfConte
 but also to set a fill or stroke color:
 <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setShadingFill(com.lowagie.text.pdf.PdfShadingPattern)">setShadingFill(com.lowagie.text.pdf.PdfShadingPattern)</site:doc>/<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setShadingStroke(com.lowagie.text.pdf.PdfShadingPattern)">setShadingStroke(com.lowagie.text.pdf.PdfShadingPattern)</site:doc>.
 <site:source class="ShadingPattern" />
+Again there's a class extending <site:doc class="com.lowagie.text.pdf.ExtendedColor">ExtendedColor</site:doc>
+to use a shading pattern as color for high level objects: <site:doc class="com.lowagie.text.pdf.ShadingColor">ShadingColor</site:doc>.
 </div>
 	</site:section>
 	
