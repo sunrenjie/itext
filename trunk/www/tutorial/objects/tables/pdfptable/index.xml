@@ -48,6 +48,11 @@
 			<site:description>Demonstrates what one can do with table events (cells with colspan &gt; 1)</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FloatingBoxes" standalone="yes" />
+			<site:result>FloatingBoxes.pdf</site:result>
+			<site:description>Demonstrates how to simulate cellspacing as in HTML</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="VerticalTextInCells" standalone="yes" />
 			<site:result>VerticalText.pdf</site:result>
 			<site:description>Demonstrates how to add vertical text in a cell</site:description>
@@ -142,6 +147,8 @@ You need to implement the method <site:doc class="com.lowagie.text.pdf.PdfPTable
 the <site:doc class="com.lowagie.text.pdf.PdfPTableEvent">PdfPTableEvent</site:doc> interface.
 <site:source class="TableEvents1" />
 <site:source class="TableEvents2" />
+In the next example cell and table events are combined to simulate cellspacing.
+<site:source class="FloatingBoxes" />
 </div>
 	</site:section>
 	
