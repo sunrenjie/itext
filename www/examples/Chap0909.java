@@ -26,11 +26,11 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
 
-public class Chap0905 {
+public class Chap0909 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 9 example 5: CJK Fonts");
+        System.out.println("Chapter 9 example 9: CJK Fonts");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -40,7 +40,7 @@ public class Chap0905 {
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            PdfWriter.getInstance(document, new FileOutputStream("Chap0905.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0909.pdf"));
             
             // step 3: we open the document
             document.open();
