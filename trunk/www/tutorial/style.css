@@ -1,0 +1,31 @@
+/* $Date$ */
+
+#content {
+  position : absolute;
+  top : 50px;
+  left : 210px;
+  right : 130px;
+  padding : 10px;
+}
+
+#google {
+  position : absolute;
+  top : 50px;
+  right : 5px;
+}
+
+#amazon {
+  width : 120px;
+  position : absolute;
+  top : 660px;
+  right : 5px;
+}
+
+#examples {
+  position : absolute;
+  top : 50px;
+  width : 200px;
+}
+.example {
+  border: black dotted 1px;
+}
