@@ -46,7 +46,7 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Introduction</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			A <FONT FACE="Courier">Table</FONT> is a <FONT FACE="Courier">Rectangle</FONT>
-			that contains <FONT>Cell</FONT>s, ordered in some kind of matrix.<BR>
+			that contains <FONT FACE="Courier">Cell</FONT>s, ordered in some kind of matrix.<BR>
 			The matrix of a table is not necessarily an m x n-matrix. It can contain holes
 			or cells that are bigger than the unit. Believe me or not, but it took some serious
 			thinking to make this as userfriendly as possible. I hope you wil find the result
@@ -198,7 +198,19 @@
                         </TD>
                 </TR>
         	</TABLE>
-			<BR><BR><BR>	
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>class Table</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">		
+			The <FONT SOURCE="Courier">Table</FONT>-class has 2 constructors:<BR>
+			<FONT FACE="Courier">public Table(int columns) throws BadElementException<BR>
+			public Table(int columns, int rows) throws BadElementException</FONT><BR><BR>
+			As you can see, you need to now the number of columns in advance, but it's
+			not necessary to know the number of rows.<BR>
 			<!--- Tables that span multiple pages are cut into different parts automatically
 			(unless you use the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
 			<FONT FACE="Courier">PdfWriter</FONT> to control the 'table-breaks').<BR>
