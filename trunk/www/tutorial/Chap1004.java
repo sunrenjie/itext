@@ -72,7 +72,7 @@ public class Chap1004 {
             }
             template.beginText();
             template.setFontAndSize(bf, 12);
-            template.showText(String.valueOf(i - 1));
+            template.showText(String.valueOf(writer.getPageNumber() - 1));
             template.endText();
 		}
 		catch(DocumentException de) {
