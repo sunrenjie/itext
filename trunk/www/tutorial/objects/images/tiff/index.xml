@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Selected examples: EPS, TIFF, Barcodes</site:title>
+		<site:title status="finished">Selected examples: EPS, TIFF, Barcodes</site:title>
 		<site:summary>Selected examples: Embedding PostScript, importing TIFF files, Barcodes</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, tiff, eps, barcodes, PostScript, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
