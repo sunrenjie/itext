@@ -51,6 +51,21 @@
 			<site:result>combined.pdf</site:result>
 			<site:description>Combines 2 tiffs, one with odd, another with even pages into 1 combined PDF</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Barcodes" standalone="yes" />
+			<site:result>barcodes.pdf</site:result>
+			<site:description>List with different barcodes</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ExampleEAN128" standalone="yes" />
+			<site:result>ean128.pdf</site:result>
+			<site:description>Example barcode ean128</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ExamplePDF417" standalone="yes" />
+			<site:result>pdf417.pdf</site:result>
+			<site:description>Example barcode pdf417</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
