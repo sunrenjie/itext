@@ -1,2 +1,2 @@
-javac -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;../../bin/xerces_1_3_1.jar;. %1.java
-java -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;../../bin/iTextHYPH.jar;../../bin/xerces_1_3_1.jar;. %1
+javac -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;%JAVA_HOME%/lib/j2ee.jar;. %1.java
+java -classpath ../../bin/iText.jar;../../bin/iTextXML.jar;../../bin/iTextHYPH.jar;%JAVA_HOME%/lib/j2ee.jar;. %1
