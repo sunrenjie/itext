@@ -40,7 +40,7 @@ public class Chap0701 {
             // step 2:
             // we create a writer that listens to the document
             // and directs a XML-stream to a file
-            XmlWriter.getInstance(document, new FileOutputStream("Chap0701.xml"), "http://www.lowagie.com/iText/itext.dtd");
+            XmlWriter.getInstance(document, new FileOutputStream("Chap0701.xml"), "http://itext.sourceforge.net/itext.dtd");
             
             // step 3: we open the document
             document.open();

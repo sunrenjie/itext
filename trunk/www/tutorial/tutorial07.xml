@@ -44,7 +44,7 @@
 			</paragraph>
 			<paragraph font="Courier" size="9" align="Justify" leading="12">
 				&lt;?xml version="1.0" encoding="UTF-8" ?&gt;<newline />
-				&lt;!DOCTYPE ITEXT SYSTEM "http://www.lowagie.com/iText/itext.dtd"&gt;<newline />
+				&lt;!DOCTYPE ITEXT SYSTEM "http://itext.sourceforge.net/itext.dtd"&gt;<newline />
 				&lt;itext creationdate="Fri Aug 17 13:15:42 CEST 2001" producer="iTextXML by lowagie.com"&gt;
 			</paragraph>
 			<paragraph font="Helvetica" size="11" align="Justify">
@@ -278,7 +278,7 @@ public class Chap0701 {<newline />
             // we create a writer that listens to the document<newline />
             // and directs a XML-stream to a file<newline />
             XmlWriter.getInstance(document, new FileOutputStream("Chap0701.xml"),<newline />
-                "http://www.lowagie.com/iText/itext.dtd");<newline />
+                "http://itext.sourceforge.net/itext.dtd");<newline />
             <newline />
             // step 3: we open the document<newline />
             document.open();<newline />
