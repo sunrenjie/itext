@@ -37,9 +37,69 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Simple iText</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 4: HeaderFooters, Chapters, Sections and the Graphic-object</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 4: HeaderFooters, Chapters, Sections and the Graphic-object</B></FONT><BR>
 			<font face="Arial,Helvetica" size="-1">A lot of 'Simple iText'-objects described in Chapters 3 to 5 can be used to avoid the more difficult 'Advanced' stuff (chapters 9 to 12).
-			Always keep in mind that the functionality of these 'simple' objects is limited. For really complex thing, please read Part III of this tutorial.</font>
+			Always keep in mind that the functionality of these 'simple' objects is limited. For really complex thing, please read Part III of this tutorial.</font><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="headerfooter"><B>HeaderFooter</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			The <FONT FACE="Courier">HeaderFooter</FONT>-object is an object that can be used to add a simple header or footer
+			to each page of the document. Such a header or footer contains a standard phrase and (if needed) the current
+			page number. If you need a more complex header or footer (with a table, or with 'page X of Y'), please read
+			<A HREF="ch12.html#openclose">Chapter 12</A>.<br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0401.java">example 1</A> you see that we first add
+			a footer containing a page number and without any borders:<br><br>
+			<FONT FACE="Courier">      
+			HeaderFooter footer = new HeaderFooter(new Phrase("This is page: "), true);<br>
+            footer.setBorder(Rectangle.NO_BORDER);<br>
+            document.setFooter(footer);<br>
+			</FONT><br>
+			We could also have used this constructor:<br>
+			<FONT FACE="Courier">      
+			HeaderFooter footer = new HeaderFooter(new Phrase("This is page "), new Phrase("."));<br>
+			</FONT><br>
+			This constructor knows you want to add a pagenumber and puts it between the two phrases.<br>
+			If you just set a <FONT FACE="Courier">HeaderFooter</FONT>-object without changing the borders,
+			the header or footer has a line above and below the text:<br><br>
+			<FONT FACE="Courier">      
+			HeaderFooter header = new HeaderFooter(new Phrase("This is a header without a page number"), false);<br>
+            document.setHeader(header);<br>
+			</FONT><br>
+			You can see this in <A HREF="http://www.lowagie.com/iText/examples/Chap0401.pdf">Chap0401.pdf</A>.
+            </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="chaptersection"><B>Chapters and Sections</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<a href="ch11.html#outlines">Chapter 11</a> describes how you can construct an outline tree.
+			If you only need a simple tree with some chapters and (sub)sections, you can automatically
+			build such a tree using the <FONT FACE="Courier">Chapter</FONT> and <FONT FACE="Courier">Section</FONT>-object.<br><br>
+			<FONT FACE="Courier">
+                Paragraph cTitle = new Paragraph("This is chapter 1", chapterFont);<br>
+                Chapter chapter = new Chapter(cTitle, 1);<br>
+				Paragraph sTitle = new Paragraph("This is section 1 in chapter 1", sectionFont);<br>
+                Section section = chapter.addSection(sTitle, 1);<br>
+			</FONT><br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0402.java">example 2</A>, we add a series of
+			chapters and subsections and if you look at <A HREF="http://www.lowagie.com/iText/examples/Chap0402.pdf">Chap0402.pdf</A>,
+			you see a complete outline tree. This outline tree is open by default. If you want some parts of the outline closed,
+			you have to use the method <FONT FACE="Courier">setBookmarkOpen(boolean open)</FONT> with false as parameter.
+			This is done in <A HREF="http://www.lowagie.com/iText/examples/Chap0403.java">example 3</A>
+			(<A HREF="http://www.lowagie.com/iText/examples/Chap0403.pdf">Chap0403.pdf</A>).
+            </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphic"><B>Graphic</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            <BR>
+            </FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
