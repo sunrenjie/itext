@@ -12,41 +12,16 @@
 	</site:metadata>
 	<site:content>
 	<div>
-		<div id="side">
-			<div class="search">
-				<div class="sidetitle">Search the Site:</div>
-				<FORM ACTION="http://search.freefind.com/find.html" METHOD="GET"  target="_self">
-					<select name="s">
-						<option value="">Complete site</option>
-						<option value="iText">The home pages</option>
-						<option value="tutorial">The tutorial</option>
-						<option value="examples">The examples</option>
-						<option value="api">The API</option>
-						<option value="source">The Source Code</option>
-					</select>
-					<br />
-					<font size="1" face="arial,helvetica" >
-						<INPUT TYPE="HIDDEN" NAME="id" SIZE="-1" VALUE="3425713" />
-						<INPUT TYPE="HIDDEN" NAME="pageid" SIZE="-1" VALUE="r" />
-						<INPUT TYPE="HIDDEN" NAME="mode" SIZE="-1" VALUE="ALL" />
-						<INPUT type="HIDDEN" name="n" value="0" />
-						<INPUT TYPE="TEXT" NAME="query" SIZE="15" />
-						<INPUT TYPE="SUBMIT" VALUE=" Find " />
-						<br />powered by <A HREF="http://www.freefind.com">FreeFind</A>
-					</font>
-				</FORM>
-			</div>
-			<div class="news">
-				<div class="sidetitle">NEWS</div>
-		        <b>Nov 14th 2004:</b>
-				<br />Module 'www' in CVS was cleaned up, except for the RTF tutorial page. New tutorial pages are being written.<br />
-				<b>Nov 12th 2004:</b>
-				<br />The build.xml is being replaced by different ANT-scripts. The site/tutorial will be generated from XML using XSLT.<br />
-				<br />
-			</div>
-		</div>
 		<div class="header">iText Homepage</div>
 		<div class="title">Project description</div>
+		<div id="side">
+			<div class="sidetitle">NEWS</div>
+		        <b>Nov 16th 2004:</b>
+				<br />iText 1.1 was released!<br />
+				<b>Nov 15th 2004:</b>
+				<br />The ANT build.xml script was split up in different subscripts. The site is now being generated from XML.<br />
+				<br />
+		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
 		The iText classes are very useful for people who need to generate
@@ -95,6 +70,54 @@
 		But it's always a good idea to check <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">archives</a>	first.
 		</li>
 		</ol>
+		<div class="title">Searching the net and the different iText sites</div>
+		<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif"
+border="0" alt="Google"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.lowagie.com;itext.sourceforge.net;itextpdf.sourceforge.net"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="www.lowagie.com"></input>
+<font size="-1" color="#000000">www.lowagie.com</font>
+</td>
+</tr>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="itext.sourceforge.net"></input>
+<font size="-1" color="#000000">itext.sourceforge.net</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="itextpdf.sourceforge.net"></input>
+<font size="-1" color="#000000">itextpdf.sourceforge.net</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-0340380473790570"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="2802135629"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#B31800;GL:1;DIV:#B31800;VLC:B35300;AH:center;BGC:FFFFFF;LBGC:FF7700;ALC:FF2200;LC:FF2200;T:000000;GFNT:B35300;GIMP:B35300;LH:40;LW:100;L:http://www.lowagie.com/iText/logo.gif;S:http://www.lowagie.com/iText/;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->	
 	</div>
 	</site:content>
 </site:page>

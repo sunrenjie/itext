@@ -66,8 +66,6 @@ and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
 	</div>
 </div>
 
-
-</body>
 <div id="sourceforge"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 <div id="commercial">
 <xsl:if test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
@@ -93,6 +91,7 @@ google_color_text = "FF2200";
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
+</body>
 </html>
 </xsl:template>
 
