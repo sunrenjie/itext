@@ -8,6 +8,57 @@
 	<chapter numberdepth="0">
 		<title font="Helvetica" size="18" leading="30">Chapter II: some very usefull iText objects</title>
 		<section>
+			<title size="14" color="#008080" leading="25">Chunk</title>
+			<text>
+			A Chunk is the smallest significant part of text that can be added to a document.<newline />
+			Chunks can be used as building blocks for other elements such as Phrase, Paragraph, Anchor...
+			A Chunk is a string with a certain font.
+			All other layoutparameters should be defined in the object to which
+			this chunk of text is added.<newline />
+			In the following line, we create a Chunk with as content 'Hello World', written in a red, italic COURIER font of size 20:<newline />
+			<code>
+			Chunk chunk = new Chunk("Hello world", new Font(Font.COURIER, 20, Font.ITALIC, new Color(255, 0, 0)));
+			</code>
+			<section numberdepth="0">
+				<title><anchor name="Type1fonts" font="Helvetica" size="12" style="bold">Margins</anchor></title>
+				<text>
+				In this tutorial, we will allways use <bold>Type 1</bold> fonts, except in <tutlink reference="ch09.html">Chapter 9</tutlink>, there you
+				can learn how to use other fonts as wel.<newline />
+				These are the different <bold>Type 1</bold> fonts:
+				<list numbered="false" symbolindent="20" listsymbol="o">
+					<listitem>Courier (this is a fixed width font)</listitem>
+					<listitem>Helvetica</listitem>
+					<listitem>Times Roman</listitem>
+					<listitem>Symbol</listitem>
+					<listitem>ZapfDingbats</listitem>
+				</list>
+				</text>
+			</section>
+			<section>
+				<title><anchor name="underline" font="Helvetica" size="12" style="bold">Underline / strikethrough</anchor></title>
+				<text>
+				If you want some chunks to be underlined, or if you want to strike a line through a chunk,
+            	you can do this simply by changing the style of the font.<newline />
+            	<code>
+	            Chunk chunk1 = new Chunk("This text is underlined", new Font(Font.HELVETICA, 12, Font.UNDERLINE));<newline />
+    	        Chunk chunk2 = new Chunk("This font is of type ITALIC | STRIKETHRU", new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU));<newline />
+	            </code>
+				</text>
+			</section>
+			<section>
+				<title><anchor name="subsuperscript" font="Helvetica" size="12" style="bold">Superscript / subscript</anchor></title>
+				<text>
+				There are some methods that can be invoked on a <class>Chunk</class>. Most of them will be explained
+				in the following chapters, only one of them in this chapter: the method <class>setTextRise(float f)</class>.
+				You can use this method to write chunks in super- or subscript.<newline />
+				<newline />
+				In <link reference="#Chap0201">example 1</link>, you can find an overview of the Type 1 fonts and
+				an example of the method <class>setTextRise</class>.
+				</text>
+			</section>
+			</text>
+		</section>
+		<section>
 			<title size="14" color="#008080">Source code of the examples</title>
 			<section numberdepth="2">
 				<title><anchor name="Chap0201">Example 1: Chunks and fonts</anchor></title>
