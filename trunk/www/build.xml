@@ -407,9 +407,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0610">
            <classpath refid="classpath" />
 		</java>
-		<echo>Chapter 6 example 10: this example requires JAI</echo>
-		<echo>Please compile and execute it seperately</echo>
 		<echo>Chapter 6 example 11: this example requires JAI</echo>
+		<echo>Please compile and execute it seperately</echo>
+		<echo>Chapter 6 example 12: this example requires JAI</echo>
 		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0701">
            <classpath refid="classpath" />
@@ -507,6 +507,9 @@
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1201">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1202">
            <classpath refid="classpath" />
 		</java>
         <delete>
