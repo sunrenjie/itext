@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<META CONTENT="0" HTTP-EQUIV="Expires">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
+	<TR>
+		<TD COLSPAN="2" ALIGN="center">
+			<FONT FACE="Times New Roman" SIZE="+3" COLOR="#FFFFFF"><I>i</I></FONT><FONT FACE="Arial,Helvetica" SIZE="+3" COLOR="#FFFFFF">Text</FONT>
+		</TD>
+		<TD ALIGN="center" BGCOLOR="#808080">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255" width=88 height=31 border=0 alt="SourceForge Logo"></a>
+		</TD>
+		<TD COLSPAN="2" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">A Free Java-PDF library<BR>
+			by </FONT><A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Docs</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="faq.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">FAQ</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1"><B>[Links]</B></FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">History</FONT></A>]</FONT></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/projects/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">SourceForge</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailingList</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArchive</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://cvs.sourceforge.net/cgi-bin/cvsweb.cgi/?cvsroot=itext"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">CVS</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/bugs/?group_id=15255"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bugs</FONT></A>]</FONT></TD>
+	</TR>
+	<TR>
+	<TD COLSPAN="5" BGCOLOR="#FFFFFF" ALIGN="center">
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=1836462&siteid=28635048&bfpage=search1" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28635048" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="search1">
+		<INPUT TYPE="hidden" NAME="bfmid" VALUE="1836462" >
+		<TABLE WIDTH=590 BORDER=0 CELLSPACING=0 CELLPADDING=0 BGCOLOR=#FFFFCC>
+		   <TR>
+			   <TD rowspan=2 width=140><A href="http://www.ask.com/index.asp"><IMG border=0 SRC="http://www.lowagie.com/banner/jeeves/ajYellow.gif"></A></TD>
+  		     <TD WIDTH=432 ALIGN="right" VALIGN="bottom"> 
+					<div ALIGN="right">
+					<font  FACE="Arial, Helvetica,sans-serif" SIZE="2" COLOR="#CC0000"><b>Type a question and click &quot;Ask!&quot;</b></font>
+						</div>
+ 		     </TD>
+ 		     <TD WIDTH=2>&nbsp;</TD>
+ 		     <TD WIDTH=36 ALIGN="left" VALIGN="top">&nbsp;
+ 		     </TD>
+ 		     <TD WIDTH=10>&nbsp;</TD>
+		   </TR>
+		   <TR> 
+		      <TD WIDTH=432 ALIGN="right" VALIGN="top">
+		         <TABLE BORDER=0 CELLSPACING=1 CELLPADDING=0 WIDTH=400 BGCOLOR=#999966>
+		            <TR><TD ALIGN="middle">
+		           	<INPUT TYPE="hidden" NAME="qSource" VALUE="4">
+ 		           	<INPUT TYPE="hidden" NAME="site_name" VALUE="Jeeves">
+ 		           	<INPUT TYPE="hidden" NAME="metasearch" VALUE="yes">
+		           	<INPUT TYPE="hidden" NAME="origin" VALUE="3006" >  
+		           	<INPUT TYPE="text" NAME="ask" VALUE="Where can I find free JAVA PDF libraries on the net?" SIZE="55">
+ 		           </TD></TR>
+ 		        </TABLE>
+ 		     </TD>
+		      <TD WIDTH=2>&nbsp;</TD>
+		      <TD WIDTH=36 ALIGN="left" VALIGN="top">
+		         <INPUT TYPE=IMAGE SRC="http://www.lowagie.com/banner/jeeves/asksm.gif" WIDTH=36 HEIGHT=23 ALT="Ask!" BORDER=0></TD>
+		      <TD WIDTH=10>&nbsp;</TD>
+   		</TR>
+		</TABLE>
+		</FORM>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><B>Other JAVA-PDF Libraries on the Net</B></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF">
+			<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+			<td width="120" height="50" bgcolor="#006633" align=left valign=top>
+			<img src="http://coverage.cnet.com/Affiliates/Befree/downloadcom/Images/synd-dl-120x90_04.gif" width="120" height="31"><BR><font face="ms sans serif, geneva, arial, helvetica" color="#FFFFFF" size="-2"><B>&nbsp;Search Downloads</B></FONT>
+			</td>
+			</tr>
+			<tr>
+			<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
+			<INPUT TYPE="hidden" NAME="siteid" VALUE="28673244" >
+			<INPUT TYPE="hidden" NAME="bfpage" VALUE="download_searchbox">
+			<INPUT TYPE="hidden" NAME="bfmid" VALUE="1476905" >
+
+			<td width="120" height="28" bgcolor="#FFFFCC"><input type="image" src="http://coverage.cnet.com/Affiliates/Befree/downloadcom/Images/synd-dl-120x90_03a.gif" width="24" height="22" border=0 align=right><font face="geneva, arial, helvetica" size="-2"><input type="Text" name="qt" value="PDF" size="8" maxlength="255"><input type="hidden" name="tg" value="dl-10000"></font></td>
+			</tr></form>
+			</table>
+		</TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">	
+			<A HREF="http://www.etymon.com/pj/" TARGET="_blank"><FONT FACE="Arial,Helvetica">PJ:</FONT></A><FONT FACE="Arial,Helvetica"> JAVA-PDF library</FONT><BR>
+			<A HREF="http://www.retep.org.uk/pdf/" TARGET="_blank"><FONT FACE="Arial,Helvetica">retepPDF:</FONT></A><FONT FACE="Arial,Helvetica"> JAVA-PDF library by Peter Mount</FONT><BR>
+			<A HREF="http://www.jtauber.com/fop/" TARGET="_blank"><FONT FACE="Arial,Helvetica">FOP:</FONT></A><FONT FACE="Arial,Helvetica"> XML to PDF by James Tauber</FONT><BR>
+        	<A HREF="http://www.pdflib.com/" TARGET="_blank"><FONT FACE="Arial,Helvetica">PDFLIB</FONT></A>		
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
+			<FONT FACE="Arial,Helvetica"><B>PDF Resources</B></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF">
+		<A HREF="http://www.amazon.com/exec/obidos/ASIN/0201615886/itisacatalofwebp" TARGET="_blank"><IMG SRC="http://www.lowagie.com/iText/docs/acrobat/0201615886.01.MZZZZZZZ.jpg" WIDTH=113 HEIGHT=140 ALT="PDF Reference, Second Edition: Version 1.3" BORDER=0></A></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica">
+			<A HREF="http://www.lowagie.com/iText/docs/acrobat/">Books</A> about PDF<BR>
+			<A HREF="http://www.adobe.com">ADOBE:</A> ADOBE SYSTEMS INC.<BR>
+			<A HREF="http://partners.adobe.com">ADA:</A> Adobe Developers Association<BR>
+			<A HREF="http://partners.adobe.com/asn/developer/technotes.html">Technotes:</A> Technical Notes on PDF and PostScript<BR>
+			<A HREF="http://www.amazon.com/exec/obidos/ASIN/0201615886/itisacatalofwebp" TARGET="_blank">PDF Reference, Second Edition: Version 1.3</A><BR> by Adobe Systems Incorporated<BR>
+			<A HREF="http://www.quite.com/personal/aandi.htm">Quite Software:</A> The home of Aandi Inston, PDF expert
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://www.planetpdf.com/binthing~webpageid,550;TBToolID,1296.htm"><IMG SRC="http://www.lowagie.com/banner/iText/PP_button_88x34.gif" ALT="Planet PDF" BORDER="0"></a></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><a href="http://www.planetpdf.com">Planet PDF</a>:
+			A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses.<BR>
+			Planet PDF also incorporates
+			<a href="http://forum.planetpdf.com">Planet PDF Forum</a>,
+			<a href="http://www.pdfstore.com">Planet PDF Store</a> and
+			<a href="http://www.planetpdf.com/binthing~MenuID,85;WebPageID,898.htm">Planet PDF Developers Section</a>.</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF"><A HREF="http://www.pdfzone.com/products/software/tool_rugpdf.html"><IMG SRC="http://www.lowagie.com/banner/iText/pdfzonefeatured2.gif" ALT="PdfZone" BORDER="0"></A></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><a href="http://www.pdfzone.com">PDF Zone</a>:
+			The online authority for Acrobat, PDF and Document Management Professionals.<BR></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
+			<FONT FACE="Arial,Helvetica"><B>JAVA<SUP>(TM)</SUP> Resources</B></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://java.sun.com"><IMG SRC="http://www.lowagie.com/banner/iText/j2j.gif" WIDTH=80 HEIGHT=80 BORDER=0 ALT="Jump to Java"></a></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica">
+			<A HREF="http://java.sun.com">JAVA<SUP>(TM)</SUP>:</A> SUN MICROSYSTEMS INC.<BR>
+			<A HREF="http://developer.java.sun.com">JDC:</A> Java<SUP>(TM)</SUP> Developer's Connection<BR>
+			<A HREF="http://archives.java.sun.com/archives/servlet-interest.html">Java<SUP>(TM)</SUP> technology-based Servlets:</A> SERVLET-INTEREST
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF">
+		<A HREF="http://www.amazon.com/exec/obidos/ASIN/156592391X/itisacatalofwebp"><IMG SRC="http://www.lowagie.com/iText/docs/acrobat/156592391X_01_TZZZZZZZ.gif" ALT="Java Servlet Programming" BORDER=1></A></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica">
+			<A HREF="http://servlets.com/">Servlets.com</A> (Jason Hunter)<BR>
+			<A HREF="http://www.amazon.com/exec/obidos/ASIN/156592391X/itisacatalofwebp">Java Servlet Programming</A><BR>
+			Search Amazon for books on: <A HREF="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&keyword=JAVA&mode=blended">JAVA</A><BR>
+			Search Amazon for books on: <A HREF="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&keyword=Servlets&mode=blended">Servlets</A><BR>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://jars.com"><IMG SRC="http://www.lowagie.com/banner/iText/r750.gif" BORDER=0 ALT="Jars"></a></TD>
+		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica">
+			<A HREF="http://jars.com">JARS.COM</A>, the #1 Java Review Service<BR>
+			Reviews for <A HREF="http://www.jars.com/classes/jediSearch.cgi?string=iText&matchcase=NO&names=YES&keywords=YES&descriptions=YES&authorid=NOID&lastname=NONAME&age=NOAGE&start=NODATE&end=NODATE&maxhits=100&type=ALL&category=ALL&language=ALL&source=YES&nosource=YES&wholeword=NO">iText</A>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
+			<FONT FACE="Arial,Helvetica"><B>Sponsored links</B></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF" ALIGN="center">
+		<!-- About Focus on Java -->
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=7279965&siteid=28673140&bfpage=java_1" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE TARGET="_blank">
+		<FORM ACTION="http://service.bfast.com/bfast/click" >
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28673140" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="java_1">
+		<INPUT TYPE="hidden" NAME="bfmid" VALUE="7279965" >
+		<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFCC" width="468">
+		<tr>
+			<td colspan="4"><img src="http://images.about.com/affiliates/search/banner_top.gif" width="468" height="30" border=0></td>
+		</tr>
+		<tr>
+			<td align="right">
+				<img src="http://images.about.com/affiliates/search/searchfor.gif" width="69" height="30" align="right" border=0>
+			</td>
+			<td align="right">
+				<form method="get" action="http://partners.about.com/affiliates/link/landx.htm">
+				<input type="text" name="terms" size="15" maxlength="75" value="PDF">
+				<input type="hidden" name="rURL" value="partners.about.com/affiliates/search/searchx.htm">
+			</td>
+			<td align="right">
+				<select name="TopNode">
+					<option value="3464+java">Focus on Java Site</option>
+					<option value="/">About.com</option>
+				</select>
+			</td>
+			<td align="right">
+				<INPUT type=IMAGE src="http://images.about.com/affiliates/search/go.gif" width="42" height="30" border=0 ALT="Go!">&nbsp;
+			</td> </form>
+		</tr>
+		</table>
+		</FORM><BR>
+		<A HREF="http://service.bfast.com/bfast/click?bfmid=7279965&siteid=28673140&bfpage=java" TARGET="_blank"><IMG SRC="http://images.about.com/affiliates/java/javaB.gif" BORDER="0" WIDTH="468" HEIGHT="60" ALT=""></A>
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=7279965&siteid=28673140&bfpage=java" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<!-- About Focus on Java -->
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
+		<TD COLSPAN="2" BGCOLOR="#FFFFFF" ALIGN="right">
+		<!-- start HOTBOT search -->
+		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28634896" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="hotbot2">
+		<INPUT TYPE="hidden" NAME="bfmid" VALUE="5960107" >
+		<TABLE VALIGN=TOP WIDTH=99 BGCOLOR="#330099" BORDER=0 CELLSPACING=0 CELLPADDING=1><TR><TD valign=top><img src="http://lygo.com./ly/a/h/aff_hotbotlogo.gif" width="98" height="28"></td></tr><tr><td valign=top><TABLE WIDTH=98 BGCOLOR="#FFFFFF" BORDER=0 CELLSPACING=0 CELLPADDING=1><TR><TD BGCOLOR="#FFFFFF" align=center><FONT SIZE="-2" FACE="verdana"><BR><B>Search the Web:</B></font></TD></TR><TR><TD><CENTER><FONT FACE="VERDANA,HELVETICA,ARIAL" COLOR="#000000" SIZE="-1"><INPUT type=text NAME="MT" SIZE=8 VALUE="JAVA PDF" MAXLENGTH=100></font></CENTER><FONT FACE="VERDANA,HELVETICA,ARIAL" COLOR="#000000" SIZE="-1"><BR></font></TD></TR><TR><TD HEIGHT=30 BGCOLOR="#330099"><CENTER><INPUT TYPE=image src="http://lygo.com/ly/a/h/hotbot_searchbutton.gif" HEIGHT=20 WIDTH=63 BORDER=0 ALT="Search"></CENTER></TD></TR></TABLE></TD></TR></TABLE><table width=99 border=0 cellspacing=0 cellpadding=0><tr><td align=RIGHT><img src="http://lygo.com./ly/a/a/afftile_bottom_blk.gif" width="100" height="14"></td></tr></table>
+		</FORM>
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=5960107&siteid=28634896&bfpage=hotbot2" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<!-- end HOTBOT Search -->
+		</TD>
+		<TD COLSPAN="2" BGCOLOR="#FFFFFF" ALIGN="left">
+		<!-- start LYCOS Software downloads -->
+		<table valign=TOP width=99 bgcolor="#9999CC" border=0 cellspacing=0 cellpadding=1>
+		  <tr>
+		    <td align=CENTER>
+		      <table width=98 bgcolor="#FFFFFF" border=0 cellspacing=0 cellpadding=0>
+		        <tr>
+		          <td align=CENTER bgcolor="#FFFFFF">
+					<img src="http://lygo.com./ly/a/c/computers_tiletop.gif" width="98" height="21">
+					 <font size="-2" face="verdana"> <b>Find Software:</b></font></td>
+		        </tr>
+		        <tr>
+		          <td> 
+            
+		<FORM ACTION="http://service.bfast.com/bfast/click/mid5960107" TARGET="_blank">
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28634896" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="software">              <font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-2">
+    		          <input type=RADIO name=cat value=dl checked>
+		              Downloads<br>
+		              <input type=RADIO name=cat value=ftpsearch>
+		              FTP Search </font>
+		              <center>
+		                <font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-2"> 
+		                <input type="text" name="query" value="PDF" size=8>
+		                <INPUT TYPE=image src="http://lygo.com/ly/a/e/ggi.gif" HEIGHT=20 WIDTH=84 BORDER=0 ALT="Go Get It"></font>
+		              </center>
+            
+		        <tr>
+		          <td align=CENTER><A HREF="http://service.bfast.com/bfast/click/mid5960107?siteid=28634896&bfpage=privacy" TARGET="_top"><font face="VERDANA,HELVETICA,ARIAL" size="-2" TARGET="_blank">Our 
+		            Privacy Vow</font></a>
+		&nbsp;</td>
+		        </tr>
+		      </table>
+		    </td>
+		  </tr>
+		</table>
+		<TABLE WIDTH=96  BORDER=0 CELLSPACING=0 CELLPADDING=0>
+		<TR><TD VALIGN=TOP><img src="http://lygo.com./ly/a/a/afftile_bottom_blk.gif" width="100" height="14"></TD></TR></TABLE></form>
+		<IMG SRC="http://service.bfast.com/bfast/serve/mid5960107?siteid=28634896&bfpage=software_store" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<!-- end Lycos Software Downloads -->
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
+		<TD COLSPAN="2" BGCOLOR="#FFFFFF" ALIGN="right">
+		<!-- start GOOGLE Search -->
+		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28922885" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="safesearch">
+		<INPUT TYPE="hidden" NAME="bfmid" VALUE="27253343" >
+		<table cellpadding=2 cellspacing=2>	
+		<tr bgcolor="#009900"> 
+		<td> 
+		<TABLE border=0 cellpadding=5 cellspacing=0 width="100%" bgcolor="#FFFFFF"><tr>
+		<td align="center"> <img src="http://www.google.com/affiliates/affiliate_safe.gif" width="130" height="38"><br>
+		<INPUT TYPE=text name=q size=10 maxlength=255 value="JAVA PDF">
+		<INPUT TYPE=hidden name=safe value=vss>
+		<INPUT TYPE=hidden name=vss value=1> 
+		<INPUT type=submit name=sa VALUE="Go">
+		</td></tr></TABLE>
+		</td>
+		</tr>
+		</table>
+		</FORM>
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=27253343&siteid=28922885&bfpage=safesearch" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<!-- end Google Search -->
+		</TD>
+		<TD COLSPAN="2" BGCOLOR="#FFFFFF" ALIGN="left">
+		<!-- start AltaVista Search -->
+		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
+		<INPUT TYPE="hidden" NAME="siteid" VALUE="28673247" >
+		<INPUT TYPE="hidden" NAME="bfpage" VALUE="wsearch_sm">
+		<INPUT TYPE="hidden" NAME="bfmid" VALUE="22218516" >
+		<input type=hidden name=user value=befree>
+		<input type=hidden name=pg value=q>
+		<table width=115 height=140 border=0 cellspacing=0 cellpadding=3 bgcolor=White>
+		<tr>
+		<td>
+		<a href="http://service.bfast.com/bfast/click?bfmid=22218516&siteid=28673247&bfpage=homepage" target="_blank">
+		<img src="http://av.com/srchbox/avlogo_sm.gif" width=82 height=25 alt=AltaVista border=0></a></td></tr>
+		<tr><td><font face="Arial,Helvetica,sans-serif" size=2 color=Black><b>Find&nbsp;this:</b></font><br>
+		<input type=text value="JAVA PDF" name=q size=12 maxlength=800><br>
+		<SELECT NAME=kl><OPTION VALUE=XX SELECTED>any language <OPTION VALUE=en>English<OPTION VALUE=zh>Chinese<OPTION VALUE=cs>Czech<OPTION VALUE=da>Danish<OPTION VALUE=nl>Dutch<OPTION VALUE=et>Estonian<OPTION VALUE=fi>Finnish<OPTION VALUE=fr>French<OPTION VALUE=de>German<OPTION VALUE=el>Greek<OPTION VALUE=he>Hebrew<OPTION VALUE=hu>Hungarian<OPTION VALUE=is>Icelandic<OPTION VALUE=it>Italian<OPTION VALUE=ja>Japanese<OPTION VALUE=ko>Korean<OPTION VALUE=lv>Latvian<OPTION VALUE=lt>Lithuanian<OPTION VALUE=no>Norwegian<OPTION VALUE=pl>Polish<OPTION VALUE=pt>Portuguese<OPTION VALUE=ro>Romanian<OPTION VALUE=ru>Russian<OPTION VALUE=es>Spanish<OPTION VALUE=sv>Swedish</SELECT></td></tr>
+		<tr><td align=right>
+		<input type=image name=search src="http://av.com/srchbox/search.gif" alt=Search hspace=2 border=0></td></tr>
+		</table></form>
+		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=22218516&siteid=28673247&bfpage=wsearch_s1" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<!-- end AltaVista Search -->
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="faq.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous Page</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%">&nbsp;</TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%">&nbsp;</TD>
+		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next Page</FONT></A>]</FONT></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" SIZE="-3">
+			<B>Page Updated: </B> $Date$<br>
+			Copyright &copy; 1999, 2000  Bruno Lowagie
+			</FONT>
+		</TD>
+		<TD COLSPAN="3" ALIGN="right" BGCOLOR="#808080">
+			<FONT FACE="Arial,Helvetica" SIZE="-3">
+			Adolf Baeyensstraat 121, 9040 Gent, BELGIUM,<br>
+			tel +00 32 92 28 10 97 mailto:<A HREF="mailto:bruno@lowagie.com"><FONT COLOR="#000000">bruno@lowagie.com</FONT></A>
+			</FONT>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
