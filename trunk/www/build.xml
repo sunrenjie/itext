@@ -313,33 +313,6 @@
         <java fork="yes" dir="${itext.examples}" classname="Chap0111">
             <classpath refid="classpath" />
         </java>
-        <java fork="yes" dir="${itext.examples}" classname="Concat">
-            <arg value="concat.pdf"/>
-            <arg value="Chap0101.pdf"/>
-            <arg value="Chap0102.pdf"/>
-            <arg value="Chap0103.pdf"/>
-            <arg value="Chap0107.pdf"/>
-            <classpath refid="classpath" />
-        </java>
-        <java fork="yes" dir="${itext.examples}" classname="Split">
-            <arg value="concat.pdf"/>
-            <arg value="split1.pdf"/>
-            <arg value="split2.pdf"/>
-            <arg value="4"/>
-            <classpath refid="classpath" />
-        </java>
-        <java fork="yes" dir="${itext.examples}" classname="Handout">
-            <arg value="concat.pdf"/>
-            <arg value="handouts.pdf"/>
-            <arg value="4"/>
-            <classpath refid="classpath" />
-        </java>
-        <java fork="yes" dir="${itext.examples}" classname="Encrypt">
-            <arg value="concat.pdf"/>
-            <arg value="encrypted.pdf"/>
-            <arg value="iText"/>
-            <classpath refid="classpath" />
-        </java>
         <java fork="yes" dir="${itext.examples}" classname="Chap0201">
             <classpath refid="classpath" />
         </java>
@@ -649,6 +622,38 @@
             <classpath refid="classpath" />
         </java>
         <java fork="yes" dir="${itext.examples}" classname="Chap13_form">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap13_pdfreader">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="concat_pdf">
+            <arg value="Chap0101.pdf"/>
+            <arg value="Chap0102.pdf"/>
+            <arg value="Chap0103.pdf"/>
+            <arg value="result.pdf"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="split_pdf">
+            <arg value="result.pdf"/>
+            <arg value="result1.pdf"/>
+            <arg value="result2.pdf"/>
+            <arg value="2"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="handout_pdf">
+            <arg value="result.pdf"/>
+            <arg value="handout.pdf"/>
+            <arg value="2"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="encrypt_pdf">
+            <arg value="result.pdf"/>
+            <arg value="encrypted.pdf"/>
+            <arg value="user"/>
+            <arg value="master"/>
+            <arg value="00000000"/>
+            <arg value="128"/>
             <classpath refid="classpath" />
         </java>
         <delete>
