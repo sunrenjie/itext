@@ -68,16 +68,14 @@
 	localdestination	CDATA	#IMPLIED
 	generictag      	CDATA	#IMPLIED
 >
-<!ELEMENT list (listsymbol?, listitem*)> 
+<!ELEMENT list (listitem*)> 
 <!ATTLIST list
 	numbered            CDATA	#IMPLIED
 	symbolindent        CDATA	#IMPLIED
 	first               CDATA	#IMPLIED
 	indentationleft     CDATA	#IMPLIED
 	indentationright    CDATA	#IMPLIED
->
-<!ELEMENT listsymbol (#PCDATA)> 
-<!ATTLIST listsymbol
+	listsymbol	CDATA	#IMPLIED
 	font	    CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
