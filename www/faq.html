@@ -57,6 +57,7 @@
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
 				<LI><A HREF="#measurements">What measurement unit is used?</A>
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
+				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
 				<li><a href="#javadoc">How do I generate documentation files (the API)?</a>
 				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
@@ -171,6 +172,21 @@
 			a template PDF file to fill it with data from a database.
 			There are some other libraries that support this, please check
 			the <A HREF="links.html">links</A>-page.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="parsepdf"><B>Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			The pdf format is just a canvas where text and graphics are placed without
+            any structure information and as such there isn't a table object.
+            Tables are formed by placing text and lines at selected places. What you
+            want is a text extraction tool, a far from trivial task.
+			Post your question on the newsgroup <A HREF="news://comp.text.pdf">news://comp.text.pdf</A>
+			and maybe you will get some answers from people that have built such a tool,
+			but don't expect tools that will perform a bullet-proof conversion.<BR>
+            Remark: iText does not read pdfs.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
