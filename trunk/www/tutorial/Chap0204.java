@@ -23,18 +23,17 @@
  * bruno@lowagie.com
  */
 
-import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
-public class Chap0201 {
+public class Chap0204 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 2 example 1: Chunks and fonts");
+		System.out.println("Chapter 2 example 4: Negative leading");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -44,12 +43,14 @@ public class Chap0201 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0201.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("Chap0204.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
-			// step 4: we add content to the document
+			// step 4: we add a paragraph to the document
+			document.add(new Phrase(16, "\n\n\n"));
+			document.add(new Phrase(-16, "Hello, this is a very long phrase to show you the somewhat odd effect of a negative leading. You can write from bottom to top. This is not fully supported. It's something between a feature and a bug.")); 
 
 		}
 		catch(DocumentException de) {

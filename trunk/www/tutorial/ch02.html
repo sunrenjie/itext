@@ -54,10 +54,22 @@
 			In the following line, we create a Chunk with as content 'Hello World', written in a red, italic COURIER font of size 20:<BR>
 			<FONT FACE="Courier">
 			Chunk chunk = new Chunk("Hello world", new Font(Font.COURIER, 20, Font.ITALIC, new Color(255, 0, 0)));
+			</FONT><BR><BR>
+			<A NAME="type1fonts"></A>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Fonts: type 1 base 14</B><BR>
+				For the moment only Type 1 base 14 fonts are supported...
+				(under construction)
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE>
 			</FONT><BR>
-			</FONT>
 		</TD>
-	</TR>		
+	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<A NAME="phrase"></A>
@@ -68,14 +80,41 @@
 			A phrase has a main font, but some chunks within the phrase can have
 			a font that differs from the main font.
 			You can choose from a wide variety of constructors to create a Phrase.
-			Spme of them are used in <A HREF="Chap0201.java">example 1</A> (see
-			also the <A HREF="Chap0201.pdf">resulting pdf</A>).
+			Some of them are used in <A HREF="Chap0202.java">example 2</A> (see
+			also the <A HREF="Chap0202.pdf">resulting pdf</A>).<BR><BR>
 			<B>Ancient Greek</B><BR>
+			Because greek characters are used very often, there is a feature in
+			the constructors of class Phrase (and derived classes) that take a
+			String as parameter (so if you want to avoid this feature, you should
+			always work with chunks, not with strings).<BR>
+			As you can see in <A HREF="Chap0203.java">example 3</A>
+			(<A HREF="Chap0203.pdf">Chap0203.pdf</A>), this feature automatically
+			changes the font to Symbol for all characters in the range from 913 to
+			937 (except 930) and from 945 to 969 (these are
+			the ASCII-values of the ancient greek characters).<BR>
+			<BR>
 			<B>Negative leading</B>
+			This is rather a bug than a feature, but anyway: it is possible to create
+			a phrase (or paragraph) with a negative leading. This has the odd effect
+			of sentences that are written from bottom to top (see
+			<A HREF="Chap0204.java">Chap0204.java</A> and <A HREF="Chap0204.pdf">Chap0204.pdf</A>).
+			This can be useful for instance if you want to move some positions up in a page.
+			Remark: there is no check to see when you are crossing the upper borderline and there
+			is no way to go back to a previous page.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
-	
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="paragraph"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Paragraph</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Under construction<BR>
+			<FONT FACE="Courier">
+			</FONT><BR>
+			</FONT>
+		</TD>
+	</TR>	
 	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch01.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
@@ -103,3 +142,4 @@
 
 </BODY>
 </HTML>
+
