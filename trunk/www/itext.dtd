@@ -1,0 +1,163 @@
+<!ELEMENT itext (#PCDATA | chapter | paragraph | list | anchor | phrase | chunk | annotation)*>
+<!ATTLIST itext
+	title		CDATA	#IMPLIED
+	subject		CDATA	#IMPLIED
+	keywords	CDATA	#IMPLIED
+	author		CDATA	#IMPLIED
+>	
+<!ELEMENT chapter (title?, sectioncontent) >
+<!ATTLIST chapter
+	depth		CDATA	#IMPLIED
+	indent		CDATA	#IMPLIED
+	left		CDATA	#IMPLIED
+	right		CDATA	#IMPLIED
+>
+<!ELEMENT section (title?, sectioncontent) >
+<!ATTLIST section
+	depth		CDATA	#IMPLIED
+	indent		CDATA	#IMPLIED
+	left		CDATA	#IMPLIED
+	right		CDATA	#IMPLIED
+>
+<!ELEMENT title (#PCDATA | phrase | chunk | annotation)*>
+<!ELEMENT sectioncontent (#PCDATA | section | paragraph | list | anchor | phrase | chunk | annotation)*>
+<!ELEMENT paragraph (#PCDATA | anchor | list | phrase | chunk | annotation)*> 
+<!ATTLIST paragraph
+	leading		CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size		CDATA	#IMPLIED
+	style		CDATA	#IMPLIED
+	red			CDATA	#IMPLIED
+	green		CDATA	#IMPLIED
+	blue		CDATA	#IMPLIED
+	align		CDATA	#IMPLIED
+	left		CDATA	#IMPLIED
+	right		CDATA	#IMPLIED
+>
+<!ELEMENT anchor (#PCDATA | chunk | annotation)*> 
+<!ATTLIST anchor
+	leading		CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size		CDATA	#IMPLIED
+	style		CDATA	#IMPLIED
+	red			CDATA	#IMPLIED
+	green		CDATA	#IMPLIED
+	blue		CDATA	#IMPLIED
+	name		CDATA	#IMPLIED
+	reference	CDATA	#IMPLIED
+>
+<!ELEMENT phrase (#PCDATA | chunk | annotation)*> 
+<!ATTLIST phrase
+	leading		CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size		CDATA	#IMPLIED
+	style		CDATA	#IMPLIED
+	red			CDATA	#IMPLIED
+	green		CDATA	#IMPLIED
+	blue		CDATA	#IMPLIED
+>
+<!ELEMENT chunk (#PCDATA)> 
+<!ATTLIST chunk
+	font	    	    CDATA	#IMPLIED
+	size		        CDATA	#IMPLIED
+	style		        CDATA	#IMPLIED
+	red			        CDATA	#IMPLIED
+	green		        CDATA	#IMPLIED
+	blue		        CDATA	#IMPLIED
+	localgoto 	        CDATA	#IMPLIED
+	localdestination	CDATA	#IMPLIED
+	generictag      	CDATA	#IMPLIED
+>
+<!ELEMENT list (listsymbol?, listitem*)> 
+<!ATTLIST list
+	numbered            CDATA	#IMPLIED
+	symbolindent        CDATA	#IMPLIED
+	first               CDATA	#IMPLIED
+	indentationleft     CDATA	#IMPLIED
+	indentationright    CDATA	#IMPLIED
+>
+<!ELEMENT listsymbol (#PCDATA)> 
+<!ATTLIST listsymbol
+	font	    CDATA	#IMPLIED
+	size		CDATA	#IMPLIED
+	style		CDATA	#IMPLIED
+	red			CDATA	#IMPLIED
+	green		CDATA	#IMPLIED
+	blue		CDATA	#IMPLIED
+>
+<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation)*> 
+<!ATTLIST listitem
+	leading		CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size		CDATA	#IMPLIED
+	style		CDATA	#IMPLIED
+	red			CDATA	#IMPLIED
+	green		CDATA	#IMPLIED
+	blue		CDATA	#IMPLIED
+	align		CDATA	#IMPLIED
+	left		CDATA	#IMPLIED
+	right		CDATA	#IMPLIED
+>
+<!ELEMENT table (cell*)>
+<!ATTLIST table
+    columns         CDATA   #REQUIRED
+    lastHeaderRow   CDATA   #IMPLIED
+    align           CDATA   #IMPLIED
+    cellpadding     CDATA   #IMPLIED
+    cellspacing     CDATA   #IMPLIED
+    width           CDATA   #IMPLIED
+    widths          CDATA   #IMPLIED
+    borderwidth     CDATA   #IMPLIED
+    left            CDATA   #IMPLIED
+    right           CDATA   #IMPLIED
+    top             CDATA   #IMPLIED
+    bottom          CDATA   #IMPLIED
+    red             CDATA   #IMPLIED
+    green           CDATA   #IMPLIED
+    blue            CDATA   #IMPLIED
+    bgred           CDATA   #IMPLIED
+    bggreen         CDATA   #IMPLIED
+    bgblue          CDATA   #IMPLIED
+    grayfill        CDATA   #IMPLIED
+>
+<!ELEMENT cell (#PCDATA | paragraph | anchor | phrase | list | chunk)*>
+<!ATTLIST cell
+    horizontalalign CDATA   #IMPLIED
+    verticalalign   CDATA   #IMPLIED
+    colspan         CDATA   #IMPLIED
+    rowspan         CDATA   #IMPLIED
+    leading         CDATA   #IMPLIED
+    header          CDATA   #IMPLIED
+    nowrap          CDATA   #IMPLIED
+    borderwidth     CDATA   #IMPLIED
+    left            CDATA   #IMPLIED
+    right           CDATA   #IMPLIED
+    top             CDATA   #IMPLIED
+    bottom          CDATA   #IMPLIED
+    red             CDATA   #IMPLIED
+    green           CDATA   #IMPLIED
+    blue            CDATA   #IMPLIED
+    bgred           CDATA   #IMPLIED
+    bggreen         CDATA   #IMPLIED
+    bgblue          CDATA   #IMPLIED
+    grayfill        CDATA   #IMPLIED
+>
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+    url             CDATA   #REQUIRED
+    align           CDATA   #IMPLIED
+    underlying      CDATA   #IMPLIED
+    textwrap        CDATA   #IMPLIED
+    alt             CDATA   #IMPLIED
+    absolutex       CDATA   #IMPLIED
+    absolutey       CDATA   #IMPLIED
+    plainwidth      CDATA   #IMPLIED
+    plainheight     CDATA   #IMPLIED
+    rotation        CDATA   #IMPLIED
+>
+<!ELEMENT annotation EMPTY>
+<!ATTLIST annotation
+    title       CDATA   #IMPLIED
+    content     CDATA   #IMPLIED
+>
+<!ELEMENT newpage EMPTY>
