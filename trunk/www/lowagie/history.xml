@@ -19,6 +19,24 @@
 <site:remark>scheduled for january/february 2005</site:remark>
 <site:changelog>
 <ul>
+<li>2004-12-14: paulo 144<ul>
+<li>added support for multiple signatures, revision information and extraction.</li>
+<li>AcroFields can set fields without a /DR key in the original PDF.</li>
+<li>AcroFields can cache the appearance parsing for a 10 fold speed increase in filling the same PDF multiple times with different values. Contribution by Robert Mueller.</li>
+<li>added AsianFontMapper to aid with CJK in Graphics2D. Contribution by Takenori.</li>
+<li>fix in BarcodeEAN.createAwtImage() for EAN8.</li>
+<li>fix in the list indentation in ColumnText.</li>
+<li>More fixes to Table and associated classes by Steve Appling.</li>
+<li>fixed a bug with splitting rows in PdfPTable.</li>
+<li>new defaults in PdfPTable for splitRows and splitLate. It was splitRows=false
+and splitLate=false. It's now splitRows=true and splitLate=true. It doesn't
+have any impact if using the defaults. This is done to avoid row dropping.</li>
+<li>PdfSignatureAppearance supports other fonts and RTL. It's also
+possible to have just 2 layers as in Acrobat 6.0 and later.</li>
+<li>fix in PdfStream.writeLength() to put the length as a not compressed object.</li>
+</ul></li>
+</ul>
+<ul>
 <li>Bruno removed some 'import' statements (based on Eclipse warnings)</li>
 <li>2004-11-29: paulo 143 - iText 1.1.1<ul>
 <li>when form filling, eliminated an extra vertical space that prevented the text to fit in the field.</li>
