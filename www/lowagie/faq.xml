@@ -417,6 +417,21 @@ the following construction posted by Anis H.:<br />
 </pre>
 When you invoke your servlet which creates PDF as
 shown above only one request will be sent to the server.<br /><br />
+Bill Ensley uses a JSP buffer page that writes itself based on the browser type:
+<pre class="commandline">&lt;%
+  String user = request.getHeader("User-Agent");
+  if(user.indexOf("MSIE") != -1 &amp;&amp; user.indexOf("Windows") != -1){
+    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
+    out.print("&lt;EMBED src=\"PDFPreview.pdf?type=pdf\" "
+      + "width=\"100%\" height=\"100%\" "
+      + "fullscreen=\"yes\" type=\"application/pdf\"&gt;");
+  }
+  else{
+    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
+    out.print("&lt;script&gt;document.location = 'PDFPreview.pdf?type=pdf';&lt;/script&gt;");
+  }
+%&gt;</pre>
+<br />
 In another context (dynamic CSV files over SSL), Nicolas Guichard posted
 this solution to the mailing-list:<br />
 I have the same problem with CSV files, and i just found the solution on a
@@ -427,8 +442,8 @@ response.setHeader("Expires", "0");
 response.setHeader("Cache-Control",
 	"must-revalidate, post-check=0, pre-check=0");
 response.setHeader("Pragma", "public");
-</pre><br/>
-And it works.... But don't ask me to explain this!!!<br />
+</pre>
+'And it works...,' Nicholas says, 'But don't ask me to explain this!!!'<br />
 <br />
 David Ewing posted this solution:<br />
 I was trying to create a servlet that would stream a pdf to Internet

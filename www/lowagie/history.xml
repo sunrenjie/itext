@@ -15,10 +15,14 @@
 
 <site:history>
 
-<site:release number="V120" name="iText 1.2" date="NOT YET RELEASED">
-<site:remark>scheduled for january/february 2005</site:remark>
+<site:release number="V120" name="iText 1.2" date="january 7th, 2005">
+<site:remark>based on paulo's releases 143 - 148</site:remark>
 <site:changelog>
 <ul>
+<li>2005-01-06: paulo 148<ul><li>new OCG layer interface with parent/child relationship, zoom, radio groups, etc.</li>
+<li>fix in XfdfReader to close the file.</li>
+<li>added some extra javadoc comment and corrected a typo here and there (image copy constructor, PdfAnnotation.createSquareCircle,...)</li>
+</ul></li>
 <li>2004-12-29: paulo 147<ul><li>added full support for Optional Content Groups (OCG) also known as
 layers. This covers not only the content streams but also annotations and
 XObjects.</li>
