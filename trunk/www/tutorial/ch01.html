@@ -111,7 +111,7 @@
 			<FONT FACE="Courier">
 			Document document = new Document(PageSize.A5, 36, 72, 108, 180);
 			</FONT><BR>
-			In example <A HREF="Chap0104.java">Chap0103.java</A> (and its result: <A HREF="Chap0104.pdf">Chap0104.pdf</A>),
+			In example <A HREF="Chap0104.java">Chap0104.java</A> (and its result: <A HREF="Chap0104.pdf">Chap0104.pdf</A>),
 			you will see that this document has a left margin of half an inch and a right margin of an inch.			
 			The upper margin is one and a half inch, the lower two and a half.
 			<BR><BR>
@@ -143,6 +143,48 @@
 			<A NAME="step2"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 2: the Writer-object</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Once our document is created, we can create one or more instances of writer
+			that listen to this document. All writers should be derived from the abstract class
+			<FONT FACE="Courier">com.lowagie.text.DocWriter</FONT>.<BR>For the moment there are two
+			possibilities: you can use <FONT FACE="Courier">com.lowagie.text.pdf.PdfWriter</FONT>
+			to generate documents in the Portable Document Format, or you can use
+			<FONT FACE="Courier">com.lowagie.text.html.HtmlWriter</FONT> to generate documents
+			in HTML. If for instance you want to generate TeX-documents as well, you could write
+			a package: <FONT FACE="Courier">com.lowagie.text.TeX.TeXWriter</FONT>.<BR>
+			<BR>
+			<TABLE WIDTH="85%">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Remark:</B><BR>
+				I wrote the HTML classes only for testing purposes. You really shouldn't
+				use them in a production environment. The resulting HTML isn't very
+				nice and there are lots of better tools around. If you do want to use
+				it, please read <A HREF="ch08.html">Chapter 8</A> first.<BR>The HTML-package
+				can be useful for debugging reasons. HTML is a lot more straightforward
+				than PDF. When an error occurs while generating a PDF file, it is very hard
+				to find what bug caused the error. The resulting PDF-file is too damaged
+				to examin its contents. So while testing I always generate an HTML file
+				at the same time in order to retrieve the exact place where the error occurs
+				or the exact object that throws the exception.<BR>
+				There is also a package <FONT FACE="Courier">com.lowagie.text.xml</FONT>,
+				but for the moment it isn't producing correct XML
+				(see <A HREF="ch09.html">Chapter 9</A>).
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><BR>
+			The constructor of these writer-classes is made private. You can only create an
+			instance with the following method:
+			<FONT FACE="Courier">public static xxxWriter getInstance(Document document, OutputStream os) throws DocumentException</FONT><BR>
+			(<FONT FACE="Courier">xxx</FONT> being Pdf or Html)<BR><BR>
+			You can create an instance this way:<BR>
+			<FONT FACE="Courier">PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR>
+			but you will hardly ever need the object <FONT FACE="Courier">writer</FONT> (except if you want to create <A HREF="ch12.html">Advanced PDF</A>).<BR>
+			So it's sufficient to just get the instance:<BR>
+			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap01xx.pdf"));</FONT><BR><BR>
+			It's trivial that the first parameter should be the document you created in <A HREF="#step1">step 1</A>.<BR>
+			The second parameter can be an outputStream of any kind.
 			</FONT><BR>
 		</TD>
 	</TR>
