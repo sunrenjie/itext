@@ -41,7 +41,6 @@ public class Chap0902 {
         Document document = new Document();
         
         try {
-            
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
@@ -51,13 +50,18 @@ public class Chap0902 {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            
+            BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comicbd.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             System.out.println("postscriptname: " + bfComic.getPostscriptFontName());
             String[] codePages = bfComic.getCodePagesSupported();
             for (int i = 0; i < codePages.length; i++) {
                 System.out.println(codePages[i]);                
             }
+            String names[][] = bfComic.getFullFontName();
+            for (int k = 0; k < names.length; ++k) {
+                if (names[k][0].equals("3") && names[k][1].equals("1")) // Microsoft encoding
+                    System.out.println(names[k][3]);
+            }
+            
             
             Font font = new Font(bfComic, 12);
             String text1 = "This is the quite popular True Type font 'Comic'.";
