@@ -463,12 +463,6 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap1104">
            <classpath refid="classpath" />
 		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1301">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1302">
-           <classpath refid="classpath" />
-		</java>
         <delete>
             <fileset dir="${itext.examples}" includes="**/*.class"/>
         </delete>
