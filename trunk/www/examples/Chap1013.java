@@ -87,8 +87,8 @@ public class Chap1013 {
             cb.fill();
             document.newPage();
             String text = "Some text to show";
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 24, Font.NORMAL, new SpotColor(spc_cmyk))));
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 24, Font.NORMAL, new SpotColor(spc_cmyk, 0.5f))));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 24, Font.NORMAL, new SpotColor(spc_cmyk))));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 24, Font.NORMAL, new SpotColor(spc_cmyk, 0.5f))));
             
             // example with template
             PdfTemplate t = cb.createTemplate(500f, 500f);

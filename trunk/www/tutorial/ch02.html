@@ -56,7 +56,7 @@
 			this chunk of text is added.<BR>
 			In the following line, we create a Chunk with as content 'Hello World', written in a red, italic COURIER font of size 20:<BR>
 			<FONT FACE="Courier">
-			Chunk chunk = new Chunk("Hello world", new Font(Font.COURIER, 20, Font.ITALIC, new Color(255, 0, 0)));
+			Chunk chunk = new Chunk("Hello world", FontFactory.getFont(FontFactory.COURIER, 20, Font.ITALIC, new Color(255, 0, 0)));
 			</FONT><BR><br>
 			<a name="fonts"><b>Type 1 fonts</b></a><br>
 			In this tutorial, we will allways use <b>Type 1</b> fonts, except in <a href="ch09.html">Chapter 9</a>, there you
@@ -73,8 +73,8 @@
 			If you want some chunks to be underlined, or if you want to strike a line through a chunk,
             you can do this simply by changing the style of the font.<br>
             <FONT FACE="Courier">
-            Chunk chunk1 = new Chunk("This text is underlined", new Font(Font.HELVETICA, 12, Font.UNDERLINE));<BR>
-            Chunk chunk2 = new Chunk("This font is of type ITALIC | STRIKETHRU", new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU));<BR>
+            Chunk chunk1 = new Chunk("This text is underlined", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE));<BR>
+            Chunk chunk2 = new Chunk("This font is of type ITALIC | STRIKETHRU", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU));<BR>
             </FONT>
             <br>
 			<a name="superscript"><b>Superscript / subscript</b></a><BR>
@@ -133,9 +133,9 @@
             that is added to a document, starts automatically on a new line.<BR>
             There are several ways a paragraph can be constructed, here are some examples:<br>
 			<FONT FACE="Courier">
-            Paragraph p1 = new Paragraph(new Chunk("This is my first paragraph.", new Font(Font.HELVETICA, 12)));<BR>
-            Paragraph p2 = new Paragraph(new Phrase("This is my second paragraph.", new Font(Font.HELVETICA, 12)));<BR>           
-            Paragraph p3 = new Paragraph("This is my third paragraph.", new Font(Font.HELVETICA, 12));
+            Paragraph p1 = new Paragraph(new Chunk("This is my first paragraph.", FontFactory.getFont(FontFactory.HELVETICA, 12)));<BR>
+            Paragraph p2 = new Paragraph(new Phrase("This is my second paragraph.", FontFactory.getFont(FontFactory.HELVETICA, 12)));<BR>           
+            Paragraph p3 = new Paragraph("This is my third paragraph.", FontFactory.getFont(FontFactory.HELVETICA, 12));
 			</FONT><BR>
             All kinds of objects can be added to a paragraph:<br>
             <FONT FACE="Courier">
@@ -169,12 +169,12 @@
 			The font you created the initial object with is propagated. This is what happens in 'Hello 1!'
 			and 'Hello 2':<br><br>
 			<FONT FACE="Courier">
-            Paragraph myParagraph = new Paragraph("Hello 1! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
-            myParagraph.add(new Paragraph("This is the end of the sentence.",new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            Paragraph myParagraph = new Paragraph("Hello 1! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
+            myParagraph.add(new Paragraph("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myParagraph);<br>
             <br>
-            Phrase myPhrase = new Phrase("Hello 2! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
-            myPhrase.add(new Phrase("This is the end of the sentence.\n", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            Phrase myPhrase = new Phrase("Hello 2! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
+            myPhrase.add(new Phrase("This is the end of the sentence.\n", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myPhrase);<br>
 			</FONT><br>
 			We start with BOLD and add an ITALIC font. The result is a BOLDITALIC font. You also see
@@ -186,26 +186,26 @@
 			<br>
 			<FONT FACE="Courier">
             myParagraph = new Paragraph(12);<br>
-            myParagraph.add(new Paragraph("Hello 3! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));<br>
-            myParagraph.add(new Paragraph("This is the end of the sentence.",new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            myParagraph.add(new Paragraph("Hello 3! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
+            myParagraph.add(new Paragraph("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myParagraph);<br>
             <br>
             myParagraph = new Paragraph(12);<br>
-            myParagraph.add(new Phrase("Hello 4! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));<br>
-            myParagraph.add(new Phrase("This is the end of the sentence.",new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            myParagraph.add(new Phrase("Hello 4! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
+            myParagraph.add(new Phrase("This is the end of the sentence.",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myParagraph);<br>
             <br>
             myPhrase = new Phrase(12);<br>
-            myPhrase.add(new Phrase("Hello 5! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD)));<br>
-            myPhrase.add(new Phrase("This is the end of the sentence.\n",new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC)));<br>
+            myPhrase.add(new Phrase("Hello 5! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD)));<br>
+            myPhrase.add(new Phrase("This is the end of the sentence.\n",FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC)));<br>
             document.add(myPhrase);<br>
 			</FONT><br>
 			(Remark that we added a '\n' manually to the <FONT FACE="Courier">Phrase</FONT>.)<br><br>
 			Of course, you have no reason to concatenate Phrases, it is far more performant to do it this way:<br><br>
 			<FONT FACE="Courier">
-            myPhrase = new Phrase("Hello 6! ", new Font(Font.TIMES_NEW_ROMAN, 8, Font.BOLD));<br>
+            myPhrase = new Phrase("Hello 6! ", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD));<br>
             document.add(myPhrase);<br>
-            myPhrase = new Phrase("This is the end of the sentence.", new Font(Font.TIMES_NEW_ROMAN, 8, Font.ITALIC));<br>
+            myPhrase = new Phrase("This is the end of the sentence.", FontFactory.getFont(FontFactory.TIMES_ROMAN, 8, Font.ITALIC));<br>
             document.add(myPhrase);<br>
 			</FONT>
 			</FONT><BR>

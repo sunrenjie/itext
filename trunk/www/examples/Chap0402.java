@@ -40,9 +40,9 @@ public class Chap0402 {
             document.open();
             // step 4: we add content to the document
             // we define some fonts
-            Font chapterFont = new Font(Font.HELVETICA, 24, Font.NORMAL, new Color(255, 0, 0));
-            Font sectionFont = new Font(Font.HELVETICA, 20, Font.NORMAL, new Color(0, 0, 255));
-            Font subsectionFont = new Font(Font.HELVETICA, 18, Font.BOLD, new Color(0, 64, 64));
+            Font chapterFont = FontFactory.getFont(FontFactory.HELVETICA, 24, Font.NORMAL, new Color(255, 0, 0));
+            Font sectionFont = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.NORMAL, new Color(0, 0, 255));
+            Font subsectionFont = FontFactory.getFont(FontFactory.HELVETICA, 18, Font.BOLD, new Color(0, 64, 64));
             // we create some paragraphs
             Paragraph blahblah = new Paragraph("blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");
             Paragraph blahblahblah = new Paragraph("blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");

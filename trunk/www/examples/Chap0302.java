@@ -57,14 +57,14 @@ public class Chap0302 {
             document.add(new Paragraph("some books I really like:"));
             ListItem listItem;
             list = new List(true, 15);
-            listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("When Harlie was one", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by David Gerrold", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("The World according to Garp", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by John Irving", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("Decamerone", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by Giovanni Boccaccio", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             document.add(list);
             
@@ -80,12 +80,12 @@ public class Chap0302 {
             
             document.add(new Paragraph("Some authors I really like:"));
             list = new List(false, 20);
-            list.setListSymbol(new Chunk("*", new Font(Font.HELVETICA, 20, Font.BOLD)));
+            list.setListSymbol(new Chunk("*", FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD)));
             listItem = new ListItem("Isaac Asimov");
             list.add(listItem);
             List sublist;
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("The Foundation Trilogy");
             sublist.add("The Complete Robot");
             sublist.add("Caves of Steel");
@@ -94,7 +94,7 @@ public class Chap0302 {
             listItem = new ListItem("John Irving");
             list.add(listItem);
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("The World according to Garp");
             sublist.add("Hotel New Hampshire");
             sublist.add("A prayer for Owen Meany");
@@ -103,7 +103,7 @@ public class Chap0302 {
             listItem = new ListItem("Kurt Vonnegut");
             list.add(listItem);
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("Slaughterhouse 5");
             sublist.add("Welcome to the Monkey House");
             sublist.add("The great pianola");

@@ -49,18 +49,18 @@ public class Chap1102 {
             
             // step 4: we add some content
             
-            Paragraph p1 = new Paragraph("We discussed anchors in chapter 3, but you can add an URL to a chunk to to make it an ", new Font(Font.HELVETICA, 12));
-            p1.add(new Chunk("anchor", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255))).setAnchor(new URL("http://www.lowagie.com/iText/")));
+            Paragraph p1 = new Paragraph("We discussed anchors in chapter 3, but you can add an URL to a chunk to to make it an ", FontFactory.getFont(FontFactory.HELVETICA, 12));
+            p1.add(new Chunk("anchor", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255))).setAnchor(new URL("http://www.lowagie.com/iText/")));
             p1.add(" you will automatically jump to another location in this document.");
             Paragraph p2 = new Paragraph("som blah, blah, blah");
             Paragraph p3a = new Paragraph("This paragraph contains a ");
-            p3a.add(new Chunk("local destination in document A", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
+            p3a.add(new Chunk("local destination in document A", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             Paragraph p3b = new Paragraph("This paragraph contains a local ");
-            p3b.add(new Chunk("local destination in document B", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
+            p3b.add(new Chunk("local destination in document B", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             Paragraph p4a = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document B").setRemoteGoto("Chap1102b.pdf", "test"));
             Paragraph p4b = new Paragraph(new Chunk("Click this paragraph to go to a certain destination on document A").setRemoteGoto("Chap1102a.pdf", "test"));
             Paragraph p5a = new Paragraph("you can also jump to a ");
-            p5a.add(new Chunk("specific page on another document", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("Chap1102b.pdf", 3));
+            p5a.add(new Chunk("specific page on another document", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("Chap1102b.pdf", 3));
             document.add(p1);
             document.add(p2);
             document.add(p2);

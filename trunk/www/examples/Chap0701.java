@@ -47,7 +47,7 @@ public class Chap0701 {
             
             // step 4: we add content to the document
             Paragraph paragraph = new Paragraph("Please visit my ");
-            Anchor anchor1 = new Anchor("website (external reference)", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
+            Anchor anchor1 = new Anchor("website (external reference)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));
             anchor1.setReference("http://www.lowagie.com/iText/");
             anchor1.setName("top");
             paragraph.add(anchor1);
@@ -60,14 +60,14 @@ public class Chap0701 {
             List list;
             ListItem listItem;
             list = new List(true, 15);
-            listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(8.0f));
+            listItem = new ListItem("When Harlie was one", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by David Gerrold", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)).setTextRise(8.0f));
             list.add(listItem);
-            listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(-8.0f));
+            listItem = new ListItem("The World according to Garp", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by John Irving", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)).setTextRise(-8.0f));
             list.add(listItem);
-            listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("Decamerone", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
+            listItem.add(new Chunk(" by Giovanni Boccaccio", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             document.add(list);
             
@@ -83,12 +83,12 @@ public class Chap0701 {
             
             document.add(new Paragraph("Some authors I really like:"));
             list = new List(false, 20);
-            list.setListSymbol(new Chunk("*", new Font(Font.HELVETICA, 20, Font.BOLD)));
+            list.setListSymbol(new Chunk("*", FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD)));
             listItem = new ListItem("Isaac Asimov");
             list.add(listItem);
             List sublist;
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("The Foundation Trilogy");
             sublist.add("The Complete Robot");
             sublist.add("Caves of Steel");
@@ -97,7 +97,7 @@ public class Chap0701 {
             listItem = new ListItem("John Irving");
             list.add(listItem);
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("The World according to Garp");
             sublist.add("Hotel New Hampshire");
             sublist.add("A prayer for Owen Meany");
@@ -106,7 +106,7 @@ public class Chap0701 {
             listItem = new ListItem("Kurt Vonnegut");
             list.add(listItem);
             sublist = new List(true, 10);
-            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));
+            sublist.setListSymbol(new Chunk("", FontFactory.getFont(FontFactory.HELVETICA, 8)));
             sublist.add("Slaughterhouse 5");
             sublist.add("Welcome to the Monkey House");
             sublist.add("The great pianola");
@@ -147,16 +147,16 @@ public class Chap0701 {
             document.add(jpeg);
             Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/hitchcock.png"));
             document.add(png);
-            Anchor anchor2 = new Anchor("please jump to a local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));
+            Anchor anchor2 = new Anchor("please jump to a local destination", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));
             anchor2.setReference("#top");
             document.add(anchor2);
             
             document.add(paragraph);
             
             // we define some fonts
-            Font chapterFont = new Font(Font.HELVETICA, 24, Font.NORMAL, new Color(255, 0, 0));
-            Font sectionFont = new Font(Font.HELVETICA, 20, Font.NORMAL, new Color(0, 0, 255));
-            Font subsectionFont = new Font(Font.HELVETICA, 18, Font.BOLD, new Color(0, 64, 64));
+            Font chapterFont = FontFactory.getFont(FontFactory.HELVETICA, 24, Font.NORMAL, new Color(255, 0, 0));
+            Font sectionFont = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.NORMAL, new Color(0, 0, 255));
+            Font subsectionFont = FontFactory.getFont(FontFactory.HELVETICA, 18, Font.BOLD, new Color(0, 64, 64));
             // we create some paragraphs
             Paragraph blahblah = new Paragraph("blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");
             Paragraph blahblahblah = new Paragraph("blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");

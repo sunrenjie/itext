@@ -55,8 +55,8 @@
             this is the unique name you want to give to the destination.<BR><BR>
             <B>Example:</B>
             <FONT FACE="Courier">
-            Chunk localgoto = new Chunk("this word", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test");<br>
-            Chunk destination = new Chunk("local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test");
+            Chunk localgoto = new Chunk("this word", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test");<br>
+            Chunk destination = new Chunk("local destination", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test");
             </FONT><br><BR>
             The 'local goto' functionality is demonstrated in <A HREF="../examples/Chap1101.java">example 1</A>
             and it can be tested in the resulting document <A HREF="../examples/Chap1101.pdf">Chap1101.pdf</A>.
@@ -76,7 +76,7 @@
             with different fonts, styles and colors. In advanced iText, there is another way to define
             a link to an URL:<br>
             <FONT FACE="Courier">
-            Chunk chunk = new Chunk("anchor", new Font(Font.HELVETICA, 12)).setAnchor(new URL("http://www.lowagie.com/iText/"));
+            Chunk chunk = new Chunk("anchor", FontFactory.getFont(FontFactory.HELVETICA, 12)).setAnchor(new URL("http://www.lowagie.com/iText/"));
             </FONT><br><BR>
             <B>Jump to a specific position in another PDF document</B><br>
             If you have defined a local destination in a certain document (see section
@@ -84,7 +84,7 @@
             another document. To achieve this, you can use the method
             <FONT FACE="Courier">setRemoteGoto</FONT>:
             <FONT FACE="Courier">
-            Chunk chunk = new Chunk("jump", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", "test"));
+            Chunk chunk = new Chunk("jump", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", "test"));
             </FONT><br>
             'test.pdf' being another document and 'test' a local destination in this document.
 			<BR><BR>
@@ -93,7 +93,7 @@
             just use the method <FONT FACE="Courier">setRemoteGoto</FONT> with a
             pagenumber instead of the name of some local destination:
             <FONT FACE="Courier">
-            Chunk chunk = new Chunk("jump", new Font(Font.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", 3));
+            Chunk chunk = new Chunk("jump", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC)).setRemoteGoto("test.pdf", 3));
             </FONT><br><BR>
             Check out <A HREF="../examples/Chap1102.java">example 2</A> and <A HREF="../examples/Chap1102a.pdf">Chap1102a.pdf</A>/<A HREF="../examples/Chap1102b.pdf">Chap1102b.pdf</A>
             for a little demonstration.</FONT><BR><BR>

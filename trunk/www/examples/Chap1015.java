@@ -96,8 +96,8 @@ public class Chap1015 {
             PatternColor pat1 = new PatternColor(p1);
             PatternColor pat2 = new PatternColor(p2);
             String text = "Text with pattern";
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, pat)));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, pat)));
             
             // draw a rectangle filled with star pattern
             cb.setPatternFill(p);
@@ -128,8 +128,8 @@ public class Chap1015 {
             // New Page to draw text in the pattern painter's canvas
             document.newPage();
             
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, pat1)));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, pat1)));
             // draw a rectangle
             cb.setPatternFill(p1);
             cb.setGrayStroke(0.0f);
@@ -155,8 +155,8 @@ public class Chap1015 {
             
             // New page to place image in the pattern painter's canvas
             document.newPage();
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
-            document.add(new Paragraph(text, new Font(Font.HELVETICA, 60, Font.BOLD, pat2)));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, new GrayColor(0.3f))));
+            document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, pat2)));
             // The original Image for comparison reason.
             // Note: The width and height is the same as bbox in pattern
             cb.addImage(img, img.scaledWidth(), 0f, 0f, img.scaledHeight(), 350f, 400f);

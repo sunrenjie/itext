@@ -92,7 +92,7 @@ public class Chap0513 {
         datatable.setWidth(100);
         
         // the first cell spans 10 columns
-        Cell cell = new Cell(new Phrase("Administration -System Users Report", new Font(Font.HELVETICA, 24, Font.BOLD)));
+        Cell cell = new Cell(new Phrase("Administration -System Users Report", FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLD)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setLeading(30);
         cell.setColspan(10);
@@ -105,7 +105,7 @@ public class Chap0513 {
         datatable.setDefaultHorizontalAlignment(1);
         datatable.setDefaultRowspan(2);
         datatable.addCell("User Id");
-        datatable.addCell(new Phrase("Name", new Font(Font.HELVETICA, 14, Font.BOLD)));
+        datatable.addCell(new Phrase("Name", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
         datatable.addCell("Company");
         datatable.addCell("Department");
         
