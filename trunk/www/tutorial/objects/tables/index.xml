@@ -20,14 +20,14 @@
 			<site:description>Use a PdfPTable to add a table to a PDF document</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="SplitRows" standalone="yes" />
-			<site:result>SplitRows.pdf</site:result>
-			<site:description>Add a table to a PDF with document.add() and if the cell doesn't fit, the row is split in two parts</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="AddBigTable" standalone="yes" />
 			<site:result>AddBigTable.pdf</site:result>
 			<site:description>A very big table added with document.add()</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SplitRows" standalone="yes" />
+			<site:result>SplitRows.pdf</site:result>
+			<site:description>Add a table to a PDF with document.add() and if the cell doesn't fit, the row is split in two parts</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="TableBorders" standalone="yes" />
