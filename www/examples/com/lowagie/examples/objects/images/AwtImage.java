@@ -19,6 +19,7 @@
  */
 package com.lowagie.examples.objects.images;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -59,12 +60,19 @@ public class AwtImage {
                 document.add(new Phrase("Who is this? "));
             }
             PdfContentByte cb = writer.getDirectContent();
-            Image image = Image.getInstance(Toolkit.getDefaultToolkit().createImage("H.gif"), null);
+            java.awt.Image awtImage = Toolkit.getDefaultToolkit().createImage("H.gif");
+            Image image = Image.getInstance(awtImage, null);
             image.setAbsolutePosition(100, 500);
             cb.addImage(image);
-            Image img = Image.getInstance("H.gif");
-            image.setAbsolutePosition(100, 200);
-            cb.addImage(image);
+            Image gif = Image.getInstance(awtImage, new Color(0x00, 0xFF, 0xFF), true);
+            gif.setAbsolutePosition(300, 500);
+            cb.addImage(gif);
+            Image img1 = Image.getInstance(awtImage, null, true);
+            img1.setAbsolutePosition(100, 200);
+            cb.addImage(img1);
+            Image img2 = Image.getInstance(awtImage, new Color(0xFF, 0xFF, 0x00), false);
+            img2.setAbsolutePosition(300, 200);
+            cb.addImage(img2);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

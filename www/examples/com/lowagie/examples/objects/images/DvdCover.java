@@ -146,7 +146,7 @@ public class DvdCover {
     public void generatePdf() {   
         
         // step 1: creation of a document-object
-        Rectangle pageSize = new Rectangle(772, 522);
+        Rectangle pageSize = new Rectangle(780, 525);
         if (backgroundcolor != null) pageSize.setBackgroundColor(backgroundcolor);
         Document document = new Document(pageSize);
         
@@ -166,31 +166,31 @@ public class DvdCover {
             	cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, false), 24);
             	cb.beginText();
             	if (front == null) {
-            		cb.showTextAligned(Element.ALIGN_CENTER, title, 589f, 261f, 0f);
+            		cb.showTextAligned(Element.ALIGN_CENTER, title, 595f, 262f, 0f);
             	}
             	if (side == null) {
-            		cb.showTextAligned(Element.ALIGN_CENTER, title, 380f, 261f, 270f);
+            		cb.showTextAligned(Element.ALIGN_CENTER, title, 385f, 262f, 270f);
             	}
             	cb.endText(); 
             }
-            cb.moveTo(366, 0);
-            cb.lineTo(366, 522);
-            cb.moveTo(406, 522);
-            cb.lineTo(406, 0);
+            cb.moveTo(370, 0);
+            cb.lineTo(370, 525);
+            cb.moveTo(410, 525);
+            cb.lineTo(410, 0);
             cb.stroke();
             if (front != null) {
-            	front.scaleToFit(366, 522);
-            	front.setAbsolutePosition(406f + (366f - front.scaledWidth()) / 2f, (522f - front.scaledHeight()) / 2f);
+            	front.scaleToFit(370, 525);
+            	front.setAbsolutePosition(410f + (370f - front.scaledWidth()) / 2f, (525f - front.scaledHeight()) / 2f);
             	document.add(front);
             }
             if (back != null) {
-            	back.scaleToFit(366, 522);
-            	back.setAbsolutePosition((366f - back.scaledWidth()) / 2f, (522f - back.scaledHeight()) / 2f);
+            	back.scaleToFit(370, 525);
+            	back.setAbsolutePosition((370f - back.scaledWidth()) / 2f, (525f - back.scaledHeight()) / 2f);
             	document.add(back);
             }
             if (side != null) {
-            	side.scaleToFit(40, 522);
-            	side.setAbsolutePosition(366 + (40f - side.scaledWidth()) / 2f, (522f - side.scaledHeight()) / 2f);
+            	side.scaleToFit(40, 525);
+            	side.setAbsolutePosition(370 + (40f - side.scaledWidth()) / 2f, (525f - side.scaledHeight()) / 2f);
             	document.add(side);
             }
         }
