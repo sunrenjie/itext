@@ -21,6 +21,11 @@
 			<site:description>Generates a PDF with an Acroform containing a text field</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FormPushButton" standalone="yes" />
+			<site:result>pushbutton.pdf</site:result>
+			<site:description>Generates a PDF with an Acroform containing a pushbutton</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="FormCombo" standalone="yes" />
 			<site:result>combo.pdf</site:result>
 			<site:description>Generates a PDF with an Acroform containing a combobox</site:description>
