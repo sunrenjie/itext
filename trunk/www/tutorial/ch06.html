@@ -37,7 +37,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Document Generation</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 6: Images</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 6: Images</B></FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -46,7 +46,7 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			If you study the API, you will notice that there are several constructors
 			you can use to create an image. However in this tutorial, we will only look
-			at the most simple solution; by asking the Image object an instance of an
+			at the most simple solution, i.e. by asking the Image object an instance of an
 			Image identified by an URL or a filename:<BR>
 			<FONT FACE="Courier">public static Image getInstance(URL url)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException<BR>
 			public static Image getInstance(String filename)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException
@@ -69,7 +69,7 @@
 			</FONT><BR>
 			The <A HREF="Chap0601.pdf">resulting PDF file</A> is 50 kByte: it contains the image data
 			of the 3 images. The <A HREF="Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
-			the references to the urls of the 3 images.<BR>
+			the references to the urls of the 3 images.<BR><BR>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
@@ -84,7 +84,7 @@
 				<LI>In order to be able to use such a library, you often need to change some
 				UNIX configurations (X11).
 				<LI>There is a legal problem: the LZW-algorithm is patented, so I was not
-				allowed to decompress GIF-files.
+				allowed to use this algorithm to decompress GIF-files.
 				</UL>
 				I found it much easier to copy the bits of the image file into the
 				PDF file instead of decompressing/compressing the image data (thus
@@ -92,7 +92,7 @@
 				</FONT>
 				</TD>
 				</TR>
-			</TABLE><BR><BR>
+			</TABLE><BR>
 			<B>Getting an instance of an image using a filename</B><BR>
 			We can change example 1 into <A HREF="Chap0602.java">example 2</A> by simply changing
 			the way images are instanciated:<BR>
@@ -109,9 +109,17 @@
 			I generated the HTML file on the D:-drive of my NT workstation and afterwards I put
 			this file on my LINUX webserver. It is evident that the links to my local D:-drive
 			are broken (or isn't it: I see lots of similar errors on amateur webpages).<BR>
-			This is how you can avoid this problem:<BR>
-			
-			</FONT><BR>		
+			You can avoid this problem by telling the <FONT FACE="Courier">HtmlWriter</FONT>
+			to use a given basepath for images:<BR>
+			<FONT FACE="Courier">
+			</FONT>
+			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));<BR>
+			writer.setBasepath("../../images/kerstmis/");		
+			</FONT><BR>
+			In this <A HREF="Chap0603.java">example</A>, we tell the writer to use a relative
+			path (in this case the path to some <A HREF="../../images/kerstmis/">Christmas photo's</A>)
+			for every image we add. This is the resulting <A HREF="Chap0603.pdf">PDF</A> and
+			<A HREF="Chap0603.html">HTML</A>.<BR><BR>
 		</TD>
 	</TR>
 	<TR>
