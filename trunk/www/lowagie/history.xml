@@ -20,6 +20,7 @@
 <site:changelog>
 <ul>
 <li>2005-02-17: iText 1.2.3
+<li>Bug discovered by Mark-Jan Nederhof, fixed by Paulo: getAscent in BaseFont</li>
 <li>Fixes and updates to RtfWriter2 by Mark Hall<ul>
 <li>Fixed the fitspage problem with thanks to Jon Strabala.
 The RtfWriter2 now fully supports both Table.tableFitsPage() and Table.cellsFitPage().
