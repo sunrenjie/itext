@@ -405,8 +405,9 @@ Printing is a very platform dependent functionality. On Windows, you can print a
 <pre class="commandline">
 String osName = System.getProperty("os.name" );
 //FOR WINDOWS 95 AND 98 USE COMMAND.COM
-if( osName.equals( "Windows 95" ) || osName.equals( "Windows 98" )){
-    Runtime.getRuntime().exec("command.com /C start acrord32 /p /h" + claim.pdf);
+if(osName.equals("Windows 95") || osName.equals("Windows 98")){
+    Runtime.getRuntime().exec(
+		"command.com /C start acrord32 /p /h" + claim.pdf);
 }
 //FOR WINDOWS NT/XP/2000 USE CMD.EXE
 else {
