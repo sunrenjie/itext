@@ -57,10 +57,10 @@ public class Chap0201a {
 	    fonts[8] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
 	    fonts[7] = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC);
 	    fonts[6] = FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD | Font.ITALIC);
-	    fonts[5] = FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12, Font.NORMAL);
-	    fonts[4] = FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 16, Font.BOLD);
-	    fonts[3] = FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12, Font.ITALIC);
-	    fonts[2] = FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 32, Font.BOLD | Font.ITALIC);
+	    fonts[5] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL);
+	    fonts[4] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, Font.BOLD);
+	    fonts[3] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.ITALIC);
+	    fonts[2] = FontFactory.getFont(FontFactory.TIMES_ROMAN, 32, Font.BOLD | Font.ITALIC);
 	    fonts[1] = FontFactory.getFont(FontFactory.SYMBOL, 5, Font.NORMAL);
 	    fonts[0] = FontFactory.getFont(FontFactory.ZAPFDINGBATS, 5, Font.NORMAL);
 	    for (int i = 0; i < 14; i++) {

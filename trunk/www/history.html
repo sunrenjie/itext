@@ -130,6 +130,13 @@
                 <LI>changed Color.WHITE to Color.white to compile in jdk 1.3.
                 <LI>added rectangular print to PdfPTable. Useful to manage wide tables.
                 <LI>the fdfmerge and field_merge examples were changed to support writing to the console.
+                <li>the constant Font.TIMES_NEW_ROMAN was eliminated and replaced by
+                    Font.TIMES_ROMAN to match the actual font used. The result is a compile
+                    error easily correctable. Compiled libraries depending on iText wont't
+                    change the behavior because the number is the same.
+                <LI>the alignment constants in PdfContentByte were changed to match the
+                    constants in Element. This breaks compiled libraries as the number has
+                    changed. A recompile is needed. 
                 </UL>
 		        <UL>paulo 110
 		        <LI>Added support for form filling, form flattening and FDF merging.
