@@ -36,7 +36,7 @@ import org.xml.sax.helpers.ParserFactory;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import com.lowagie.text.xml.*;
-    
+
 /**
  * We want to change the behaviour of the handler in some cases
  */
@@ -50,7 +50,7 @@ class MyHandler extends SAXmyHandler {
     public MyHandler(Document document, HashMap tagmap) {
         super(document, tagmap);
     }
-   
+    
 /**
  * We only alter the handling of some endtags.
  */

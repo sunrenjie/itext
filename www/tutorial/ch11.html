@@ -211,11 +211,33 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="pagelabels"><B>Page Labels</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Besides outlines, you also have 'thumbnails' that show you a small version of every page.
+			Under each thumbnail, you have a label. If you want to change the style of these page labels,
+			you have to create a <FONT FACE="Courier">PdfPageLabels</FONT>-object and add a new style,
+			content or pagenumber value, starting from a certain 'real' pagenumber.<br>
+			These are the different styles you can use:
+			<UL>
+				<LI>PdfPageLabels.DECIMAL_ARABIC_NUMERALS
+				<LI>PdfPageLabels.UPPERCASE_ROMAN_NUMERALS
+				<LI>PdfPageLabels.LOWERCASE_ROMAN_NUMERALS
+				<LI>PdfPageLabels.UPPERCASE_LETTERS
+				<LI>PdfPageLabels.LOWERCASE_LETTERS
+				<LI>PdfPageLabels.EMPTY
+			</UL>
+			Please take a look at <A HREF="http://www.lowagie.com/iText/examples/Chap1106.java">example 6</A>
+			and the <A HREF="http://www.lowagie.com/iText/examples/Chap1106.pdf">resulting PDF file</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="openaction"><B>Open action</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             You can also trigger an action the moment somebody opens the document.
-			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap1106.java">example 6</A>.
-			The moment you open <A HREF="http://www.lowagie.com/iText/examples/Chap1106.pdf">Chap1106.pdf</A>
+			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap1107.java">example 7</A>.
+			The moment you open <A HREF="http://www.lowagie.com/iText/examples/Chap1107.pdf">Chap1107.pdf</A>
 			you jump directly to page 2.<br><br>
 			</FONT><BR><BR>
 		</TD>
