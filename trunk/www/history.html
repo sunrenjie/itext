@@ -59,21 +59,59 @@
 			<LI><A HREF="#VERSION037">iText0.37</A>: 5 Oct 2000
 			<LI><A HREF="#VERSION038">iText0.38</A>: november 2000
 			<LI><A HREF="#VERSION039">iText0.39</A>: december 2000
-			<LI><A HREF="#releasePaulo">releasePaulo</A>: spring 2001
+			<LI><A HREF="#VERSION040">iText0.40</A>: spring 2001
+			<LI><A HREF="#VERSION041">iText0.41</A>: summer 2001
+			<LI><A HREF="#VERSION050">iText0.50</A>: 13 August 2001
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B>Paulo's experimental versions</B>
-		Paulo is allways 1 step ahead in the development of iText.
-		Please check the mailing list archives and <A HREF="http://www.geocities.com/itextpdf">Paulo's site</A> for more info on this release.<br>
+		<BR><FONT FACE="Arial,Helvetica"><B>iText0.50</B><br>
+		<UL>
+		<LI>Xml support: you can generate XML that follows an iText.dtd.
+			You can convert these file to PDF, or you can convert XML file that obey to
+			your own custom DTD to PDF. Very tidy HTML can be converted to PDF as well.
+		<LI>added nested tables to Table. This code was all provided by
+      		Geert Poels.
+		<LI>added the ptable. This is a new kind of pdf table where each
+      		cell is a ColumnText. The usable classes are PdfPTable and PdfPCell.<br>
+			Main features are:
+			<UL>Simple XY table without rowspan or colspan. Uses nested
+            ptables instead.
+			<LI>Each cell is a ColumnText with all the capabilities.
+			<LI>Aligns correctly in the horizontal and vertical directions.
+			<LI>Can be added to the document or placed at precise positions.
+			<LI>When added to the document always break at full rows. If the
+            row does not fit in the full page it is dropped.
+			<LI>Precise table dimensioning. The resulting ptables dimensions
+            are always available.
+			<LI>If using fitsPage only the new rows since the last call are
+            calculated.
+			<LI>Supports minimum cell height and no wrap.
+			</UL>
+		<LI>changes to PdfChunk. Corrected the encoding. Corrected the placement
+      		of images when they were the last element of the line. Corrected the
+      		split position that was off by 2. CJK characters are also used as split
+      		characters.
+		<LI>changes to PdfContentByte. Added clipping paths.
+		<LI>added PdfWriter.setViewerPreferences. Added the ability to change the
+      		way the documents open in Acrobat.
+		<LI>prevented the double close in PdfWriter.
+		<LI>added PdfWriter.getPageNumber.
+		<LI>added extra encoding checks in type1 and truetype fonts.
+		<LI>correction in PdfAction. Remote gotos by page now work correctly.
+		<LI>changed ColumnText. The PdfContentByte can be null if only the
+      		simulation is needed.
+		<LI>changed HtmlWriter. In HTML, anchors now work inside tables.
+		<LI>correction in Table.deleteRow. Multiple rows can be deleted and added.
+		</UL>
 		</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION039">iText0.41</A></B>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION041">iText0.41</A></B>
 		<UL>
 		<LI>added EBCDIC support. It works in OS/390 and probably in AS/400.
 		It should work in other platforms with other character encodings.
@@ -101,7 +139,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION039">iText0.40</A></B>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION040">iText0.40</A></B>
 		<UL>
 		<LI>added class PdfPageEventHelper. Makes the use of page events easier.
 		<LI>added Chunk.setGenericTag. Attachs text to a Chunk that can be

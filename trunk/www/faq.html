@@ -235,10 +235,21 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile the source code I get ClassNotFound errors!</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
+			If the source code doesn't compile, this can be caused by three different reasons:
+			<ol>
+			<li>If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
 			this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
 			use the <A HREF="#jdk11">1.1.x</A>-version of the library.
-			</FONT><BR><BR>
+			<li>If the missing classes are related to XML (for instance org.xml.sax.Parser),
+			you need to put <a href="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar">Xerces</a>
+			in your classpath.<br>Another solution is to delete the com.lowagie.text.xml.* package and classes
+			HtmlPeer, HtmlParser, HtmlTagMap and SAXmyHtmlHandler in package com.lowagie.text.html.*.
+			Your source code will compile, but you will not be able to parse XML and/or HTML.
+			<li>Any other problem with classes that are not found, are caused by errors in your
+			classpath. You and you alone can solve these kind of errors, so please don't mail us
+			before you're absolutely sure you've checked every detail on your system, or else...
+			</ol>
+			</FONT><br>
 		</TD>
 	</TR>
 	<TR>

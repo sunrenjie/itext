@@ -48,56 +48,51 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica"><B>Project description</B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">iText is a library
-			that allows you to generate PDF files on the fly.<BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">iText is a library that allows you to generate PDF files on the fly.<BR>
 			<BR>
 			The iText classes are very useful for people who need to generate
 			read-only, platform independent documents containing text, lists,
 			tables and images. The library is especially useful in combination
 			with Java<SUP>(TM)</SUP> technology-based Servlets: The look and feel of HTML
-			is browser dependant; with iText and PDF you can control exactly
+			is browser dependent; with iText and PDF you can control exactly
             how your servlet's output will look.<BR>
 			iText requires JDK 1.2. It's available for free under the LGPLicense.</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><B>Why I wrote these classes</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><B>License Agreement</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			I worked on a project for
-			<A HREF="http://www.rug.ac.be/"><FONT FACE="Arial,Helvetica" SIZE="-1">Ghent University</FONT></A>
-			and I had to write an application that
-			could be used by all the University professors of Ghent to
-			enter the grades of their students into the student database.
-			The application also had to calculate the final results of the
-			students and performed a first (automated) deliberation at
-			the end of the academy year.<BR><BR>
-			A lot of documents had to be generated:
-			<UL>
-				<LI>Lists for the professors to fill in the grades of every
-				student after an exam.
-				<LI>Advalvas lists with the results of an exam.
-				<LI>Lists with all the theses of each graduation year of each faculty.
-				<LI>Pre- and post-deliberation lists for the different deliberation
-				commissions of every faculty.
-				<LI>Reports with the curriculum of each student, his (or her) grades
-				and the global grade he (or she) obtained.
-				<LI>ECTS-reports
-				<LI>and so on...
-			</UL>
-			This application was built as an internetsite. It is entirely written
-			in JAVA<SUP>(TM)</SUP>, using JAVA<SUP>(TM)</SUP> technology-based Servlets to generate
-			HTML pages and PDF documents.<BR>
-			<BR>This JAVA-PDF library is a part of this application.
-			The code of this library was published under the
-			<A HREF="http://www.gnu.org"><FONT FACE="Arial,Helvetica" SIZE="-1">GNU LIBRARY GENERAL PUBLIC LICENSE</FONT></A>.<BR><BR>
-			</FONT>		
+			Please read the
+			<A HREF="http://www.lowagie.com/iText/lgpl.txt"><FONT FACE="Arial,Helvetica" SIZE="-1">license agreement</FONT></A>
+			carefully before you download and/or use this library.
+			This library is free and I want it to stay free.
+			If you don't like free software, don't (ab)use it! As Donald E. Knuth
+			says in <EM>The Art of Computer Programming (volume 3)</EM>:
+			<blockquote>There are better ways to earn a living than to prevent other
+			people from making use of one's contributions to computer science.</blockquote>
+			Also remember section 15 and 16 of the LGPLicense: This library is distributed
+			in the hope that it will be useful, but WITHOUT any warranty.</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><B>Download section - License Agreement</B></FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">Important: Check the mailing list archives for the latest release!</FONT> The current version on this site is 0.41!<br><br>
+			<FONT FACE="Arial,Helvetica"><B>Download section - the ANT way</B></FONT><BR><BR>
+			This is the easiest way to obtain the most recent version. Just download ANT from
+			<a href="http://jakarta.apache.org/ant/">jakarta.apache.org</a>, install it and
+			run it with the <a href="build.xml">iText build.xml file</a>. Use 'download' as
+			target to download the full source code from CVS and all the files you need to
+			run the examples from my download section. Use 'jarWithXML' to compile and jar
+			the complete source code (or just 'jar' if you don't need XML functionality).<br><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica"><B>Download section - the classical way</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">Important: Check the mailing list archives for the latest release!</FONT> The current release on this site is 0.50!<br>
+			If you need the most recent version, please use ANT!<br>
+			If the downloaded code doesn't compile because of ClassNotFound errors or exception's, don't mail us, read the <a href="faq.html#compile">FAQ</a>.
+			<br><br>
 			<TABLE WIDTH="80%" BORDER="1" CELLSPACING="0" CELLPADDING="3" ALIGN="center">
 			<TR>
 			<TD ALIGN="Center" COLSPAN="5" BGCOLOR="#00E0E0"><FONT FACE="Arial,Helvetica">Download the library: </FONT><A HREF="ftp://ftp.lowagie.com/iText/"><FONT FACE="Arial,Helvetica" COLOR="#000000" TARGET="_blank">ftp://ftp.lowagie.com/iText/</FONT></A></TD>
@@ -112,33 +107,18 @@
 			<TR>
 			<TD WIDTH="20%" BGCOLOR="#00E0E0"><FONT FACE="Arial,Helvetica">FTP</FONT></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="ftp://ftp.lowagie.com/iText/src.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">src.tar.gz</FONT></A></TD>
-			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="ftp://ftp.lowagie.com/iText/iText.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar</FONT></A></TD>
+			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="ftp://ftp.lowagie.com/iText/iText.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar1 (PDF/HTML)</FONT></A><br><A HREF="ftp://ftp.lowagie.com/iText/iTextXML.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar2 (XML)</FONT></A></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="ftp://ftp.lowagie.com/iText/docs.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">docs.tar.gz</FONT></A></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="ftp://ftp.lowagie.com/iText/iText040.www.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">tutorial</FONT></A></TD>
 			</TR>
 			<TR>
 			<TD WIDTH="20%" BGCOLOR="#00E0E0"><FONT FACE="Arial,Helvetica">HTTP</FONT></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://www.lowagie.com/iText/downloads/src.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">src.tar.gz</FONT></A></TD>
-			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://www.lowagie.com/iText/downloads/iText.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar</FONT></A></TD>
+			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://www.lowagie.com/iText/downloads/iText.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar1 (PDF/HTML)</FONT></A><br><A HREF="http://www.lowagie.com/iText/downloads/iTextXML.jar"><FONT FACE="Arial,Helvetica" COLOR="#000000">jar2 (XML)</FONT></A></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://www.lowagie.com/iText/downloads/docs.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">docs.tar.gz</FONT></A></TD>
 			<TD WIDTH="20%" ALIGN="Center" BGCOLOR="#00E0E0"><A HREF="http://prdownloads.sourceforge.net/itext/iText040.www.tar.gz"><FONT FACE="Arial,Helvetica" COLOR="#000000">tutorial</FONT></A></TD>
 			</TR>
-			</TABLE>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Please read the
-			<A HREF="http://www.lowagie.com/iText/lgpl.txt"><FONT FACE="Arial,Helvetica" SIZE="-1">license agreement</FONT></A>
-			carefully before you download and/or use this library.
-			This library is free and I want it to stay free.
-			If you don't like free software, don't (ab)use it! As Donald E. Knuth
-			says in <EM>The Art of Computer Programming (volume 3)</EM>:
-			<blockquote>There are better ways to earn a living than to prevent other
-			people from making use of one's contributions to computer science.</blockquote>
-			Also remember section 15 and 16 of the LGPLicense: This library is distributed
-			in the hope that it will be useful, but WITHOUT any warranty.</FONT><BR><BR>
+			</TABLE><br><br>
 		</TD>
 	</TR>
 	<TR>
