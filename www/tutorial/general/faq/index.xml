@@ -21,11 +21,6 @@
 			<site:description>Demonstrates the measurement system (points, inches, centimeters)</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="XandYcoordinates" standalone="yes" />
-			<site:result>XandY.pdf</site:result>
-			<site:description>Puts some marks at specific X and Y coordinates; connects the marks with a line and puts some text next to the marks</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="NewPage" standalone="yes" />
 			<site:result>NewPage.pdf</site:result>
 			<site:description>Shows how to go to a new page or insert a blank page</site:description>
@@ -63,22 +58,6 @@ to calculate the number of points:<ul>
 </div>
 	</site:section>
 
-	<site:section name="xycoordinates">
-		<site:sectiontitle>The coordinate system</site:sectiontitle>
-<div>
-When you want to add some text, a template, an image,... at an absolute position,
-you need to specify an X and Y coordinate. It is very important to know that the
-null position (x = 0; y = 0) in the PDF coordinate system is located in the
-lower left corner of your page (not the upper left corner as is sometimes assumed).
-This is not an iText specific choice. This is documented in the PDF Reference Manual.
-<site:source class="XandYcoordinates" />
-Remark: if you measure the locations on the page, you will see that the distances
-measured from the bottom or the left side of the page are not always correct.
-Adobe's print dialog has several options (like "fit to paper") that change
-the printed result.
-</div>
-	</site:section>
-	
 	<site:section name="newpage">
 		<site:sectiontitle>How to create a new page in iText</site:sectiontitle>
 <div>
