@@ -44,8 +44,8 @@ public class Chap0501 {
             Table table = new Table(3);
             table.setBorderWidth(1);
             table.setBorderColor(new Color(0, 0, 255));
-            table.setCellpadding(5);
-            table.setCellspacing(5);
+            table.setPadding(5);
+            table.setSpacing(5);
             Cell cell = new Cell("header");
             cell.setHeader(true);
             cell.setColspan(3);
