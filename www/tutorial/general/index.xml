@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Hello World</site:title>
+		<site:summary>How-to generate a PDF document with iText in 5 easy steps.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="HelloWorld" />
+			<site:result>HelloWorld.pdf</site:result>
+			<site:description>Generates a simple 'Hello World' PDF file</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="5steps">
+		<site:sectiontitle>Creating a document in 5 steps.</site:sectiontitle>
+<div>
+When I learned my first programming language (some old BASIC dialect
+on a <a href="http://www.99er.net/">TI-99/4A Home Compiter</a>),
+one of the first programs I made was a 'Hello World' example.
+The year was 1982, my age: 12. Now, more than 20 years later,
+I am still writing the same program: a standalone example that
+prints 'Hello World', this time not on the cyan colored Texas Instruments screen,
+but in a PDF document file.<br />
+This example shows you the 5 basic steps you have to take for every
+new PDF document you are creating from scratch with iText:
+<ul>
+<li><b>Step 1:</b> Creates an <site:doc class="com.lowagie.text.Document" target="constructor_summary">instance</site:doc> of <site:src class="com.lowagie.text.Document" />.</li>
+</ul>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>

@@ -16,6 +16,7 @@
 	
 	<site:part name="part1">
 		<site:title>Part I: general use of iText</site:title>
+		<site:chapter path="general" />
 	</site:part>
 	<site:part name="part2">
 		<site:title>Part II: Advanced PDF functionality</site:title>
