@@ -41,6 +41,88 @@
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="anchor"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Anchors</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            We all know what hypertext links are in HTML. If you click on certain words, you can jump
+            to another page on the net. This kind of functionality is also possible in PDF. In fact
+            I wrote a whole chapter about all kinds of links in PDF: see <A HREF="ch11.html">Chapter 11</A>,
+            but that is rather advanced use of iText. In these first chapters we only deal with simple iText.<BR>
+            If you want to add an external link to a document (i.e. a link to another document on the web, using its URL),
+            you can simply use the <FONT FACE="Courier">Anchor</FONT>-object. It's derived from the
+            <FONT FACE="Courier">Phrase</FONT>-object and it's used in the same way. There are only
+            two extra methods to define two extra variables: <FONT FACE="Courier">setName</FONT> and
+			<FONT FACE="Courier">setReference</FONT>.<BR><BR>
+            <B>Example external link:</B><BR>
+            <FONT FACE="Courier">
+            Anchor anchor = new Anchor("website", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));<BR>
+            anchor.setReference("http://www.lowagie.com/iText/");<BR>
+            anchor.setName("website");
+            </FONT><BR><BR>
+            If you want to add internal links, you need to choose a unique name for this link, just like
+            you would do in HTML and use this as name for the anchor. When you make a reference to this destination,
+            you need to add a #-character.<BR><BR>
+            <B>Example internal link:</B><BR>
+            <FONT FACE="Courier">
+            Anchor anchor1 = new Anchor("This is an internal link");<BR>
+            anchor1.setName("link1");<BR>
+            Anchor anchor2 = new Anchor("Click here to jump to the internal link");<BR>
+            anchor.setReference("#link1");
+            </FONT><BR><BR>
+            Both examples are demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0301.java">Chap0301.java</A>; you can test the result <A HREF="http://www.lowagie.com/iText/examples/Chap0301.pdf">here</A>.
+            </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="list"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Lists</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            With classes <FONT FACE="Courier">List</FONT> and <FONT FACE="Courier">ListItem</FONT>,
+            you can add lists to a PDF file. You can choose if you want ordered or unordered lists:
+            <BR><BR>
+            <B>Example ordered list:</B><BR>
+            <FONT FACE="Courier">
+            List list = new List(true, 20);<BR>
+            list.add(new ListItem("First line"));<BR>
+            list.add(new ListItem("The second line is longer to see what happens once the end of the line is reached. Will it start on a new line?"));<BR>
+            list.add(new ListItem("Third line"));
+            </FONT><BR><BR>
+            The result of this code looks like this:
+            <OL>
+                <LI>
+                    First line
+                </LI>
+                <LI>
+                    The second line is longer to see what happens once the end of the line is reached. Will it start on a new line?
+                </LI>
+                <LI>
+                    Third line
+                </LI>
+            </OL>
+            <B>Example unordered list:</B><BR>
+            <FONT FACE="Courier">
+            List overview = new List(false, 10);<BR>
+            overview.add(new ListItem("This is an item"));<BR>
+            overview.add("This is another item");
+            </FONT><BR><BR>
+            The result of this code looks like this:
+            <UL>
+                <LI>
+                    This is an item
+                </LI>
+                <LI>
+                    This is another item
+                </LI>
+            </UL>
+            You can change the way the listsymbol looks with method <FONT FACE="Courier">setListSymbol</FONT> and there are
+            also some methods to change the indentation of the list.
+            You can find more examples here: <A HREF="http://www.lowagie.com/iText/examples/Chap0302.java">Chap0302.java</A> and look at the <A HREF="http://www.lowagie.com/iText/examples/Chap0302.pdf">result</A>.
+            </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch02.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
