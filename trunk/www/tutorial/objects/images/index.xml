@@ -56,6 +56,12 @@
 			<site:description>Alignment and wrapping of images.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="AbsolutePositions" standalone="yes" />
+			<site:externalresource>hitchcock.png</site:externalresource>
+			<site:result>absolutepositions.pdf</site:result>
+			<site:description>Adding an Image at absolute positions.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Scaling" standalone="yes" />
 			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:result>scaling.pdf</site:result>
@@ -75,6 +81,14 @@
 			<site:description>images and annotations.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="ImageSequence" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>getacro.gif</site:externalresource>
+			<site:result>inSequence.pdf</site:result>
+			<site:result>NotInSequence.pdf</site:result>
+			<site:description>Adds images to a document, once respecting the order in which they were added, once in the default order.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="DvdCover" standalone="yes" />
 			<site:externalresource>sunflower-front.jpg</site:externalresource>
 			<site:externalresource>sunflower-back.jpg</site:externalresource>
@@ -92,7 +106,24 @@
 	<site:section name="intro">
 		<site:sectiontitle>Images</site:sectiontitle>
 <div>
+<ul>
+<li><b>JPEG:</b> Joint Photographic Experts Group. Commonly used to refer to a lossy compression technique, reducing the size of a graphic file by as much as 96%. Usually the best file format for photographs on the Web.</li>
+<li><b>GIF:</b> Graphic Interchange Format. A common format for image files, especially suitable for images containing large areas of the same color. GIF format files of simple images are often smaller than the same file would be if stored in JPEG format, but GIF format does not store photographic images as well as JPEG.</li>
+<li><b>PNG:</b> Portable Network Graphics. A graphics format designed as the successor to GIF. It features compression, transparency, and progressive loading, like GIF, but it is free of patent restrictions.</li>
+<li><b>TIFF:</b> Tagged Image File Format. A file format commonly used for digital scanned images.</li>
+<li><b>BMP:</b> Windows bitmap. A common form of bitmap file in Microsoft Windows. Poorly supported by other operating systems and with limited support for colour.</li>
+<li><b>WMF:</b> Windows Metafile Format. A vector graphics format for Windows-compatible computers used mostly for word-processing clip art.</li>
+<li>basic support for <b>EPS:</b> Encapsulated PostScript; a graphics format that describes an image in the PostScript language.</li>
+<li><b>java.awt.Image:</b> a JAVA object that is in the JDK from SUN</li>
+</ul>
 <site:source class="Images" />
+</div>
+	</site:section>
+	<site:section name="awt">
+		<site:sectiontitle>java.awt.Image</site:sectiontitle>
+<div>
+Toolkit!!!
+<site:source class="AwtImage" />
 </div>
 	</site:section>
 	<site:section name="case">
