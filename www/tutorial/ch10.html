@@ -101,7 +101,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphics"><B>Graphics</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="simplegraphics"><B>Simple Graphics</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             In <A HREF="../examples/Chap1001.java">example 1</A>, some simple graphics are drawn.
             We use methods such as <FONT FACE="Courier">moveTo</FONT> and <FONT FACE="Courier">lineTo</FONT>
@@ -133,6 +133,36 @@
             methods such as <FONT FACE="Courier">rectangle</FONT> and <FONT FACE="Courier">circle</FONT>
             are used. Please consult the welldocumented <a href="../docs/com/lowagie/text/pdf/PdfContentByte.html">API of class
             PdfContentByte</A> and the PDF Reference manual for more info.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphics2D"><B>Using the java.awt.Graphics2D-object</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Allthough the previous section was called 'Simple Graphics', you need to know how PDF graphics
+			are constructed. But maybe you're not really in to PDF; maybe you're more familiar with JAVA.
+			No problem! You can create a PdfTemplate (see the section on <A HREF="#templates">Templates</A>) and ask this template to create a java.awt.Graphics2D-object:<br>
+			<font face="Courier"><br>
+            PdfContentByte cb = writer.getDirectContent();<br>
+            PdfTemplate tp = cb.createTemplate(w, h);<br>
+            Graphics2D g2 = tp.createGraphics(w, h, mapper);<br>
+			</font><br>
+			In the <A HREF="../examples/Chap10_Graphics2D.java">Graphics2D-example</A> (see also <A HREF="../examples/Chap10_Graphics2D.pdf">resulting PDF</A>), the code of an example in SUN's
+			Graphics2D tutorial was copied literally. As you can see, everything that was written to the
+			Graphics2D-object was translated to PDF syntax. This is especially useful if you have existing
+			applications generating graphics for the screen, printer, or some image file. You can have your
+			existing code generating PDF with very little effort.<br>
+			<b>Remark:</b> You can also write directly to the page, without using a PdfTemplate:<br>
+			<font face="Courier"><br>
+			PdfContentByte cb = writer.getDirectContent();<br>
+            cb.saveState();<br>
+            cb.concatCTM(1, 0, 0, 1, 50, 400);<br>
+            Graphics 2D g2 = cb.createGraphics(500, 300);<br>
+			// draw things to g2<br>
+            g2.dispose();<br>
+            cb.restoreState();<br>
+			</font>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
