@@ -54,6 +54,11 @@
 			<site:description>Writing to different writers at the same time; using pause() and resume()</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="HelloEncrypted" standalone="yes" />
+			<site:result>HelloEncrypted.pdf</site:result>
+			<site:description>Again a PDF with the text 'Hello World', but this time the document is encrypted. To read it, you need to know the userpassword: 'Hello'</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="HelloWorldMeta" standalone="yes" />
 			<site:result>HelloWorldMeta.pdf</site:result>
 			<site:description>Adding metadata to a new PDF document</site:description>
@@ -181,9 +186,21 @@ demonstrated in the next example:
 	</site:section>
 	
 	<site:section name="step3">
-		<site:sectiontitle>step 3: metadata + opening the document</site:sectiontitle>
+		<site:sectiontitle>step 3: opening the document</site:sectiontitle>
 		<div>
-<div class="subtitle">Metadata</div>
+It is important to call <site:doc class="com.lowagie.text.Document" target="open()">Document.open()</site:doc>.
+iText will throw an exception if you try adding content before the document is open.
+This is a design choice. There are several initialisations that should be done BEFORE you open
+a Document. Most of them will be covered elsewhere in this tutorial.
+We have a quick glance at two of them now:<br /><br />
+<div class="subtitle">Simple encryption</div>
+if you want to generate an encrypted document, you should call
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="setEncryption(boolean,%20java.lang.String,%20java.lang.String,%20int)">setEncryption</site:doc>
+BEFORE opening the Document-object. If you try setting the encryption after Document.open(),
+a <site:doc class="com.lowagie.text.DocumentException">DocumentException</site:doc>
+will be thrown with the message <span class="commandline">Encryption can only be added before opening the document</span>.
+<site:source class="HelloEncrypted" />
+<div class="subtitle">metadata</div>
 if we look at the Document Properties in Acrobat (under File in the menu),
 we see that several fields are empty by default:<br />
 <site:image source="metadata.gif">HelloWorld without metadata</site:image><br />
@@ -213,7 +230,7 @@ Compare the result on this screenshot:<br />
 <site:image source="meta.gif">HelloWorld with metadata</site:image><br />
 <site:source class="HelloWorldMeta" />
 If you study the API, you will see there is also a generic method
-<site:doc class="com.lowagie.text.Document" target="addHeader(java.lang.String,%20java.lang.String)">addHeader(java.lang.String,%20java.lang.String)</site:doc>.
+<site:doc class="com.lowagie.text.Document" target="addHeader(java.lang.String,%20java.lang.String)">addHeader(java.lang.String, java.lang.String)</site:doc>.
 That method has no effect on PdfWriter, but you can use it with
 <site:tutorial chapter="/html" section="metadata">HtmlWriter</site:tutorial>.
 		</div>
