@@ -19,6 +19,28 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
+<li>2005-01-31: iText 1.2.2
+<ul><li>Avoiding a NullPointerException in Phrase (bugfix by August Detlefsen)</li>
+<li>Binary transparency worked for GIFs, not for all PNGs (bugfix by Chris Nokleberg)</li>
+</ul>
+</li>
+<li>2005-01-29: paulo 151
+<ul><li>MultiColumnText supports column continuation and column skipping.</li>
+<li>PdfGraphics2D supports the start position in TexturePaint. Contibution by Chris Nokleberg.</li>
+<li>PdfReader reads correctly files with hybrid xrefs.</li>
+<li>PdfStamper deals correctly with files with hybrid xrefs in append mode.</li></ul>
+</li>
+<li>2005-01-24: paulo 150<ul>
+<li>fixed the reading of some field names</li>
+<li>added the option "textfont" in AcroFields.setFieldProperty() to set a new font in a field.</li>
+<li>added support for Type 1 fonts described by *.pfm.</li>
+<li>fixed a bug in PdfGraphics2D with rotated fonts.</li>
+<li>added PdfStamper.insertPage() to insert a blank page in an existing document.</li>
+<li>fixed an exception in PdfStamper in append mode and full compression.</li>
+<li>performance improvement in Type 1 fonts.</li>
+<li>fixed Anchor to also work in ColumnText and PdfPTable.</li>
+</ul>
+</li>
 <li>2005-01-11: paulo 149 - iText 1.2.1<ul>
 <li>fixed a bug that broke PDF 1.5 compression. The bug was introduced in itext-paulo-144.</li>
 <li>fixed PdfCopy to not throw an exception with acroform that is not indirect.</li>
