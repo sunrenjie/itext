@@ -26,10 +26,15 @@
 			<site:result>Paragraph.pdf</site:result>
 			<site:description>Demonstrates some Paragraph functionality</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ParagraphAttributes" standalone="yes" />
+			<site:result>Paragraphs.pdf</site:result>
+			<site:description>Demonstrates some Paragraph functionality</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="5steps">
+	<site:section name="chunk">
 		<site:sectiontitle>Chunk</site:sectiontitle>
 <div>
 A Chunk is the smallest significant part of text that can be added to a document.
@@ -38,6 +43,36 @@ All the contents of a Chunk are of the same font, fontsize, style, color, etc...
 For the complete functionality on this object, please read the <site:tutorial chapter="/objects/chunk">chapter on the Chunk object</site:tutorial>.
 Functionalities such as subscript, superscript, underline and background are demonstrated in the following example:
 <site:source class="Chunks" />
+There is a complete chapter on the <site:tutorial chapter="/objects/chunk">Chunk object</site:tutorial> if you need to know more about Chunks.
+Also related are the chapters on <site:tutorial chapter="/objects/anchors">Anchors</site:tutorial> and <site:tutorial chapter="/objects/fonts">Fonts</site:tutorial>.
+</div>
+	</site:section>
+	<site:section name="paragraph">
+		<site:sectiontitle>Paragraph</site:sectiontitle>
+<div>
+<site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc> is the text object you are likely to use the most.
+It is an ArrayList of one or more other high level elements, such as Chunk, Phrase, List, Image,...<br />
+The most important thing you need to know about paragraph, is that they have a <site:tutorial chapter="/objects/chunk" section="endline">leading</site:tutorial>
+and that every new Paragraph starts on a <site:tutorial chapter="/objects/chunk" section="endline">new line</site:tutorial>.
+<site:source class="Paragraphs" />
+You can set the aligment of a Paragraph with the method
+<site:doc class="com.lowagie.text.Paragraph" target="setAlignment(int)">setAlignment(int alignment)</site:doc>.
+The alignment can be one of the following values:
+<ul>
+<li>Element.ALIGN_LEFT</li>
+<li>Element.ALIGN_CENTER</li>
+<li>Element.ALIGN_RIGHT</li>
+<li>Element.ALIGN_JUSTIFIED</li>
+</ul>
+The following method names need no further explanation, they are pretty straightforward:
+<ul>
+<li><site:doc class="com.lowagie.text.Paragraph" target="setFirstLineIndent(float)">setFirstLineIndent(float firstLineIndent)</site:doc></li>
+<li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationLeft(float)">setIndentationLeft(float indentation)</site:doc></li>
+<li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationRight(float)">setIndentationRight(float indentation)</site:doc></li>
+<li><site:doc class="com.lowagie.text.Paragraph" target="setSpacingBefore(float)">setSpacingBefore(float spacing)</site:doc></li>
+<li><site:doc class="com.lowagie.text.Paragraph" target="setSpacingAfter(float)">setSpacingAfter(float spacing)</site:doc></li>
+</ul>
+<site:source class="ParagraphAttributes" />
 </div>
 	</site:section>
 	

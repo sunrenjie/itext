@@ -32,7 +32,7 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Demonstrates some Chunk functionality.
+ * Demonstrates some Paragraph functionality.
  * 
  * @author blowagie
  */
@@ -40,7 +40,7 @@ import com.lowagie.text.pdf.PdfWriter;
 public class Paragraphs {
 
 	/**
-	 * Demonstrates some Chunk functionality.
+	 * Demonstrates some Paragraph functionality.
 	 * 
 	 * @param args
 	 *            no arguments needed here
