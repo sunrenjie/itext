@@ -142,11 +142,9 @@ These were some companies that were mentioned:
 <li><a href="http://www.siemens.be/ic/sbs/">Siemens Business Services</a></li>
 <li><a href="http://www.svenskborsinfo.se/">svenskborsinfo.se</a></li>
 <li><a href="http://www.bearprinting.com/">bearprinting.com</a></li>
-<li><a href="http://www.abacus.ch/">abacus.ch</a></li>
 <li><a href="http://www.trackstudio.com/">trackstudio.com</a></li>
 <li><a href="http://www.windward.net/">windward.net</a></li>
 <li><a href="http://www.bibalex.org/">bibalex.org</a></li>
-<li><a href="http://www.wellsfargo.com/">wellsfargo.com</a></li>
 <li><a href="http://www.epredix.com/">epredix.com</a></li>
 <li><a href="http://www.sas.se/">sas.se</a></li>
 <li>BBVA, a Spanish bank</li>
@@ -169,7 +167,17 @@ It seems like a pretty speedy library but can be a pain to learn and use
 <li>Pete Gordon (SPS Commerce): We are generating PDF order invoices for online ordering
 e-commerce sites.</li>
 <li>Dirk Wellman (<a href="http://www.pdsoft.de/">pdsoft.de</a>):
-we're using iText to send Orders,Invoices and so on as PDF-Attachment in the ERP-Solution ifaxOPEN.</li>
+we're using iText to send Orders, Invoices and so on as PDF-Attachment
+in the ERP-Solution ifaxOPEN.</li>
+<li>Tony L. Reller (<a href="http://www.wellsfargo.com/">wellsfargo.com</a>): We are using it in our reporting product to create financial reporting for
+our commercial customers. The reports range from a few pages to hundreds of
+pages. Some reports we allow linking from a summary section to a detail
+portion of the reports. Other reports we have links to allow the use to
+retrieve check images a populate them into a new window.</li>
+<li>Roger Mistelli (<a href="http://www.abacus.ch/">abacus.ch</a>): We use iText for reports as one of several export formats we support.
+The reports ranges from single page to several thousand pages. We use
+signatures, 1.5 compression, encryption and many more features and found
+the library to scale very well.</li>
 <li>Sean C. Sullivan (see <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">OnJava article</a>):
 Our team had plenty of experience with J2EE web applications,
 but we had little experience with PDF documents.
