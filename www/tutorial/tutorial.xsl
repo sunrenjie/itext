@@ -36,6 +36,15 @@
 </head>
 </xsl:template>
 
+<xsl:template name="footer">
+	<div xmlns="http://www.w3.org/1999/xhtml" id="footer">
+	Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" />
+	Copyright &#169; 1999-2004
+	<xsl:for-each select="/site:page/site:metadata/site:author"><xsl:value-of select="." /><xsl:if test="position()!=last()">, </xsl:if></xsl:for-each><br />
+	<a href="http://www.lowagie.com/iText/">iText</a> is a Free Java-Pdf library by Bruno Lowagie and Paulo Soares.
+	</div>
+</xsl:template>
+
 <!-- commercial stuff -->
 
 <xsl:template name="commercial">
@@ -110,23 +119,42 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<div class="chapter">Under Construction</div>
 			</xsl:if>
 			<xsl:for-each select="./site:chapter">
+				<xsl:variable name="dir">/<xsl:value-of select="@path" /></xsl:variable>
 				<xsl:variable name="path"><xsl:value-of select="@path" />/index.xml</xsl:variable>
 				<xsl:variable name="link"><xsl:value-of select="@path" />/index.html</xsl:variable>
 				<xsl:for-each select="document($path)/site:page">
-					<xsl:element name="a">
-						<xsl:attribute name="class">chapter</xsl:attribute>
-						<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
-						<xsl:value-of select="site:metadata/site:title"/>
-					</xsl:element>
-					<ul><xsl:for-each select="site:chapter/site:section">
-						<li><xsl:element name="a">
-							<xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
-							<xsl:value-of select="site:sectiontitle" />
-						</xsl:element></li>
-					</xsl:for-each></ul>
+					<table width="100%" border="0" cellspacing="3" cellpadding="3">
+						<tr>
+							<td colspan="2">
+								<xsl:element name="a">
+									<xsl:attribute name="class">chapter</xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
+									<xsl:value-of select="site:metadata/site:title"/>
+								</xsl:element>
+								<xsl:value-of select="site:metadata/site:summary"/>
+							</td>
+						</tr>
+						<tr>
+							<td width="250" valign="top">
+								<div class="subtitle">Sections</div>
+								<ul><xsl:for-each select="site:chapter/site:section">
+									<li><xsl:element name="a">
+										<xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
+										<xsl:value-of select="site:sectiontitle" />
+									</xsl:element></li>
+								</xsl:for-each></ul>
+							</td>
+							<td valign="top">
+								<div class="subtitle">Examples</div>
+								<xsl:apply-templates select="site:examples"><xsl:with-param name="dir" select="$dir" /></xsl:apply-templates>
+							</td>
+						</tr>
+					</table>
 				</xsl:for-each>
 			</xsl:for-each>
+			<a class="top" href="#top">Go to top of the page</a>
 		</xsl:for-each>
+		<xsl:call-template name="footer" />
 	</div>
 	
 	<xsl:call-template name="commercial" />
@@ -190,11 +218,12 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 </xsl:template>
 
 <xsl:template match="site:examples">
+  <xsl:param name="dir" />
   <xsl:for-each select="site:example">
   	<div class="example">
   	<xsl:element name="a">
   		<xsl:attribute name="class">source</xsl:attribute>
-  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
   		<xsl:value-of select="site:java/@src" />
     </xsl:element><br />
   	<div class="description"><xsl:value-of select="site:description/." /></div>
@@ -213,19 +242,24 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     <xsl:if test="count(site:externalresource)!=0" >
       <div class="small">Input:</div>
       <ul><xsl:for-each select="site:externalresource">
-  		<li><xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute><xsl:value-of select="." /></xsl:element></li>
+  		<li><xsl:element name="a"><xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute><xsl:value-of select="." /></xsl:element></li>
       </xsl:for-each></ul>
     </xsl:if>
  	<div class="small">Output:</div>
  	<ul><xsl:for-each select="site:result">
       <li><xsl:element name="a">
-      	<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+      	<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
   		<xsl:value-of select="." />
   	  </xsl:element></li>
     </xsl:for-each></ul>
     </div>
   </xsl:for-each>
-  <div class="example"><div class="small">ANT script (all examples):</div><ul><li><a href="build.xml">build.xml</a></li></ul></div>
+  <div class="example"><div class="small">ANT script (all examples):</div><ul><li>
+  <xsl:element name="a">
+  	<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/build.xml</xsl:attribute>
+  	build.xml
+  </xsl:element>
+  </li></ul></div>
 </xsl:template>
 
 <!-- the sections -->
@@ -239,11 +273,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		<xsl:apply-templates select="html:div" />
 		<a class="top" href="#top">Go to top of the page</a>
 	</xsl:for-each>
-	<div xmlns="http://www.w3.org/1999/xhtml" id="footer">
-	Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
-	Copyright &#169; 1999-2004
-	<xsl:for-each select="/site:page/site:metadata/site:author"><xsl:value-of select="." /><xsl:if test="position()!=last()">, </xsl:if></xsl:for-each>
-	</div>
 </xsl:template>
 
 <!-- the actual page -->
@@ -275,12 +304,13 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		</xsl:for-each>
 		</ul><br /><br />
 		<div class="sidetitle">Examples:</div>
-		<xsl:apply-templates select="site:examples" />
+		<xsl:apply-templates select="site:examples"><xsl:with-param name="dir" select="$branch" /></xsl:apply-templates>
 	</xsl:element>
     
     <xsl:element name="div">
     	<xsl:attribute name="id">main</xsl:attribute>
     	<xsl:apply-templates select="site:chapter" />
+    	<xsl:call-template name="footer" />
     </xsl:element>
     
   </xsl:element>
