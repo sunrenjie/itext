@@ -28,8 +28,15 @@ import com.lowagie.text.Image;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
+/**
+ * General Images example.
+ */
 public class Images {
     
+    /**
+     * General Images example
+     * @param args	no arguments needed
+     */
     public static void main(String[] args) {
         
         System.out.println("Images");
