@@ -666,6 +666,39 @@ from other subscribers how they achieved to parse their HTML.
 </site:answer>
 </site:faq-entry>
 
+<site:faq-entry name="xml2pdf">
+<site:question>Can I convert a XML file to a PDF document?</site:question>
+<site:answer>
+
+Chapters <a href="http://www.lowagie.com/iText/tutorial/ch07.html">7</a>
+and <a href="http://www.lowagie.com/iText/tutorial/ch12.html">12</a> in
+the old tutorial have some examples.
+I wrote the XML package a long time ago, because I needed
+some specific XML functionality in a project at Ghent University.
+I added the package to iText, but sometimes I regret this:
+it's suites <i>my</i> needs, but a lot of people expect just too
+much of it and they blame me for not answering all their
+questions.<br />
+iText is a very good product, but when looking at the XML package,
+some people say: 'you see, Open Source technology has many
+disadvantages; the XML part of iText is really bad'.<br />
+They are right and wrong at the same time.
+There are a lot of flaws in the package: the choice of the
+tagnames, the incorrect DTD, the strange design,...
+On the other hand: you <i>can</i> do a lot of nice things with
+com.lowagie.text.xml.*. The projects at Ghent University
+are a success and I'm sure many people make good use of
+the XML functionality of iText.<br />
+I'm not sure what I'm going to do in the future with the
+XML package. It should be redesigned; I have planned to do
+this many times, but other projects always got in the way.
+There is a good alternative for XML2PDF conversion that uses iText
+as PDF generator: before you investigate the XML capabilities of
+iText, you may want to take a look at <a href="http://ujac.sourceforge.net/">UJAC</a>.
+
+</site:answer>
+</site:faq-entry>
+
 <site:faq-entry name="doc2pdf">
 <site:question>Can I convert WORD doc-files to PDF using iText?</site:question>
 <site:answer>
