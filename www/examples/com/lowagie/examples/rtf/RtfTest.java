@@ -30,7 +30,19 @@ import com.lowagie.text.rtf.field.*;
 import com.lowagie.text.rtf.table.*;
 import com.lowagie.text.rtf.style.RtfFont;
 
+/**
+ * This is a test suite in which all kinds of RTF functionality are tested
+ * with RtfWriter and RtfWriter2.
+ * 
+ * @author Mark Hall
+ */
 public class RtfTest {
+
+    /**
+     * Creates 2 RTF files with the same content, but using different Writers.
+     * 
+     * @param args no arguments needed
+     */
 
     public static void main(String[] args) {
         System.out.println("Test Suite");

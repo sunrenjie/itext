@@ -46,6 +46,11 @@ import com.lowagie.text.rtf.field.RtfPageNumber;
  */
 public class RtfWithHeadersFooters {
 
+    /**
+     * Creates an RTF document with complex headers and footers.
+     * 
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
 
         System.out

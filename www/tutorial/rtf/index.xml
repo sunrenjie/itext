@@ -18,28 +18,28 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="HelloRtf" />
+			<site:java src="HelloRtf" standalone="yes" />
 			<site:argument>World</site:argument>
 			<site:result>HelloWorld.rtf</site:result>
 			<site:description>Generates a simple 'Hello World' RTF file</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="RtfSpecialFont" />
+			<site:java src="RtfSpecialFont" standalone="yes" />
 			<site:result>specialfont.rtf</site:result>
 			<site:description>Special fonts</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="RtfWithHeadersFooters" />
+			<site:java src="RtfWithHeadersFooters" standalone="yes" />
 			<site:result>headerfooter.rtf</site:result>
 			<site:description>Headers/footers and page numbers</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="RtfTOCandCellborders" />
+			<site:java src="RtfTOCandCellborders" standalone="yes" />
 			<site:result>toc.rtf</site:result>
 			<site:description>Table of contents and cell borders</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="RtfTest" />
+			<site:java src="RtfTest" standalone="yes" />
 			<site:externalresource>pngnow.png</site:externalresource>
 			<site:result>testNew.rtf</site:result>
 			<site:result>testOld.rtf</site:result>
