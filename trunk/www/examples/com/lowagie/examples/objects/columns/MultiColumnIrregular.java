@@ -25,7 +25,6 @@ import java.io.OutputStream;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.FontFactory;
-import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.MultiColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
@@ -36,7 +35,7 @@ public class MultiColumnIrregular {
     public static void main(String[] args) {
         try {
         	// step 1
-            Document document = new Document(PageSize.LETTER);
+            Document document = new Document();
             OutputStream out = new FileOutputStream("multicolumnirregular.pdf");
             PdfWriter writer = PdfWriter.getInstance(document, out);
             document.open();
