@@ -81,8 +81,92 @@
 			<LI><A HREF="#VERSION093">iText0.93 and 0.93b</A>: july 2002
 			<LI><A HREF="#VERSION094">iText0.94</A>: august 2002
 			<LI><A HREF="#VERSION095">iText0.95</A>: september 2002
-			<LI><A HREF="#VERSION096">iText0.96</A>: oktober 2002
+			<LI><A HREF="#VERSION096">iText0.96</A>: october 2002
+			<LI><A HREF="#VERSION097">iText0.97</A>: march 2003
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION097">iText0.97 (based on paulo's version 107 - 108 - 109 - 110 - 111 - 112)</A></B><br
+		    <UL><LI>Update of the library by <b>Paulo Soares</b>
+		        <UL>paulo 112
+		        <LI>fixed a race condition in TrueTypeFont.java. The same file was used by
+                    all the threads instead of a new instance. Thanks to William Pennoyer for
+                    reporting the bug.
+                </UL>
+		        <UL>paulo 111
+		        <LI>fixed a bug in AcroFields that prevented form flattening to work with fields with no appearances.
+                <LI>added FdfWriter to create FDF forms.
+                <LI>fixed PdfName to work with any characters.
+                <LI>changed Color.WHITE to Color.white to compile in jdk 1.3.
+                <LI>added rectangular print to PdfPTable. Useful to manage wide tables.
+                <LI>the fdfmerge and field_merge examples were changed to support writing to the console.
+                </UL>
+		        <UL>paulo 110
+		        <LI>Added support for form filling, form flattening and FDF merging.
+                <LI>fixed FontFactory to recognize fonts where the family is not a substring of the full name.
+                <LI>added ColumnText.getLinesWritten().
+                </UL>
+		        <UL>paulo 109
+		        <LI>fixed FontFactory to avoid simulating styles if a real font with the style was found.
+                <LI>fixed PdfAppearance to have the same font names as Acrobat for text fields.
+                <LI>fixed a bug introduced in the last version where the top and bottom cell borders were swapped.
+                <LI>fixed PdfCopy to avoid leaving files opened.
+                <LI>fixed PdfCopy to interpret correctly some objects when copying.
+                <LI>when adding annotations the page content for the current page will be generated. For other pages PdfWriter.setPageEmpty() was added to force a page output.
+                <LI>much better support for reading GIFs without AWT, including transparency. Contribution by Tim Bruylants.
+                <LI>fixed a bug in PdfWriter that prevented the fields to be added with PdfCopy, only the widget annotations were being added.
+                <LI>embedding font restrictions for TrueType are honored.
+                <LI>added TextField to create text, list and combo fields with all the options that the
+                    Acrobat GUI provides. All the borders, appearances, etc, are correctly generated
+                    including the standard and external fonts.
+                </UL>
+		        <UL>paulo 108
+		        <LI>added class PdfStamper to add content to an existing pdf while preserving all the interactive attributes.
+                <LI>added simplified signature fields. Contribution by Finn Bock.
+                <LI>fixed negative page rotation in PdfReader.
+                <LI>the encoding in PdfString is automatically selected between Unicode and PdfDocEncoding.
+                <LI>added PdfPCellEvent to simplify cell customization.
+                <LI>fixed copying with WMF based images.
+                <LI>structure reorganization in PdfDocument and PdfWriter.
+                <LI>added new cmaps for extended CJK encodings like HK CSC. You'll need
+                    iTextAsianCmaps.jar. See ftp://ftp.oreilly.com/pub/examples/nutshell/cjkv/adobe/
+                    for more details.
+                <LI>removed extra moveTo in PdfAcroForm.
+                <LI>fixed a missing break in PdfAction.
+                <LI>inverted the rectangle coordinates in several places to avoid negative dimensions.
+                <LI>fixed a problem with thick lines in Table.
+                <LI>Element.HEADER was changed to cast to Meta in PdfDocument.
+                <LI>fixed a wrong indentation in header/footer. Contribution by Edgar Perilla.
+                <LI>added support for AttributedCharacterIterator in PdfGraphics2D. Contribution by Jurij Bilas.
+                </UL>
+		        <UL>paulo 107
+		        <LI>PdfGraphics2D now implements strokes as strokes instead as converted fills. File size is a lot smaller and it looks better on screen.
+                <LI>BaseFont and PdfReader read fonts and PDFs from resources if not found in the file system.
+                <LI>Images can auto-size in PdfPTable.
+                <LI>added new options in Chunk to simulate bold, italic and other effects.
+                    Styles BOLD and ITALIC will work correctly in Font with BaseFont
+                    producing simulated effects.
+                <LI>CID and hyphenation are restored in ColumnText.
+                <LI>minor fix in the GIF table size. In the next version I intend to get
+                    some JAI codecs integrated with iText to support natively all GIF and
+                    PNG (and maybe BMP).
+                <LI>fix in FontFactory for the embedded property and for TTC indexing.
+                <LI>fixed bug with single cell nested Table.
+                <LI>Unicode support for field names.
+                <LI>added the capability to change the info dictionary in PdfEncryptor.
+                    The command line program encrypt_pdf.java was also changed.
+                <LI>outlines are not generated in Chapter and Section if the title is empty.
+                <LI>added PdfWriter.setStrictImageSequence() to force images and text to appear
+                    in the order they were added to the document.
+                <LI>added BarcodePDF417 for the generation of the 2D barcode PDF417.
+                <LI>fixed PdfReader to work with /Encrypted key equal to 'null'. The
+                    document was being recognized as encrypted when it was not.
+                </UL>
+             <lI>Several updates to the RTF part of the library by <B>Mark Hall</B>.
+             </UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
@@ -120,7 +204,8 @@
              </UL>
 		</FONT>
 		</TD>
-	</TR>	<TR>
+	</TR>
+    <TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION095">iText0.95 (based on paulo's version 103)</A></B><br
 		    <UL>
