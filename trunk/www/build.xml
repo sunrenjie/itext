@@ -33,6 +33,7 @@
       <pathelement location="${itext.bin}/xerces_1_3_1.jar" />
       <pathelement location="${itext.bin}/iText.jar" />
       <pathelement location="${itext.bin}/iTextXML.jar" />
+      <pathelement location="${itext.bin}/itext-hyphen.jar" />
       <pathelement location="${itext.examples}" />
     </path>
   
@@ -111,6 +112,7 @@
         <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
+        <get src="http://www.lowagie.com/iText/downloads/itext-hyphen.jar" dest="${itext.bin}/itext-hyphen.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
@@ -217,7 +219,7 @@
 
     <target name="javadoc" description="--> generates the complete documentation with javadoc">
         <mkdir dir="${itext.docs}" />
-        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.markup.*, com.lowagie.text.xml.*"
+        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.hyphenation.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.markup.*, com.lowagie.text.xml.*"
             sourcepath="${itext.src}"
             destdir="${itext.docs}"
             author="true"
@@ -530,8 +532,6 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0909">
            <classpath refid="classpath" />
 		</java>
-		<echo>Chapter 9 fontfactory_styles: this example requires a correct filepath to some arial ttf's</echo>
-		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
            <classpath refid="classpath" />
 		</java>
