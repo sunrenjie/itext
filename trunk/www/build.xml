@@ -15,8 +15,9 @@
     </target>
 
     <target name="compile" depends="properties">
+		<echo>compiling iText</echo>
         <mkdir dir="${itext.classes}" />
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" excludes="com/lowagie/text/Logging.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/Logging.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 	
 	<target name="compileWithXML" depends="properties">
@@ -28,6 +29,7 @@
     <target name="jar" depends="compile, properties">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
+		<echo>jarring the compiled code</echo>
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/Logging.java,**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
 		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
@@ -35,6 +37,7 @@
     <target name="jarWithXML" depends="compileWithXML, properties">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
+		<echo>jarring the compiled code</echo>
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/Logging.class,**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
 		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
         <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
