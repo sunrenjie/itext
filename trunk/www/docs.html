@@ -32,10 +32,10 @@
 	</TR>
 	<TR>
 		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
-		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[Docs]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="download.html" CLASS="lightsmall">Download</A>]</SPAN></TD>
 		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
 		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
-		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="history.html" CLASS="lightsmall">History</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[Docs]</SPAN></TD>
 	</TR>
 	<TR>
 		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
@@ -46,213 +46,119 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" CLASS="content"><BR>
-			<div class="title">Search the Site</div><BR>
-			<div class="text">
-			<FORM ACTION="http://search.freefind.com/find.html" METHOD="GET"  target="_self">
-			<select name="s">
-			<option value="">Complete site
-			<option value="iText">The home pages
-			<option value="tutorial">The tutorial
-			<option value="examples">The examples
-			<option value="api">The API
-			<option value="source">The Source Code
-			</select><br>
-			<FONT size=1 face="arial,helvetica" >
-			<INPUT TYPE="HIDDEN" NAME="id" SIZE="-1" VALUE="3425713">
-			<INPUT TYPE="HIDDEN" NAME="pageid" SIZE="-1" VALUE="r">
-			<INPUT TYPE="HIDDEN" NAME="mode" SIZE="-1" VALUE="ALL">
-			<INPUT type="HIDDEN" name="n" value="0">
-			<INPUT TYPE="TEXT" NAME="query" SIZE="15"><small> 
-			<INPUT TYPE="SUBMIT" VALUE=" Find "><br>
-			</small>powered by <A HREF="http://www.freefind.com">
-			FreeFind</A></font></FORM>
-        	</div>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" CLASS="content"><BR>
-			<div class="title">Javadoc</div><BR>
-			<div class="text">
-        	You can consult the API <A HREF="http://itext.sourceforge.net/docs/" CLASS="normal">online</A>, generate it with
-			<A HREF="#ant" CLASS="normal">ANT</A> or <A HREF="#download" CLASS="normal">download</A> it.
-			(You can also find the complete sourcecode <A HREF="http://itext.sourceforge.net/src/" CLASS="normal">online</A>)
-            </div><br><br>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" CLASS="content">	
-			<div class="title">Tutorial</div><BR>
-			<div class="text">
-			If you are new to iText, it is best to start with the <A HREF="tutorial/" CLASS="normal">iText Tutorial</A>.<BR>
-        	This tutorial contains almost 100 very simple <a href="examples/" CLASS="normal">examples</a>.<br>
-			You can download the complete tutorial and all the examples in 2 tar.gz files:
-			<A HREF="http://itext.sourceforge.net/downloads/tutorial.tar.gz" CLASS="normal">tutorial.tar.gz</A> and
-			<A HREF="http://itext.sourceforge.net/downloads/examples.tar.gz" CLASS="normal">examples.tar.gz</A>.
-			</div><br><br>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="4" CLASS="content">
-			<div class="title">License Agreement</div><BR>
-			<div class="text">
-			iText is published under 2 different licenses: MPL and LGPL. It is not possible to buy a commercial license.<BR>
-			MPL is less strict than LGPL.
-			Please read the
-			<A HREF="MPL-1.1.txt" CLASS="normal">MPL license agreement</A>
-			and the <A HREF="lgpl.txt" CLASS="normal">LGPL license agreement</A>
-			carefully before you download and/or use this library.
-			This library is free and I want it to stay free.
-			If you don't like free software, don't (ab)use it! As Donald E. Knuth
-			says in <EM>The Art of Computer Programming (volume 3)</EM>:
-			<blockquote>There are better ways to earn a living than to prevent other
-			people from making use of one's contributions to computer science.</blockquote>
-			Also remember section 15 and 16 of the LGPLicense: This library is distributed
-			in the hope that it will be useful, but WITHOUT any warranty.</div><br><br>
-		</TD>
-		<TD CLASS="content">
-        <a HREF="http://www.amazon.com/exec/obidos/ASIN/0764546600/itisacatalofwebp" TARGET="_blank" CLASS="normal">
-	    <img SRC="http://images.amazon.com/images/P/0764546600.01.TZZZZZZZ.jpg" ALT="Open Source: The Unauthorized White Papers" BORDER="1"></a><br>
-	    <a HREF="http://www.amazon.com/exec/obidos/ASIN/0764546600/itisacatalofwebp" TARGET="_blank" CLASS="normal">Open Source: The Unauthorized White Papers</a><br>	
-	    by Donald K. Rosenberg<br>
+        <div class="text">This list of features is somewhat out of date, but it can be a good starting point to
+        learn to work with iText. Every topic is a link to the (outdated, but still very useful) iText tutorial.
+        You will find examples that are more up-to-date on <A HREF="http://www.geocities.com/itextpdf" CLASS="normal">Paulo's website</a>.<br><br>
+        Please also consult the <a href="history.html" class="normal">History</a> of iText to see which feature was introduced in which version.</div><br><br>
+		<DIV CLASS="Title">Feature list</DIV><BR>
+		<table align="CENTER">
+			<tr>
+			<td width="50%" valign="TOP">
+			<SPAN CLASS="part">Simple iText: document layout</SPAN><BR><BR>
+			<A HREF="tutorial/ch01.html" CLASS="chapter">Creating a document:</A> 
+            <UL>
+                <li>Creation of a document in 5 steps: <A HREF="tutorial/ch01.html#steps" CLASS="topic">Hello World</A><li><A HREF="tutorial/ch01.html#step1" CLASS="topic">Examining step 1:</A> the Document-object
+                    <UL><li>defining the <A HREF="tutorial/ch01.html#pagesize" CLASS="topic">PageSize</A><li>documents in <A HREF="tutorial/ch01.html#landscape" CLASS="topic">Landscape</A><li>defining <A HREF="tutorial/ch01.html#margins" CLASS="topic">margins</A><li><A HREF="tutorial/ch01.html#measurements" CLASS="topic">measurements</A></UL>
+                <li><A HREF="tutorial/ch01.html#step2" CLASS="topic">Examining step 2:</A> the Writer-object
+                   <UL><li><A HREF="tutorial/ch01.html#servlets" CLASS="topic">Servlets</A></UL>
+                <li><A HREF="tutorial/ch01.html#step3" CLASS="topic">Examining step 3:</A> Meta data + opening the document
+                    <UL><li><A HREF="tutorial/ch01.html#metadata" CLASS="topic">Metadata</A><li>Things to do <A HREF="tutorial/ch01.html#before" CLASS="topic">BEFORE</A> you open the document<li><A HREF="tutorial/ch01.html#firstpage" CLASS="topic">Page initialisations</A><li><A HREF="tutorial/ch01.html#viewerprefs" CLASS="topic">Viewerpreferences</A><li><A HREF="tutorial/ch01.html#encryption" CLASS="topic">Encrypted PDF</A> (40 and 128 bit)</UL>
+                <li><A HREF="tutorial/ch01.html#step4" CLASS="topic">Examining step 4:</A> adding content
+                    <UL><li><A HREF="tutorial/ch01.html#pause" CLASS="topic">Pause and resume</A></UL>
+                <li><A HREF="tutorial/ch01.html#step5" CLASS="topic">Examining step 5:</A> closing the document<li><A HREF="tutorial/ch01.html#readingPDF" CLASS="topic">Advanced:</A> reading PDF
+                    <UL><li><A HREF="tutorial/ch01.html#tools" CLASS="topic">Concat, Split, Handout and Encrypt PDF files</A></UL>
+            </UL>
+			<A HREF="tutorial/ch02.html" CLASS="chapter">Chunks, Phrases and Paragraphs:</A><BR>
+            <UL>
+                <li><a href="tutorial/ch02.html#chunk" CLASS="topic">Chunk</A>
+                    <UL><li><A HREF="tutorial/ch02.html#fonts" CLASS="topic">Type 1 fonts</A><li><A HREF="tutorial/ch02.html#underline" CLASS="topic">Underline / strikethrough</A><li><A HREF="tutorial/ch02.html#superscript" CLASS="topic">Superscript / subscript</A><li><A HREF="tutorial/ch02.html#chunkbackground" CLASS="topic">Background color of a Chunk</A></UL>
+                <li><a href="tutorial/ch02.html#phrase" CLASS="topic">Phrase</A>
+                    <UL><li><a href="tutorial/ch02.html#phrase" CLASS="topic">Leading:</A> the space between two lines<li><a href="tutorial/ch02.html#greek" CLASS="topic">Ancient Greek</A><li><a href="tutorial/ch02.html#negative" CLASS="topic">Negative leading</A></UL>
+                <li><a href="tutorial/ch02.html#paragraph" CLASS="topic">Paragraph</A><li>Features concerning layout
+                    <UL><li><a href="tutorial/ch02.html#fontpropagation" CLASS="topic">Font propagation</A><li>Changing the <a href="tutorial/ch02.html#splitcharacter" CLASS="topic">split character</A><li>Changing the <a href="tutorial/ch02.html#hyphenation" CLASS="topic">hyphenation</A></UL>
+                <li>Advanced feature: <a href="tutorial/ch02.html#generictag" CLASS="topic">Generic Tag</A>
+            </UL>
+			<A HREF="tutorial/ch03.html" CLASS="chapter">Anchors, Lists and Annotations:</A><BR>
+            <UL>
+                <li><A HREF="tutorial/ch03.html#anchor" CLASS="topic">Anchors</A>
+                    <UL><li>links to an <A HREF="tutorial/ch03.html#external" CLASS="topic">external URL</A><li><A HREF="tutorial/ch03.html#internal" CLASS="topic">Internal links</A></UL>
+                <li><A HREF="tutorial/ch03.html#list" CLASS="topic">Lists</A>
+                    <UL><li><A HREF="tutorial/ch03.html#ordered" CLASS="topic">Ordered lists</A><li><A HREF="tutorial/ch03.html#unordered" CLASS="topic">Unordered lists</A></UL>
+                <li><A HREF="tutorial/ch03.html#annotation" CLASS="topic">Annotations</A>
+            </UL>
+			<A HREF="tutorial/ch04.html" CLASS="chapter">HeaderFooters, Chapters, Sections and the Graphic object:</A><BR>
+            <UL>
+                <li><A HREF="tutorial/ch04.html#headerfooter" CLASS="topic">Headers and footers</A><li><A HREF="tutorial/ch04.html#chaptersection" CLASS="topic">Chapters and sections</A><li>the <A HREF="tutorial/ch04.html#graphic" CLASS="topic">Graphic</A> object
+            </UL>
+			<A HREF="tutorial/ch05.html" CLASS="chapter">Tables:</A><BR>
+            <UL>
+                <li>Adding cells
+                    <UL><li>adding cells <A HREF="tutorial/ch05.html#cells" CLASS="topic">from left to right, top to bottom</A><li>adding cells in at <A HREF="tutorial/ch05.html#random" CLASS="topic">random positions</A></UL>
+                <li>Layout
+                    <UL><li><A HREF="tutorial/ch05.html#paddingspacing" CLASS="topic">Cellpadding / cellspacing</A><li><A HREF="tutorial/ch05.html#alignment" CLASS="topic">Alignment</A><li><A HREF="tutorial/ch05.html#borders" CLASS="topic">Borders</A><li><A HREF="tutorial/ch05.html#colors" CLASS="topic">Colors</A><li><A HREF="tutorial/ch05.html#rowspancolspan" CLASS="topic">Rowspan / colspan</A><li><A HREF="tutorial/ch05.html#splitting" CLASS="topic">Table splitting</A></UL>
+                <li><A HREF="tutorial/ch05.html#large" CLASS="topic">Large tables</A>
+                    <UL><li><A HREF="tutorial/ch05.html#memory" CLASS="topic">Memory management</A></UL>
+                <li><A HREF="tutorial/ch05.html#nested" CLASS="topic">Nested tables</A><li><A HREF="tutorial/ch05.html#tableoffset" CLASS="topic">Table offset</A>
+           </UL>
+			<A HREF="tutorial/ch06.html" CLASS="chapter">Images:</A><BR>
+            <UL>
+                <li>Image types: PNG, GIF, JPEG, WMF
+                    <UL><li>From an <A HREF="tutorial/ch06.html#imageurl" CLASS="topic">URL</A><li>From a <A HREF="tutorial/ch06.html#imagefile" CLASS="topic">file</A></UL>
+                <li>Layout of the image
+                    <UL><li><A HREF="tutorial/ch06.html#imagealign" CLASS="topic">Alignment</A><li>Images and <A HREF="tutorial/ch06.html#imagetext" CLASS="topic">text</A><li>Images at an <A HREF="tutorial/ch06.html#absoluteposition" CLASS="topic">absolute position</A><li><A HREF="tutorial/ch06.html#scaling" CLASS="topic">Scaling</A><LI><A HREF="tutorial/ch06.html#resolution" CLASS="topic">Image resolution</A><li><A HREF="tutorial/ch06.html#rotating" CLASS="topic">Rotating</A></UL>
+                <li>Other supported images
+                    <UL><li><A HREF="tutorial/ch06.html#rawimage" CLASS="topic">Raw image data</A><li><A HREF="tutorial/ch06.html#awtimage" CLASS="topic">java.awt.Image</A><li><A HREF="tutorial/ch06.html#tiff" CLASS="topic">TIFF</A><li><A HREF="tutorial/ch06.html#tiff" CLASS="topic">CCITT</A></UL>
+                <li><A HREF="tutorial/ch06.html#maskimage" CLASS="topic">Image masks</A><li>Images and other objects
+                    <UL><li><A HREF="tutorial/ch06.html#imagechunk" CLASS="topic">Images inside a Chunk</A><li><A HREF="tutorial/ch06.html#imagetable" CLASS="topic">Images inside a Table</A><li><A HREF="tutorial/ch06.html#annotationimage" CLASS="topic">Annotations and images</A></UL>
+            </UL>
+		</td>
+		<td width="50%" valign="TOP">
+			<SPAN CLASS="part">Intermezzo: other document formats</SPAN><BR><BR>
+			<A HREF="tutorial/ch07.html" CLASS="chapter">XML and (X)HTML:</A><BR>
+            <UL>
+                <li><A HREF="tutorial/ch07.html#generatingXML" CLASS="topic">Generating iText XML</A><li><A HREF="tutorial/ch07.html#xml2pdf" CLASS="topic">Parsing iText XML</A><li><A HREF="tutorial/ch07.html#customtags" CLASS="topic">Parsing XML</A><li><A HREF="tutorial/ch07.html#datamerging" CLASS="topic">Data merging</A><li><A HREF="tutorial/ch07.html#htmlparsing" CLASS="topic">Parsing iText iText (X)HTML</A>
+				<LI><A HREF="tutorial/ch07.html#htmlwithCSS" CLASS="topic">Generating a HTML file with a CSS
+            </UL>
+			<A HREF="tutorial/ch08.html" CLASS="chapter">RTF</A><BR>
+            <UL>
+                <li><A HREF="tutorial/ch08.html#generatingRTF" CLASS="topic">generating RTF</A><li><A HREF="tutorial/ch08.html#documentObject" CLASS="topic">the document object</A><li><A HREF="tutorial/ch08.html#textObjects" CLASS="topic">simple text objects</A><li><A HREF="tutorial/ch08.html#complexObjects" CLASS="topic">complex objects</A><li><A HREF="tutorial/ch08.html#specialObjects" CLASS="topic">special objects</A><li><A HREF="tutorial/ch08.html#tableObject" CLASS="topic">the table object</A><li><A HREF="tutorial/ch08.html#imageObject" CLASS="topic">the image object</A>
+            </UL>
+			<SPAN CLASS="part">Advanced iText: PDF only</SPAN><BR><BR>
+			<A HREF="tutorial/ch09.html" CLASS="chapter">Fonts:</A><BR>
+            <UL>
+                <li>Specifying an <a href="tutorial/ch09.html#encoding" CLASS="topic">encoding</A><li>Specifying an <a href="tutorial/ch09.html#truetype" CLASS="topic">True Type Fonts</A>
+                    <UL><li><a href="tutorial/ch09.html#embedttf" CLASS="topic">Embedding</A> a ttf<li><a href="tutorial/ch09.html#unicode" CLASS="topic">Unicode</A><LI><a href="tutorial/ch09.html#ttc" CLASS="topic">True Type Collections</A><LI><a href="tutorial/ch09.html#fontwidths" CLASS="topic">Font widths</A><li><a href="tutorial/ch09.html#ttfOS" CLASS="topic">ttf-files and Operating Systems</A><li><a href="tutorial/ch09.html#fontfactory" CLASS="topic">Font Factory</A></UL>
+                <li><a href="tutorial/ch09.html#barcode" CLASS="topic">Barcodes</A><li><a href="tutorial/ch09.html#measuringtext" CLASS="topic">Measuring text</A><li><a href="tutorial/ch09.html#CJK" CLASS="topic">CJK Fonts:</A> Chinese, Korean and Japanese
+                <li><a href="tutorial/ch09.html#adobefonts" CLASS="topic">Adobe Fonts</A>
+            </UL>
+			<A HREF="tutorial/ch10.html" CLASS="chapter">Absolute Positioning of Graphics and Text:</A><BR>
+            <UL>
+                <li><a href="tutorial/ch10.html#simplegraphics" CLASS="topic">Graphics</A><li><a href="tutorial/ch10.html#graphics2D" CLASS="topic">Using the java.awt.Graphics2D-object</A><li><a href="tutorial/ch10.html#text" CLASS="topic">Text</A><li><a href="tutorial/ch10.html#templates" CLASS="topic">Templates</A> (Form XObjects)
+                    <UL><li><a href="tutorial/ch10.html#pageXofY" CLASS="topic">Page X of Y</A></UL>
+                <li><a href="tutorial/ch10.html#columntext" CLASS="topic">Columns</A>
+                    <UL><li><a href="tutorial/ch10.html#multiple" CLASS="topic">Multiple columns</A><li><a href="tutorial/ch10.html#irregular" CLASS="topic">Irregular columns</A></UL>
+                <li><a href="tutorial/ch10.html#abspdfptable" CLASS="topic">Tables</A><li><a href="tutorial/ch10.html#pantones" CLASS="topic">SpotColors and Patterns</A>
+            </UL>
+			<A HREF="tutorial/ch11.html" CLASS="chapter">Local and Remote Goto's, Destinations and Outlines:</A><BR>
+            <UL>
+                <li><a href="tutorial/ch11.html#localgoto" CLASS="topic">Local Goto</A><li><a href="tutorial/ch11.html#remotegoto" CLASS="topic">Remote Goto</A><li><a href="tutorial/ch11.html#actions" CLASS="topic">Actions</A>
+                    <UL><li><a href="tutorial/ch11.html#namedactions" CLASS="topic">Named actions</A><li><a href="tutorial/ch11.html#launch" CLASS="topic">Launching an application</A><li><a href="tutorial/ch11.html#openaction" CLASS="topic">Open action</A><li><a href="tutorial/ch11.html#javascript" CLASS="topic">Javascript</A><li><a href="tutorial/ch11.html#fileurl" CLASS="topic">Files and URLs</A></UL>
+                <li><a href="tutorial/ch11.html#destinations" CLASS="topic">Destinations</A><li><a href="tutorial/ch11.html#outlines" CLASS="topic">Outlines</A><li><a href="tutorial/ch11.html#pagelabels" CLASS="topic">Page labels on thumbnails</A>
+            </UL>
+			<A HREF="tutorial/ch12.html" CLASS="chapter">Page and Table Events:</A>
+            <UL>
+                <li><a href="tutorial/ch12.html#openclose" CLASS="topic">Open and close a document, start and end a page</A><li><a href="tutorial/ch12.html#paragraphchaptersection" CLASS="topic">Adding paragraphs, chapters, section</A><li><a href="tutorial/ch12.html#generictagevent" CLASS="topic">Generic tags</A><li><a href="tutorial/ch12.html#eventtable" CLASS="topic">Table events</A>
+            </UL>
+		</td></tr>
+		</table>
+		<BR><BR>
         </TD>
 	</TR>
 	<TR>
-		<TD COLSPAN="4" CLASS="content">
-			<a name="ant"></a><div class="title">How to download - the ANT way</div><BR>
-			<div class="text">
-			This is the easiest way to obtain the most recent release and/or version
-			(a release contains the most recent working code / a version contains the most
-			recent code, but it's not guaranteed to work).
-			Just download ANT from
-			<a href="http://jakarta.apache.org/ant/" class="normal">jakarta.apache.org</a>, install it and
-			run it with the <a href="build.xml" class="normal">iText build.xml file</a>.<br>
-			If you don't specify a target, the 'help' target will be called:
-			<pre>
-Buildfile: build.xml
-
-help:
-     [echo] Using ANT for iText
-     [echo] 
-     [echo] INSTALLING iText
-     [echo] ant install: downloads and installs the most recent release in one command
-     [echo] ant install.cvs: downloads and installs the current CVS version in one command
-     [echo] 
-     [echo] GETTING THE CODE
-     [echo] ant checkout: checks out the code from CVS
-     [echo] ant download: downloads some files needed to build a release
-     [echo] ant download.cvs: downloads the most recent VERSION of the code
-     [echo] ant download.site: downloads the most recent RELEASE of the code
-     [echo] 
-     [echo] COMPILING THE CODE
-     [echo] ant compile: compiles iText without RTF and XML functionality
-     [echo] ant compileWithXML: compiles iText completely
-     [echo] 
-     [echo] JARRING THE CODE
-     [echo] ant jar: compiles and jars iText without RTF and XML functionality
-     [echo] ant jarWithXML: compiles and jars iText completely
-     [echo] 
-     [echo] ARCHIVING THE SOURCE
-     [echo] ant srczip: makes zipfiles with the sourcecode
-     [echo] ant srctargz: makes tar.gz-files with the sourcecode
-     [echo] 
-     [echo] DOCUMENTATION
-     [echo] ant javadoc: generates the API documentation
-     [echo] ant docstargz: generates the API docs and puts them in a tar.gz-file
-     [echo] ant tutorialtargz: generates several tar.gz-files with documentation (tutorial, examples,...)
-     [echo] ant examples: generates most of the PDF files of the tutorial
-     [echo] 
-     [echo] RELEASE
-     [echo] ant release: makes a complete iText release
-     [echo] ant -Dnumber=XXX release.sf: prepares a release XXX for sourceforge
-
-BUILD SUCCESSFUL
-
-Total time: 2 seconds</pre>
-			If you really want the whole iText (source, jars, documentation, tutorial, source of the examples and the resulting pdf's),
-			you should run 'ant install'. This will install the most recent working release.
-			If you want the most recent version, you can run 'ant install.cvs'.<br>
-			<font face="" color="#FF0000">Important:</font> to use the CVS functionality,
-			you need a CVS client on your system!<br>
-			In most cases, you will only need to run 'ant download.site' (or 'ant download.cvs'),
-			followed by 'ant jar' or 'ant jarWithXML'.</div><br><br>
-		</TD>
-		<TD VALIGN="TOP" CLASS="content">
-        <a HREF="http://www.amazon.com/exec/obidos/ASIN/1930110588/itisacatalofwebp" TARGET="_blank" class="normal">
-	    <img SRC="http://images.amazon.com/images/P/1930110588.01.TZZZZZZZ.jpg" ALT="Java Development with ANT" BORDER="1"></a><br>
-	    <a HREF="http://www.amazon.com/exec/obidos/ASIN/1930110588/itisacatalofwebp" TARGET="_blank" class="normal">Java Development with ANT</a><br>	
-	    by Erik Hatcher, Steve Loughran<br>
-        <a HREF="http://www.amazon.com/exec/obidos/ASIN/0596001843/itisacatalofwebp" TARGET="_blank" class="normal">
-	    <img SRC="http://images.amazon.com/images/P/0596001843.01.TZZZZZZZ.jpg" ALT="Ant: The Definitive Guide" BORDER="1"></a><br>
-	    <a HREF="http://www.amazon.com/exec/obidos/ASIN/0596001843/itisacatalofwebp" TARGET="_blank" class="normal">Ant: The Definitive Guide</a><br>	
-	    by Jesse Tilly, Eric M. Burke<br>
-        </TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" CLASS="content">
-			<a name="download"></a><div class="title">How to download - the classical way</div><BR>
-			<div class="text">The current release on this site is 0.98!<br>
-			If you need the most recent version, please use ANT!<br>
-			If the downloaded code doesn't compile because of ClassNotFound errors or exception's, don't mail us, read the <a href="faq.html#compile" CLASS="normal">FAQ</a>.
-			<br><br>
-			<TABLE WIDTH="80%" BORDER="1" CELLSPACING="0" CELLPADDING="3" ALIGN="center">
-			<TR>
-			<TD COLSPAN="5" CLASS="download">Download the library:</TD>
-			</TR>
-			<TR>
-			<TD CLASS="download">&nbsp;</TD>
-			<TD CLASS="download">Source code</TD>
-			<TD CLASS="download">Compiled code</TD>
-			<TD CLASS="download">Documentation</TD>
-			<TD CLASS="download">Tutorial</TD>
-			</TR>
-			<TR>
-			<TD WIDTH="20%" CLASS="download"><FONT FACE="Arial,Helvetica">Sourceforge</FONT></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://prdownloads.sourceforge.net/itext/itext-src-0.98.tar.gz" class="download">src.tar.gz</A> / <A HREF="http://prdownloads.sourceforge.net/itext/itext-xml-src-0.98.tar.gz" class="download">srcXML.tar.gz</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://prdownloads.sourceforge.net/itext/itext-0.98.jar" class="download">jar1 (PDF/HTML)</A><br><A HREF="http://prdownloads.sourceforge.net/itext/itext-xml-0.98.jar" class="download">jar2 (XML)</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://prdownloads.sourceforge.net/itext/itext-docs-0.98.tar.gz" class="download">docs.tar.gz</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://prdownloads.sourceforge.net/itext/itext-tutorial-0.94.tar.gz" class="download">tutorial</A></TD>
-			</TR>
-			<TR>
-			<TD WIDTH="20%" CLASS="download"><FONT FACE="Arial,Helvetica">HTTP</FONT></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://itext.sourceforge.net/downloads/src.tar.gz" class="download">src.tar.gz</A> / <A HREF="http://itext.sourceforge.net/downloads/srcXML.tar.gz" class="download">srcXML.tar.gz</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://itext.sourceforge.net/downloads/iText.jar" class="download">jar1 (PDF/HTML)</A><br><A HREF="http://itext.sourceforge.net/downloads/iTextXML.jar" class="download">jar2 (XML)</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://itext.sourceforge.net/downloads/docs.tar.gz" class="download">docs.tar.gz</A></TD>
-			<TD WIDTH="20%" CLASS="download"><A HREF="http://itext.sourceforge.net/downloads/tutorial.tar.gz" class="download">tutorial</A></TD>
-			</TR>
-			</TABLE><br>
-		This library doesn't need to be compiled or installed.
-		Just be sure that the iText.jar-file is added to your
-		CLASSPATH or that the complete classfile tree (com/lowagie/text/*)
-		is in a directory to which the CLASSPATH refers.
-		If you are using automatic hyphenation, you also need an extra jar, containing the hyphenation patterns:
-		<A HREF="http://itext.sourceforge.net/downloads/iTextHYPH.jar" class="normal">iTextHYPH.jar</A>.
-		<br><br></div>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="4" CLASS="content">
-			<a name="cvs"></a><div class="title">How to download - using CVS</div><BR>
-			<div class="text">If you have a CVS client on your machine,
-			you can also get the most recent source from CVS. On *NIX this is done as follows:
-			<pre>export CVS_RSH=ssh
-cvs -d:pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext login
-cvs -d:pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
-		There is no password for user anonymous, just press enter.<br><br></div><br><br>
-		</TD>
-		<TD CLASS="content">
-        <a HREF="http://www.amazon.com/exec/obidos/ASIN/1576104907/itisacatalofwebp" TARGET="_blank" class="normal">
-	    <img SRC="http://images.amazon.com/images/P/1576104907.01.TZZZZZZZ.jpg" ALT="Open Source Development with CVS" BORDER="1"></a><br>
-        <font FACE="Arial,Helvetica" SIZE="-1">
-	    <a HREF="http://www.amazon.com/exec/obidos/ASIN/1576104907/itisacatalofwebp" TARGET="_blank" class="normal">Open Source Development with CVS</a><br>	
-	    by Karl Franz Fogel<br>
-        </TD>
-	</TR>
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Previous Page</A>]</span></TD>
+		<TD WIDTH="20%" ALIGN="center"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Previous Page</A>]</span></TD>
 		<TD WIDTH="20%">&nbsp;</TD>
 		<TD WIDTH="20%" ALIGN="center"><SPAN CLASS="lightsmall">[<A HREF="#top" CLASS="lightsmall">Top</A>]</span></TD>
-		<TD WIDTH="20%">&nbsp;</TD>
-		<TD WIDTH="20%" ALIGN="center"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">Next Page</A>]</span></TD>
+		<TD colspan="2">&nbsp;</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
