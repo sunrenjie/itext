@@ -63,7 +63,6 @@ body  {
 #side  {
 	float : right;
 	width : 160;
-	height : 180;
 	overflow : auto;
 	padding : 3px;
 	border : solid 2px #FF7700;
