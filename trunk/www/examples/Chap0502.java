@@ -39,12 +39,23 @@ public class Chap0502 {
             // step 3: we open the document
             document.open();
             // step 4: we create a table and add it to the document
-            Table aTable = new Table(4,4);    // 4 rows, 4 columns
+            Table aTable;
+            
+            aTable = new Table(4,4);    // 4 rows, 4 columns
+            aTable.setAutoFillEmptyCells(true);
             aTable.addCell("2.2", new Point(2,2));
             aTable.addCell("3.3", new Point(3,3));
             aTable.addCell("2.1", new Point(2,1));
             aTable.addCell("1.3", new Point(1,3));
-            document.add(aTable);            
+            document.add(aTable);
+            document.newPage();
+            
+            aTable = new Table(4,4);    // 4 rows, 4 columns
+            aTable.addCell("2.2", new Point(2,2));
+            aTable.addCell("3.3", new Point(3,3));
+            aTable.addCell("2.1", new Point(2,1));
+            aTable.addCell("1.3", new Point(1,3));
+            document.add(aTable);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

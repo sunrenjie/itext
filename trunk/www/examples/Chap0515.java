@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Bruno Lowagie, Geert Poels, Bala Bharathan <--
+ * --> Copyright 2001 by Bruno Lowagie, Geert Poels <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -17,10 +17,13 @@
  *
  * itext@lowagie.com
  */
+
+import java.awt.Point;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
+
 public class Chap0515 {
     
     public static void main(String[] args) {
@@ -34,20 +37,25 @@ public class Chap0515 {
             PdfWriter.getInstance(document, new FileOutputStream("Chap0515.pdf"));
             // step 3: we open the document
             document.open();
-            // step 4: we create a table and add it to the document
-            Table t1 = new Table(3);
-            t1.addCell("1.1");
-            t1.addCell("1.2");
-            t1.addCell("1.3");
-            // nested
-            Table t2 = new Table(2);
-            t2.addCell("2.1");
-            t2.addCell("2.2");
+            // step 4: we create a table and add it to the document           
+            Table secondTable = new Table(2);
+            secondTable.addCell("2.0.0");
+            secondTable.addCell("2.0.1");
+            secondTable.addCell("2.1.0");
+            secondTable.addCell("2.1.1");
+            Cell tableCell = new Cell(secondTable);
             
-            // now insert the nested
-            t1.insertTable(t2);
-            t1.addCell("new cell");    // correct row/column ?
-            document.add(t1);
+            Table aTable = new Table(3,3);    // 3 rows, 3 columns
+            aTable.addCell("0.0", new Point(0,0));
+            aTable.addCell("0.1", new Point(0,1));
+            aTable.addCell("0.2", new Point(0,2));
+            aTable.addCell("0.0", new Point(1,0));
+            aTable.addCell(tableCell, new Point(1,1));
+            aTable.addCell("2.2", new Point(1,2));
+            aTable.addCell("2.0", new Point(2,0));
+            aTable.addCell("2.1", new Point(2,1));
+            aTable.addCell("2.2", new Point(2,2));
+            document.add(aTable);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
