@@ -25,8 +25,8 @@ import java.util.Iterator;
 import java.util.HashMap;
 import java.util.EmptyStackException;
 
-import org.xml.sax.Parser;
-import org.xml.sax.helpers.ParserFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
@@ -216,8 +216,6 @@ class MyPageEvents extends PdfPageEventHelper {
 
 public class Chap1201 {
     
-    private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
-    
     public static void main(String[] args) {
         
         System.out.println("Chapter 12 example 1: page events");
@@ -236,11 +234,10 @@ public class Chap1201 {
             writer.setPageEvent(events);
             
             // step 3: we create a parser and set the document handler
-            Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new MyHandler(document, new MyMap("tagmap0703.xml")));
+            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
             
             // step 4: we parse the document
-            parser.parse("Chap0703.xml");
+            parser.parse("Chap0703.xml", new MyHandler(document, new MyMap("tagmap0703.xml")));
             
             document.newPage();
             Speaker speaker;

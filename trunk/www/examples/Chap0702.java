@@ -21,8 +21,8 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.xml.sax.Parser;
-import org.xml.sax.helpers.ParserFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
@@ -30,8 +30,6 @@ import com.lowagie.text.html.HtmlWriter;
 import com.lowagie.text.xml.*;
 
 public class Chap0702 {
-    
-    private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
     
     public static void main(String[] args) {
         
@@ -49,11 +47,10 @@ public class Chap0702 {
             HtmlWriter.getInstance(document, new FileOutputStream("Chap0702.html"));
             
             // step 3: we create a parser and set the document handler
-            Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new SAXiTextHandler(document));
+            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
             
             // step 4: we parse the document
-            parser.parse("Chap0701.xml");
+            parser.parse("Chap0701.xml", new SAXiTextHandler(document));
             
             
         }
