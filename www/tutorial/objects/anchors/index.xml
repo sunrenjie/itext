@@ -4,8 +4,8 @@
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
 		<site:title>Bookmarks, Anchors and Destinations</site:title>
-		<site:summary>Deals with all the Bookmarks, Outlines, Destinations, Anchors, RemoteGoto, LocalGoto,... functionality</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, anchors, remoteGoto, LocalGoto, Lowagie, Bruno</site:keywords>
+		<site:summary>Deals with all the Bookmarks, Outlines, Destinations, Anchors, RemoteGoto, LocalGoto, Annotations,... functionality</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, anchors, remoteGoto, LocalGoto, Annotations, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:keyword>PDF</site:keyword>
 			<site:keyword>JAVA</site:keyword>
