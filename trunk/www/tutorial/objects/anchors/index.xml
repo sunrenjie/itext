@@ -34,6 +34,12 @@
 			<site:description>Creates two documents with links to eachother and to an external URL</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="AHref" standalone="yes" />
+			<site:result>AHref.pdf</site:result>
+			<site:result>AHref.html</site:result>
+			<site:description>Using the Anchor object</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="NamedActions" standalone="yes" />
 			<site:result>NamedActions.pdf</site:result>
 			<site:description>Creates a document with named actions.</site:description>
@@ -54,12 +60,6 @@
 			<site:argument>C:\WINDOWS\</site:argument>
 			<site:result>OpenApplication.pdf</site:result>
 			<site:description>Creates a document with a link to open an external application.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="AHref" standalone="yes" />
-			<site:result>AHref.pdf</site:result>
-			<site:result>AHref.html</site:result>
-			<site:description>Using the Anchor object</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -95,10 +95,32 @@ new Chunk("go to page 3 in document B")
 <site:source class="RemoteGoto" />
 </div>
 	</site:section>
+	<site:section name="anchor">
+		<site:sectiontitle>the Anchor object</site:sectiontitle>
+<div>
+There as some alternative ways to add external links such as <span class="commandline">&lt;A HREF="http://www.lowagie.com/iText/"&gt;Bruno's site&lt;A&gt;</span>
+or internal links such as <span class="commandline">&lt;A NAME="top"&gt;top of the page&lt;A&gt;</span> and
+<span class="commandline">&lt;A HREF="#top"&gt;goto top&lt;A&gt;</span>.
+One of them is using the <site:doc class="com.lowagie.text.Anchor">Anchor object</site:doc>.
+This is a very simple class and the beauty of it is that it works, not only in PDF, but also in HTML and RTF.<br />
+This is the code to create an external link:
+<pre>Anchor anchor = new Anchor("website");
+anchor.setReference("http://www.lowagie.com/iText/");
+anchor.setName("website");</pre>
+This is the code for an internal link:
+<pre>Anchor anchor1 = new Anchor("This is an internal link");
+anchor1.setName("link1");
+Anchor anchor2 = new Anchor("Go to the internal link");
+anchor.setReference("#link1");</pre>
+<site:source class="AHref" />
+</div>
+	</site:section>
 	<site:section name="actions">
 		<site:sectiontitle>Actions</site:sectiontitle>
 <div>
-A PDF document can have a certain interactivity: you can create several 'actions' to jump to another page or location, to start an other application,...
+A PDF document can have a certain interactivity: you can create several 'actions',
+for instance to jump to another page or location,
+to start an other application, to invoke a JavaScript function,...
 In the next subsections, some actions that are supported in iText will be explained; see the javadocs (<site:doc class="com.lowagie.text.PdfAction">class PdfAction</site:doc>) for more types of actions.<br /><br />
 <div class="subtitle">Named Actions</div>
 There are 5 predefined named actions in iText:
@@ -113,20 +135,45 @@ It is very easy to use one of these named destinations:
 <pre class="commandline">new Chunk("First Page")
 	.setAction(new PdfAction(PdfAction.FIRSTPAGE));</pre>
 <site:source class="NamedActions" />
-<div class="subtitle">Goto Actions</div>
-<site:source class="Actions" />
-<div class="subtitle">Open Action</div>
-<site:source class="RemoteGoto" />
 <div class="subtitle">JavaScript</div>
+Acrobat JavaScript is a programming language based
+on the JavaScript, aka ECMAScript, originally developed by Netscape Communications.
+Acrobat JavaScript adds new objects, methods and properties to the JavaScript language.
+These Acrobat-specific objects can allow you to handle file attachments, manage
+document security, perform form manipulations, etc, etc...<br />
+Acrobat JavaScript does not have access to objects within an HTML page and
+HTML JavaScript cannot access objects within a PDF file. For instance: Acrobat JavaScript cannot access the Window object
+(e.g. the browser window in which the Acrobat plugin is embedded).<br />
+You will have to read the Acrobat JavaScript Scripting Reference (Adobe Inc.)
+and the Client-Side JavaScript Reference (Netscape Communications Corporation);
+these documents and other JavaScript guides and references are available through
+the Adobe Web pages <a href="http://partners.adobe.com/NSjscript/">http://partners.adobe.com/NSjscript/</a>
+and <a href="http://partners.adobe.com/public/developer/acrobat/sdk/index_doc.html#js">http://partners.adobe.com/public/developer/acrobat/sdk/index_doc.html</a>.
+<pre class="commandline">new Chunk("Click to say Hello")
+	.setAction(
+		PdfAction.javaScript("app.alert('Hello');\r", writer));</pre>
+The code above, adds an alert action to a Chunk. If you click the text in the Chunk,
+an alert is triggered with the message 'Hello'.
 <site:source class="JavaScriptAction" />
+<div class="subtitle">Goto Actions</div>
+If you want to jump to another document or URL, as yet another alternative way
+to do what we did in the previous sections, you can create a PdfAction
+using one of the following constructors:
+<ul>
+<li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String,%20java.lang.String)">PdfAction(String filename, String name)</site:doc></li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String,%20int)">PdfAction(String filename, int page)</site:doc></li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.net.URL)">PdfAction(URL url)</site:doc></li>
+<li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String)">PdfAction(String url)</site:doc></li>
+</ul>
+<site:source class="Actions" />
+<div class="subtitle">Open and Additional Actions</div>
+We've already used an 'Open Action' twice.
+In the previous example with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setOpenAction(com.lowagie.text.pdf.PdfAction)">setOpenAction(PdfAction action)</site:doc>
+and in an earlier example with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setOpenAction(java.lang.String)">setOpenAction(String name)</site:doc>:
+<site:source class="LocalDestination" />
+
 <div class="subtitle">Application</div>
 <site:source class="OpenApplication" />
-</div>
-	</site:section>
-	<site:section name="anchor">
-		<site:sectiontitle>the Anchor object</site:sectiontitle>
-<div>
-<site:source class="AHref" />
 </div>
 	</site:section>
 	</site:chapter>
