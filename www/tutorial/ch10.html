@@ -121,7 +121,7 @@
             <FONT FACE="Courier">showText</FONT> in combination with <FONT FACE="Courier">setTextMatrix</FONT>.<br>
             <B>Example 1:</B><br>
             <FONT FACE="Courier">
-            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);&nbsp;
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);&nbsp;
             cb.beginText();<BR>
             cb.setFontAndSize(bf, 12);<BR>
             cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + "This text is centered", 250, 700, 0);<BR>
@@ -129,7 +129,7 @@
             </FONT><BR>
             <B>Example 2:</B><br>
             <FONT FACE="Courier">
-            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>
             cb.beginText();<BR>
             cb.setFontAndSize(bf, 12);<BR>
             cb.setTextMatrix(100, 400);<BR>
@@ -163,7 +163,7 @@
 			template.lineTo(500, 0);<BR>
             template.stroke();<BR>
             template.beginText();<BR>
-            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>            
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<BR>            
             template.setFontAndSize(bf, 12);<BR>
             template.setTextMatrix(100, 100);<BR>
             template.showText("Text at the position 100,100 (relative to the template!)");<BR>
