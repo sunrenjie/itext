@@ -12,32 +12,32 @@
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
 		<site:author>Mark Hall</site:author>
-		<site:tree branch="tutorial/rtf" root="../.." />
+		<site:tree branch="rtf" root=".." />
 	</site:metadata>
 	<site:examples>
 		<site:example>
-			<site:java src="com.lowagie.examples.rtf.HelloRtf" />
+			<site:java src="HelloRtf" />
 			<site:argument>World</site:argument>
 			<site:result>HelloWorld.rtf</site:result>
 			Generates a simple 'Hello World' RTF file.
 		</site:example>
 		<site:example>
-			<site:java src="com.lowagie.examples.rtf.RtfSpecialFont" />
+			<site:java src="RtfSpecialFont" />
 			<site:result>specialfont.rtf</site:result>
 			Special fonts
 		</site:example>
 		<site:example>
-			<site:java src="com.lowagie.examples.rtf.RtfWithHeadersFooters" />
+			<site:java src="RtfWithHeadersFooters" />
 			<site:result>headerfooter.rtf</site:result>
 			Headers/footers and page numbers
 		</site:example>
 		<site:example>
-			<site:java src="com.lowagie.examples.rtf.RtfTOCandCellborders" />
+			<site:java src="RtfTOCandCellborders" />
 			<site:result>toc.rtf</site:result>
 			Table of contents and cell borders
 		</site:example>
 		<site:example>
-			<site:java src="com.lowagie.examples.rtf.RtfTest" />
+			<site:java src="RtfTest" />
 			<site:result>testNew.rtf</site:result>
 			<site:result>testOld.rtf</site:result>
 			The TestSuite used to test RtfWriter2 functionality
