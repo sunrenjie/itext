@@ -55,8 +55,7 @@ public class FontFactoryType1Fonts {
 			document.open();
 			// step 4:
 			
-			// the 14 standard fonts in PDF: do not use this Font constructor!
-			// this is for demonstration purposes only, use FontFactory!
+			// the 14 standard fonts in PDF
 			Font[] fonts = new Font[14];
 			fonts[0] = FontFactory.getFont(FontFactory.COURIER, Font.DEFAULTSIZE, Font.NORMAL);
             fonts[1] = FontFactory.getFont(FontFactory.COURIER, Font.DEFAULTSIZE, Font.ITALIC);
