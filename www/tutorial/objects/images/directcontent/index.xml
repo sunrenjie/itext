@@ -37,6 +37,16 @@
 			<site:result>patterns.pdf</site:result>
 			<site:description>Painting patterns.</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Shading" standalone="yes" />
+			<site:result>shading.pdf</site:result>
+			<site:description>Shading.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ShadingPattern" standalone="yes" />
+			<site:result>shading_pattern.pdf</site:result>
+			<site:description>Shading pattern.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
