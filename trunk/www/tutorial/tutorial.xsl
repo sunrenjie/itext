@@ -50,7 +50,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 <xsl:template match="site:source">
   <xsl:param name="class" select="@class" />
-  <blockquote id="example">
+  <div id="example">
   <xsl:for-each select="/site:page/site:examples/site:example">
   	<xsl:if test="$class=./site:java/@src">
   	  Example: java
@@ -85,7 +85,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	</xsl:if>
     </xsl:if>
   </xsl:for-each>
-  </blockquote>
+  </div>
 </xsl:template>
 
 <xsl:template match="site:examples">

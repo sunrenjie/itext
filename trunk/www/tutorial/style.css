@@ -58,9 +58,10 @@ li {
 }
 
 #example {
-	padding: 3px;
 	font-size: 9pt;
-	background-color: #C0C0C0;
+	border-left: double #100670;
+	margin-left: 15px;
+	padding-left: 5px;
 }
 
 .commercial {
