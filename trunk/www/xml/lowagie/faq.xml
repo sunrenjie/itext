@@ -32,7 +32,8 @@ in this format:<br />
 <pre class="commandline">
 <![CDATA[<site:faq-entry name="topic">
 <site:question>This is a question on 'topic'</site:question>
-<site:answer>This is my answer (HTML allowed).<site:answer>]]>
+<site:answer>This is my answer (HTML allowed).<site:answer>
+</site:faq-entry>]]>
 </pre>
 </div>
 
