@@ -8,8 +8,9 @@
 		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
-			<site:keyword>JAVA</site:keyword>
 			<site:keyword>PDF</site:keyword>
+			<site:keyword>Coordinate Systems</site:keyword>
+			<site:keyword>Algebra</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
@@ -49,11 +50,17 @@
 	<site:section name="xycoordinates">
 		<site:sectiontitle>The coordinate system</site:sectiontitle>
 <div>
-When you want to add some text, a template, an image,... at an absolute position,
-you need to specify an X and Y coordinate. It is very important to know that the
-null position (x = 0; y = 0) in the PDF coordinate system is located in the
-lower left corner of your page (not the upper left corner as is sometimes assumed).
-This is not an iText specific choice. This is documented in the PDF Reference Manual.
+See PDF Reference Manual (version 1.6) p169:
+<blockquote>Coordinate systems define the canvas on which all painting occurs.
+They determine the position, orientation, and size of the text, graphics, and
+images that appear on a page.</blockquote>
+If you start a new page in PDF, the CTM (current transformation matrix)
+maps positions from user coordinates to device coordinates. The origin of
+the coordinate system is in the lower left corner of the page by default.
+The x-axis is oriented horizontally to the right, the y-axis vertically
+to the upper left corner. All measurements are done in points.
+This is not an iText specific choice. All this is documented in the PDF Reference Manual,
+section 4.2 Coordinate Systems.
 <site:source class="XandYcoordinates" />
 Remark: if you measure the locations on the page, you will see that the distances
 measured from the bottom or the left side of the page are not always correct.
