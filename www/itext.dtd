@@ -188,3 +188,8 @@
 
 <!ELEMENT newpage EMPTY>
 <!ELEMENT newline EMPTY>
+<!ELEMENT entity EMPTY>
+<!ATTLIST entity
+    id CDATA #IMPLIED
+>
+<!ELEMENT ignore EMPTY>
