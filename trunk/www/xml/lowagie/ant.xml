@@ -20,9 +20,14 @@ build their site(s). But those scripts are useful for iText users too.
 <blockquote>Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles.</blockquote>
 If you want to download or install ant, please go to the <a href="http://ant.apache.org/">ANT site @ Apache.org</a>. On this page,
 you will only find how to use ANT in the context of the iText project.
-<div class="title">build.xml</div>
-Every self respecting JAVA project has its build.xml file.
-If you look at the iText <a href="ant/build.xml">build.xml</a> file,
+<div class="title">Using ANT for iText</div>
+Every self respecting JAVA project has its <a href="ant/build.xml">build.xml</a> file.
+If you want to use ANT for iText, you should start from a specific directory, say <span class="commandline">D:\iText</span>
+or <span class="commandline">/home/blowagie/projects</span> and two directories 'src' and 'www',
+one for each CVS module. Directory 'www' should have a subdirectory 'ant' with <a href="ant/">all the iText ANT script</a>
+in it. A third directory 'build' will be created with the results of compile, jar, download,... actions.
+You can change the location of all these directories, by changing the <a href="ant/.ant.properties">.ant.properties</a>-file.<br />
+If you look at the iText build.xml file,
 you will see that the master build.xml calls different subscripts.
 You can call most of the targets from this master build.xml,
 but for some of the specialized (hidden) targets, you will need to
@@ -38,9 +43,8 @@ help:
 
 help:
      [echo] DOWNLOADING iText (download.xml)
-     [echo] ant download: downloads the source code needed to build a release
+     [echo] ant download: downloads the source code needed to create iText.jar
      [echo] ant download.bin: downloads some precompiled jars and zips
-     [echo] ant download.site: downloads the website
 
 
 help:
@@ -58,14 +62,62 @@ help:
      [echo] ant lowagie.com: Building the lowagie.com part
 
 
+help:
+     [echo] MAKING A NEW RELEASE (release.xml)
+     [echo] archive.src: archiving the source
+     [echo] ant.zip: makes a zip file with the ANT scripts
+     [echo] release.sf: making the release for SourceForge
+
+
 BUILD SUCCESSFUL
 Total time: 1 second</pre>
-<div class="title">download.xml</div>
-UNDER CONSTRUCTION
-<div class="title">compile.xml</div>
-UNDER CONSTRUCTION
-<div class="title">site.xml</div>
-UNDER CONSTRUCTION
+<div class="title">Downloading iText</div>
+subscript: <a href="ant/download.xml">download.xml</a><br />
+<div class="commandline">ant -f download.xml download</div>
+This actions gets the src.tar.gz from SourceForge and unzips and untars it
+under the 'src' directory. The source code can now be compiled.
+<div class="commandline">ant -f download.xml download.bin</div>
+Downloads some jars you needs for specific functionality, such as parsing XML,
+hyphenation, using Asian fonts,... Use this, just to make sure you have all
+the right jars in the CLASSPATH that is used in the other ANT scripts.
+<div class="title">Compiling and jarring</div>
+subscript: <a href="ant/compile.xml">compile.xml</a><br />
+<div class="commandline">ant -f compile.xml compile</div>
+Compiles the downloaded sourcecode.
+<div class="commandline">ant -f compile.xml jar</div>
+Jars the compiled code into iText.jar<br />
+You can also use <span class="commandline">compile.debug</span> and <span class="commandline">jar.debug</span>
+if you need extended debugging capabilities.
+<div class="title">Creating HTML</div>
+subscript: <a href="ant/site.xml">site.xml</a><br />
+<div class="commandline">ant -f site.xml javadoc</div>
+Creates the API documentation using JAVADOC. You can also immediately make
+the docs.tar.gz with <span class="commandline">ant -f site.xml src.tar.gz</span>.<br />
+<div class="commandline">ant -f site.xml lowagie.com</div>
+Every page on the site and every tutorial chapter was written in XML
+and is converted to HTML using XSLT. The target is self explanatory.
+<div class="title">Preparing a release</div>
+subscript: <a href="ant/release.xml">release.xml</a><br />
+<div class="commandline">ant -f release.xml archive.src</div>
+Makes the src.zip and src.tar.gz file.
+<div class="commandline">ant -f release.xml release.sf</div>
+Once src.zip, src.tar.gz, iText.jar and docs.tar.gz are created with
+some of the other ANT instructions, this command will copy those
+files to files that have the release number in the filename.
+For every new release, you should change the 'official' release
+number and the 'early access' release number the release was based on
+in the <a href="ant/.ant.properties">ant.properties</a> file.
+<div class="title">Releasing all in once</div>
+If you want to make a complete new release, you have to export
+both CVS modules 'src' and 'www' and change directory to 'www/ant'.
+<span class="commandline">ant release</span> will download some
+jars that don't need to be compiled, src.tar.gz, src.zip, ant.zip
+and docs.tar.gz will be constructed. The code will be compiled
+and jarred into iText.jar. The pages for lowagie.com will be
+constructed and the files that will need to be uploaded to SourceForge
+will get a releasenumber in their filename. Later on, more
+functionality will be added to generate examples and tutorial chapters.
+
 	</div>
 	</site:content>
 </site:page>

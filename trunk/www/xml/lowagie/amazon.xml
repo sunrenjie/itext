@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Amazon books and products</site:title>
+		<site:summary>An overview of books @ Amazon.com</site:summary>
+		<site:keywords>PDF, JAVA, Amazon, Lowagie, Bruno</site:keywords>
+	</site:metadata>
+	<site:content>
+	<div>
+<div class="header">Shop @ Amazon</div>
+<table border="1" cellspacing="3">
+<tr><td colspan="3"><div class="title">Search Amazon</div></td></tr>
+<tr><th>PDF</th><th>JAVA</th><th>Misc</th></tr>
+<tr>
+<td class="small">Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=Acrobat&amp;mode=blended">Acrobat</a><br />
+Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=Adobe&amp;mode=blended">Adobe</a><br />
+Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=PDF&amp;mode=blended">PDF</a></td>
+<td class="small">Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=Servlets&amp;mode=blended">Servlets</a><br />
+Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=JAVA&amp;mode=blended">JAVA</a></td>
+<td class="small">Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=Open+Source&amp;mode=blended">Open Source</a><br />
+Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=ANT&amp;mode=blended">ANT</a><br />
+Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=CVS&amp;mode=blended">CVS</a></td>
+</tr>
+<tr><td colspan="3"><div class="title">Overview of some Books</div></td></tr>
+<site:amazonlist>
+	<site:amazonproduct asin="0201758393">
+		<site:amazontitle>PDF Reference </site:amazontitle>
+		PDF Reference Version 1.4 is a thorough, updated reference for software developers looking to incorporate PDF capabilities into their applications.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0321193741">
+		<site:amazontitle>Adobe Acrobat 6.0 Standard Classroom in a Book </site:amazontitle>
+		Adobe Acrobat 6.0 Standard Classroom in a Book is the fastest, easiest, and most comprehensive way to master Adobe Acrobat 6.0 Standard.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0072229462">
+		<site:amazontitle>How to Do Everything with Adobe Acrobat 6.0 (Windows) </site:amazontitle>
+		This guide provides step-by-step instructions for using Adobe Acrobat 6.0 (both the Standard and Professional versions) to create, edit, and distribute documents as Portable Document Format (PDF) files.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0764540475">
+		<site:amazontitle>Adobe Acrobat 6 PDF Bible </site:amazontitle>
+		Adobe Acrobat 6 PDF Bible is an essential reference for learning and utilizing the capabilities of Adobe Acrobat 6 Standard and Professional.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0764537601">
+		<site:amazontitle>Adobe Acrobat 6 PDF for Dummies </site:amazontitle>
+		Guide to using Adobe Acrobat 6 PDF to make document sharing fast and easy. Shows how to convert documents, distill files, make edits, extract elements, archive, and share creations with others.
+	</site:amazonproduct>
+	<site:amazonproduct asin="0321202996">
+		<site:amazontitle>Acrobat 6 Hands-On Training </site:amazontitle>
+		Text provides hands-on exercises covering the Standard and Professional versions of Acrobat 6. Shows how to create dynamic PDF presentations by embedding multimedia items such as sound and video. For beginning to intermediate users.
+	</site:amazonproduct>
+</site:amazonlist>
+<tr><td colspan="3"><div class="title">Overview of some Adobe Products</div></td></tr>
+<site:amazonlist>
+	<site:amazonproduct asin="B00008ZGRY">
+		<site:amazontitle>Adobe Acrobat 6.0 Standard Edition</site:amazontitle>
+		<ul><li class="small">Easily convert any paper or electronic document to Adobe PDF</li><li class="small">Capture research information from the Web and combine it with reports</li><li class="small">Makes it easy to track, manage, and incorporate feedback into original documents</li><li class="small">Batch process PDF files with settings for adding security</li><li class="small">Control whether users are allowed to view, edit, comment on, sign, or print PDF files</li></ul>
+	</site:amazonproduct>
+	<site:amazonproduct asin="B00008ZGS2">
+		<site:amazontitle>Adobe Acrobat 6.0 Professional</site:amazontitle>
+		<ul><li class="small">Create PDF files with the click of a button from Microsoft applications and AutoCAD</li><li class="small">Convert and combine application files into one compact PDF file in a single step</li><li class="small">Create lists of reviewers and track the feedback you receive</li><li class="small">Create interactive electronic forms that can be completed and submitted online</li><li class="small">View two areas of a large drawing simultaneously by using a split-pane view</li></ul>
+	</site:amazonproduct>
+	<site:amazonproduct asin="B00005M63M">
+		<site:amazontitle>Adobe PageMaker 7.0</site:amazontitle>
+		<ul><li class="small">Create professional-quality publications</li><li class="small">Build from scratch or choose from hundreds of templates</li><li class="small">Achieve a uniform look with master frames to hold text and graphics</li><li class="small">Professional typesetting with kerning and tracking</li><li class="small">Includes thousands of clip art photos and illustrations</li></ul>
+	</site:amazonproduct>
+	<site:amazonproduct asin="B00005QVPY">
+		<site:amazontitle>Adobe Illustrator 10.0</site:amazontitle>
+		<ul><li class="small">Create vector-based graphics for the Web, emerging media, and print</li><li class="small">Keep file sizes small and manage repeating graphics with new symbolism tools</li><li class="small">Bend, stretch, and twist design elements and retain editability</li><li class="small">Generate custom artwork variations using dynamic data-driven graphics</li><li class="small">Optimize Web graphics with object-based slicing and cascading style sheet layers</li></ul>
+	</site:amazonproduct>
+	<site:amazonproduct asin="B00004S85Q">
+		<site:amazontitle>Adobe Acrobat Capture 3.0 Personal Edition</site:amazontitle>
+		<ul><li class="small">Convert scanned pages to searchable Adobe PDF files that you can view, navigate, and print</li><li class="small">Create reusable document-processing workflows tailored to different types of conversion projects</li><li class="small">Accurately perform OCR, font, and page recognition</li><li class="small">Automatically create intradocument links, including tables of contents, cross references, and indexes</li><li class="small">Use the new Zone tool to define areas of scanned pages as images, text, or even keywords</li></ul>
+	</site:amazonproduct>
+	<site:amazonproduct asin="B00006661W">
+		<site:amazontitle>Adobe FrameMaker 7.0</site:amazontitle>
+		<ul><li class="small">Full support for XML authoring and publishing </li><li class="small">Support for tagged Adobe PDF (Portable Document Format)</li><li class="small">Enhanced HTML publishing capabilities</li><li class="small">SVG (Scalable Vector Graphics) support</li><li class="small">Starter applications, starter templates, and an XML cookbook</li></ul>
+	</site:amazonproduct>
+</site:amazonlist>
+</table>
+	</div>
+	</site:content>
+</site:page>

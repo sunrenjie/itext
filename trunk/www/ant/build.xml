@@ -29,8 +29,9 @@
 	<target name="release" description="--> builds a release after you have exported the src and www module from CVS">
 		<ant antfile="download.xml" inheritAll="false" target="download.bin" />
 		<ant antfile="release.xml" inheritAll="false" target="archive.src" />
-		<ant antfile="compile.xml" inheritAll="false" target="jar" />
+		<ant antfile="release.xml" inheritAll="false" target="ant.zip" />
 		<ant antfile="site.xml" inheritAll="false" target="docs.tar.gz" />
+		<ant antfile="compile.xml" inheritAll="false" target="jar" />
 		<ant antfile="site.xml" inheritAll="false" target="lowagie.com" />
 		<ant antfile="release.xml" inheritAll="false" target="release.sf" />
 	</target>
@@ -81,6 +82,10 @@
 	
 	<target name="archive.src">
 		<ant antfile="release.xml" inheritAll="false" target="archive.src" />
+	</target>
+	
+	<target name="ant.zip">
+		<ant antfile="release.xml" inheritAll="false" target="ant.zip" />
 	</target>
 	
 </project>

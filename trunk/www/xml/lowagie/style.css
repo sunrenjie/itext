@@ -118,6 +118,10 @@ a:hover  {
 	margin-top : 15px;
 }
 
+.small  {
+	font-size : small;
+}
+
 .sidetitle  {
 	color : FF7700;
 	font-weight : bold;

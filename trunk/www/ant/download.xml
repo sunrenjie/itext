@@ -15,9 +15,8 @@
 
     <target name="help" description="--> shows the help screen">
         <echo>DOWNLOADING iText (download.xml)</echo>
-        <echo>ant download: downloads the source code needed to build a release</echo>
+        <echo>ant download: downloads the source code needed to create iText.jar</echo>
         <echo>ant download.bin: downloads some precompiled jars and zips</echo>
-        <echo>ant download.site: downloads the website</echo>
         <echo />
 	</target>
 	
@@ -59,21 +58,5 @@
         <get src="http://itext.sourceforge.net/downloads/iTextAsian.jar" dest="${itext.bin}/iTextAsian.jar" verbose="true" />
         <get src="http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar" dest="${itext.bin}/iTextAsianCmaps.jar" verbose="true" />
         <get src="http://itext.sourceforge.net/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
-    </target>
-
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Getting the code from the sourceforge directory                  -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-    <target name="download.site" description="--> downloads the most recent release of the code">
-	
-        <mkdir dir="${itext.downloads}" />
-        <get src="http://itext.sourceforge.net/downloads/www.tar.gz" dest="${itext.downloads}/www.tar.gz" verbose="true" />
-
-        <mkdir dir="${itext.www}" />
-        <gunzip src="${itext.downloads}/www.tar.gz" dest="${itext.downloads}/temp.tar" />
-        <untar src="${itext.downloads}/temp.tar" dest="${itext.www}" />
-        <delete file="${itext.downloads}/temp.tar" />
-		
     </target>
 </project>
