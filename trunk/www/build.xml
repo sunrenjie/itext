@@ -110,7 +110,7 @@
         <get src="http://www.lowagie.com/iText/downloads/srcXML.tar.gz" dest="${itext.dist}/srcXML.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/www.tar.gz" dest="${itext.dist}/www.tar.gz" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/tutorial.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
-        <get src="http://www.lowagie.com/iText/downloads/examples.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/examples.tar.gz" dest="${itext.dist}/examples.tar.gz" verbose="true" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
