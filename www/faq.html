@@ -74,7 +74,7 @@
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
 				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
 				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
-				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
+				<li><a href="#compile">When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</A>
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
 				<li><a href="#images">On the subject of images!</A>
 				<li><a href="#preformattedtext">How can I convert preformatted text to PDF?</A>
@@ -371,7 +371,6 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica"><A NAME="template"><B>Can I read an existing PDF-document with iText? Can I use a template PDF and fill it with data?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<br>
 			Yes, in some cases, you can: see <a href="tutorial/ch01.html#readingPDF">example 12</A> in Chapter 1 of the tutorial.
 			You can extract complete pages of an existing PDF document and copy them to a newly created PDF document.
 			</FONT><BR><BR>
@@ -404,32 +403,37 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile/run the source code I get ClassNotFound errors!</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			If the source code doesn't compile, this can be caused by three different reasons:
+			If the source code doesn't compile, this can be caused by four different reasons:
 			<ol>
+			<li><A NAME="jdk14">I made a mistake and I used the JDK1.4</A> to compile the jar.
+			    This can lead to all
+			    kinds of problems if you are using an earlier version of the JDK (for instance
+			    NoSuchMethod errors). The solution to this problem is very simple: just download
+			    the source code and build the jar yourself (it's very easy if you do it with ANT).
 			<li>If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
-			this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
-			use the <A HREF="#jdk11">1.1.x</A>-version of the library.
+			    this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
+			    use the <A HREF="#jdk11">1.1.x</A>-version of the library.
 			<li>If the missing classes are related to XML, you probably forgot to add the
-			iTextXML.jar to your classpath.
+			    iTextXML.jar to your classpath.
 			<li>If you are missing non-iText classes (for instance org.xml.sax.Parser),
-			you need to put the j2ee.jar in your classpath (in this case the SDK isn't sufficient,
-			you need the Java 2 Enterprise Edition). These classes are not used in the iText.jar library,
-			only in the additional iTextXML.jar.<br>
+			    you need to put the j2ee.jar in your classpath (in this case the SDK isn't sufficient,
+			    you need the Java 2 Enterprise Edition). These classes are not used in the iText.jar library,
+			    only in the additional iTextXML.jar.<br>
 			<li>If you have trouble compiling or running the examples on a WINDOWS-OS, you
-			can use this batch file: <A HREF="examples/compile.bat">compile.bat</A>. Just run
-			it with the name of the example (not the filename) as parameter: for instance:
-			'compile Chap0101'.
+			    can use this batch file: <A HREF="examples/compile.bat">compile.bat</A>. Just run
+			    it with the name of the example (not the filename) as parameter: for instance:
+			    'compile Chap0101'.
 			<LI>If you are using iText in a Servlet, make sure you have the iText.jar in the right place.
-			If you are using Tomcat 4, and want all of your contexts to have access to the classes for iText,
-			then you can use the $CATALINA_HOME/common/lib folder. If you want only one context, or
-			application on your server to have access to them, they should be placed in a folder that only that
-			context can see. For example, for context, 'myApp', it would be $CATALINA_HOME/webapps/myApp/WEB-INF/lib folder.
-			(answer by Chris Ward).
+			    If you are using Tomcat 4, and want all of your contexts to have access to the classes for iText,
+			    then you can use the $CATALINA_HOME/common/lib folder. If you want only one context, or
+			    application on your server to have access to them, they should be placed in a folder that only that
+			    context can see. For example, for context, 'myApp', it would be $CATALINA_HOME/webapps/myApp/WEB-INF/lib folder.
+			    (answer by Chris Ward).
 			<li>Any other problem with classes that are not found, are caused by errors in your
-			classpath. You and you alone can solve these kind of errors, so please don't mail us
-			before you're absolutely sure you've checked every detail on your system.
+			    classpath. You and you alone can solve these kind of errors, so please don't mail us
+			    before you're absolutely sure you've checked every detail on your system.
 			</ol>
 			</FONT>
 		</TD>
