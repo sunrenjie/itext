@@ -54,6 +54,7 @@ public class Chap0106 {
             document.addTitle("Hello World example");
             document.addSubject("This example explains step 3 in Chapter 1");
             document.addKeywords("Metadata, iText, step 3, tutorial");
+            document.addCreator("My program using iText");
             document.addAuthor("Bruno Lowagie");
             document.addHeader("Expires", "0");
             document.open();
