@@ -587,7 +587,8 @@ only on the Cell leading (Cell.setLeading). This caused problems if the content 
 different leading than the Cell.  As of version 1.1, the Cell content uses the leading of the
 content for all content derived from Phrase.  There is another handy feature of Cell (added in 1.1)
 that may let you generally ignore leading and have the height automatically set - use
-Cell.setUseAscender(true) and Cell.setUseDescender(true).
+Cell.setUseAscender(true) and Cell.setUseDescender(true).<br />
+(Q&amp;A by Steve Appling)
 </site:answer>
 </site:faq-entry>
 
