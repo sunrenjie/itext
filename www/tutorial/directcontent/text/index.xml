@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Direct Content</site:title>
+		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Text" standalone="yes" />
+			<site:result>text.pdf</site:result>
+			<site:description>Adding text at absolute positions</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="text">
+		<site:sectiontitle>Text</site:sectiontitle>
+<div>
+
+<table>
+<tr>
+<td>BT</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="beginText()">beginText()</site:doc></td>
+</tr>
+<tr>
+<td>ET</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="endText()">endText()</site:doc></td>
+</tr>
+<tr>
+<td>Tc</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setCharacterSpacing(float)">setCharacterSpacing(float)</site:doc></td>
+</tr>
+<tr>
+<td>Tw</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setWordSpacing(float)">setWordSpacing(float)</site:doc></td>
+</tr>
+<tr>
+<td>Tz</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setHorizontalScaling(float)">setHorizontalScaling(float)</site:doc></td>
+</tr>
+<tr>
+<td>TL</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setLeading(float)">setLeading(float)</site:doc></td>
+</tr>
+<tr>
+<td>Tf</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setFontAndSize(com.lowagie.text.pdf.BaseFont,%20float)">setFontAndSize(com.lowagie.text.pdf.BaseFont, float)</site:doc></td>
+</tr>
+<tr>
+<td>Tr</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setTextRenderingMode(int)">setTextRenderingMode(int)</site:doc>
+
+TODO: different modes
+
+</td>
+</tr>
+<tr>
+<td>Ts</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setTextRise(float)">setTextRise(float)</site:doc></td>
+</tr>
+
+
+
+<tr>
+<td>Tj</td>
+<td>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="showText(java.lang.String)">showText(java.lang.String)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="showText(com.lowagie.text.pdf.PdfTextArray)">showText(com.lowagie.text.pdf.PdfTextArray)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="showTextKerned(java.lang.String))">showTextKerned(java.lang.String)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="showTextAligned(int,%20java.lang.String,%20float,%20float,%20float)">showTextAligned(int,%20java.lang.String,%20float,%20float,%20float)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="showTextAlignedKerned(int,%20java.lang.String,%20float,%20float,%20float)">showTextAlignedKerned(int,%20java.lang.String,%20float,%20float,%20float)</site:doc>
+</td>
+</tr>
+<tr>
+<td>'</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="newlineShowText(java.lang.String)">newlineShowText(java.lang.String)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="newlineShowText(float,%20float,%20java.lang.String))">newlineShowText(float, float, java.lang.String)</site:doc></td>
+</tr>
+<tr>
+<td>Td</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="moveText(float,%20float)">moveText(float, float)</site:doc></td>
+</tr>
+<tr>
+<td>Td</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="moveTextWithLeading(float,%20float)">moveTextWithLeading(float, float)</site:doc></td>
+</tr>
+<tr>
+<td>Tm</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setTextMatrix(float,%20float)">setTextMatrix(float, float)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setTextMatrix(float,%20float,%20float,%20float,%20float,%20float)">setTextMatrix(float, float, float, float, float, float)</site:doc></td>
+</tr>
+<tr>
+<td>T*</td>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="newlineText()">newlineText()</site:doc></td>
+</tr>
+</table>
+
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>

@@ -27,46 +27,9 @@
 			<site:description>Draws some shapes</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="Text" standalone="yes" />
-			<site:result>text.pdf</site:result>
-			<site:description>Adding text at absolute positions</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="Templates" standalone="yes" />
 			<site:result>templates.pdf</site:result>
 			<site:description>Using templates</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Transparency" standalone="yes" />
-			<site:externalresource>otsoe.jpg</site:externalresource>
-			<site:result>transparency.pdf</site:result>
-			<site:description>Making images transparent.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="SpotColors" standalone="yes" />
-			<site:result>spotcolor.pdf</site:result>
-			<site:description>Using spotcolors.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Pattern" standalone="yes" />
-			<site:result>pattern.pdf</site:result>
-			<site:description>Painting colored patterns.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Patterns" standalone="yes" />
-			<site:externalresource>pngnow.png</site:externalresource>
-			<site:result>patterns.pdf</site:result>
-			<site:description>Painting patterns.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Shading" standalone="yes" />
-			<site:result>shading.pdf</site:result>
-			<site:description>Shading.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="ShadingPattern" standalone="yes" />
-			<site:result>shading_pattern.pdf</site:result>
-			<site:description>Shading pattern.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Events" standalone="yes" />
@@ -90,6 +53,18 @@
 <div>
 <site:source class="Circles" />
 Other examples: PdfPTable, Images,...
+
+
+createTemplate createAppearance
+
+<table>
+<tr>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image)">addImage(com.lowagie.text.Image)</site:doc></td>
+</tr>
+<tr>
+<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image,%20float,%20float,%20float,%20float,%20float,%20float)">addImage(com.lowagie.text.Image,%20float,%20float,%20float,%20float,%20float,%20float)</site:doc></td>
+</tr>
+</table>
 </div>
 	</site:section>
 	</site:chapter>
