@@ -23,19 +23,19 @@
  * bruno@lowagie.com
  */
 
-import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfBarcode;
+import com.lowagie.text.pdf.BaseFont;
 
-public class Chap0905 {
+public class Chap0906 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 9 example 5: CJK Fonts");
+        System.out.println("Chapter 9 example 6: Barcodes");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -45,16 +45,22 @@ public class Chap0905 {
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            PdfWriter.getInstance(document, new FileOutputStream("Chap0905.pdf"));
+            
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0906.pdf"));
             
             // step 3: we open the document
             document.open();
             
-            // step 4: we add content to the document
-            BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
-            Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
-            Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);
-            document.add(chunk);
+            // step 4: we add a paragraph to the document
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-A.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-AHH.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13.TTF", PdfBarcode.EAN13, 36, "8010012529736")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13HH.TTF", PdfBarcode.EAN13, 48, "5400111151441")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13B.TTF", PdfBarcode.EAN13, 60, "8010012529736")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13BH.TTF", PdfBarcode.EAN13, 72, "5400111151441")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "12345678900987654321")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5NT.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "2345678900987654321")));       
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

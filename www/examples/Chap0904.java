@@ -35,7 +35,7 @@ public class Chap0904 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 9 example 4: Asian Fonts");
+        System.out.println("Chapter 9 example 4: True Type Collections");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -51,10 +51,12 @@ public class Chap0904 {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
-            Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
-            Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);
-            document.add(chunk);
+        	BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\msgothic.ttc,1", BaseFont.IDENTITY_H, true);
+        	Font font = new Font(bf, 16);
+        	String text1 = "\u5951\u7d04\u8005\u4f4f\u6240\u30e9\u30a4\u30f3\uff11";
+        	String text2 = "\u5951\u7d04\u8005\u96fb\u8a71\u756a\u53f7";
+        	document.add(new Paragraph(text1, font));
+        	document.add(new Paragraph(text2, font));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

@@ -426,10 +426,12 @@
 		<echo>Please compile and execute it seperately</echo>
 		<echo>Chapter 9 example 3: this example requires a correct filepath to comic.ttf</echo>
 		<echo>Please compile and execute it seperately</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0904">
+		<echo>Chapter 9 example 4: this example requires a correct filepath to msgothic.ttc</echo>
+		<echo>Please compile and execute it seperately</echo>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0905">
            <classpath refid="classpath" />
 		</java>
-		<echo>Chapter 9 example 5: this example requires a correct filepath to some barcode ttf's</echo>
+		<echo>Chapter 9 example 6: this example requires a correct filepath to some barcode ttf's</echo>
 		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
            <classpath refid="classpath" />
