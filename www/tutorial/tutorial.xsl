@@ -252,6 +252,15 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 						</xsl:for-each>
 					</xsl:if>
 					<br />
+					<xsl:if test="count(site:path)!=0" ><br />Test this example:
+						<xsl:for-each select="site:path">
+							<xsl:value-of select="string(' ')" />
+							<xsl:element name="a">
+								<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+								<xsl:value-of select="@name" />
+							</xsl:element>
+						</xsl:for-each>
+					</xsl:if>
 					<xsl:if test="count(site:externalresource)!=0" >
 						External resources for this example:
 						<xsl:for-each select="site:externalresource">
@@ -305,6 +314,15 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 						<li><xsl:element name="a">
 							<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
 							<xsl:value-of select="." />
+						</xsl:element></li>
+					</xsl:for-each></ul>
+				</xsl:if>
+				<xsl:if test="count(site:path)!=0" >
+					<div class="small">Servlets/JSP:</div>
+					<ul><xsl:for-each select="site:path">
+						<li><xsl:element name="a">
+							<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+							<xsl:value-of select="@name" />
 						</xsl:element></li>
 					</xsl:for-each></ul>
 				</xsl:if>
