@@ -46,7 +46,7 @@ public class Encrypt extends java.lang.Object {
                 System.out.println("There are " + n + " pages in the original file.");
                 
                 // step 1: creation of a document-object
-                Document document = new Document(reader.getPageSize(1));
+                Document document = new Document(reader.getPageSizeWithRotation(1));
                 // step 2: we create a writer that listens to the document
                 PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(args[1]));
                 writer.setEncryption(PdfWriter.STRENGTH128BITS, args[2], null, PdfWriter.AllowPrinting);
@@ -54,14 +54,21 @@ public class Encrypt extends java.lang.Object {
                 document.open();
                 PdfContentByte cb = writer.getDirectContent();
                 PdfImportedPage page;
+                int rotation;
                 int i = 0;
                 // step 4: we add content
                 while (i < n) {
                     i++;
-                    document.setPageSize(reader.getPageSize(i));
+                    document.setPageSize(reader.getPageSizeWithRotation(i));
                     document.newPage();
                     page = writer.getImportedPage(reader, i);
-                    cb.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    rotation = reader.getPageRotation(i);
+                    if (rotation == 90 || rotation == 270) {
+                        cb.addTemplate(page, 0, -1f, 1f, 0, 0, reader.getPageSizeWithRotation(i).height());
+                    }
+                    else {
+                        cb.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    }
                     System.out.println("Processed page " + i);
                 }
                 // step 5: we close the document
