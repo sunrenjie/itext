@@ -147,7 +147,7 @@ public class SilentPrintServlet extends HttpServlet {
 		out.println("</form>");
 		if (sub != ACT_INIT) {
 			if (requ.getParameter("preview") != null) {
-				out.println("<script languate='JavaScript'>");
+				out.println("<script language='JavaScript'>");
 				out.print("w = window.open(\"");
 				out.print(requ.getRequestURI());
 				out.print("?action=");
