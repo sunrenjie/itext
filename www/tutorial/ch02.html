@@ -66,7 +66,7 @@
 			<li>Symbol
 			<li>ZapfDingbats
 			</ul>
-			<a name="superscript"><b>Underline / strikethrough</b></a><BR>
+			<a name="underline"><b>Underline / strikethrough</b></a><BR>
 			If you want some chunks to be underlined, or if you want to strike a line through a chunk,
             you can do this simply by changing the style of the font.<br>
             <FONT FACE="Courier">
@@ -74,7 +74,6 @@
             Chunk chunk2 = new Chunk("This font is of type ITALIC | STRIKETHRU", new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU));<BR>
             </FONT>
             <br>
-			<br>
 			<a name="superscript"><b>Superscript / subscript</b></a><BR>
 			There are some methods that can be invoked on a <font face="Courier">Chunk</font>. Most of them will be explained
 			in the following chapters, only one of them in this chapter: the method <font face="Courier">setTextRise(float f)</font>.
@@ -97,7 +96,7 @@
 			You can choose from a wide variety of constructors to create a Phrase.
 			Some of them are used in <A HREF="http://www.lowagie.com/iText/examples/Chap0202.java">example 2</A> (see
 			also the <A HREF="http://www.lowagie.com/iText/examples/Chap0202.pdf">resulting pdf</A>).<BR><BR>
-			<B>Ancient Greek</B><BR>
+			<A NAME="greek"><B>Ancient Greek</B></A><BR>
 			Because greek characters are used very often, there is a feature in
 			the constructors of class Phrase (and derived classes) that take a
 			String as parameter (so if you want to avoid this feature, you should
@@ -108,7 +107,7 @@
 			937 (except 930) and from 945 to 969 (these are
 			the ASCII-values of the ancient greek characters).<BR>
 			<BR>
-			<B>Negative leading</B>
+			<A NAME="negative"><B>Negative leading</B></A><BR>
 			This is rather a bug than a feature, but anyway: it is possible to create
 			a phrase (or paragraph) with a negative leading. This has the odd effect
 			of sentences that are written from bottom to top (see
@@ -150,8 +149,8 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="splitcharacter"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Changing the split character</B></FONT><BR>
+			
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="splitcharacter"><B>Changing the split character</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Normally when some text doesn't fit on a line, the text is split into different parts.
 			First iText looks for a split character. If no splitcharacter is found, the text is cut

@@ -45,55 +45,119 @@
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">CVS</FONT></A>]</FONT></TD>
 	</TR>
 	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-		<FONT FACE="Arial,Helvetica" COLOR="#FF0000">Under construction</FONT>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
+		<FONT FACE="Arial,Helvetica"><B>Javadoc</B><BR>
+		You find a link to download the JAVADOC API on the <a href="index.html">Home page</A> of iText.<BR>
+        But you can also consult the API <A HREF="http://itext.sourceforge.net/docs/">online</A>.</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 		<FONT FACE="Arial,Helvetica"><B>Tutorial</B><BR>
-		A tutorial is <A HREF="tutorial/">under construction</A>.</FONT>
+		If you are new to iText, it is best to start with the <A HREF="tutorial/">iText</A>.<BR>
+        This tutorial contains almost 100 very simple <a href="examples/">examples</a>.
+        </FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-		<FONT FACE="Arial,Helvetica"><B>Installation</B><BR>
-		This library doesn't need to be compiled or installed.
-		Just be sure that the iText.jar-file is added to your
-		CLASSPATH or that the complete classfile tree (com/lowagie/text/*)
-		is in a directory to which the CLASSPATH refers.<br><br>
-		You can also get the most recent source from CVS. On *NIX this is done as follows:
-			<pre>export CVS_RSH=ssh
-cvs -d:pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext login
-cvs -d:pserver:anonumous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
-		There is no password for user anonymous, just press enter.<br>
-		If you want to use CVS on Windows, please consult the <A HREF="http://sourceforge.net/docman/display_doc.php?docid=763&group_id=1">site docs</a> at Sourceforge.<br><br>
-		If you know how to use <A HREF="http://jakarta.apache.org/ant">ANT</a>, it's even more simple:<br>
-		Download this <a href="build.xml">build.xml</a>-file and use ANT with target <CODE>checkout</CODE>, to check
-		out the source and documentation from CVS. Use ANT without any target to build a new release.
-		Use ANT with target examples to compile and generate some example PDF files.</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-		<FONT FACE="Arial,Helvetica"><B>Javadoc</B><BR>
-		You can consult the API <A HREF="http://itext.sourceforge.net/docs/">online</A>.</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-		<FONT FACE="Arial,Helvetica"><B>Samples</B><BR>
-		You can find the source of some standalone examples in the <a href="examples/">examples</a> directory.<BR>
-		A simple servlet example was provided by Jason Clapham: <A HREF="examples/OutSimplePDF.java">OutSimplePDF.java</a>.<br>
-		There is also a Servlet showcase on the following address:
-		<A HREF="http://webappcabaret.com/blowagie/itext/">http://webappcabaret.com/blowagie/itext/</A><br>
-		You can also find some examples in the <A HREF="tutorial">tutorial</A>.
-		</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-		<BR><BR><BR>
+		<FONT FACE="Arial,Helvetica"><B>Feature list</B><BR><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Part I: Simple PDF</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1"><A HREF="tutorial/ch01.html">Chapter 1:</A> Creating a document
+            <UL>
+                <LI>Creation of a document in 5 steps: <A HREF="tutorial/ch01.html#steps">Hello World</A>
+                <LI><A HREF="tutorial/ch01.html#step1">Examining step 1:</A> the Document-object
+                    <UL>
+                        <LI>defining the <A HREF="tutorial/ch01.html#pagesize">PageSize</A>
+                        <LI>documents in <A HREF="tutorial/ch01.html#landscape">Landscape</A>
+                        <LI>defining <A HREF="tutorial/ch01.html#margins">margins</A>
+                        <LI><A HREF="tutorial/ch01.html#measurements">measurements</A>
+                    </UL>
+                <LI><A HREF="tutorial/ch01.html#step2">Examining step 2:</A> the Writer-object
+                    <UL>
+                        <LI><A HREF="tutorial/ch01.html#servlets">Servlets</A>
+                    </UL>
+                <LI><A HREF="tutorial/ch01.html#step3">Examining step 3:</A> Meta data + opening the document
+                    <UL>
+                        <LI><A HREF="tutorial/ch01.html#metadata">Metadata</A>
+                        <LI>Things to do <A HREF="tutorial/ch01.html#before">BEFORE</A> you open the document
+                        <LI><A HREF="tutorial/ch01.html#firstpage">Page initialisations</A>
+                        <LI><A HREF="tutorial/ch01.html#viewerprefs">Viewerpreferences</A>
+                        <LI><A HREF="tutorial/ch01.html#encryption">Encryption</A>
+                    </UL>
+                <LI><A HREF="tutorial/ch01.html#step4">Examining step 4:</A> adding content
+                    <UL>
+                        <LI><A HREF="tutorial/ch01.html#pause">Pause and resume</A>
+                    </UL>
+                <LI><A HREF="tutorial/ch01.html#step5">Examining step 5:</A> closing the document
+            </UL>
+			<A HREF="tutorial/ch02.html">Chapter 2:</A> Chunks, Phrases and Paragraphs<BR>
+            <UL>
+                <LI><a href="tutorial/ch02.html#chunk">Chunk</A>
+                    <UL>
+                        <LI><A HREF="tutorial/ch02.html#fonts">Type 1 fonts</A>
+                        <LI><A HREF="tutorial/ch02.html#underline">Underline / strikethrough</A>
+                        <LI><A HREF="tutorial/ch02.html#superscript">Superscript / subscript</A>
+                    </UL>
+                <LI><a href="tutorial/ch02.html#phrase">Phrase</A>
+                    <UL>
+                        <LI><a href="tutorial/ch02.html#phrase">Leading:</A> the space between two lines
+                        <LI><a href="tutorial/ch02.html#greek">Ancient Greek</A>
+                        <LI><a href="tutorial/ch02.html#negative">Negative leading</A>
+                    </UL>
+                <LI><a href="tutorial/ch02.html#paragraph">Paragraph</A>
+                <LI>Features concerning layout
+                    <UL>
+                        <LI>Changing the <a href="tutorial/ch02.html#phrase">split character</A>
+                        <LI><a href="tutorial/ch02.html#phrase">Font propagation</A>
+                    </UL>
+                <LI>Advanced feature: <a href="tutorial/ch02.html#generictag">Generic Tag</A>
+            </UL>
+			<A HREF="tutorial/ch03.html">Chapter 3:</A> Anchors, Lists and Annotations<BR>
+			<A HREF="tutorial/ch04.html">Chapter 4:</A> HeaderFooters, Chapters, Sections and Outlines<BR>
+			<A HREF="tutorial/ch05.html">Chapter 5:</A> Tables<BR>
+			<A HREF="tutorial/ch06.html">Chapter 6:</A> Images</FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Part II: Other document formats</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1"><A HREF="tutorial/ch07.html">Chapter 7:</A> XML and (X)HTML<BR>
+			<A HREF="tutorial/ch08.html">Chapter 8:</A> RTF</FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Part III: Advanced PDF</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1"><A HREF="tutorial/ch09.html">Chapter 9:</A> Fonts<BR>
+            <UL>
+                <LI>Specifying an <a href="tutorial/ch09.html#encoding">encoding</A>
+                <LI>Specifying an <a href="tutorial/ch09.html#truetype">True Type Fonts</A>
+                    <UL>
+                        <LI><a href="tutorial/ch09.html#embedttf">Embedding</A> a ttf
+                        <LI><a href="tutorial/ch09.html#ttfOS">ttf-files and Operating Systems</A>
+                        <LI><a href="tutorial/ch09.html#unicode">Unicode</A></A>
+                    </UL>
+                <LI><a href="tutorial/ch09.html#CJK">CJK Fonts:</A> Chinese, Korean and Japanese
+                <LI><a href="tutorial/ch09.html#barcode">Barcode</A>
+            </UL>
+			<A HREF="tutorial/ch10.html">Chapter 10:</A> Absolute Positioning of Graphics and Text<BR>
+            <UL>
+                <LI><a href="tutorial/ch10.html#graphics">Graphics</A>
+                <LI><a href="tutorial/ch10.html#text">Text</A>
+                <LI><a href="tutorial/ch10.html#templates">Templates</A> (Form XObjects)
+                    <UL>
+                        <LI><a href="tutorial/ch10.html#pageXofY">Page X of Y</A>
+                    </UL>
+                <LI><a href="tutorial/ch10.html#columntext">Columns</A>
+                    <UL>
+                        <LI><a href="tutorial/ch10.html#multiple">Multiple columns</A>
+                        <LI><a href="tutorial/ch10.html#irregular">Irregular columns</A>
+                    </UL>
+            </UL>
+			<A HREF="tutorial/ch11.html">Chapter 11:</A> Local and Remote Goto's, Destinations and Outlines<BR>
+            <UL>
+                <LI><a href="tutorial/ch11.html#localgoto">Local Goto</A>
+                <LI><a href="tutorial/ch11.html#remotegoto">Remote Goto</A>
+                <LI><a href="tutorial/ch11.html#actions">Actions</A>
+                <LI><a href="tutorial/ch11.html#destinations">Destinations</A>
+                <LI><a href="tutorial/ch11.html#outlines">Outlines</A>
+                <LI><a href="tutorial/ch11.html#openaction">Open action</A>
+            </UL>
+			<A HREF="tutorial/ch12.html">Chapter 12:</A> Page an Table Events</FONT><BR>	
+		</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>

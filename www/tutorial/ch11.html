@@ -42,8 +42,8 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="localgoto"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Local goto</B></FONT><BR>
+			
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="localgoto"><B>Local goto</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Sometimes you need a link to allow the reader of your document to jump from
             one position in the text to another. You can achieve this with two methods of
@@ -62,8 +62,8 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="remotegoto"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Remote goto</B></FONT><BR>
+			
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="remotegoto"><B>Remote goto</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<A NAME="anchor"></A>
             <B>anchors again</B><BR>
@@ -94,6 +94,25 @@
             </FONT><br><BR>
             Check out <A HREF="http://www.lowagie.com/iText/examples/Chap1102.java">example 2</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1102a.pdf">Chap1102a.pdf</A>/<A HREF="http://www.lowagie.com/iText/examples/Chap1102b.pdf">Chap1102b.pdf</A>
             for a little demonstration.</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="actions"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Actions</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            When you jump to another document or URL, a <FONT FACE="Courier">PdfAction</FONT> is created.
+            You can create these actions yourself using one of the following constructors:<BR><BR>
+            <FONT FACE="Courier">
+            PdfAction(String filename, String name);<BR>
+            PdfAction(String filename, int page);<BR>
+            PdfAction(URL url);<BR>
+            PdfAction(String url);<BR>
+            </FONT><BR>
+            The first two constructors allow you to define an action to jump to a certain
+            page or location in another PDF file. The last two allow you to jump to a certain URL.
+            We are going to use these actions in some of the examples below.
+            </FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -150,13 +169,12 @@
             PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
             </FONT><BR><BR>
             We will use these destinations in the next section:
-            </FONT>
+            </FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="outlines"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Outlines</B></FONT><BR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">		
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="outlines"><B>Outlines</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             In <A HREF="http://www.lowagie.com/iText/examples/ch04.html">Chapter 4</A>, we were able to build an outline tree
             by using the objects <FONT FACE="Courier">Chapter</FONT> and <FONT FACE="Courier">Section</FONT>.
@@ -188,13 +206,12 @@
 			It is also possible to add destinations to an outline tree.
 			This is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap1105.java">example 5</A>
 			(<A HREF="http://www.lowagie.com/iText/examples/Chap1105.pdf">Chap1105.pdf</A>).
-			</FONT><BR>
+			</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="localgoto"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Open action</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="openaction"><B>Open action</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             You can also trigger an action the moment somebody opens the document.
 			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap1106.java">example 6</A>.

@@ -37,29 +37,23 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part III: Advanced PDF</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 9: Fonts</B></FONT><BR><BR><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Fonts</B></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			This chapter deals with different types of fonts. If you only need simple <b>Type 1</b>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 9: Fonts</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">This chapter deals with different types of fonts. If you only need simple <b>Type 1</b>
             fonts (Courier, Helvetica, Times Roman, Symbol, ZapfDingbats), please take a look at
-			<a href="ch02.html#fonts">Chapter 2</a>.
-			</FONT><BR>
+			<a href="ch02.html#fonts">Chapter 2</a>.</FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="encoding"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Specifying an encoding</B></FONT><BR>
+			
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="encoding">Specifying an encoding</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			In the <a href="http://www.lowagie.com/iText/examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
 			specifying an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
-            27 characters; the encoding is also known as 'winansi').<br><br>
+            27 characters; the encoding is also known as 'winansi'). You can use BaseFont.CP1252 or BaseFont.WINANSI
+            as parameter. Another encoding that is supported by iText is MacRoman (BaseFont.MACROMAN).<br><br>
 			<FONT FACE="Courier">
-			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", BaseFont.NOT_EMBEDDED);<br>
+			BaseFont helvetica = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<br>
 			Font font = new Font(helvetica, 12, Font.NORMAL);<br>
 			Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac.", font);<br>
 			document.add(chunk);<br>
@@ -71,8 +65,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="truetype"></A>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>True Type Fonts</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B><A NAME="truetype">True Type Fonts</A></B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<b>Using a ttf font</b><br>
 			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
@@ -83,7 +76,7 @@
             String text1 = "This is the quite popular True Type font 'Comic'.";<br>
             document.add(new Paragraph(text1, font));<br>
 			</FONT><BR>
-			<b>Embedding a ttf font</b><br>
+			<A NAME="embedttf"><b>Embedding a ttf font</b></A><br>
 			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
             is missing or corrupted'. This can be the case when you try to open
             <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.
@@ -92,13 +85,13 @@
 			<FONT FACE="Courier">
 			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", "winansi", BaseFont.NOT_EMBEDDED);<br>
 			</FONT><BR>
-			<b>The ttf-file</b><br>
+			<b><A NAME="ttfOS">ttf-files and Operating Systems</A></b><br>
 			As you can see, you need to create a font using the path to the ttf-file.
             The above example works on a Win2K machine, but if you use another OS,
             you will have to change this path. Remark: the ttf file can be placed on
 			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
 			and Solaris too.<br><br>
-			<b>Unicode</b><br>
+			<A NAME="unicode"><b>Unicode</b></A><br>
 			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
 			added in unicode (but this will make the resulting PDF file larger). Please take a look at
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>:<BR>
@@ -116,7 +109,7 @@
             As you can see the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
             is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font
 			(Remark: When the encoding is BaseFont.IDENTITY_H the font is always embedded.).<BR>
-			</FONT>
+			</FONT><BR>
 		</TD>
 	</TR>
 	<TR>

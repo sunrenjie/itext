@@ -68,7 +68,7 @@ public class Chap1002 {
             // we tell the ContentByte we're ready to draw text
             cb.beginText();
             
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
+            BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             cb.setFontAndSize(bf, 12);
             String text = "Sample text for alignment";
             // we show some text starting on some absolute position with a given alignment
