@@ -47,11 +47,13 @@ public class Chap0108 {
 			// and directs a PDF-stream to a file
 
 			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0108a.pdf"));
+
 			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));
 
 			// step 3:
 
 			// we add a Watermark that will show up on PAGE 1
+
 			writerB.pause();
 			try {
 				Watermark watermark = new Watermark(Image.getInstance("watermark.jpg"), 200, 420);			
@@ -60,6 +62,7 @@ public class Chap0108 {
 			catch(Exception e) {
 				System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");
 			}
+
 			writerB.resume();
 			
 			// we add a Header that will show up on PAGE 1
@@ -100,8 +103,10 @@ public class Chap0108 {
 			document.add(new Paragraph("Hello Earth"));
 
 			// we remove the header starting from PAGE 3
+
 			writerA.pause();
 			document.resetHeader();
+
 			writerA.resume();
 
 			// we trigger a page break
@@ -111,13 +116,18 @@ public class Chap0108 {
 
 			// we add some more content
 			document.add(new Paragraph("Hello Sun"));
+
 			writerA.pause();
 			document.add(new Paragraph("Remark: the header has vanished!"));
+
 			writerA.resume();
 
+
 			// we reset the page numbering
+
 			writerB.pause();
 			document.resetPageCount();
+
 			writerB.resume();
 
 			// we trigger a page break
@@ -127,8 +137,10 @@ public class Chap0108 {
 
 			// we add some more content
 			document.add(new Paragraph("Hello Moon"));
+
 			writerB.pause();
 			document.add(new Paragraph("Remark: the pagenumber has been reset!"));
+
 			writerB.resume();
 
 		}
