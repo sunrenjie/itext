@@ -42,22 +42,22 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="chunk"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Fonts</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			This chapter deals with different types of fonts. If you only need simple <b>Type 1</b> fonts with ISO 8859-1 encoding,
-			please take a look at <a href="ch02.html#fonts">Chapter 2</a>.
+			This chapter deals with different types of fonts. If you only need simple <b>Type 1</b>
+            fonts with ISO 8859-1 encoding, please take a look at <a href="ch02.html#fonts">Chapter 2</a>.
 			</FONT><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="chunk"></A>
+			<A NAME="encoding"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Other encodings</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Lots of special characters are not supported in ISO 8859-1 (also known as Latin 1).
 			In the <a href="Chap0902.java">following example</a> we will use a known font (Helvetica)
-			with an encoding that is widely used in Europe: Cp1252 (it's latin 1 extended with 27 characters).<br>
+			with an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
+            27 characters; the encoding is also known as 'winansi').<br>
 			<FONT FACE="Courier">
 			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", false);<br>
 			Font font = new Font(helvetica, 12, Font.NORMAL);<br>
@@ -65,31 +65,75 @@
 			document.add(chunk);<br>
 			</FONT>
 			As you can see, the EURO symbol is added by using its UNICODE value.
-			Check out the <a href="Chap0901.pdf">result</a>.
-			</FONT><BR>
+			Check out the <a href="Chap0901.pdf">result</a>.<BR><BR>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Remark:</B><BR>
+				Encodings such as 'Cp1252' and 'MacRoman' are only valid for the
+                <a href="ch02.html#fonts">basic fonts</a> and for <A HREF="#truetype">TrueType</A> Fonts.<br>
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><br>
+            
+			</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<A NAME="phrase"></A>
+			<A NAME="truetype"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>True Type Fonts</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In <A HREF="Chap0902.java">example 2</A>, we are going to use a very popular
+            True Type font:<br>
+			<FONT FACE="Courier">
+			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", false);<BR>
+			Font FontComic = new Font(bfComic, 12, Font.NORMAL);<BR>
+			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);<BR>
+			document.add(chunk);
+			</FONT><BR>
+			As you can see, you need to create a font using the path to the ttf-file.
+            The above example works on a Windows 98 machine, but if you use another OS,
+            you will have to change this path. Also, if the used TrueType font is not
+            found on your machine, Acrobat Reader will throw an error such as: 'a font
+            is missing or corrupted'. This can be the case when you try to open
+            <A HREF="Chap0902.pdf">Chap0902.pdf</A>.<BR><BR>
+            That is why it's safer to embed the font in the PDF file, by setting the last parameter
+            of method <FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">true</FONT>:<br>
+			<FONT FACE="Courier">
+			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", true);<BR>
+			Font FontComic = new Font(bfComic, 12, Font.NORMAL);<BR>
+			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);<BR>
+			document.add(chunk);
+			</FONT><BR>
+            As you can see in <A HREF="Chap0903.java">example 3</A>, the <a href="Chap0903.pdf">resulting PDF file</a>
+            is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font.<BR>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="asian"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Asian Fonts</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			This is what you do when you want to add some text in an asian font:<br>
+			You can also add text in Asian fonts (using UNICODE):<br>
 			<FONT FACE="Courier">
 			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);<br>
             Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);<br>
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
 			</FONT>
-			This piece of code is used in <a href="Chap0902.java">example 1</a> and you can take
-			a look a the result <a href="Chap0902.pdf">here</a>.<br><br>	
+			This piece of code is used in <a href="Chap0904.java">example4</a> and you can take
+			a look a the result <a href="Chap0904.pdf">here</a>.<br><br>	
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
 				<B>Important:</B><BR>
-				Before trying to view a pdf with Asian characters, you must download
-                the Asian font pack from Adobe.<br>
+				You can't embed these Asian fonts. Before trying to view a pdf with Asian characters,
+                you must download the Asian font pack from Adobe.<br>
 				You can download font packs at:
 				<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>
 				</FONT>
