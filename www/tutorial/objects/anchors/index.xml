@@ -77,7 +77,6 @@
 		<site:example>
 			<site:java src="Annotations" standalone="yes" />
 			<site:externalresource>cards.mpg</site:externalresource>
-			<site:externalresource>some.txt</site:externalresource>
 			<site:result>Annotations.pdf</site:result>
 			<site:description>Creates a document with some PdfAnnotations</site:description>
 		</site:example>
