@@ -74,11 +74,81 @@
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION039">iText0.41</A></B>
+		<UL>
+		<LI>added EBCDIC support. It works in OS/390 and probably in AS/400.
+		It should work in other platforms with other character encodings.
+		<LI>added auto-leading to ColumnText. Leading is now defined as
+		fixed+variable*x where x is the size of the largest font in
+		the line.
+		<LI>removed the *.afm resources. Some web servers had trouble finding
+		the resource files. This resources are now inside classes.
+		This takes care of the message "document with no pages".
+		<LI>added inline images with text. Images can now be used inside tables.
+		<LI>added Document.compress. If set to false all the documents generated
+		come out without compression. For debugging.
+		<LI>added support to read java.awt.Image. It reads all gifs too!
+		<LI>added transparency support to images.
+		<LI>added Evelyne De Cordier changes to Table and HtmlWriter.
+		<LI>added named destinations. Also works with outlines.
+		<LI>added remote gotos. The remote destination can be a name or a page number
+		<LI>added PdfContentByte.roundRectangle.
+		<LI>added PdfWriter.getDirectContentUnder. A direct content that will
+		be placed under all the other contents. For watermarks.
+		<LI>corrected a bug in PdfDocument. If an image was the last element
+		added to the document and that caused a new page, the image would not show.
+		</UL>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION039">iText0.40</A></B>
+		<UL>
+		<LI>added class PdfPageEventHelper. Makes the use of page events easier.
+		<LI>added Chunk.setGenericTag. Attachs text to a Chunk that can be
+		retrieved in a page event. Very usefull to implement bookmarks with fine control.
+		<LI>added local links. Links can be placed to jump to other parts of the document.
+		<LI>correction to Image. Absolute positioning was not being detected.
+		This had the effect that images were being placed in the lower
+		left corner of the page.
+		<LI>added clear() to Cell.
+		<LI>added getPageSize to Document.
+		<LI>added class ColumnText. It formates and displays text columnwise.
+      	The columns can be irregular and are described by an arbritary
+		number of lines. With this feature it is easy to place text that
+		flows around images.
+		<LI>added attributes to Chunks. The new attributes supported are
+		anchors and sub/superscript.
+		<LI>correction of leading rounding
+		<LI>code changes to ease the port to jdk1.1.x
+		<LI>PdfpageEvent was changed to an interface
+		<LI>Added support for memory images. This will allow you to create an image
+		in a byte array in the form of a gif, png or jpeg. As an added bonus
+		images can also be created in raw mode but you'll have to read chapter
+		4.8 of the pdfref manual to know what you are doing.
+		<LI>TrueType font embedding
+		<LI>Type1 font embedding (AFM with PFB)
+		<LI>CJK Adobe font pack support with full metrics
+		<LI>All the java encodings allowed as long as your jvm has the encodings (Cp1251, etc)
+		<LI>support for all kind of fonts in Table, Paragraph, etc.
+		<LI>fonts are cached. There's only a performance hit the first time the font is accessed
+		<LI>outlines are output in Unicode. Now it's possible to have the outlines in
+		kanji or cyrillic if you platform supports it
+		<LI>images can be added directly to PdfContentByte
+		<LI>TrueType and CJK fonts can have a modifier (Bold, Italic and
+		BoldItalic). Note that it only works with fonts not embedded
+		<LI>Added circles, ellipses, arcs to PdfContentByte
+		<LI>Added outlines (bookmarks) to PdfContentByte
+		<LI>Added simple text alignment and rotation
+		<LI>Added templates (form XObjects). This solves the dreaded problem of "Page 1 of 15"
+		<LI>Optimized PdfIndirectObject. toPdf was beeing called twice.
+		<LI>Added a PdfPageEvent that is called with certain events, like new page.
+		<LI>All the dimensions were changed from int or double to float. It is possible that
+		some of your code breaks but it should be trivial to fix.
+		<LI>Improved text justification with word spacing, character spacing and
+		hanging punctuation.
+		<LI>Text justification works with CJK fonts.
+		<LI>Underline, strikeout and anchors work everywhere (main text and tables)
+		</UL>
 		</TD>
 	</TR>
 	<TR>
