@@ -53,32 +53,32 @@ public class Chap0608 {
 			Image jpg = Image.getInstance("myKids.jpg");
 			jpg.setAlignment(Image.MIDDLE);
 			
-			jpg.setRotation(Math.PI / 6);
+			jpg.setRotation((float)(Math.PI / 6));
 			document.add(new Paragraph("rotate 30 degrees"));
 			document.add(jpg);
 			document.newPage();
 			
-			jpg.setRotation(Math.PI / 4);
+			jpg.setRotation((float)(Math.PI / 4));
 			document.add(new Paragraph("rotate 45 degrees"));
 			document.add(jpg);
 			document.newPage();
 
-			jpg.setRotation(Math.PI / 2);
+			jpg.setRotation((float)(Math.PI / 2));
 			document.add(new Paragraph("rotate pi/2 radians"));
 			document.add(jpg);
 			document.newPage();
 
-			jpg.setRotation(Math.PI * 0.75);
+			jpg.setRotation((float)(Math.PI * 0.75));
 			document.add(new Paragraph("rotate 135 degrees"));
 			document.add(jpg);
 			document.newPage();
 
-			jpg.setRotation(Math.PI);
+			jpg.setRotation((float)Math.PI);
 			document.add(new Paragraph("rotate pi radians"));
 			document.add(jpg);
 			document.newPage();
 			
-			jpg.setRotation(2.0 * Math.PI);
+			jpg.setRotation((float)(Math.PI * 2.0));
 			document.add(new Paragraph("rotate 2 x pi radians"));
 			document.add(jpg);
 		}

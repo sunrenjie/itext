@@ -41,6 +41,45 @@
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="phrase"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Asian Fonts</B></FONT><BR>
+			This is what you do when you want to add some text in an asian font:<br>
+			<code>
+			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);<br>
+            Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);<br>
+			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba \u6e96\u53d7\u4fdd\u4eba\u6e96\u53d7\u4fdd\u4eba\u6e96\u53d7\u4fdd\u4eba\u6e96\u53d7\u4fdd\u4eba\u6e96\u53d7\u4fdd\u4eba \u6e96\u53d7 \u4fdd\u4eba\u6e96 \u53d7\u4fdd\u4eba\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
+			document.add(chunk);<br>
+			</code><br>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">	
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Important:</B><BR>
+				Before trying to view a pdf with Asian characters, you must download
+                the Asian font pack from Adobe.<br>
+				You can download font packs at:
+				<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE>
+			</FONT><br>
+			You can create PDF-documents with the following fonts:<br>
+			<ul>
+			<li><b>Chinese Simplified</b><br>
+                STSong-Light with the encodings UniGB-UCS2-H and UniGB-UCS2-V
+			<li><b>Chinese traditional</b><br>
+                MHei-Medium and MSung-Light with the encodings UniCNS-UCS2-H and UniCNS-UCS2-V
+			<li><b>Japanese</b><br>
+                HeiseiKakuGo-W5 and HeiseiMin-W3 with the encodings UniJIS-UCS2-H,UniJIS-UCS2-V,UniJIS-UCS2-HW-H and UniJIS-UCS2-HW-V
+			<li><b>Korean</b><br>
+                HYGoThic-Medium and HYSMyeongJo-Medium with the encodings UniKS-UCS2-H and UniKS-UCS2-V
+			</ul><BR><BR>
+		</TD>
+	</TR>
+	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch08.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
@@ -64,6 +103,5 @@
 	</TABLE>
 	</TD>
 </TABLE>
-
 </BODY>
 </HTML>

@@ -25,11 +25,15 @@
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import java.net.MalformedURLException;
+
 import java.net.URL;
 
 import com.lowagie.text.*;
+
 import com.lowagie.text.pdf.PdfWriter;
+
 import com.lowagie.text.html.HtmlWriter;
 
 public class Chap0601 {
@@ -47,22 +51,34 @@ public class Chap0601 {
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
 			PdfWriter.getInstance(document, new FileOutputStream("Chap0601.pdf"));
+
 			HtmlWriter.getInstance(document, new FileOutputStream("Chap0601.html"));
 
 			// step 3: we open the document
 			document.open();
 
+
+
 			Image gif = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/vonnegut.gif"));
+
 			Image jpeg = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/myKids.jpg"));
+
 			Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/hitchcock.png"));
 
+
+
 			document.add(gif);
+
 			document.add(jpeg);
+
 			document.add(png);
 
 		}
+
 		catch(MalformedURLException mue) {
+
 			System.err.println(mue.getMessage());
+
 		}
 		catch(DocumentException de) {
 			System.err.println(de.getMessage());

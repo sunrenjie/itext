@@ -28,6 +28,7 @@ import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
+
 import com.lowagie.text.html.HtmlWriter;
 
 public class Chap0106 {
@@ -46,13 +47,19 @@ public class Chap0106 {
 			// and directs a PDF-stream to a file
 
 			PdfWriter.getInstance(document, new FileOutputStream("Chap0106.pdf"));
+
 			HtmlWriter.getInstance(document, System.out);
 
 			// step 3: we add some metadata and open the document
+
 			document.addTitle("Hello World example");
+
 			document.addSubject("This example explains step 3 in Chapter 1");
+
 			document.addKeywords("Metadata, iText, step 3, tutorial");
+
 			document.addAuthor("Bruno Lowagie");
+
 			document.addHeader("Expires", "0");
 			document.open();
 
