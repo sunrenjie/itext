@@ -56,7 +56,7 @@
 			<FONT FACE="Courier">Jpeg</FONT> or <FONT FACE="Courier">Png</FONT>.
 			Some images will be rejected, please consult the <A HREF="http://www.lowagie.com/iText/faq.html#images">FAQ</A>
 			if you have questions about rejected images.<BR><BR>
-			<B>Getting an instance of an image using an URL</B><BR>
+			<A NAME="imageurl"><B>Getting an instance of an image using an URL</B></A><BR>
 			This is the most simple way to add an Image. In <A HREF="http://www.lowagie.com/iText/examples/Chap0601.java">example 1</A>,
 			we add a WMF (<A HREF="../examples/harbour.wmf">a Windows Meta File 33kByte</A>),
 			a GIF (<A HREF="../examples/vonnegut.gif">a picture of SF-writer Kurt Vonnegut 26 kByte</A>),
@@ -95,7 +95,7 @@
 				</TD>
 				</TR>
 			</TABLE><BR>
-			<B>Getting an instance of an image using a filename</B><BR>
+			<A NAME="imagefile"><B>Getting an instance of an image using a filename</B></A><BR>
 			We can change example 1 into <A HREF="http://www.lowagie.com/iText/examples/Chap0602.java">example 2</A> by simply changing
 			the way images are instanciated:<BR>
 			<FONT FACE="Courier">
@@ -128,7 +128,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Positioning the Image</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<B>alignment</B><BR>
+			<A NAME="imagealign"><B>alignment</B></A><BR>
 			An image can be aligned, using the method<BR>
 			<FONT FACE="Courier">
 			setAlignment(Image.RIGHT)<BR>
@@ -138,7 +138,7 @@
 			See <A HREF="http://www.lowagie.com/iText/examples/Chap0604.java">example 4</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap0604.pdf">resulting PDF</A>:
 			we added the picture of Vonnegut to the right, the picture of my children in the middle
 			and hitchcock to the left.<BR><BR>
-			<B>Images and text</B><BR>
+			<A NAME="imagetext"><B>Images and text</B></A><BR>
 			But there's more, you can also specify that text has to be wrapped around the image
 			(see <A HREF="http://www.lowagie.com/iText/examples/Chap0605.java">example 5</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap0605.pdf">resulting PDF</A>):<BR>
 			<FONT FACE="Courier">
@@ -150,7 +150,7 @@
 			picture of my children and is written over the Hitchcock-image.<BR>
 			Remark: these functionalities still have a lot of bugs.<BR><BR>
 			
-			<B>Absolute positions</B><BR>
+			<A NAME="absoluteposition"><B>Absolute positions</B></A><BR>
 			When generating PDF-files, you can use the method<BR>
 			<FONT FACE="Courier">public void setAbsolutePosition(int absoluteX, int absoluteY)</FONT><BR>
 			to place an image at an absolute position on a page. In <A HREF="http://www.lowagie.com/iText/examples/Chap0606.java">example 6</A>
@@ -165,7 +165,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Scaling and Rotating the Image</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<B>Scaling</B><BR>
+			<A NAME="scaling"><B>Scaling</B></A><BR>
 			There are several possibilities to scale an image:<BR>
 			<FONT FACE="Courier">
 			public void scaleAbsolute(int newWidth, int newHeight)<BR>
@@ -186,7 +186,7 @@
 			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar-application</A>,
 			this method is used to allow you to put images of different size on each
 			Calendar-page. They are all resized to Fit on a certain area of the page.<BR>
-			<BR><B>Rotating</B><BR>
+			<BR><A NAME="rotating"><B>Rotating</B></A><BR>
 			With the following method, you can rotate images:<BR>
 			<FONT FACE="Courier">public void setRotation(double r)<BR>
 			</FONT>
@@ -196,7 +196,7 @@
 	</TR> 
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Raw Image data</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="rawimage"><B>Raw Image data</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Uptil now all examples used images that were stored on your harddisk
 			or that were retrieved from some webserver, but it is also possible to
@@ -222,7 +222,7 @@
 	</TR> 
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><B>java.awt.Image</B></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><A NAME="awtimage"><B>java.awt.Image</B></A></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<a href="http://www.lowagie.com/iText/examples/Chap0610.java">Example 10</a> is a very advanced example for three reasons:<br>
 			<ol>
@@ -245,7 +245,7 @@
 	</TR> 
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="tiff"><B>TIFF and CCITT</B></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="tiff"><A NAME="tiff"><B>TIFF and CCITT</B></A></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<a href="http://www.lowagie.com/iText/examples/Chap0611.java">Example 11</a> and
 			<a href="http://www.lowagie.com/iText/examples/Chap0612.java">example 12</a> are also
