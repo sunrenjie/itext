@@ -32,7 +32,7 @@ import com.lowagie.text.pdf.PdfWriter;
 public class Chap0510 {
     
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 10: larges tables with repeating headers");
+        System.out.println("Chapter 5 example 10: large tables with repeating headers");
         // creation of the document with a certain size and certain margins
         Document document = new Document(PageSize.A4.rotate(), 50, 50, 50, 50);
         
