@@ -19,6 +19,26 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
+<li>Not yet released: iText 1.2.3
+<li>Fixes and updates to RtfWriter2 by Mark Hall<ul>
+<li>Fix for incorrect table widths.</li>
+<li>Fix for RtfPageNumber and other field not showing in tables.</li>
+<li>Super/Subscript should now always work.</li>
+<li>Support for writing the temporary data that is generated during document 
+generation to a file, instead of keeping it in memory. This should reduce the 
+memory footprint when generating large documents (there is a speed decrease). 
+Currently the default is to keep the document in memory and you have to 
+specify if you want to use a temporary file.</li>
+<li>Added documentation in the tutorial explaining the disk caching</li>
+</ul></li>
+<li>2005-02-11: paulo 152<ul>
+<li>added AcroFields.getFieldType().</li>
+<li>PdfReader gets the number of pages from the pages and not from the top level page count. It also attempts to fix the doc if both values disagree.</li>
+<li>Fixed AcroFields.getAppearanceStates() that threw a class cast exception.</li>
+<li>PdfWriter.DOCUMENT_CLOSE was changed from /DC to /WC. It's not documented but it's what works in Acrobat.</li>
+<li>PdfStamper.getWriter().setAdditionalAction() is now supported.</li>
+</ul></li>
+</li>
 <li>2005-01-31: iText 1.2.2
 <ul><li>Avoiding a NullPointerException in Phrase (bugfix by August Detlefsen)</li>
 <li>Binary transparency worked for GIFs, not for all PNGs (bugfix by Chris Nokleberg)</li>
