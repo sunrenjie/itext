@@ -68,6 +68,7 @@
             </UL>
             <UL>
 				<li><a href="#msie" class="normal">Problems with the Internet Explorer plugin</a>
+				<LI><A HREF="#pagenumber0" class="normal">Why does getPageNumber() always return 0</A>
 				<LI><A HREF="#landscape" class="normal">How to make a page in <i>landscape</i></A>
 				<LI><A HREF="#firstpage" class="normal">I added a header, footer or watermark, but it doesn't appear on my document.</A>
 				<LI><A HREF="#measurements" class="normal">What measurement unit is used?</A>
@@ -326,6 +327,25 @@
             response.setHeader("Pragma", "public");<br>
             </code><br><br>
             And it works.... But don't ask me to explain this!!!
+			</div><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<div class="title"><A NAME="pagenumber0">Why does getPageNumber() always return 0</A></div><BR>
+			<div class="text">
+            You are invoking the method on the wrong object. You create a PDF document in 5 steps
+            (See <a href="tutorial/ch01.html" class="normal">Chapter 1</a> of the tutorial).
+            In the first step, you create a Document-object. A Document-object handles CONTENT,
+            not LAYOUT. In step two you choose 1 or more Writers. For instance: you can get an
+            instance of a PdfWriter that listens to your Document-object, writing content to pages
+            in landscape. You can also add another PdfWriter that listens to the SAME Document
+            object, writing content to pages in portrait.<br>
+            If you want to know the current pagenumber, what object are you going to invoke the
+            method getPageNumber() on? If you do document.getPageNumber(), will it give you the
+            current number of the file in landscape? Or will it give you the number of the file
+            in portrait? It doesn't know what to do, so it tells you the pagenumber is 0.
+            Just use writer.getPageNumber() for the correct value.
 			</div><BR><BR>
 		</TD>
 	</TR>
