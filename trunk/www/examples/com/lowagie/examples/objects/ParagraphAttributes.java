@@ -52,7 +52,7 @@ public class ParagraphAttributes {
 		try {
 			// step 2:
 			// we create a writer that listens to the document
-			PdfWriter.getInstance(document, new FileOutputStream("Paragraphs.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("ParagraphAttributes.pdf"));
 
 			// step 3: we open the document
 			document.open();
