@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.chunk;
+package com.lowagie.examples.objects;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,39 +29,38 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Shows the effect of a negative leading.
+ * Shows how special characters are substituted with Phrase.getInstance.
  * 
  * @author blowagie
  */
 
-public class NegativeLeading {
+public class SymbolSubstitution {
 
 	/**
-	 * Demonstrates what happens if you choose a negative leading.
+	 * How to substiture special characters with Phrase.getInstance.
 	 * 
-	 * @param args
-	 *            no arguments needed here
+	 * @param args no arguments needed here
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Negative Leading");
+		System.out.println("Symbol Substitution");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
 		try {
 			// step 2:
 			// we create a writer that listens to the document
-			PdfWriter.getInstance(document, new FileOutputStream(
-					"NegativeLeading.pdf"));
+			PdfWriter.getInstance(document,
+					new FileOutputStream("SymbolSubstitution.pdf"));
 
 			// step 3: we open the document
 			document.open();
 			// step 4:
-			document.add(new Phrase(16, "\n\n\n"));
-			document
-					.add(new Phrase(
-							-16,
-							"Hello, this is a very long phrase to show you the somewhat odd effect of a negative leading. You can write from bottom to top. This is not fully supported. It's something between a feature and a bug."));
+            document.add(Phrase.getInstance("What is the " + (char) 945 + "-coefficient of the "
+                    + (char) 946 + "-factor in the " + (char) 947 + "-equation?\n"));
+                    for (int i = 913; i < 970; i++) {
+                        document.add(Phrase.getInstance(" " + String.valueOf(i) + ": " + (char) i));
+                    }
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {

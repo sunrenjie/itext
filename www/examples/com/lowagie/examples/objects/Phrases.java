@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.chunk;
+package com.lowagie.examples.objects;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
