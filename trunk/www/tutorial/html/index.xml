@@ -22,6 +22,11 @@
 			<site:result>HelloWorld.html</site:result>
 			<site:description>Generates a simple 'Hello World' HTML file</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="HelloWorldMeta" standalone="yes" />
+			<site:result>HelloWorldMeta.html</site:result>
+			<site:description>Generates an HTML file with metadata</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -80,6 +85,40 @@ listen to <site:src class="com.lowagie.text.html.HtmlWriter" />:
 </div>
 	</site:section>
 	
+	<site:section name="metadata">
+		<site:sectiontitle>Metadata in HTML</site:sectiontitle>
+<div>
+As described in the section on <site:tutorial chapter="/general" section="step3">adding metadata before opening a document</site:tutorial>,
+there are specific methods to add the title, author, subject and keywords of the document contents.
+These methods will add the specific META-tags to your HTML. The methods to add the creator, producer
+and creationdate, will add comment sections to the HTML-header. You can use
+<site:doc class="com.lowagie.text.Document" target="addHeader(java.lang.String,%20java.lang.String)">addHeader(java.lang.String,%20java.lang.String)</site:doc>
+to add other META tags (such as 'Expires').
+<pre class="commandline">// standard meta information
+document.addTitle("Hello World example");
+document.addAuthor("Bruno Lowagie");
+document.addSubject("This example explains step 3 in Chapter 1");
+document.addKeywords("Metadata, iText, step 3, tutorial");
+// custom (HTML) meta information
+document.addHeader("Expires", "0");
+// meta information that will be in a comment section in HTML
+document.addCreator("My program using iText");</pre>
+This is what the HTML header will look like:
+<pre class="commandline"><![CDATA[<head>
+	<title>
+		Hello World example
+	</title>
+	<meta name="author" content="Bruno Lowagie" />
+	<meta name="subject" content="This example explains step 3 in Chapter 1" />
+	<meta name="keywords" content="Metadata, iText, step 3, tutorial" />
+	<meta name="Expires" content="0" />
+	<!-- Creator: My program using iText -->
+	<!-- Producer: iTextXML by lowagie.com -->
+	<!-- CreationDate: Fri Dec 17 14:13:18 CET 2004 -->
+</head>]]></pre>
+<site:source class="HelloWorldMeta" />
+</div>
+	</site:section>
 	</site:chapter>
 
 </site:page>
