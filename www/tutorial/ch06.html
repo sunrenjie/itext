@@ -112,14 +112,47 @@
 			You can avoid this problem by telling the <FONT FACE="Courier">HtmlWriter</FONT>
 			to use a given basepath for images:<BR>
 			<FONT FACE="Courier">
-			</FONT>
 			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));<BR>
 			writer.setBasepath("../../images/kerstmis/");		
 			</FONT><BR>
 			In this <A HREF="Chap0603.java">example</A>, we tell the writer to use a relative
 			path (in this case the path to some <A HREF="../../images/kerstmis/">Christmas photo's</A>)
 			for every image we add. This is the resulting <A HREF="Chap0603.pdf">PDF</A> and
-			<A HREF="Chap0603.html">HTML</A>.<BR><BR>
+			<A HREF="Chap0603.html">HTML</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Positioning the Image</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<B>alignment</B><BR>
+			An image can be aligned, using the method<BR>
+			<FONT FACE="Courier">
+			setAlignment(Image.RIGHT)<BR>
+			setAlignment(Image.MIDDLE)<BR>
+			setAlignment(Image.LEFT)<BR>
+			</FONT>
+			See <A HREF="Chap0604.java">example 4</A> and the <A HREF="Chap0604.pdf">resulting PDF</A>:
+			we added the picture of Vonnegut to the right, the picture of my children in the middle
+			and hitchcock to the left.<BR><BR>
+			<B>Images and text</B><BR>
+			But there's more, you can also specify that text has to be wrapped around the image
+			(see A HREF="Chap0605.java">example 5</A> and the <A HREF="Chap0605.pdf">resulting PDF</A>):<BR>
+			<FONT FACE="Courier">
+			setAlignment(Image.RIGHT | TEXTWRAP)<BR>
+			setAlignment(Image.MIDDLE)<BR>
+			setAlignment(Image.LEFT | UNDERLYING)<BR>
+			</FONT>
+			The text is wrapped on the left side of the Vonnegut-picture, isn't wrapped around the
+			picture of my children and is written over the Hitchcock-image.<BR>
+			Remark: these functionalities still have a lot of bugs.<BR><BR>
+			
+			<B>Absolute positions</B><BR>
+			When generating PDF-files, you can use the method<BR>
+			<FONT FACE="Courier">public void setAbsolutePosition(int absoluteX, int absoluteY)</FONT><BR>
+			to place an image at an absolute position on a page.<BR>
+			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
