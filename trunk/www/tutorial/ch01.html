@@ -98,8 +98,8 @@
 			Normally, you don't have to worry about creating this rectangle,
 			you can use one of the statics in class
 			<A HREF="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java"><FONT FACE="Courier">PageSize.java</FONT></A>.
-			These are the pagesizes that are foreseen: A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E, FLSA and FLSE.<BR><BR>
-			Most these pageSizes are in PORTRAIT-format. If you want them to be in LANDSCAPE, all you have to do is <FONT FACE="Courier">rotate()</FONT>
+			These are the pagesizes that are provided: A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E, FLSA and FLSE.<BR><BR>
+			Most these pageSizes are in PORTRAIT-format. If you want them to be in <A NAME="landscape">LANDSCAPE</A>, all you have to do is <FONT FACE="Courier">rotate()</FONT>
 			the <FONT FACE="Courier">Rectangle</FONT>:<BR>
 			<FONT FACE="Courier">
 			Document document = new Document(PageSize.A4.rotate());
@@ -112,8 +112,8 @@
 			Document document = new Document(PageSize.A5, 36, 72, 108, 180);
 			</FONT><BR>
 			In example <A HREF="Chap0104.java">Chap0104.java</A> (and its result: <A HREF="Chap0104.pdf">Chap0104.pdf</A>),
-			you will see that this document has a left margin of half an inch and a right margin of an inch.			
-			The upper margin is one and a half inch, the lower two and a half.
+			you will see that this document has a left margin of 0.5 inch and a right margin of 1 inch.			
+			The upper margin is 1.5 inch, the lower 2.5 inch.
 			<BR><BR>
 			<A NAME="measurements"></A>
 			<TABLE WIDTH="85%" ALIGN="center">
@@ -130,11 +130,11 @@
 				&nbsp;&nbsp;&nbsp;8.2677 * 72 = 595 points<BR>
 				&nbsp;&nbsp;&nbsp;29.7 cm / 2.54 = 11.6929 inch<BR>
 				&nbsp;&nbsp;&nbsp;11.6929 * 72 = 842 points<BR>
-				The default border of 36 points corresponds with half an inch and the rectangle we created in Chap0102.java was 2 by 10 inches.</FONT>
+				The default border of 36 points corresponds with half an inch.<BR?
+				The rectangle we created in Chap0102.java was 2 by 10 inches.</FONT>
 				</TD>
 				</TR>
 			</TABLE>
-
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -187,7 +187,7 @@
 			The second parameter can be an outputStream of any kind.<BR>
 			Until now, we have always used a <FONT FACE="Courier">java.io.FileOutputStream</FONT> to write the document to a file,
 			but in example <A HREF="Chap0105.java">Chap0105</A>, the outputStream is a <FONT FACE="Courier">javax.servlet.ServletOutputStream</FONT>.
-			You can test this code by trying the following URLs:
+			<A NAME="servlet">You can test this code</A> by trying the following URLs:
 			<UL>
 			<LI><A HREF="http://webappcabaret.com/blowagie/Chap0105?presentationtype=pdf">http://webappcabaret.com/blowagie/Chap0105?presentationtype=pdf</A>
 			<LI><A HREF="http://webappcabaret.com/blowagie/Chap0105?presentationtype=html">http://webappcabaret.com/blowagie/Chap0105?presentationtype=html</A>
@@ -264,11 +264,11 @@
 				<B>Portable Document Format Reference Manual Version 1. 3 (section 2.3.2 'Portability' page 22):</B><BR>
 				A PDF file is a binary file; the entire 8-bit range of characters may be used.
 				Unfortunately, some agents treat files that happen to use only the printable subset
-				of the 7-bit ASCII code and whitespace characters as “text,” and take unreasonable
+				of the 7-bit ASCII code and whitespace characters as <I>text</I>, and take unreasonable
 				liberties with the contents. For example, mail-transmission systems may not
 				preserve certain 7-bit characters and may change line endings. This can cause
 				damage to PDF files.<BR>
-				Therefore, in situations where it is possible to label PDF files as binary, we
+				Therefore, in situations where it is possible to label PDF files as <I>binary</I>, we
 				recommend that this be done. One method for encouraging such treatment is to
 				include a few binary characters (codes greater than 127) in a comment near the
 				beginning of the file.
@@ -278,13 +278,13 @@
 			In PDF, the metadata is kept in a <FONT FACE="Courier">PdfInfo</FONT>-object,
 			written to the PdfWriter when the document is closed. So there is no reason why one
 			couldn't alter the library to be able to add or change the metadata at any time.<BR><BR>
-			The <FONT FACE="Courier">open</FONT>-method also triggers some initialisations
+			<A NAME="firstpage">The <FONT FACE="Courier">open</FONT>-method</A> also triggers some initialisations
 			in the different writers. For instance if you want a <FONT FACE="Courier">Watermark</FONT>
 			or a <FONT FACE="Courier">HeaderFooter</FONT>-object to appear starting on the FIRST page
 			of the document, you have to add it BEFORE you open the document.
 			The same goes for setting watermark, headers, footers, pagenumbers and sizes for the rest
 			of the pages in the document.<BR>
-			When you invoke method such as:<BR>
+			When you invoke methods such as:<BR>
 			<FONT FACE="Courier">public boolean setPageSize(Rectangle pageSize)</FONT><BR>
 			<FONT FACE="Courier">public boolean add(Watermark watermark)</FONT><BR>
 			<FONT FACE="Courier">public void removeWatermark()</FONT><BR>
@@ -311,8 +311,8 @@
 			such as Phrase, Paragraph,... In the next 5 chapters all these objects will be explained
 			more thoroughly.<BR>
 			It is very important to realize that not all types of objects are supported in all types
-			of writers. For instance: the <FONT FACE="Courier">Annotation</FONT>-object isn't supported
-			in HTML. If you add an annotation to a <FONT FACE="Courier">Document</FONT>, the listening
+			of writers. For instance: the <FONT FACE="Courier">Graphic</FONT>-object isn't supported
+			in HTML. If you add a graphic to a <FONT FACE="Courier">Document</FONT>, the listening
 			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
 			Sometimes you may want a writer to deliberately ignore actions performed on a document.
 			This is shown in <A HREF="Chap0108.java">example 8</A>.<BR>
