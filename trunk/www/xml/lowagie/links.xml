@@ -12,10 +12,11 @@
 	<div class="small" xmlns="http://www.w3.org/1999/xhtml">
 		<div class="header">Useful links</div>
 		<div class="title">People</div>
-		<a href="http://www.lowagie.com/" class="topic">Bruno Lowagie:</a> original developer of iText<br />
-		<a href="http://itextpdf.sourceforge.net/" class="topic">Paulo Soares</a> this is the most active iText developer of the moment<br />
+		<a href="http://www.lowagie.com/" class="topic">Bruno Lowagie:</a> original developer of iText
+		<a href="http://itextpdf.sourceforge.net/" class="topic">Paulo Soares</a> this is the most active iText developer of the moment
 		<b class="topic">Mark Hall:</b> the author of the RTF functionality<br />
-		<a href="http://www.pdfsages.com/" class="topic">Leonard Rosenthol:</a> CTO of PDF Sages, a company dedicated to providing unmatched PDF-oriented consulting and development services.<br />
+		<a href="http://www.pdfsages.com/" class="topic">Leonard Rosenthol:</a> CTO of PDF Sages, a company dedicated to providing unmatched PDF-oriented consulting and development services.
+		<a href="http://www.ujihara.jp/iTextdotNET/" class="topic">Kazuya Ujihara:</a> author of the iText .NET port
 		<br />
 		<a href="http://www.jrefinery.com/" class="topic">David Gilbert:</a> JREFINERY<br />
 		<a href="http://servlets.com/" class="topic">Jason Hunter</a> author of JDOM and the book I read to learn all about Servlets<br />
@@ -37,8 +38,9 @@
 		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.<br />
 		<a href="http://jpedal.sourceforge.net/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.<br />
 		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.<br />
-		<div class="title">CSS links</div>
+		<div class="title">Other technical links</div>
 		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/">zvon.org:</a> CSS 2 reference with examples
+		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp">w3schools on XSL:</a> XSLT Elements Reference
 	</div>
 	</site:content>
 </site:page>
