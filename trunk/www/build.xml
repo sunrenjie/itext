@@ -161,13 +161,14 @@
     <target name="compile" description="--> compiles the core iText code">
         <mkdir dir="${itext.classes}" />
         <javac srcdir="${itext.src}" destdir="${itext.classes}"
-            excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+            excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
     
     <target name="compileWithXML" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />    
         <echo>You need xerces_1_3_1.jar in the bin-directory</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar"
+			excludes="com/lowagie/servlets/*.java" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -196,15 +197,15 @@
 
     <target name="srczip" description="--> makes two zipfiles (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
-        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 
     <target name="srctargz" description="--> makes two tar.gz-files (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
         <tar tarfile="${itext.dist}/classes.tar" basedir="${itext.classes}" />
-        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
-        <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <gzip zipfile="${itext.dist}/classes.tar.gz" src="${itext.dist}/classes.tar" />
 		<gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
         <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
@@ -219,7 +220,7 @@
 
     <target name="javadoc" description="--> generates the complete documentation with javadoc">
         <mkdir dir="${itext.docs}" />
-        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.hyphenation.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.markup.*, com.lowagie.text.xml.*"
+        <javadoc packagenames="com.lowagie.servlets.*, com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.hyphenation.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.markup.*, com.lowagie.text.xml.*"
             sourcepath="${itext.src}"
             destdir="${itext.docs}"
             author="true"
