@@ -114,20 +114,20 @@
 				<b>Remark:</b><br>
 				The Bold, Italic an BoldItalic styles don't work with embedded fonts.<br><br>
 				<FONT FACE="Courier">
-					BaseFont helvetica = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
-		            Font font = new Font(helvetica, 12, Font.NORMAL);<br>
-		            <strike>Font fontItalic = new Font(helvetica, 12, Font.ITALIC);</strike><br>
+					BaseFont arial = BaseFont.createFont("arial.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
+		            Font font = new Font(arial, 12, Font.NORMAL);<br>
+		            <strike>Font fontItalic = new Font(arial, 12, Font.ITALIC);</strike><br>
 				</FONT><BR>
-				When you are using a built-in font (= NOT EMBEDDED), applying another style, changes the font.<br>
-				For instance: when you are using Helvetica and you change the style into italic,
-				the font is replaced internally by Helvetica-Oblique (which is a totally different font).<br>
-				In this case, when using embedded fonts, you will have to embed both fonts:
-				BaseFont.HELVETICA and BaseFont.HELVETICA_OBLIQUE.<br><br>
+				When you are using a built-in font, applying another style, changes the font.<br>
+				For instance: when you are using 'Arial' and you change the style into italic,
+				the font is replaced internally by 'Arial Italic' (which is a totally different font).<br>
+				In this case you will have to embed both fonts:
+				"arial.ttf" and "ariali.ttf".<br><br>
 				<FONT FACE="Courier">
-					BaseFont helvetica = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
-		            Font font = new Font(helvetica, 12);<br>
-					BaseFont helvetica = BaseFont.createFont(BaseFont.HELVETICA_OBLIQUE, BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
-		            Font fontItalic = new Font(helveticaOblique, 12);<br>
+					BaseFont arial = BaseFont.createFont("arial.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
+		            Font font = new Font(arial, 12);<br>
+					BaseFont arialItalic = BaseFont.createFont("ariali.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);<br>
+		            Font fontItalic = new Font(arialItalic, 12);<br>
 				</FONT><BR>
 				</FONT>
 				</TD>
