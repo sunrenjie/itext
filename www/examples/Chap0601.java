@@ -36,7 +36,7 @@ public class Chap0601 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 6 example 1: Adding a Gif, Jpeg and Png-file using urls");
+        System.out.println("Chapter 6 example 1: Adding a Wmf, Gif, Jpeg and Png-file using urls");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -51,10 +51,12 @@ public class Chap0601 {
             // step 3: we open the document
             document.open();
             
+            Image wmf = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/harbour.wmf"));
             Image gif = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/vonnegut.gif"));
             Image jpeg = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/myKids.jpg"));
             Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/hitchcock.png"));
             
+            document.add(wmf);
             document.add(gif);
             document.add(jpeg);
             document.add(png);
