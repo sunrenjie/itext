@@ -32,7 +32,7 @@ public class Chap0906 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 9 example 6: Barcodes");
+        System.out.println("Chapter 9 example 6: Barcodes with ttf");
         
         // step 1: creation of a document-object
         Document document = new Document();
@@ -48,7 +48,7 @@ public class Chap0906 {
             // step 3: we open the document
             document.open();
             
-            // step 4: we add a paragraph to the document
+            // step 4: we add content to the document
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")));
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-A.TTF", PdfBarcode.UPCA, 36, "203489343822")));
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-AHH.TTF", PdfBarcode.UPCA, 36, "203489343822")));

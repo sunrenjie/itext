@@ -507,6 +507,12 @@
 		</java>
 		<echo>Chapter 9 example 6: this example requires a correct filepath to some barcode ttf's</echo>
 		<echo>Please compile and execute it seperately</echo>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0907">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0908">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
            <classpath refid="classpath" />
 		</java>
