@@ -473,6 +473,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap1106">
            <classpath refid="classpath" />
 		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap1201">
+           <classpath refid="classpath" />
+		</java>
         <delete>
             <fileset dir="${itext.examples}" includes="**/*.class"/>
         </delete>
