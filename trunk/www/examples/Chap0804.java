@@ -21,46 +21,49 @@
 import java.io.*;
 import java.awt.Color;
 import com.lowagie.text.*;
-import com.lowagie.text.rtf.RtfWriter;
+import com.lowagie.text.rtf.RtfWriter2;
+import com.lowagie.text.rtf.field.RtfTableOfContents;
+import com.lowagie.text.rtf.field.RtfTOCEntry;
 
 public class Chap0804 {
     public static void main(String[] args) {
-        System.out.println("Chapter 8 example 4: Tables and RTF");
+        System.out.println("Chapter 8 example 4: Table of contents");
         // step 1: creation of a document-object
         Document document = new Document();
         try {
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            RtfWriter.getInstance(document, new FileOutputStream("Chap0804.rtf"));
+            RtfWriter2 writer2 = RtfWriter2.getInstance(document, new FileOutputStream("Chap0804.rtf"));
+            
+            // Set the writer to automagically generate TOC entries
+            writer2.setAutogenerateTOCEntries(true);
+            
             // step 3: we open the document
             document.open();
-            // step 4: we create a table and add it to the document
-            Table table = new Table(3);
-            table.setBorderWidth(1);
-            table.setBorderColor(new Color(0, 0, 255));
-            table.setPadding(5);
-            table.setSpacing(5);
-            Cell cell = new Cell("header");
-            cell.setHeader(true);
-            cell.setColspan(3);
-            table.addCell(cell);
-            cell = new Cell("example cell with colspan 1 and rowspan 2");
-            cell.setRowspan(2);
-            cell.setBorderColor(new Color(255, 0, 0));
-            table.addCell(cell);
-            table.addCell("1.1");
-            table.addCell("2.1");
-            table.addCell("1.2");
-            table.addCell("2.2");
-            table.addCell("cell test1");
-            cell = new Cell("big cell");
-            cell.setRowspan(2);
-            cell.setColspan(2);
-            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
-            table.addCell(cell);
-            table.addCell("cell test2");
-            document.add(table);
+            
+            // step 4: we create a table of contents and add it to the document
+            Paragraph p = new Paragraph();
+            p.add(new RtfTableOfContents("RIGHT CLICK AND HERE AND SELECT \"UPDATE FIELD\" TO UPDATE.", new Font()));
+            document.add(p);
+
+            // step 4: we create two chapters and add the same content to both.
+            Paragraph par = new Paragraph("This is some sample content.");
+            Chapter chap1 = new Chapter("Chapter 1", 1);
+            chap1.add(par);
+            Chapter chap2 = new Chapter("Chapter 2", 2);
+            chap2.add(par);
+            document.add(chap1);
+            document.add(chap2);
+            
+            for(int i = 0; i < 300; i++) {
+                if(i == 158) {
+                    document.add(new RtfTOCEntry("This is line 158.", new Font()));
+                }
+                document.add(new Paragraph("Line " + i));
+            }
+            // step 5: we close the document
+            document.close();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -68,7 +71,5 @@ public class Chap0804 {
         catch(IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-        // step 5: we close the document
-        document.close();
     }
 }
