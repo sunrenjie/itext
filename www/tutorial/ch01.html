@@ -263,7 +263,7 @@
 				liberties with the contents. For example, mail-transmission systems may not
 				preserve certain 7-bit characters and may change line endings. This can cause
 				damage to PDF files.<BR>
-				Therefore, in situations where it is possible to label PDF files as “binary,” we
+				Therefore, in situations where it is possible to label PDF files as binary, we
 				recommend that this be done. One method for encouraging such treatment is to
 				include a few binary characters (codes greater than 127) in a comment near the
 				beginning of the file.
@@ -305,7 +305,26 @@
 			In the different examples explaining step 1 to 3, you have already encountered objects
 			such as Phrase, Paragraph,... In the next 5 chapters all these objects will be explained
 			more thoroughly.<BR>
-			<!-- pause- and resume-methods -->
+			It is very important to realize that not all types of objects are supported in all types
+			of writers. For instance: the <FONT FACE="Courier">Annotation</FONT>-object isn't supported
+			in HTML. If you add an annotation to a <FONT FACE="Courier">Document</FONT>, the listening
+			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
+			Sometimes you may want a writer to deliberately ignore actions performed on a document.
+			This is shown in <A HREF="Chap0108.java">example 8</A>.<BR>
+			If we create two writers: writerA and writerB (this is an exception to what was said in
+			<A HREF="#step2">step 2</A>):<BR>
+			<FONT FACE="Courier">
+			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0108a.pdf"));<BR>
+			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));
+			</FONT>
+			We can create two documents that are slightly different:<BR>
+			<FONT FACE="Courier">
+			writerA.pause();<BR>
+			document.add(new Paragraph("This paragraph will only be added to Chap0108b.pdf, not to Chap0108a.pdf"));<BR>
+			writerA.resume();
+			</FONT>
+			You can compare the results of example 8 here: <A HREF="Chap0108a.pdf">Chap0108a.pdf</A> vs.
+			<A HREF="Chap0108b.pdf">Chap0108b.pdf</A>.
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -347,4 +366,3 @@
 
 </BODY>
 </HTML>
-
