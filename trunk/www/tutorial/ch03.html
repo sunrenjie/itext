@@ -117,8 +117,17 @@
                     This is another item
                 </LI>
             </UL>
-            You can change the way the listsymbol looks with method <FONT FACE="Courier">setListSymbol</FONT> and there are
-            also some methods to change the indentation of the list.
+            You can change the way the listsymbol looks with method <FONT FACE="Courier">setListSymbol</FONT>:<br>
+			<FONT FACE="Courier"><br>
+			// set a String as listsymbol<br>
+			list1.setListSymbol("*");<br>
+			// set a Chunk (that contains the bullet character) as listsymbol<br>
+			list2.setListSymbol(new Chunk("\u2022", FontFactory.getFont(FontFactory.HELVETICA, 20)));<br>
+			// set an Images wrapped in a Chunk as listsymbol<br>
+			list3.setListSymbol(new Chunk(Image.getInstance("myBullet.gif"), 0, 0));<br>
+			</FONT><br>
+			There are also some methods to change the indentation of the list such as <FONT FACE="Courier">setIndentationLeft</FONT>
+			and <FONT FACE="Courier">setIndentationRight</FONT>. The indentation of the list symbol is set in the constructor.<br>
             You can find more examples here: <A HREF="../examples/Chap0302.java">Chap0302.java</A> and look at the <A HREF="../examples/Chap0302.pdf">result</A>.
             </FONT><BR><BR>
 		</TD>
