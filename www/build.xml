@@ -475,6 +475,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0707">
            <classpath refid="classpath" />
 		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0708">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Cv">
            <classpath refid="classpath" />
 		</java>
@@ -505,12 +508,14 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0905">
            <classpath refid="classpath" />
 		</java>
-		<echo>Chapter 9 example 6: this example requires a correct filepath to some barcode ttf's</echo>
+		<echo>Chapter 9 example 6: this example requires a correct filepath to some ttc's and ttf's</echo>
 		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0907">
            <classpath refid="classpath" />
 		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0908">
+		<echo>Chapter 9 example 8: this example requires a correct filepath to some barcode ttf's</echo>
+		<echo>Please compile and execute it seperately</echo>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0909">
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
