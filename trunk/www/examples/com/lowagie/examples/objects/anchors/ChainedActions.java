@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001-2005 by Paulo Soares and Bruno Lowagie <--
+ * --> Copyright 2001-2005 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -29,22 +29,22 @@ import com.lowagie.text.pdf.PdfAction;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Creates a documents with a javascript action.
+ * Creates a documents with chained actions.
  * 
  * @author blowagie
  */
 
-public class JavaScriptAction {
+public class ChainedActions {
 
 	/**
-	 * Creates a document with a javascript action.
+	 * Creates a document with chained Actions.
 	 * 
 	 * @param args
 	 *            no arguments needed
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("JavaScript");
+		System.out.println("Chained actions");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -53,12 +53,14 @@ public class JavaScriptAction {
 
 			// step 2:
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(
-					"JavaScriptAction.pdf"));
+					"ChainedActions.pdf"));
 			// step 3: we add Javascript as Metadata and we open the document        
 			document.open();
 			// step 4: we add some content
-			Paragraph p = new Paragraph(new Chunk("Click to say Hello")
-					.setAction(PdfAction.javaScript("app.alert('Hello');\r", writer)));
+			PdfAction action = PdfAction.javaScript("app.alert('Welcome at my site');\r", writer);
+			action.next(new PdfAction("http://www.lowagie.com/iText/"));
+			Paragraph p = new Paragraph(new Chunk("Click to go to Bruno's site")
+					.setAction(action));
 			document.add(p);
 		} catch (Exception de) {
 			de.printStackTrace();

@@ -3,9 +3,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Anchors and Actions</site:title>
-		<site:summary>Deals with all the RemoteGoto, LocalGoto,... functionality</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, anchors, remoteGoto, LocalGoto, Lowagie, Bruno</site:keywords>
+		<site:title>Anchors, Actions and Annotations</site:title>
+		<site:summary>Deals with all the RemoteGoto, LocalGoto, Action, Annotation,... functionality</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, anchors, remoteGoto, LocalGoto, Actions, Annotations, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:book asin="3540608540">Postscript and Acrobat/Pdf Bible: Applications, Troubleshooting and Cross-Platform Publishing</site:book>
@@ -45,21 +45,41 @@
 			<site:description>Creates a document with named actions.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="JavaScriptAction" standalone="yes" />
+			<site:result>JavaScriptAction.pdf</site:result>
+			<site:description>Creates a document with a Javascript action.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Actions" standalone="yes" />
 			<site:result>Actions.pdf</site:result>
 			<site:result>remote.html</site:result>
 			<site:description>Creates a document with some goto actions</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="JavaScriptAction" standalone="yes" />
-			<site:result>JavaScriptAction.pdf</site:result>
-			<site:description>Creates a document with a Javascript action.</site:description>
+			<site:java src="ChainedActions" standalone="yes" />
+			<site:result>ChainedActions.pdf</site:result>
+			<site:description>Creates a document with chained actions.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="OpenApplication" standalone="yes" />
-			<site:argument>C:\WINDOWS\</site:argument>
+			<site:argument>C://windows/</site:argument>
 			<site:result>OpenApplication.pdf</site:result>
 			<site:description>Creates a document with a link to open an external application.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SimpleAnnotations" standalone="yes" />
+			<site:externalresource>cards.mpg</site:externalresource>
+			<site:externalresource>iText.gif</site:externalresource>
+			<site:result>SimpleAnnotations1.pdf</site:result>
+			<site:result>SimpleAnnotations2.pdf</site:result>
+			<site:description>Creates two documents with different types of annotations</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Annotations" standalone="yes" />
+			<site:externalresource>cards.mpg</site:externalresource>
+			<site:externalresource>some.txt</site:externalresource>
+			<site:result>Annotations.pdf</site:result>
+			<site:description>Creates a document with some PdfAnnotations</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -121,7 +141,8 @@ anchor.setReference("#link1");</pre>
 A PDF document can have a certain interactivity: you can create several 'actions',
 for instance to jump to another page or location,
 to start an other application, to invoke a JavaScript function,...
-In the next subsections, some actions that are supported in iText will be explained; see the javadocs (<site:doc class="com.lowagie.text.PdfAction">class PdfAction</site:doc>) for more types of actions.<br /><br />
+In the next subsections, some actions that are supported in iText will be explained; see the javadocs (<site:doc class="com.lowagie.text.PdfAction">class PdfAction</site:doc>) for more types of actions.
+Remark that many of the action can be constructed in two alternative ways: with the constructor or with a static method that calls the constructor.<br /><br />
 <div class="subtitle">Named Actions</div>
 There are 5 predefined named actions in iText:
 <ul>
@@ -165,29 +186,92 @@ using one of the following constructors:
 <li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.net.URL)">PdfAction(URL url)</site:doc></li>
 <li><site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String)">PdfAction(String url)</site:doc></li>
 </ul>
+<site:doc class="com.lowagie.text.pdf.PdfAction" target="gotoLocalPage(int,%20com.lowagie.text.pdf.PdfDestination,%20com.lowagie.text.pdf.PdfWriter)">PdfAction.gotoLocalPage(int page, PdfDestination dest, PdfWriter writer)</site:doc>,
+<site:doc class="com.lowagie.text.pdf.PdfAction" target="gotoLocalPage(java.lang.String,%20boolean)">PdfAction.gotoLocalPage(String dest, boolean isName)</site:doc> and
+<site:doc class="com.lowagie.text.pdf.PdfAction" target="gotoRemotePage(java.lang.String,%20java.lang.String,%20boolean,%20boolean)">PdfAction.gotoRemotePage(String filename, String dest, boolean isName, boolean newWindow)</site:doc>
+are the alternative static methods to construct Goto actions.<br />
+<span class="commandline">PdfAction.gotoRemotePage("remote.pdf", "test", false, true)</span>
+creates an action that goes to the destination "test" in remote.pdf in a new window.<br />
+<site:image source="newwindow.gif">Open Action New Window</site:image><br />
 <site:source class="Actions" />
-<div class="subtitle">Open and Additional Actions</div>
+<div class="subtitle">Open Actions</div>
 We've already used an 'Open Action' twice.
 In the previous example with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setOpenAction(com.lowagie.text.pdf.PdfAction)">setOpenAction(PdfAction action)</site:doc>
 and in an earlier example with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setOpenAction(java.lang.String)">setOpenAction(String name)</site:doc>:
 <site:source class="LocalDestination" />
-
-
-
-
-
-
-
-
-
-<div class="subtitle">Application</div>
+<div class="subtitle">Chained Actions</div>
+If you want to trigger two or more actions after eachother, you can chain them using
+<site:doc class="com.lowagie.text.pdf.PdfAction" target="next(com.lowagie.text.pdf.PdfAction)">next(PdfAction action)</site:doc>.
+<pre class="commandline">PdfAction action = PdfAction.javaScript("app.alert('Welcome');\r", writer);
+action.next(new PdfAction("http://www.lowagie.com/iText/"));</pre>
+<site:source class="ChainedActions" />
+<div class="subtitle">Launching an Application</div>
 You can open an application from a PDF file using a Launch Action.
 Be carefull: this is a very platformdependent feature and it isn't very safe to use.
 Read the Javadocs on method <site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">PdfAction(String application, String parameters, String operation, String defaultDir)</site:doc>
-for more information concerning the parameters. In the example below, we launch NOTEPAD (only on Windows, change the param if WINROOT does not equal C:\WINDOWS\).
+for more information concerning the parameters. In the example below, we launch NOTEPAD (only on Windows, change the param if WINROOT does not equal C://windows/).
 <pre class="commandline">new Chunk("Click to open NOTEPAD")
-	.setAction(new PdfAction("C:\\WINDOWS\\notepad.exe", null, null, null));</pre>
+	.setAction(new PdfAction("C://WINDOWS/notepad.exe", null, null, null));</pre>
+The alternative static method to construct this Action is
+<site:doc class="com.lowagie.text.pdf.PdfAction" target="createLaunch(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">PdfAction.createLaunch(String application, String parameters, String operation, String defaultDir)</site:doc>
 <site:source class="OpenApplication" />
+</div>
+	</site:section>
+	<site:section name="annotation">
+		<site:sectiontitle>Annotations</site:sectiontitle>
+<div>
+Yes, using Annotations is yet another alternative to jump to a specific local or remote destination.
+Lets take a look at some simple things you can do with the class <site:doc class="com.lowagie.text.Annotation">Annotation</site:doc>
+<ul>
+
+<li>
+<b>Text:</b> you can add small pieces of text to your document that are not
+really part of the content. Annotations have a title and some content.
+<pre class="commandline">Annotation a = new Annotation(
+	"authors",
+	"Maybe it's because I wanted to be an author myself that I wrote iText.",
+	100f, 700f, 200f, 800f);</pre>
+</li>
+
+<li>
+<b>External links:</b> you have to specify a clickable rectangle and a String (representing the URL) or an URL-object.
+<pre class="commandline">Annotation annot = new Annotation(
+	100f, 700f, 200f, 800f,
+	new URL("http://www.lowagie.com/iText/"));
+Annotation annot = new Annotation(
+	100f, 700f, 200f, 800f,
+	"http://www.lowagie.com/iText");</pre>
+</li>
+
+<li><b>External PDF file:</b> you have to specify a clickable rectangle and a String (the filename) and a destination or pagenumber.
+<pre class="commandline">Annotation annot = new Annotation(
+	100f, 700f, 200f, 800f,	"other.pdf", "mark");
+Annotation annot = new Annotation(
+	100f, 700f, 200f, 800f,	"other.pdf", 2);</pre>
+</li>
+
+<li><b>Named action:</b> you have to specify a clickable rectangle and a named action:
+<pre class="commandline">Annotation annot = new Annotation(
+	100f, 700f, 200f, 800f, PdfAction.FIRSTPAGE);</pre>
+</li>
+
+<li><b>Application:</b> you have to specify a clickable rectangle and an application:
+<pre class="commandline">Annotation annot = new Annotation(
+	300f, 700f, 400f, 800f,
+	"C://windows/notepad.exe", null, null, null);</pre>
+</li>
+<li>
+<b>Media Clip:</b> you can specify a rectangle and a movie file and its MIMETYPE. You also need to specify if the clips needs to be shown on display of the page.
+<pre class="commandline">new Annotation(200f, 700f, 300f, 800f, "cards.mpg", "video/mpeg", true);</pre>
+</li>
+
+</ul>
+<site:source class="SimpleAnnotations" />
+As an alternative for using the <site:doc class="com.lowagie.text.Annotation" target="constructor_summary">Annotation constructors</site:doc>,
+you can use the constructor in <site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="PdfAnnotation(com.lowagie.text.pdf.PdfWriter,%20float,%20float,%20float,%20float,%20com.lowagie.text.pdf.PdfAction)">class PdfAnnotation</site:doc>.
+As you can pass any action to this constructor, you have a more options then with class <site:doc class="com.lowagie.text.Annotation">Annotation</site:doc>.
+<site:doc class="com.lowagie.text.pdf.PdfAnnotation">PdfAnnotation</site:doc> also has lots of static methods that allow you to create specific annotations.
+<site:source class="Annotations" />
 </div>
 	</site:section>
 	</site:chapter>
