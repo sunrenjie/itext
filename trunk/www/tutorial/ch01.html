@@ -116,7 +116,7 @@
 			The upper margin is one and a half inch, the lower two and a half.
 			<BR><BR>
 			<A NAME="measurements"></A>
-			<TABLE WIDTH="85%">
+			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
@@ -152,7 +152,7 @@
 			in HTML. If for instance you want to generate TeX-documents as well, you could write
 			a package: <FONT FACE="Courier">com.lowagie.text.TeX.TeXWriter</FONT>.<BR>
 			<BR>
-			<TABLE WIDTH="85%">
+			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
@@ -198,7 +198,7 @@
 			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar application</A> or take look at the
 			following code: <A HREF="Calendar.java">Calendar.java</A> and <A HREF="Month.java">Month.java</A>.
 			(These two classes will be used throughout the tutorial.)
-			</FONT><BR>
+			</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -206,7 +206,75 @@
 			<A NAME="step3"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 3: Meta data + opening the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Before you add any actual data (= content), you might want to add some metadata
+			about the document with one of these methods:<BR>
+			<FONT FACE="Courier">
+				public boolean addTitle(String title)<BR>
+				public boolean addSubject(String subject)<BR>
+				public boolean addKeywords(String keywords)<BR>
+				public boolean addAuthor(String author)<BR>
+				public boolean addProducer()<BR>
+				public boolean addCreationDate()<BR>
+				public boolean addHeader(String name, String content)<BR>
 			</FONT><BR>
+			You can choose your own title, subject, keywords and author,<BR> but the method that
+			adds the producerdata should always add:<BR> <FONT FACE="Courier">iText by lowagie.com</FONT><BR>
+			and the method that adds the creation date always add the current system time.<BR>
+			You can also add a header with a custom name, but this will have no effect on the
+			PdfWriter (for the moment it is only used in the HtmlWriter).<BR><BR>
+			You can only add metadata this BEFORE the <FONT FACE="Courier">open</FONT>-method
+			is invoked. This is a choice made by the developer of iText.<BR>In HTML meta-information is
+			put between the <FONT FACE="Courier">HEAD</FONT>-tags at the beginning of the document
+			(the header section). Invoking the <FONT FACE="Courier">open</FONT>-method causes the writer
+			to write this header to the <FONT FACE="Courier">OutputStream</FONT>.
+			So there is no way to change this data once the document is 'opened'.<BR>
+			The PDF header doesn't contain any metadata, it looks like this:<BR>
+			<FONT FACE="Courier">
+			&nbsp;&nbsp;&nbsp;%PDF-1.2<BR>
+			&nbsp;&nbsp;&nbsp;%‡·‚„
+			</FONT><BR>
+			The first line indicates the generated document is a file in the Portable Document Format version 1.2.<BR>
+			The meaning of the second line is explained in the reference manual.
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Portable Document Format Reference Manual Version 1. 3 (section 2.3.2 'Portability' page 22):</B><BR>
+				A PDF file is a binary file; the entire 8-bit range of characters may be used.
+				Unfortunately, some agents treat files that happen to use only the printable subset
+				of the 7-bit ASCII code and whitespace characters as ìtext,î and take unreasonable
+				liberties with the contents. For example, mail-transmission systems may not
+				preserve certain 7-bit characters and may change line endings. This can cause
+				damage to PDF files.<BR>
+				Therefore, in situations where it is possible to label PDF files as ìbinary,î we
+				recommend that this be done. One method for encouraging such treatment is to
+				include a few binary characters (codes greater than 127) in a comment near the
+				beginning of the file.
+				</TD>
+				</TR>
+			</TABLE>
+			In PDF, the metadata is kept in a <FONT FACE="Courier">PdfInfo</FONT>-object,
+			written to the PdfWriter when the document is closed. So there is no reason why one
+			couldn't alter the library to be able to add or change the metadata at any time.<BR><BR>
+			The <FONT FACE="Courier">open</FONT>-method also triggers some initialisations
+			in the different writers. For instance if you want a <FONT FACE="Courier">Watermark</FONT>
+			or a <FONT FACE="Courier">HeaderFooter</FONT>-object to appear starting on the FIRST page
+			of the document, you have to add it BEFORE you open the document.
+			The same goes for setting watermark, headers, footers, pagenumbers and sizes for the rest
+			of the pages in the document.<BR>
+			When you invoke method such as:<BR>
+			<FONT FACE="Courier">public boolean setPageSize(Rectangle pageSize)</FONT><BR>
+			<FONT FACE="Courier">public boolean add(Watermark watermark)</FONT><BR>
+			<FONT FACE="Courier">public void removeWatermark()</FONT><BR>
+			<FONT FACE="Courier">public void setHeader(HeaderFooter header)</FONT><BR>
+			<FONT FACE="Courier">public void resetHeader()</FONT><BR>
+			<FONT FACE="Courier">public void setFooter(HeaderFooter footer)</FONT><BR>
+			<FONT FACE="Courier">public void resetFooter()</FONT><BR>
+			<FONT FACE="Courier">public void resetPageCount()</FONT><BR>
+			<FONT FACE="Courier">public void setPageCount(int pageN)</FONT><BR>
+			the result of these methods will only be seen on the next new page (when the
+			initialisation methods of this page are called).
+			</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -214,6 +282,10 @@
 			<A NAME="step4"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 4: adding content</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In the different examples explaining step 1 to 3, you have already encountered objects
+			such as Phrase, Paragraph,... In the next 5 chapters all these objects will be explained
+			more thoroughly.<BR>
+			<!-- pause- and resume-methods -->
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -222,6 +294,9 @@
 			<A NAME="step5"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 5: closing the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Closing the document is very important, because it flushes and closes the outputstream to which
+			the writer is writing. The close-method is called in the finalize-method, but you shouldn't count
+			on that. You should always close the document yourself!
 			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
