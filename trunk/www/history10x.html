@@ -49,8 +49,11 @@
         <br>
 		<div class="title"><A NAME="VERSION100">iText1.00</A> (based on paulo's version 119-120-121</div>
         <div class="text"><UL>
-        <LI>paulo 121<UL>
+        <LI>paulo 122<UL>
             <li>
+            </ul>
+        <LI>paulo 121<UL>
+            <li>fixed a bug with indexed transparent PNG.<li>restored support for PNG and JPEG in RTF. Added support in RTF for WMF.<li>created several new list types (see the examples). Contribution by Michael Niedermair.<li>fixed a seek overflow for broken TIFF tags. Contribution by Anderson Bryan.
             </ul>
         <LI>paulo 120<UL>
             <li>FontFactory register all the TTF names for the different locales.<li>added FontFactory.registerDirectory and FontFactory.registerDirectories.<li>the image types GIF and PNG were eliminated together with the classes gif and png. This images are now identified by IMGRAW. HtmlWriter was changed to support it. The RTF part will probably also have to be changed. The good news is that all the gif and png will open without the awt Toolkit.<li>fixed AcroFields to set the /V key only in the dictionary with the /T key.<li>symbolic TrueType fonts with Identity-H have a linear mapping.<li>TIFFFaxDEcoder fixed (again) to work with some damaged images. Contribution by Danox.<li>added support to read encrypted PDFs. Contribution by Kazuya Ujihara, the maker of the iText port to .NET.<li>fixed in PdfGraphics2D a problem with incorrect line widths with rotated transforms.<li>PdfGraphics2D.setTransform() now creates a copy.<li>PdfGraphics2D.drawImage() waits for the loading of the image to be drawn.<li>fixed PdfPTable.setWidthPercentage(float columnWidth[], Rectangle pageSize).<li>PdfStamper can set the output pdf version. If not set, the version of the original is kept.<li>fixed the LZW stream decoder to be more lenient with errors.<li>fixed the ASCII85 stream decoder to correct the output of the last bytes.<li>fixed in PdfReader the stream sharing problem that files created with Distiller 3.01 may have.<li>new constructor in Chunk for a single char.
