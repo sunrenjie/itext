@@ -18,61 +18,60 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.objects.chunk;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * How to change the color of a font.
+ * Shows what happens if the end of the line is reached
  * 
  * @author blowagie
  */
 
-public class FontColor {
+public class EndOfLine {
 
 	/**
-	 * Changing Font colors
+	 * Demonstrates the use of the Phrase object.
 	 * 
 	 * @param args no arguments needed here
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("ChunkColor");
+		System.out.println("End of Line");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
 		try {
 			// step 2:
 			// we create a writer that listens to the document
-			PdfWriter writer = PdfWriter.getInstance(document,
-					new FileOutputStream("FontColor.pdf"));
+			PdfWriter.getInstance(document,
+					new FileOutputStream("EndOfLine.pdf"));
 
 			// step 3: we open the document
 			document.open();
 			// step 4:
-			Font red = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.BOLD, new Color(0xFF, 0x00, 0x00));
-			Font blue = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.ITALIC, new Color(0x00, 0x00, 0xFF));
-			Paragraph p;
-			p = new Paragraph("Roses are ");
-			p.add(new Chunk("red", red));
+			Chunk chunk = new Chunk("quick brown fox jumps over the lazy dog ");
+			for (int i = 0; i < 5; i++) {
+				chunk.setTextRenderMode(PdfContentByte.TEXT_RENDER_MODE_STROKE, 0.3f, new Color(i * 30, i * 30, i * 30));
+				document.add(chunk);
+			}
+			document.newPage();
+			Phrase p = new Phrase(16f);
+			for (int i = 0; i < 5; i++) {
+				chunk = new Chunk("quick brown fox jumps over the lazy dog ");
+				chunk.setTextRenderMode(PdfContentByte.TEXT_RENDER_MODE_STROKE, 0.3f, new Color(i * 30, i * 30, i * 30));
+				p.add(chunk);
+			}
 			document.add(p);
-			p = new Paragraph("Violets are ");
-			p.add(new Chunk("blue", blue));
-			document.add(p);
-			BaseFont bf = FontFactory.getFont(FontFactory.COURIER).getCalculatedBaseFont(false);
-			PdfContentByte cb = writer.getDirectContent();
-			cb.beginText();
-			cb.setColorFill(new Color(0x00, 0xFF, 0x00));
-			cb.setFontAndSize(bf, 12);
-			cb.showTextAligned(PdfContentByte.ALIGN_CENTER, "Grass is green", 250, 700, 0);
-			cb.endText();
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {
