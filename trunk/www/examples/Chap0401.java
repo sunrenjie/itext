@@ -49,7 +49,7 @@ public class Chap0401 {
             // step 3: we open the document
             document.open();
             
-            // we add a Header that will show up on PAGE 5
+            // we add a Header that will show up on PAGE 2
             HeaderFooter header = new HeaderFooter(new Phrase("This is a header"), false);
             document.setHeader(header);
             
