@@ -58,9 +58,14 @@
 			at <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">mail-archive.com</A>.
 			<UL>
 				<LI><A HREF="#whatis">What is PDF?</A>
-				<LI><A HREF="#lgpl">What is MPL / LGPL?</A>
 				<LI><A HREF="#adobe">Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</A>
-				<li><a href="#ftp">I have troubles downloading the source/jarfile from the ftp-site.</A>
+				<LI><A HREF="#free">Is iText really free?</A>
+				<LI><A HREF="#lgpl">What is MPL / LGPL?</A>
+				<LI><A HREF="#mail">Why didn't I get an answer to my mail?</A>
+				<LI><A HREF="#mailinglist">How do I join/leave the mailing list?</A>
+				<LI><A HREF="#donate">How can I donate money?</A>
+            </UL>
+            <UL>
 				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
@@ -95,7 +100,86 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="lgpl"><B>What is MPL / LPGL?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="adobe"><B>Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			ADOBE owns the copyright for the PDF specifications, that is true.
+            However, using iText to produce documents in PDF is completely legal.<br><br>
+			Please read the PDF Reference 1.4 section 1.4. I quote:<br>
+			<blockquote>
+			Adobe desires to promote the use of the Portable Document Format
+            for information interchange among diverse products and applications.
+            Accordingly, Adobe gives anyone copyright permission, subject to
+            the conditions stated below, to: 
+			<UL>
+			<LI>Prepare files whose content conforms to the Portable Document Format 
+			<LI>Write drivers and applications that produce output represented in the 
+			    Portable Document Format 
+			<LI>Write software that accepts input in the form of the Portable Document 
+			    Format and displays, prints, or otherwise interprets the contents 
+			<LI>Copy Adobe’s copyrighted list of data structures and operators, as well 
+			    as the example code and PostScript language function definitions in 
+			    the written specification, to the extent necessary to use the Portable 
+			    Document Format for the purposes above 
+			</UL>
+			The conditions of such copyright permission are: 
+			<UL>
+  	 		<LI>Software that accepts input in the form of the Portable Document Format 
+    			must respect the access permissions specified in that document.
+    			Accessing the document in ways not permitted by the document’s access
+			    permissions is a violation of the document author’s copyright. 
+  			<LI>Anyone who uses the copyrighted list of data structures and operators, 
+			    as stated above, must include an appropriate copyright notice.
+			</UL>
+			</blockquote>
+			Because decrypting an encrypted PDF-file is not possible with iText
+			(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/">Adobe</a>
+			and to the PDF Reference Manual everytime some explanation is given about
+			the data structure, iText is allowed to prepare files whose content conforms
+			to the Portable Document Format.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="free"><B>Is iText really free?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            iText is free in the sense that you don't have to pay money to
+            download the product (no purchase price), nor to use it (no license fee).
+            However, this doesn't mean you can do anything you want with iText.
+            If you use iText, you agree with either the Mozilla Public License (with
+            LGPL as alternative license) or the Library General Public License (without MPL).
+            You can read more about these licenses in the <a href="#lgpl">next question</A>.
+            These licenses are used mainly to protect the developers against claims from users
+            and to protect the product against abuse. It wouldn't be fair if someone would
+            try to get profit from iText on the back of us, 'benevolent developers' ;-)<br>
+            If you work for a large company and using iText has saved your company
+            lots of time and money, you can support the developers in several ways:<br>
+            <UL>
+            <LI>First of all: let us know. Those little mails we get, is it from
+                a student who has used iText in a school project, or from a large
+                company who has used iText in a complex application, those mails
+                are always welcome. We really appreciate them.
+            <LI>You can contribute code to ameliorate the library. This doesn't mean
+                you have to send us your whole application (see the <A HREF="#lgpl">license question</A>),
+                but any code that adds value to the library is welcomed.
+            <LI>You can share your expertise with other iText users by answering
+                questions on the mailing list. You can save other people lots of time.
+            <LI>You can promote the use of iText by posting it to search engines,
+                putting a link on your site, recommending it to other people on
+                mailing lists and user forums, write articles about it in magazines,...
+            <LI>If iText really, really saved your company time and money, you can
+                ask your company to <A HREF="#donate">donate money</A> to the original developer
+                (Bruno Lowagie) and the co-developer (Paulo Soares).
+            </UL>
+            For the moment there is no possibility to purchase a support contract.
+            Support is given only on a voluntary basis through the
+            <A HREF="#mailinglist">mailinglist</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="lgpl"><B>What is MPL / LGPL?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			First of all: LGPL IS NOT GPL!<br>
 			If you work for a commercial company and you download a program that is published with a GPL,
@@ -131,54 +215,71 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="adobe"><B>Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="mail"><B>Why didn't I get an answer to my mail?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			ADOBE owns the copyright for the PDF specifications. That is true, but
-            using iText to produce documents in PDF is completely legal.<br><br>
-			Please read the PDF Reference 1.4 section 1.4. I quote:<br>
-			<blockquote>
-			However, Adobe desires to promote the use of the Portable 
-			Document Format for information interchange among diverse 
-			products and applications. Accordingly, Adobe gives anyone 
-			copyright permission, subject to the conditions stated below, to: 
-			<UL>
-			<LI>Prepare files whose content conforms to the Portable Document Format 
-			<LI>Write drivers and applications that produce output represented in the 
-			    Portable Document Format 
-			<LI>Write software that accepts input in the form of the Portable Document 
-			    Format and displays, prints, or otherwise interprets the contents 
-			<LI>Copy Adobe’s copyrighted list of data structures and operators, as well 
-			    as the example code and PostScript language function definitions in 
-			    the written specification, to the extent necessary to use the Portable 
-			    Document Format for the purposes above 
-			</UL>
-			The conditions of such copyright permission are: 
-			<UL>
-  	 		<LI>Software that accepts input in the form of the Portable Document Format 
-    			must respect the access permissions specified in that document.
-    			Accessing the document in ways not permitted by the document’s access
-			    permissions is a violation of the document author’s copyright. 
-  			<LI>Anyone who uses the copyrighted list of data structures and operators, 
-			    as stated above, must include an appropriate copyright notice.
-			</UL>
-			</blockquote>
-			Because decrypting an encrypted PDF-file is not possible with iText
-			(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/">Adobe</a>
-			and to the PDF Reference Manual everytime some explanation is given about
-			the data structure, iText is allowed to prepare files whose content conforms
-			to the Portable Document Format.
-			</FONT><BR><BR>
+            First of all, it is better not to send mails to any other address than
+            <A HREF="mail:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A>.
+            This is the mailing list address, please <A HREF="#mailinglist">join</A> this list first.
+            If you send mails to the developers (Bruno Lowagie and/or Paulo Soares),
+            one of us can be on vacation, thus unable to give you a quick reply. Also your mail can get
+            lost (I delete lots of mails without even reading them; surprised? Well, you probably don't
+            receive as many mail as I do). If you post a question to the mailing list, your mail is
+            archived and if you don't get answered, you can always refer to it later on.<BR>
+            Almost all questions on the mailing list are answered, but there are limits.
+            If we get the feeling that you are expecting us to do your school project in your
+            place, or even worse, if you want to do us your work in your place for free,
+            you will get 'NO' for an answer. This is only normal. We've got our own jobs too.<br>
+            If you really need to say something to one of the developers personally and you don't
+            want it to be published on the net, please send a mail to <A HREF="itext@lowagie.com">itext@lowagie.com</A>.
+            This is a forward address, it forwards your mail to Bruno's personal address and / or
+            Paulo's address. Sometimes this address will be linked to an auto-responder giving you
+            more information of our whereabouts.<br>
+			</FONT><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="ftp"><B>I have troubles downloading the source/jarfile from the ftp-site.</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="mailinglist"><B>How do I join/leave the mailing list?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Maybe you're behind a Firewall or IP-masquerading setup.
-			In this case, you have to change your FTP-settings into 'passive mode'.
-			You can do this by typing 'passive' before you perform a 'get' or by
-			checking the option 'passive' if you use some GUI-program to FTP.
-			</FONT><BR><BR>
+            If you are not subscibed and you post a question to:
+            <A HREF="mail:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A>,
+            you get an automated reply that you aren't subscribed. This means that your question
+            will be put on hold until one of the mailing list administrators has reviewed your mail.
+            Your mail can be approved (thus sent to the other mailing list users) or rejected
+            (if you are sending duplicate mails, spam, off-topic questions,...). This can take a
+            while, so maybe you want to subscribe.<br>
+            All the information you need to subscribe to this mailing list,
+            can be found at the following address:
+            <A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">http://lists.sourceforge.net/mailman/listinfo/itext-questions</A>.
+            If you <B>scroll to the bottom of this page</B>, you can also find the information to <B>unsubscribe</B>.<br>
+            Before you post a question, it's probably not a bad idea to take a look at the mailinglist achives:
+            <UL>
+            <LI><A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">mail-archive</A> (Searchable!)
+            <LI><A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">GeoCrawler</A>
+            <LI><A HREF="http://sourceforge.net/mailarchive/forum.php?forum_id=3273">SourceForge</A>
+            </UL>
+			</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="donate"><B>How can I donate money?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            It's very unusual to pay for something that is free, but it happens.
+            I have to pay my webserver hosting bills, I buy books about Java and PDF,
+            Paulo and I spend time at home to write code, write tutorials, solve problems,...
+            We do this on a voluntary basis, but sometimes it's nice to receive a little
+            bonus to cover the costs. (Or in my case: also to make up for the time I spend
+            on iText to my wife and children ;-)<br>
+            That's why you (or more likely: your company) may want to donate some
+            money to us. If so, send a mail to <A HREF="mailto:donate@lowagie.com">donate@lowagie.com</A>
+            and you will receive, my personal address, the name, address and SWIFT code of my bank and
+            my account number. Please specify the amount of money you are willing to donate.<br>
+            Again: this is not an obligation. This suggestion is not aimed at you as an individual,
+            only at the company you work for, a company that may be making big profits because
+            you chose to work with iText instead of another product. (Personally I would ask
+            for a raise first ;-)
+			</FONT><BR><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
