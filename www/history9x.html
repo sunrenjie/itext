@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<!-- $Header$ -->
+	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
+</HEAD>
+
+<BODY>
+
+<A NAME="top"></A>
+
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
+<TR>
+	<TD>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
+	<TR>
+		<TD COLSPAN="2" CLASS="innerborder">
+			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
+		</TD>
+		<TD CLASS="outerborder">
+			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</TD>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="faq.html" CLASS="lightsmall">FAQ</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmallbold">[History]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">MailArch1</A> <A CLASS="lightsmall" HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">MailArch2</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/bugs/?group_id=15255">Bugs</A>]</SPAN></TD>
+		<TD WIDTH="20%" CLASS="innerborder"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" Class="content">
+		<BR><div class="title"><A NAME="VERSION098">iText0.98</A> (based on paulo's version 113)</div>
+        <div class="text"><UL>
+        <LI>added a new arabic shaper with farsi support.
+        <LI>FdfWriter will also output the fields from a PdfReader and AcroFields.
+        <LI>fixed PdfAcroForm for a problem when creating text fields. The /DA key was being generated incorrectly.
+        <LI>added a file attachment annotation.
+        <LI>the subtype for the ink annotation was wrong.
+        <LI>modified toPdf() method to write directly to the stream. OutputStreamCounter was created to aid.
+        <LI>added ModDate to the info dictionary.
+        <LI>added methods in PdfPTable to set absolute column widths.
+        <LI>added PdfReader.getMetadata() to get the XML metadata.
+        <LI>speed improvement in PdfReader.
+        <LI>fixed a bug in PdfStamperImp when stamping or flattening and the original page content didn't end in an whitespace.
+        <LI>added the ability to manipulate directly the catalog and the info dictionary in PdfWriter. Other methods where made public for ease of access to low level features.
+        <li>Changes to RtfPageNumber by Mark Hall
+        <li>some fixes by Finn Bock, for instance: solving the problem of JDK1.4 compilation and 1.3 use.
+        </UL></div>
+
+		<div class="title"><A NAME="VERSION097">iText0.97</A> (based on paulo's version 107 - 108 - 109 - 110 - 111 - 112)</div>
+        <div class="text"><UL>
+		<LI>paulo 112<UL>
+		    <LI>fixed a race condition in TrueTypeFont.java. The same file was used by all the threads instead of a new instance. Thanks to William Pennoyer for reporting the bug.
+            </UL>
+        <LI>paulo 111<UL>
+	        <LI>fixed a bug in AcroFields that prevented form flattening to work with fields with no appearances.
+            <LI>added FdfWriter to create FDF forms.
+            <LI>fixed PdfName to work with any characters.
+            <LI>changed Color.WHITE to Color.white to compile in jdk 1.3.
+            <LI>added rectangular print to PdfPTable. Useful to manage wide tables.
+            <LI>the fdfmerge and field_merge examples were changed to support writing to the console.
+            <li>the constant Font.TIMES_NEW_ROMAN was eliminated and replaced by Font.TIMES_ROMAN to match the actual font used. The result is a compile error easily correctable. Compiled libraries depending on iText wont't change the behavior because the number is the same.
+            <LI>the alignment constants in PdfContentByte were changed to match the constants in Element. This breaks compiled libraries as the number has changed. A recompile is needed. 
+            </UL>
+        <LI>paulo 110<UL>
+	        <LI>Added support for form filling, form flattening and FDF merging.
+            <LI>fixed FontFactory to recognize fonts where the family is not a substring of the full name.
+            <LI>added ColumnText.getLinesWritten().
+            </UL>
+        <LI>paulo 109<UL>
+	        <LI>fixed FontFactory to avoid simulating styles if a real font with the style was found.
+            <LI>fixed PdfAppearance to have the same font names as Acrobat for text fields.
+            <LI>fixed a bug introduced in the last version where the top and bottom cell borders were swapped.
+            <LI>fixed PdfCopy to avoid leaving files opened.
+            <LI>fixed PdfCopy to interpret correctly some objects when copying.
+            <LI>when adding annotations the page content for the current page will be generated. For other pages PdfWriter.setPageEmpty() was added to force a page output.
+            <LI>much better support for reading GIFs without AWT, including transparency. Contribution by Tim Bruylants.
+            <LI>fixed a bug in PdfWriter that prevented the fields to be added with PdfCopy, only the widget annotations were being added.
+            <LI>embedding font restrictions for TrueType are honored.
+            <LI>added TextField to create text, list and combo fields with all the options that the Acrobat GUI provides. All the borders, appearances, etc, are correctly generated including the standard and external fonts.
+            </UL>
+        <LI>paulo 108<UL>
+            <LI>added class PdfStamper to add content to an existing pdf while preserving all the interactive attributes.
+            <LI>added simplified signature fields. Contribution by Finn Bock.
+            <LI>fixed negative page rotation in PdfReader.
+            <LI>the encoding in PdfString is automatically selected between Unicode and PdfDocEncoding.
+            <LI>added PdfPCellEvent to simplify cell customization.
+            <LI>fixed copying with WMF based images.
+            <LI>structure reorganization in PdfDocument and PdfWriter.
+            <LI>added new cmaps for extended CJK encodings like HK CSC. You'll need iTextAsianCmaps.jar. See ftp://ftp.oreilly.com/pub/examples/nutshell/cjkv/adobe/ for more details.
+            <LI>removed extra moveTo in PdfAcroForm.
+            <LI>fixed a missing break in PdfAction.
+            <LI>inverted the rectangle coordinates in several places to avoid negative dimensions.
+            <LI>fixed a problem with thick lines in Table.
+            <LI>Element.HEADER was changed to cast to Meta in PdfDocument.
+            <LI>fixed a wrong indentation in header/footer. Contribution by Edgar Perilla.
+            <LI>added support for AttributedCharacterIterator in PdfGraphics2D. Contribution by Jurij Bilas.
+            </UL>
+        <LI>paulo 107<UL>
+	        <LI>PdfGraphics2D now implements strokes as strokes instead as converted fills. File size is a lot smaller and it looks better on screen.
+            <LI>BaseFont and PdfReader read fonts and PDFs from resources if not found in the file system.
+            <LI>Images can auto-size in PdfPTable.
+            <LI>added new options in Chunk to simulate bold, italic and other effects. Styles BOLD and ITALIC will work correctly in Font with BaseFont producing simulated effects.
+            <LI>CID and hyphenation are restored in ColumnText.
+            <LI>minor fix in the GIF table size. In the next version I intend to get some JAI codecs integrated with iText to support natively all GIF and PNG (and maybe BMP).
+            <LI>fix in FontFactory for the embedded property and for TTC indexing.
+            <LI>fixed bug with single cell nested Table.
+            <LI>Unicode support for field names.
+            <LI>added the capability to change the info dictionary in PdfEncryptor. The command line program encrypt_pdf.java was also changed.
+            <LI>outlines are not generated in Chapter and Section if the title is empty.
+            <LI>added PdfWriter.setStrictImageSequence() to force images and text to appear in the order they were added to the document.
+            <LI>added BarcodePDF417 for the generation of the 2D barcode PDF417.
+            <LI>fixed PdfReader to work with /Encrypted key equal to 'null'. The document was being recognized as encrypted when it was not.
+            </UL>
+        <LI>Several updates to the RTF part of the library by <B>Mark Hall</B>.
+        </UL></div>
+
+		<div class="title"><A NAME="VERSION096">iText0.96</A> (based on paulo's version 104 - 105 - 106)</div>
+        <div class="text"><UL>
+        <LI>paulo 106<UL>
+	        <LI>added row grouping in Table. Contribution by <B>Gerald Fehringer</B>.
+	        <LI>added support for the barcode CODABAR.
+            <LI>fixed a bug in ColumnText where the chunk backgroung color was on top of the text.
+            <LI>fixed a bug and added some changes in PdfContentByte.escapeString().
+            <LI>Document.addHeader() inserts arbitrary keys in the info dictionary.
+            <LI>fixed a bug in PdfPTable where a nested table didn't align vertically.
+            <LI>added support to concatenate and split pdf documents including fields and annotations. Contribution by <B>Leonard Rosenthol</B>.
+            <LI>added DocWriter.setCloseStream() to have the option of not closing the output stream on document close.
+            </UL>
+        <LI>paulo 105<UL>
+	        <LI>added xref rebuild capabilities to PdfReader. Slightly damaged PDFs will now read successfully. The rebuild strategy is the same as xpdf. A new method PdfReader.isRebuilt() was introduced to check if the document had to be fixed.
+            </UL>
+        <LI>paulo 104<UL>
+	        <LI>added kerning support in PdfContentByte.
+	        <LI>fixed a bug in ColumnText when a Chunk had an empty string.
+            <LI>added additional actions in page objects.
+            <LI>fixed a bug in PdfGraphics2D when using create() and templates.
+            <LI>added support for colors and styles in outlines.
+            <LI>fixed a bug in imported pages when matrix was different than identity.
+            <LI>added support to free the memory used by PdfReader in PdfWriter.
+            </UL>
+        <LI>Several updates to the RTF part of the library by <B>Mark Hall</B>.
+        </UL></div>
+
+		<div class="title"><A NAME="VERSION095">iText0.95 (based on paulo's version 103)</A></div>
+        <div class="text"><UL>
+		<LI>added bidirectional support in ColumnText and PdfPTable for arabic and hebrew. Even with plain text the line splitting is improved. Hyphenation and CID addressed CJK fonts support were temporarily removed. (Paulo)
+        <LI>added support for ICC color profiles in images. Contribution by Phillip Pan.
+        <LI>added javascript support for html. Contribution by Joachim Eyrich.
+        <LI>fixed a bug in Graphic.drawBorder(). (Paulo)
+        <LI>imported pdf documents are closed even if an exception is thrown. (Paulo)
+        <LI>fixed a bug in CCITTG4Encoder. Some bit sequences threw an exception. (Paulo)
+        <LI>cjkfonts.properties and cjkencodings.properties are now together with the afm. (Paulo)
+        <LI>added transition support for pdf. Contribution by Josselin PUJO.
+        <LI>fixed the missing bookmarks in jdk 1.2. (Paulo)
+        <LI>improved suport for WMF (Paulo)
+        <LI>Borders of Table are drawn last so that Cell-backgrounds don't cover them anymore (Gerald Fehringer)
+        <LI>Some RTF improvements by Mark Hall
+        <LI>Added an encryption tool (Paulo)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION094">iText0.94 (based on paulo's version 102)</A></div>
+        <div class="text"><UL>
+        <LI>fixed a problem with multiple repeated images in Table
+        <LI>fixed the kerning in TrueTypeFont.java
+        <LI>PdfContentByte.showText(PdfTextArray text) was made public
+        <LI>added PdfContentByte.createGraphicsShapes(). Instead of using pdf fonts, only the shapes are used. The advantage is that the alignment is more precise and all Graphics2D text is allowed including arabic and hebrew. The disavantage is that the text is not searchable and the fonts look like type3 fonts (remember old tex->dvips->gs?)
+        <LI>more consistent setPageSize() in pdf.
+        <LI>added PdfWriter.setSpaceCharRatio(). Sets the ratio between the extra word spacing and the extra character spacing when the text is fully justified. This is also extended to ColumnText and PdfPCell for finer control
+        <LI>Some RTF bugfixes by Scott Dietrich
+        <LI>Small update by Marcelo Vanzin in the package com.lowagie.servlets
+        <LI>Some small changes to the XML package
+        <LI>Asian fonts are in a separate jar now. The AFM fonts are in the src as well as in the jar.
+        </UL></div>
+
+		<BR><div class="title"><A NAME="VERSION093">iText0.93 (based on paulo's versions 97, 98, 99, 100 and 101)</A></div>
+        <div class="text"><UL>
+		<LI>Remark: iText0.93b fixes some problems with fonts: some of the fontfiles in 0.93 were corrupt.
+		<LI>Paulo 101:<UL>
+		    <LI>fixed a bug in PdfReader.getCropBox(). It was returning the media box instead of the crop box
+		    <LI>added page and outline reordering. Mainly of interest to generate TOC in a single pass
+		    <LI>deprecated PdfContentByte.addOutline(PdfOutline outline). The outlines are extracted from the root outline. It's no longer needed to call this method
+		    <LI>changed the behavior for the margins in PDF. Margins now work as the page size: are only active in the next page. Will break some code but it didn't work as it was, anyway
+		    </UL>
+	    <LI>Paulo 100:<UL>
+	        <LI>Added PdfEncryptor to encrypt any PDf document. All the content, links, outlines, etc, are also encrypted and output
+	        <LI>added support for OTF fonts with the CFF table
+		    </UL>
+    	<LI>Paulo 99:<UL>
+	        <LI>fixed a bug with \r\n in chunks
+	        <LI>added PIE, ARC and CHORD to WMF
+	        <LI>font reorganization
+	        <LI>CJK fonts can be accessed by CID
+	        <LI>PdfPCell supports rightIndent and followingIndent for independent alignment within the cell
+	        <LI>added class VerticalText for enhanced support for vertical text. Annotation support is not there yet. I would appreciate some feedback from CJK users for ways to improve the vertical layouting
+            <LI>DefaultFontMapper reads a font directory 7 times faster
+		    </UL>
+		<LI>Paulo 98:<UL>
+		    <LI>added PdfWriter.setAdditionalAction() to support additional-actions in the catalogue. This is a PDF1.4 only feature.
+		    <LI>added PdfReader.getInfo() to get the metadata information from a PDF document.
+		    <LI>no-wrap in PdfPCell now works correctly for all the horizontal alignments.
+		    <LI>minor fix in HyphenationAuto.getHyphenatedWordPre() to optimize the available word space.
+		    <LI>new supplements in CJKFont to support the new characters in PDF1.4. It's still compatible with PDF1.3.
+		    </UL>
+		<LI>Paulo 97:<UL>
+			<LI>several changes in the internal pdf structure to allow more low level access.
+			<LI>supported full PDFDocEncoding in strings (the Euro will show up).
+			<LI>several changes in the form fields to allow strings in Unicode and PDFDocEncoding
+			<LI>added shading patterns. Supported type 1, 2, and 3. Types 2 and 3 have duplicated simpler contructors for the case of linear gradients.
+			<LI>added support for java.awt.GradientPaint in PdfGraphics2D
+			<LI>documents with no text do not generate anymore the empty sequence BT-ET. Some postscript printers had problems with it.
+			<LI>added the method Document.getVersion() to get the current iText version string.
+			</UL>
+	    <LI>Others:<UL>
+			<LI>Some updates to the RTF part by Mark Hall
+			<LI>XML: MOVED FROM SAX TO SAX2 and from XERCES TO JAXP: THIS BREAKS EXISTING XML FUNCTIONALITY
+			<LI>Added several small code contributions
+            </UL>
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION092">iText0.92</A></div>
+        <div class="text"><UL>
+		<LI>Added lots of AcroForm methods (Bruno)
+		<LI>J2EE Filter contributed by Marcelo Vanzin (only in the srcXML, not in the jar: com.lowagie.servlets)
+		<LI>Added support for Radio Buttons on different pages (Paulo)
+		<LI>Fixed some PdfGraphics2D bugs (Paulo)
+		<LI>Fixed a PdfReader problem in PRTokeniser (Paulo)
+		<LI>Fixed several Font(Factory) problems (Bruno)
+		<LI>Fixed a bug concerning X/HTML parsing and styles (Bruno)
+		<LI>Fixed the Image in Table problem (Bruno)
+		<LI>Fixed a Table bug reported by Jennifer Prohaska (Bruno)
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION091">iText0.91</A> (based on paulo's versions 95 and 96 + updates by Mark Hall, David Teran, Jim Moore, Jeremy Bowman, Kevin Galligan and Bruno Lowagie)</div>
+        <div class="text"><UL>
+		<LI>added PdfGraphics2D, a Graphics2D canvas to write to PDF. Main contribution by Jim Moore with several bits from Jeremy Bowman and Kevin Galligan
+		<LI>Added automatic hyphenation to Chunk. It uses the FOP engine and the TEX patterns. I provide a jar with some compiled patterns. Other patterns can be compiled and included in a jar or read directly from a directory. To compile the patterns you'll need xerces but not to use them.
+		<LI>the pdf version can be changed with PdfWriter.setPdfVersion(). This only alters the number, it doesn't check if the objects inside are valid for the version.
+		<LI>added ColumnText.setFollowingIndent() and ColumnText.setRightIndent().
+		<LI>true-type fonts with encoding Identity-H now align-justify correctly.
+		<LI>changed some encoding names to work with Microsoft's jview.
+		<LI>added PdfPTable.setSkipFirstHeader(). Optimizes the printing of large tables by breaking them into several smaller ones. Contribution by Christian Lauer.
+		<LI>some RTF updates by Mark Hall
+		<LI>Some performance optimizations in ByteBuffer.formatDouble() by David Teran
+		<LI>optimizations in BaseFont for the encoding Cp1252
+		<LI>PdfReader is made less strict (fixed some FlateDecode problems)
+		<LI>background color in Chunks and generic annotations
+		<LI>several other optimizations
+		</UL></div>
+
+		<div class="title"><A NAME="VERSION090">iText0.90</A> (based on paulo's versions 93 and 94 + updates by Mark Hall, Philip Pan and Bruno Lowagie)</div>
+        <div class="text"><UL>
+		<LI>Added form fields (still undocumented)
+		<LI>Added new Action types
+		<LI>Added new annotation types. Annotations can be placed at precise positions in the page.
+		<LI>Outlines can be inserted in any order
+		<LI>Images in Chunk support for RTF
+		<LI>Fixed JPEG CMYK images problem
+		<LI>Added BaseFont.getFamilyFontName() and Font.getFamilyname()
+		<LI>corrected a bug in Barcode39 where the 'A' was the same as the '9'
+		<LI>Fixed the extra blank page when onStartPage is used partly
+		</UL></div>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5"><span class="lightsmall">[<A HREF="history.html" class="lightsmall">History Overview</A>]</span></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
+		</TD>
+		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
+		</TD>
+	</TR>
+	</TABLE>
+	</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
