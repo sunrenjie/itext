@@ -147,22 +147,12 @@
             leading remains valid. You can change the leading with method <FONT FACE="Courier">setLeading</FONT>, but
             then the whole content of the paragraph will have this new leading.<br>
             You may want to try <a href="../examples/Chap0205.java">example 5</A> to obtain the following <A HREF="../examples/Chap0205.pdf">result</A>.
-			</FONT><BR><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="splitcharacter"><B>Changing the split character</B></A></FONT><BR>
+	        <BR><A NAME="splitcharacter"><B>Keeping a paragraph together</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-            Normally when some text doesn't fit on a line, the text is split into different parts.
-			First iText looks for a split character. If no splitcharacter is found, the text is cut
-			at the end of the line.<br>
-			There are some predefined splitcharacters such as ' ' (space) and '-' (hyphen), but you
-			can override these defaults by using the method <FONT FACE="Courier">setSplitCharacter</FONT>.<br>
-			In <a href="../examples/Chap0206.java">example 6</A> (<a href="../examples/Chap0206.pdf">Chap0206.pdf</A>) you can see how
-			a chunk is first split when the end of the line is reached. Then the splitcharacter is changed
-			to a '.' (dot) and the line is split at the position of this character.
+			In <a href="../examples/Chap0206.java">example 6</A> (<a href="../examples/Chap0206.pdf">Chap0206.pdf</A>)
+			we use the method setKeepTogether(true) in order to try to keep a paragraph on one page. This isn't
+			always possible. For instance: the first paragraph just doesn't fit on one page, so it is split in two.
+			The second one fits on the second page, but the third is deferred to the third page.
 			</FONT><BR><BR>
 		</TD>
 	</TR>	
@@ -223,21 +213,36 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="splitcharacter"><B>Changing the split character</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Normally when some text doesn't fit on a line, the text is split into different parts.
+			First iText looks for a split character. If no splitcharacter is found, the text is cut
+			at the end of the line.<br>
+			There are some predefined splitcharacters such as ' ' (space) and '-' (hyphen), but you
+			can override these defaults by using the method <FONT FACE="Courier">setSplitCharacter</FONT>.<br>
+			In <a href="../examples/Chap0208.java">example 8</A> (<a href="../examples/Chap0208.pdf">Chap0208.pdf</A>) you can see how
+			a chunk is first split when the end of the line is reached. Then the splitcharacter is changed
+			to a '.' (dot) and the line is split at the position of this character.
+			</FONT><BR><BR>
+		</TD>
+	</TR>	
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<A NAME="generictag"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Some advanced stuff</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Because 'simple iText' is so easy to use, the previous sections were pretty trivial.
-            With <a href="../examples/Chap0208.java">example 8</A>, I want to spice up this chapter a little
+            With <a href="../examples/Chap0209.java">example 9</A>, I want to spice up this chapter a little
             bit and demonstrate one of the many nice features of 'advanced PDF'.<br>
             In <a href="ch12.html">Chapter 12</A>, we will discuss PageEvents. One of these events
             is called <FONT FACE="Courier">onGenericTag</FONT>. This event can be triggered by
             invoking the method <FONT FACE="Courier">setGenericTag</FONT> on a chunk. This feature
-            can be used for a wide variety of functionalities. In <A HREF="../examples/Chap0208.java">example 8</A>,
+            can be used for a wide variety of functionalities. In <A HREF="../examples/Chap0209.java">example 9</A>,
             we want to build a simple glossary. When we add a certain keyword to the document, we
             trigger an event that adds this keyword and the pagenumber of the page where
             the keyword is written to a TreeMap. Once we have finished adding content, we retrieve
             the TreeMap and add a glossary to the document. Please take a look at the
-            <A HREF="../examples/Chap0208.pdf">resulting pdf</A>. We will use this feature in other context
+            <A HREF="../examples/Chap0209.pdf">resulting pdf</A>. We will use this feature in other context
             later on in this tutorial.
 			</FONT><BR><BR><BR>
 		</TD>
