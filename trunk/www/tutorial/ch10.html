@@ -79,7 +79,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphics"><B>Graphics</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-            In <A HREF="http://www.lowagie.com/iText/examples/Chap1001.java">example 1</A>, some simple graphics are drawn.
+            In <A HREF="../examples/Chap1001.java">example 1</A>, some simple graphics are drawn.
             We use methods such as <FONT FACE="Courier">moveTo</FONT> and <FONT FACE="Courier">lineTo</FONT>
             to move to a certain position on the page and draw a line to another position.
             We use methods such as <FONT FACE="Courier">setLineWith</FONT> and
@@ -105,7 +105,7 @@
 				</TD>
 				</TR>
 			</TABLE><BR>
-            As you can see in the <A HREF="http://www.lowagie.com/iText/examples/Chap1001.pdf">resulting PDF</A> some other
+            As you can see in the <A HREF="../examples/Chap1001.pdf">resulting PDF</A> some other
             methods such as <FONT FACE="Courier">rectangle</FONT> and <FONT FACE="Courier">circle</FONT>
             are used. Please consult the welldocumented <a href="http://itext.sourceforge.net/docs/com/lowagie/text/pdf/PdfContentByte.html">API of class
             PdfContentByte</A> and the PDF Reference manual for more info.
@@ -139,7 +139,7 @@
             cb.showText("Text at position 100,400.");<BR>
             cb.endText();
             </FONT><BR>
-            Please take a look at <a href="http://www.lowagie.com/iText/examples/Chap1002.java">example 2</A> and its <A HREF="http://www.lowagie.com/iText/examples/Chap1002.pdf">resulting PDF</A>.
+            Please take a look at <a href="../examples/Chap1002.java">example 2</A> and its <A HREF="../examples/Chap1002.pdf">resulting PDF</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -187,7 +187,7 @@
             // scale the template to 200%<br>
             cb.addTemplate(template, 2, 0, 0, 2, -200, 400);
             </FONT><BR>
-            This is demonstrated in <a href="http://www.lowagie.com/iText/examples/Chap1003.java">example 3</A> (see <A HREF="http://www.lowagie.com/iText/examples/Chap1003.pdf">Chap1003.pdf</A>).
+            This is demonstrated in <a href="../examples/Chap1003.java">example 3</A> (see <A HREF="../examples/Chap1003.pdf">Chap1003.pdf</A>).
             <BR><BR>
             <B><A NAME="pageXofY">Page x of y</A></B><BR>
             In some cases, you may want to add information that is not available yet at the moment
@@ -198,8 +198,8 @@
             added the template to the contentbyte. This is not necessary. We can add information to
             a template at any moment because iText adds the form XObjects at the end of the PDF file
             (when the <FONT FACE="Courier">close</FONT>-method of the document is called).<BR>
-            <A HREF="http://www.lowagie.com/iText/examples/Chap1004.java">Example 4</A> shows how 4 pages are created first and how the
-            total number of pages is added afterwards (<A HREF="http://www.lowagie.com/iText/examples/Chap1004.pdf">Chap1004</A>). This
+            <A HREF="../examples/Chap1004.java">Example 4</A> shows how 4 pages are created first and how the
+            total number of pages is added afterwards (<A HREF="../examples/Chap1004.pdf">Chap1004</A>). This
             example is very simple and not very useful rightnow, but in <A HREF="ch12.html">Chapter 12</A>,
             we will refine this example.
             </FONT><BR><BR>
@@ -225,7 +225,7 @@
             ct.setSimpleColumn(phrase, 60, 300, 100, 500, 15, Element.ALIGN_CENTER);<BR>
             ct.go();
             </FONT><BR>
-            If you take a look at <A HREF="http://www.lowagie.com/iText/examples/Chap1005.java">example 5</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1005.pdf">Chap1005.pdf</A>),
+            If you take a look at <A HREF="../examples/Chap1005.java">example 5</A> (<A HREF="../examples/Chap1005.pdf">Chap1005.pdf</A>),
             you immediately notice that this functionality can be used to draw some complex tables without
             using the <FONT FACE="Courier">Table</FONT>-object.<BR>
             <BR>
@@ -241,8 +241,8 @@
             ct.addText(phrase3);<BR>
             ct.go();
             </FONT><BR>
-            This is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap1006.java">example 6</A>; the
-            <A HREF="http://www.lowagie.com/iText/examples/Chap1006.pdf">resulting PDF</A> of this example is identical
+            This is demonstrated in <A HREF="../examples/Chap1006.java">example 6</A>; the
+            <A HREF="../examples/Chap1006.pdf">resulting PDF</A> of this example is identical
             to the result of example 5.<BR>
             <BR>
             <B><A NAME="multiple">Multiple columns</A></B><BR>
@@ -253,8 +253,8 @@
             If this return value has the flag '<FONT FACE="Courier">NO_MORE_COLUMN</FONT>' turned
             on, there wasn't enough room for the text in the column. If all the text was shown,
             the flag '<FONT FACE="Courier">NO_MORE_TEXT</FONT>' is on.<BR>
-            Please take a close look at <A HREF="http://www.lowagie.com/iText/examples/Chap1007.java">example 7</A> and see how we
-            obtain a result like <A HREF="http://www.lowagie.com/iText/examples/Chap1007.pdf">this</A>.<BR><BR>
+            Please take a close look at <A HREF="../examples/Chap1007.java">example 7</A> and see how we
+            obtain a result like <A HREF="../examples/Chap1007.pdf">this</A>.<BR><BR>
             <B><A NAME="irregular">Irregular columns</A></B><BR>
             It is also possible to define an non rectangular area with to visualize
             columns. With the method <FONT FACE="Courier">setColumns</FONT>, we can
@@ -266,7 +266,7 @@
             </FONT><BR>
             The left border is a straight line, but the right border is irregular.
             The effect of this functionality can lead to very nice layouts:
-            see <A HREF="http://www.lowagie.com/iText/examples/Chap1008.pdf">Chap1008.pdf</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap1008.java">code</A>
+            see <A HREF="../examples/Chap1008.pdf">Chap1008.pdf</A> and the <A HREF="../examples/Chap1008.java">code</A>
             that was used to generate this example.
 			</FONT><BR><br>
 		</TD>
@@ -303,15 +303,15 @@
 			The parameter rowStart is the number of the row you want to start with, rowEnd is the last row
 			you want to show (if you want to show all the rows, use -1). xPos and yPos are the coordinates
 			of the table and canvas is the <FONT FACE="Courier">PdfContentByte</FONT>-object.<br>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap1009.java">example 9</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1009.pdf">Chap1009</A>), we add a simple table
+			In <A HREF="../examples/Chap1009.java">example 9</A> (<A HREF="../examples/Chap1009.pdf">Chap1009</A>), we add a simple table
 			at position (100, 600):<br><br>
 			<FONT FACE="Courier">
 			table.writeSelectedRows(0, -1, 100, 600, writer.getDirectContent());
 			</FONT><br><br>
 			With PdfPTables, you can't set a rowspan and/or colspan. You can work around this by using nested tables. See
-			<A HREF="http://www.lowagie.com/iText/examples/Chap1010.java">example 10</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1010.pdf">Chap1010.pdf</A>).<br><br>
-			Finally <A HREF="http://www.lowagie.com/iText/examples/Chap1011.java">example 11</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1012.java">example 12</A>
-			show you how <FONT FACE="Courier">PdfPTable</FONT> can be used in combination with templates and columns (<A HREF="http://www.lowagie.com/iText/examples/Chap1011.pdf">Chap1011.pdf</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1012.pdf">Chap1012.pdf</A>).
+			<A HREF="../examples/Chap1010.java">example 10</A> (<A HREF="../examples/Chap1010.pdf">Chap1010.pdf</A>).<br><br>
+			Finally <A HREF="../examples/Chap1011.java">example 11</A> and <A HREF="../examples/Chap1012.java">example 12</A>
+			show you how <FONT FACE="Courier">PdfPTable</FONT> can be used in combination with templates and columns (<A HREF="../examples/Chap1011.pdf">Chap1011.pdf</A> and <A HREF="../examples/Chap1012.pdf">Chap1012.pdf</A>).
 			</FONT><BR><br>
 		</TD>
 	</TR>
@@ -319,8 +319,8 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="pantones"><B>Pantones</B></A> (by Phillip Pan)</FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			The use of pantones is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap1013.java">example 13</A>
-			(<A HREF="http://www.lowagie.com/iText/examples/Chap1013.pdf">Chap1013.pdf</A>).
+			The use of pantones is demonstrated in <A HREF="../examples/Chap1013.java">example 13</A>
+			(<A HREF="../examples/Chap1013.pdf">Chap1013.pdf</A>).
             </FONT><BR><BR><BR>
 		</TD>
 	</TR>

@@ -62,20 +62,20 @@
 			Some images will be rejected, please consult the <A HREF="http://www.lowagie.com/iText/faq.html#images">FAQ</A>
 			if you have questions about rejected images.<BR><BR>
 			<A NAME="imageurl"><B>Getting an instance of an image using an URL</B></A><BR>
-			This is the most simple way to add an Image. In <A HREF="http://www.lowagie.com/iText/examples/Chap0601.java">example 1</A>,
+			This is the most simple way to add an Image. In <A HREF="../examples/Chap0601.java">example 1</A>,
 			we add a WMF (<A HREF="../examples/harbour.wmf">a Windows Meta File 33kByte</A>),
 			a GIF (<A HREF="../examples/vonnegut.gif">a picture of SF-writer Kurt Vonnegut 26 kByte</A>),
 			a Jpeg (<A HREF="../examples/myKids.jpg">a picture of my children 7 kByte</A>) and a PNG
 			(<A HREF="../examples/hitchcock.png">a picture of Alfred Hitchcock 16 kByte</A>) to the document,
 			using 3 URLs referring to my site:<BR>
 			<FONT FACE="Courier">
-			Image wmf = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/harbour.wmf"));<BR>
-			Image gif = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/vonnegut.gif"));<BR>
-			Image jpeg = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/myKids.jpg"));<BR>
-			Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/hitchcock.png"));
+			Image wmf = Image.getInstance(new URL("../examples/harbour.wmf"));<BR>
+			Image gif = Image.getInstance(new URL("../examples/vonnegut.gif"));<BR>
+			Image jpeg = Image.getInstance(new URL("../examples/myKids.jpg"));<BR>
+			Image png = Image.getInstance(new URL("../examples/hitchcock.png"));
 			</FONT><BR>
-			The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.pdf">resulting PDF file</A> is 74 kByte: it contains the image data
-			of the 4 images. The <A HREF="http://www.lowagie.com/iText/examples/Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
+			The <A HREF="../examples/Chap0601.pdf">resulting PDF file</A> is 74 kByte: it contains the image data
+			of the 4 images. The <A HREF="../examples/Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
 			the references to the urls of the 4 images.<BR><BR>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
@@ -101,15 +101,15 @@
 				</TR>
 			</TABLE><BR>
 			<A NAME="imagefile"><B>Getting an instance of an image using a filename</B></A><BR>
-			We can change example 1 into <A HREF="http://www.lowagie.com/iText/examples/Chap0602.java">example 2</A> by simply changing
+			We can change example 1 into <A HREF="../examples/Chap0602.java">example 2</A> by simply changing
 			the way images are instanciated:<BR>
 			<FONT FACE="Courier">
 			Image gif = Image.getInstance("vonnegut.gif");<BR>
 			Image jpeg = Image.getInstance("myKids.jpg");<BR>
 			Image png = Image.getInstance("hitchcock.png");
 			</FONT><BR>
-			The <A HREF="http://www.lowagie.com/iText/examples/Chap0602.pdf">resulting PDF file</A> is identical to the one in example 1,
-			but there is a big difference in the <A HREF="http://www.lowagie.com/iText/examples/Chap0602.html">resulting HTML file</A>.<BR>
+			The <A HREF="../examples/Chap0602.pdf">resulting PDF file</A> is identical to the one in example 1,
+			but there is a big difference in the <A HREF="../examples/Chap0602.html">resulting HTML file</A>.<BR>
 			If we study the source code, we can immediately see what causes the problem:<BR>
 			<FONT FACE="Courier">&lt;IMG BORDER="0" HEIGHT="149" SRC="file:/D:/cvs/lib/vonnegut.gif" WIDTH="198"&gt;
 			</FONT><BR>
@@ -122,10 +122,10 @@
 			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));<BR>
 			writer.setImagepath("../../images/kerstmis/");		
 			</FONT><BR>
-			In this <A HREF="http://www.lowagie.com/iText/examples/Chap0603.java">example</A>, we tell the writer to use a relative
+			In this <A HREF="../examples/Chap0603.java">example</A>, we tell the writer to use a relative
 			path (in this case the path to some <A HREF="../../images/kerstmis/">Christmas photo's</A>)
-			for every image we add. This is the resulting <A HREF="http://www.lowagie.com/iText/examples/Chap0603.pdf">PDF</A> and
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0603.html">HTML</A>.
+			for every image we add. This is the resulting <A HREF="../examples/Chap0603.pdf">PDF</A> and
+			<A HREF="../examples/Chap0603.html">HTML</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -140,12 +140,12 @@
 			setAlignment(Image.MIDDLE)<BR>
 			setAlignment(Image.LEFT)<BR>
 			</FONT>
-			See <A HREF="http://www.lowagie.com/iText/examples/Chap0604.java">example 4</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap0604.pdf">resulting PDF</A>:
+			See <A HREF="../examples/Chap0604.java">example 4</A> and the <A HREF="../examples/Chap0604.pdf">resulting PDF</A>:
 			we added the picture of Vonnegut to the right, the picture of my children in the middle
 			and hitchcock to the left.<BR><BR>
 			<A NAME="imagetext"><B>Images and text</B></A><BR>
 			But there's more, you can also specify that text has to be wrapped around the image
-			(see <A HREF="http://www.lowagie.com/iText/examples/Chap0605.java">example 5</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap0605.pdf">resulting PDF</A>):<BR>
+			(see <A HREF="../examples/Chap0605.java">example 5</A> and the <A HREF="../examples/Chap0605.pdf">resulting PDF</A>):<BR>
 			<FONT FACE="Courier">
 			setAlignment(Image.RIGHT | TEXTWRAP)<BR>
 			setAlignment(Image.MIDDLE)<BR>
@@ -158,8 +158,8 @@
 			<A NAME="absoluteposition"><B>Absolute positions</B></A><BR>
 			When generating PDF-files, you can use the method<BR>
 			<FONT FACE="Courier">public void setAbsolutePosition(int absoluteX, int absoluteY)</FONT><BR>
-			to place an image at an absolute position on a page. In <A HREF="http://www.lowagie.com/iText/examples/Chap0606.java">example 6</A>
-			we add two pictures at different coordinates. In the <A HREF="http://www.lowagie.com/iText/examples/Chap0606.pdf">resulting PDF</A>,
+			to place an image at an absolute position on a page. In <A HREF="../examples/Chap0606.java">example 6</A>
+			we add two pictures at different coordinates. In the <A HREF="../examples/Chap0606.pdf">resulting PDF</A>,
 			you can see that the given coordinates are used to position the lowerleft corner of the
 			image. We took the width and height of the image as x- and y-coordinate for the first
 			image and two times these values for the second.
@@ -183,10 +183,10 @@
 			but using <FONT FACE="Courier">scalePercent(50)</FONT> would have the same effect.<BR>
 			I could also reduce it like this: <FONT FACE="Courier">scaleAbsolute(194, 101)</FONT>,
 			this would be the same as doing this: <FONT FACE="Courier">scalePercent(100, 50)</FONT>.
-			All these examples are bundled in <A HREF="http://www.lowagie.com/iText/examples/Chap0607.java">example 7</A>, which results
-			in this <A HREF="http://www.lowagie.com/iText/examples/Chap0607.pdf">PDF-document</A>.<BR>
+			All these examples are bundled in <A HREF="../examples/Chap0607.java">example 7</A>, which results
+			in this <A HREF="../examples/Chap0607.pdf">PDF-document</A>.<BR>
 			Finally, there is also the <FONT FACE="Courier">ScaleToFit</FONT>-method.
-			This method is used in the <A HREF="http://www.lowagie.com/iText/examples/Calendar.java">Calendar</A>-class.
+			This method is used in the <A HREF="../examples/Calendar.java">Calendar</A>-class.
 			It reduces the image, preserving the original aspect ratio. In the
 			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar-application</A>,
 			this method is used to allow you to put images of different size on each
@@ -204,7 +204,7 @@
 			With the following method, you can rotate images:<BR>
 			<FONT FACE="Courier">public void setRotation(double r)<BR>
 			</FONT>
-			This method is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0608.java">example 8</A> (see <A HREF="http://www.lowagie.com/iText/examples/Chap0608.pdf">result</A>).
+			This method is demonstrated in <A HREF="../examples/Chap0608.java">example 8</A> (see <A HREF="../examples/Chap0608.pdf">result</A>).
 			</FONT><BR><BR>
 		</TD>
 	</TR> 
@@ -220,7 +220,7 @@
 			This method has the same effect as the other <FONT FACE="Courier">getInstance</FONT>-methods
 			discussed earlier: it returns a new <FONT FACE="Courier">Image</FONT>-object of type
 			<FONT FACE="Courier">Gif</FONT>, <FONT FACE="Courier">Jpeg</FONT> or <FONT FACE="Courier">Png</FONT>.<BR>
-			In <A HREF="http://www.lowagie.com/iText/examples/Chap0609.java">example 9</A>, we first add an image that was read from a
+			In <A HREF="../examples/Chap0609.java">example 9</A>, we first add an image that was read from a
 			jpeg-file into an array of bytes. It is evident that in this case it is better to
 			use another <FONT FACE="Courier">getInstance</FONT>-method, but this is just an
 			example. This <FONT FACE="Courier">getInstance</FONT>-method is especially useful
@@ -230,7 +230,7 @@
 			<FONT FACE="Courier">public static Image getInstance(int width, int height, int components, int bpc, byte data[])<BR></FONT>
 			In the example an image of 100 by 100 pixels is created. The images is 100 x 100 x 3 bytes
 			large, because every pixels is described by a RGB-value. You can see the result
-			of the algorithm in file <A HREF="http://www.lowagie.com/iText/examples/Chap0609.pdf">Chap0609.pdf</A>.
+			of the algorithm in file <A HREF="../examples/Chap0609.pdf">Chap0609.pdf</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR> 
@@ -238,7 +238,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><A NAME="awtimage"><B>java.awt.Image</B></A></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<a href="http://www.lowagie.com/iText/examples/Chap0610.java">Example 10</a> is a very advanced example for three reasons:<br>
+			<a href="../examples/Chap0610.java">Example 10</a> is a very advanced example for three reasons:<br>
 			<ol>
 			<li>In the first place the
 			class <b>java.awt.Image</b> is used. This is a class in the JDK and it can be used for a
@@ -252,7 +252,7 @@
 			<a href="ch10.html">Chapter 10</a>).
 			<li>
 			Finally, you will notice that the image used in this example is a <b>transparent gif</b>.
-			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0610.pdf">resulting PDF-file</a>.
+			Check out the <a href="../examples/Chap0610.pdf">resulting PDF-file</a>.
 			</ol>
 			</FONT>
 		</TD>
@@ -261,13 +261,13 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="tiff"><B>TIFF and CCITT</B></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<a href="http://www.lowagie.com/iText/examples/Chap0611.java">Example 11</a> and
-			<a href="http://www.lowagie.com/iText/examples/Chap0612.java">example 12</a> are also
+			<a href="../examples/Chap0611.java">Example 11</a> and
+			<a href="../examples/Chap0612.java">example 12</a> are also
 			rather advanced. These examples convert two tiff-files:
-			<a href="http://www.lowagie.com/iText/examples/338814-00.tif">338814-00.tif</a> and
-			<a href="http://www.lowagie.com/iText/examples/12.tif">12.tif</a> into a PDF file:
-			<a href="http://www.lowagie.com/iText/examples/Chap0612.pdf">Chap0612.pdf</a> and
-			<a href="http://www.lowagie.com/iText/examples/Chap0612.pdf">Chap0612.pdf</a>.
+			<a href="../examples/338814-00.tif">338814-00.tif</a> and
+			<a href="../examples/12.tif">12.tif</a> into a PDF file:
+			<a href="../examples/Chap0612.pdf">Chap0612.pdf</a> and
+			<a href="../examples/Chap0612.pdf">Chap0612.pdf</a>.
 			You need the <a href="http://java.sun.com/products/java-media/jai/index.html">Java Advanced Imaging API</a>
 			from SUN in order to compile and execute these examples. More specific: you need to add two extra jars to your classpath:
 			jai_codec.jar and jai_core.jar. You can find these jars at <a href="http://java.sun.com/">http://java.sun.com/</a>.
@@ -278,7 +278,7 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><A NAME="maskimage"><B>Image masks</B></A></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			In <a href="http://www.lowagie.com/iText/examples/Chap0613.java">example 13</a>, we create an image that can be used as mask:
+			In <a href="../examples/Chap0613.java">example 13</a>, we create an image that can be used as mask:
 			<table border="0" cellspacing="1" cellpadding="0">
 <tr>
     <td bgcolor="#C0C0C0">&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -390,7 +390,7 @@
             cb.setRGBColorFill(255, 0, 0);<br>
             cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 400);<br>
 			</FONT><br>
-			Please take a look at the <a href="http://www.lowagie.com/iText/examples/Chap0613.pdf">resulting PDF</a>.<br>
+			Please take a look at the <a href="../examples/Chap0613.pdf">resulting PDF</a>.<br>
 			(for more info on the ContentByte-object read <a href="ch10.html">Chapter 10</a>).
 			</FONT><BR><BR><BR><br>
 		</TD>
