@@ -11,6 +11,9 @@
 
 <xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" indent="no" media-type="text/html" />
 
+<xsl:param name="root" />
+<xsl:param name="branch" />
+
 <!-- Amazon related stuff -->
 
 <xsl:template name="amazonasin">
@@ -34,6 +37,9 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 <!-- Keeping the html as is -->
 
+<xsl:template match="site:toc">
+</xsl:template>
+
 <xsl:template match="html:*">
 	<xsl:copy>
 		<xsl:apply-templates select="*|text()|@*" />
@@ -45,9 +51,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 </xsl:template>
 
 <!-- examples -->
-
-<xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
-<xsl:param name="branch" select="/site:page/site:metadata/site:tree/@branch" />
 
 <xsl:template match="site:source">
   <xsl:param name="class" select="@class" />
@@ -125,6 +128,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     </xsl:for-each></ul>
     </div>
   </xsl:for-each>
+  <div class="example"><div class="small">ANT script (all examples):</div><ul><li><a href="build.xml">build.xml</a></li></ul></div>
 </xsl:template>
 
 <!-- the sections -->
