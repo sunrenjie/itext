@@ -71,7 +71,31 @@
 			<font face="Courier">
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));<br>
 			PdfContentByte cb = writer.getDirectContent();<br>
-			</font>
+			</font><br><br>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<b>Remark:</b><br>
+				When you add high level objects, such as Table, 2 different PdfContentByte-objects
+				are used internally: one for text and one for graphics (for instance the borders
+				or the background of a cell). The text is drawn on top of the graphics.<br>
+				When you use a PdfContentByte-object directly using the getDirectContent()-method,
+				everything you add to this object, is written on top of the text and graphics. If you want to
+				avoid this and if you want to add content under the internal graphics and text
+				PdfContentByte-objects, you have to use the method getDirectContentUnder().<br>
+				Summarized: when a page is finished, 4 layers are drawn on top of eachother in
+				this order:
+				<OL>
+					<LI>the PdfContentByte you can retrieve and with the method getDirectContentUnder()
+					<LI>the internal PdfContentByte-object that contains the graphics of high level objects
+					<LI>the internal PdfContentByte-object that contains the text of high level objects
+					<LI>the PdfContentByte you can retrieve and with the method getDirectContent()
+				</OL>
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><BR>
 			</FONT><BR>
 		</TD>
 	</TR>
