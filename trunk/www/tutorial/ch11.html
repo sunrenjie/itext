@@ -132,9 +132,35 @@
 			you can launch NOTEPAD from a link in your PDF document (if you have the notepad executable in the specified directory).<br><br>
 			<A NAME="openaction"><B>Open action</B></A><br>
             You can also trigger an action the moment somebody opens the document.
+			This can be done in two different ways:
+			<OL>
+			<LI>Using the PdfContentByte object:<br><br>
+			<font face="Courier">
+            PdfContentByte cb = writer.getDirectContent();<br>
+            cb.localDestination("page2", new PdfDestination(PdfDestination.XYZ, -1, 10000, 0));<br>
+            writer.setOpenAction("page2");<br>
+			</font><br>
 			This is shown in <A HREF="../examples/Chap1104.java">example 4</A>.
+			<LI>Using the PdfAction object:<br><br>
+			<font face="Courier">
+            PdfAction action = PdfAction.gotoLocalPage(2, new PdfDestination(PdfDestination.XYZ, -1, 10000, 0), writer);<br>
+            writer.setOpenAction(action);<br>
+			</font><br>
+			This is shown in <A HREF="../examples/Chap1105.java">example 5</A>.
+			</OL>
 			The moment you open <A HREF="../examples/Chap1104.pdf">Chap1104.pdf</A>
-			you jump directly to page 2.<br><br>
+			or <A HREF="../examples/Chap1105.pdf">Chap1105.pdf</A> you jump directly to page 2.
+			<br><br>
+			<A NAME="javascript"><B>Javascript</B></A><br>
+			You can add javascript to a document using the Javascript-object:<br><br>
+			<font face="Courier">
+			PdfAction jAction = PdfAction.javaScript("this.print(true);\r", writer);<br>
+            writer.addJavaScript(jAction);<br>
+			</font><br>
+			Try out <A HREF="../examples/Chap1106.java">example 6</A> and open
+			<A HREF="../examples/Chap1106.pdf">Chap1106.pdf</A>; a print dialog will
+			open immediately.
+			<br><br>
 			<A NAME="fileurl"><B>files and URLs</B></A><br>
             If you want to jump to another document or URL, you have to create a <FONT FACE="Courier">PdfAction</FONT>
            	using one of the following constructors:<BR><BR>
@@ -229,20 +255,20 @@
             PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");<BR>
             PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");<BR>
             </FONT><br>
-            In <A HREF="../examples/Chap1105.java">example 5</A>, we first place some crosses.
+            In <A HREF="../examples/Chap1107.java">example 7</A>, we first place some crosses.
             These crosses will mark different destinations. Click on the different
-            outline entries in document <A HREF="../examples/Chap1105.pdf">Chap1105.pdf</A> to
+            outline entries in document <A HREF="../examples/Chap1107.pdf">Chap1107.pdf</A> to
             test the destination functionality.<BR>
-            In <A HREF="../examples/Chap1106.java">example 6</A>, we build the outline tree
+            In <A HREF="../examples/Chap1108.java">example 8</A>, we build the outline tree
             automatically again, just as when we used Chapters and Sections.
             This time however, we use a PageEventHelper class that adds an
             outline every time a new paragraph is started. But more about these
             page events in the <A HREF="ch12.html">next chapter</A>. Check out
-            <A HREF="../examples/Chap1106.pdf">Chap1106.pdf</A> (and read all about some
+            <A HREF="../examples/Chap1108.pdf">Chap1108.pdf</A> (and read all about some
             brave belgians).<br>
 			It is also possible to add actions to an outline tree.
-			This is demonstrated in <A HREF="../examples/Chap1107.java">example 7</A>
-			(<A HREF="../examples/Chap1107.pdf">Chap1107.pdf</A>).
+			This is demonstrated in <A HREF="../examples/Chap1109.java">example 9</A>
+			(<A HREF="../examples/Chap1107.pdf">Chap1109.pdf</A>).
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -251,8 +277,8 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="annot"><B>Annotations</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			In <A HREF="ch03.html">Chapter 3</A>, we added text annotations, but you can do more
-			with annotations than just adding text. <A HREF="../examples/Chap1108.java">Example 8</A>
-			(<A HREF="../examples/Chap1108.pdf">Chap1108.pdf</A>) shows us how we can add actions
+			with annotations than just adding text. <A HREF="../examples/Chap1110.java">Example 10</A>
+			(<A HREF="../examples/Chap1110.pdf">Chap1110.pdf</A>) shows us how we can add actions
 			at absolute positions.
 			</FONT><BR><BR>
 		</TD>
@@ -274,8 +300,8 @@
 				<LI>PdfPageLabels.LOWERCASE_LETTERS
 				<LI>PdfPageLabels.EMPTY
 			</UL>
-			Please take a look at <A HREF="../examples/Chap1109.java">example 9</A>
-			and the <A HREF="../examples/Chap1109.pdf">resulting PDF file</A>.
+			Please take a look at <A HREF="../examples/Chap1111.java">example 11</A>
+			and the <A HREF="../examples/Chap1111.pdf">resulting PDF file</A>.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
