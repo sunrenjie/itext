@@ -37,6 +37,10 @@ Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/exter
 		and multimedia features, transparency capabilities, intellectual property issues, and more.
 		The first and last word on the most current PDF spec from the people who know it best: Adobe!
 	</site:amazonproduct>
+	<site:amazonproduct asin="0321305310">
+		<site:amazontitle>Adobe Reader 7 Revealed</site:amazontitle>
+		Chances are good that if you use the Web or work with documents on your computer, you've come across a PDF file at least once or twice in your life. Over 500 million people have already downloaded Adobe's free Adobe Reader software and we're betting you‚re one of them, which is why we think you'll enjoy this new book on how to get the most out of the little program that's conquering the Web.
+	</site:amazonproduct>
 	<site:amazonproduct asin="0596006551">
 		<site:amazontitle>PDF Hacks</site:amazontitle>
 		PDF Hacks unveils the true promise of Portable Document Format, going way beyond the usual PDF as paged output mechanism.
