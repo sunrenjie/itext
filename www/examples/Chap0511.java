@@ -32,6 +32,7 @@ import com.lowagie.text.pdf.PdfWriter;
 public class Chap0511 {
     
     public static void main(String[] args) {
+        System.out.println("Chapter 5 example 11: large tables with cellspacing");
         // creation of the document with a certain size and certain margins
         Document document = new Document(PageSize.A4.rotate(), 50, 50, 50, 50);
         
