@@ -59,6 +59,7 @@
 			<UL>
 				<LI><A HREF="#whatis">What is PDF?</A>
 				<LI><A HREF="#lgpl">What is MPL / LGPL?</A>
+				<LI><A HREF="#adobe">Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</A>
 				<li><a href="#ftp">I have troubles downloading the source/jarfile from the ftp-site.</A>
 				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
@@ -125,6 +126,47 @@
 			Because of some quirky details in the LGPL, people developing commercial products
 			using iText asked me to move to a less strict license. That's why made iText multiple licensed.
 			iText can be used under MPL too. Read the MPL for more info: <a href="MPL-1.1.txt">MPL-1.1.txt</A>.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="adobe"><B>Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			ADOBE owns the copyright for the PDF specifications. That is true, but
+            using iText to produce documents in PDF is completely legal.<br><br>
+			Please read the PDF Reference 1.4 section 1.4. I quote:<br>
+			<blockquote>
+			However, Adobe desires to promote the use of the Portable 
+			Document Format for information interchange among diverse 
+			products and applications. Accordingly, Adobe gives anyone 
+			copyright permission, subject to the conditions stated below, to: 
+			<UL>
+			<LI>Prepare files whose content conforms to the Portable Document Format 
+			<LI>Write drivers and applications that produce output represented in the 
+			    Portable Document Format 
+			<LI>Write software that accepts input in the form of the Portable Document 
+			    Format and displays, prints, or otherwise interprets the contents 
+			<LI>Copy Adobe’s copyrighted list of data structures and operators, as well 
+			    as the example code and PostScript language function definitions in 
+			    the written specification, to the extent necessary to use the Portable 
+			    Document Format for the purposes above 
+			</UL>
+			The conditions of such copyright permission are: 
+			<UL>
+  	 		<LI>Software that accepts input in the form of the Portable Document Format 
+    			must respect the access permissions specified in that document.
+    			Accessing the document in ways not permitted by the document’s access
+			    permissions is a violation of the document author’s copyright. 
+  			<LI>Anyone who uses the copyrighted list of data structures and operators, 
+			    as stated above, must include an appropriate copyright notice.
+			</UL>
+			</blockquote>
+			Because decrypting an encrypted PDF-file is not possible with iText
+			(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/">Adobe</a>
+			and to the PDF Reference Manual everytime some explanation is given about
+			the data structure, iText is allowed to prepare files whose content conforms
+			to the Portable Document Format.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
