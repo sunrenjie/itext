@@ -32,6 +32,24 @@
 			<site:result>JavaScriptAction.html</site:result>
 			<site:description>Generates an HTML file with JavaScript</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Images" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>iText.bmp</site:externalresource>
+			<site:externalresource>pngnow.png</site:externalresource>
+			<site:externalresource>iText.tif</site:externalresource>
+			<site:externalresource>getacro.gif</site:externalresource>
+			<site:externalresource>iText.wmf</site:externalresource>
+			<site:result>images_wrong.html</site:result>
+			<site:result>images_right.html</site:result>
+			<site:description>Adds different formats of images to a document.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ImagesURL" standalone="yes" />
+			<site:result>images_wrong.html</site:result>
+			<site:result>images.html</site:result>
+			<site:description>Adds images to an HTML file using the complete URL.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

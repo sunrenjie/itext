@@ -29,9 +29,23 @@
 		</site:example>
 		<site:example>
 			<site:java src="ImagesAlignment" standalone="yes" />
+			<site:externalresource>vonnegut.gif</site:externalresource>
 			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>hitchcock.png</site:externalresource>
 			<site:result>imagesAlignment.pdf</site:result>
 			<site:description>Testing the aligmment of images.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="DvdCover" standalone="yes" />
+			<site:externalresource>sunflower-front.jpg</site:externalresource>
+			<site:externalresource>sunflower-back.jpg</site:externalresource>
+			<site:argument>dvdcover.pdf</site:argument>
+			<site:argument>My Sunflower Movie</site:argument>
+			<site:argument>808080</site:argument>
+			<site:argument>sunflower-front.jpg</site:argument>
+			<site:argument>sunflower-back.jpg</site:argument>
+			<site:result>dvdcover.pdf</site:result>
+			<site:description>Make a DVD Cover.</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -40,6 +54,30 @@
 		<site:sectiontitle>Images</site:sectiontitle>
 <div>
 <site:source class="Images" />
+</div>
+	</site:section>
+	<site:section name="case">
+		<site:sectiontitle>Making a DVD Cover</site:sectiontitle>
+<div>
+One of my hobby's is making short animated movies.
+When I have some movies finished I put all those movies on a DVD
+and of course I want to keep those DVDs in a nice DVD case with a nice cover.
+There are lots of small programs available for download, that help
+you make a DVD cover, but I thought to myself why not do it with iText?
+So I wrote this example that shows you how to scale an Image to fit into
+a certain area and how to set absolute positions.<br />
+You can enter the following parameters:
+<ul>
+<li>the filename</li>
+<li>the title (will be displayed if you don't add a side image)</li>
+<li>the color (a hexadecimal String of 6 characters, for instance FFFFFF)</li>
+<li>the path to the image of the front cover</li>
+<li>the path to the image of the back cover</li>
+<li>the path to the image of the side cover</li>
+</ul>
+The photographs in the example are not my own. They are used by courtesy of
+<a href="http://www.bigfoto.com">www.bigfoto.com</a>.
+<site:source class="DvdCover" />
 </div>
 	</site:section>
 	</site:chapter>
