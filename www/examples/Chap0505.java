@@ -62,6 +62,7 @@ public class Chap0505 {
             cell = new Cell("big cell");
             cell.setRowspan(2);
             cell.setColspan(2);
+            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
             table.addCell(cell);
             table.addCell("cell test2");
             document.add(table);
