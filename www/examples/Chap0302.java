@@ -80,7 +80,7 @@ public class Chap0302 {
             
             document.add(new Paragraph("Some authors I really like:"));
             list = new List(false, 20);
-            list.setListSymbol(new Chunk("*", FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD)));
+            list.setListSymbol(new Chunk("\u2022", FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD)));
             listItem = new ListItem("Isaac Asimov");
             list.add(listItem);
             List sublist;
