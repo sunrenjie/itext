@@ -23,14 +23,16 @@
     <property name="itext.sf" value="${itext.dist}/sf" />
     <property name="itext.bin" value="${itext.home}/bin" />
     <property name="itext.cvsroot" value=":pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext" />
-	<property name="defaultnumber" value="invalid" />
+    <property name="defaultnumber" value="invalid" />
+    <available property="j2ee.jar" value="${env.J2EE_HOME}/lib/j2ee.jar" file="${env.J2EE_HOME}/lib/j2ee.jar"/>
+    <property name="j2ee.jar" value="COULD_NOT_FIND_J2EE_JAR"/>
     
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- The classpath when the release is done                           -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
     <path id="classpath">
-      <pathelement location="${itext.bin}/xerces_1_3_1.jar" />
+      <pathelement location="${j2ee.jar}" />
       <pathelement location="${itext.bin}/iText.jar" />
       <pathelement location="${itext.bin}/iTextXML.jar" />
       <pathelement location="${itext.bin}/iTextHYPH.jar" />
@@ -44,9 +46,9 @@
     <target name="help" description="--> shows the help screen">
         <echo>Using ANT for ${ant.project.name}</echo>
         <echo />
-		<echo>INSTALLING iText</echo>
-		<echo>ant install: downloads and installs the most recent release in one command</echo>
-		<echo>ant install.cvs: downloads and installs the current CVS version in one command</echo>
+        <echo>INSTALLING iText</echo>
+        <echo>ant install: downloads and installs the most recent release in one command</echo>
+        <echo>ant install.cvs: downloads and installs the current CVS version in one command</echo>
         <echo />
         <echo>GETTING THE CODE</echo>
         <echo>ant checkout: checks out the code from CVS</echo>
@@ -75,7 +77,7 @@
         <echo>RELEASE</echo>
         <echo>ant release: makes a complete iText release</echo>
         <echo>ant -Dnumber=XXX release.sf: prepares a release XXX for sourceforge</echo>
-      </target>
+    </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Getting the code                                                 -->
@@ -112,16 +114,15 @@
         <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
-        <get src="http://itext.sourceforge.net/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />
-        <get src="http://itext.sourceforge.net/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
+        <get src="http://itext.sourceforge.net/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />     
         <get src="http://itext.sourceforge.net/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
 
     <target name="download.cvs" depends="checkout, download" description="--> downloads the most recent version of the code">
-		<echo>Remark:</echo>
-		<echo>The CVS version is the most recent version of the code.</echo>
-		<echo>It may not always compile.</echo>
-		<echo>Use ant download.site to download working code.</echo>
+        <echo>Remark:</echo>
+        <echo>The CVS version is the most recent version of the code.</echo>
+        <echo>It may not always compile.</echo>
+        <echo>Use ant download.site to download working code.</echo>
     </target>
 
     <target name="download.site" depends="download" description="--> downloads the most recent release of the code">
@@ -133,24 +134,24 @@
         <get src="http://itext.sourceforge.net/downloads/examples.tar.gz" dest="${itext.dist}/examples.tar.gz" verbose="true" />
 		
         <mkdir dir="${itext.src}" />
-		<gunzip src="${itext.dist}/src.tar.gz" dest="${itext.dist}/temp.tar" />
-		<untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
+        <gunzip src="${itext.dist}/src.tar.gz" dest="${itext.dist}/temp.tar" />
+        <untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
         <delete file="${itext.dist}/temp.tar" />
-		<gunzip src="${itext.dist}/srcXML.tar.gz" dest="${itext.dist}/temp.tar" />
-		<untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
+        <gunzip src="${itext.dist}/srcXML.tar.gz" dest="${itext.dist}/temp.tar" />
+        <untar src="${itext.dist}/temp.tar" dest="${itext.src}" />
         <delete file="${itext.dist}/temp.tar" />
 				
         <mkdir dir="${itext.www}" />
-		<gunzip src="${itext.dist}/www.tar.gz" dest="${itext.dist}/temp.tar" />
-		<untar src="${itext.dist}/temp.tar" dest="${itext.www}" />
+        <gunzip src="${itext.dist}/www.tar.gz" dest="${itext.dist}/temp.tar" />
+        <untar src="${itext.dist}/temp.tar" dest="${itext.www}" />
         <delete file="${itext.dist}/temp.tar" />				
         <mkdir dir="${itext.tutorial}" />
-		<gunzip src="${itext.dist}/tutorial.tar.gz" dest="${itext.dist}/temp.tar" />
-		<untar src="${itext.dist}/temp.tar" dest="${itext.tutorial}" />
+        <gunzip src="${itext.dist}/tutorial.tar.gz" dest="${itext.dist}/temp.tar" />
+        <untar src="${itext.dist}/temp.tar" dest="${itext.tutorial}" />
         <delete file="${itext.dist}/temp.tar" />				
         <mkdir dir="${itext.examples}" />
-		<gunzip src="${itext.dist}/examples.tar.gz" dest="${itext.dist}/temp.tar" />
-		<untar src="${itext.dist}/temp.tar" dest="${itext.examples}" />
+        <gunzip src="${itext.dist}/examples.tar.gz" dest="${itext.dist}/temp.tar" />
+        <untar src="${itext.dist}/temp.tar" dest="${itext.examples}" />
         <delete file="${itext.dist}/temp.tar" />
     </target>
   
@@ -166,9 +167,8 @@
     
     <target name="compileWithXML" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />    
-        <echo>You need xerces_1_3_1.jar in the bin-directory</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar"
-			excludes="com/lowagie/servlets/*.java" />
+        <echo>Your path to j2ee.jar: ${j2ee.jar}</echo>
+        <javac srcdir="${itext.src}" destdir="${itext.classes}"	excludes="com/lowagie/servlets/*.java" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
