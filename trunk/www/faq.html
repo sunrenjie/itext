@@ -218,6 +218,19 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 					<LI>interlaced PNGs
 				</UL>
 			</UL>
+			GIF is the most delicate format. I followed the GIF specs as good as possible,
+			but you must know that there are also some legal limitations (the format is
+			owned by Unisys and there is a patent on LZW-compression/decompression). When an image
+			is rejected by iText, the exception that gets thrown always gives an explanation;
+			for instance:<BR><FONT FACE="Courier">the image separator '0x2c' is not found
+			after reading the color table</FONT><BR>
+			This is quite a cryptic error message, but the code can't possibly tell you more:
+			in the GIF specs, it is specified that the code 0x2c should be used as imageSeparator
+			(this is the byte that should separate the section with the GIF-header, the info and
+			the color table from the image descriptor). If iText can't find this byte, the library
+			can't do anything with the GIF and rejects it...<BR>
+			You can try using another tool to create your GIF-file, one that generates images
+			that are conform to the specs. Or you can consider using PNG- or JPG-images instead.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -249,4 +262,3 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 
 </BODY>
 </HTML>
-
