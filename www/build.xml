@@ -165,13 +165,17 @@
     <target name="compile" depends="properties" description="--> compiles the core iText code">
         <mkdir dir="${itext.classes}" />
         <javac srcdir="${itext.src}" destdir="${itext.classes}"
-            excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+            excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java">
+            <classpath refid="classpath" />
+        </javac>
     </target>
     
     <target name="compileWithXML" depends="properties" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />    
         <echo>Your path to j2ee.jar: ${j2ee.jar}</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}">
+            <classpath refid="classpath" />
+        </javac>
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
