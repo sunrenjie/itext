@@ -20,8 +20,8 @@
 
 import java.io.FileOutputStream;
 
-import org.xml.sax.Parser;
-import org.xml.sax.helpers.ParserFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.PageSize;
@@ -29,8 +29,6 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.html.SAXmyHtmlHandler;
 
 public class Chap0706 {
-    
-    private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
     
     public static void main(String[] args) {
         
@@ -47,11 +45,10 @@ public class Chap0706 {
             PdfWriter.getInstance(document, new FileOutputStream("Chap0706.pdf"));
             
             // step 3: we create a parser and set the document handler
-            Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new SAXmyHtmlHandler(document));
+            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
             
             // step 4: we parse the document
-            parser.parse("Chap0702.html");
+            parser.parse("Chap0702.html", new SAXmyHtmlHandler(document));
             
         }
         catch(Exception e) {
