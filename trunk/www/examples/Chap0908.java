@@ -17,45 +17,56 @@
  *
  * itext@lowagie.com
  */
-
-import java.io.*;
-
+import java.io.FileOutputStream;
+import java.io.IOException;
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.*;
-
+import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfBarcode;
+import com.lowagie.text.pdf.BaseFont;
 public class Chap0908 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 9 example 8: changing fontwidths");
+        System.out.println("Chapter 9 example 8: Barcodes with ttf");
         
         // step 1: creation of a document-object
-        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        Document document = new Document();
+        
         try {
             
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
             
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("font_widths.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0908.pdf"));
             
             // step 3: we open the document
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bf = BaseFont.createFont("Helvetica", "winansi", false, false, null, null);
-            int widths[] = bf.getWidths();
-            for (int k = 0; k < widths.length; ++k) {
-                if (widths[k] != 0)
-                    widths[k] = 1000;
-            }
-            bf.setForceWidthsOutput(true);
-            document.add(new Paragraph("A big text to show Helvetica with fixed width.", new Font(bf)));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-A.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-AHH.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13.TTF", PdfBarcode.EAN13, 36, "8010012529736")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13HH.TTF", PdfBarcode.EAN13, 48, "5400111151441")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13B.TTF", PdfBarcode.EAN13, 60, "8010012529736")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13BH.TTF", PdfBarcode.EAN13, 72, "5400111151441")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "12345678900987654321")));
+            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5NT.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "2345678900987654321")));       
+            // measuring the length of a string
+            BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\CODE39.TTF", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            float points = bf.getWidthPoint("0123456789", 36f);
+            float inches = points / 72f;
+            float cm = inches * 2.54f;
+            System.out.println("points: " + points + "; inches: " + inches + "; cm: " + cm);
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
         
-        }
-        catch (Exception de) {
-            de.printStackTrace();
-        }
         // step 5: we close the document
         document.close();
     }
