@@ -338,6 +338,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0208">
            <classpath refid="classpath" />
 		</java>
+		<java fork="yes" dir="${itext.examples}" classname="Chap02_hyphenation">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0209">
            <classpath refid="classpath" />
 		</java>

@@ -24,17 +24,17 @@ import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Chap03_hyphenation {
+public class Chap02_hyphenation {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 3 example 4: annotations at absolute positions");
+        System.out.println("Chapter 2: hyphenation");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 100, 300, 100, 100);
         try {
             // step 2: we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap03_hyphenation.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap02_hyphenation.pdf"));
             // step 3: we open the document
             document.open();
             // step 4: we add some content

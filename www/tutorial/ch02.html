@@ -232,6 +232,39 @@
 	</TR>	
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="hyphenation"><B>Hyphenation</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            If you want part of your text hyphenated, you can set the hyphenation at Chunk level:<br>
+			<FONT FACE="Courier"><br>
+			    // Hyphenating a British text<br>
+				Chunk ckEN = new Chunk(textEN);<br>
+            	HyphenationAuto autoEN = new HyphenationAuto("en", "GB", 2, 2);<br>
+            	ckEN.setHyphenation(autoEN);<br>
+				// Hyphenating a Dutch text<br>
+				Chunk ckNL = new Chunk(textNL);<br>
+            	HyphenationAuto autoNL = new HyphenationAuto("nl", null, 2, 2);<br>
+            	ckNL.setHyphenation(autoNL);<br>
+			</FONT><br>
+			You need the jar <A HREF="http://www.lowagie.com/iText/downloads/itext-hyph.jar">itext-hyph.jar</A>
+			to make this work. In this jar, you'll find files like:
+			<UL>
+				<LI>en_GB.hyp
+				<LI>en_US.hyp
+				<LI>fr.hyp
+				<LI>nl.hyp
+			</UL>
+			These files contain all the hyphenation rules that are specific for a certain language
+			(GB english, US english, French, Dutch,...). As you can see the first two parameters
+			correspond with parts of the filename, the third and fourth parameter specify how
+			many characters may be 'orphaned' at the start of a word resp. at the end of a word.<br>
+			If you want to build a hyph-file yourself for a language that is not supported, you can download a
+			<A HREF="http://www.lowagie.com/iText/downloads/hyph-tools.zip">tool</A> to
+			convert standard XML files (used in TeX and FOP) into the hyph-files used by iText.
+			</FONT><BR><BR>
+		</TD>
+	</TR>	
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<A NAME="generictag"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Some advanced stuff</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
