@@ -78,6 +78,11 @@ just press enter when asked for it</echo>
 		<cvs cvsroot="${itext.cvsroot}" package="www" dest="${itext.home}" />
 		<cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
 	</target>
+    
+    <target name="get" depends="properties, checkout">
+        <mkdir dir="${itext.bin}" />
+        <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
+    </target>
 	
     <target name="release" depends="jarWithXML, srczip, srctargz, docstargz">
     </target>
