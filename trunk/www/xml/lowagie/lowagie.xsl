@@ -167,7 +167,7 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=8&l=as1&asins=]]><xsl:value-of select="$asins" /><![CDATA[&fc1=000000&lc1=0000ff&bc1=&lt1=_blank&IS2=1&bg1=ffffff&f=ifr" width="120" height="240" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" align="Center"></iframe>');
 //-->]]></script>
 <xsl:element name="a">
-	<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="substring($asins, 0, 10)" />/catloogjecom-21</xsl:attribute>
+	<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="substring($asins, 0, 11)" />/catloogjecom-21</xsl:attribute>
 	<xsl:attribute name="class">amazonlinks</xsl:attribute>
 	amazon.co.uk-link
 </xsl:element><br />
