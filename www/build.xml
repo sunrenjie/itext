@@ -89,6 +89,10 @@
     </target>
     
     <target name="download" description="--> downloads some files needed to make a release">
+        <mkdir dir="${itext.www}" />
+        <get src="http://www.lowagie.com/iText/logo.gif" dest="${itext.www}/logo.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/iText.gif" dest="${itext.www}/iText.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/iTextLogo.gif" dest="${itext.www}/iTextLogo.gif" verbose="true" />
         <mkdir dir="${itext.tutorial}" />
         <get src="http://www.lowagie.com/iText/tutorial/Chap0101.png" dest="${itext.tutorial}/Chap0101.png" verbose="true" />
         <get src="http://www.lowagie.com/iText/tutorial/Chap0106.png" dest="${itext.tutorial}/Chap0106.png" verbose="true" />
@@ -531,6 +535,9 @@
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1013">
+           <classpath refid="classpath" />
+		</java>
+		<java fork="yes" dir="${itext.examples}" classname="iTextLogo">
            <classpath refid="classpath" />
 		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap1101">
