@@ -12,7 +12,7 @@
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
 		<site:author>Mark Hall</site:author>
-		<site:tree branch="rtf" root=".." />
+		<site:tree branch="/rtf" root=".." />
 	</site:metadata>
 	<site:examples>
 		<site:example>
@@ -38,6 +38,7 @@
 		</site:example>
 		<site:example>
 			<site:java src="RtfTest" />
+			<site:externalresource>pngnow.png</site:externalresource>
 			<site:result>testNew.rtf</site:result>
 			<site:result>testOld.rtf</site:result>
 			The TestSuite used to test RtfWriter2 functionality
