@@ -18,6 +18,10 @@
     <servlet-class>com.lowagie.examples.general.webapp.OutSimplePdf</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ProgressServlet</servlet-name>
+    <servlet-class>com.lowagie.examples.general.webapp.ProgressServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>SilentPrint</servlet-name>
     <servlet-class>com.lowagie.examples.general.webapp.SilentPrintServlet</servlet-class>
   </servlet>
@@ -26,12 +30,14 @@
     <servlet-name>HelloWorld</servlet-name>
     <url-pattern>/servlet/HelloWorld</url-pattern>
   </servlet-mapping>
-
   <servlet-mapping>
     <servlet-name>OutSimplePdf</servlet-name>
     <url-pattern>/servlet/simple.pdf</url-pattern>
   </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>ProgressServlet</servlet-name>
+    <url-pattern>/servlet/progress</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SilentPrint</servlet-name>
     <url-pattern>/servlet/silentprint</url-pattern>

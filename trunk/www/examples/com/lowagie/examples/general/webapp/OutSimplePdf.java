@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
@@ -50,8 +51,28 @@ public class OutSimplePdf extends HttpServlet {
 	 *      javax.servlet.http.HttpServletResponse)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+		makePdf(request, response, "GET");
+	}
+	
+	/**
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+			makePdf(request, response, "POST");
+	}
+	/**
+	 * Performs the action: generate a PDF from a GET or POST.
+	 * 
+	 * @param request	the Servlets request object
+	 * @param response	the Servlets request object
+	 * @param methodGetPost	the method that was used in the form
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void makePdf(HttpServletRequest request, HttpServletResponse response, String methodGetPost)
+		throws ServletException, IOException {
 		try {
 
 			// take the message from the URL or create default message
@@ -65,6 +86,8 @@ public class OutSimplePdf extends HttpServlet {
 			PdfWriter.getInstance(document, baos);
 			document.open();
 			document.add(new Paragraph(msg));
+			document.add(Chunk.NEWLINE);
+			document.add(new Paragraph("The method used to generate this PDF was: " + methodGetPost));
 			document.close();
 
 			// setting some response headers

@@ -42,6 +42,18 @@
 			<site:path name="try this with different browsers">http://blowagie.users.mcs2.netarray.com/UserAgent.jsp</site:path>
 		</site:example>
 		<site:example>
+			<site:java jsp="GetPost.jsp" standalone="no" webapp="ROOT" />
+			<site:description>Shows that PDF generation works with GET and POST</site:description>
+			<site:path name="GET">http://blowagie.users.mcs2.netarray.com/GetPost.jsp?method=GET</site:path>
+			<site:path name="POST">http://blowagie.users.mcs2.netarray.com/GetPost.jsp?method=POST</site:path>
+		</site:example>
+		<site:example>
+			<site:java src="ProgressPdf" standalone="no" webapp="ROOT" />
+			<site:extrajar>servlet.jar</site:extrajar>
+			<site:description>Generates a large PDF and shows a progress bar if it takes some time.</site:description>
+			<site:path name="without message">http://blowagie.users.mcs2.netarray.com/servlet/progress</site:path>
+		</site:example>
+		<site:example>
 			<site:java src="SilentPrintServlet" standalone="no" webapp="ROOT" />
 			<site:extrajar>servlet.jar</site:extrajar>
 			<site:description>Explains how to print silently via Servlet/Browser.</site:description>
