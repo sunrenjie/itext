@@ -72,7 +72,44 @@
 			<LI><A HREF="#VERSION083">iText0.83</A>: february 2002
 			<LI><A HREF="#VERSION084">iText0.84</A>: february 2002
 			<LI><A HREF="#VERSION085">iText0.85</A>: february 2002
+			<LI><A HREF="#VERSION086">iText0.86</A>: march 2002
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION086">iText0.86</A></B> (changes by Paulo Soares in paulo-91 and paulo-92 + changes by Bruno Lowagie)<br>
+		<UL>
+			<LI>added a Font Factory that allows you to register fonts and use them afterwards
+			    by specifying their postscript fontname instead of the path to their ttf- or ttc-file
+			<LI>added colspan to PdfPTable
+			<LI>the interface PdfPTableEvent changed because of colspan.
+			    True, interfaces shouldn't change but this interface is used
+				only by a few and the change takes no time to fix.
+			<LI>added BARCODE128 and the special encoding UCC/EAN-128.
+			    Other encodings using this symbology are possible
+			<LI>added PdfWriter.setCropBoxSize()
+			<LI>fixed the problem while trying to add 2 images, a big and a small,
+                near the bottom of a page. The first image was too large to fit, so it should
+                have gone to the next page. However, the resulting pdf contained the second
+                (smaller) image at the bottom of the page, while the larger image did 
+                not appear in the file.
+			<LI>simplified PdfReader.getPageSizeWithRotation()
+			<LI>fixed a bug in Rectangle that prevented page rotations bigger than 90
+                degrees.
+			<LI>fixed a bug that prevented annotations to be in the right place with
+                rotated pages.
+			<LI>eliminated Rectangle.setRotation(). This can create inconsistencies.
+			<LI>fixed a bug that prevented deep nesting in Tables
+			<LI>fixed a bug in RtfWriter (escaping of the backslash)
+			<LI>moved all the code from com.lowagie.text.markup.* to com.lowagie.text.*
+				The code Matt Benson added (see <A HREF="#VERSION085">iText0.85</A>)
+				allows you to generate HTMLs with a CSS file.
+			<LI>changed all the constructors that created elements taking a Properties-object
+			    as parameter (For future use in the XML functionality).
+			<LI>fixed broken functionality: background color of a page
+		</UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
