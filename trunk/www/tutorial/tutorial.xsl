@@ -107,9 +107,18 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<body>
 	
     <a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
-    <h1>Tutorial</h1>
+    <h1>Tutorial: iText by Example</h1>
     <h2><xsl:value-of select="site:metadata/site:title" /></h2>
 	<div id="content">
+		<div class="title">Introduction</div>
+		<blockquote>iText is a library that allows developers to extend the capabilities of
+		their web server (and other JAVA) applications with dynamic PDF document
+		generation. In this tutorial, you will find lots of standalone examples
+		to learn how to use most of the iText functionality and features.
+		It should be easy to integrate most of the solutions in a Servlet, a
+		Java Web Start application or some other Java program.<br />
+		This tutorial is far from complete, but it will be updated on a regular
+		basis.</blockquote><br /><br />
 		<xsl:for-each select="./site:part">
 			<xsl:element name="a">
 				<xsl:attribute name="name">#<xsl:value-of select="@name" /></xsl:attribute>
@@ -173,6 +182,24 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 <xsl:template match="@*">
 	<xsl:attribute name="{local-name()}"><xsl:value-of select="."/></xsl:attribute>
+</xsl:template>
+
+<!-- links outside -->
+
+<xsl:template match="site:src">
+  <xsl:param name="class" select="@class" />
+  <xsl:element name="a">
+		<xsl:attribute name="href">..<xsl:value-of select="$root" />/src/<xsl:value-of select="translate($class, '.', '/')" />.java</xsl:attribute>
+  		<xsl:value-of select="$class" />
+  </xsl:element>
+</xsl:template>
+
+<xsl:template match="site:doc">
+  <xsl:param name="class" select="@class" />
+  <xsl:element name="a">
+		<xsl:attribute name="href">..<xsl:value-of select="$root" />/docs/<xsl:value-of select="translate($class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
+  		<xsl:value-of select="." />
+  </xsl:element>
 </xsl:template>
 
 <!-- examples -->
@@ -282,7 +309,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
   <xsl:call-template name="metadata" />
   <body>
     <a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
-    <h1>Tutorial</h1>
+    <h1>Tutorial: iText by Example</h1>
     <h2><xsl:value-of select="site:metadata/site:title" /></h2>
 
   <xsl:element name="div">
