@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- iText, a JAVA - PDF library                                      -->
+<!-- $Id$         -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<project name="iText" default="help" basedir=".">
+	
+	<property file=".ant.properties" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Help                                                             -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="help" description="--> shows the help screen">
+        <echo>Using ANT for ${ant.project.name}</echo>
+        <echo />
+		<ant antfile="download.xml" inheritAll="false" />
+		<ant antfile="compile.xml" inheritAll="false" />
+		<ant antfile="site.xml" inheritAll="false" />
+    </target>
+	
+	<target name="download">
+		<ant antfile="download.xml" inheritAll="false" target="download" />
+	</target>
+	
+	<target name="download.bin">
+		<ant antfile="download.xml" inheritAll="false" target="download.bin" />
+	</target>
+	
+	<target name="download.site">
+		<ant antfile="download.xml" inheritAll="false" target="download.site" />
+	</target>
+	
+	<target name="compile">
+		<ant antfile="compile.xml" inheritAll="false" target="compile" />
+	</target>
+	
+	<target name="compile.debug">
+		<ant antfile="compile.xml" inheritAll="false" target="compile.debug" />
+	</target>
+	
+	<target name="jar">
+		<ant antfile="compile.xml" inheritAll="false" target="jar" />
+	</target>
+	
+	<target name="jar.debug">
+		<ant antfile="compile.xml" inheritAll="false" target="jar.debug" />
+	</target>
+	
+	<target name="lowagie.com">
+		<ant antfile="site.xml" inheritAll="false" target="lowagie.com" />
+	</target>
+	
+</project>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Home Page</site:title>
+		<site:summary>iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).</site:summary>
+		<site:keywords>PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0201758393" />
+		</site:amazonbooks>
+	</site:metadata>
+	<site:content>
+	<div>
+		<div id="side">
+			<div class="search">
+				<div class="sidetitle">Search the Site:</div>
+				<FORM ACTION="http://search.freefind.com/find.html" METHOD="GET"  target="_self">
+					<select name="s">
+						<option value="">Complete site</option>
+						<option value="iText">The home pages</option>
+						<option value="tutorial">The tutorial</option>
+						<option value="examples">The examples</option>
+						<option value="api">The API</option>
+						<option value="source">The Source Code</option>
+					</select>
+					<br />
+					<font size="1" face="arial,helvetica" >
+						<INPUT TYPE="HIDDEN" NAME="id" SIZE="-1" VALUE="3425713" />
+						<INPUT TYPE="HIDDEN" NAME="pageid" SIZE="-1" VALUE="r" />
+						<INPUT TYPE="HIDDEN" NAME="mode" SIZE="-1" VALUE="ALL" />
+						<INPUT type="HIDDEN" name="n" value="0" />
+						<INPUT TYPE="TEXT" NAME="query" SIZE="15" />
+						<INPUT TYPE="SUBMIT" VALUE=" Find " />
+						<br />powered by <A HREF="http://www.freefind.com">FreeFind</A>
+					</font>
+				</FORM>
+			</div>
+			<div class="news">
+				<div class="sidetitle">NEWS</div>
+		        <b>Nov 7th 2004:</b>
+				<br />Some classes were removed from the CVS repository; 1.03 will be released soon. The <a href="docs.html">documentation</a> page was updated and the feature list was moved to the <a href="tutorial/">Tutorial TOC</a>.<br />
+				<b>Nov 6th 2004:</b>
+				<br />Paulo's version 140 was uploaded to the <a href="cvs.html">CVS repository</a> and prepared to make iText 1.03.<br />
+				<br />
+			</div>
+		</div>
+		<div class="header">iText Homepage</div>
+		<div class="title">Project description</div>
+		iText is a library that allows you to generate PDF files on the fly.<br />
+		<br />
+		The iText classes are very useful for people who need to generate
+		read-only, platform independent documents containing text, lists,
+		tables and images. The library is especially useful in combination
+		with Java<SUP>(TM)</SUP> technology-based Servlets: The look and feel of HTML
+		is browser dependent; with iText and PDF you can control exactly
+        how your servlet's output will look.<br />
+		<br />
+		iText requires JDK 1.2. It's available for free under a multiple license: MPL and LGPL.
+		<div class="title">New release / new tutorial</div>
+		I will be working on a new release and a new tutorial from 11/11 till 11/20.
+		I will make a temporary release the first week of november and a more definitive release
+		the last week of november.
+		<DIV CLASS="title">An ideal introduction for new iText users:</DIV>
+		If the <a href="docs.html">tutorial</a> is too difficult or outdated,
+		you can start with these <a href="http://www.cdjdn.com/downloads/itextexample.zip">examples</a>.
+		Mark Stark has made a powerpoint presentation and a war file, introducing
+		the generation of PDFs, filling/reading Acrobat forms and deploying iText in a web application.<br />
+		Another interesting presentation is the powerpoint Sean Sullivan made for the Portland Java Users Group in Portland Oregon USA.
+		The topic was iText and PDF. You can download his PowerPoint slides <a href="http://itext.sourceforge.net/docs/pdf-itext-pjug-2003-05-27.ppt">here</a>
+        or you can read the <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">article</a>
+        he wrote for O'Reilly's <a href="http://www.onjava.com/">onJava.com</a>:
+        <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">Dynamically Creating PDFs in a Web Application</a>.
+		<DIV CLASS="title">Technical Requirements</DIV>
+		In order to be able to use these classes you should be
+		acquainted with JAVA (TM) programming.<br />
+		You'll also need the following Software:<br />
+		<ul>
+		<li>The Java Development Kit (JDK) 1.2 (or any later version)
+		from <a href="http://java.sun.com/">Sun Microsystems Incorporated</a>.<br />
+		If for some reason the library should have to work with an
+		earlier version of the JDK, you will have to download the
+		1.1.x version maintained by Paulo Soares
+		(you'll find the Source on his <A HREF="http://itextpdf.sourceforge.net/" CLASS="normal">site</A>).</li>
+		<li>Adobe Acrobat Reader from Adobe Systems Incorporated:<br />
+		<br />
+		<A HREF="http://www.adobe.com/prodindex/acrobat/readstep.html" CLASS="normal">
+		<IMG SRC="getacro.gif" BORDER="0" ALT="download Acrobat Reader" />
+		</A>
+		</li>
+		</ul>
+	</div>
+	</site:content>
+</site:page>
