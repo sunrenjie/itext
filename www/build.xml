@@ -117,6 +117,7 @@
         <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
+        <get src="http://itext.sourceforge.net/downloads/iTextAsian.jar" dest="${itext.bin}/iTextAsian.jar" verbose="true" />
         <get src="http://itext.sourceforge.net/downloads/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />
         <get src="http://itext.sourceforge.net/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
@@ -187,7 +188,9 @@
         <mkdir dir="${itext.bin}" />
         <mkdir dir="${itext.classes}/com/lowagie/text/pdf/fonts" />
         <copy todir="${itext.classes}/com/lowagie/text/pdf/fonts" overwrite="yes">
-            <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts" />
+            <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts">
+                <include name="**/*.afm"/>
+            </fileset>
         </copy>
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
         <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
@@ -198,28 +201,32 @@
         <mkdir dir="${itext.bin}" />
         <mkdir dir="${itext.classes}/com/lowagie/text/pdf/fonts" />
         <copy todir="${itext.classes}/com/lowagie/text/pdf/fonts" overwrite="yes">
-            <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts" />
+            <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts">
+                <include name="**/*.afm"/>
+            </fileset>
         </copy>
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
         <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
         <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
         <copy file="${itext.dist}/iTextXML.jar" todir="${itext.bin}" overwrite="yes" />
+        <jar jarfile="${itext.dist}/iTextAsian.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/pdf/fonts/*.cmap,**/com/lowagie/text/pdf/fonts/*.properties" />
+        <copy file="${itext.dist}/iTextAsian.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Achiving the source                                              -->
+    <!-- Archiving the source                                              -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
     <target name="srczip" depends="properties" description="--> makes two zipfiles (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
-        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt, **/*.afm" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 
     <target name="srctargz" depends="properties" description="--> makes two tar.gz-files (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
         <tar tarfile="${itext.dist}/classes.tar" basedir="${itext.classes}" />
-        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt, **/*.afm" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <gzip zipfile="${itext.dist}/classes.tar.gz" src="${itext.dist}/classes.tar" />
         <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
