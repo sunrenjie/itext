@@ -167,6 +167,8 @@ public class Chap13_gis extends Vector {
             acroForm.addHiddenField("scale", String.valueOf(scale));
             acroForm.addHiddenField("offsetX", String.valueOf(offsetX));
             acroForm.addHiddenField("offsetY", String.valueOf(offsetY));
+            acroForm.addHiddenField("width", String.valueOf(w));
+            acroForm.addHiddenField("height", String.valueOf(h));
             acroForm.addMap("map", null, "city.php", cb, 40, 780 - h, 40 + w, 780);
         }
         catch (Exception de) {
