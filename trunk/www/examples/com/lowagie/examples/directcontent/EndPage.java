@@ -51,7 +51,6 @@ public class EndPage extends PdfPageEventHelper {
                 text += text;
             document.add(new Paragraph(text));
             document.close();
-            System.out.println("The End.");
         }
         catch (Exception de) {
             de.printStackTrace();

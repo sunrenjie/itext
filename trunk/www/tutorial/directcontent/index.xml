@@ -17,19 +17,10 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="Circles" standalone="yes" />
-			<site:result>circles.pdf</site:result>
-			<site:description>Draws some concentric circles</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Shapes" standalone="yes" />
-			<site:result>shapes.pdf</site:result>
-			<site:description>Draws some shapes</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Logo" standalone="yes" />
-			<site:result>logo.pdf</site:result>
-			<site:description>Draws the iText logo</site:description>
+			<site:java src="Layers" standalone="yes" />
+			<site:result>layers.pdf</site:result>
+			<site:externalresource>hitchcock.png</site:externalresource>
+			<site:description>Explains the concept of PdfContentByte layers in iText</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Templates" standalone="yes" />
@@ -58,10 +49,111 @@
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="pdfcontentbyte">
-		<site:sectiontitle>PdfContentByte</site:sectiontitle>
+	
+	<site:section name="pdfsyntax">
+		<site:sectiontitle>PDF Syntax</site:sectiontitle>
 <div>
-<site:source class="Circles" />
+You can really do a lot of great things with the high-level objects iText offers you,
+but if you really want to make use of the full power of PDF, you need to know more
+about PDF syntax.
+Maybe you should read chapter 4 (Graphics) and chapter 5 (Text)
+of the PDF Reference Manual (version 1.6) first. They will give you
+a good insight about the different operators and operands we are going
+to use in the next chapters. In this tutorial chapter, I will do an
+attempt to summarize some of the most important concepts.<br />
+But let's start by quoting what is on page 163 of the Reference Manual:
+<blockquote>
+The graphics operators form six main groups.<br />
+<ul>
+<li><i>Graphics state operators</i> manipulate the data structure called
+the <i>graphics state</i>, the global framework within which the other
+graphics operators execute. The graphics state includes the <i>current
+transformation matrix</i> (CTM), which maps user space coordinates used
+within a PDF content stream into output device coordinates. It also
+includes the <i>current color</i>, the <i>current clipping path</i>,
+and many other parameters that are implicit operands of the painting
+operators.<br />
+<div class="small">For more info on how iText deals with this, see:
+<ul>
+<li><site:tutorial chapter="/directcontent/coordinates">PDF coordinate system</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent/graphics" section="state">Graphics State</site:tutorial></li>
+</ul></div>
+</li>
+<li><i>Path construction operators</i> specify <i>paths</i>, which
+define shapes, linie trajectories, and regions of various sorts.
+They include operators for beginning a new path, adding line segments
+and curves to it, and closing it.<br />
+<div class="small">For more info on how iText deals with this, see:<ul><li>
+<site:tutorial chapter="/directcontent/graphics" section="paths">Path construction and painting</site:tutorial></li></ul></div></li>
+<li><i>Path painting operators</i> fill a path with a color, paint a stroke
+along it, or use it as a clipping boundary.
+<div class="small">For more info on how iText deals with this, see:<ul><li>
+<site:tutorial chapter="/directcontent/graphics" section="paths">Path construction and painting</site:tutorial></li></ul></div></li>
+<li><i>Other painting operators</i> paint certain self-describing graphics
+objects. These include sampled images, geometrically defined shadings, and
+entire content streams that in turn contain sequences of graphics operators.
+<div class="small">For more info on how iText deals with this, see:
+<ul>
+<li><site:tutorial chapter="/directcontent/colors">Colors</site:tutorial></li>
+<li><site:tutorial chapter="/objects/images">Images</site:tutorial></li>
+</ul></div></li>
+<li><i>Text operators</i> select and show <i>character glyphs</i> from
+<i>fonts</i> (descriptions of typefaces for representing text characters).
+Because PDF treats glyphs as general graphical shapes, many of the text
+operators could be grouped with the graphics state or painting operators. (...)<br />
+<div class="small">For more info on how iText deals with this, see:
+<ul>
+<li><site:tutorial chapter="/directcontent/text">Text</site:tutorial></li>
+<li><site:tutorial chapter="/objects/fonts">Fonts</site:tutorial></li>
+</ul></div></li>
+<li><i>Marked-content operators</i> associate higher-level logical information
+with objects in the content stream. This information does not affect the rendered
+appearance of the content (...).<br />
+<div class="small">For more info on how iText deals with this, see:<ul><li>
+<site:tutorial chapter="/directcontent/optionalcontent">Optional Content</site:tutorial></li></ul></div></li>
+</ul>
+</blockquote>
+</div>
+	</site:section>
+	
+	
+	<site:section name="pdfcontentbyte">
+		<site:sectiontitle>iText approach</site:sectiontitle>
+<div>
+When using high-level objects in iText, you add text and images, chapters and sections, paragraphs and chunks,...
+without bothering about layout. iText takes care of dividing the text into pages and positioning every word,
+sentence, paragraph on a page. But sometimes we don't want this automatic formatting. Sometimes we want to put
+some graphic or some text at some exact position on a page.
+The key class to achieve this, is <site:doc class="com.lowagie.text.pdf.PdfContentByte">com.lowagie.text.pdf.PdfContentByte</site:doc>.<br />
+Each page in an iText PDF file, is built using 4 different layers.
+Two of them (the middle ones) are stored in class <site:doc class="com.lowagie.text.pdf.PdfDocument">PdfDocument</site:doc>.
+You don't have access to them. They are to be used by high-level objects only.
+The upper one, called 'text' is used for text, the lower one, called graphics, for all other content.
+For instance: the contents of a Chunk are added to the 'text' layer, but if the Chunk contains an Image,
+it is added to the 'graphics' layer. This way, an image never covers up text.<br />
+Then there's the other two layers, stored in class <site:doc class="com.lowagie.text.pdf.PdfWriter">PdfWriter</site:doc>.
+You can get them with the methods
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="getDirectContent()">getDirectContent()</site:doc> and
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="getDirectContentUnder()">getDirectContentUnder()</site:doc>.
+There is only one PdfContentByte-object representing the 'Direct Content' and one PdfContentByte-object
+representing the 'Direct Content Under'. Multiple calls to these methods will allways retrieve the same
+corresponding PdfContentByte.<br />
+<site:image source="layers.gif">PdfContentByte layers</site:image><br />
+You can cover content added with high-level objects by writing content to the 'Direct Content' PdfContentByte.
+You can add content under the high-level objects (for instance a Watermark) by adding content to the 'Direct Content Under' PdfContentByte.
+This is illustrated in the following example:
+<site:source class="Layers" />
+Summarized: when a page is finished, 4 layers are drawn on top of eachother in this order:
+<ol>
+<li>the PdfContentByte you can retrieve and with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="getDirectContentUnder()">getDirectContentUnder()</site:doc></li>
+<li>the internal PdfContentByte-object that contains the graphics of high level objects</li>
+<li>the internal PdfContentByte-object that contains the text of high level objects</li>
+<li>the PdfContentByte you can retrieve and with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="getDirectContent()">getDirectContent()</site:doc></li>
+</ol>
+Remark: this is iText specific stuff, do not confuse this tutorial section with the section on
+the <site:tutorial chapter="/directcontent/optionalcontent">Optional Content</site:tutorial> layers.
+<br />
+<br />
 Other examples: PdfPTable, Images,...
 
 

@@ -30,18 +30,18 @@ import com.lowagie.text.pdf.PdfGState;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Changing the Graphics State.
+ * Changing the Graphics State with PdfGState.
  */
 public class GState {
 
 	/**
-	 * Changing the Graphics State.
+	 * Changing the Graphics State with PdfGState.
 	 * 
 	 * @param args
 	 *            no arguments needed
 	 */
 	public static void main(String[] args) {
-		System.out.println("Changing the Graphics State");
+		System.out.println("Changing the Graphics State with PdfGState");
 
 		// step 1: creation of a document-object
 		Document document = new Document();

@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.directcontent;
+package com.lowagie.examples.directcontent.text;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,10 +47,7 @@ public class Logo {
         
         try {
             
-            // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
-            
+            // step 2: creation of the writer
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("logo.pdf"));
             
             // step 3: we open the document
@@ -94,6 +91,4 @@ public class Logo {
         // step 5: we close the document
         document.close();
     }
-
-
 }

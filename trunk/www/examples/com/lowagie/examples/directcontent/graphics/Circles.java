@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.directcontent;
+package com.lowagie.examples.directcontent.graphics;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,9 +44,7 @@ public class Circles {
         
         try {
             
-            // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
+            // step 2: creation of the writer
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("circles.pdf"));
             
             // step 3: we open the document
