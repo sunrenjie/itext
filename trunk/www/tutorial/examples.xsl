@@ -20,10 +20,10 @@
 		<xsl:element name="project">
 			<xsl:attribute name="name">examples</xsl:attribute>
 			<xsl:attribute name="default">examples</xsl:attribute>
-			<xsl:attribute name="basedir">../..<xsl:value-of select="$root" /></xsl:attribute>
+			<xsl:attribute name="basedir">..<xsl:value-of select="$root" /></xsl:attribute>
 			<target name="install">
-				<property name="tutorialsrc" value="${{basedir}}/www/tutorial" />
-				<property name="tutorial" value="${{basedir}}/build/tutorial" />
+				<property name="tutorialsrc" value="${{basedir}}/../www/tutorial" />
+				<property name="tutorial" value="${{basedir}}/tutorial" />
 				<xsl:for-each select="site:example">
 					<xsl:if test="count(site:externalresource)!=0" >
 						<xsl:element name="copy">
@@ -44,11 +44,9 @@
 			</target>
 
 			<target name="examples">
-				<property name="build" value="${{basedir}}/build" />
-				<property name="bin" value="${{build}}/bin" />
-				<property name="release" value="${{build}}/release" />
-				<property name="tutorial" value="${{build}}/tutorial" />
-				<property name="examples" value="${{build}}/examples" />
+				<property name="bin" value="${{basedir}}/bin" />
+				<property name="tutorial" value="${{basedir}}/tutorial" />
+				<property name="examples" value="${{basedir}}/examples" />
 				<path id="classpath">
 					<pathelement location="${{examples}}" />
 					<pathelement location="${{bin}}/iText.jar" />
@@ -58,6 +56,22 @@
 						</xsl:element>
 					</xsl:for-each>
 				</path>
+				<available file="${{bin}}" type="dir" property="bin.dir.present" />
+				<fail unless="bin.dir.present" message="${{basedir}} has no subdirectory 'bin'" />
+				<available file="${{bin}}/iText.jar" type="file" property="itext.jar.present" />
+				<fail unless="itext.jar.present" message="You need the iText.jar in this directory: ${{bin}}" />
+				<xsl:for-each select="./*/site:extrajar">
+					<xsl:element name="available">
+						<xsl:attribute name="file">${bin}/<xsl:value-of select="." /></xsl:attribute>
+						<xsl:attribute name="type">file</xsl:attribute>
+						<xsl:attribute name="property"><xsl:value-of select="." />.present</xsl:attribute>
+					</xsl:element>
+					<xsl:element name="fail">
+						<xsl:attribute name="unless"><xsl:value-of select="." />.present</xsl:attribute>
+						<xsl:attribute name="message">You need <xsl:value-of select="." /> in this directory ${bin}</xsl:attribute>
+					</xsl:element>
+				</xsl:for-each>
+				
 				<javac srcdir="${{examples}}" destdir="${{examples}}" verbose="false">
 					<classpath refid="classpath" />
 					<xsl:element name="include">
