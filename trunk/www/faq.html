@@ -6,107 +6,108 @@
 	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
 	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
 	<TITLE>iText - a JAVA-PDF library</TITLE>
+	<link rel="stylesheet" type="text/css" href="itext.css" title="Style">
 </HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
+<BODY>
 
 <A NAME="top"></A>
 
-<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
+<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" CLASS="outertable">
 <TR>
 	<TD>
-	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" CLASS="innertable">
 	<TR>
-		<TD COLSPAN="2" ALIGN="center">
+		<TD COLSPAN="2" CLASS="innerborder">
 			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
 		</TD>
-		<TD ALIGN="center" BGCOLOR="#808080">
+		<TD CLASS="outerborder">
 			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
 		</TD>
-		<TD COLSPAN="2" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">A Free Java-PDF library<BR>
-			by <A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A>
-			and <A HREF="http://www.geocities.com/itextpdf"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Paulo Soares</FONT></A></FONT><BR>
+		<TD COLSPAN="2" CLASS="outerborder">
+			<SPAN CLASS="light">A Free Java-PDF library<BR>
+			by <A HREF="http://www.lowagie.com/" CLASS="light">Bruno Lowagie</A>
+			and <A HREF="http://www.geocities.com/itextpdf" CLASS="light">Paulo Soares</A></SPAN><BR>
 		</TD>
 	</TR>
 	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Docs</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1"><B>[FAQ]</B></FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="links.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Links</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">History</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A HREF="index.html" CLASS="lightsmall">Home</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A HREF="docs.html" CLASS="lightsmall">Docs</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmallbold">[FAQ]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A HREF="links.html" CLASS="lightsmall">Links</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A HREF="history.html" CLASS="lightsmall">History</A>]</SPAN></TD>
 	</TR>
 	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/projects/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">SourceForge</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArch1</FONT></A> <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArch2</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailingList</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/bugs/?group_id=15255"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bugs</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">CVS</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/projects/itext/">SourceForge</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">MailArch1</A> <A CLASS="lightsmall" HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">MailArch2</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">MailingList</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://sourceforge.net/bugs/?group_id=15255">Bugs</A>]</SPAN></TD>
+		<TD WIDTH="20%"><SPAN CLASS="lightsmall">[<A CLASS="lightsmall" HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/">CVS</A>]</SPAN></TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR><BR>
-			<FONT FACE="Arial,Helvetica">
-			<B>These are some frequently asked questions</B><br>
+			<DIV CLASS="Title">These are some frequently asked questions</div><br>
+            <div class="Text">
 			If you don't find the answer to your question here and it's mainly a technical question,
-			please consult the <a href="http://www.lowagie.com/iText/tutorial/">tutorial</a>.
-			On the <a href="index.html">HOME</a>-page you'll find a complete overview of all the
+			please consult the <a href="http://www.lowagie.com/iText/tutorial/" class="normal">tutorial</a>.
+			On the <a href="index.html" class="normal">HOME</a>-page you'll find an overview of all the
 			topics that are discussed in the tutorial. The original mailing list archives can be found
-			at <A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">GeoCrawler</A>.
+			at <A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/" class="normal">GeoCrawler</A>.
 			Unfortunately these archives are not searchable. The mailing list was mirrored on a searchable
 			mail-archive starting january 20, 2002
-			at <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">mail-archive.com</A>.
+			at <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/" class="normal">mail-archive.com</A>.
 			<UL>
-				<LI><A HREF="#whatis">What is PDF?</A>
-				<LI><A HREF="#adobe">Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</A>
-				<LI><A HREF="#free">Is iText really free?</A>
-				<LI><A HREF="#lgpl">What is MPL / LGPL?</A>
-				<LI><A HREF="#mail">Why didn't I get an answer to my mail?</A>
-				<LI><A HREF="#mailinglist">How do I join/leave the mailing list?</A>
-				<LI><A HREF="#donate">How can I donate money?</A>
+				<LI><A HREF="#whatis" class="normal">What is PDF?</A>
+				<LI><A HREF="#adobe" class="normal">Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</A>
+				<LI><A HREF="#free" class="normal">Is iText really free?</A>
+				<LI><A HREF="#lgpl" class="normal">What is MPL / LGPL?</A>
+				<LI><A HREF="#mail" class="normal">Why didn't I get an answer to my mail?</A>
+				<LI><A HREF="#mailinglist" class="normal">How do I join/leave the mailing list?</A>
+				<LI><A HREF="#donate" class="normal">How can I donate money?</A>
             </UL>
             <UL>
-				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
-				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
-				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
-				<LI><A HREF="#measurements">What measurement unit is used?</A>
-				<LI><A HREF="#celldimensions">Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</A>
-                <li><a href="#pdfviewer">Can I view PDFs using iText.</a>
-				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
-				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
-				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
-				<li><a href="#compile">When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</A>
-				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
-				<li><a href="#images">On the subject of images!</A>
-				<li><a href="#preformattedtext">How can I convert preformatted text to PDF?</A>
-				<li><a href="#jsp">I can't find the code for the pdf.jsp example?</A>
-				<li><a href="#printing">How can I send a PDF file to a printer directly?</A>
+				<li><a href="#msie" class="normal">Problems with the Internet Explorer plugin</a>
+				<LI><A HREF="#landscape" class="normal">How to make a page in <i>landscape</i></A>
+				<LI><A HREF="#firstpage" class="normal">I added a header, footer or watermark, but it doesn't appear on my document.</A>
+				<LI><A HREF="#measurements" class="normal">What measurement unit is used?</A>
+				<LI><A HREF="#celldimensions" class="normal">Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</A>
+                <li><a href="#pdfviewer" class="normal">Can I view PDFs using iText.</a>
+				<LI><A HREF="#template" class="normal">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
+				<LI><A HREF="#parsepdf" class="normal">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
+				<LI><A HREF="#html2pdf" class="normal">Can I convert a HTML file to a PDF document?</a>
+				<li><a href="#compile" class="normal">When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</A>
+				<li><a href="#jdk11" class="normal">Can I use iText with the JDK1.1?</A>
+				<li><a href="#images" class="normal">On the subject of images!</A>
+				<li><a href="#preformattedtext" class="normal">How can I convert preformatted text to PDF?</A>
+				<li><a href="#jsp" class="normal">I can't find the code for the pdf.jsp example?</A>
+				<li><a href="#printing" class="normal">How can I send a PDF file to a printer directly?</A>
 			</UL>
-			</FONT><BR>
+			</div><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="whatis"><B>What is PDF?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="whatis">What is PDF?</A></div><BR>
+			<div class="text">
 			PDF is the 'Portable Document Format', i.e. the native file format of
 			the Adobe<SUP>(R)</SUP> Acrobat<SUP>(R)</SUP> family of products.
 			The goal of these products is to enable users to exchange and view
 			electronic documents easily and reliably, independent
 			of the environment in which they were created.<BR>
-			Check out the <A HREF="http://www.adobe.com/"><FONT FACE="Arial,Helvetica" SIZE="-1">Adobe</FONT></A> website
+			Check out the <A HREF="http://www.adobe.com/" class="normal"><div class="text">Adobe</div></A> website
 			where you can download some
-			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/docs.html"><FONT FACE="Arial,Helvetica" SIZE="-1">White Papers</FONT></A>
+			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/docs.html" class="normal"><div class="text">White Papers</div></A>
 			and the
-			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/DOCS/pdfspec.pdf"><FONT FACE="Arial,Helvetica" SIZE="-1">Portable Document Format Reference Manual</FONT></A>
+			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/DOCS/pdfspec.pdf" class="normal"><div class="text">Portable Document Format Reference Manual</div></A>
 			for more information.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="adobe"><B>Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="adobe">Is it legal to use iText? Doesn't Adobe have a copyright on PDF?</A></div><BR>
+			<div class="text">
 			ADOBE owns the copyright for the PDF specifications, that is true.
             However, using iText to produce documents in PDF is completely legal.<br><br>
 			Please read the PDF Reference 1.4 section 1.4. I quote:<br>
@@ -137,23 +138,23 @@
 			</UL>
 			</blockquote>
 			Because decrypting an encrypted PDF-file is not possible with iText
-			(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/">Adobe</a>
+			(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/" class="normal">Adobe</a>
 			and to the PDF Reference Manual everytime some explanation is given about
 			the data structure, iText is allowed to prepare files whose content conforms
 			to the Portable Document Format.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="free"><B>Is iText really free?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="free">Is iText really free?</A></div><BR>
+			<div class="text">
             iText is free in the sense that you don't have to pay money to
             download the product (no purchase price), nor to use it (no license fee).
             However, this doesn't mean you can do anything you want with iText.
             If you use iText, you agree with either the Mozilla Public License (with
             LGPL as alternative license) or the Library General Public License (without MPL).
-            You can read more about these licenses in the <a href="#lgpl">next question</A>.
+            You can read more about these licenses in the <a href="#lgpl" class="normal">next question</A>.
             These licenses are used mainly to protect the developers against claims from users
             and to protect the product against abuse. It wouldn't be fair if someone would
             try to get profit from iText on the back of us, 'benevolent developers' ;-)<br>
@@ -165,7 +166,7 @@
                 company who has used iText in a complex application, those mails
                 are always welcome. We really appreciate them.
             <LI>You can contribute code to ameliorate the library. This doesn't mean
-                you have to send us your whole application (see the <A HREF="#lgpl">license question</A>),
+                you have to send us your whole application (see the <A HREF="#lgpl" class="normal">license question</A>),
                 but any code that adds value to the library is welcomed.
             <LI>You can share your expertise with other iText users by answering
                 questions on the mailing list. You can save other people lots of time.
@@ -173,19 +174,19 @@
                 putting a link on your site, recommending it to other people on
                 mailing lists and user forums, write articles about it in magazines,...
             <LI>If iText really, really saved your company time and money, you can
-                ask your company to <A HREF="#donate">donate money</A> to the original developer
+                ask your company to <A HREF="#donate" class="normal">donate money</A> to the original developer
                 (Bruno Lowagie) and the co-developer (Paulo Soares).
             </UL>
             For the moment there is no possibility to purchase a support contract.
             Support is given only on a voluntary basis through the
-            <A HREF="#mailinglist">mailinglist</A>.
-			</FONT><BR><BR>
+            <A HREF="#mailinglist" class="normal">mailinglist</A>.
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="lgpl"><B>What is MPL / LGPL?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="lgpl">What is MPL / LGPL?</A></div><BR>
+			<div class="text">
 			First of all: LGPL IS NOT GPL!<br>
 			If you work for a commercial company and you download a program that is published with a GPL,
             I would recommend you to stay away from it, unless you want to use the product AS-IS.
@@ -210,21 +211,21 @@
 			Once you decide to use iText, you accept the code AS-IS. You can't force any of the developers
 			to give support (allthough you will get lots of free support through the mailing list). You
 			can't sue any of the developers if anything goes wrong. After all, iText is a FREE product.<br><br>
-            You can read the LGPL for more detail (see <a href="lgpl.txt">lgpl.txt</a>), but I think the above
+            You can read the LGPL for more detail (see <a href="lgpl.txt" class="normal">lgpl.txt</a>), but I think the above
             is a good summary.<br><br>
 			Because of some quirky details in the LGPL, people developing commercial products
 			using iText asked me to move to a less strict license. That's why I made iText multiple licensed.
-			iText can be used under MPL too. Read the MPL for more info: <a href="MPL-1.1.txt">MPL-1.1.txt</A>.
-			</FONT><BR><BR>
+			iText can be used under MPL too. Read the MPL for more info: <a href="MPL-1.1.txt" class="normal">MPL-1.1.txt</A>.
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="mail"><B>Why didn't I get an answer to my mail?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="mail">Why didn't I get an answer to my mail?</A></div><BR>
+			<div class="text">
             First of all, it is better not to send mails to any other address than
-            <A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A>.
-            This is the mailing list address, please <A HREF="#mailinglist">join</A> this list first.
+            <A HREF="mailto:itext-questions@lists.sourceforge.net" class="normal">itext-questions@lists.sourceforge.net</A>.
+            This is the mailing list address, please <A HREF="#mailinglist" class="normal">join</A> this list first.
             If you send mails to the developers (Bruno Lowagie and/or Paulo Soares),
             one of us can be on vacation, thus unable to give you a quick reply. Also your mail can get
             lost (I delete lots of mails without even reading them; surprised? Well, you probably don't
@@ -235,19 +236,19 @@
             place, or even worse, if you want to do us your work in your place for free,
             you will get 'NO' for an answer. This is only normal. We've got our own jobs too.<br>
             If you really need to say something to one of the developers personally and you don't
-            want it to be published on the net, please send a mail to <A HREF="mailto:itext@lowagie.com">itext@lowagie.com</A>.
+            want it to be published on the net, please send a mail to <A HREF="mailto:itext@lowagie.com" class="normal">itext@lowagie.com</A>.
             This is a forward address, it forwards your mail to Bruno's personal address and / or
             Paulo's address. Sometimes this address will be linked to an auto-responder giving you
             more information of our whereabouts.<br>
-			</FONT><BR>
+			</div><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="mailinglist"><B>How do I join/leave the mailing list?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="mailinglist">How do I join/leave the mailing list?</A></div><BR>
+			<div class="text">
             If you are not subscibed and you post a question to:
-            <A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A>,
+            <A HREF="mailto:itext-questions@lists.sourceforge.net" class="normal">itext-questions@lists.sourceforge.net</A>,
             you get an automated reply that you aren't subscribed. This means that your question
             will be put on hold until one of the mailing list administrators has reviewed your mail.
             Your mail can be approved (thus sent to the other mailing list users) or rejected
@@ -255,21 +256,21 @@
             while, so maybe you want to subscribe.<br>
             All the information you need to subscribe to this mailing list,
             can be found at the following address:
-            <A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions">http://lists.sourceforge.net/mailman/listinfo/itext-questions</A>.
+            <A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions" class="normal">http://lists.sourceforge.net/mailman/listinfo/itext-questions</A>.
             If you <B>scroll to the bottom of this page</B>, you can also find the information to <B>unsubscribe</B>.<br>
             Before you post a question, it's probably not a bad idea to take a look at the mailinglist achives:
             <UL>
-            <LI><A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">mail-archive</A> (Searchable!)
-            <LI><A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">GeoCrawler</A>
-            <LI><A HREF="http://sourceforge.net/mailarchive/forum.php?forum_id=3273">SourceForge</A>
+            <LI><A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/" class="normal">mail-archive</A> (Searchable!)
+            <LI><A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/" class="normal">GeoCrawler</A>
+            <LI><A HREF="http://sourceforge.net/mailarchive/forum.php?forum_id=3273" class="normal">SourceForge</A>
             </UL>
-			</FONT>
+			</div>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="donate"><B>How can I donate money?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="donate">How can I donate money?</A></div><BR>
+			<div class="text">
             It's very unusual to pay for something that is free, but it happens.
             I have to pay my webserver hosting bills, I buy books about Java and PDF,
             Paulo and I spend time at home to write code, write tutorials, solve problems,...
@@ -277,20 +278,24 @@
             bonus to cover the costs. (Or in my case: also to make up for the time I spend
             on iText to my wife and children ;-)<br>
             That's why you (or more likely: your company) may want to donate some
-            money to us. If so, send a mail to <A HREF="mailto:donate@lowagie.com">donate@lowagie.com</A>
+            money to us. If so, send a mail to <A HREF="mailto:donate@lowagie.com" class="normal">donate@lowagie.com</A>
             and you will receive, my personal address, the name, address and SWIFT code of my bank and
             my account number. Please specify the amount of money you are willing to donate.<br>
             Again: this is not an obligation. This suggestion is not aimed at you as an individual,
             only at the company you work for, a company that may be making big profits because
             you chose to work with iText instead of another product. (Personally I would ask
             for a raise first ;-)
-			</FONT><BR><BR><BR><BR>
+			</div><BR><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="msie"><B>Problems with the Internet Explorer plugin</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="msie">Problems with the Internet Explorer plugin</A></div><BR>
+			<div class="text">
+            There are lots of features in different versions of MSIE that make it rather
+            difficult to show a dynamically generated PDF file in every browser.
+            I used to have a list with links to MicroSoft's Knowledge Base here, but
+            that list was very hard to maintain.<br><br>
 			When you send dynamically created CORRECT (!) PDFs
 			(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
 			a blank browser window. This is because MSIE needs to know
@@ -304,69 +309,62 @@
 			&nbsp;<CODE>ba.writeTo(out);</CODE><BR>
 			&nbsp;<CODE>out.flush();</CODE><BR>
 			<BR>
-			If you don't include the content length it only works sometimes, if ever.
-			There is also a problem with MSIE 5.5 and MSIE 5.5 SP1 (different symptons
-			have been reported). Installing Service Pack 2 should do the trick.<br><br>
-			See also the support pages at Adobe and MicroSoft for similar problems:<br>
-			<A HREF="http://www.adobe.com/support/techdocs/98fe.htm">ADOBE: Configuring Internet Explorer and AOL for Windows to Display PDF Files</A><
-			<A HREF="http://www.adobe.com/support/techdocs/1392e.htm">ADOBE: Error "...The path does not exist"</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q177321">MS: Adobe Acrobat .pdf Files Appear as a Blank Window or Frame</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q305153">MS: Internet Explorer Opens a Blank Page with a Placeholder Icon Instead of a .pdf File in Adobe Acrobat Reader</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q293792">MS: Three GET Requests Are Sent When You Retrieve Plug-in Served Content</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q247663">MS: .pdf File Is Displayed as a Blank Page on Redirects</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-GB;q281119">MS: Internet Explorer Saves HTML Content Instead of the Active Document</A><BR>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q262213">MS: Error Message "Error Locating Object Handler" When Downloading a .pdf File</A>
-			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q263847">MS: Unable to Locate Object Handler When Extension in URL Is Greater than 50 Characters</A>
-			<A HREF="http://www.ietf.org/rfc/rfc2183.txt">IETF: RFC2183 The Content-Disposition Header Field</A>
-			<br>
+			If you don't include the content length it only works sometimes, if ever.<br><br>
+            Another known feature of MSIE: every time a client requests a dynamically generated PDF
+            you see the server receives the same request 2 or 3 times. You can work around this using
+            the following construction posted by Anis H.:<br><br>
+            <code>&lt;HTML&gt;<br>&lt;BODY leftMargin=0 topMargin=0 scroll=no&gt;<br>
+            &nbsp;&nbsp;&lt;EMBED src="http://myserver/pdfCreationServlet" width="100%" height="100%" type=application/pdf fullscreen="yes"&gt;<br>
+            &lt;/body&gt;<br>&lt;/html&gt;</code><br><br>when you invoke your servlet which creates PDF as
+            shown above only one request will be sent to the server.<br>
 			<br>In another context (dynamic CSV files over SSL), Nicolas Guichard posted this solution to the mailing-list:<br>
-			I have the same problem with CSV files, and i just found the solution on a <a href="http://php3.de/manual/en/function.session-cache-limiter.php">php forum</a>:
+			I have the same problem with CSV files, and i just found the solution on a <a href="http://php3.de/manual/en/function.session-cache-limiter.php" class="normal">php forum</a>:
             Following their advice, I add the following parameters to the response's headers:<br>
-            <FONT FACE="Courier">
+            <code>
             response.setHeader("Expires", "0");<br>
             response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");<br>
             response.setHeader("Pragma", "public");<br>
-            </FONT><br>
+            </code><br><br>
             And it works.... But don't ask me to explain this!!!
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="landscape"><B>How to make a page in <i>landscape</i></B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="landscape">How to make a page in <i>landscape</i></A></div><BR>
+			<div class="text">
 			In most of the examples, the pages are created with a PageSize.A4.
 			These pages are shown in <i>portrait</i>. If you create a page with
 			PageSize.A4.rotate(), the pages are shown in <i>landscape</i>.
 			You can also use the setPageSize-method, but be aware of the
 			fact that the PageSize will only be changed on the next page.<BR>
-			This is covered in the <A HREF="tutorial/ch01.html#landscape">tutorial</A>.
-			</FONT><BR><BR>
+			This is covered in the <A HREF="tutorial/ch01.html#landscape" class="normal">tutorial</A>.
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="firstpage"><B>I added a header, footer or watermark, but it doesn't appear on my document.</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A></div><BR>
+			<div class="text">
 			Chances are you added the header, footer or watermark at the wrong place.
-			This is covered in the <A HREF="tutorial/ch01.html#firstpage">tutorial</A>.
-			</FONT><BR><BR>
+			This is covered in the <A HREF="tutorial/ch01.html#firstpage" class="normal">tutorial</A>.
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="measurements"><B>What measurement unit is used?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="measurements">What measurement unit is used?</A></div><BR>
+			<div class="text">
 			The default measurement system roughly corresponds to the various definitions
 			of the typographic unit of measurement known as the <I>point</I>.
-			This is covered in the <A HREF="tutorial/ch01.html#measurements">tutorial</A>.
-			</FONT><BR><BR>
+			This is covered in the <A HREF="tutorial/ch01.html#measurements" class="normal">tutorial</A>.
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="celldimensions"><B>Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="celldimensions">Why do I get an UnsupportedOperationException when I try to set or retrieve the dimensions of a Cell and/or Table?</A></div><BR>
+			<div class="text">
 			When you construct or shape the objects Cell (and/or Table), you create content and metadata that will
 			allow a writer to make a representation of a Cell (and/or Table). At the moment you are doing this, the
 			Cells nor the Table are aware of the presentation format. You could add the object to a Document that is
@@ -375,83 +373,78 @@
 			that represents a document with A4 portrait as Page Size and another with A4 landscape. Both documents will
 			show the same content and metadata, but the cells (and/or table) will have different dimensions. That is
 			why it doesn't make sense to ask a Cell (and/or Table) object for its dimensions.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="pdfviewer"><B>Can I view PDFs using iText?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="pdfviewer">Can I view PDFs using iText?</A></div><BR>
+			<div class="text">
 			No, use Acrobat Reader or GhostView or any other PDF viewer instead.<br>
             Carsten Hammer made the following suggestions if you REALLY need a Java solution to view PDFs:
             <ul>
-            <li>Use <a href="http://www.jpedal.org/">jpedal</a>. There is an example on their site.
-            <li>Adobe once release a PDF Viewer library: <a href="http://www.adobe.com/products/acrviewer/main.html">Adobe Acrobat Viewer (for Java)</a>.
+            <li>Use <a href="http://www.jpedal.org/" class="normal">jpedal</a>. There is an example on their site.
+            <li>Adobe once release a PDF Viewer library: <a href="http://www.adobe.com/products/acrviewer/main.html" class="normal">Adobe Acrobat Viewer (for Java)</a>.
             Unfortunately they discontinued the development, so it only supports older versions of PDF and JAVA.<br>
             Carsten provided a jar with an example on how to use the library.
-            You can find this jar <a href="http://itext.sourceforge.net/downloads/pdfviewer.zip">here</a>.
+            You can find this jar <a href="http://itext.sourceforge.net/downloads/pdfviewer.zip" class="normal">here</a>.
             Just do <code>java -jar pdfviewer.jar</code>. Before you download the zip, please read the
-            <a href="http://www.adobe.com/products/acrviewer/eula.html">License Agreement</a> from Adobe first.
+            <a href="http://www.adobe.com/products/acrviewer/eula.html" class="normal">License Agreement</a> from Adobe first.
             </ul>
-			</FONT>
+			</div>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="template"><B>Can I read an existing PDF-document with iText? Can I use a template PDF and fill it with data?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			Yes, in some cases, you can: see <a href="tutorial/ch01.html#readingPDF">example 12</A> in Chapter 1 of the tutorial.
+			<div class="title"><A NAME="template">Can I read an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A></div><BR>
+			<div class="text">
+			Yes, in some cases, you can: see <a href="tutorial/ch01.html#readingPDF" class="normal">example 12</A> in Chapter 1 of the tutorial.
 			You can extract complete pages of an existing PDF document and copy them to a newly created PDF document.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="parsepdf"><B>Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A></div><BR>
+			<div class="text">
 			No, the pdf format is just a canvas where text and graphics are placed without
             any structure information. As such there aren't any 'iText-objects' in a PDF file.
 			For instance: you can't retrieve a table object from a PDF file.
             Tables are formed by placing text and lines at selected places.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="html2pdf"><B>Can I convert a HTML file to a PDF document?</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			This is not really supported by iText. In <A href="tutorial/ch07.html#htmlparsing">Chapter 7</a>,
+			<div class="title"><A NAME="html2pdf">Can I convert a HTML file to a PDF document?</A></div><BR>
+			<div class="text">
+			This is not really supported by iText. In <A href="tutorial/ch07.html#htmlparsing" class="normal">Chapter 7</a>,
 			you find a (very experimental) example. There are people who have succeeded in using this functionality in combination with
 			the HtmlTidy and there are also some examples here (but the links are broken most of the time):
-			<A HREF="http://128.146.118.49/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
-			and <A HREF="http://128.146.118.49/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.<br>
+			<A HREF="http://128.146.118.49/pdfsamples/asp_readme.htm" class="normal">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
+			and <A HREF="http://128.146.118.49/pdfsamples/Html2pdf.asp" class="normal">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.<br>
 			If you really need HTML to PDF conversion, use HtmlDoc or post your question to the mailing list to hear
 			from other subscribers how they achieved to parse their HTML.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><A NAME="compile">When I compile/run the source code I get ClassNotFound/NoSuchMethod errors!</A></div><BR>
+			<div class="text">
 			If the source code doesn't compile, this can be caused by four different reasons:
 			<ol>
-			<li><A NAME="jdk14">I made a mistake and I used the JDK1.4</A> to compile the jar.
-			    This can lead to all
-			    kinds of problems if you are using an earlier version of the JDK (for instance
-			    NoSuchMethod errors). The solution to this problem is very simple: just download
-			    the source code and build the jar yourself (it's very easy if you do it with ANT).
 			<li>If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
 			    this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
-			    use the <A HREF="#jdk11">1.1.x</A>-version of the library.
+			    use the <A HREF="#jdk11" class="normal">1.1.x</A>-version of the library.
 			<li>If the missing classes are related to XML, you probably forgot to add the
 			    iTextXML.jar to your classpath.
 			<li>If you are missing non-iText classes (for instance org.xml.sax.Parser),
 			    you need to put the j2ee.jar in your classpath (in this case the SDK isn't sufficient,
 			    you need the Java 2 Enterprise Edition). These classes are not used in the iText.jar library,
-			    only in the additional iTextXML.jar.<br>
+			    only in the additional iTextXML.jar.
 			<li>If you have trouble compiling or running the examples on a WINDOWS-OS, you
-			    can use this batch file: <A HREF="examples/compile.bat">compile.bat</A>. Just run
+			    can use this batch file: <A HREF="examples/compile.bat" class="normal">compile.bat</A>. Just run
 			    it with the name of the example (not the filename) as parameter: for instance:
 			    'compile Chap0101'.
 			<LI>If you are using iText in a Servlet, make sure you have the iText.jar in the right place.
@@ -464,26 +457,26 @@
 			    classpath. You and you alone can solve these kind of errors, so please don't mail us
 			    before you're absolutely sure you've checked every detail on your system.
 			</ol>
-			</FONT>
+			</div>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a name="jdk11"><B>Can I use iText with the JDK1.1?</B></a></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			You can download a 1.1 distribution from <A HREF="http://www.geocities.com/itextpdf">Paulo's site</A>.
+			<div class="title"><a name="jdk11">Can I use iText with the JDK1.1?</a></div><BR>
+			<div class="text">
+			You can download a 1.1 distribution from <A HREF="http://www.geocities.com/itextpdf" class="normal">Paulo's site</A>.
 			You will also need to download the
-			<A HREF="http://java.sun.com/beans/infobus/index.html#DOWNLOAD_COLLECTIONS"><FONT FACE="Arial,Helvetica" SIZE="-1">Collection</FONT></A>
+			<A HREF="http://java.sun.com/beans/infobus/index.html#DOWNLOAD_COLLECTIONS" class="normal">Collection</A>
 			classes to make the library work (more
-			<A HREF="http://java.sun.com/beans/infobus/collectionsreadme.html"><FONT FACE="Arial,Helvetica" SIZE="-1">info</FONT></A>)
-			</FONT><BR><BR>
+			<A HREF="http://java.sun.com/beans/infobus/collectionsreadme.html" class="normal">info</A>)
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			First read <A href="tutorial/ch06.html">Chapter 6</a> of the tutorial.
+			<div class="title"><A NAME="images">On the subject of images!</A></div><BR>
+			<div class="text">
+			First read <A href="tutorial/ch06.html" class="normal">Chapter 6</a> of the tutorial.
 			iText supports images (WMF, plain GIFs, JPEGs and PNGs), but there are some limitations!
 			<UL>These are the exceptions:
 			<LI>GIF
@@ -508,8 +501,8 @@
 			but you must know that there are also some legal limitations (the format is
 			owned by Unisys and there is a patent on LZW-compression/decompression). When an image
 			is rejected by iText, the exception that gets thrown always gives an explanation;
-			for instance:<BR><FONT FACE="Courier">the image separator '0x2c' is not found
-			after reading the color table</FONT><BR>
+			for instance:<BR><code>the image separator '0x2c' is not found
+			after reading the color table</code><BR>
 			This is quite a cryptic error message, but the code can't possibly tell you more:
 			in the GIF specs, it is specified that the code 0x2c should be used as imageSeparator
 			(this is the byte that should separate the section with the GIF-header, the info and
@@ -518,21 +511,21 @@
 			You can try using another tool to create your GIF-file, one that generates images
 			that are conform to the specs. You can consider using PNG- or JPG-images instead.
 			Or you can use Advanced iText:<br>
-			<b>Advanced iText</b> uses the <FONT FACE="Courier">java.awt.Image</FONT>-object from the JDK,
+			<b>Advanced iText</b> uses the <code>java.awt.Image</code>-object from the JDK,
 			so if you use this functionality (as described in the advanced example in
-			<a href="tutorial/ch06.html#advanced">Chapter 6</a>), you can add all the types of
+			<a href="tutorial/ch06.html#advanced" class="normal">Chapter 6</a>), you can add all the types of
 			images that are supported by the JDK (all kinds of GIFs, TIFF,...).
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a name="preformattedtext"><B>How can I convert preformatted text to PDF?</B></a></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><a name="preformattedtext">How can I convert preformatted text to PDF?</a></div><BR>
+			<div class="text">
 			First you will need to read the file you want to convert:<BR>
-			<FONT FACE="Courier">
+			<code>
 			Reader in = new InputStreamReader(new FileInputStream("your_file_name.txt"), yourEncoding);<br>
-			</FONT><BR>
+			</code><BR>
 			If it's just a plain ASCII-file, you don't need to specify the encoding, but this
 			parameter is added to show this functionality can also be used for (a.o.) Asian texts.
 			If you have a Japanese text with encoding Shift JIS, the value of parameter yourEncoding should be "SJIS".
@@ -541,50 +534,50 @@
 			put this String in a Paragraph-object that uses a 'fixed width' font and add this
 			paragraph to a document. If you use only romanic characters, you can use the font 'Courier'.
 			Or you can change the width of the characters yourself (as demonstrated in
-			<A HREF="tutorial/ch09.html#fontwidths">Chapter 9</A> of the tutorial), but
+			<A HREF="tutorial/ch09.html#fontwidths" class="normal">Chapter 9</A> of the tutorial), but
 			keep in mind that width change only works with type1 and true-type fonts with
 			encodings other then IDENTITY-H or IDENTITY-V.<br><br>
 			If you are using an Asian Font, you will have to manipulate the String first.<br>
 			In the case of Japanese, you can create this BaseFont:<BR>
-			<FONT FACE="Courier">
+			<code>
 			BaseFont bf = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", BaseFont.NOT_EMBEDDED);
-			</FONT><BR>
+			</code><BR>
 			Remark: the embedding flag is ignored when built-in fonts and CJK fonts from the
             Adobe font pack are used. Another option is to use msgothic.ttc or msmincho.ttc; these can be embedded.<br>
 			You will have to move all characters in the range \u0020-\u007f to the range \uff00-\uff5f.
 			That's the "Halfwidth and Fullwidth Forms" Unicode range. (Another option is to use courier with
 			the romanic characters, but you'll have to change the default widths of 600 to 1000 to match
 			the ideographs.) You can put the resulting String in a Paragraph and add it to a document.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a name="jsp"><B>I can't find the code for the pdf.jsp example?</B></a></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><a name="jsp">I can't find the code for the pdf.jsp example?</a></div><BR>
+			<div class="text">
             No offense, but if you are reading this question because you need the answer,
             chances are you are not a very good programmer. Or you are a programmer with
             bad taste. You just DON'T GENERATE binaries using JSP.<br>
             However if you want to see how it is done, you can look up the code in the
-            <A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/www/examples/pdf.jsp">CVS repository</A>
-            or download the <A HREF="http://itext.sourceforge.net/downloads/examples.tar.gz">tar.gz</A> or
-            <A HREF="http://itext.sourceforge.net/downloads/examples.zip"></A> containing the complete set
+            <A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/www/examples/pdf.jsp" class="normal">CVS repository</A>
+            or download the <A HREF="http://itext.sourceforge.net/downloads/examples.tar.gz" class="normal">tar.gz</A> or
+            <A HREF="http://itext.sourceforge.net/downloads/examples.zip" class="normal"></A> containing the complete set
             of examples. DO NOT COMPLAIN TO THE MAILING LIST THAT THE EXAMPLE DOESN'T WORK BEFORE YOU
-            CHECK <A HREF="http://www.lowagie.com/iText/examples/pdf.jsp">pdf.jsp</A> ON MY SITE.
+            CHECK <A HREF="http://www.lowagie.com/iText/examples/pdf.jsp" class="normal">pdf.jsp</A> ON MY SITE.
             If this example doesn't work for you, it is probably because you added newlines, spaces, carriage returns,...
             to the original JSP-code. These newlines, spaces, carriage returns,... are added to the PDF
             and make the file corrupt: the crossreference table doesn't point to the correct bytepositions
             anymore. SUMMARIZED: iText for JSP is possible, but don't expect to get any support for it.
-			</FONT><BR><BR>
+			</div><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a name="printing"><B>How can I send a PDF file to a printer directly?</B></a></FONT><BR>
-			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<div class="title"><a name="printing">How can I send a PDF file to a printer directly?</a></div><BR>
+			<div class="text">
             Printing is a very platform dependent functionality.
             On Windows, you can print a PDF file by executing Acrobat Reader:<br>
-            <FONT FACE="Courier">
+            <code>
             String osName = System.getProperty("os.name" );<br>
             //FOR WINDOWS 95 AND 98 USE COMMAND.COM<br>
             if( osName.equals( "Windows 95" ) || osName.equals( "Windows 98" )){<br>
@@ -594,26 +587,26 @@
             else {<br>
             &nbsp;&nbsp;&nbsp;&nbsp;Runtime.getRuntime().exec("cmd.exe /C acrord32 /p /h" + claim.pdf);<br>
             }<br>
-            </FONT><br>
+            </code><br>
             (Code provided by Jasperlan Guela)<br>
             Remark: the /h-option suppresses the Acrobat Reader Dialog Box.
             <br>
-			</FONT><BR><BR><br><br>
+			</div><BR><BR><br><br>
 		</TD>
 	</TR>
 	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous Page</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><span class="lightsmall">[<A HREF="docs.html" class="lightsmall">Previous Page</A>]</span></TD>
 		<TD WIDTH="20%">&nbsp;</TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><span class="lightsmall">[<A HREF="#top" class="lightsmall">Top</A>]</span></TD>
 		<TD WIDTH="20%">&nbsp;</TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="links.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next Page</FONT></A>]</FONT></TD>
+		<TD WIDTH="20%" ALIGN="center"><span class="lightsmall">[<A HREF="links.html" class="lightsmall">Next Page</A>]</span></TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" SIZE="-3"><B>Page Updated: </B> $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</FONT>
+			<SPAN CLASS="verysmall">Page Updated: $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</span>
 		</TD>
 		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
-		<FONT FACE="Arial,Helvetica" SIZE="-3">Read the <A HREF="privacypolicy.html"><FONT COLOR="#000000">Privacy Policy</FONT></A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com"><FONT COLOR="#000000">itext@lowagie.com</FONT></A></FONT>
+		<SPAN CLASS="verysmall">Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com" CLASS="verysmall">itext@lowagie.com</A></span>
 		</TD>
 	</TR>
 	</TABLE>

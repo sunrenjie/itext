@@ -25,7 +25,7 @@ TD  {
 
 A  {
 	font-family : Arial, Helvetica;
-	color : #000080;
+	color : #008080;
 }
 
 DIV.title  {
@@ -61,6 +61,10 @@ a.download  {
 	font-family : Arial, Helvetica;
 	font-size : 12;
 	color : #000000;
+}
+code  {
+	font-family : Courier;
+	font-size : 12;
 }
 
 div.text  {
