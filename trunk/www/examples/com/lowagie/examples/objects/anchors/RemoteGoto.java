@@ -76,7 +76,7 @@ public class RemoteGoto {
             // two paragraphs with a local destination
             Paragraph p3a = new Paragraph("This paragraph contains a ");
             p3a.add(new Chunk("local destination in document A", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
-            Paragraph p3b = new Paragraph("This paragraph contains a local ");
+            Paragraph p3b = new Paragraph("This paragraph contains a ");
             p3b.add(new Chunk("local destination in document B", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             
             // two paragraphs with a remote goto

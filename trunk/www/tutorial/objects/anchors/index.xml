@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Bookmarks, Anchors and Destinations</site:title>
+		<site:title>Destinations, Bookmarks, Anchors and Actions</site:title>
 		<site:summary>Deals with all the Bookmarks, Outlines, Destinations, Anchors, RemoteGoto, LocalGoto, Annotations,... functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, anchors, remoteGoto, LocalGoto, Annotations, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -15,6 +15,23 @@
 	</site:metadata>
 	
 	<site:examples>
+		<site:example>
+			<site:java src="Destinations" standalone="yes" />
+			<site:result>Destinations.pdf</site:result>
+			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Bookmarks" standalone="yes" />
+			<site:result>Bookmarks.pdf</site:result>
+			<site:description>Creates a document with Bookmarks for every new Paragraph that is added</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ViewerPreferences" standalone="yes" />
+			<site:result>TwoColumnLeft.pdf</site:result>
+			<site:result>HideMenuToolbar.pdf</site:result>
+			<site:result>FullScreen.pdf</site:result>
+			<site:description>Creates three versions of the same document, but with different viewerpreferences</site:description>
+		</site:example>
 		<site:example>
 			<site:java src="LocalGoto" standalone="yes" />
 			<site:result>LocalGoto.pdf</site:result>
@@ -30,6 +47,12 @@
 			<site:result>DocumentA.pdf</site:result>
 			<site:result>DocumentB.pdf</site:result>
 			<site:description>Creates two documents with links to eachother and to an external URL</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Actions" standalone="yes" />
+			<site:result>Actions.pdf</site:result>
+			<site:result>remote.html</site:result>
+			<site:description>Creates a document with some goto actions</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="NamedActions" standalone="yes" />
