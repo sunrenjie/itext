@@ -18,24 +18,35 @@
 	<site:examples>
 		<site:example>
 			<site:java src="Chunks" standalone="yes" />
-			<site:result>Chunk.pdf</site:result>
+			<site:result>Chunks.pdf</site:result>
 			<site:description>Demonstrates some Chunk functionality</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Paragraphs" standalone="yes" />
-			<site:result>Paragraph.pdf</site:result>
+			<site:result>Paragraphs.pdf</site:result>
 			<site:description>Demonstrates some Paragraph functionality</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ParagraphAttributes" standalone="yes" />
-			<site:result>Paragraphs.pdf</site:result>
-			<site:description>Demonstrates some Paragraph functionality</site:description>
+			<site:result>ParagraphAttributes.pdf</site:result>
+			<site:description>Demonstrates some more Paragraph functionality</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Lists" standalone="yes" />
+			<site:result>lists.pdf</site:result>
+			<site:result>lists.html</site:result>
+			<site:description>Demonstrates some List functionality</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FancyLists" standalone="yes" />
+			<site:result>fancylists.pdf</site:result>
+			<site:description>Demonstrates some List with Roman numerals, Greek letters, zapfdingbats,...</site:description>
 		</site:example>
 	</site:examples>
 	
 	<site:chapter>
 	<site:section name="chunk">
-		<site:sectiontitle>Chunk</site:sectiontitle>
+		<site:sectiontitle>The Chunk object</site:sectiontitle>
 <div>
 A Chunk is the smallest significant part of text that can be added to a document.
 It is the 'atom' building block of most of the other High Level Text objects.
@@ -48,7 +59,7 @@ Also related are the chapters on <site:tutorial chapter="/objects/anchors">Ancho
 </div>
 	</site:section>
 	<site:section name="paragraph">
-		<site:sectiontitle>Paragraph</site:sectiontitle>
+		<site:sectiontitle>The Paragraph object</site:sectiontitle>
 <div>
 <site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc> is the text object you are likely to use the most.
 It is an ArrayList of one or more other high level elements, such as Chunk, Phrase, List, Image,...<br />
@@ -76,6 +87,36 @@ The following method names need no further explanation, they are pretty straight
 </div>
 	</site:section>
 	
+	<site:section name="list">
+		<site:sectiontitle>The List object</site:sectiontitle>
+<div>
+The <site:doc class="com.lowagie.text.List">List object</site:doc> gives you functionality that is
+very similar to the &lt;UL&gt; or &lt;OL&gt; tags in HTML. The iText equivalent of &lt;LI&gt; is
+<site:doc class="com.lowagie.text.ListItem">ListItem</site:doc>.<br />
+The type of List is chosen with the parameters <span class="commandline">numbered</span>
+and <span class="commandline">lettered</span> in the <site:doc class="com.lowagie.text.List" target="constructor_summary">constructor</site:doc>.
+You also have to specify a parameter <span class="commandline">symbolIndent</span>. This is the space that will be reserved for the list symbol.
+For unordered lists, you can choose any Chunk or String as list symbol with methods
+<site:doc class="com.lowagie.text.List" target="setListSymbol(com.lowagie.text.Chunk)">setListSymbol(Chunk symbol)</site:doc> or
+<site:doc class="com.lowagie.text.List" target="setListSymbol(java.lang.String)">setListSymbol(String symbol)</site:doc>.
+A numbered list always starts with '1', unless you change the first number with
+<site:doc class="com.lowagie.text.List" target="setFirst(int)">setFirst(int first)</site:doc>.
+The default first character for lists that are ordered with letters is 'A' (uppercase),
+you can change it to lower case with method
+<site:doc class="com.lowagie.text.List" target="setFirst(char)">setFirst(char first)</site:doc> and pass 'a' as parameter.
+<pre class="commandline">List list = new List(true, 20);
+list.add(new ListItem("First line"));</pre>
+<site:source class="Lists" />
+There are some extra classes derived from the <site:doc class="com.lowagie.text.List">List object</site:doc>
+that allow you to generate more fancy lists:
+<site:doc class="com.lowagie.text.RomanList">RomanList</site:doc>,
+<site:doc class="com.lowagie.text.GreekList">GreekList</site:doc>,
+<site:doc class="com.lowagie.text.ZapfDingbatsList">ZapfDingbatsList</site:doc> and
+<site:doc class="com.lowagie.text.ZapfDingbatsNumberList">ZapfDingbatsNumberList</site:doc>.
+Their usage is pretty straightforward:
+<site:source class="FancyLists" />
+</div>
+	</site:section>
 	</site:chapter>
 
 </site:page>

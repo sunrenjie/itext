@@ -51,7 +51,7 @@ public class Chunks {
 			// step 2:
 			// we create a writer that listens to the document
 			PdfWriter.getInstance(document,
-					new FileOutputStream("Chunk.pdf"));
+					new FileOutputStream("Chunks.pdf"));
 
 			// step 3: we open the document
 			document.open();
