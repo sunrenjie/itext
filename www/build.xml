@@ -59,7 +59,7 @@
 
     <target name="javadoc" depends="properties">
         <mkdir dir="${itext.docs}" />
-        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
+        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
             sourcepath="${itext.src}"
             destdir="${itext.docs}"
             author="true"
