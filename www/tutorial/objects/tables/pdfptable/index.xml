@@ -3,9 +3,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Tables</site:title>
-		<site:summary>How to organize text and data in tables with iText</site:summary>
-		<site:keywords>PDF, JAVA, iText, PdfPTable, Table, PdfTable, Lowagie, Bruno</site:keywords>
+		<site:title>PdfPTable</site:title>
+		<site:summary>Some extra PdfPTable functionality</site:summary>
+		<site:keywords>PDF, JAVA, iText, PdfPTable, Table, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
