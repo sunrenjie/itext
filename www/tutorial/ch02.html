@@ -37,9 +37,45 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Document Generation</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 2: Chunks, Phrases and Paragraphs</B></FONT><BR><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 2: Chunks, Phrases and Paragraphs</B></FONT><BR>
 		</TD>
 	</TR>
+	
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="chunk"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Chunk</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			A Chunk is the smallest significant part of text that can be added to a document.<BR>
+			Chunks can be used as building blocks for other elements such as Phrase, Paragraph, Anchor...
+			A Chunk is a string with a certain font.
+			All other layoutparameters should be defined in the object to which
+			this chunk of text is added.<BR>
+			In the following line, we create a Chunk with as content 'Hello World', written in a red, italic COURIER font of size 20:<BR>
+			<FONT FACE="Courier">
+			Chunk chunk = new Chunk("Hello world", new Font(Font.COURIER, 20, Font.ITALIC, new Color(255, 0, 0)));
+			</FONT><BR>
+			</FONT>
+		</TD>
+	</TR>		
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="phrase"></A>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Phrase</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			A Phrase is a series of chunks with a certain leading as extra parameter (leading =
+			the space between two lines).<BR>
+			A phrase has a main font, but some chunks within the phrase can have
+			a font that differs from the main font.
+			You can choose from a wide variety of constructors to create a Phrase.
+			Spme of them are used in <A HREF="Chap0201.java">example 1</A> (see
+			also the <A HREF="Chap0201.pdf">resulting pdf</A>).
+			<B>Ancient Greek</B><BR>
+			<B>Negative leading</B>
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	
 	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch01.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
