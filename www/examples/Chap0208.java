@@ -31,27 +31,27 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.html.HtmlWriter;
 
-public class Chap0302 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 3 example 2: Lists");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0302.pdf"));
- 			HtmlWriter.getInstance(document, new FileOutputStream("Chap0302.html"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4:
+public class Chap0208 {
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 2 example 8: Lists");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0208.pdf"));
+            HtmlWriter.getInstance(document, new FileOutputStream("Chap0208.html"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4:
             
             List list = new List(true, 20);
             list.add(new ListItem("First line"));
@@ -62,14 +62,20 @@ public class Chap0302 {
             document.add(new Paragraph("some books I really like:"));
             ListItem listItem;
             list = new List(true, 15);
-            listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("When Harlie was one",
+                new Font(Font.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by David Gerrold",
+                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("The World according to Garp",
+                new Font(Font.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by John Irving",
+                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));
-            listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("Decamerone",
+                new Font(Font.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by Giovanni Boccaccio",
+                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             document.add(list);
             
@@ -115,15 +121,15 @@ public class Chap0302 {
             sublist.add("Galapagos");
             list.add(sublist);
             document.add(list);
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }
