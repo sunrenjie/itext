@@ -3,12 +3,11 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Text State</site:title>
+		<site:title status="finished">Text</site:title>
 		<site:summary>Add text content directly to the PDF file using the PdfContentByte class.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
-			<site:keyword>JAVA</site:keyword>
 			<site:keyword>PDF</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
@@ -175,6 +174,21 @@ This is a simple examples that writes some text at absolute positions:
 In this example, you see that graphics state methods also apply to text state:
 text glyphs are shapes and if you want to change the color, you have to change the 'colorfill':
 <site:source class="Logo" />
+</div>
+	</site:section>
+	
+	<site:section name="fonts">
+		<site:sectiontitle>Fonts</site:sectiontitle>
+<div>
+The first part of Chapter 5 of the PDF Reference Manual deals with
+<site:tutorial chapter="/directcontent/text">Text State</site:tutorial>;
+the second part (starting with section 5.4) tells you all about fonts.<br />
+In this tutorial fonts are discussed in 3 chapters of a <site:tutorial chapter="" section="part3">separate part</site:tutorial>:
+<ol>
+<li><site:tutorial chapter="/fonts">Font objects</site:tutorial></li>
+<li><site:tutorial chapter="/fonts/styles">Font characteristics</site:tutorial></li>
+<li><site:tutorial chapter="/fonts/getting">Getting Fonts</site:tutorial></li>
+</ol>
 </div>
 	</site:section>
 	</site:chapter>

@@ -19,6 +19,16 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
+<li>iText 1.3
+<ul>
+<li>Rearranged the tutorial and completed the first four parts (except for some less important chapters)</li>
+<li>Added a Toolbox Java WebStart application with tools to encrypt PDF, make DVD Covers, convert txt to pdf,...</li>
+<li>Support for margins in XML Handler by Reza Nasiri</li>
+<li>New class com.lowagie.tools.Executable by Roger Mistelli and Bruno Lowagie</li>
+<li>MultiColumnText: endless loop fix by Steve Appling; Right to Left Columns by Bruno Lowagie</li>
+<li>Added some LINE_JOIN constants to PdfContentByte</li>
+</ul>
+</li>
 <li>2005-03-21: iText 1.2.4
 <ul><li>suggestion by Marc Campforts to remove a carriage return when adding images.</li>
 <li>support for pagesize and orientation in the XML package (update by Samuel Gabriel)</li></ul>
