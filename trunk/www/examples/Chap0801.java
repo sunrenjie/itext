@@ -37,7 +37,7 @@ public class Chap0801 {
 
             // step 2:
             // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
+            // and directs a RTF-stream to a file
 
             RtfWriter.getInstance(document, new FileOutputStream("Chap0801.rtf"));
             
