@@ -349,6 +349,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 					</xsl:element>
 					<xsl:element name="div">
 						<xsl:attribute name="id">main</xsl:attribute>
+						<xsl:if test="string(/site:page/site:metadata/site:title/@status)!='finished'"><font color="#FF0000" size="+2">UNDER CONSTRUCTION</font></xsl:if>
 						<xsl:apply-templates select="site:chapter" />
 						<xsl:call-template name="footer" />
 					</xsl:element>

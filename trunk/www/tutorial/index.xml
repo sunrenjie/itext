@@ -31,13 +31,16 @@
 		<site:chapter path="general/webapp" />
 	</site:part>
 	<site:part name="part2">
-		<site:title>Part II: High Level Text Objects</site:title>
+		<site:title>Part II: Using High Level Objects</site:title>
+		<site:chapter path="objects" />
+		<site:chapter path="objects/chunk" />
+		<site:chapter path="objects/fonts" />
 	</site:part>
 	<site:part name="part3">
-		<site:title>Part III: Adding Content at Absolute Positions</site:title>
+		<site:title>Part III: Graphics and Text at Absolute Positions</site:title>
 	</site:part>
 	<site:part name="part4">
-		<site:title>Part IV: Reading and (re)writing existing PDFs</site:title>
+		<site:title>Part IV: Advanced PDF functionality</site:title>
 	</site:part>
 	<site:part name="part5">
 		<site:title>Part V: PDF Forms</site:title>

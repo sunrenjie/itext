@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Basic Text Objects</site:title>
+		<site:summary>Some basic text objects that are used in iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Chunk, Phrase, Paragraph, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Chunks" standalone="yes" />
+			<site:result>Chunk.pdf</site:result>
+			<site:description>Demonstrates some Chunk functionality</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="5steps">
+		<site:sectiontitle>Chunk</site:sectiontitle>
+<div>
+A Chunk is the smallest significant part of text that can be added to a document.
+It is the 'atom' building block of most of the other High Level Text objects.
+All the contents of a Chunk are of the same font, fontsize, style, color, etc...
+For the complete functionality on this object, please read the <site:tutorial chapter="/objects/chunk">chapter on the Chunk object</site:tutorial>.
+Functionalities such as subscript, superscript, underline and background are demonstrated in the following example:
+<site:source class="Chunks" />
+</div>
+	</site:section>
+	
+	</site:chapter>
+
+</site:page>

@@ -64,6 +64,8 @@ public class NewPage {
             document.add(Chunk.NEWLINE);
             document.newPage();
             document.add(new Paragraph("You should add something invisible if you want a blank page."));
+            document.add(Chunk.NEXTPAGE);
+            document.add(new Paragraph("Using Chunk.NEXTPAGE also jumps to the next page"));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

@@ -18,45 +18,52 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.general;
+package com.lowagie.examples.objects.chunk;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Generates an encrypted 'Hello World' PDF file.
+ * Demonstrates how sub- and superscript works.
  * 
  * @author blowagie
  */
 
-public class HelloEncrypted {
+public class SubSupScript {
 
 	/**
-	 * Generates a PDF file with the text 'Hello World'
-	 * that is protected with the password 'Hello'.
+	 * Demonstrates the use of Subscript and superscript.
 	 * 
 	 * @param args no arguments needed here
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Hello World Encrypted");
+		System.out.println("Sub- and Superscript");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
 		try {
 			// step 2:
 			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-			PdfWriter writer = PdfWriter.getInstance(document,
-					new FileOutputStream("HelloEncrypted.pdf"));
-			writer.setEncryption(PdfWriter.STRENGTH128BITS, "Hello", "World", PdfWriter.AllowCopy | PdfWriter.AllowPrinting);
+			PdfWriter.getInstance(document,
+					new FileOutputStream("SubSupScript.pdf"));
+
 			// step 3: we open the document
 			document.open();
-			// step 4: we add a paragraph to the document
-			document.add(new Paragraph("Hello World"));
+			// step 4:
+			Chunk fox = new Chunk("quick brown fox");
+			fox.setTextRise(8.0f);
+			Chunk jumps = new Chunk(" jumps over ");
+			Chunk dog = new Chunk("the lazy dog");
+			dog.setTextRise(-8.0f);
+			document.add(fox);
+			document.add(jumps);
+			document.add(dog);
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {

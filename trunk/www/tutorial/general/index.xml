@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Hello World</site:title>
+		<site:title status="finished">Hello World</site:title>
 		<site:summary>How-to generate a PDF document with iText in 5 easy steps.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
