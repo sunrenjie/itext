@@ -83,8 +83,10 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION091">iText0.91</A></B> (based on paulo's version 95 + updates by Mark Hall and David Teran)<br>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION091">iText0.91</A></B> (based on paulo's versions 95 and 96 + updates by Mark Hall, David Teran, Jim Moore, Jeremy Bowman, Kevin Galligan and Bruno Lowagie)<br>
 			<UL>
+				<LI>added PdfGraphics2D, a Graphics2D canvas to write to PDF.
+				    Main contribution by Jim Moore with several bits from Jeremy Bowman and Kevin Galligan
 				<LI>Added automatic hyphenation to Chunk.
 				    It uses the FOP engine and the TEX patterns.
 					I provide a jar with some compiled patterns.
@@ -98,7 +100,11 @@
 				<LI>added PdfPTable.setSkipFirstHeader(). Optimizes the printing of large tables
 				    by breaking them into several smaller ones. Contribution by Christian Lauer. 
 				<LI>some RTF updates by Mark Hall
-				<LI>Some performance changes by David Teran
+				<LI>Some performance optimizations in ByteBuffer.formatDouble() by David Teran
+				<LI>optimizations in BaseFont for the encoding Cp1252
+				<LI>PdfReader is made less strict (fixed some FlateDecode problems)
+				<LI>background color in Chunks and generic annotations
+				<LI>several other optimizations
 			</UL>
 		</FONT>
 		</TD>
