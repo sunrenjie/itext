@@ -30,7 +30,7 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 public class Chap0507 {
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 7: spacing and padding");
+        System.out.println("Chapter 5 example 7: borders");
         // step 1: creation of a document-object
         Document document = new Document();
         try {
@@ -44,15 +44,19 @@ public class Chap0507 {
             Table table = new Table(3);
             table.setBorderWidth(1);
             table.setBorderColor(new Color(0, 0, 255));
-            table.setPadding(3);
-            table.setSpacing(1);
+            table.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
+            table.setPadding(5);
+            table.setSpacing(5);
             Cell cell = new Cell("header");
             cell.setHeader(true);
+            cell.setBorderWidth(3);
+            cell.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
             cell.setColspan(3);
             table.addCell(cell);
             cell = new Cell("example cell with colspan 1 and rowspan 2");
             cell.setRowspan(2);
             cell.setBorderColor(new Color(255, 0, 0));
+            cell.setBorder(Rectangle.LEFT | Rectangle.BOTTOM);
             table.addCell(cell);
             table.addCell("1.1");
             table.addCell("2.1");
@@ -62,7 +66,8 @@ public class Chap0507 {
             cell = new Cell("big cell");
             cell.setRowspan(2);
             cell.setColspan(2);
-            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setGrayFill(0.9f);
             table.addCell(cell);
             table.addCell("cell test2");
             document.add(table);
