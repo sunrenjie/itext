@@ -274,7 +274,7 @@
         <delete file="${itext.dist}/examples.tar" />
     </target>
 
-    <target name="examples" depends="properties,jarWithXML" description="--> executes (almost) all examples from the tutorial">
+    <target name="examples" depends="properties" description="--> executes (almost) all examples from the tutorial">
         <echo>Examples Chap0105.java, OutSimplePDF.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
         <echo>They will not compile without a servlet library.</echo>
         <echo>Examples Chap0611.java and Chap0612.java require JAI.</echo>
