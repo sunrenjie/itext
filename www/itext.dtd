@@ -24,10 +24,10 @@
 <!ELEMENT paragraph (#PCDATA | anchor | list | phrase | chunk | annotation | newline | newpage | image)*> 
 <!ATTLIST paragraph
 	leading		CDATA	#IMPLIED
-	font	    CDATA	#IMPLIED
+	font	        CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red			CDATA	#IMPLIED
+	red		CDATA	#IMPLIED
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 	align		CDATA	#IMPLIED
@@ -37,10 +37,10 @@
 <!ELEMENT anchor (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST anchor
 	leading		CDATA	#IMPLIED
-	font	    CDATA	#IMPLIED
+	font	        CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red			CDATA	#IMPLIED
+	red		CDATA	#IMPLIED
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 	name		CDATA	#IMPLIED
@@ -49,24 +49,24 @@
 <!ELEMENT phrase (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST phrase
 	leading		CDATA	#IMPLIED
-	font	    CDATA	#IMPLIED
+	font	        CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red			CDATA	#IMPLIED
+	red		CDATA	#IMPLIED
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 >
 <!ELEMENT chunk (#PCDATA | newline | newpage)*> 
 <!ATTLIST chunk
 	font	    	    CDATA	#IMPLIED
-	size		        CDATA	#IMPLIED
-	style		        CDATA	#IMPLIED
-	red			        CDATA	#IMPLIED
-	green		        CDATA	#IMPLIED
-	blue		        CDATA	#IMPLIED
-	localgoto 	        CDATA	#IMPLIED
-	localdestination	CDATA	#IMPLIED
-	generictag      	CDATA	#IMPLIED
+	size		    CDATA	#IMPLIED
+	style		    CDATA	#IMPLIED
+	red                 CDATA	#IMPLIED
+	green		    CDATA	#IMPLIED
+	blue		    CDATA	#IMPLIED
+	localgoto 	    CDATA	#IMPLIED
+	localdestination    CDATA	#IMPLIED
+	generictag          CDATA	#IMPLIED
 >
 <!ELEMENT list (listitem*)> 
 <!ATTLIST list
@@ -76,20 +76,20 @@
 	indentationleft     CDATA	#IMPLIED
 	indentationright    CDATA	#IMPLIED
 	listsymbol	CDATA	#IMPLIED
-	font	    CDATA	#IMPLIED
+	font	        CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red			CDATA	#IMPLIED
+	red		CDATA	#IMPLIED
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 >
-<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | image | annotation)*> 
+<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | image)*> 
 <!ATTLIST listitem
 	leading		CDATA	#IMPLIED
-	font	    CDATA	#IMPLIED
+	font            CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red			CDATA	#IMPLIED
+	red		CDATA	#IMPLIED
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 	align		CDATA	#IMPLIED
@@ -123,6 +123,7 @@
 <!ATTLIST cell
     horizontalalign CDATA   #IMPLIED
     verticalalign   CDATA   #IMPLIED
+    width           CDATA   #IMPLIED
     colspan         CDATA   #IMPLIED
     rowspan         CDATA   #IMPLIED
     leading         CDATA   #IMPLIED
