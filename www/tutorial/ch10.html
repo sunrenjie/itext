@@ -137,7 +137,69 @@
             cb.endText();
             </FONT><BR>
             Please take a look at <a href="Chap1002.java">example 2</A> and its <A HREF="Chap1002.pdf">resulting PDF</A>.
-			</FONT><BR><BR><BR>
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Templates (Form XObjects)</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            When we discussed the HeaderFooter object in <A HREF="ch03.html">Chapter 3</A>, we defined a piece
+            of information that was added on each page. In fact, this piece of information was written to the file
+            on every new page. This is not a very economic solution. It is better to add this piece of information
+            only once to the document (as a form XObject) and repeat only its visualization. To achieve this,
+            we are going to use templates.<br><BR>
+            <B>Creation of a PdfTemplate</B><br>
+            The best way to create a <FONT FACE="Courier">PdfTemplate</FONT>, is to invoke the method
+            <FONT FACE="Courier">createTemplate</FONT> on the <FONT FACE="Courier">PdfContentByte</FONT>-object:<br>
+            <FONT FACE="Courier">
+            PdfTemplate template = cb.createTemplate(500, 200);
+            </FONT><BR>
+            In this case, the width of the template is 500, the height 200.<br>
+            With this template, we can do the same things as we did with the
+            <FONT FACE="Courier">PdfContentByte</FONT>.<BR>
+            <FONT FACE="Courier">
+			template.moveTo(0, 200);<BR>
+			template.lineTo(500, 0);<BR>
+            template.stroke();<BR>
+            template.beginText();<BR>
+            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);<BR>            
+            template.setFontAndSize(bf, 12);<BR>
+            template.setTextMatrix(100, 100);<BR>
+            template.showText("Text at the position 100,100 (relative to the template!)");<BR>
+            template.endText();
+            </FONT><BR><BR>
+            <B>Adding a template to the document</B><BR>
+            You can add a template at an absolute position like this:<BR>
+            <FONT FACE="Courier">
+            cb.addTemplate(template, 0, 400);
+            </FONT><BR>
+            But you can also do some funny things with Templates, such as rotate
+            or scale them:<BR>
+            <FONT FACE="Courier">
+            // rotate the template 90 degrees<br>
+            cb.addTemplate(template, 0, 1, -1, 0, 500, 200);<br>
+            // scale the template to 50%<br>
+            cb.addTemplate(template, .5f, 0, 0, .5f, 100, 400);<br>
+            // scale the template to 200%<br>
+            cb.addTemplate(template, 2, 0, 0, 2, -200, 400);
+            </FONT><BR>
+            This is demonstrated in <a href="Chap1003.java">example 3</A> (see <A HREF="Chap1003.pdf">Chap1003.pdf</A>).
+            <BR><BR>
+            <B>Another useful feature</B><BR>
+            In some cases, you may want to add information that is not available yet at the moment
+            you write a certain page to the outputstream. For instance: on the first page of a document,
+            you don't know how many pages the document will count in total. You only know the total
+            number of pages once you have finished generating the entire document. This is not a problem
+            when you use templates. In example 3, we added information to the template <I>before</I> we
+            added the template to the contentbyte. This is not necessary. We can add information to
+            a template at any moment because iText adds the form XObjects at the end of the PDF file
+            (when the <FONT FACE="Courier">close</FONT>-method of the document is called).<BR>
+            <A HREF="Chap1004.java">Example 4</A> shows how 4 pages are created first and how the
+            total number of pages is added afterwards (<A HREF="Chap1004.pdf">Chap1004</A>). This
+            example is very simple and not very useful rightnow, but in <A HREF="ch12.html">Chapter 12</A>,
+            we will refine this example.
+            </FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
