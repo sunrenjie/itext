@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>iText in a Web Application</site:title>
+		<site:title status="finished">iText in a Web Application</site:title>
 		<site:summary>How-to use iText in Web Applications.</site:summary>
 		<site:keywords>PDF, JAVA, iText, Servlet, JSP, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -48,10 +48,10 @@
 			<site:path name="POST">http://blowagie.users.mcs2.netarray.com/GetPost.jsp?method=POST</site:path>
 		</site:example>
 		<site:example>
-			<site:java src="ProgressPdf" standalone="no" webapp="ROOT" />
+			<site:java src="ProgressServlet" standalone="no" webapp="ROOT" />
 			<site:extrajar>servlet.jar</site:extrajar>
-			<site:description>Generates a large PDF and shows a progress bar if it takes some time.</site:description>
-			<site:path name="without message">http://blowagie.users.mcs2.netarray.com/servlet/progress</site:path>
+			<site:description>Shows how to avoid receiving a timeout in your browser if generating the PDF takes a really long time.</site:description>
+			<site:path name="show progress">http://blowagie.users.mcs2.netarray.com/servlet/progress</site:path>
 		</site:example>
 		<site:example>
 			<site:java src="SilentPrintServlet" standalone="no" webapp="ROOT" />
@@ -112,8 +112,8 @@ in our <a href="web.xml">web.xml</a> file:
 Some browsers also need to know the content-length of the PDF in advance
 (otherwise they just give you a blank page). The only way we can work around this,
 is by buffering the complete file in a ByteArrayOutputStream.
-That's a pity, because you risk a timeout in the
-browser-server communication if you need to send really big PDFs.
+That's a pity, because you <site:tutorial chapter="/general/webapp" section="timeout">risk a timeout in the
+browser-server communication</site:tutorial> if you need to send really big or time-consuming PDFs.
 <pre class="commandline">Document document = new Document();
 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 PdfWriter.getInstance(document, baos);
@@ -134,7 +134,8 @@ response.setHeader("Expires", "0");
 response.setHeader("Cache-Control",
 	"must-revalidate, post-check=0, pre-check=0");
 response.setHeader("Pragma", "public");
-</pre> 
+</pre>
+So forget about the HelloWorldServlet and use this Servlet instead:
 <site:source class="OutSimplePdf" />
 Another annoying feature of some browsers is that they hit the server 2 or 3 times
 with the same request if you want to serve them a dynamically generated binary file.
@@ -183,7 +184,33 @@ you should try it with different browsers:
 	<site:section name="timeout">
 		<site:sectiontitle>Workaround for timeout problem</site:sectiontitle>
 <div>
-
+As I mentioned before, it's a pity we have to buffer the complete PDF in a ByteArrayOutputStream,
+just because some browsers need to know the length of the generated PDF file in advance.
+At Ghent University I had to generate reports with grades for several thousands students in one document.
+Not only was the document very large, database access was rather slow too.
+So I had the problem that people sometimes failed to get the PDF because their browser
+said the connection timed out. If I had been able to serve them little bits of PDF at a
+time (for instance by writing some binary code directly to the ServletOutputStream
+each time a page was finished), this timeout wouldn't have happened.<br /><br />
+I solved this problem by serving some HTML feedback as long as the PDF wasn't finished.
+The HTML would show the total number of students and the number of students
+that were added to the PDF so far. I also made a progressbar by stretching a pixel
+in an image with a width of 0 to 100 (<span class="commandline">&lt;img src="pixel.gif" height="10" width="&lt;%= myPdf.getPercentage() %&gt;"&gt;</span>).
+This HTML page was refreshed every 3 seconds until the PDF was finished.<br /><br />
+In the example that follows, I have simplified this solution.
+You see there is a subclass MyPdf that implements Runnable. The doGet serves the HTML.
+The first time you hit the server a new MyPdf is added to your session and a Thread
+generating the PDF is started. I deliberately slowed down this process by adding
+Thread.sleep(500). As long as the PDF isn't generated completely (percentage &lt; 100),
+I send a 'Please Wait' message to the browser. Once the PDF is finished,
+I send a form with a button to fetch the PDF from the doPost() method.
+It's a very simple solution. I am using it for 5 years now and the users of my applications
+at Ghent University are all very happy with it. It's not only a technical solution;
+it also works on a psychological level. People are rather impatient. They don't like
+to wait for that internet page to come, not knowing if the connection got lost,
+if they should hit the reload button, if the server went down...
+But give them some feedback and time seems to go a lot faster!
+<site:source class="ProgressServlet" />
 </div>
 	</site:section>
 	
