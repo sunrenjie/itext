@@ -29,15 +29,27 @@
 			<site:path name="html">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=html</site:path>
 			<site:path name="rtf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=rtf</site:path>
 		</site:example>
+		<site:example>
+			<site:java jsp="HelloWorld.jsp" standalone="no" webapp="ROOT" />
+			<site:description>Generates a simple 'Hello World' file from a JSP page</site:description>
+			<site:path name="pdf">http://blowagie.users.mcs2.netarray.com/HelloWorld.jsp</site:path>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="Hello World">
+	<site:section name="HelloWorld">
 		<site:sectiontitle>Hello World</site:sectiontitle>
 <div>
 In the general <site:tutorial chapter="/general" section="5steps">Hello World</site:tutorial> example,
 we created a Hello World PDF file from a standalone Java program.
 <site:source class="HelloWorldServlet" />
+</div>
+	</site:section>
+	
+	<site:section name="JSP">
+		<site:sectiontitle>Hello World JSP</site:sectiontitle>
+<div>
+<site:jsp jsp="HelloWorld.jsp" />
 </div>
 	</site:section>
 	

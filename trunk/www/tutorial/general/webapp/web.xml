@@ -19,7 +19,6 @@
     <url-pattern>/servlet/HelloWorld</url-pattern>
   </servlet-mapping>
 
-  <!-- Establish the default list of welcome files -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
