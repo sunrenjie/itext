@@ -1,0 +1,1290 @@
+<itext title="Intermezzo: XML and PDF" author="Bruno Lowagie" subject="How to use iText to create, parse and convert XML (and HTML) to PDF" keywords="XML, PDF, HTML, JAVA, iText, Bruno, Lowagie">
+	<newline />
+	<newline />
+	<chapter numberdepth="0">
+		<title font="Helvetica" size="18" leading="30">Chapter VII: Intermezzo about XML</title>
+		<newline />
+		<section>
+			<title size="14" color="#008080" leading="25">Creation of iText XML documents</title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+				In <anchor reference="http://www.lowagie.com/iText/tutorial/ch01.html" font="Helvetica" size="11" color="#008080">chapter 1</anchor> of
+				this tutorial, we allready talked about generating documents in different formats. Alltough iText is mainly a library
+				to generate PDF documents, we have occasionaly generated HTML too. In this chapter, we are going to take a look at XML,
+				the eXtensible Markup Language.<newline />
+				Before we go to the first example, we must point your attention to the fact that the XML generation (and parsing)
+				functionality isn't contained in the default iText-release. The code is in seperate tar.gz, zip and jar-files.
+				You also need some external libraries that aren't in the JDK. You need an XML parser
+				library (you can choose any parser you want) and the SAX library (with the org.xml.sax.*-packages).
+				iText uses the Apache Xerces library 1.3.1. You can find a jarfile containing all the libraries you need in the iText
+				downloadsection:<newline />
+				<anchor size="11" color="#008080" reference="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar">http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar</anchor>.<newline />		
+				<table width="85.0%" align="center" columns="1" cellpadding="3" cellspacing="3" grayfill="0.8">
+					<row>
+						<cell>
+							<paragraph font="Helvetica" size="11"> 
+								<chunk style="bold">Important:</chunk> if you choose to use another parser library (different from Xerces 1.3.1),
+								you probably won't be able to compile or use the classes XmlParser and HtmlParser. These classes
+								aren't really necessary, they are only written to allow you to reduce your own code: see the
+								section <anchor reference="easier" size="11">making life easier</anchor>. You can either change them
+								or omit them.
+							</paragraph>
+						</cell>
+					</row>
+				</table>
+			</paragraph>
+			<newline />
+			<paragraph font="Helvetica" size="11" align="Justify">
+				In the first example: <anchor size="11" reference="#Chap0701" color="#008080">Chap0701.java</anchor>,
+				we see how a document is generated containing almost all the objects we discussed in the previous chapters.
+				The result is an XML file that begins like this:
+			</paragraph>
+			<paragraph font="Courier" size="9" align="Justify" leading="12">
+				&lt;?xml version="1.0" encoding="UTF-8" ?&gt;<newline />
+				&lt;!DOCTYPE ITEXT SYSTEM "http://www.lowagie.com/iText/itext.dtd"&gt;<newline />
+				&lt;itext creationdate="Fri Aug 17 13:15:42 CEST 2001" producer="iTextXML by lowagie.com"&gt;
+			</paragraph>
+			<paragraph font="Helvetica" size="11" align="Justify">
+				The rest of the file contains the contents of the document. We recognize a lot of objects
+				and their attributes from the previous chapters.
+			</paragraph>
+			<paragraph font="Courier" size="9" align="Justify" leading="12">
+				&lt;!ENTITY % chunk.content "#PCDATA | newline | newpage | entity | ignore"&gt;<newline />
+				&lt;!ENTITY % phrase.content "chunk | anchor | phrase | list | table | annotation"&gt;<newline />
+				<newline />
+				&lt;!ENTITY % color.attributes<newline />
+				"red      CDATA   #IMPLIED<newline />
+				 green    CDATA   #IMPLIED<newline />
+				 blue     CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % font.attributes<newline />
+				"font     CDATA   #IMPLIED<newline />
+				 size     CDATA   #IMPLIED<newline />
+				 style    CDATA   #IMPLIED<newline />
+				 color    CDATA   #IMPLIED<newline />
+				 %color.attributes;"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % phrase.attributes<newline />
+				"leading  CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % paragraph.attributes<newline />
+				"align    CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % indentation.attributes<newline />
+				"indentationleft    CDATA   #IMPLIED<newline />
+				 indentationright   CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % section.attributes<newline />
+				"depth              CDATA   #IMPLIED<newline />
+				 numberdepth        CDATA   #IMPLIED<newline />
+				 indent             CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				&lt;!ENTITY % rectangle.attributes<newline />
+				"bgred              CDATA   #IMPLIED<newline />
+				 bggreen            CDATA   #IMPLIED<newline />
+				 bgblue             CDATA   #IMPLIED<newline />
+				 width              CDATA   #IMPLIED<newline />
+				 bordercolor        CDATA   #IMPLIED<newline />
+				 backgroundcolor    CDATA   #IMPLIED<newline />
+				 left               CDATA   #IMPLIED<newline />
+				 right              CDATA   #IMPLIED<newline />
+				 top                CDATA   #IMPLIED<newline />
+				 bottom             CDATA   #IMPLIED<newline />
+				 borderwidth        CDATA   #IMPLIED<newline />
+				 grayfill           CDATA   #IMPLIED"<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT itext (%chunk.content; | %phrase.content; | chapter | paragraph)*&gt;<newline />
+				&lt;!ATTLIST itext<newline />
+					title		CDATA	#IMPLIED<newline />
+					subject		CDATA	#IMPLIED<newline />
+					keywords	CDATA	#IMPLIED<newline />
+					author		CDATA	#IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT symbol EMPTY&gt;<newline />
+				&lt;!ATTLIST symbol<newline />
+				    id      CDATA #REQUIRED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT chunk (%chunk.content;)*&gt; <newline />
+				&lt;!ATTLIST chunk<newline />
+				    %font.attributes;<newline />
+				    subsupscript        CDATA   #IMPLIED<newline />
+				    localgoto           CDATA   #IMPLIED<newline />
+				    localdestination    CDATA   #IMPLIED<newline />
+				    generictag          CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT phrase (%chunk.content; | %phrase.content;)*&gt; <newline />
+				&lt;!ATTLIST phrase<newline />
+				    %font.attributes;<newline />
+				    %phrase.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT anchor (%chunk.content; | %phrase.content;)*&gt; <newline />
+				&lt;!ATTLIST anchor<newline />
+				    %font.attributes;<newline />
+				    %phrase.attributes;<newline />
+				    name       CDATA   #IMPLIED<newline />
+				    reference  CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT paragraph (%chunk.content; | %phrase.content; | image)*&gt; <newline />
+				&lt;!ATTLIST paragraph<newline />
+				    %font.attributes;<newline />
+				    %phrase.attributes;<newline />
+				    %indentation.attributes;<newline />
+				    %paragraph.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT list (listitem | ignore)*&gt; <newline />
+				&lt;!ATTLIST list<newline />
+				    %font.attributes;<newline />
+				    %indentation.attributes;<newline />
+				    numbered       CDATA   #IMPLIED<newline />
+				    symbolindent   CDATA   #IMPLIED<newline />
+				    first          CDATA   #IMPLIED<newline />
+				    listsymbol     CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT listitem (%chunk.content; | %phrase.content; | image)*&gt; <newline />
+				&lt;!ATTLIST listitem<newline />
+				    %font.attributes;<newline />
+				    %phrase.attributes;<newline />
+				    %indentation.attributes;<newline />
+				    %paragraph.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT chapter (title?, sectioncontent) &gt;<newline />
+				&lt;!ATTLIST chapter<newline />
+				    %section.attributes;<newline />
+				    %indentation.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT section (title?, sectioncontent) &gt;<newline />
+				&lt;!ATTLIST section<newline />
+				    %section.attributes;<newline />
+				    %indentation.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT title (%chunk.content; | phrase | chunk | annotation)*&gt; <newline />
+				&lt;!ATTLIST title<newline />
+				    %font.attributes;<newline />
+				    %phrase.attributes;<newline />
+				    %indentation.attributes;<newline />
+				    %paragraph.attributes;<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT sectioncontent (%chunk.content; | %phrase.content; | section | paragraph | image)*&gt;<newline />
+				<newline />
+				&lt;!ELEMENT table (cell*)&gt;<newline />
+				&lt;!ATTLIST table<newline />
+				    %color.attributes;<newline />
+				    %paragraph.attributes;<newline />
+				    %rectangle.attributes;<newline />
+				    columns        CDATA   #IMPLIED<newline />
+				    lastHeaderRow  CDATA   #IMPLIED<newline />
+				    cellpadding    CDATA   #IMPLIED<newline />
+				    cellspacing    CDATA   #IMPLIED<newline />
+				    widths         CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT row (cell*)&gt;<newline />
+				&lt;!ELEMENT cell (%chunk.content; | %phrase.content; | paragraph | image)*&gt;<newline />
+				&lt;!ATTLIST cell<newline />
+				    %color.attributes;<newline />
+				    %phrase.attributes;<newline />
+				    %indentation.attributes;<newline />
+				    %rectangle.attributes;<newline />
+				    colspan    CDATA   #IMPLIED<newline />
+				    rowspan    CDATA   #IMPLIED<newline />
+				    header     CDATA   #IMPLIED<newline />
+				    nowrap     CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT image EMPTY&gt;<newline />
+				&lt;!ATTLIST image<newline />
+				    url             CDATA   #REQUIRED<newline />
+				    align           CDATA   #IMPLIED<newline />
+				    underlying      CDATA   #IMPLIED<newline />
+				    textwrap        CDATA   #IMPLIED<newline />
+				    alt             CDATA   #IMPLIED<newline />
+				    absolutex       CDATA   #IMPLIED<newline />
+				    absolutey       CDATA   #IMPLIED<newline />
+				    plainwidth      CDATA   #IMPLIED<newline />
+				    plainheight     CDATA   #IMPLIED<newline />
+				    rotation        CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT annotation EMPTY&gt;<newline />
+				&lt;!ATTLIST annotation<newline />
+				    title       CDATA   #IMPLIED<newline />
+				    content     CDATA   #IMPLIED<newline />
+				&gt;<newline />
+				<newline />
+				&lt;!ELEMENT newpage EMPTY&gt;<newline />
+				&lt;!ELEMENT newline EMPTY&gt;
+			</paragraph>
+		</section>
+		<section>
+			<title size="14" color="#008080" leading="25">iText XML to PDF conversion</title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+			</paragraph>
+		</section>
+		<section>
+			<title size="14" color="#008080" leading="25">custom XML to PDF conversion</title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+			</paragraph>
+		</section>
+		<section>
+			<title size="14" color="#008080" leading="25">HTML to PDF conversion</title>
+			<paragraph font="Helvetica" size="11" align="Justify">
+			</paragraph>
+		</section>
+		<newpage />
+		<section>
+			<title size="14" color="#008080">Source code of the examples</title>
+			<section numberdepth="2">
+				<title><anchor name="Chap0701">Example 1: my first XML</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0701.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0701.xml" color="#008080">resulting XML</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					import java.net.URL;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.xml.*;<newline />
+					<newline />
+					public class Chap0701 {<newline />
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+						public static void main(String[] args) {<newline />
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+							System.out.println("Chapter 7 example 1: my first XML");<newline />
+							<newline />
+							// step 1: creation of a document-object<newline />
+							Document document = new Document();<newline />
+							<newline />
+							try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+								// step 2:<newline />
+								// we create a writer that listens to the document<newline />
+								// and directs a XML-stream to a file<newline />
+								XmlWriter.getInstance(document, new FileOutputStream("Chap0701.xml"), "http://www.lowagie.com/iText/itext.dtd");<newline />
+								<newline />
+								// step 3: we open the document<newline />
+								document.open();<newline />
+								<newline />
+								// step 4: we add content to the document<newline />
+								Paragraph paragraph = new Paragraph("Please visit my ");<newline />
+								Anchor anchor1 = new Anchor("website (external reference)", new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));<newline />
+								anchor1.setReference("http://www.lowagie.com/iText/");<newline />
+								anchor1.setName("top");<newline />
+								paragraph.add(anchor1);<newline />
+								document.add(paragraph);<newline />
+								<newline />
+								Paragraph entities = new Paragraph("These are some special characters: &lt;, &gt;, &amp;, \" and '");<newline />
+								document.add(entities);<newline />
+            					<newline />
+								document.add(new Paragraph("some books I really like:"));<newline />
+								List list;<newline />
+								ListItem listItem;<newline />
+								list = new List(true, 15);<newline />
+								listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+								listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(8.0f));<newline />
+								list.add(listItem);<newline />
+								listItem = new ListItem("The World according to Garp", new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+								listItem.add(new Chunk(" by John Irving", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)).setTextRise(-8.0f));<newline />
+								list.add(listItem);<newline />
+								listItem = new ListItem("Decamerone", new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+								listItem.add(new Chunk(" by Giovanni Boccaccio", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));<newline />
+								list.add(listItem);<newline />
+								document.add(list);<newline />
+								<newline />
+								paragraph = new Paragraph("some movies I really like:");<newline />
+								list = new List(false, 10);<newline />
+								list.add("Wild At Heart");<newline />
+								list.add("Casablanca");<newline />
+								list.add("When Harry met Sally");<newline />
+								list.add("True Romance");<newline />
+								list.add("Le mari de la coiffeuse");<newline />
+								paragraph.add(list);<newline />
+								document.add(paragraph);<newline />
+								<newline />
+								document.add(new Paragraph("Some authors I really like:"));<newline />
+								list = new List(false, 20);<newline />
+								list.setListSymbol(new Chunk("*", new Font(Font.HELVETICA, 20, Font.BOLD)));<newline />
+								listItem = new ListItem("Isaac Asimov");<newline />
+								list.add(listItem);<newline />
+								List sublist;<newline />
+								sublist = new List(true, 10);<newline />
+								sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+								sublist.add("The Foundation Trilogy");<newline />
+								sublist.add("The Complete Robot");<newline />
+								sublist.add("Caves of Steel");<newline />
+								sublist.add("The Naked Sun");<newline />
+								list.add(sublist);<newline />
+								listItem = new ListItem("John Irving");<newline />
+								list.add(listItem);<newline />
+								sublist = new List(true, 10);<newline />
+								sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+								sublist.add("The World according to Garp");<newline />
+								sublist.add("Hotel New Hampshire");<newline />
+								sublist.add("A prayer for Owen Meany");<newline />
+								sublist.add("Widow for a year");<newline />
+								list.add(sublist);<newline />
+								listItem = new ListItem("Kurt Vonnegut");<newline />
+								list.add(listItem);<newline />
+								sublist = new List(true, 10);<newline />
+								sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+								sublist.add("Slaughterhouse 5");<newline />
+								sublist.add("Welcome to the Monkey House");<newline />
+								sublist.add("The great pianola");<newline />
+								sublist.add("Galapagos");<newline />
+								list.add(sublist);<newline />
+								document.add(list);<newline />
+								<newline />
+								paragraph = new Paragraph("\n\n");<newline />
+								document.add(paragraph);<newline />
+								<newline />
+								Table table = new Table(3);<newline />
+								table.setBorderWidth(1);<newline />
+								table.setBorderColor(new Color(0, 0, 255));<newline />
+								table.setCellpadding(5);<newline />
+								table.setCellspacing(5);<newline />
+								Cell cell = new Cell("header");<newline />
+								cell.setHeader(true);<newline />
+								cell.setColspan(3);<newline />
+								table.addCell(cell);<newline />
+								table.endHeaders();<newline />
+								cell = new Cell("example cell with colspan 1 and rowspan 2");<newline />
+								cell.setRowspan(2);<newline />
+								cell.setBorderColor(new Color(255, 0, 0));<newline />
+								table.addCell(cell);<newline />
+								table.addCell("1.1");<newline />
+								table.addCell("2.1");<newline />
+								table.addCell("1.2");<newline />
+								table.addCell("2.2");<newline />
+								table.addCell("cell test1");<newline />
+								cell = new Cell("big cell");<newline />
+								cell.setRowspan(2);<newline />
+								cell.setColspan(2);<newline />
+								table.addCell(cell);<newline />
+								table.addCell("cell test2");<newline />
+								document.add(table);<newline />
+								<newline />
+								Image jpeg = Image.getInstance("myKids.jpg");<newline />
+								document.add(jpeg);<newline />
+								Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/examples/hitchcock.png"));<newline />
+								document.add(png);<newline />
+								Anchor anchor2 = new Anchor("please jump to a local destination", new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));<newline />
+								anchor2.setReference("#top");<newline />
+								document.add(anchor2);<newline />
+								<newline />
+								document.add(paragraph);<newline />
+								<newline />
+								// we define some fonts<newline />
+								Font chapterFont = new Font(Font.HELVETICA, 24, Font.NORMAL, new Color(255, 0, 0));<newline />
+								Font sectionFont = new Font(Font.HELVETICA, 20, Font.NORMAL, new Color(0, 0, 255));<newline />
+								Font subsectionFont = new Font(Font.HELVETICA, 18, Font.BOLD, new Color(0, 64, 64));<newline />
+								// we create some paragraphs<newline />
+								Paragraph blahblah = new Paragraph("blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");<newline />
+								Paragraph blahblahblah = new Paragraph("blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blaah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah");<newline />
+								<newline />
+								// this loop will create 7 chapters<newline />
+								for (int i = 1; i &lt; 8; i++) {
+								</listitem>
+								<list numbered="false" listsymbol="" symbolindent="20">
+									<listitem size="9" font="Courier" leading="12">
+									Paragraph cTitle = new Paragraph("This is chapter " + i, chapterFont);<newline />
+									Chapter chapter = new Chapter(cTitle, i);<newline />
+									<newline />
+									if (i == 4) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+										blahblahblah.setAlignment(Element.ALIGN_JUSTIFIED);<newline />
+										blahblah.setAlignment(Element.ALIGN_JUSTIFIED);<newline />
+										chapter.add(blahblah);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+									}<newline />
+									if (i == 5) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+										blahblahblah.setAlignment(Element.ALIGN_CENTER);<newline />
+										blahblah.setAlignment(Element.ALIGN_RIGHT);<newline />
+										chapter.add(blahblah);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+									}<newline />
+									// add a table in the 6th chapter<newline />
+									if (i == 6) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+										blahblah.setAlignment(Element.ALIGN_JUSTIFIED);<newline />
+										chapter.add(table);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+									}<newline />
+									// in every chapter 3 sections will be added<newline />
+									for (int j = 1; j &lt; 4; j++) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+										Paragraph sTitle = new Paragraph("This is section " + j + " in chapter " + i, sectionFont);<newline />
+										Section section = chapter.addSection(sTitle, 1);<newline />
+										// in all chapters except the 1st one, some extra text is added to section 3<newline />
+										if (j == 3 &amp;&amp; i &gt; 1) {
+										</listitem>
+										<list numbered="false" listsymbol="" symbolindent="20">
+											<listitem size="9" font="Courier" leading="12">
+											section.add(blahblah);
+											</listitem>
+										</list>
+										<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										// in every section 3 subsections are added<newline />
+										for (int k = 1; k &lt; 4; k++) {
+										</listitem>
+										<list numbered="false" listsymbol="" symbolindent="20">
+											<listitem size="9" font="Courier" leading="12">
+											Paragraph subTitle = new Paragraph("This is subsection " + k + " of section " + j, subsectionFont);<newline />
+											Section subsection = section.addSection(subTitle, 3);<newline />
+											if (k == 1 &amp;&amp; j == 3) {
+											</listitem>
+											<list numbered="false" listsymbol="" symbolindent="20">
+												<listitem size="9" font="Courier" leading="12">
+												subsection.add(blahblahblah);<newline />
+												subsection.add(table);
+												</listitem>
+											</list>
+											<listitem size="9" font="Courier" leading="12">
+											}<newline />
+											subsection.add(blahblah);
+											</listitem>
+										</list>
+										<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										if (j == 2 &amp;&amp; i &gt; 2) {
+										</listitem>
+										<list numbered="false" listsymbol="" symbolindent="20">
+											<listitem size="9" font="Courier" leading="12">
+											section.add(blahblahblah);
+											section.add(table);
+											</listitem>
+										</list>
+										<listitem size="9" font="Courier" leading="12">
+										}
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+									}
+									</listitem>
+								</list>
+								<listitem size="9" font="Courier" leading="12">
+									}<newline />
+									document.add(chapter);
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+							}<newline />
+							catch(DocumentException de) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+								System.err.println(de.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+							}<newline />
+							catch(IOException ioe) {<newline />
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+								System.err.println(ioe.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+							}<newline />
+							<newline />
+							// step 5: we close the document<newline />
+							document.close();<newline />
+							</listitem>
+						</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+					</list>
+				<listitem size="9" font="Courier" leading="12">
+				}
+				</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0702">Example 2: parsing the result of example 1</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0702.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0702.pdf" color="#008080">resulting PDF</anchor> and the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0702.html" color="#008080">resulting HTML</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.FileOutputStream;<newline />
+						import java.io.IOException;<newline />
+						<newline />
+						import org.xml.sax.Parser;<newline />
+						import org.xml.sax.helpers.ParserFactory;<newline />
+						<newline />
+						import com.lowagie.text.*;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.html.HtmlWriter;<newline />
+						import com.lowagie.text.xml.*;<newline />
+						<newline />
+						public class Chap0702 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							private static final String PARSER = "org.apache.xerces.parsers.SAXParser";<newline />
+        					<newline />
+							public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 2: parsing the result of example 1");<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document document = new Document();<newline />
+								<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									// step 2:<newline />
+									// we create a writer that listens to the document<newline />
+									// and directs a XML-stream to a file<newline />
+									PdfWriter.getInstance(document, new FileOutputStream("Chap0702.pdf"));<newline />
+									HtmlWriter.getInstance(document, new FileOutputStream("Chap0702.html"));<newline />
+									<newline />
+									// step 3: we create a parser and set the document handler<newline />
+									Parser parser = ParserFactory.makeParser(PARSER);<newline />
+									parser.setDocumentHandler(new SAXiTextHandler(document));<newline />
+									<newline />
+									// step 4: we parse the document<newline />
+									parser.parse("Chap0701.xml");
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0703">Example 3: parsing an XML document with custom tags</anchor></title>
+				<paragraph size="9" align="Justify">
+				This is the <anchor size="9" name="tagmap" reference="http://www.lowagie.com/iText/examples/tagmap0703.xml" color="#008080">tagmap</anchor> that is used to translate the tags in the play by Shakespeare to iText tags.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						&lt;tagmap&gt;
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							&lt;tag name="itext" alias="PLAY" /&gt;<newline />
+							&lt;tag name="newpage" alias="NEWPAGE" /&gt;<newline />
+							&lt;tag name="newline" alias="NEWLINE" /&gt;<newline />
+							&lt;tag name="paragraph" alias="PLAYTITLE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="18" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="FM"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="leading" value="11" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;<newline />
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="P"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="9" /&gt;<newline />
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="DRAMATISPERSONAE" content="Dramatis Personae"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="14" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;<newline />
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="list" alias="PERSONAE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numbered" value="false" /&gt;<newline />
+								&lt;attribute name="symbolindent" value="20" /&gt;<newline />
+								&lt;attribute name="listsymbol" value="o" /&gt;<newline />
+								&lt;attribute name="align" value="Left" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="list" alias="PGROUP"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numbered" value="false" /&gt;<newline />
+								&lt;attribute name="symbolindent" value="0" /&gt;<newline />
+								&lt;attribute name="listsymbol" value="" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="listitem" alias="PERSONA"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="11" /&gt;<newline />
+								&lt;attribute name="align" value="Left" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="listitem" alias="GRPDESCR"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="10" /&gt;<newline />
+								&lt;attribute name="style" value="italic" /&gt;<newline />
+								&lt;attribute name="align" value="Right" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="SCNDESCR"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="11" /&gt;<newline />
+								&lt;attribute name="style" value="italic" /&gt;<newline />
+								&lt;attribute name="align" value="Justify" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="PLAYSUBT"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="16" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="title" alias="TITLE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="14" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="chapter" alias="ACT"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numberdepth" value="0" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="section" alias="PROLOGUE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numberdepth" value="0" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="section" alias="SCENE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numberdepth" value="0" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="section" alias="EPILOGUE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="numberdepth" value="0" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="SUBTITLE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="size" value="12" /&gt;<newline />
+								&lt;attribute name="style" value="bold" /&gt;<newline />
+								&lt;attribute name="align" value="Center" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="SPEECH"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="leading" value="14" /&gt;<newline />
+								&lt;attribute name="align" value="Left" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="SPEAKER" content="Speaker: "&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="leading" value="16" /&gt;<newline />
+								&lt;attribute name="size" value="10" /&gt;<newline />
+								&lt;attribute name="style" value="bold" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="LINE"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="leading" value="15" /&gt;<newline />
+								&lt;attribute name="size" value="11" /&gt;<newline />
+								&lt;attribute name="align" value="Left" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;<newline />
+							&lt;tag name="paragraph" alias="STAGEDIR"&gt;
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								&lt;attribute name="leading" value="14" /&gt;<newline />
+								&lt;attribute name="size" value="10" /&gt;<newline />
+								&lt;attribute name="style" value="italic" /&gt;<newline />
+								&lt;attribute name="align" value="Right" /&gt;
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+							&lt;/tag&gt;
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+						&lt;/tagmap&gt;
+					</listitem>
+				</list>
+				<newline />
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0703.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0703.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.FileOutputStream;<newline />
+						import java.io.IOException;<newline />
+						<newline />
+						import org.xml.sax.Parser;<newline />
+						import org.xml.sax.helpers.ParserFactory;<newline />
+						<newline />
+						import com.lowagie.text.*;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.xml.*;<newline />
+						<newline />
+						public class Chap0703 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							private static final String PARSER = "org.apache.xerces.parsers.SAXParser";<newline />
+        					<newline />
+							public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 3: parsing an XML document with custom tags");<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document document = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+								<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									// step 2:<newline />
+									// we create a writer that listens to the document<newline />
+									// and directs a XML-stream to a file<newline />
+									PdfWriter.getInstance(document, new FileOutputStream("Chap0703.pdf"));<newline />
+									<newline />
+									// step 3: we create a parser and set the document handler<newline />
+									Parser parser = ParserFactory.makeParser(PARSER);<newline />
+									parser.setDocumentHandler(new SAXmyHandler(document, new TagMap("tagmap0703.xml")));<newline />
+									<newline />
+									// step 4: we parse the document<newline />
+									parser.parse("Chap0703.xml");
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0704">Example 4: making life easy</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0704.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0704a.pdf" color="#008080">resulting PDF (a)</anchor> and <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0704b.pdf" color="#008080">resulting PDF (b)</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.FileOutputStream;<newline />
+						<newline />
+						import com.lowagie.text.Document;<newline />
+						import com.lowagie.text.PageSize;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.xml.XmlParser;<newline />
+						<newline />
+						public class Chap07024 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 4: parsing the result of example 1");<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document documentA = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document documentB = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+								<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									// step 2:<newline />
+									// we create a writer that listens to the document<newline />
+									// and directs a XML-stream to a file<newline />
+									PdfWriter.getInstance(documentA, new FileOutputStream("Chap0704a.pdf"));<newline />
+									PdfWriter.getInstance(documentB, new FileOutputStream("Chap0704b.pdf"));<newline />
+									<newline />
+									// step 3: we create a parser and set the document handler<newline />
+									XmlParser.parse(documentA, "Chap0701.xml");<newline />
+									XmlParser.parse(documentB, "Chap0703.xml", "tagmap0703.xml");<newline />
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0705">Example 5: simple database example</anchor></title>
+				<paragraph size="9" align="Justify"><anchor name="letter">This is</anchor>
+				the <anchor size="9" reference="http://www.lowagie.com/iText/examples/simpleLetter0705.xml" color="#008080">XML</anchor> that
+				is used as template for the letter.</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					&lt;letter&gt;<newline />
+					To: &lt;mail /&gt;&lt;newline /&gt;<newline />
+					Ref: your website&lt;newline /&gt;<newline />
+					&lt;newline /&gt;<newline />
+					Hello &lt;givenname /&gt;,&lt;newline /&gt;<newline />
+					&lt;newline /&gt;<newline />
+					I visited your website a while ago (&lt;website /&gt;) and I saw you added<newline />
+					a link to iText, my free JAVA-PDF library. So I thought to myself, hey,<newline />
+					I'm going to send mr &lt;name /&gt; a little mail to thank him.<newline />
+					If you want to I can also add a link to your site on the iText links-page.<newline />
+					Just let me know,&lt;newline /&gt;<newline />
+					&lt;newline /&gt;<newline />
+					kind regards,&lt;newline /&gt;<newline />
+					Bruno Lowagie<newline />
+					&lt;/letter&gt;
+				</paragraph>
+				<newline />
+				<paragraph size="9" align="Justify">This is
+				the so called <anchor size="9" name="tagmap" reference="http://www.lowagie.com/iText/examples/simpleDB0705.xml" color="#008080">simple database</anchor> that
+				is used in example 5. In fact, it's just a flat file containing some records about people, there E-mail address and their website, but it could be a real database table.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					Bruno|Lowagie|bruno@lowagie.com|http://www.lowagie.com/iText<newline />
+					Paulo|Soares|psoares@consiste.pt|http://www.geocities.com/itextpdf/<newline />
+					Jan|Paesen|jan.paesen@japa.be|http://www.japa.be/<newline />
+					James|Hansley|datec@wwa.com|http://www.datec.com/<newline />
+					David|Gilbert|david.gilbert@bigfoot.com|http://www.jrefinery.com/
+				</paragraph>
+				<newline />
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0705.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0705.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.BufferedReader;<newline />
+						import java.io.FileOutputStream;<newline />
+						import java.io.FileReader;<newline />
+						import java.util.HashMap;<newline />
+						import java.util.StringTokenizer;<newline />
+						<newline />
+						import com.lowagie.text.Document;<newline />
+						import com.lowagie.text.ElementTags;<newline />
+						import com.lowagie.text.PageSize;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.xml.XmlParser;<newline />
+						import com.lowagie.text.xml.XmlPeer;<newline />
+						<newline />
+						public class Chap0705 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+        					public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 5: simple database example");<newline />
+								<newline />
+								int i = 0;<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									BufferedReader reader = new BufferedReader(new FileReader("simpleDB0705.txt"));<newline />
+									<newline />
+									String line;<newline />
+									while ((line = reader.readLine()) != null) {
+								</listitem>
+								<list numbered="false" listsymbol="" symbolindent="20">
+									<listitem size="9" font="Courier" leading="12">
+										HashMap tagmap = new HashMap();<newline />
+										StringTokenizer tokenizer = new StringTokenizer(line, "|");<newline />
+										<newline />
+										XmlPeer peer = new XmlPeer(ElementTags.ITEXT, "letter");<newline />
+										tagmap.put(peer.getAlias(), peer);<newline />
+										if (tokenizer.hasMoreTokens()) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+											peer = new XmlPeer(ElementTags.CHUNK, "givenname");<newline />
+											peer.setContent(tokenizer.nextToken());<newline />
+											tagmap.put(peer.getAlias(), peer);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										if (tokenizer.hasMoreTokens()) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+											peer = new XmlPeer(ElementTags.CHUNK, "name");
+											peer.setContent(tokenizer.nextToken());
+											tagmap.put(peer.getAlias(), peer);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										if (tokenizer.hasMoreTokens()) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+											peer = new XmlPeer(ElementTags.CHUNK, "mail");
+											peer.setContent(tokenizer.nextToken());
+											tagmap.put(peer.getAlias(), peer);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										if (tokenizer.hasMoreTokens()) {
+									</listitem>
+									<list numbered="false" listsymbol="" symbolindent="20">
+										<listitem size="9" font="Courier" leading="12">
+											peer = new XmlPeer(ElementTags.ANCHOR, "website");
+											String reference = tokenizer.nextToken();
+											peer.setContent(reference);
+											peer.addValue(ElementTags.REFERENCE, reference);
+											peer.addValue(ElementTags.COLOR, "#0000FF");
+											tagmap.put(peer.getAlias(), peer);
+										</listitem>
+									</list>
+									<listitem size="9" font="Courier" leading="12">
+										}<newline />
+										<newline />
+										// step 1: creation of a document-object<newline />
+										Document document = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+										<newline />
+										// step 2:<newline />
+										// we create a writer that listens to the document<newline />
+										PdfWriter.getInstance(document, new FileOutputStream("Chap0705_" + (++i) + ".pdf"));<newline />
+										<newline />
+										// step 3: we parse the document<newline />
+										XmlParser.parse(document, "simpleLetter0705.xml", tagmap);<newline />
+									</listitem>
+								</list>
+								<listitem size="9" font="Courier" leading="12">
+									}
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0706">Example 6: parsing the HTML from example 2</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0706.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0706.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.FileOutputStream;<newline />
+						<newline />
+						import org.xml.sax.Parser;<newline />
+						import org.xml.sax.helpers.ParserFactory;<newline />
+						<newline />
+						import com.lowagie.text.Document;<newline />
+						import com.lowagie.text.PageSize;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.html.SAXmyHtmlHandler;<newline />
+						<newline />
+						public class Chap0706 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							private static final String PARSER = "org.apache.xerces.parsers.SAXParser";<newline />
+        					<newline />
+							public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 6: parsing the HTML from example 2");<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document document = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+								<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									// step 2:<newline />
+									// we create a writer that listens to the document<newline />
+									// and directs a XML-stream to a file<newline />
+									PdfWriter.getInstance(document, new FileOutputStream("Chap0706.pdf"));<newline />
+									<newline />
+									// step 3: we create a parser and set the document handler<newline />
+									Parser parser = ParserFactory.makeParser(PARSER);<newline />
+									parser.setDocumentHandler(new SAXmyHtmlHandler(document));<newline />
+									<newline />
+									// step 4: we parse the document<newline />
+									parser.parse("Chap0702.html");
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0707">Example 7: parsing the HTML from example 2 (easier way)</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0707.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://www.lowagie.com/iText/examples/Chap0707.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<list numbered="false" listsymbol="" symbolindent="0">
+					<listitem size="9" font="Courier" leading="12">
+						import java.io.FileOutputStream;<newline />
+						<newline />
+						import com.lowagie.text.Document;<newline />
+						import com.lowagie.text.PageSize;<newline />
+						import com.lowagie.text.pdf.PdfWriter;<newline />
+						import com.lowagie.text.html.HtmlParser;<newline />
+						<newline />
+						public class Chap07024 {
+					</listitem>
+					<list numbered="false" listsymbol="" symbolindent="20">
+						<listitem size="9" font="Courier" leading="12">
+							public static void main(String[] args) {
+						</listitem>
+						<list numbered="false" listsymbol="" symbolindent="20">
+							<listitem size="9" font="Courier" leading="12">
+								System.out.println("Chapter 7 example 7: parsing the HTML from example 2 (easier way)");<newline />
+								<newline />
+								// step 1: creation of a document-object<newline />
+								Document document = new Document(PageSize.A4, 80, 50, 30, 65);<newline />
+								<newline />
+								try {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									// step 2:<newline />
+									// we create a writer that listens to the document<newline />
+									// and directs a XML-stream to a file<newline />
+									PdfWriter.getInstance(document, new FileOutputStream("Chap0707.pdf"));<newline />
+									<newline />
+									// step 3: we create a parser and set the document handler<newline />
+									HtmlParser.parse(document, "Chap0702.html");<newline />
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}<newline />
+								catch(Exception e) {
+							</listitem>
+							<list numbered="false" listsymbol="" symbolindent="20">
+								<listitem size="9" font="Courier" leading="12">
+									e.printStackTrace();<newline />
+									System.err.println(e.getMessage());
+								</listitem>
+							</list>
+							<listitem size="9" font="Courier" leading="12">
+								}
+							</listitem>
+						</list>
+						<listitem size="9" font="Courier" leading="12">
+						}
+						</listitem>
+					</list>
+					<listitem size="9" font="Courier" leading="12">
+					}
+					</listitem>
+				</list>
+			</section>
+		</section>
+	</chapter>
+	<newline />
+	<newline />
+	<newline />
+	<paragraph font="Helvetica" size="11">$Date$</paragraph>
+</itext>

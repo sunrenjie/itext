@@ -43,14 +43,18 @@
 
     <target name="srczip" depends="properties">
         <mkdir dir="${itext.dist}" />
-        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" />
+        <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 
     <target name="srctargz" depends="properties">
         <mkdir dir="${itext.dist}" />
-        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" />
+        <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
+        <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
+        <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
         <delete file="${itext.dist}/src.tar" />
+        <delete file="${itext.dist}/srcXML.tar" />
     </target>
 
     <target name="javadoc" depends="properties">

@@ -31,12 +31,10 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.xml.XmlParser;
 
 public class Chap0704 {
-
-    private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
         
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 7 example 4: making it easy");
+		System.out.println("Chapter 7 example 4: making life easy");
 
 		// step 1: creation of a document-object
 		Document documentA = new Document(PageSize.A4, 80, 50, 30, 65);
