@@ -37,6 +37,7 @@
 		<site:chapter path="objects/anchors" />
 		<site:chapter path="objects/bookmarks" />
 		<site:chapter path="objects/fonts" />
+		<site:chapter path="objects/images/tiff" />
 		<site:chapter path="objects/tables" />
 		<site:chapter path="objects/tables/pdfptable" />
 		<site:chapter path="objects/tables/alternatives" />
