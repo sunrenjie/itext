@@ -27,7 +27,7 @@
 		<TD COLSPAN="2" BGCOLOR="#808080">
 			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">A Free Java-PDF library<BR>
 			by <A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A>
-			and <A HREF="http://www.ip.pt/~ip001643/iText/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Paulo Soares</FONT></A></FONT><BR>
+			and <A HREF="http://www.geocities.com/itextpdf"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Paulo Soares</FONT></A></FONT><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -61,7 +61,14 @@
 		This library doesn't need to be compiled or installed.
 		Just be sure that the iText.jar-file is added to your
 		CLASSPATH or that the complete classfile tree (com/lowagie/text/*)
-		is in a directory to which the CLASSPATH refers.</FONT>
+		is in a directory to which the CLASSPATH refers.
+		You can also get the most recent source from CVS. On *NIX this is done as follows:
+			<pre>export CVS_RSH=ssh
+cvs -d:pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext login
+cvs -d:pserver:anonumous@cvs.itext.sourceforge.net:/cvsroot/itext co src</pre>
+		There is no password for user anonymous, just press enter.<br>
+		If you want to use CVS on Windows, please consult the <A HREF="http://sourceforge.net/docman/display_doc.php?docid=763&group_id=1">site docs</a> at Sourceforge.<br>
+		Once you have the source, you can use <A HREF="http://jakarta.apache.org/ant">ANT</a> to build a jar, javadocs,...</FONT>
 		</TD>
 	</TR>
 	<TR>
