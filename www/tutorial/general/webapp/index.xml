@@ -32,9 +32,14 @@
 		<site:example>
 			<site:java src="OutSimplePdf" standalone="no" webapp="ROOT" />
 			<site:extrajar>servlet.jar</site:extrajar>
-			<site:description>Generates a simple PDF file</site:description>
+			<site:description>Generates a simple PDF file from a servlet. The file is buffered and served with the extension .pdf</site:description>
 			<site:path name="without message">http://blowagie.users.mcs2.netarray.com/servlet/simple.pdf</site:path>
 			<site:path name="with message">http://blowagie.users.mcs2.netarray.com/servlet/simple.pdf?msg=Hello+World</site:path>
+		</site:example>
+		<site:example>
+			<site:java jsp="UserAgent.jsp" standalone="no" webapp="ROOT" />
+			<site:description>Looks at the user-agent: if MSIE on Windows, embed the PDF; if another browser, redirect to the servlet</site:description>
+			<site:path name="try this with different browsers">http://blowagie.users.mcs2.netarray.com/UserAgent.jsp</site:path>
 		</site:example>
 		<site:example>
 			<site:java src="SilentPrintServlet" standalone="no" webapp="ROOT" />
@@ -45,7 +50,7 @@
 		<site:example>
 			<site:java jsp="HelloWorld.jsp" standalone="no" webapp="ROOT" />
 			<site:description>Generates a simple 'Hello World' file from a JSP page</site:description>
-			<site:path name="pdf">http://blowagie.users.mcs2.netarray.com/HelloWorld.jsp</site:path>
+			<site:path name="HelloWorld">http://blowagie.users.mcs2.netarray.com/HelloWorld.jsp</site:path>
 		</site:example>
 	</site:examples>
 	
@@ -85,17 +90,17 @@ It <i>should</i> work on all browsers, but we know it <i>won't</i> work on some.
 For instance: we have set the ContentType to PDF:
 <pre class="commandline">response.setContentType("application/pdf");</pre>
 but some browsers look at the file extension, rather than the content-type
-(don't ask me why, don't ask me which browsers). That's why we are going to
+(don't ask me why). That's why we are going to
 use something that looks like a pdf-file (with the correct extension) as url-pattern
-in out <a href="web.xml">web.xml</a> file:
+in our <a href="web.xml">web.xml</a> file:
 <pre class="commandline">&lt;servlet-mapping&gt;
   &lt;servlet-name&gt;OutSimplePdf&lt;/servlet-name&gt;
   &lt;url-pattern&gt;/servlet/simple.pdf&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;</pre>
-Another thing some browsers need to know in advance (otherwise they just give
-you a blank page), is the content-length of the PDF. The
-only way we can work around this, is by buffering the complete file in a
-ByteArrayOutputStream. That's a pity, because you risk a timeout in the
+Some browsers also need to know the content-length of the PDF in advance
+(otherwise they just give you a blank page). The only way we can work around this,
+is by buffering the complete file in a ByteArrayOutputStream.
+That's a pity, because you risk a timeout in the
 browser-server communication if you need to send really big PDFs.
 <pre class="commandline">Document document = new Document();
 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -108,7 +113,58 @@ response.setContentLength(baos.size());
 ServletOutputStream out = response.getOutputStream();
 baos.writeTo(out);
 out.flush();</pre>
+Nicolas Guichard suggests to set some cache headers before writing the
+PDF to the ServletOutputStream. These headers determine the rules by
+which the page content may be cached by the client and intermediate proxies.
+Using these values for the cache headers may help you to avoid some problems:
+<pre class="commandline">
+response.setHeader("Expires", "0");
+response.setHeader("Cache-Control",
+	"must-revalidate, post-check=0, pre-check=0");
+response.setHeader("Pragma", "public");
+</pre> 
 <site:source class="OutSimplePdf" />
+Another annoying feature of some browsers is that they hit the server 2 or 3 times
+with the same request if you want to serve them a dynamically generated binary file.
+This type of behaviour of some browsers can be a real pain if you are updating a
+database or keeping statistics for every PDF that is served.
+Setting the cache parameters as Nicholas Guichard suggested may help,
+but it won't help for every browser and maybe you want other settings.
+So Anis H. proposed the following workaround:
+<pre class="commandline">&lt;html&gt;
+&lt;body leftMargin="0" topMargin="0" scroll="no"&gt;
+  &lt;embed src="http://myserver/pdfCreationServlet"
+  	width="100%" height="100%"
+	type="application/pdf" fullscreen="yes" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+I keep on repeating 'some browsers this, some browsers that', but
+in reality, I'm just avoiding to be unfriendly to MicroSoft.
+In fact, all the problems listed above are typical for MS Internet Explorer.
+What I am trying to do here, is to propose a solution that works for
+<i>all</i> versions of <i>all</i> browsers, but don't shoot me if I fail.
+Every time a new version of MSIE solved one problem, another problem came
+across (I have stopped wondering why it's the most popular browser in the world;
+I just don't understand it).<br />
+Knowing MSIE gives us, iText developers, such a hard time, you can
+anticipate MSIE problems and redirect MSIE users to the workaround.
+This is some example code, written by Bill Ensley:
+<pre class="commandline">&lt;%
+  String user = request.getHeader("User-Agent");
+  if(user.indexOf("MSIE") != -1 &amp;&amp; user.indexOf("Windows") != -1){
+    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
+    out.print("&lt;EMBED src=\"PDFPreview.pdf?type=pdf\" "
+      + "width=\"100%\" height=\"100%\" "
+      + "fullscreen=\"yes\" type=\"application/pdf\"&gt;");
+  }
+  else{
+    out.print("&lt;body leftMargin=\"0\" topMargin=\"0\" scroll=\"no\"&gt;");
+    out.print("&lt;script&gt;document.location = 'PDFPreview.pdf?type=pdf';&lt;/script&gt;");
+  }
+%&gt;</pre>
+I made some small changes to this code in the next example,
+you should try it with different browsers:
+<site:jsp jsp="UserAgent.jsp" />
 </div>
 	</site:section>
 	
@@ -122,14 +178,57 @@ out.flush();</pre>
 	<site:section name="silentprint">
 		<site:sectiontitle>Silent printing</site:sectiontitle>
 <div>
-
+This is a nice example, but please be careful when you use it.
+Basicly, you are going to sent a PDF with some <site:tutorial chapter="/objects/anchors" section="actions">javascript</site:tutorial>
+to a client browser. This PDF is shown in an iframe, so the user will not necessarily see it on screen (you could for instance hide it).
+But the <site:tutorial chapter="/objects/anchors" section="actions">javascript action</site:tutorial> will print it directly to the
+default printer (as if your client pushed the Print button and the OK button on the print dialog). This is not the kind of functionality
+you want to put in your application without warning your users...
+<site:source class="SilentPrintServlet" />
 </div>
 	</site:section>
 	
 	<site:section name="JSP">
 		<site:sectiontitle>Hello World JSP</site:sectiontitle>
 <div>
+It's always a bad idea to use JSPs to generate binary data that has to be sent to a client application.
+I repeat: <i>It's always a bad idea to use JSPs to generate binary data that has to be sent to a client application.</i>
+I hope you understand that it's always a bad idea to use JSPs to generate binary data that has to be sent to a client application.<br />
+OK? Now that you know that, I'll give you a small example of a JSP that generates a PDF file using iText.
 <site:jsp jsp="HelloWorld.jsp" />
+I like JSP. I have written JSPs myself for different HTML websites, but
+I haven't heard one sensible argument why people would prefer writing JSPs
+instead of Servlets to generate PDF. I do have some reasons why you wouldn't use JSP.<br />
+If you know JSP, you should know every JSP-file is compiled to a Servlet by your webserver (internally).
+You should trust me if I say writing the Servlet is easier and less error prone than writing the JSP.<br />
+This is why:
+<ul>
+<li>First of all, it's hard to implement all the workarounds mentioned
+above in a JSP-file. The link to the JSP file in the example, works for
+me, it gives me a PDF file saying 'Hello World', but it will not necessarily
+work for you.</li>
+<li>Some servers assume JSP output is not binary.<br />
+Some people on the mailing-list have testified that they can generate
+correct PDF files on the server from a JSP, they can open the PDF on the server
+and it looks as expected. But if they use the <i>same code</i> to send the PDF
+to the browser, they only see a blank page in Acrobat Reader. When they open
+the PDF file in a text editor, they see lots of unreadable characters in the
+PDF on the server. If they do the same with the PDF on the client, they see
+lots of questionmarks: those are bytes that are made corrupt due to the fact that
+the application server thought they were plain ASCII.</li>
+<li>If you copy the example and start working from there, you will
+probably add some indentation, newlines, spaces, carriage returns,...
+If you are used to writing JSPs, it should be your second nature to do this.
+This is good for most of the stuff you are writing. It has no impact on HTML pages,
+but now you are generating PDF. All those 'invisible' characters are compiled
+to a Servlet and are added to the PDF by the Servlet, <i>not</i> by iText.
+This makes your PDF corrupt! The crossreference table doesn't point to
+the correct bytepositions anymore. You may or may not be able to open the
+PDF file. You'll get all kinds of non-reproducable errors. We can't give you
+any support on this. Our answer will always be: use Servlets instead.</li>
+</ul>
+So for the last time: It's always a bad idea to use JSPs to generate binary data that has to be sent to a client application.
+Use Servlets instead.
 </div>
 	</site:section>
 

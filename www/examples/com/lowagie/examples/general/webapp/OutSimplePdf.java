@@ -67,15 +67,18 @@ public class OutSimplePdf extends HttpServlet {
 			document.add(new Paragraph(msg));
 			document.close();
 
-			// write ByteArrayOutputStream to the ServletOutputStream
+			// setting some response headers
+			response.setHeader("Expires", "0");
+			response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+			response.setHeader("Pragma", "public");
+			// setting the content type
 			response.setContentType("application/pdf");
+			// the contentlength is needed for MSIE!!!
 			response.setContentLength(baos.size());
+			// write ByteArrayOutputStream to the ServletOutputStream
 			ServletOutputStream out = response.getOutputStream();
 			baos.writeTo(out);
 			out.flush();
-
-			// this is a workaround for a bug in MSIE
-			// see http://www.lowagie.com/iText/faq.html#msie
 
 		} catch (Exception e2) {
 			System.out.println("Error in " + getClass().getName() + "\n" + e2);
