@@ -118,6 +118,18 @@ If you want to know more about the measurement unit, see the <site:tutorial chap
 	<site:section name="step2">
 		<site:sectiontitle>step 2: the Writer object</site:sectiontitle>
 		<div>
+Once our <site:doc class="com.lowagie.text.Document">Document</site:doc> is created,
+we can create one or more instances of writers that listen to this document.
+All writers should be derived from the abstract class <site:src class="com.lowagie.text.DocWriter" />.
+For the moment there are three kinds of writers supported:
+<dl>
+<dt><site:doc class="com.lowagie.text.pdf.PdfWriter" target="getInstance(com.lowagie.text.Document,%20java.io.OutputStream)">PdfWriter</site:doc></dt>
+<dd>Generates documents in the Portable Document Format</dd>
+<dt><site:doc class="com.lowagie.text.rtf.RtfWriter" target="getInstance(com.lowagie.text.Document,%20java.io.OutputStream)">RtfWriter</site:doc></dt>
+<dd>Generates documents in RTF. Read more about this in the chapter '<site:tutorial chapter="/rtf">RTF</site:tutorial>'</dd>
+<dt><site:doc class="com.lowagie.text.html.HtmlWriter" target="getInstance(com.lowagie.text.Document,%20java.io.OutputStream)">HtmlWriter</site:doc></dt>
+<dd>Generates documents in HTML. This writer was initially written for debugging purposes (see <site:tutorial chapter="/html">Generating HTML with iText</site:tutorial>).</dd>
+</dl>
 		</div>
 	</site:section>
 	

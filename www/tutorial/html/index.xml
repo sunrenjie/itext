@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Generating HTML with iText</site:title>
+		<site:summary>How-to generate a HTML documents with iText</site:summary>
+		<site:keywords>HTML, JAVA, iText, examples, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321130073">HTML for the World Wide Web with XHTML and CSS</site:book>
+			<site:book asin="007222942X">HTML &amp; XHTML: The Complete Reference</site:book>
+			<site:keyword>HTML</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	
+	<site:examples>
+		<site:example>
+			<site:java src="HelloHtml" standalone="yes" />
+			<site:result>HelloWorld.html</site:result>
+			<site:description>Generates a simple 'Hello World' HTML file</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="reason">
+		<site:sectiontitle>Why I wrote HtmlWriter.</site:sectiontitle>
+<div>
+iText wasn't always called iText. The first name of the library was 'rugPdf'.
+RUG was the abbreviation for Rijksuniversiteit Gent (my employer since november 1998).
+Writing iText was one of my first tasks at the University.
+The new abbreviation is <a href="http://www.ugent.be">UGent</a> because the
+'Rijks' was droppend and Ghent University is now called 'Universiteit Gent'
+in Dutch (or rather: in Flemish, because Ghent is a Belgian City).<br />
+The very first versions of this rugPdf library were very low level
+and meant to generate PDF only:
+you had to know a lot about the PDF syntax to be able to use it.
+In order to make PDF generation more transparant (and to avoid that our
+developers should all be PDF experts), I rewrote rugPdf completely after
+our initial product were successfully brought into production.
+I created a plethora of high level objects, such as
+<site:src class="com.lowagie.text.Document" />,
+<site:src class="com.lowagie.text.Chunk" />,
+<site:src class="com.lowagie.text.Phrase" />,
+<site:src class="com.lowagie.text.Paragraph" />,
+<site:src class="com.lowagie.text.List" />,...<br />
+These objects would be translated to PDF behind the screens:
+developers would no longer need to know anything about PDF syntax.
+However: for me it was very hard to debug the source code.
+While testing, lots of broken PDF files were generated and
+it wasn't always possible to retrieve the exact location where
+everything went wrong: just try reading half of a generated PDF
+file in a plain text editor and you will know why ;-)<br />
+So I had the idea to have two Writers listening to one document
+at the same time: <site:src class="com.lowagie.text.pdf.PdfWriter" />
+and <site:src class="com.lowagie.text.html.HtmlWriter" />.
+As the HTML format is less critical than PDF syntax,
+it was sufficient for me to take one look at the broken HTML file
+to see what high level object caused the Runtime error.<br />
+<br />
+The moral of this long introduction is:
+<site:doc class="com.lowagie.text.html.HtmlWriter">HtmlWriter</site:doc>
+is a class that produces HTML, but it was only written for debugging reasons.
+If you are looking for a library that generates HTML, you will find other
+products with far more features and possibilities than provided with iText.
+If you want to generate documents in different formats simultaneously,
+than you might find <site:doc class="com.lowagie.text.html.HtmlWriter">HtmlWriter</site:doc>
+useful.
+</div>
+	</site:section>
+	<site:section name="helloworld">
+		<site:sectiontitle>The Hello World example for HTML</site:sectiontitle>
+<div>
+We take the first example we made in <site:tutorial chapter="/general" section="5steps">PDF</site:tutorial>
+and <site:tutorial chapter="/rtf" section="rtfdocument">RTF</site:tutorial> and now we let the document
+listen to <site:src class="com.lowagie.text.html.HtmlWriter" />:
+<site:source class="HelloHtml" />
+</div>
+	</site:section>
+	
+	</site:chapter>
+
+</site:page>
