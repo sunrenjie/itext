@@ -53,7 +53,8 @@
 			On the <a href="index.html">HOME</a>-page you'll find a complete overview of all the
 			topics that are discussed in the tutorial. The original mailing list archives can be found
 			at <A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/">GeoCrawler</A>.
-			Unfortunately these archives are not searchable. The mailing list was mirrored starting january 20, 2002
+			Unfortunately these archives are not searchable. The mailing list was mirrored on a searchable
+			mail-archive starting january 20, 2002
 			at <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/">mail-archive.com</A>.
 			<UL>
 				<LI><A HREF="#whatis">What is PDF?</A>
@@ -188,9 +189,9 @@
             I would recommend you to stay away from it, unless you want to use the product AS-IS.
             GPL is like a virus. It affects all the software you add yourself to the product.
 			That is my point of view. Not everyone has to agree.<br><br>
-			iText was originally published by me (Bruno Lowagie) as LGPL!<br>
-            In my opinion that LGPL is a lot better. I made iText LGPL because I want to
-            <em>encourage</em> people to use iText in their commercial/closed source/propriety software.
+			iText was originally published by me (Bruno Lowagie) as LGPL!
+            I made iText LGPL because I want to <em>encourage</em> people to use iText
+            in their commercial/closed source/propriety software.
 			I myself use iText in closed source projects.<br>
             It is allowed to use iText in your own product as long as you don't change the copyright notices.
 			You also have to distribute the source code of iText to your clients (or even better, add
@@ -210,7 +211,7 @@
             You can read the LGPL for more detail (see <a href="lgpl.txt">lgpl.txt</a>), but I think the above
             is a good summary.<br><br>
 			Because of some quirky details in the LGPL, people developing commercial products
-			using iText asked me to move to a less strict license. That's why made iText multiple licensed.
+			using iText asked me to move to a less strict license. That's why I made iText multiple licensed.
 			iText can be used under MPL too. Read the MPL for more info: <a href="MPL-1.1.txt">MPL-1.1.txt</A>.
 			</FONT><BR><BR>
 		</TD>
@@ -305,7 +306,8 @@
 			There is also a problem with MSIE 5.5 and MSIE 5.5 SP1 (different symptons
 			have been reported). Installing Service Pack 2 should do the trick.<br><br>
 			See also the support pages at Adobe and MicroSoft for similar problems:<br>
-			<A HREF="http://www.adobe.com/support/techdocs/98fe.htm">ADOBE: Configuring Internet Explorer and AOL for Windows to Display PDF Files</A><BR>
+			<A HREF="http://www.adobe.com/support/techdocs/98fe.htm">ADOBE: Configuring Internet Explorer and AOL for Windows to Display PDF Files</A><
+			<A HREF="http://www.adobe.com/support/techdocs/1392e.htm">ADOBE: Error "...The path does not exist"</A><BR>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q177321">MS: Adobe Acrobat .pdf Files Appear as a Blank Window or Frame</A><BR>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q305153">MS: Internet Explorer Opens a Blank Page with a Placeholder Icon Instead of a .pdf File in Adobe Acrobat Reader</A><BR>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q293792">MS: Three GET Requests Are Sent When You Retrieve Plug-in Served Content</A><BR>
@@ -313,6 +315,7 @@
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-GB;q281119">MS: Internet Explorer Saves HTML Content Instead of the Active Document</A><BR>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q262213">MS: Error Message "Error Locating Object Handler" When Downloading a .pdf File</A>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q263847">MS: Unable to Locate Object Handler When Extension in URL Is Greater than 50 Characters</A>
+			<A HREF="http://www.ietf.org/rfc/rfc2183.txt">IETF: RFC2183 The Content-Disposition Header Field</A>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -407,14 +410,19 @@
 			<li>If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
 			this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
 			use the <A HREF="#jdk11">1.1.x</A>-version of the library.
-			<li>If the missing classes are related to XML (for instance org.xml.sax.Parser),
-			you need to put <a href="http://itext.sourceforge.net/downloads/xerces_1_3_1.jar">Xerces</a>
-			in your classpath.<br>Another solution is to delete the com.lowagie.text.xml.* package and classes
-			HtmlPeer, HtmlParser, HtmlTagMap and SAXmyHtmlHandler in package com.lowagie.text.html.*.
-			Your source code will compile, but you will not be able to parse XML and/or HTML.
+			<li>If the missing classes are related to XML, you probably forgot to add the
+			iTextXML.jar to your classpath.
+			<li>If you are missing non-iText classes (for instance org.xml.sax.Parser),
+			you need to put the j2ee.jar in your classpath (in this case the SDK isn't sufficient,
+			you need the Java 2 Enterprise Edition). These classes are not used in the iText.jar library,
+			only in the additional iTextXML.jar.<br>
+			<li>If you have trouble compiling or running the examples on a WINDOWS-OS, you
+			can use this batch file: <A HREF="examples/compile.bat">compile.bat</A>. Just run
+			it with the name of the example (not the filename) as parameter: for instance:
+			'compile Chap0101'.
 			<li>Any other problem with classes that are not found, are caused by errors in your
 			classpath. You and you alone can solve these kind of errors, so please don't mail us
-			before you're absolutely sure you've checked every detail on your system, or else...
+			before you're absolutely sure you've checked every detail on your system.
 			</ol>
 			</FONT>
 		</TD>
@@ -492,7 +500,7 @@
 			If your text is preformatted and you don't want to loose the 'layout', you need to
 			put this String in a Paragraph-object that uses a 'fixed width' font and add this
 			paragraph to a document. If you use only romanic characters, you can use the font 'Courier'.
-			Or you can change the width of the characters yourself as demonstrated in
+			Or you can change the width of the characters yourself (as demonstrated in
 			<A HREF="tutorial/ch09.html#fontwidths">Chapter 9</A> of the tutorial), but
 			keep in mind that width change only works with type1 and true-type fonts with
 			encodings other then IDENTITY-H or IDENTITY-V.<br><br>
@@ -501,10 +509,10 @@
 			<FONT FACE="Courier">
 			BaseFont bf = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", BaseFont.NOT_EMBEDDED);
 			</FONT><BR>
-			(Remark: the embedding flag does nothing with built-in fonts and CJK fonts from the
-            Adobe font pack. Other option is to use msgothic.ttc or msmincho.ttc.)<br>
-			Then you will have to move all characters in the range \u0020-\u007f to the range \uff00-\uff5f.
-			That's the "Halfwidth and Fullwidth Forms" Unicode range. (An other option is to use courier with
+			Remark: the embedding flag is ignored when built-in fonts and CJK fonts from the
+            Adobe font pack are used. Another option is to use msgothic.ttc or msmincho.ttc; these can be embedded.<br>
+			You will have to move all characters in the range \u0020-\u007f to the range \uff00-\uff5f.
+			That's the "Halfwidth and Fullwidth Forms" Unicode range. (Another option is to use courier with
 			the romanic characters, but you'll have to change the default widths of 600 to 1000 to match
 			the ideographs.) You can put the resulting String in a Paragraph and add it to a document.
 			</FONT><BR><BR>
