@@ -1,57 +1,113 @@
 <?xml version="1.0"?>
 
+
+
 <project name="iText" default="release" basedir=".">
 
+
+
     <target name="properties">
+
         <property name="itext.home" value="." />
+
         <property name="itext.src" value="${itext.home}/src" />
+
         <property name="itext.classes" value="${itext.home}/classes" />
+
         <property name="itext.lib" value="${itext.home}/lib" />
+
         <property name="itext.docs" value="${itext.home}/docs" />
+
         <property name="itext.dist" value="${itext.home}/dist" />
+
     </target>
+
+
 
     <target name="compile" depends="properties">
+
         <mkdir dir="${itext.classes}" />
+
         <javac srcdir="${itext.src}" destdir="${itext.classes}" />
+
     </target>
+
+
 
     <target name="jar" depends="compile, properties">
+
         <mkdir dir="${itext.dist}" />
+
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" />
+
         <deltree dir="${itext.classes}" />
+
     </target>
+
+
 
     <target name="srczip" depends="properties">
+
         <mkdir dir="${itext.dist}" />
+
         <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" />
+
     </target>
+
+
 
     <target name="srctargz" depends="properties">
+
         <mkdir dir="${itext.dist}" />
+
         <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" />
+
         <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
+
         <delete file="${itext.dist}/src.tar" />
+
     </target>
+
+
 
     <target name="javadoc" depends="properties">
+
         <mkdir dir="${itext.docs}" />
+
         <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.html.*"
+
             sourcepath="${itext.src}"
+
             destdir="${itext.docs}"
+
             author="true"
+
             private="true">
+
             <link href="http://java.sun.com/products/jdk/1.2/docs/api/" />
+
         </javadoc>
+
     </target>
+
+
 
     <target name="docstargz" depends="javadoc, properties">
+
         <mkdir dir="${itext.dist}" />
+
         <tar tarfile="${itext.dist}/docs.tar" basedir="${itext.docs}" />
+
         <gzip zipfile="${itext.dist}/docs.tar.gz" src="${itext.dist}/docs.tar" />
+
         <delete file="${itext.dist}/docs.tar" />
+
     </target>
 
+
+
     <target name="release" depends="jar, srczip, srctargz, docstargz" />
+
+
 
 </project>
