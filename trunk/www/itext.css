@@ -25,7 +25,7 @@ TD  {
 
 A  {
 	font-family : Arial, Helvetica;
-	color : #008080;
+	color : #000080;
 }
 
 DIV.title  {
@@ -57,9 +57,19 @@ a.normal  {
 	font-size : 12;
 	color : #008080;
 }
+a.download  {
+	font-family : Arial, Helvetica;
+	font-size : 12;
+	color : #000000;
+}
 
 div.text  {
 	text-align : left;
+}
+
+TD.download  {
+	background-color : #00E0E0;
+	text-align : center;
 }
 
 TD.innerborder  {
@@ -120,5 +130,10 @@ SPAN.verysmall  {
 A.verysmall  {
 	font-size : 9;
 	color : #000000;
+}
+
+PRE  {
+	font-size : 10;
+	text-align : left;
 }
 
