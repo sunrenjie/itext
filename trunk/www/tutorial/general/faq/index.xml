@@ -140,6 +140,7 @@ Remark: this only changes the header (iText doesn't keep the version in the cata
 If you change the version number to a lower version, you are responsible for
 making sure that you don't use newer features.
 <site:source class="PdfVersion" />
+<site:image source="pdfversion.gif">Document Properties Window</site:image>
 </div>
 	</site:section>
 	
