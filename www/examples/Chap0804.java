@@ -51,14 +51,14 @@ public class Chap0804 {
 			// we create a writer that listens to the document
 			// and directs a XML-stream to a file
  			PdfWriter.getInstance(document, new FileOutputStream("Chap0804.pdf"));
- 			XmlWriter.getInstance(document, new FileOutputStream("Chap0804test.xml"));
+ 			XmlWriter.getInstance(document, new FileOutputStream("Chap0804.xml"));
 
 			// step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new SAXmyHandler(document, new TagMap("tagmap.xml")));
+            parser.setDocumentHandler(new SAXmyHandler(document, new TagMap("tagmap0804.xml")));
 
 			// step 4: we parse the document
-            parser.parse("Chap0804.xml");
+            parser.parse("Chap0804.html");
             
             
 		}
