@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>RTF generation</site:title>
+		<site:summary>How-to generate RTF documents using iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, RTF, examples, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0596004753">RTF Pocket Guide</site:book>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+		<site:author>Mark Hall</site:author>
+		<site:tree branch="tutorial/rtf" root="../.." />
+	</site:metadata>
+	<site:examples>
+		<site:example>
+			<site:java src="HelloRtf" />
+			<site:argument>World</site:argument>
+			<site:result>HelloWorld.rtf</site:result>
+			Generates a simple 'Hello World' RTF file.
+		</site:example>
+		<site:example>
+			<site:java src="RtfSpecialFont" />
+			<site:result>specialfont.rtf</site:result>
+			Special fonts
+		</site:example>
+		<site:example>
+			<site:java src="RtfWithHeadersFooters" />
+			<site:result>headerfooter.rtf</site:result>
+			Headers/footers and page numbers
+		</site:example>
+		<site:example>
+			<site:java src="RtfTOCandCellborders" />
+			<site:result>toc.rtf</site:result>
+			Table of contents and cell borders
+		</site:example>
+		<site:example>
+			<site:java src="RtfTest" />
+			<site:result>testNew.rtf</site:result>
+			<site:result>testOld.rtf</site:result>
+			The TestSuite used to test RtfWriter2 functionality
+		</site:example>
+	</site:examples>
+	<site:content>
+<div class="header">Rich Text Format</div>
+<div class="title"><a name="rtfpackage"></a>The RTF package</div>
+The RTF package is an extension of the iText package and allows iText
+to output Rich Text files in addition to PDF files. The majority of
+the iText features for PDF generation are also supported by the RTF package,
+with a few <a href="#unsupported">exceptions</a>.
+There are currently two classes you can use to generate RTF documents
+in the RTF package. The new <span class="commandline">RtfWriter2</span>
+class and the old <span class="commandline">RtfWriter</span> class.
+For details please read <a href="#rtfdocument">Creating a RTF document</a>.<br /><br />
+Additionally the RTF package contains a few features, that are RTF specific:
+<ul>
+<li><a href="#extendedfont">Extended font support</a></li>
+<li><a href="#extendedhf">Extended header / footer support</a></li>
+<li><a href="#tocsupport">Table of contents support</a></li>
+<li><a href="#extenedcellborder">Extended cell border support</a></li>
+<li><a href="#pagenumberelement">Page number element</a></li>
+<li><a href="#examplelist">List of examples</a></li>
+</ul>
+
+<div class="title"><a name="rtfdocument"></a>Creating a RTF document</div>
+There is no difference between generating a PDF document and a RTF document with iText.
+<pre class="commandline">
+Document document = new Document();
+RtfWriter2.getInstance(document, new FileOutputStream("testRTFdocument.rtf"));
+document.open();
+document.add(new Paragraph("Hello World!"));
+document.close();
+</pre>
+<a href="examples/HelloRtf.java">Full example source code</a>.
+
+<div class="subtitle">RtfWriter2 and RtfWriter. Which one to use?</div>
+Short version: If you are starting a new project using the RTF package,
+use the new <span class="commandline">RtfWriter2</span>.<br /><br />
+The new <span class="commandline">RtfWriter2</span> replaces the old
+<span class="commandline">RtfWriter</span>. To allow for a cleaner design
+and structure, the new <span class="commandline">RtfWriter2</span> shares
+no code with the old version. This means that the old extensions to the
+<span class="commandline">RtfWriter</span> will not work with the new version.
+So as not to force anybody to upgrade their programs and still to allow
+everybody to incorporate bug fixes, the two writers exist in parallel.<br />
+For those who are starting a new project with iText and the RTF package,
+this has no consequences. They should use the new <span class="commandline">RtfWriter2</span>,
+because this is where future development will happen.<br />
+For those who have already got a working program, but don't use any of the
+old RTF specific classes, they can simply change the writer to the new
+<span class="commandline">RtfWriter2</span>.<br />
+For those who are using the old RTF specific classes the following table
+shows which new classes to use when upgrading.
+<table>
+	<tr>
+		<th>Old extensions</th>
+        <th>New extensions</th>    
+	</tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.RtfFont</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.style.RtfFont</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowgaie.text.rtf.HeaderFooter</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.HeaderFooters</span></td>
+    	<td><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.RtfPageNumber</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.field.RtfPageNumber</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.RtfTOC</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.field.RtfTableOfContents</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.RtfTOCEntry</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.field.RtfTOCEntry</span></td>
+    </tr>
+    <tr>
+        <td><span class="commandline">com.lowagie.text.rtf.RtfTableCell</span></td>
+        <td><span class="commandline">com.lowagie.text.rtf.table.RtfCell</span></td>
+    </tr>
+</table>
+Some of the new extensions have to be used in a slightly different manner now,
+but all functionality that was present in the old extensions is also available
+in the new extensions.<br /><br />
+The old <span class="commandline">RtfWriter</span> will continue to exist in its
+current form until the end of 2005 when it will be deprecated. It will finally
+be removed at the end of 2007. The same goes for all extensions of the old
+<span class="commandline">RtfWriter</span>.
+
+<div class="title"><a name="unsupported"></a>Unsupported iText features</div>
+<ul>
+<li>Watermarks</li>
+<li>Viewer preferences</li>
+<li>Encryption</li>
+<li>Embedded fonts</li>
+<li>Phrases with a leading</li>
+<li>Lists with non-bullet symbols</li>
+<li>Nested tables</li>
+<li>Images other than JPEG, PNG, BMP and WMF</li>
+<li>Rotated images</li>
+</ul>
+
+<div class="title"><a name="extendedfont"></a>Extended font support</div>
+The base RTF package does not support embedding fonts (see
+<a href="#unsupported">unsupported iText features</a>). To allow the RTF package
+to produce RTF documents with more than the built in fonts,
+the <span class="commandline">RtfFont</span> class provides the facility
+to specify arbitrary fonts.
+<pre class="commandline">
+RtfFont rtfFont = new RtfFont("Comic Sans MS");
+Paragraph para = new Paragraph("This is a paragraph in Comic Sans MS", rtfFont);
+document.add(para);
+</pre>
+For this to work, the correct font must be installed on the machine
+that is used to view the RTF document, not on the machine that creates
+the document. Also the given font name must match the name of the font
+on the viewer machine exactely.<br /><br />
+<a href="examples/RtfSpecialFont.java">Full example source code</a>.
+
+<div class="title"><a name="extendedhf"></a>Extended header / footer support</div>
+One of the limitations of the RTF format is that only one header
+and footer is allowed per section. There are two ways to overcome 
+this limitation. It is possible to
+<ul>
+<li>use multiple Chapters. Every Chapter can have different headers and footers.</li>
+<li>use the RtfHeaderFooterGroup to have up to 3 different headers or footers per document or Chapter.</li>
+</ul>
+<div class="subtitle">Using multiple Chapters</div>
+The first solution is very simple. Before adding the Chapter to the document,
+you set the headers and footers that you want to have in that Chapter.
+<pre class="commandline">
+HeaderFooter header1 = new HeaderFooter("This is the first chapter", false);
+HeaderFooter header2 = new HeaderFooter("This is page", ".");
+Chapter chapter1 = new Chapter(new Paragraph("This is the first Chapter"), 1);
+Chapter chapter2 = new Chapter(new Paragraph("Chapter 2"), 2);
+document.setHeader(header1);
+document.add(chapter1);
+document.setHeader(header2);
+document.add(chapter2);
+</pre>
+<div class="subtitle">Using the RtfHeaderFooterGroup</div>
+The second solution is to use the <span class="commandline">RtfHeaderFooterGroup</span>.
+This is slightly more complex. You will have to create a
+<span class="commandline">RtfHeaderFooterGroup</span> object
+and then add the <span class="commandline">HeaderFooter</span> objects
+to the <span class="commandline">RtfHeaderFooterGroup</span> specifying
+on which pages the headers / footers should appear. The following positions are supported:
+<ul>
+<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE</span></li>
+<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_ALL_PAGES</span></li>
+<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_LEFT_PAGES</span></li>
+<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_RIGHT_PAGES</span></li>
+</ul>
+DISPLAY_ALL_PAGES and DISPLAY_LEFT_PAGES/DISPLAY_RIGHT_PAGES cannot be combined,
+otherwise all combinations are possible.<br /><br />
+The first step is to create a RtfHeaderFooterGroup and then you add the HeaderFooter
+objects and specify where they are to appear.
+<pre class="commandline">
+RtfHeaderFooterGroup footer = new RtfHeaderFooterGroup();
+footer.setHeaderFooter(
+	new RtfHeaderFooter(
+		new Phrase("This is the footer on the title page")),
+			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE);
+footer.setHeaderFooter(
+	new RtfHeaderFooter(
+		new Phrase("This is a left side page")),
+			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_LEFT_PAGES);
+footer.setHeaderFooter(
+	new RtfHeaderFooter(
+		new Phrase("This is a right side page")),
+			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_RIGHT_PAGES);
+document.setFooter(footer);
+</pre>
+<div class="subtitle">Arbitrary Elements in the header</div>
+To give the <span class="commandline">RtfWriter2</span> more flexibility 
+when creating headers or footers, the
+<span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter</span> 
+makes it possible to add any <span class="commandline">Element</span> 
+as a header or footer. This can be used to add tables to the header, 
+giving improved formating capabilities.
+<pre class="commandline">
+Table headerTable = new Table(3);
+headerTable.addCell("Document header");
+Cell pageNumberCell = new Cell();
+pageNumberCell.add(new RtfPageNumber());
+headerTable.addCell(pageNumberCell);
+headerTable.addCell("Company Name");
+HeaderFooter header = new RtfHeaderFooter(headerTable);
+document.setHeader(header);
+</pre>
+<a href="examples/RtfWithHeadersFooters.java">Full example source code</a>.
+
+<div class="title"><a name="tocsupport"></a>Table of contents support</div>
+The <span class="commandline">RtfWriter2</span> also supports the creation of a table
+of contents and the addition of entries into that table of contents. There is one
+limitation and that is that the actual table of contents will have to be generated
+by the RTF viewer application, because iText does not know how to render RTF documents
+and can therefore not calculate the correct page numbers. When creating the
+<span class="commandline">RtfTableOfContents</span> it is necessary to specify
+the text that is displayed before the field is updated by the viewer.
+<div class="subtitle">Adding a table of contents</div>
+You can add the actual table of contents anywhere in the document.
+Simply create an instance of
+<span class="commandline">com.lowagie.text.rtf.toc.RtfTableOfContents</span>
+and add it to a paragraph. The constructor takes the default string to display
+and the font to use as parameters.
+<pre class="commandline">
+Paragraph para = new Paragraph();
+para.add(new RtfTableOfContents(
+	"RIGHT CLICK AND HERE AND SELECT \"UPDATE FIELD\" TO UPDATE.", 
+	new Font()));
+doc.add(para);
+</pre>
+<div class="subtitle">Adding entries to the table of contents</div>
+You can add entries to the table of contents before or after you've added
+the actual table of contents. It's as simple as adding an instance of RtfTOCEntry
+to the document.
+<pre class="commandline">
+RtfTOCEntry tocEntry =
+	new RtfTOCEntry("Manually added TOC entry", new Font());
+document.add(tocEntry);
+</pre>
+The second possibility is to let the
+<span class="commandline">RtfWriter2</span> automatically add
+<span class="commandline">RtfTOCEntry</span>s for every Chapter you add.
+<pre class="codeBlock">
+document.setAutogenerateTOCEntries(true);
+</pre>
+<a href="examples/RtfTOCandCellborders.java">Full example source code</a>.
+
+<div class="title"><a name="extendedcellborder"></a>Extended cell border support</div>
+The <span class="commandline">RtfWriter2</span> also provides support for using special
+border styles with table cells. To use this feature you add <span class="commandline">RtfCell</span>
+objects to the <span class="commandline">Table</span> instead of <span class="commandline">Cell</span>s.
+<div class="commandline">
+RtfCell cellDotted = new RtfCell("Dotted border");
+cellDotted.setBorders(new RtfBorderGroup(
+	Rectangle.BOX, RtfBorder.BORDER_DOTTED, 1, new Color(0, 0, 0)));
+RtfCell cellEmbossed = new RtfCell("Embossed border");
+cellEmbossed.setBorders(
+	new RtfBorderGroup(
+		Rectangle.BOX, RtfBorder.BORDER_EMBOSS, 1, new Color(0, 0, 0)));
+			    RtfCell cellNoBorder = new RtfCell("No border")
+cellNoBorder.setBorders(new RtfBorderGroup());
+ 
+table.addCell(cellDotted);
+table.addCell(cellEmbossed);
+table.addCell(cellNoBorder);
+</pre>
+The RtfCell supports a long list of border styles. Please consult the javadoc documentation
+for an exhaustive list.<br />
+<a href="examples/RtfTOCandCellborders.java">Full example source code</a>.
+
+<div class="title"><a name="pagenumberelement"></a>Page number element</div>
+The <span class="commandline">RtfPageNumber</span> class allows you to add
+the number of the current page at any position in the document. The primary use is
+in headers or footers with special formatting.
+<pre class="commandline">
+Table headerTable = new Table(3);
+headerTable.addCell("Document header");
+Cell pageNumberCell = new Cell();
+pageNumberCell.add(new RtfPageNumber());
+headerTable.addCell(pageNumberCell);
+headerTable.addCell("Company Name");
+HeaderFooter header = new RtfHeaderFooter(headerTable);
+document.setHeader(header);
+</pre>
+<a href="examples/RtfWithHeadersFooters.java">Full example source code</a>.
+
+	</site:content>
+</site:page>
