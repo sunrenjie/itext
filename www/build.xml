@@ -23,6 +23,7 @@
     <property name="itext.sf" value="${itext.dist}/sf" />
     <property name="itext.bin" value="${itext.home}/bin" />
     <property name="itext.cvsroot" value=":pserver:anonymous@cvs.itext.sourceforge.net:/cvsroot/itext" />
+	<property name="defaultnumber" value="invalid" />
     
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- The classpath when the release is done                           -->
@@ -72,7 +73,7 @@
         <echo />
         <echo>RELEASE</echo>
         <echo>ant release: makes a complete iText release</echo>
-        <echo>ant release.sf -Drelease=XXX: prepares a release XXX for sourceforge</echo>
+        <echo>ant -Dnumber=XXX release.sf: prepares a release XXX for sourceforge</echo>
       </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -479,17 +480,25 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
     <target name="release" depends="jarWithXML, srczip, srctargz, docstargz, tutorialtargz" description="--> makes a complete iText release">
-    </target>  
+    </target>   
+	
+  	<target name="no.version.number" if="number.is.invalid">
+		<fail message="You didn't enter a version number: ant -Dnumber=XXX release.sf" />
+	</target>  
 	  
-    <target name="release.sf" depends="release" description="--> makes a complete iText release ready to publish on SourceForge">
+    <target name="release.sf" description="--> makes a complete iText release ready to publish on SourceForge">
+		<property name="number" value="${defaultnumber}" />
+		<property name="number.is.${number}" value="true" />
+		<antcall target="no.version.number" />
+		<antcall target="release" />
         <mkdir dir="${itext.sf}" />
-        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/itext-${release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/itext-xml-${release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/itext-src-${release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/itext-xml-src-${release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/itext-src-${release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.tar.gz" tofile="${itext.sf}/itext-xml-src-${release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/itext-${number}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/itext-xml-${number}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/itext-src-${number}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/itext-xml-src-${number}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/itext-src-${number}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.tar.gz" tofile="${itext.sf}/itext-xml-src-${number}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${number}.tar.gz" overwrite="yes" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -497,8 +506,8 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
     <target name="install" depends="download.site, release, examples" description="--> installs iText in one command">
-    </target>  
-    
+    </target>   
+	
     <target name="install.cvs" depends="download.cvs, release, examples" description="--> installs the current version of iText in one command">
     </target>  
 
