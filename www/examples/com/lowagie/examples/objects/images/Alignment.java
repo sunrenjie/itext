@@ -35,7 +35,7 @@ public class Alignment {
      * @param args no arguments needed
      */
     public static void main(String[] args) {
-        System.out.println("Chapter 6 example 4: Alignment of images");
+        System.out.println("Alignment of images");
         // step 1: creation of a document-object
         Document document = new Document();
         try {
