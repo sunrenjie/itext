@@ -77,12 +77,13 @@ The alignment can be one of the following values:
 </ul>
 The following method names need no further explanation, they are pretty straightforward:
 <ul>
-<li><site:doc class="com.lowagie.text.Paragraph" target="setFirstLineIndent(float)">setFirstLineIndent(float firstLineIndent)</site:doc></li>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationLeft(float)">setIndentationLeft(float indentation)</site:doc></li>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setIndentationRight(float)">setIndentationRight(float indentation)</site:doc></li>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setSpacingBefore(float)">setSpacingBefore(float spacing)</site:doc></li>
 <li><site:doc class="com.lowagie.text.Paragraph" target="setSpacingAfter(float)">setSpacingAfter(float spacing)</site:doc></li>
 </ul>
+Remark: the method <site:doc class="com.lowagie.text.Paragraph" target="setFirstLineIndent(float)">setFirstLineIndent(float firstLineIndent)</site:doc>
+only works for paragraphs inside a ColumnText or PdfPTable object.
 <site:source class="ParagraphAttributes" />
 </div>
 	</site:section>
