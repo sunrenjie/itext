@@ -78,22 +78,63 @@
 			<LI><A HREF="#VERSION090">iText0.90</A>: march 2002
 			<LI><A HREF="#VERSION091">iText0.91</A>: april 2002
 			<LI><A HREF="#VERSION092">iText0.92</A>: april 2002
+			<LI><A HREF="#VERSION093">iText0.93</A>: july 2002
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION092">iText0.92</A></B><br>
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION092">iText0.93</A></B><br>
 			<UL>
-				<LI>Added lots of AcroForm methods (Bruno)
-				<LI>J2EE Filter contributed by Marcelo Vanzin (only in the srcXML, not in the jar: com.lowagie.servlets)
-				<LI>Added support for Radio Buttons on different pages (Paulo)
-				<LI>Fixed some PdfGraphics2D bugs (Paulo)
-				<LI>Fixed a PdfReader problem in PRTokeniser (Paulo)
-				<LI>Fixed several Font(Factory) problems (Bruno)
-				<LI>Fixed a bug concerning X/HTML parsing and styles (Bruno)
-				<LI>Fixed the Image in Table problem (Bruno)
-				<LI>Fixed a Table bug reported by Jennifer Prohaska (Bruno)
+				<LI>
+			</UL>
+		</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION092">iText0.92 (based on paulo's versions 97, 98, 99, 100 and 101)</A></B><br>
+		    <UL>Paulo 101:
+		        <LI>fixed a bug in PdfReader.getCropBox(). It was returning the media box instead of the crop box
+		        <LI>added page and outline reordering. Mainly of interest to generate TOC in a single pass
+		        <LI>deprecated PdfContentByte.addOutline(PdfOutline outline). The outlines are extracted from the root outline. It's no longer needed to call this method
+		        <LI>changed the behavior for the margins in PDF. Margins now work as the page size: are only active in the next page. Will break some code but it didn't work as it was, anyway
+		    </UL>
+		    <UL>Paulo 100:
+		        <LI>Added PdfEncryptor to encrypt any PDf document. All the content, links, outlines, etc, are also encrypted and output
+		        <LI>added support for OTF fonts with the CFF table
+		    </UL>
+		    <UL>Paulo 99:
+		        <LI>fixed a bug with \r\n in chunks
+		        <LI>added PIE, ARC and CHORD to WMF
+		        <LI>font reorganization
+		        <LI>CJK fonts can be accessed by CID
+		        <LI>PdfPCell supports rightIndent and followingIndent for independent alignment within the cell
+		        <LI>added class VerticalText for enhanced support for vertical text.
+                    Anottation support is not there yet. I would appreciate some feedback
+                    from CJK users for ways to improve the vertical layouting
+                <LI>DefaultFontMapper reads a font directory 7 times faster
+		    </UL>
+		    <UL>Paulo 98:
+		        <LI>added PdfWriter.setAdditionalAction() to support additional-actions in the catalogue. This is a PDF1.4 only feature.
+		        <LI>added PdfReader.getInfo() to get the metadata information from a PDF document.
+		        <LI>no-wrap in PdfPCell now works correctly for all the horizontal alignments.
+		        <LI>minor fix in HyphenationAuto.getHyphenatedWordPre() to optimize the available word space.
+		        <LI>new supplements in CJKFont to support the new characters in PDF1.4. It's still compatible with PDF1.3.
+		    </UL>
+			<UL>Paulo 97:
+				<LI>several changes in the internal pdf structure to allow more low level access.
+				<LI>supported full PDFDocEncoding in strings (the Euro will show up).
+				<LI>several changes in the form fields to allow strings in Unicode and PDFDocEncoding
+				<LI>added shading patterns. Supported type 1, 2, and 3. Types 2 and 3 have duplicated simpler contructors for the case of linear gradients.
+				<LI>added support for java.awt.GradientPaint in PdfGraphics2D
+				<LI>documents with no text do not generate anymore the empty sequence BT-ET. Some postscript printers had problems with it.
+				<LI>added the method Document.getVersion() to get the current iText version string.
+			</UL>
+			<UL>Others:
+			    <LI>Some updates to the RTF part by Mark Hall
+			    <LI>XML: MOVED FROM SAX TO SAX2 and from XERCES TO JAXP: THIS BREAKS EXISTING XML FUNCTIONALITY
+			    <LI>Added several small code contributions
 			</UL>
 		</FONT>
 		</TD>
