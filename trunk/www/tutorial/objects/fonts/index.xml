@@ -64,6 +64,17 @@
 			<site:description>Sums up the Fonts that are available in some standard font directories on your system</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="OpenTypeFont" standalone="yes" />
+			<site:result>opentypefont.pdf</site:result>
+			<site:externalresource>liz.otf</site:externalresource>
+			<site:description>Using an Open Type Font with Compact Font Format (CFF) data only (no true type outlines)</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="RightToLeft" standalone="yes" />
+			<site:result>complextext.pdf</site:result>
+			<site:description>Adding text at absolute positions</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="ComplexText" standalone="yes" />
 			<site:result>complextext.pdf</site:result>
 			<site:description>Adding text at absolute positions</site:description>
