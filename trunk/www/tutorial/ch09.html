@@ -60,6 +60,17 @@
 			As you can see, the EURO symbol is added by using its UNICODE value.
 			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0901.pdf">result</a>.<BR><BR>
 			</FONT>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<b>Remark:</b><br>
+				If you want to retrieve the exact postscript name of a font, you can use the method
+				<FONT FACE="Courier">getPostscriptFontName()</FONT>.
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><br>
 		</TD>
 	</TR>
 	<TR>
@@ -70,11 +81,24 @@
 			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
             True Type font:<br><br>
 			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);<br>
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);<br>
             Font font = new Font(bfComic, 12);<br>
             String text1 = "This is the quite popular True Type font 'Comic'.";<br>
             document.add(new Paragraph(text1, font));<br>
 			</FONT><BR>
+			You can find out the different possible encodings of a True Type Font by using the
+			method <FONT FACE="Courier">getCodePagesSupported()</FONT> (remark: this only works with True Type Fonts).
+			In example 2, the possible encodings are:
+			<ul>
+				<li>1252 Latin 1
+				<li>1250 Latin 2: Eastern Europe
+				<li>1251 Cyrillic
+				<li>1253 Greek
+				<li>1254 Turkish
+				<li>1257 Windows Baltic
+				<li>Macintosh Character Set (US Roman)
+			</ul>
+			<br>
 			<A NAME="embedttf"><b>Embedding a ttf font</b></A><br>
 			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
             is missing or corrupted'. This can be the case when you try to open
@@ -82,7 +106,7 @@
 			To embed the font, you just have to set the last parameter of method
 			<FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">BaseFont.EMBEDDED</FONT>:<br>
 			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);<br><br>
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);<br><br>
 			<TABLE WIDTH="85%" ALIGN="center">
 				<TR>
 				<TD BGCOLOR="#CFCFCF">
@@ -151,9 +175,16 @@
 			<BR><br>
 			<b><A NAME="ttc">True Type Collections</A></b><br>
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0904.java">Example 4</A> shows you how to use
-			a True Type Collection. This is very similar to using a True Type Font. If you want to know the
-			names of the fonts in a certain TTC-file, you can use the method <FONT FACE="Courier">enumerateTTCNames</FONT>
-			as show in the example.
+			a True Type Collection. This is very similar to using a True Type Font:<br>
+			<FONT>
+            BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\msgothic.ttc,1", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
+			</FONT><br>
+			A True Type collection contains more than one font.
+			As you can see, we add a number after the TTC-file to indicate which of the fonts we want to use.
+			If you want to know the names of the fonts in a certain TTC-file, you can use the method
+			<FONT FACE="Courier">enumerateTTCNames</FONT> as shown in the example.
+			The file msgothic.ttc contains 3 fonts: (0) MS-Gothic, (1) MS-PGothic and (2) MS-UIGothic.
+			In the example, we want to use MS-PGothic.
 			<BR>
 			<BR><br>
 			<b><A NAME="adobefonts">Adobe fonts</A></b><br>
