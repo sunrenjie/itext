@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.rtf.RtfWriter;
+import com.lowagie.text.rtf.RtfWriter2;
 
 /**
  * This example creates a RTF document with two chapters and different headers
@@ -45,7 +45,7 @@ public class Chap0802 {
             // step 2:
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
-            RtfWriter.getInstance(document, new FileOutputStream("Chap0802.rtf"));
+            RtfWriter2.getInstance(document, new FileOutputStream("Chap0802.rtf"));
 
             // step 3: we open the document
             document.open();

@@ -22,7 +22,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.rtf.*;
+import com.lowagie.text.rtf.RtfWriter2;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup;
 
 /**
  * This example creates a RTF document with more complex headers and footers
@@ -41,35 +43,25 @@ public class Chap0803 {
         try
             {
             /* Create a RtfWriter and a PdfWriter for the document */
-            RtfWriter rtf = RtfWriter.getInstance(document, new FileOutputStream("Chap0803.rtf"));
+            RtfWriter2 rtf = RtfWriter2.getInstance(document, new FileOutputStream("Chap0803.rtf"));
 
-            /* We specify that the RTF file has a Title Page */
-            rtf.setHasTitlePage(true);
-
-            /* We create headers and footers for the RTF file */
-            RtfHeaderFooters header = new RtfHeaderFooters();
-            RtfHeaderFooters footer = new RtfHeaderFooters();
-
-            /* We add a header that will only appear on the first page */
-            header.set(RtfHeaderFooters.FIRST_PAGE, new HeaderFooter(new Phrase("This header is only on the first page"), false));
-            /* We add a header that will only appear on left-side pages */
-            header.set(RtfHeaderFooters.LEFT_PAGES, new HeaderFooter(new Phrase("This header is only on left pages"), false));
-            /* We add a header that will only appear on right-side pages */
-            header.set(RtfHeaderFooters.RIGHT_PAGES, new HeaderFooter(new Phrase("This header is only on right pages. "), false));
-            /* We add a footer that will appear on all pages except the first (because of the title page)
-               Because the header has different left and right page footers, we have to add the footer to
-               both the left and right pages. */
-            footer.set(RtfHeaderFooters.LEFT_PAGES, new HeaderFooter(new Phrase("This footer is on all pages except the first. Page: "), true));
-            footer.set(RtfHeaderFooters.RIGHT_PAGES, new HeaderFooter(new Phrase("This footer is on all pages except the first. Page: "), true));
-
-            /* Open the document */
-            document.open();
-
-
-            /* We add the header and footer */
+            /* Create a Table to use as header */
+            Table headerTable = new Table(3);
+            headerTable.addCell("Test Cell 1");
+            headerTable.addCell("Test Cell 2");
+            headerTable.addCell("Test Cell 3");
+            HeaderFooter header = new RtfHeaderFooter(headerTable);
+            
+            /* Create different headers for the title page and left and right pages */
+            RtfHeaderFooterGroup footer = new RtfHeaderFooterGroup();
+            footer.setHeaderFooter(new RtfHeaderFooter(new Phrase("This is the footer on the title page")), com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE);
+            footer.setHeaderFooter(new RtfHeaderFooter(new Phrase("This is a left side page")), com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_LEFT_PAGES);
+            footer.setHeaderFooter(new RtfHeaderFooter(new Phrase("This is a right side page")), com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_RIGHT_PAGES);
+            
             document.setHeader(header);
             document.setFooter(footer);
-
+            
+            document.open();
 
             /* We add some content */
             Chapter chapter = new Chapter(new Paragraph("Advanced RTF headers and footers", new Font(Font.HELVETICA, 16, Font.BOLD)), 1);

@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.rtf.RtfWriter;
+import com.lowagie.text.rtf.RtfWriter2;
 
 public class Chap0801 {
 
@@ -39,7 +39,7 @@ public class Chap0801 {
             // we create a writer that listens to the document
             // and directs a RTF-stream to a file
 
-            RtfWriter.getInstance(document, new FileOutputStream("Chap0801.rtf"));
+            RtfWriter2.getInstance(document, new FileOutputStream("Chap0801.rtf"));
             
             // step 3: we open the document
             document.open();
