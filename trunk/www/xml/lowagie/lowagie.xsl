@@ -187,19 +187,19 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:attribute name="id">content</xsl:attribute>
 	<xsl:apply-templates select="site:content" />
 
-<div id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
+<div xmlns="http://www.w3.org/1999/xhtml" id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
 Copyright &#169; 1999-2004 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
-Read the <A HREF="privacypolicy.html" CLASS="verysmall">Privacy Policy</A> at lowagie.com;
-mailto: <A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</A></div>
+Read the <a href="privacypolicy.html">Privacy Policy</a> at lowagie.com;
+mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a></div>
 
 </xsl:element>
 
-<div id="navigation">
-	<div id="itext">
-		<a href="http://www.lowagie.com/iText/"><img class="logo" src="http://www.lowagie.com/iText/logo.gif" border="0" /></a><br />
+<div id="navigation" xmlns="http://www.w3.org/1999/xhtml">
+	<div id="itext" xmlns="http://www.w3.org/1999/xhtml">
+		<a href="http://www.lowagie.com/iText/"><img class="logo" src="images/logo.gif" border="0" /></a><br />
 		a Free Java-PDF library<br />by <a class="author" HREF="http://www.lowagie.com/">Bruno Lowagie</a><br /> and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
 	</div>
-	<div id="links">
+	<div id="links" xmlns="http://www.w3.org/1999/xhtml">
 		<a class="navigation" href="http://www.lowagie.com/iText/index.html">Home @ Lowagie.com</a>
 		<a class="navigation" href="http://sourceforge.net/projects/itext/">Home @ SourceForge.net</a>
 		<a class="navigation" href="http://itextpdf.sourceforge.net/">Early Access (Paulo)</a>
@@ -217,11 +217,11 @@ mailto: <A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 	</div>
 </div>
 
-<div id="sourceforge"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
+<div id="sourceforge" xmlns="http://www.w3.org/1999/xhtml"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 
 <div id="commercial">
-<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" width="120" height="26" /></a>
-<a class="amazonlinks" href="amazon.html">Amazon books:</a><br />
+<a href="http://www.refactorit.com/" xmlns="http://www.w3.org/1999/xhtml"><img xmlns="http://www.w3.org/1999/xhtml" src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" border="0" width="120" height="26" /></a>
+<a class="amazonlinks" href="amazon.html" xmlns="http://www.w3.org/1999/xhtml">Amazon books:</a>
 <xsl:choose>
 	<xsl:when test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
 		<xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:book"><xsl:value-of select="string(@asin)" /><xsl:if test="position()!=last()">,</xsl:if></xsl:for-each></xsl:with-param></xsl:call-template>
