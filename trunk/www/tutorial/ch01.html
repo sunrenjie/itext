@@ -216,8 +216,8 @@
 				public boolean addCreationDate()<BR>
 				public boolean addHeader(String name, String content)<BR>
 			</FONT><BR>
-			You can choose your own title, subject, keywords and author,<BR> but the method that
-			adds the producerdata should always add:<BR> <FONT FACE="Courier">iText by lowagie.com</FONT><BR>
+			You can choose your own title, subject, keywords, author and creator, but the method that
+			adds the producerdata should always add:<BR> <FONT FACE="Courier">iText</FONT> (or a reference to iText)
 			and the method that adds the creation date always add the current system time
 			(as a matter of fact, these two methods are called automatically).<BR>
 			You can also add a header with a custom name, but this will have no effect on the
@@ -227,12 +227,8 @@
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0106.java">Chap0106.java</A>, the result is a similar document:
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0106.pdf">Chap0106.pdf</A>, but there are more items added to
 			the infobox:<BR>
-			<TABLE ALIGN="CENTER">
-			<TR>
-				<TD><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0101.png" WIDTH=342 HEIGHT=379 ALT="info" BORDER="0"></TD>
-				<TD><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0106.png" WIDTH=342 HEIGHT=379 ALT="info" BORDER="0"></TD>
-			</TR>
-			</TABLE>
+			<div align="center"><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0101.png" ALT="info" BORDER="0"><br>
+			<IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0106.png" ALT="info" BORDER="0"><br></div><br>
 			As an additional illustration of the fact that you can send documents to any
 			outputstream; example 6 sends HTML to <FONT FACE="Courier">System.out</FONT>.<BR>
 			<DIV ALIGN="center"><IMG SRC="http://www.lowagie.com/iText/tutorial/Chap0106dos.png" WIDTH=668 HEIGHT=331 ALT="System.out" BORDER="0"></DIV><BR>
@@ -243,7 +239,8 @@
 			results in:
 			<FONT FACE="Courier">&lt;link rel=&quot;STYLESHEET&quot; type=&quot;text/css&quot; href=&quot;my.css&quot;></FONT><BR>
 			<BR>
-			You can only add metadata this BEFORE the <FONT FACE="Courier">open</FONT>-method
+			<B>Things to do BEFORE you open the document</B><BR>
+			You can only add metadata BEFORE the <FONT FACE="Courier">open</FONT>-method
 			is invoked. This is a choice made by the developer of iText.<BR>In HTML meta-information is
 			put between the <FONT FACE="Courier">HEAD</FONT>-tags at the beginning of the document
 			(the header section). Invoking the <FONT FACE="Courier">open</FONT>-method causes the writer
@@ -275,8 +272,9 @@
 				</TR>
 			</TABLE>
 			In PDF, the metadata is kept in a <FONT FACE="Courier">PdfInfo</FONT>-object,
-			written to the PdfWriter when the document is closed. So there is no reason why one
-			couldn't alter the library to be able to add or change the metadata at any time.<BR><BR>
+			written to the PdfWriter when the document is closed. So there is no technical reason why one
+			couldn't alter the library to be able to add or change the metadata at any time. It's a design choice that
+			was made.<BR><BR>
 			<B>Page initialisations</B><BR>
 			<A NAME="firstpage">The <FONT FACE="Courier">open</FONT>-method</A> also triggers some initialisations
 			in the different writers. For instance if you want a <FONT FACE="Courier">Watermark</FONT>
@@ -298,13 +296,92 @@
 			initialisation methods of this page are called). This is illustrated in
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0107.java">example 7</A>. If you want to try this example,
 			you will need an image file called <A HREF="http://www.lowagie.com/iText/examples/watermark.jpg">watermark.jpg</A>.
-			The result should look like <A HREF="http://www.lowagie.com/iText/examples/Chap0107.pdf">Chap0107.pdf</A>.<br>
+			The result should look like <A HREF="http://www.lowagie.com/iText/examples/Chap0107.pdf">Chap0107.pdf</A>.<br><br>
 			<B><a name="viewerprefs">Viewerpreferences</a></B><BR>
 			For PDF files you can also set some viewer preferences with the method:<br>
-			<FONT FACE="Courier">public void setViewerPreferences(int preferences)</FONT><BR>
-			Remark: you can invoke this method only on a class of type <FACE FONT="Courier">PdfWriter</FONT>.<br>
+			<FONT FACE="Courier">public void setViewerPreferences(int preferences)</FONT><BR><br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0108.java">example 8</A>, some
+			of the possibilities are demonstrated:<br>
+			<FONT FACE="Courier">writerA.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108a.pdf">Chap0108a.pdf</A>)<br>
+			<FONT FACE="Courier">writerB.setViewerPreferences(PdfWriter.HideMenubar | PdfWriter.HideToolbar);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108b.pdf">Chap0108b.pdf</A>)<br>
+			<FONT FACE="Courier">writerC.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft | PdfWriter.PageModeFullScreen | PdfWriter.NonFullScreenPageModeUseThumbs);</FONT><BR>(see <A HREF="http://www.lowagie.com/iText/examples/Chap0108c.pdf">Chap0108c.pdf</A>)<br>
+			As you can see, the preferences can be set by ORing some of these constants:
+ 			<ul>
+			 <li>The page layout to be used when the document is opened (choose one).
+			   <ul>
+			   <li>PdfWriter.<b>PageLayoutSinglePage</b> - Display one page at a time.
+			   <li>PdfWriter.<b>PageLayoutOneColumn</b> - Display the pages in one column.
+			   <li>PdfWriter.<b>PageLayoutTwoColumnLeft</b> - Display the pages in two columns, with
+			       oddnumbered pages on the left.
+			   <li>PdfWriter.<b>PageLayoutTwoColumnRight</b> - Display the pages in two columns, with
+			       oddnumbered pages on the right.
+			   </ul>
+			 <li>The page mode how the document should be displayed
+			     when opened (choose one).
+			   <ul>
+			   <li>PdfWriter.<b>PageModeUseNone</b> - Neither document outline nor thumbnail images visible.
+			   <li>PdfWriter.<b>PageModeUseOutlines</b> - Document outline visible.
+			   <li>PdfWriter.<b>PageModeUseThumbs</b> - Thumbnail images visible.
+			   <li>PdfWriter.<b>PageModeFullScreen</b> - Full-screen mode, with no menu bar, window
+			       controls, or any other window visible.
+			   </ul>
+			 <li>PdfWriter.<b>HideToolbar</b> - A flag specifying whether to hide the viewer application's tool
+			     bars when the document is active.
+			 <li>PdfWriter.<b>HideMenubar</b> - A flag specifying whether to hide the viewer application's
+			     menu bar when the document is active.
+			 <li>PdfWriter.<b>HideWindowUI</b> - A flag specifying whether to hide user interface elements in
+			     the document's window (such as scroll bars and navigation controls),
+			     leaving only the document's contents displayed.
+			 <li>PdfWriter.<b>FitWindow</b> - A flag specifying whether to resize the document's window to
+			     fit the size of the first displayed page.
+			 <li>PdfWriter.<b>CenterWindow</b> - A flag specifying whether to position the document's window
+			     in the center of the screen.
+			 <li>The document's page mode, specifying how to display the
+			     document on exiting full-screen mode. It is meaningful only
+			     if the page mode is <b>PageModeFullScreen</b> (choose one).
+			   <ul>
+			   <li>PdfWriter.<b>NonFullScreenPageModeUseNone</b> - Neither document outline nor thumbnail images
+			       visible
+			   <li>PdfWriter.<b>NonFullScreenPageModeUseOutlines</b> - Document outline visible
+			   <li>PdfWriter.<b>NonFullScreenPageModeUseThumbs</b> - Thumbnail images visible
+			   </ul>
+			 </ul>
+			Remark: you can invoke this method only on a class of type <FONT FACE="Courier">PdfWriter</FONT>.<br><br>
 			<B><a name="encryption">Encryption</a></B><BR>
-			</FONT><BR><BR>
+			Another thing to do BEFORE you open the document, is to set the encryption (that is: if you want the
+			PDF file to be encrypted). To achieve this, you use the method:<br>
+			<FONT FACE="Courier">public void setEncryption(boolean strength, String userPassword, String ownerPassword, int permissions);</FONT><br><br>
+			<ul>
+			<li>The strength is one of these two constants:
+			<ul>
+				<li>PdfWriter.<b>STRENGTH40BITS</b>: 40 bits
+				<li>PdfWriter.<b>STRENGTH128BITS</b>: 128 bits (only with Acrobat Reader 5.0 or higher)
+			</ul>
+			<li>The userPassword and ownerPassword can be null or have zero length. In this case the ownerPassword is
+     			replaced by a random string.
+			<li>Permissions are set by ORing some of these constants:
+			<ul>
+				<li>PdfWriter.<b>AllowPrinting</b>
+				<li>PdfWriter.<b>AllowModifyContents</b>
+				<li>PdfWriter.<b>AllowCopy</b>
+				<li>PdfWriter.<b>AllowModifyAnnotations</b>
+				<li>PdfWriter.<b>AllowFillIn</b>
+				<li>PdfWriter.<b>AllowScreenReaders</b>
+				<li>PdfWriter.<b>AllowAssembly</b>
+				<li>PdfWriter.<b>AllowDegradedPrinting</b>
+			</ul>
+			</ul>
+			This functionality is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0109.java">example 9</A>
+			and <A HREF="http://www.lowagie.com/iText/examples/Chap0110.java">example 10</A>.<br><br>
+			<FONT FACE="Courier">writer.setEncryption(PdfWriter.STRENGTH40BITS, null, null, PdfWriter.AllowCopy);</FONT><br>
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0109.pdf">Chap0109.pdf</A> can be opened without using a password,
+			but the user is not allowed to Print, Modify,... the document.<br><br>
+			<FONT FACE="Courier">writer.setEncryption(PdfWriter.STRENGTH128BITS, "userpass", "ownerpass", PdfWriter.AllowCopy | PdfWriter.AllowPrinting);</FONT><br>
+			When you try to open <A HREF="http://www.lowagie.com/iText/examples/Chap0110.pdf">Chap0110.pdf</A>, you
+			are asked for a password (type in 'userpass'). Because the AllowPrinting-preference was added, you can
+			print this document without any problem.
+			</FONT>
+			<BR><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -320,22 +397,22 @@
 			in HTML. If you add a graphic to a <FONT FACE="Courier">Document</FONT>, the listening
 			<FONT FACE="Courier">HtmlWriter</FONT> will ignore this.<BR>
 			Sometimes you may want a writer to deliberately ignore actions performed on a document.
-			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0109.java">example 9</A>.<BR>
+			This is shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0111.java">example 11</A>.<BR>
 			If we create two writers: writerA and writerB (this is an exception to what was said in
 			<A HREF="#step2">step 2</A>):<BR>
 			<FONT FACE="Courier">
-			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0109a.pdf"));<BR>
-			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0109b.pdf"));<BR>
+			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0111a.pdf"));<BR>
+			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0111b.pdf"));<BR>
 			</FONT>
 			We can create two documents that are slightly different:<BR>
 			<FONT FACE="Courier">
 			writerA.pause();<BR>
-			document.add(new Paragraph("This paragraph will only be added to Chap0109b.pdf, not to Chap0109a.pdf"));<BR>
+			document.add(new Paragraph("This paragraph will only be added to Chap0111b.pdf, not to Chap0111a.pdf"));<BR>
 			writerA.resume();<BR>
 			</FONT>
-			You can compare the results of example 8 here: <A HREF="http://www.lowagie.com/iText/examples/Chap0109a.pdf">Chap0109a.pdf</A> vs.
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0109b.pdf">Chap0109b.pdf</A>.
-			</FONT><BR>
+			You can compare the results of example 11 here: <A HREF="http://www.lowagie.com/iText/examples/Chap0111a.pdf">Chap0111a.pdf</A> vs.
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0111b.pdf">Chap0111b.pdf</A>.
+			</FONT><BR><br>
 		</TD>
 	</TR>
 	<TR>
