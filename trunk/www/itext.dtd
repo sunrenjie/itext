@@ -20,8 +20,8 @@
 	right		CDATA	#IMPLIED
 >
 <!ELEMENT title (#PCDATA | phrase | chunk | annotation)*>
-<!ELEMENT sectioncontent (#PCDATA | section | paragraph | list | anchor | phrase | chunk | annotation)*>
-<!ELEMENT paragraph (#PCDATA | anchor | list | phrase | chunk | annotation)*> 
+<!ELEMENT sectioncontent (#PCDATA | section | paragraph | list | anchor | phrase | chunk | annotation | newline | newpage | image)*>
+<!ELEMENT paragraph (#PCDATA | anchor | list | phrase | chunk | annotation | newline | newpage | image)*> 
 <!ATTLIST paragraph
 	leading		CDATA	#IMPLIED
 	font	    CDATA	#IMPLIED
@@ -34,7 +34,7 @@
 	left		CDATA	#IMPLIED
 	right		CDATA	#IMPLIED
 >
-<!ELEMENT anchor (#PCDATA | chunk | annotation)*> 
+<!ELEMENT anchor (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST anchor
 	leading		CDATA	#IMPLIED
 	font	    CDATA	#IMPLIED
@@ -46,7 +46,7 @@
 	name		CDATA	#IMPLIED
 	reference	CDATA	#IMPLIED
 >
-<!ELEMENT phrase (#PCDATA | chunk | annotation)*> 
+<!ELEMENT phrase (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST phrase
 	leading		CDATA	#IMPLIED
 	font	    CDATA	#IMPLIED
@@ -56,7 +56,7 @@
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 >
-<!ELEMENT chunk (#PCDATA)> 
+<!ELEMENT chunk (#PCDATA | newline | newpage)*> 
 <!ATTLIST chunk
 	font	    	    CDATA	#IMPLIED
 	size		        CDATA	#IMPLIED
@@ -83,7 +83,7 @@
 	green		CDATA	#IMPLIED
 	blue		CDATA	#IMPLIED
 >
-<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation)*> 
+<!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | image | annotation)*> 
 <!ATTLIST listitem
 	leading		CDATA	#IMPLIED
 	font	    CDATA	#IMPLIED
@@ -118,7 +118,8 @@
     bgblue          CDATA   #IMPLIED
     grayfill        CDATA   #IMPLIED
 >
-<!ELEMENT cell (#PCDATA | paragraph | anchor | phrase | list | chunk)*>
+<!ELEMENT row (cell*)>
+<!ELEMENT cell (#PCDATA | paragraph | anchor | phrase | list | chunk | newline | newpage | table | image | annotation)*>
 <!ATTLIST cell
     horizontalalign CDATA   #IMPLIED
     verticalalign   CDATA   #IMPLIED
@@ -159,3 +160,4 @@
     content     CDATA   #IMPLIED
 >
 <!ELEMENT newpage EMPTY>
+<!ELEMENT newline EMPTY>
