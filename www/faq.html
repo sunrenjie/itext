@@ -54,10 +54,11 @@
 				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
 				<li><a href="#servlet">Where can I find an example of iText used in a Servlet application?</A>
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
-				<li><a href="#images">On the subject of images!</A>
+				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
 				<li><a href="#javadoc">How do I generate documentation files (the API)?</a>
 				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
+				<li><a href="#images">On the subject of images!</A>
 			</UL>
 			</FONT><BR>
 		</TD>
@@ -129,34 +130,20 @@
 			These pages are shown in <i>portrait</i>. If you create a page with
 			PageSize.A4.rotate(), the pages are shown in <i>landscape</i>.
 			You can also use the setPageSize-method, but be aware of the
-			fact that the PageSize will only be changed on the next page.
+			fact that the PageSize will only be changed on the next page.<BR>
+			This is covered in the tutorial: <A HREF="tutorial/ch01.html#step1">step1</A>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
-			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="template"><B>Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			iText supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
-			<UL>These are the exceptions:
-			<LI>GIF
-				<UL>
-					<LI>Gifs without a global colortable
-					<LI>interlaced gifs or gifs using local color table
-					<LI>... (check out the error message!)
-				</UL>
-			<LI>JPG
-				<UL>
-					<LI>JPG with of which the number of 'Bits Per Component' != 8
-					<LI>JPG with 'invalid JPEG markers' (see the code of class Jpeg)
-				</UL>
-			<LI>PNG
-				<UL>
-					<LI>PNGs with BitDepth == 16
-					<LI>PNGs with another colortype than 0, 2 or 3
-					<LI>interlaced PNGs
-				</UL>
-			</UL>
+			With iText you can only create new PDF documents from scratch;
+			so you can't parse an existing PDF file to retrieve its content or
+			a template PDF file to fill it with data from a database.
+			There are some other libraries that support this, please check
+			the <A HREF="links.html">links</A>-page.
 			</FONT><BR><BR>
 		</TD>
 	</TR>
@@ -199,6 +186,33 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 			<A HREF="http://java.sun.com/beans/infobus/index.html#DOWNLOAD_COLLECTIONS"><FONT FACE="Arial,Helvetica" SIZE="-1">Collection</FONT></A>
 			classes to make the library work (more
 			<A HREF="http://java.sun.com/beans/infobus/collectionsreadme.html"><FONT FACE="Arial,Helvetica" SIZE="-1">info</FONT></A>)
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			iText supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
+			<UL>These are the exceptions:
+			<LI>GIF
+				<UL>
+					<LI>Gifs without a global colortable
+					<LI>interlaced gifs or gifs using local color table
+					<LI>... (check out the error message!)
+				</UL>
+			<LI>JPG
+				<UL>
+					<LI>JPG with of which the number of 'Bits Per Component' != 8
+					<LI>JPG with 'invalid JPEG markers' (see the code of class Jpeg)
+				</UL>
+			<LI>PNG
+				<UL>
+					<LI>PNGs with BitDepth == 16
+					<LI>PNGs with another colortype than 0, 2 or 3
+					<LI>interlaced PNGs
+				</UL>
+			</UL>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
