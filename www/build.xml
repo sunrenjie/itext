@@ -33,7 +33,7 @@
       <pathelement location="${itext.bin}/xerces_1_3_1.jar" />
       <pathelement location="${itext.bin}/iText.jar" />
       <pathelement location="${itext.bin}/iTextXML.jar" />
-      <pathelement location="${itext.bin}/itext-hyph.jar" />
+      <pathelement location="${itext.bin}/iTextHYPH.jar" />
       <pathelement location="${itext.examples}" />
     </path>
   
@@ -112,7 +112,7 @@
         <get src="http://www.lowagie.com/iText/examples/12.tif" dest="${itext.examples}/12.tif" verbose="true" />
         <get src="http://www.lowagie.com/iText/examples/338814-00.tif" dest="${itext.examples}/338814-00.tif" verbose="true" />
         <mkdir dir="${itext.bin}" />
-        <get src="http://www.lowagie.com/iText/downloads/itext-hyph.jar" dest="${itext.bin}/itext-hyph.jar" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/iTextHYPH.jar" dest="${itext.bin}/iTextHYPH.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
     </target>
