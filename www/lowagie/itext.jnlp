@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+iText JavaWebStart file
+ -->
+
+
+<jnlp spec="1.0"
+      codebase="http://www.lowagie.com/iText/"
+      href="itext.jnlp">
+   <information> 
+      <title>iText Toolbox</title> 
+      <vendor>lowagie.com</vendor>
+      <homepage href="http://www.lowagie.com/iText/"/>
+      <description>A FrameWork that can be used to plug in iText tools</description>
+      <description kind="short">iText Toolbox</description>
+      <icon href="http://www.lowagie.com/iText/images/logo.gif"/>
+      <offline-allowed/> 
+   </information> 
+   <resources>
+      <j2se version="1.3+"/>
+      <jar href="http://itext.sourceforge.net/downloads/iText.jar" main="true" download="eager"/>
+   </resources>
+   <application-desc main-class="com.lowagie.tools.Toolbox"/>
+</jnlp> 
