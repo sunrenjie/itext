@@ -264,6 +264,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<br />
 		<a class="navigation" href="download.html">Download &amp; Compile</a>
 		<a class="navigation" href="docs.html">Documentation</a>
+		<a class="navigation" href="http://itext.sourceforge.net/tutorial/">iText by Example</a>
 		<a class="navigation" href="cvs.html">CVS Repository</a>
 		<a class="navigation" href="ant.html">ANT Scripts</a>
 		<a class="navigation" href="faq.html">FAQ</a>
