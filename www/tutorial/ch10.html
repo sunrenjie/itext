@@ -199,6 +199,71 @@
             total number of pages is added afterwards (<A HREF="Chap1004.pdf">Chap1004</A>). This
             example is very simple and not very useful rightnow, but in <A HREF="ch12.html">Chapter 12</A>,
             we will refine this example.
+            </FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Columns</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            Earlier in this chapter, you have learned how to put text on an absolute position.
+            In casu: we were able to enter a coordinate where iText had to start writing text.
+            If we wanted to know the position where the text ended, we had to do some calculations.<BR>
+            Now we want to add some text within a given rectangle. We want the text to wrap automatically
+            when the right limit of the rectangle is reached. All text that doesn't fit in the rectangle
+            isn't shown. We can achieve this using class <FONT FACE="Courier">ColumnText</FONT>.<BR><BR>
+            <B>An example:</B><BR>
+            To show a certain phrase, centered in a rectangle between the coordinates (100, 300) and (200, 500),
+            we write some code like this:<BR>
+            <FONT FACE="Courier">
+            PdfContentByte cb = writer.getDirectContent();<BR>
+            ColumnText ct = new ColumnText(cb);<BR>
+            ct.setSimpleColumn(phrase, 60, 300, 100, 500, 15, Element.ALIGN_CENTER);<BR>
+            ct.go();
+            </FONT><BR>
+            If you take a look at <A HREF="Chap1005.java">example 5</A> (<A HREF="Chap1005.pdf">Chap1005.pdf</A>),
+            you immediately notice that this functionality can be used to draw some complex tables without
+            using the <FONT FACE="Courier">Table</FONT>-object.<BR>
+            <BR>
+            <B>Another example:</B><BR>
+            It isn't necessary to add the text all at once. You can first define the rectangle, then add some
+            text and finally show the column with the <FONT FACE="Courier">go</FONT>-method:<BR>
+            <FONT FACE="Courier">
+            PdfContentByte cb = writer.getDirectContent();<BR>
+            ColumnText ct = new ColumnText(cb);<BR>
+            ct.setSimpleColumn(60, 300, 100, 500, 15, Element.ALIGN_CENTER);<BR>
+            ct.addText(phrase1);<BR>
+            ct.addText(phrase2);<BR>
+            ct.addText(phrase3);<BR>
+            ct.go();
+            </FONT><BR>
+            This is demonstrated in <A HREF="Chap1006.java">example 6</A>; the
+            <A HREF="Chap1006.pdf">resulting PDF</A> of this example is identical
+            to the result of example 5.<BR>
+            <BR>
+            <B>Multiple columns</B><BR>
+            Of course, if there is more text than space in the rectangle,
+            we don't want to loose the text that didn't fit. Maybe we want
+            this text to be shown in another column. That's why we are going
+            to take a look at the return value of the <FONT FACE="Courier">go</FONT>-method.
+            If this return value has the flag '<FONT FACE="Courier">NO_MORE_COLUMN</FONT>' turned
+            on, there wasn't enough room for the text in the column. If all the text was shown,
+            the flag '<FONT FACE="Courier">NO_MORE_TEXT</FONT>' is on.<BR>
+            Please take a close look at <A HREF="Chap1007.pdf">example 7</A> and see how we
+            obtain a result like <A HREF="Chap1007.pdf">this</A>.<BR><BR>
+            <B>Irregular columns</B><BR>
+            It is also possible to define an non rectangular area with to visualize
+            columns. With the method <FONT FACE="Courier">setColumns</FONT>, we can
+            define a left and right boundary for the text:<BR>
+            <FONT FACE="Courier">
+            float[] left  = {70,790, 70,60};<BR>
+            float[] right = {300,790, 300,700, 240,700, 240,590, 300,590, 300,106, 270,60};<BR>
+            ct.setColumns(left, right);
+            </FONT><BR>
+            The left border is a straight line, but the right border is irregular.
+            The effect of this functionality can lead to very nice layouts:
+            see <A HREF="Chap1008.pdf">Chap1008.pdf</A> and the <A HREF="Chap1008.java">code</A>
+            that was used to generate this example.
             </FONT><BR><BR><BR>
 		</TD>
 	</TR>
