@@ -31,6 +31,7 @@ import org.xml.sax.helpers.ParserFactory;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import com.lowagie.text.xml.*;
+import com.lowagie.text.markup.MarkupTags;
 
 /**
  * We want to change the behaviour of the handler in some cases
@@ -85,8 +86,8 @@ class MyMap extends TagMap {
     public MyMap(String tagfile) {
         super(tagfile);
         XmlPeer peer = new XmlPeer(ElementTags.CHUNK, "SPEAKER");
-        peer.addValue(ElementTags.SIZE, "10");
-        peer.addValue(ElementTags.STYLE, "bold");
+        peer.addValue(MarkupTags.CSS_FONTSIZE, "10");
+        peer.addValue(MarkupTags.CSS_FONTWEIGHT, MarkupTags.CSS_BOLD);
         peer.addValue(ElementTags.GENERICTAG, "");
         put(peer.getAlias(), peer);
     }
