@@ -229,6 +229,7 @@ document.write('<iframe marginwidth="0" marginheight="0" src="http://rcm.amazon.
 //-->]]></script>
 	</xsl:otherwise>
 </xsl:choose>
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=39296&amp;t=79"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="http://www.spreadfirefox.com/community/images/affiliates/Buttons/120x60/safer.gif"/></a>
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;

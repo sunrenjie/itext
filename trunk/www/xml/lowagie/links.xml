@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
+<!-- $Header$ -->
 <site:page
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
@@ -44,6 +45,7 @@
 		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
 		<a href="http://java-source.net/" class="topic">Java-source:</a> Open Source Software in JAVA (tm)
 		<div class="title">Other technical links</div>
+		<a href="http://www.chrispederick.com/work/firefox/webdeveloper/" class="topic">Web Developer:</a> a plugin for <a href="http://www.mozilla.org/products/firefox/">Mozilla Firefox</a>. I use it to design my site. It has some awesome CSS functionalities.
 		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
 		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
 		<div class="title">Miscellaneous links</div>
