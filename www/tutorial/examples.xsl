@@ -60,19 +60,24 @@
 				</path>
 				<javac srcdir="${{examples}}" destdir="${{examples}}" verbose="false">
 					<classpath refid="classpath" />
+					<xsl:element name="include">
+						<xsl:attribute name="name">com/lowagie/examples<xsl:value-of select="$branch" />/*.java</xsl:attribute>
+					</xsl:element>
 				</javac>
 				<xsl:for-each select="site:example">
-					<xsl:element name="java">
-						<xsl:attribute name="fork">yes</xsl:attribute>
-						<xsl:attribute name="dir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
-						<xsl:attribute name="classname">com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" /></xsl:attribute>
-						<xsl:for-each select="site:argument">
-							<xsl:element name="arg">
-								<xsl:attribute name="value"><xsl:value-of select="." /></xsl:attribute>
-							</xsl:element>
-						</xsl:for-each>
-						<classpath refid="classpath" />
-					</xsl:element>
+					<xsl:if test="site:java/@standalone!='no'">
+						<xsl:element name="java">
+							<xsl:attribute name="fork">yes</xsl:attribute>
+							<xsl:attribute name="dir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
+							<xsl:attribute name="classname">com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" /></xsl:attribute>
+							<xsl:for-each select="site:argument">
+								<xsl:element name="arg">
+									<xsl:attribute name="value"><xsl:value-of select="." /></xsl:attribute>
+								</xsl:element>
+							</xsl:for-each>
+							<classpath refid="classpath" />
+						</xsl:element>
+					</xsl:if>
 				</xsl:for-each>
 				<delete>
 					<fileset dir="${{examples}}" includes="**/*.class"/>
