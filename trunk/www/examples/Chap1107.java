@@ -28,32 +28,28 @@ import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Chap1106 {
+public class Chap1107 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 6: page labels");
+        System.out.println("Chapter 11 example 7: open action");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
             // step 2:
             // we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1106.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1107.pdf"));
             // step 3: we open the document
             document.open();
             // step 4:
             // we add some content
-            for (int k = 1; k <= 10; ++k) {
-                document.add(new Paragraph("This document has the logical page numbers: i,ii,iii,iv,1,2,3,A-8,A-9,A-10\nReal page " + k));
-                document.newPage();
-            }
-            PdfPageLabels pageLabels = new PdfPageLabels();
-            pageLabels.addPageLabel(1, PdfPageLabels.LOWERCASE_ROMAN_NUMERALS);
-            pageLabels.addPageLabel(5, PdfPageLabels.DECIMAL_ARABIC_NUMERALS);
-            pageLabels.addPageLabel(8, PdfPageLabels.DECIMAL_ARABIC_NUMERALS, "A-", 8);
-            writer.setPageLabels(pageLabels);
-            document.close();
+            document.add(new Paragraph("Page 1"));
+            document.newPage();
+            document.add(new Paragraph("This PDF file jumps directly to page 2 when opened"));
+            PdfContentByte cb = writer.getDirectContent();
+            cb.localDestination("page2", new PdfDestination(PdfDestination.XYZ, -1, 10000, 0));
+            writer.setOpenAction("page2");
         }
         catch (Exception de) {
             de.printStackTrace();
