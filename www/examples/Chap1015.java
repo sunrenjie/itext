@@ -29,7 +29,7 @@ import java.io.IOException;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class TilePattern {
+public class Chap1015 {
     
     public static void main(String[] args) {
         
