@@ -1,0 +1,642 @@
+<itext title="iText objects (1)" author="Bruno Lowagie" subject="some basic objects that are used frequently in simple iText" keywords="Chunk, Phrase, Paragraph, Anchor, List, Listitem, PDF, JAVA, iText, Bruno, Lowagie">
+	<newline />
+	<newline />
+	<paragraph font="Helvetica" size="11">$Id$</paragraph>
+	<newline />
+	<newline />
+	<newline />
+	<chapter numberdepth="0">
+		<title font="Helvetica" size="18" leading="30">Chapter II: some very usefull iText objects</title>
+		<section>
+			<title size="14" color="#008080">Source code of the examples</title>
+			<section numberdepth="2">
+				<title><anchor name="Chap0201">Example 1: Chunks and fonts</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0201.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0201.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0201 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 1: Chunks and fonts");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0201.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add content to the document<newline />
+					            Font[] fonts = new Font[14];<newline />
+					            fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);<newline />
+					            fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);<newline />
+					            fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);<newline />
+					            fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);<newline />
+					            fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);<newline />
+					            fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);<newline />
+					            fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);<newline />
+					            fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);<newline />
+					            fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);<newline />
+					            fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);<newline />
+					            fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);<newline />
+					            for (int i = 0; i &lt; 14; i++) {<newline />
+					                Chunk chunk = new Chunk("This is some", fonts[i]);<newline />
+					                document.add(new Phrase(chunk));<newline />
+					                document.add(new Phrase(new Chunk(" font. ",<newline />
+					                    fonts[i]).setTextRise((i % 2 == 0) ? -6 : 6)));<newline />
+					            }<newline />
+					            document.add(new Phrase(new Chunk("This text is underlined",<newline />
+					                new Font(Font.HELVETICA, 12, Font.UNDERLINE))));<newline />
+					            document.add(new Phrase(new Chunk("This font is of type ITALIC | STRIKETHRU", new Font(Font.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0202">Example 2: Phrases</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0202.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0202.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0202 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 2: Phrases");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0202.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            Phrase phrase0 = new Phrase();<newline />
+					            Phrase phrase1 = new Phrase("(1) this is a phrase\n");<newline />
+					            // In this example the leading is passed as a parameter<newline />
+					            Phrase phrase2 = new Phrase(24, "(2) this is a phrase with leading 24. You can only see the difference if the line is long enough. Do you see it? There is more space between this line and the previous one.\n");<newline />
+					            // When a Font is passed (explicitely or embedded in a chunk),<newline />
+					            // the default leading = 1.5 * size of the font<newline />
+					            Phrase phrase3 = new Phrase("(3) this is a phrase with a red, normal font Courier, size 20. As you can see the leading is automatically changed.\n", new Font(Font.COURIER, 20, Font.NORMAL, new Color(255, 0, 0)));<newline />
+					            Phrase phrase4 = new Phrase(new Chunk("(4) this is a phrase\n"));<newline />
+					            Phrase phrase5 = new Phrase(18, new Chunk("(5) this is a phrase in Helvetica, bold, red and size 16 with a given leading of 18 points.\n", new Font(Font.HELVETICA, 16, Font.BOLD, new Color(255, 0, 0))));<newline />
+					            // A Phrase can contains several chunks with different fonts<newline />
+					            Phrase phrase6 = new Phrase("(6)");<newline />
+					            Chunk chunk = new Chunk(" This is a font: ");<newline />
+					            phrase6.add(chunk);<newline />
+					            phrase6.add(new Chunk("Helvetica", new Font(Font.HELVETICA)));<newline />
+					            phrase6.add(chunk);<newline />
+					            phrase6.add(new Chunk("Times New Roman", new Font(Font.TIMES_NEW_ROMAN)));<newline />
+					            phrase6.add(chunk);<newline />
+					            phrase6.add(new Chunk("Courier", new Font(Font.COURIER)));<newline />
+					            phrase6.add(chunk);<newline />
+					            phrase6.add(new Chunk("Symbol", new Font(Font.SYMBOL)));<newline />
+					            phrase6.add(chunk);<newline />
+					            phrase6.add(new Chunk("ZapfDingBats", new Font(Font.ZAPFDINGBATS)));<newline />
+					            Phrase phrase7 = new Phrase("(7) if you don't add a newline yourself, all phrases are glued to eachother!");<newline />
+					            <newline />
+					            document.add(phrase1);<newline />
+					            document.add(phrase2);<newline />
+					            document.add(phrase3);<newline />
+					            document.add(phrase4);<newline />
+					            document.add(phrase5);<newline />
+					            document.add(phrase6);<newline />
+					            document.add(phrase7);<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0203">Example 3: Greek Characters</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0203.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0203.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0203 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 3: Greek Characters");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0203.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            document.add(new Phrase("What is the " + (char) 945<newline />
+					                 + "-coefficient of the " + (char) 946 + "-factor in the "<newline />
+					                 + (char) 947 + "-equation?\n"));<newline />
+					            for (int i = 913; i &lt; 970; i++) {<newline />
+					                document.add(new Phrase(" " + String.valueOf(i) + ": " + (char) i));<newline />
+					            }<newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0204">Example 4: negative leading</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0204.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0204.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0204 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 4: Negative leading");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0204.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            document.add(new Phrase(16, "\n\n\n"));<newline />
+					            document.add(new Phrase(-16, "Hello, this is a very long phrase to show you the somewhat odd effect of a negative leading. You can write from bottom to top. This is not fully supported. It's something between a feature and a bug."));<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0205">Example 5: Paragraphs</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0205.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0205.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					<newline />
+					public class Chap0205 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 5: Paragraphs");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0205.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4: we add a paragraph to the document<newline />
+					            Paragraph p1 = new Paragraph(new Chunk("This is my first paragraph. ",<newline />
+					                new Font(Font.HELVETICA, 10)));<newline />
+					            p1.add("The leading of this paragraph is calculated automagically. ");<newline />
+					            p1.add("The default leading is 1.5 times the fontsize. ");<newline />
+					            p1.add(new Chunk("You can add chunks "));<newline />
+					            p1.add(new Phrase("or you can add phrases. "));<newline />
+					            p1.add(new Phrase("Unless you change the leading with the method setLeading, the leading doesn't change if you add text with another leading. This can lead to some problems.", new Font(Font.HELVETICA, 18)));<newline />
+					            document.add(p1);<newline />
+					            Paragraph p2 = new Paragraph(new Phrase("This is my second paragraph. ",<newline />
+					                new Font(Font.HELVETICA, 12)));<newline />
+					            p2.add("As you can see, it started on a new line.");<newline />
+					            document.add(p2);<newline />
+					            Paragraph p3 = new Paragraph("This is my third paragraph.",<newline />
+					                new Font(Font.HELVETICA, 12));<newline />
+					            document.add(p3);<newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0206">Example 6: generic tags</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0206.java" color="#008080">source code</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0206.pdf" color="#008080">resulting PDF</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					import java.util.Iterator;<newline />
+					import java.util.TreeMap;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.pdf.PdfPageEventHelper;<newline />
+					<newline />
+					class Glossary extends PdfPageEventHelper {<newline />
+					    <newline />
+					    // we will keep a glossary of words and the pages they appear on in a TreeMap<newline />
+					    TreeMap glossary = new TreeMap();<newline />
+					    <newline />
+					    // we override only the onGenericTag method<newline />
+					    public void onGenericTag(PdfWriter writer, Document document, Rectangle rect, String text) {<newline />
+					        glossary.put(text, new Integer(writer.getPageNumber()));<newline />
+					    }<newline />
+					    <newline />
+					    // we add a method to retrieve the glossary<newline />
+					    public TreeMap getGlossary() {<newline />
+					        return glossary;<newline />
+					    }<newline />
+					    <newline />
+					}<newline />
+					<newline />
+					public class Chap0206 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 6: generic tags");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter writer = PdfWriter.getInstance(document,<newline />
+					                new FileOutputStream("Chap0206.pdf"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4:<newline />
+					            // we create an Event and add it to the writer<newline />
+					            Glossary pageEvent = new Glossary();<newline />
+					            writer.setPageEvent(pageEvent);<newline />
+					            <newline />
+					            // we add some content<newline />
+					            String[] f = new String[14];<newline />
+					            f[0] = "Courier";<newline />
+					            f[1] = "Courier Bold";<newline />
+					            f[2] = "Courier Italic";<newline />
+					            f[3] = "Courier Bold Italic";<newline />
+					            f[4] = "Helvetica";<newline />
+					            f[5] = "Helvetica bold";<newline />
+					            f[6] = "Helvetica italic";<newline />
+					            f[7] = "Helvetica bold italic";<newline />
+					            f[8] = "Times New Roman";<newline />
+					            f[9] = "Times New Roman bold";<newline />
+					            f[10] = "Times New Roman italic";<newline />
+					            f[11] = "Times New Roman bold italic";<newline />
+					            f[12] = "Symbol";<newline />
+					            f[13] = "Zapfdingbats";<newline />
+					            Font[] fonts = new Font[14];<newline />
+					            fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);<newline />
+					            fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);<newline />
+					            fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);<newline />
+					            fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);<newline />
+					            fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);<newline />
+					            fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);<newline />
+					            fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);<newline />
+					            fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);<newline />
+					            fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);<newline />
+					            fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);<newline />
+					            fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);<newline />
+					            fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);<newline />
+					            for (int i = 0; i 7lt; 14; i++) {<newline />
+					                Chunk chunk = new Chunk("This is font ", fonts[i]);<newline />
+					                Paragraph p = new Paragraph(chunk);<newline />
+					                p.add(new Phrase(new Chunk(f[i], fonts[i]).setGenericTag(f[i])));<newline />
+					                document.add(p);<newline />
+					                if (i % 4 == 3) {<newline />
+					                    document.newPage();<newline />
+					                }<newline />
+					            }<newline />
+					            <newline />
+					            // we add the glossary<newline />
+					            document.newPage();<newline />
+					            TreeMap glossary = pageEvent.getGlossary();<newline />
+					            for (Iterator i = glossary.keySet().iterator(); i.hasNext(); ) {<newline />
+					                String key = (String) i.next();<newline />
+					                int page = ((Integer) glossary.get(key)).intValue();<newline />
+					                Paragraph g = new Paragraph(key);<newline />
+					                g.add(" : page ");<newline />
+					                g.add(String.valueOf(page));<newline />
+					                document.add(g);<newline />
+					            }<newline />
+					            <newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0207">Example 7: Anchors</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0207.java" color="#008080">source code</anchor>,
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0207.pdf" color="#008080">resulting PDF</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0207.html" color="#008080">resulting HTML</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0207 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 7: Anchors");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0207.pdf"));<newline />
+					            HtmlWriter.getInstance(document, new FileOutputStream("Chap0207.html"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4:<newline />
+					            Paragraph paragraph = new Paragraph("Please visit my ");<newline />
+					            Anchor anchor1 = new Anchor("website (external reference)",<newline />
+					                new Font(Font.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255)));<newline />
+					            anchor1.setReference("http://www.lowagie.com/iText/");<newline />
+					            anchor1.setName("top");<newline />
+					            paragraph.add(anchor1);<newline />
+					            paragraph.add(new Chunk(".\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"));<newline />
+					            document.add(paragraph);<newline />
+					            Anchor anchor2 = new Anchor("please jump to a local destination",<newline />
+					                new Font(Font.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255)));<newline />
+					            anchor2.setReference("#top");<newline />
+					            document.add(anchor2);<newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+			<section numberdepth="2">
+				<title><anchor name="Chap0208">Example 8: Lists</anchor></title>
+				<paragraph size="9" align="Justify">
+					Download the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0208.java" color="#008080">source code</anchor>,
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0208.pdf" color="#008080">resulting PDF</anchor> and
+					the <anchor size="9" reference="http://itext.sourceforge.net/examples/Chap0208.html" color="#008080">resulting HTML</anchor>.
+				</paragraph>
+				<paragraph size="9" font="Courier" leading="12">
+					import java.awt.Color;<newline />
+					import java.io.FileOutputStream;<newline />
+					import java.io.IOException;<newline />
+					<newline />
+					import com.lowagie.text.*;<newline />
+					import com.lowagie.text.pdf.PdfWriter;<newline />
+					import com.lowagie.text.html.HtmlWriter;<newline />
+					<newline />
+					public class Chap0208 {<newline />
+					    <newline />
+					    public static void main(String[] args) {<newline />
+					        <newline />
+					        System.out.println("Chapter 2 example 8: Lists");<newline />
+					        <newline />
+					        // step 1: creation of a document-object<newline />
+					        Document document = new Document();<newline />
+					        <newline />
+					        try {<newline />
+					            <newline />
+					            // step 2:<newline />
+					            // we create a writer that listens to the document<newline />
+					            // and directs a PDF-stream to a file<newline />
+					            PdfWriter.getInstance(document, new FileOutputStream("Chap0208.pdf"));<newline />
+					            HtmlWriter.getInstance(document, new FileOutputStream("Chap0208.html"));<newline />
+					            <newline />
+					            // step 3: we open the document<newline />
+					            document.open();<newline />
+					            <newline />
+					            // step 4:<newline />
+					            <newline />
+					            List list = new List(true, 20);<newline />
+					            list.add(new ListItem("First line"));<newline />
+					            list.add(new ListItem("The second line is longer to see what happens once the end of the line is reached. Will it start on a new line?"));<newline />
+					            list.add(new ListItem("Third line"));<newline />
+					            document.add(list);<newline />
+					            <newline />
+					            document.add(new Paragraph("some books I really like:"));<newline />
+					            ListItem listItem;<newline />
+					            list = new List(true, 15);<newline />
+					            listItem = new ListItem("When Harlie was one",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+					            listItem.add(new Chunk(" by David Gerrold",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));<newline />
+					            list.add(listItem);<newline />
+					            listItem = new ListItem("The World according to Garp",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+					            listItem.add(new Chunk(" by John Irving",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));<newline />
+					            list.add(listItem);<newline />
+					            listItem = new ListItem("Decamerone",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 12));<newline />
+					            listItem.add(new Chunk(" by Giovanni Boccaccio",<newline />
+					                new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));<newline />
+					            list.add(listItem);<newline />
+					            document.add(list);<newline />
+					            <newline />
+					            Paragraph paragraph = new Paragraph("some movies I really like:");<newline />
+					            list = new List(false, 10);<newline />
+					            list.add("Wild At Heart");<newline />
+					            list.add("Casablanca");<newline />
+					            list.add("When Harry met Sally");<newline />
+					            list.add("True Romance");<newline />
+					            list.add("Le mari de la coiffeuse");<newline />
+					            paragraph.add(list);<newline />
+					            document.add(paragraph);<newline />
+					            <newline />
+					            document.add(new Paragraph("Some authors I really like:"));<newline />
+					            list = new List(false, 20);<newline />
+					            list.setListSymbol(new Chunk("*",<newline />
+					                new Font(Font.HELVETICA, 20, Font.BOLD)));<newline />
+					            listItem = new ListItem("Isaac Asimov");<newline />
+					            list.add(listItem);<newline />
+					            List sublist;<newline />
+					            sublist = new List(true, 10);<newline />
+					            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+					            sublist.add("The Foundation Trilogy");<newline />
+					            sublist.add("The Complete Robot");<newline />
+					            sublist.add("Caves of Steel");<newline />
+					            sublist.add("The Naked Sun");<newline />
+					            list.add(sublist);<newline />
+					            listItem = new ListItem("John Irving");<newline />
+					            list.add(listItem);<newline />
+					            sublist = new List(true, 10);<newline />
+					            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+					            sublist.add("The World according to Garp");<newline />
+					            sublist.add("Hotel New Hampshire");<newline />
+					            sublist.add("A prayer for Owen Meany");<newline />
+					            sublist.add("Widow for a year");<newline />
+					            list.add(sublist);<newline />
+					            listItem = new ListItem("Kurt Vonnegut");<newline />
+					            list.add(listItem);<newline />
+					            sublist = new List(true, 10);<newline />
+					            sublist.setListSymbol(new Chunk("", new Font(Font.HELVETICA, 8)));<newline />
+					            sublist.add("Slaughterhouse 5");<newline />
+					            sublist.add("Welcome to the Monkey House");<newline />
+					            sublist.add("The great pianola");<newline />
+					            sublist.add("Galapagos");<newline />
+					            list.add(sublist);<newline />
+					            document.add(list);<newline />
+					        }<newline />
+					        catch(DocumentException de) {<newline />
+					            System.err.println(de.getMessage());<newline />
+					        }<newline />
+					        catch(IOException ioe) {<newline />
+					            System.err.println(ioe.getMessage());<newline />
+					        }<newline />
+					        <newline />
+					        // step 5: we close the document<newline />
+					        document.close();<newline />
+					    }<newline />
+					}
+				</paragraph>
+			</section>
+		</section>
+	</chapter>
+</itext>

@@ -34,10 +34,10 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfPageEventHelper;
 
 class Glossary extends PdfPageEventHelper {
-
+    
     // we will keep a glossary of words and the pages they appear on in a TreeMap
     TreeMap glossary = new TreeMap();
-
+    
     // we override only the onGenericTag method
     public void onGenericTag(PdfWriter writer, Document document, Rectangle rect, String text) {
         glossary.put(text, new Integer(writer.getPageNumber()));
@@ -47,31 +47,31 @@ class Glossary extends PdfPageEventHelper {
     public TreeMap getGlossary() {
         return glossary;
     }
-
+    
 }
 
 public class Chap0206 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 2 example 6: generic tags");
-
-		// step 1: creation of a document-object
-		Document document = new Document();
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
- 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap0206.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4:
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 2 example 6: generic tags");
+        
+        // step 1: creation of a document-object
+        Document document = new Document();
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap0206.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4:
             // we create an Event and add it to the writer
-            Glossary pageEvent = new Glossary();            
+            Glossary pageEvent = new Glossary();
             writer.setPageEvent(pageEvent);
             
             // we add some content
@@ -90,30 +90,30 @@ public class Chap0206 {
             f[11] = "Times New Roman bold italic";
             f[12] = "Symbol";
             f[13] = "Zapfdingbats";
-			Font[] fonts = new Font[14];
-			fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);
-			fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);
-			fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);
-			fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);
-			fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);
-			fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);
-			fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);
-			fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);
-			fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);
-			fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);
-			fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);
-			fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);
-			fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);
-			fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);
-			for (int i = 0; i < 14; i++) {
-				Chunk chunk = new Chunk("This is font ", fonts[i]);
-				Paragraph p = new Paragraph(chunk);
-				p.add(new Phrase(new Chunk(f[i], fonts[i]).setGenericTag(f[i])));
+            Font[] fonts = new Font[14];
+            fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);
+            fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);
+            fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);
+            fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);
+            fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);
+            fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);
+            fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);
+            fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);
+            fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);
+            fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);
+            fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);
+            fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);
+            fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);
+            fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);
+            for (int i = 0; i < 14; i++) {
+                Chunk chunk = new Chunk("This is font ", fonts[i]);
+                Paragraph p = new Paragraph(chunk);
+                p.add(new Phrase(new Chunk(f[i], fonts[i]).setGenericTag(f[i])));
                 document.add(p);
                 if (i % 4 == 3) {
                     document.newPage();
                 }
-			}
+            }
             
             // we add the glossary
             document.newPage();
@@ -126,16 +126,16 @@ public class Chap0206 {
                 g.add(String.valueOf(page));
                 document.add(g);
             }
-
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+            
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }
