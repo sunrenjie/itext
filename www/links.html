@@ -1,404 +1,377 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<HTML>
-<HEAD>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head>
 	<!-- $Header$ -->
-	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
-	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
-	<TITLE>iText - a JAVA-PDF library</TITLE>
-</HEAD>
+	<meta name="Description" content="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+	<meta name="Keywords" content="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+	<title>iText - a JAVA-PDF library</title></head>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
 
-<A NAME="top"></A>
+<body bgcolor="#ffffff" text="#000000" link="#008080" vlink="#008080" alink="#00cccc">
 
-<TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
-<TR>
-	<TD>
-	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
-	<TR>
-		<TD COLSPAN="2" ALIGN="center">
-			<A HREF="http://itext.sourceforge.net"><img src="logo.gif" width=100 height=40 alt="iText, a free Java PDF library" border=0></A>
-		</TD>
-		<TD ALIGN="center" BGCOLOR="#808080">
-			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
-		</TD>
-		<TD COLSPAN="2" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">A Free Java-PDF library<BR>
-			by <A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A>
-			and <A HREF="http://www.geocities.com/itextpdf"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Paulo Soares</FONT></A></FONT><BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Docs</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="faq.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">FAQ</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1"><B>[Links]</B></FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">History</FONT></A>]</FONT></TD>
-	</TR>
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/projects/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">SourceForge</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArch1</FONT></A> <A HREF="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArch2</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArchive</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/bugs/?group_id=15255"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bugs</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">CVS</FONT></A>]</FONT></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<BR>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
-			<FONT FACE="Arial,Helvetica"><B>Portals promoting JAVA (and containing a link to iText)</B></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF">&nbsp;</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
-			<A HREF="http://www.onjava.com/pub/a/onjava/general/resources.html">onJava.com:</A>
+<a name="top"></a>
+
+<table width="95%" border="0" cellspacing="0" cellpadding="5" align="center" bgcolor="#808080">
+<tbody><tr>
+	<td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="7" bgcolor="#008080">
+	<tbody><tr>
+		<td colspan="2" align="center">
+			<a href="http://itext.sourceforge.net/"><img src="links_files/logo.gif" width="100" height="40" alt="iText, a free Java PDF library" border="0"></a>
+		</td>
+		<td align="center" bgcolor="#808080">
+			<a href="http://sourceforge.net/"><img src="links_files/sflogo.png" width="125" height="37" border="0" alt="SourceForge.net Logo"></a>
+		</td>
+		<td colspan="2" bgcolor="#808080">
+			<font face="Arial,Helvetica" color="#ffffff">A Free Java-PDF library<br>
+			by <a href="http://www.lowagie.com/"><font face="Arial,Helvetica" color="#ffffff">Bruno Lowagie</font></a>
+			and <a href="http://www.geocities.com/itextpdf"><font face="Arial,Helvetica" color="#ffffff">Paulo Soares</font></a></font><br>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/index.html"><font face="Arial,Helvetica" color="#ffffff">Home</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/docs.html"><font face="Arial,Helvetica" color="#ffffff">Docs</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/faq.html"><font face="Arial,Helvetica" color="#ffffff">FAQ</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1"><b>[Links]</b></font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/history.html"><font face="Arial,Helvetica" color="#ffffff">History</font></a>]</font></td>
+	</tr>
+	<tr>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://sourceforge.net/projects/itext/"><font face="Arial,Helvetica" color="#ffffff">SourceForge</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><font face="Arial,Helvetica" color="#ffffff">MailArch1</font></a> <a href="http://www.mail-archive.com/itext-questions%40lists.sourceforge.net/"><font face="Arial,Helvetica" color="#ffffff">MailArch2</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><font face="Arial,Helvetica" color="#ffffff">MailArchive</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://sourceforge.net/bugs/?group_id=15255"><font face="Arial,Helvetica" color="#ffffff">Bugs</font></a>]</font></td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/"><font face="Arial,Helvetica" color="#ffffff">CVS</font></a>]</font></td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff"><br>
+			<font face="Arial,Helvetica"><b>Portals promoting JAVA (and containing a link to iText)</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff">
+            <!-- Max EBook -->
+            <a href="http://www.maxebook.com/"><img src="links_files/b125125.gif" border="0" alt="Ebook"></a><br>
+            <a href="http://www.maxebook.com/">Ebook</a>
+            <!-- Max EBook -->
+        </td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
+			<a href="http://www.onjava.com/pub/a/onjava/general/resources.html">onJava.com:</a>
 			O'Reilly is a leader in technical and computer book documentation, online content, and conferences.
-			Their onJava-site contains ao links to helpful sites and documentation on various Java topics.<BR>
-			<A HREF="http://wdvl.internet.com/Vlib/Software/Java.html">WDVL:</A> Web Developers Virtual Library<BR>
-			<A HREF="http://www.linuxlinks.com/">LinuxLinks:</A> the LINUX portal<BR>
-			<A HREF="http://www.javadigest.net/">Javadigest:</A> a new java portal<BR>
-			<A HREF="http://www.jfind.com/">JFind:</A> your ultimate java software directory<BR>
-			<A HREF="http://www.javaskyline.com/">Java Skyline:</A> magazine for Java Server Developers<BR>
-			<A HREF="http://homepage3.nifty.com/uzblend/servlet/index.html#x82">Nifty:</A> I think it's in Japanese, I don't understand a word of what's written there,
+			Their onJava-site contains ao links to helpful sites and documentation on various Java topics.<br>
+			<a href="http://wdvl.internet.com/Vlib/Software/Java.html">WDVL:</a> Web Developers Virtual Library<br>
+			<a href="http://www.linuxlinks.com/">LinuxLinks:</a> the LINUX portal<br>
+			<a href="http://www.javadigest.net/">Javadigest:</a> a new java portal<br>
+			<a href="http://www.jfind.com/">JFind:</a> your ultimate java software directory<br>
+			<a href="http://www.javaskyline.com/">Java Skyline:</a> magazine for Java Server Developers<br>
+			<a href="http://homepage3.nifty.com/uzblend/servlet/index.html#x82">Nifty:</a> I think it's in Japanese, I don't understand a word of what's written there,
 			but they have made some nice Servlet examples.<br>
-			<A HREF="http://freshmeat.net/projects/itext/?topic_id=913">FreshMeat.net:</A>
+			<a href="http://freshmeat.net/projects/itext/?topic_id=913">FreshMeat.net:</a>
 			freshmeat maintains the Web's largest index of Unix and cross-platform open source software.
 			Thousands of applications are meticulously cataloged in the freshmeat database, and links
 			to new code are added daily.<br>
-			<A HREF="http://java-channel.org/">JAVA-channel.org:</A> You can vote for iText
-			<A HREF="http://pharos.inria.fr/Java/annotations.jsp?url=http%3A%2F%2Fwww.lowagie.com%2FiText%2F">here</A>!<BR>
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<td valign="TOP" bgcolor="#FFFFFF">
-		<FONT FACE="Arial,Helvetica"><b>Products</b></FONT>
-		</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
+			<a href="http://java-channel.org/">JAVA-channel.org:</a> You can vote for iText
+			<a href="http://pharos.inria.fr/Java/annotations.jsp?url=http%3A%2F%2Fwww.lowagie.com%2FiText%2F">here</a>!<br>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" bgcolor="#ffffff">
+		<font face="Arial,Helvetica"><b>Products</b></font>
+		</td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
 			<b>These are some products that use the iText library:</b><br>
-			<UL>
-			<LI><A HREF="http://pdfdoclet.sourceforge.net/">PdfDoclet:</A> PDFDoclet is a javadoc doclet which
+			<ul>
+			<li><a href="http://pdfdoclet.sourceforge.net/">PdfDoclet:</a> PDFDoclet is a javadoc doclet which
             produces PDF output for a given Java API
-			<LI><A HREF="http://jpedal.sourceforge.net/">JPedal:</A> The library for extracting data from
+			</li><li><a href="http://jpedal.sourceforge.net/">JPedal:</a> The library for extracting data from
 			Pdf files in Java
-			<LI><A HREF="http://www.object-refinery.com/jfreereport/index.html">JFreeReport:</A>
+			</li><li><a href="http://www.object-refinery.com/jfreereport/index.html">JFreeReport:</a>
 			JFreeReport is a Java class library for generating reports. It has the following features:
 			full on-screen print preview; data obtained via the Swing TableModel interface (making it easy
 			to print data directly from your application); XML-based report definitions; output to the screen,
 			printer or Acrobat PDF format;
-			<LI><A HREF="http://jasperreports.sourceforge.net/">JasperReports:</A> JasperReports is
+			</li><li><a href="http://jasperreports.sourceforge.net/">JasperReports:</a> JasperReports is
 			a powerful report-generating tool that has the ability to deliver rich content onto the
             screen, to the printer or into XML and PDF files. (LGPL!)
-			<LI><A HREF="http://www.calcom.de/eng/product/hlpex.htm">HelpExpert:</A> the tool to create
+			</li><li><a href="http://www.calcom.de/eng/product/hlpex.htm">HelpExpert:</a> the tool to create
 			electronic documentation!
-			<LI><A HREF="http://cfiframe.sourceforge.net/">iFrame, a Visual Framework for Cold Fusion:</a>
+			</li><li><a href="http://cfiframe.sourceforge.net/">iFrame, a Visual Framework for Cold Fusion:</a>
 			this is an open source presentation layer for database-driven web applications that uses iText
-			<LI><A HREF="http://www.servidium.com/jaydoh/docs/index.html">Jaydoh:</A> Jaydoh(TM) is
+			</li><li><a href="http://www.servidium.com/jaydoh/docs/index.html">Jaydoh:</a> Jaydoh(TM) is
 			a modular development platform which enables the rapid development of web and wireless
 			applications through a collection of reusable and customizable components. Jaydoh uses open
 			standards and is completely platform and datasource independent.
-			<LI><A HREF="http://www.java4less.com/print_java_e.htm">RReport Visual Builder:</A> design
+			</li><li><a href="http://www.java4less.com/print_java_e.htm">RReport Visual Builder:</a> design
 			your reports visually with this tool.
-			<LI><A HREF="http://art0.sourceforge.net/">art0:</A> art0 pretends to be an artistical world simulator.
-			</UL>
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<td valign="TOP" bgcolor="#FFFFFF">
-		<FONT FACE="Arial,Helvetica"><b>Companies</b></FONT>
-		</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
+			</li><li><a href="http://art0.sourceforge.net/">art0:</a> art0 pretends to be an artistical world simulator.
+			</li></ul>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" bgcolor="#ffffff">
+		<font face="Arial,Helvetica"><b>Companies</b></font>
+		</td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
 			<b>These are some companies who use iText:</b><br>
-			<UL>
-			<LI><A HREF="http://www.borneo-software.com/index-wm_en.html">Borneo Sofware:</A>
+			<ul>
+			<li><a href="http://www.borneo-software.com/index-wm_en.html">Borneo Sofware:</a>
 			WebMount is the technology of Borneo Software for the rapid development of web applications
 			and services. WebMount provides full presentation/business logic/database separation and
 			automatization based on J2EE standard technologies, and allowing to halve development time
-			and costs for web applications. (see also <A HREF="http://www.borneo-software.com/index-wm.html">Spanish version</A>)
-			</UL>
+			and costs for web applications. (see also <a href="http://www.borneo-software.com/index-wm.html">Spanish version</a>)
+			</li></ul>
 			if you have a similar link you want to see added here, just send me a little mail!
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<td valign="TOP" bgcolor="#FFFFFF">
-		<FONT FACE="Arial,Helvetica"><b>People</b></FONT>
-		</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" bgcolor="#ffffff">
+		<font face="Arial,Helvetica"><b>People</b></font>
+		</td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
 			<b>These are some people who have put a link to iText on their site:</b><br>
-			<UL>
-			<LI><A HREF="http://www.geocities.com/itextpdf">Paulo Soares:</A> this is the most active iText developer of the moment
-			<LI><A HREF="http://www.pdfsages.com/">Leonard Rosenthol:</A> CTO of PDF Sages, a company dedicated to providing
+			<ul>
+			<li><a href="http://www.geocities.com/itextpdf">Paulo Soares:</a> this is the most active iText developer of the moment
+			</li><li><a href="http://www.pdfsages.com/">Leonard Rosenthol:</a> CTO of PDF Sages, a company dedicated to providing
 			unmatched PDF-oriented consulting and development services. He just started using iText in different projects!
 			His site is extremely interesting because of the papers on PDF in the download section.
-			<LI><A HREF="http://www.japa.be/">Jan Paesen:</A> He really knows a lot about JAVA and he has some very interesting hobbies!
-			<LI><A HREF="http://www.datec.com/">James D. Hansley:</a> DATEC website
-			<LI><A HREF="http://128.146.118.49/pdfsamples/asp_readme.htm">Hong Sun:</a> He has made a HTML2PDF tag
-			<LI><A HREF="http://www.jrefinery.com/">David Gilbert:</a> JREFINERY
-			<LI><A HREF="http://www.uni-klu.ac.at/~mahall/index_en.html">Mark Hall:</A> the author of the RTF functionality
-			</UL>
+			</li><li><a href="http://www.japa.be/">Jan Paesen:</a> He really knows a lot about JAVA and he has some very interesting hobbies!
+			</li><li><a href="http://www.datec.com/">James D. Hansley:</a> DATEC website
+			</li><li><a href="http://128.146.118.49/pdfsamples/asp_readme.htm">Hong Sun:</a> He has made a HTML2PDF tag
+			</li><li><a href="http://www.jrefinery.com/">David Gilbert:</a> JREFINERY
+			</li><li><a href="http://www.uni-klu.ac.at/%7Emahall/index_en.html">Mark Hall:</a> the author of the RTF functionality
+			</li></ul>
 			if you have a similar link you want to see added here, just send me a little mail!
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<td valign="TOP" bgcolor="#FFFFFF">
-		<FONT FACE="Arial,Helvetica"><b>Miscelaneous</b></FONT>
-		</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" bgcolor="#ffffff">
+		<font face="Arial,Helvetica"><b>Miscelaneous</b></font>
+		</td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
 			<b>Myself:</b>
-			My resume in Dutch: <A HREF="http://www.lowagie.com/bruno/cv.html">Curriculum Vitae</a><br>
+			My resume in Dutch: <a href="http://www.lowagie.com/bruno/cv.html">Curriculum Vitae</a><br>
 			<b>Award:</b>
-			DataNews Manager of the Year 2000 Contest: <A HREF="http://aivwww.rug.ac.be/PublicRelations/pers/pers/pb0112.htm">1st nominee</A><BR>
-			see also the article '<A HREF="http://www.lowagie.com/images/universiteitGent.jpg">De puntjes op de i</A>' published in 'Universiteit Gent' - nov/dec 2000<br>
+			DataNews Manager of the Year 2000 Contest: <a href="http://aivwww.rug.ac.be/PublicRelations/pers/pers/pb0112.htm">1st nominee</a><br>
+			see also the article '<a href="http://www.lowagie.com/images/universiteitGent.jpg">De puntjes op de i</a>' published in 'Universiteit Gent' - nov/dec 2000<br>
 			<b>Logs:</b>
-			Check out the <A HREF="http://www.lowagie.com/logs/">webserver logs</a><br>
+			Check out the <a href="http://www.lowagie.com/logs/">webserver logs</a><br>
 			<b>Amazon:</b>
 			So you realy want to give me a present? Please visit my Wish Lists:
 			<ul>
-			<li>US: <A HREF="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&path=wishlist/349FGS15S1PYV/ref%3Dw1%5F3">Books and CD's at Amazon.com</A>
-			<li>Europe: <A HREF="http://www.lowagie.com/filmfestival/wishlist.php">DVD's at Amazon.co.uk</A>
-			</ul>
+			<li>US: <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=wishlist/349FGS15S1PYV/ref%3Dw1%5F3">Books and CD's at Amazon.com</a>
+			</li><li>Europe: <a href="http://www.lowagie.com/filmfestival/wishlist.php">DVD's at Amazon.co.uk</a>
+			</li></ul>
 
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><B>Other JAVA-PDF Libraries on the Net</B></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF">&nbsp;</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<A HREF="http://www.geocities.com/itextpdf" TARGET="_blank"><FONT FACE="Arial,Helvetica">iText:</FONT></A><FONT FACE="Arial,Helvetica"> release Paulo Soares</FONT><BR>
-			<A HREF="http://www.etymon.com/pj/" TARGET="_blank"><FONT FACE="Arial,Helvetica">PJ:</FONT></A><FONT FACE="Arial,Helvetica"> JAVA-PDF library</FONT><BR>
-			<A HREF="http://www.retep.org.uk/pdf/" TARGET="_blank"><FONT FACE="Arial,Helvetica">retepPDF:</FONT></A><FONT FACE="Arial,Helvetica"> JAVA-PDF library by Peter Mount</FONT><BR>
-			<A HREF="http://xml.apache.org/fop/" TARGET="_blank"><FONT FACE="Arial,Helvetica">FOP:</FONT></A><FONT FACE="Arial,Helvetica"> an Apache XML project that (ao) allows you to produce PDF (donated to Apache by James Tauber)</FONT><BR>
-        	<A HREF="http://www.pdflib.com/" TARGET="_blank"><FONT FACE="Arial,Helvetica">PDFLIB</FONT></A><BR>
-			<FONT FACE="Arial,Helvetica">Also check out <A HREF="http://128.146.184.28/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
-			and <A HREF="http://128.146.184.28/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a> for HTML to PDF conversion.</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
-			<FONT FACE="Arial,Helvetica"><B>PDF Resources</B></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF">
-		<A HREF="http://www.lowagie.com/iText/docs/acrobat/"><IMG SRC="http://www.lowagie.com/iText/docs/acrobat/0201758393.01.MZZZZZZZ.jpg" WIDTH=113 HEIGHT=140 ALT="PDF Reference: Version 1.4" BORDER=0></A></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
-			<A HREF="http://www.lowagie.com/iText/docs/acrobat/">Books</A> about PDF<BR>
-			<A HREF="http://www.adobe.com">ADOBE:</A> ADOBE SYSTEMS INC.<BR>
-			<A HREF="http://partners.adobe.com">ADA:</A> Adobe Developers Association<BR>
-			<A HREF="http://partners.adobe.com/asn/developer/technotes.html">Technotes:</A> Technical Notes on PDF and PostScript<BR>
-			<A HREF="http://www.quite.com/personal/aandi.htm">Quite Software:</A> The home of Aandi Inston, PDF expert
-			<A HREF="http://www.ghostscript.com/">Ghostscript:</A> a suite of free PDF tools
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://www.planetpdf.com/binthing~webpageid,550;TBToolID,1296.htm"><IMG SRC="http://www.lowagie.com/banner/iText/PP_button_88x34.gif" ALT="Planet PDF" BORDER="0"></a></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a href="http://www.planetpdf.com">Planet PDF</a>:
-			A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses.<BR>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff">
+			<font face="Arial,Helvetica"><b>Other JAVA-PDF Libraries on the Net</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff"> </td>
+		<td colspan="4" bgcolor="#ffffff">
+			<a href="http://www.geocities.com/itextpdf" target="_blank"><font face="Arial,Helvetica">iText:</font></a><font face="Arial,Helvetica"> release Paulo Soares</font><br>
+			<a href="http://www.etymon.com/pj/" target="_blank"><font face="Arial,Helvetica">PJ:</font></a><font face="Arial,Helvetica"> JAVA-PDF library</font><br>
+			<a href="http://www.retep.org.uk/pdf/" target="_blank"><font face="Arial,Helvetica">retepPDF:</font></a><font face="Arial,Helvetica"> JAVA-PDF library by Peter Mount</font><br>
+			<a href="http://xml.apache.org/fop/" target="_blank"><font face="Arial,Helvetica">FOP:</font></a><font face="Arial,Helvetica"> an Apache XML project that (ao) allows you to produce PDF (donated to Apache by James Tauber)</font><br>
+        	<a href="http://www.pdflib.com/" target="_blank"><font face="Arial,Helvetica">PDFLIB</font></a><br>
+			<font face="Arial,Helvetica">Also check out <a href="http://128.146.184.28/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
+			and <a href="http://128.146.184.28/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a> for HTML to PDF conversion.</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff"><br>
+			<font face="Arial,Helvetica"><b>PDF Resources</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff">
+		<a href="http://www.lowagie.com/iText/docs/acrobat/"><img src="links_files/0201758393.jpg" width="113" height="140" alt="PDF Reference: Version 1.4" border="0"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
+			<a href="http://www.lowagie.com/iText/docs/acrobat/">Books</a> about PDF<br>
+			<a href="http://www.adobe.com/">ADOBE:</a> ADOBE SYSTEMS INC.<br>
+			<a href="http://partners.adobe.com/">ADA:</a> Adobe Developers Association<br>
+			<a href="http://partners.adobe.com/asn/developer/technotes.html">Technotes:</a> Technical Notes on PDF and PostScript<br>
+			<a href="http://www.quite.com/personal/aandi.htm">Quite Software:</a> The home of Aandi Inston, PDF expert
+			<a href="http://www.ghostscript.com/">Ghostscript:</a> a suite of free PDF tools
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff"><a href="http://www.planetpdf.com/binthing%7Ewebpageid,550;TBToolID,1296.htm"><img src="links_files/PP_button_88x34.gif" alt="Planet PDF" border="0"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica"><a href="http://www.planetpdf.com/">Planet PDF</a>:
+			A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses.<br>
 			Planet PDF also incorporates
-			<a href="http://forum.planetpdf.com">Planet PDF Forum</a>,
-			<a href="http://www.pdfstore.com">Planet PDF Store</a> and
-			<a href="http://www.planetpdf.com/binthing~MenuID,85;WebPageID,898.htm">Planet PDF Developers Section</a>.</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF"><A HREF="http://www.pdfzone.com/products/software/tool_rugpdf.html"><IMG SRC="http://www.lowagie.com/banner/iText/pdfzonefeatured2.gif" ALT="PdfZone" BORDER="0"></A></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><a href="http://www.pdfzone.com">PDF Zone</a>:
-			The online authority for Acrobat, PDF and Document Management Professionals.<BR></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
-			<FONT FACE="Arial,Helvetica"><B>JAVA<SUP>(TM)</SUP> Resources</B></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://java.sun.com"><IMG SRC="http://www.lowagie.com/banner/iText/j2j.gif" WIDTH=80 HEIGHT=80 BORDER=0 ALT="Jump to Java"></a></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
-			<A HREF="http://java.sun.com">JAVA<SUP>(TM)</SUP>:</A> SUN MICROSYSTEMS INC.<BR>
-			<A HREF="http://developer.java.sun.com">JDC:</A> Java<SUP>(TM)</SUP> Developer's Connection<BR>
-			<A HREF="http://archives.java.sun.com/archives/servlet-interest.html">Java<SUP>(TM)</SUP> technology-based Servlets:</A> SERVLET-INTEREST
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF">
-		<A HREF="http://www.amazon.com/exec/obidos/ASIN/0596000405/itisacatalofwebp"><IMG SRC="http://www.lowagie.com/iText/docs/acrobat/0596000405.01.MZZZZZZZ.jpg" ALT="Java Servlet Programming" BORDER=1></A></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
-			<A HREF="http://servlets.com/">Servlets.com</A> (Jason Hunter)<BR>
-			<A HREF="http://www.amazon.com/exec/obidos/ASIN/0596000405/itisacatalofwebp">Java Servlet Programming (2nd edition)</A><BR>
-			Search Amazon.com for books on: <A HREF="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&keyword=JAVA&mode=blended">JAVA</A><BR>
-			Search Amazon.co.uk for books on: <A HREF="http://www.amazon.co.uk/exec/obidos/external-search?tag=catloogjecom-21&keyword=JAVA&mode=blended">JAVA</A><BR>
-			Search Amazon.com for books on: <A HREF="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&keyword=Servlets&mode=blended">Servlets</A><BR>
-			Search Amazon.co.uk for books on: <A HREF="http://www.amazon.co.uk/exec/obidos/external-search?tag=catloogjecom-21&keyword=Servlets&mode=blended">Servlets</A><BR>
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF"><a href="http://jars.com"><IMG SRC="http://www.lowagie.com/banner/iText/r750.gif" BORDER=0 ALT="Jars"></a></TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
-			<A HREF="http://jars.com">JARS.COM</A>, the #1 Java Review Service<BR>
-			Reviews for <A HREF="http://www.jars.com/classes/jediSearch.cgi?string=iText&matchcase=NO&names=YES&keywords=YES&descriptions=YES&authorid=NOID&lastname=NONAME&age=NOAGE&start=NODATE&end=NODATE&maxhits=100&type=ALL&category=ALL&language=ALL&source=YES&nosource=YES&wholeword=NO">iText</A>
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD ALIGN="center" BGCOLOR="#FFFFFF">
-		<FONT FACE="Arial,Helvetica" SIZE="+1" COLOR="#FF0000">Free Webspace</FONT>
-		<FONT FACE="Arial,Helvetica" COLOR="#FF0000">with Servlet support</FONT>
-		</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica">
+			<a href="http://forum.planetpdf.com/">Planet PDF Forum</a>,
+			<a href="http://www.pdfstore.com/">Planet PDF Store</a> and
+			<a href="http://www.planetpdf.com/binthing%7EMenuID,85;WebPageID,898.htm">Planet PDF Developers Section</a>.</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff"><a href="http://www.pdfzone.com/products/software/tool_rugpdf.html"><img src="links_files/pdfzonefeatured2.gif" alt="PdfZone" border="0"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica"><a href="http://www.pdfzone.com/">PDF Zone</a>:
+			The online authority for Acrobat, PDF and Document Management Professionals.<br></font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff"><br>
+			<font face="Arial,Helvetica"><b>JAVA<sup>(TM)</sup> Resources</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff"><a href="http://java.sun.com/"><img src="links_files/j2j.gif" width="80" height="80" border="0" alt="Jump to Java"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
+			<a href="http://java.sun.com/">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.<br>
+			<a href="http://developer.java.sun.com/">JDC:</a> Java<sup>(TM)</sup> Developer's Connection<br>
+			<a href="http://archives.java.sun.com/archives/servlet-interest.html">Java<sup>(TM)</sup> technology-based Servlets:</a> SERVLET-INTEREST
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff">
+		<a href="http://www.amazon.com/exec/obidos/ASIN/0596000405/itisacatalofwebp"><img src="links_files/0596000405.jpg" alt="Java Servlet Programming" border="1"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
+			<a href="http://servlets.com/">Servlets.com</a> (Jason Hunter)<br>
+			<a href="http://www.amazon.com/exec/obidos/ASIN/0596000405/itisacatalofwebp">Java Servlet Programming (2nd edition)</a><br>
+			Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=JAVA&amp;mode=blended">JAVA</a><br>
+			Search Amazon.co.uk for books on: <a href="http://www.amazon.co.uk/exec/obidos/external-search?tag=catloogjecom-21&amp;keyword=JAVA&amp;mode=blended">JAVA</a><br>
+			Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/external-search?tag=itisacatalofwebp&amp;keyword=Servlets&amp;mode=blended">Servlets</a><br>
+			Search Amazon.co.uk for books on: <a href="http://www.amazon.co.uk/exec/obidos/external-search?tag=catloogjecom-21&amp;keyword=Servlets&amp;mode=blended">Servlets</a><br>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff"><a href="http://jars.com/"><img src="links_files/r750.gif" border="0" alt="Jars"></a></td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
+			<a href="http://jars.com/">JARS.COM</a>, the #1 Java Review Service<br>
+			Reviews for <a href="http://www.jars.com/classes/jediSearch.cgi?string=iText&amp;matchcase=NO&amp;names=YES&amp;keywords=YES&amp;descriptions=YES&amp;authorid=NOID&amp;lastname=NONAME&amp;age=NOAGE&amp;start=NODATE&amp;end=NODATE&amp;maxhits=100&amp;type=ALL&amp;category=ALL&amp;language=ALL&amp;source=YES&amp;nosource=YES&amp;wholeword=NO">iText</a>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="#ffffff">
+		<font face="Arial,Helvetica" size="+1" color="#ff0000">Free Webspace</font>
+		<font face="Arial,Helvetica" color="#ff0000">with Servlet support</font>
+		</td>
+		<td colspan="4" bgcolor="#ffffff">
+			<font face="Arial,Helvetica">
 			<!--- <A HREF="http://webappcabaret.com/">Webappcabaret:</A> Dedicated J2 JVM, 5 MByte diskspace, no FTP (dirmanager webinterface), mySql,...<BR> --->
-			<A HREF="http://www.mycgiserver.com/">MyCgiServer:</A> J2 (shared JVM), 5 MByte diskspace, FTP, InstantDB, HyperSonicSQL,...
-			</FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="5" BGCOLOR="#FFFFFF"><BR>
-			<FONT FACE="Arial,Helvetica"><B>Sponsored links</B></FONT>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
-		<TD COLSPAN="4" BGCOLOR="#FFFFFF" ALIGN="center">
-		<!-- About Focus on Java -->
-		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=7279965&siteid=28673140&bfpage=java_1" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE TARGET="_blank">
-		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
-		<INPUT TYPE="hidden" NAME="siteid" VALUE="28673140" >
-		<INPUT TYPE="hidden" NAME="bfpage" VALUE="java_1">
-		<INPUT TYPE="hidden" NAME="bfmid" VALUE="7279965" >
-		<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFCC" width="468">
-		<tr>
-			<td colspan="4"><img src="http://images.about.com/affiliates/search/banner_top.gif" width="468" height="30" border=0></td>
-		</tr>
-		<tr>
-			<td align="right">
-				<img src="http://images.about.com/affiliates/search/searchfor.gif" width="69" height="30" align="right" border=0>
-			</td>
-			<td align="right">
-				<form method="get" action="http://partners.about.com/affiliates/link/landx.htm">
-				<input type="text" name="terms" size="15" maxlength="75" value="PDF">
-				<input type="hidden" name="rURL" value="partners.about.com/affiliates/search/searchx.htm">
-			</td>
-			<td align="right">
-				<select name="TopNode">
-					<option value="3464+java">Focus on Java Site</option>
-					<option value="/">About.com</option>
-				</select>
-			</td>
-			<td align="right">
-				<INPUT type=IMAGE src="http://images.about.com/affiliates/search/go.gif" width="42" height="30" border=0 ALT="Go!">&nbsp;
-			</td> </form>
-		</tr>
-		</table>
-		</FORM><BR>
-		<A HREF="http://service.bfast.com/bfast/click?bfmid=7279965&siteid=28673140&bfpage=java" TARGET="_blank"><IMG SRC="http://images.about.com/affiliates/java/javaB.gif" BORDER="0" WIDTH="468" HEIGHT="60" ALT=""></A>
-		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=7279965&siteid=28673140&bfpage=java" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE ><br>
-		<a href="http://www.dvdkoopjes.com/index.php3?partner=385"><IMG SRC=http://www.dvdkoopjes.com/images/BannerDVDkoopjes.gif></a>
-		<!-- About Focus on Java -->
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">
+			<a href="http://www.mycgiserver.com/">MyCgiServer:</a> J2 (shared JVM), 5 MByte diskspace, FTP, InstantDB, HyperSonicSQL,...
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" bgcolor="#ffffff"><br>
+			<font face="Arial,Helvetica"><b>Sponsored links</b></font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="1" bgcolor="#ffffff"> </td>
+		<td colspan="4" bgcolor="#ffffff" align="center">
+<!-- Banniere ClickFR --><center><iframe name="iclickfr" src="links_files/printk.html" width="468" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"> 
+&lt;script&gt; var nbre = Math.round(Math.random()*100000); var chaine="&lt;a
+href=http://www5.click-fr.com/clickj.cgi?a=1027-25599325&amp;b=" + nbre +
+" target=clickfr&gt;&lt;img border=0  height=60 width=468  SRC=http://www5.click-fr.com/printj.cgi?a=1027-25599325&amp;b="
++ nbre +" alt=\"*** Visitez notre Sponsor ! ***\"&gt;&lt;/a&gt;"; document.write(chaine); 
+&lt;/script&gt;</iframe><font size="1"><br><a href="http://www.click-fr.com/">Membre de ClickFR, Reseau francophone Paie-Par-Click</a></font></center>
+<!-- Fin Banniere ClickFR -->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="1" bgcolor="#ffffff"> </td>
+		<td colspan="1" bgcolor="#ffffff"> </td>
+		<td colspan="1" bgcolor="#ffffff">
 		<!-- start HOTBOT search -->
-		<FORM ACTION="http://service.bfast.com/bfast/click" TARGET="_blank">
-		<INPUT TYPE="hidden" NAME="siteid" VALUE="28634896" >
-		<INPUT TYPE="hidden" NAME="bfpage" VALUE="hotbot2">
-		<INPUT TYPE="hidden" NAME="bfmid" VALUE="5960107" >
-		<TABLE VALIGN=TOP WIDTH=99 BGCOLOR="#330099" BORDER=0 CELLSPACING=0 CELLPADDING=1><TR><TD valign=top><img src="http://lygo.com./ly/a/h/aff_hotbotlogo.gif" width="98" height="28"></td></tr><tr><td valign=top><TABLE WIDTH=98 BGCOLOR="#FFFFFF" BORDER=0 CELLSPACING=0 CELLPADDING=1><TR><TD BGCOLOR="#FFFFFF" align=center><FONT SIZE="-2" FACE="verdana"><BR><B>Search the Web:</B></font></TD></TR><TR><TD><CENTER><FONT FACE="VERDANA,HELVETICA,ARIAL" COLOR="#000000" SIZE="-1"><INPUT type=text NAME="MT" SIZE=8 VALUE="JAVA PDF" MAXLENGTH=100></font></CENTER><FONT FACE="VERDANA,HELVETICA,ARIAL" COLOR="#000000" SIZE="-1"><BR></font></TD></TR><TR><TD HEIGHT=30 BGCOLOR="#330099"><CENTER><INPUT TYPE=image src="http://lygo.com/ly/a/h/hotbot_searchbutton.gif" HEIGHT=20 WIDTH=63 BORDER=0 ALT="Search"></CENTER></TD></TR></TABLE></TD></TR></TABLE><table width=99 border=0 cellspacing=0 cellpadding=0><tr><td align=RIGHT><img src="http://lygo.com./ly/a/a/afftile_bottom_blk.gif" width="100" height="14"></td></tr></table>
-		</FORM>
-		<IMG SRC="http://service.bfast.com/bfast/serve?bfmid=5960107&siteid=28634896&bfpage=hotbot2" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		<form action="http://service.bfast.com/bfast/click" target="_blank">
+		<input type="hidden" name="siteid" value="28634896">
+		<input type="hidden" name="bfpage" value="hotbot2">
+		<input type="hidden" name="bfmid" value="5960107">
+		<table valign="TOP" width="99" bgcolor="#330099" border="0" cellspacing="0" cellpadding="1"><tbody><tr><td valign="top"><img src="links_files/aff_hotbotlogo.gif" width="98" height="28"></td></tr><tr><td valign="top"><table width="98" bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="1"><tbody><tr><td bgcolor="#ffffff" align="center"><font size="-2" face="verdana"><br><b>Search the Web:</b></font></td></tr><tr><td><center><font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-1"><input type="text" name="MT" size="8" value="JAVA PDF" maxlength="100"></font></center><font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-1"><br></font></td></tr><tr><td height="30" bgcolor="#330099"><center><input type="image" src="links_files/hotbot_searchbutton.gif" height="20" width="63" border="0" alt="Search"></center></td></tr></tbody></table></td></tr></tbody></table><table width="99" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="right"><img src="links_files/afftile_bottom_blk.gif" width="100" height="14"></td></tr></tbody></table>
+		</form>
+		<img src="links_files/serve.gif" border="0" width="1" height="1" nosave="">
 		<!-- end HOTBOT Search -->
-		</TD>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">
+		</td>
+		<td colspan="1" bgcolor="#ffffff">
 		<!-- start LYCOS Software downloads -->
-		<table valign=TOP width=99 bgcolor="#9999CC" border=0 cellspacing=0 cellpadding=1>
-		  <tr>
-		    <td align=CENTER>
-		      <table width=98 bgcolor="#FFFFFF" border=0 cellspacing=0 cellpadding=0>
-		        <tr>
-		          <td align=CENTER bgcolor="#FFFFFF">
-					<img src="http://lygo.com./ly/a/c/computers_tiletop.gif" width="98" height="21">
+		<table valign="TOP" width="99" bgcolor="#9999cc" border="0" cellspacing="0" cellpadding="1">
+		  <tbody><tr>
+		    <td align="center">
+		      <table width="98" bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="0">
+		        <tbody><tr>
+		          <td align="center" bgcolor="#ffffff">
+					<img src="links_files/computers_tiletop.gif" width="98" height="21">
 					 <font size="-2" face="verdana"> <b>Find Software:</b></font></td>
 		        </tr>
 		        <tr>
 		          <td>
 
-		<FORM ACTION="http://service.bfast.com/bfast/click/mid5960107" TARGET="_blank">
-		<INPUT TYPE="hidden" NAME="siteid" VALUE="28634896" >
-		<INPUT TYPE="hidden" NAME="bfpage" VALUE="software">              <font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-2">
-    		          <input type=RADIO name=cat value=dl checked>
+		<form action="http://service.bfast.com/bfast/click/mid5960107" target="_blank">
+		<input type="hidden" name="siteid" value="28634896">
+		<input type="hidden" name="bfpage" value="software">              <font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-2">
+    		          <input type="radio" name="cat" value="dl" checked="checked">
 		              Downloads<br>
-		              <input type=RADIO name=cat value=ftpsearch>
+		              <input type="radio" name="cat" value="ftpsearch">
 		              FTP Search </font>
 		              <center>
 		                <font face="VERDANA,HELVETICA,ARIAL" color="#000000" size="-2">
-		                <input type="text" name="query" value="PDF" size=8>
-		                <INPUT TYPE=image src="http://lygo.com/ly/a/e/ggi.gif" HEIGHT=20 WIDTH=84 BORDER=0 ALT="Go Get It"></font>
+		                <input type="text" name="query" value="PDF" size="8">
+		                <input type="image" src="links_files/ggi.gif" height="20" width="84" border="0" alt="Go Get It"></font>
 		              </center>
 
-		        <tr>
-		          <td align=CENTER><A HREF="http://service.bfast.com/bfast/click/mid5960107?siteid=28634896&bfpage=privacy" TARGET="_top"><font face="VERDANA,HELVETICA,ARIAL" size="-2" TARGET="_blank">Our
+		        </form></td></tr><tr>
+		          <td align="center"><a href="http://service.bfast.com/bfast/click/mid5960107?siteid=28634896&amp;bfpage=privacy" target="_top"><font face="VERDANA,HELVETICA,ARIAL" size="-2" target="_blank">Our
 		            Privacy Vow</font></a>
-		&nbsp;</td>
+		 </td>
 		        </tr>
-		      </table>
+		      </tbody></table>
 		    </td>
 		  </tr>
-		</table>
-		<TABLE WIDTH=96  BORDER=0 CELLSPACING=0 CELLPADDING=0>
-		<TR><TD VALIGN=TOP><img src="http://lygo.com./ly/a/a/afftile_bottom_blk.gif" width="100" height="14"></TD></TR></TABLE></form>
-		<IMG SRC="http://service.bfast.com/bfast/serve/mid5960107?siteid=28634896&bfpage=software_store" BORDER="0" WIDTH="1" HEIGHT="1" NOSAVE >
+		</tbody></table>
+		<table width="96" border="0" cellspacing="0" cellpadding="0">
+		<tbody><tr><td valign="top"><img src="links_files/afftile_bottom_blk.gif" width="100" height="14"></td></tr></tbody></table>
+		<img src="links_files/mid5960107.gif" border="0" width="1" height="1" nosave="">
 		<!-- end Lycos Software Downloads -->
-		</TD>
-		<TD COLSPAN="1" BGCOLOR="#FFFFFF">&nbsp;</TD>
-	</TR>
-	<TR>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="faq.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous Page</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%">&nbsp;</TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
-		<TD WIDTH="20%">&nbsp;</TD>
-		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next Page</FONT></A>]</FONT></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="3" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
-			<FONT FACE="Arial,Helvetica" SIZE="-3"><B>Page Updated: </B> $Date$<br>Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</FONT>
-		</TD>
-		<TD COLSPAN="2" ALIGN="right" BGCOLOR="#808080">
-		<FONT FACE="Arial,Helvetica" SIZE="-3">Read the <A HREF="privacypolicy.html"><FONT COLOR="#000000">Privacy Policy</FONT></A> at lowagie.com<br>mailto:<A HREF="mailto:itext@lowagie.com"><FONT COLOR="#000000">itext@lowagie.com</FONT></A></FONT>
-		</TD>
-	</TR>
-	</TABLE>
-	</TD>
-</TR>
-</TABLE>
+		</td>
+		<td colspan="1" bgcolor="#ffffff"> </td>
+	</tr>
+	<tr>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/faq.html"><font face="Arial,Helvetica" color="#ffffff">Previous Page</font></a>]</font></td>
+		<td width="20%"> </td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="#top"><font face="Arial,Helvetica" color="#ffffff">Top</font></a>]</font></td>
+		<td width="20%"> </td>
+		<td width="20%" align="center"><font face="Arial,Helvetica" color="#ffffff" size="-1">[<a href="http://www.lowagie.com/iText/history.html"><font face="Arial,Helvetica" color="#ffffff">Next Page</font></a>]</font></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="left" valign="top" bgcolor="#808080">
+			<font face="Arial,Helvetica" size="-3"><b>Page Updated: </b> $Date$<br>Copyright © 1999, 2000, 2001 by Bruno Lowagie,Adolf Baeyensstraat 121, 9040 Gent, BELGIUM</font>
+		</td>
+		<td colspan="2" align="right" bgcolor="#808080">
+		<font face="Arial,Helvetica" size="-3">Read the <a href="http://www.lowagie.com/iText/privacypolicy.html"><font color="#000000">Privacy Policy</font></a> at lowagie.com<br>mailto:<a href="mailto:itext@lowagie.com"><font color="#000000">itext@lowagie.com</font></a></font>
+		</td>
+	</tr>
+	</tbody></table>
+	</td>
+</tr>
+</tbody></table>
 
-</BODY>
-</HTML>
+</body></html>
