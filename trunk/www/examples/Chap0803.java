@@ -50,14 +50,13 @@ public class Chap0803 {
 			// we create a writer that listens to the document
 			// and directs a XML-stream to a file
  			PdfWriter.getInstance(document, new FileOutputStream("Chap0803.pdf"));
- 			XmlWriter.getInstance(document, new FileOutputStream("Chap0803.xml"), "itext.dtd");
 
 			// step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
             parser.setDocumentHandler(new SAXiTextHandler(document));
 
 			// step 4: we parse the document
-            parser.parse("stage.xml");
+            parser.parse("Chap0803.xml");
             
             
 		}

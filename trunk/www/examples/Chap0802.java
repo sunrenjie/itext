@@ -55,7 +55,7 @@ public class Chap0802 {
 
 			// step 3: we create a parser and set the document handler
             Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new SAXiTextHandler(document, new Tags4iText()));
+            parser.setDocumentHandler(new SAXiTextHandler(document));
 
 			// step 4: we parse the document
             parser.parse("Chap0801.xml");
