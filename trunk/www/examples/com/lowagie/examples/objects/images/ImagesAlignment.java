@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2005 by Marc Campforts <--
+ * --> Copyright 2005 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -22,9 +22,9 @@ package com.lowagie.examples.objects.images;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.FontFactory;
 import com.lowagie.text.Image;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfWriter;
@@ -39,29 +39,62 @@ public class ImagesAlignment {
 	 * @param args no arguments needed
 	 */
 	public static void main(java.lang.String[] args) {
-	    Document doc = new Document();
-	    try {
-	        PdfWriter.getInstance(doc, new FileOutputStream("imagesAlignment.pdf"));
-	        doc.open();
-	        doc.add(new Phrase("The leading of this paragraph is calculated	automagically. "));
-	        Image gif = Image.getInstance("otsoe.jpg");
-	        gif.setAlignment(Image.RIGHT | Image.TEXTWRAP);
-	        doc.add(gif);
-	        doc.add(new Phrase("The leading of this paragraph is calculated	automagically. "));
-	        doc.add(new Phrase("The leading of this paragraph is calculated	automagically. "));
-	        doc.add(new Phrase("The default leading is 1.5 times the fontsize. "));
-	        doc.add(new Phrase("You can add chunks "));
-	        doc.add(new Phrase("You can add chunks ", FontFactory.getFont(FontFactory.HELVETICA, 24)));
-	        doc.add(new Phrase("or you can add phrases. "));
-	        doc.add(new Phrase("Unless you change the leading with the method setLeading, the leading doesn't change if you add text with another leading. This can lead to some problems.", FontFactory.getFont(FontFactory.HELVETICA, 24)));
-	        doc.add(new Phrase("Unless you change the leading with the method setLeading, the leading doesn't change if you add text with another leading. This can lead to some problems."));
-	    }
-	    catch(DocumentException de) {
-	        System.err.println(de.getMessage());
-	    }
-	    catch(IOException ioe) {
-	        System.err.println(ioe.getMessage());
-	    }
-	    doc.close();
+		System.out.println("Image alignment");
+        // step 1: creation of a document-object
+        Document document = new Document();
+        try {
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            PdfWriter.getInstance(document, new FileOutputStream("imagesAlignment.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            Image gif = Image.getInstance("vonnegut.gif");
+            gif.setAlignment(Image.RIGHT | Image.TEXTWRAP);
+            Image jpeg = Image.getInstance("otsoe.jpg");
+            jpeg.setAlignment(Image.MIDDLE);
+            Image png = Image.getInstance("hitchcock.png");
+            png.setAlignment(Image.LEFT | Image.UNDERLYING);
+            
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(gif);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(Chunk.NEWLINE);
+            document.add(jpeg);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(png);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(gif);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(Chunk.NEWLINE);
+            document.add(jpeg);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+            document.add(png);
+            for (int i = 0; i < 100; i++) {
+                document.add(new Phrase("Who is this? "));
+            }
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        // step 5: we close the document
+        document.close();
 	}
 } 

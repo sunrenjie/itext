@@ -1,0 +1,207 @@
+/*
+ * $Id$
+ * $Name$
+ *
+ * This code is free software. It may only be copied or modified
+ * if you include the following copyright notice:
+ *
+ * --> Copyright 2001-2005 by Bruno Lowagie <--
+ *
+ * This code is part of the 'iText Tutorial'.
+ * You can find the complete tutorial at the following address:
+ * http://www.lowagie.com/iText/tutorial/
+ *
+ * This code is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * itext-questions@lists.sourceforge.net
+ */
+package com.lowagie.examples.objects.images;
+
+import java.awt.Color;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.Image;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfWriter;
+
+/**
+ * This is a tool that allows you to make a DVD Cover.
+ * @author blowagie
+ */
+public class DvdCover {
+	
+	/**
+	 * Sets the Image that has to be on the back of the cover.
+	 * @param back an Image object.
+	 */
+	public void setBack(Image back) {
+		this.back = back;
+	}
+	/**
+	 * Sets the backgroundcolor of the cover.
+	 * @param backgroundcolor a Color object.
+	 */
+	public void setBackgroundcolor(Color backgroundcolor) {
+		this.backgroundcolor = backgroundcolor;
+	}
+	/**
+	 * Sets the Image that has to be on the front of the cover.
+	 * @param front an Image object.
+	 */
+	public void setFront(Image front) {
+		this.front = front;
+	}
+	/**
+	 * Sets the Image that has to be on the back of the cover.
+	 * @param side an Image object.
+	 */
+	public void setSide(Image side) {
+		this.side = side;
+	}
+	/**
+	 * Sets the title of the movie (will be printed on the side if there is no side image)
+	 * @param title The title to set.
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	/**
+	 * Sets the filename of the resulting PDF
+	 * @param filename The filename to set.
+	 */
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	
+	/** the name of the file that has to be generated. */
+	protected String filename;
+	/** the title that has to be on the side of the cover. */
+	protected String title;
+	/** the backgroundcolor of the cover. */
+	protected Color backgroundcolor;
+	/** the front image of the cover. */
+	protected Image front;
+	/** the side image of the cover. */
+	protected Image side;
+	/** the back image of the cover. */
+	protected Image back;
+	
+	/**
+	 * Creates a DVD Cover object.
+	 */
+	public DvdCover() {
+	}
+	
+    /**
+     * Example that generates a DVD Cover in PDF.
+     * @param args	an array containing [0] a filename [1] a title [2] a backgroundcolor [3] a front image [4] a back image [5] a side image
+     */
+    public static void main(String[] args) {
+        System.out.println("DVD Cover");
+        DvdCover cover = new DvdCover();
+        if (args.length > 0) {
+        	cover.setFilename(args[0]);
+        }
+        if (args.length > 1) {
+        	cover.setTitle(args[1]);
+        }
+        if (args.length > 2) {
+        	cover.setBackgroundcolor(Color.decode(args[2]));
+        }
+        if (args.length > 3) {
+        	try {
+				cover.setFront(Image.getInstance(args[3]));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
+        if (args.length > 4) {
+        	try {
+        		cover.setBack(Image.getInstance(args[4]));
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
+        }
+        if (args.length > 5) {
+        	try {
+        		cover.setSide(Image.getInstance(args[5]));
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
+        }
+        cover.generatePdf();
+    }
+    
+    /**
+     * Method that generates the actual PDF file.
+     */
+    public void generatePdf() {   
+        
+        // step 1: creation of a document-object
+        Rectangle pageSize = new Rectangle(772, 522);
+        if (backgroundcolor != null) pageSize.setBackgroundColor(backgroundcolor);
+        Document document = new Document(pageSize);
+        
+        try {
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+        	if (filename == null) { filename = "dvdcover.pdf"; }
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filename));
+                        
+            // step 3: we open the document
+            document.open();
+            
+            // step 4:
+        	PdfContentByte cb = writer.getDirectContent();
+            if (title != null) {
+            	cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, false), 24);
+            	cb.beginText();
+            	if (front == null) {
+            		cb.showTextAligned(Element.ALIGN_CENTER, title, 589f, 261f, 0f);
+            	}
+            	if (side == null) {
+            		cb.showTextAligned(Element.ALIGN_CENTER, title, 380f, 261f, 270f);
+            	}
+            	cb.endText(); 
+            }
+            cb.moveTo(366, 0);
+            cb.lineTo(366, 522);
+            cb.moveTo(406, 522);
+            cb.lineTo(406, 0);
+            cb.stroke();
+            if (front != null) {
+            	front.scaleToFit(366, 522);
+            	front.setAbsolutePosition(406f + (366f - front.scaledWidth()) / 2f, (522f - front.scaledHeight()) / 2f);
+            	document.add(front);
+            }
+            if (back != null) {
+            	back.scaleToFit(366, 522);
+            	back.setAbsolutePosition((366f - back.scaledWidth()) / 2f, (522f - back.scaledHeight()) / 2f);
+            	document.add(back);
+            }
+            if (side != null) {
+            	side.scaleToFit(40, 522);
+            	side.setAbsolutePosition(366 + (40f - side.scaledWidth()) / 2f, (522f - side.scaledHeight()) / 2f);
+            	document.add(side);
+            }
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
+}
