@@ -16,6 +16,7 @@
     <property name="itext.lib" value="${itext.home}/lib" />
     <property name="itext.docs" value="${itext.home}/docs" />
     <property name="itext.www" value="${itext.home}/www" />
+    <property name="itext.tutorial" value="${itext.www}/tutorial" />
     <property name="itext.examples" value="${itext.www}/examples" />
     <property name="itext.dist" value="${itext.home}/dist" />
     <property name="itext.sf" value="${itext.dist}/sf" />
@@ -42,7 +43,9 @@
         <echo />
         <echo>GETTING THE CODE</echo>
         <echo>ant checkout: checks out the code from CVS</echo>
-        <echo>ant download: checks out the code from CVS and downloads all needed files</echo>
+        <echo>ant download: downloads some files needed to build a release</echo>
+        <echo>ant download.cvs: downloads the most recent VERSION of the code</echo>
+        <echo>ant download.site: downloads the most recent RELEASE of the code</echo>
         <echo />
         <echo>COMPILING THE CODE</echo>
         <echo>ant compile: compiles iText without RTF and XML functionality</echo>
@@ -59,6 +62,7 @@
         <echo>DOCUMENTATION</echo>
         <echo>ant javadoc: generates the API documentation</echo>
         <echo>ant docstargz: generates the API docs and puts them in a tar.gz-file</echo>
+        <echo>ant tuttargz: generates several tar.gz-files with documentation (tutorial, examples,...)</echo>
         <echo>ant examples: generates most of the PDF files of the tutorial</echo>
         <echo />
         <echo>RELEASE</echo>
@@ -78,31 +82,48 @@
         <cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
     </target>
     
-    <target name="download" depends="checkout">
+    <target name="download" description="--> downloads some files needed to make a release">
+        <mkdir dir="${itext.examples}" />
+        <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.examples}/pngnow.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.examples}/H.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.examples}/caesar_coin.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/hitchcock.png" dest="${itext.examples}/hitchcock.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/myKids.jpg" dest="${itext.examples}/myKids.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/raf.jpg" dest="${itext.examples}/raf.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/vonnegut.gif" dest="${itext.examples}/vonnegut.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/watermark.jpg" dest="${itext.examples}/watermark.jpg" verbose="true" />
         <mkdir dir="${itext.bin}" />
-        <get src="http://www.lowagie.com/iText/examples/pngnow.png" dest="${itext.www}/examples/pngnow.png" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.www}/examples/H.gif" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.www}/examples/caesar_coin.jpg" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/hitchcock.png" dest="${itext.www}/examples/hitchcock.png" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/myKids.jpg" dest="${itext.www}/examples/myKids.jpg" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/raf.jpg" dest="${itext.www}/examples/raf.jpg" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/vonnegut.gif" dest="${itext.www}/examples/vonnegut.gif" verbose="true" />
-        <get src="http://www.lowagie.com/iText/examples/watermark.jpg" dest="${itext.www}/examples/watermark.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/barcodefonts.zip" dest="${itext.bin}/barcodefonts.zip" verbose="true" />
+    </target>
+
+    <target name="download.cvs" depends="checkout, download" description="--> downloads the most recent version of the code">
+		<echo>Remark:</echo>
+		<echo>The CVS version is the most recent version of the code.</echo>
+		<echo>It may not always compile.</echo>
+		<echo>Use ant download.site to download working code.</echo>
+    </target>
+
+    <target name="download.site" description="--> downloads the most recent release of the code">
+        <mkdir dir="${itext.dist}" />
+        <get src="http://www.lowagie.com/iText/downloads/src.tar.gz" dest="${itext.dist}/src.tar.gz" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/srcXML.tar.gz" dest="${itext.dist}/srcXML.tar.gz" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/www.tar.gz" dest="${itext.dist}/www.tar.gz" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/tutorial.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
+        <get src="http://www.lowagie.com/iText/downloads/examples.tar.gz" dest="${itext.dist}/tutorial.tar.gz" verbose="true" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Compiling the code                                               -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
-    <target name="compile">
+    <target name="compile" description="--> compiles the core iText code">
         <mkdir dir="${itext.classes}" />
         <javac srcdir="${itext.src}" destdir="${itext.classes}"
             excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
     
-    <target name="compileWithXML">
+    <target name="compileWithXML" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />    
         <echo>You need xerces_1_3_1.jar in the bin-directory</echo>
         <javac srcdir="${itext.src}" destdir="${itext.classes}" classpath="${itext.bin}/xerces_1_3_1.jar" />
@@ -112,14 +133,14 @@
     <!-- Jarring the code                                                 -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <target name="jar" depends="compile">
+    <target name="jar" depends="compile" description="--> makes a jarfile from the core iText code">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
         <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
 
-    <target name="jarWithXML" depends="compileWithXML">
+    <target name="jarWithXML" depends="compileWithXML" description="--> makes a jarfile from the complete iText code">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
         <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/Logging.class,**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
@@ -132,13 +153,13 @@
     <!-- Achiving the source                                              -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <target name="srczip">
+    <target name="srczip" description="--> makes two zipfiles (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
         <zip zipfile="${itext.dist}/src.zip" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <zip zipfile="${itext.dist}/srcXML.zip" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 
-    <target name="srctargz">
+    <target name="srctargz" description="--> makes two tar.gz-files (1 with the core iText code and 1 with XML/RTF classes)">
         <mkdir dir="${itext.dist}" />
         <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
@@ -149,10 +170,10 @@
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Achiving the source                                              -->
+    <!-- Archiving the source                                              -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <target name="javadoc">
+    <target name="javadoc" description="--> generates the complete documentation with javadoc">
         <mkdir dir="${itext.docs}" />
         <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
             sourcepath="${itext.src}"
@@ -163,18 +184,27 @@
         </javadoc>
     </target>
 
-    <target name="docstargz" depends="javadoc">
+    <target name="docstargz" depends="javadoc" description="--> makes a tar.gz-file with the complete javadoc documentation">
         <mkdir dir="${itext.dist}" />
         <tar tarfile="${itext.dist}/docs.tar" basedir="${itext.docs}" />
         <gzip zipfile="${itext.dist}/docs.tar.gz" src="${itext.dist}/docs.tar" />
         <delete file="${itext.dist}/docs.tar" />
     </target>
-  
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Compiling all the examples                                       -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="tuttargz" description="--> makes several tar.gz-files with the tutorial, examples,...">
+        <mkdir dir="${itext.dist}" />
+        <tar tarfile="${itext.dist}/www.tar" basedir="${itext.www}" />
+        <gzip zipfile="${itext.dist}/www.tar.gz" src="${itext.dist}/www.tar" />
+        <delete file="${itext.dist}/www.tar" />
+        <tar tarfile="${itext.dist}/tutorial.tar" basedir="${itext.tutorial}" excludes="*.class, *.pdf" />
+        <gzip zipfile="${itext.dist}/tutorial.tar.gz" src="${itext.dist}/tutorial.tar" />
+        <delete file="${itext.dist}/tutorial.tar" />
+        <tar tarfile="${itext.dist}/examples.tar" basedir="${itext.examples}" />
+        <gzip zipfile="${itext.dist}/examples.tar.gz" src="${itext.dist}/examples.tar" />
+        <delete file="${itext.dist}/examples.tar" />
+    </target>
 	
-	<target name="examples" depends="jarWithXML">
+	<target name="examples" depends="jarWithXML" description="--> executes (almost) all examples from the tutorial">
 	    <echo>Examples Chap0105.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
 	    <echo>They will not compile without a servlet library.</echo>
         <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, Calendar.java, Month.java" >
@@ -391,18 +421,18 @@
     <!-- Making a release                                                 -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
-    <target name="release" depends="jarWithXML, srczip, srctargz, docstargz">
+    <target name="release" depends="jarWithXML, srczip, srctargz, docstargz, tuttargz" description="--> makes a complete iText release">
     </target>  
 	  
-    <target name="release.sf" depends="release">
+    <target name="release.sf" depends="release" description="--> makes a complete iText release ready to publish on SourceForge">
         <mkdir dir="${itext.sf}" />
-        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/$itext-${release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/$itext-xml-${release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/$itext-src-${release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/$itext-xml-src-${release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/$itext-src-${release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.tar.gz" tofile="${itext.sf}/$itext-xml-src-${release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/$itext-docs-${release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/$itext-{release}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/$itext-xml-{release}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/$itext-src-{release}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/$itext-xml-src-{release}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/$itext-src-{release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.tar.gx" tofile="${itext.sf}/$itext-xml-src-{release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/$itext-docs-{release}.tar.gz" overwrite="yes" />
     </target>
 
 </project>
