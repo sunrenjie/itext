@@ -265,6 +265,50 @@
             The effect of this functionality can lead to very nice layouts:
             see <A HREF="http://www.lowagie.com/iText/examples/Chap1008.pdf">Chap1008.pdf</A> and the <A HREF="http://www.lowagie.com/iText/examples/Chap1008.java">code</A>
             that was used to generate this example.
+			</FONT><BR><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="abspdfptable"><B>PdfPTable</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			We already briefly mentioned the <FONT FACE="Courier">PdfPTable</FONT> object in <A HREF="ch05.html#pdfptable">Chapter 5</A>.
+			Now we are going to discuss some more features of this object.<br>
+			You can create a PdfPTable in 3 different ways:<br><br>
+			<FONT FACE="Courier">
+			PdfPTable(float[] relativeWidths);<br>
+			PdfPTable(int numColumns);<br>
+			PdfPTable(PdfPTable table);
+			</FONT><br><br>
+			You can set some parameters for this table, such as the width of the table, widths of the columns, the horizontal alignment,...
+			You can add cells with these methods:<br><br>
+			<FONT FACE="Courier">
+			public void addCell(PdfPCell cell);<br>
+			public void addCell(PdfPTable table);<br>
+			public void addCell(Phrase phrase);<br>
+			public void addCell(String text);
+			</FONT><br><br>
+			This is all very similar to the <FONT FACE="Courier">Table</FONT>-object, except for cellpadding and cellspacing. These parameters
+			are set on the level of each individual cell. Of course you can define the default behaviour of a Cell; to change the defaults
+			of a cell, just use the method <FONT FACE="Courier">getDefaultCell()</FONT> and invoke one or more methods of class
+			<FONT FACE="Courier">PdfPCell</FONT> on it (you can set alignments, padding, borders, colors, even a minimum height).<br>
+			You can add such a table to the document as we did in <A HREF="ch05.html#pdfptable">Chapter 5</A>, but you can also
+			add the table on an absolute position of the current page:<br><br>
+			<FONT FACE="Courier">
+			public float writeSelectedRows(int rowStart, int rowEnd, float xPos, float yPos, PdfContentByte canvas);
+			</FONT><br><br>
+			The parameter rowStart is the number of the row you want to start with, rowEnd is the last row
+			you want to show (if you want to show all the rows, use -1). xPos and yPos are the coordinates
+			of the table and canvas is the <FONT FACE="Courier">PdfContentByte</FONT>-object.<br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap1009.java">example 9</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1009.pdf">Chap1009</A>), we add a simple table
+			at position (100, 600):<br><br>
+			<FONT FACE="Courier">
+			table.writeSelectedRows(0, -1, 100, 600, writer.getDirectContent());
+			</FONT><br><br>
+			With PdfPTables, you can't set a rowspan and/or colspan. You can work around this by using nested tables. See
+			<A HREF="http://www.lowagie.com/iText/examples/Chap1010.java">example 10</A> (<A HREF="http://www.lowagie.com/iText/examples/Chap1010.pdf">Chap1010.pdf</A>).<br><br>
+			Finally <A HREF="http://www.lowagie.com/iText/examples/Chap1011.java">example 11</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1012.java">example 12</A>
+			show you how <FONT FACE="Courier">PdfPTable</FONT> can be used in combination with templates and columns (<A HREF="http://www.lowagie.com/iText/examples/Chap1011.pdf">Chap1011.pdf</A> and <A HREF="http://www.lowagie.com/iText/examples/Chap1012.pdf">Chap1012.pdf</A>).
             </FONT><BR><BR><BR>
 		</TD>
 	</TR>
