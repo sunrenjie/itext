@@ -38,8 +38,8 @@ public class Handout extends java.lang.Object {
             System.err.println("This tools needs 3 parameters:\njava Handout srcfile destfile pages");
         }
         else {
-            try {       
-                int pages = Integer.parseInt(args[2]);         
+            try {
+                int pages = Integer.parseInt(args[2]);
                 if (pages < 2 || pages > 8) {
                     throw new DocumentException("You can't have " + pages + " pages on one page (minimum 2; maximum 8).");
                 }
@@ -75,19 +75,26 @@ public class Handout extends java.lang.Object {
                 document.open();
                 PdfContentByte cb = writer.getDirectContent();
                 PdfImportedPage page;
+                int rotation;
                 int i = 0;
                 int p = 0;
                 // step 4: we add content
                 while (i < n) {
                     i++;
-                    Rectangle rect = reader.getPageSize(i);
+                    Rectangle rect = reader.getPageSizeWithRotation(i);
                     float factorx = (x2 - x1) / rect.width();
                     float factory = (y1[p] - y2[p]) / rect.height();
                     float factor = (factorx < factory ? factorx : factory);
                     float dx = (factorx == factor ? 0f : ((x2 - x1) - rect.width() * factor) / 2f);
                     float dy = (factory == factor ? 0f : ((y1[p] - y2[p]) - rect.height() * factor) / 2f);
                     page = writer.getImportedPage(reader, i);
-                    cb.addTemplate(page, factor, 0, 0, factor, x1 + dx, y2[p] + dy);
+                    rotation = reader.getPageRotation(i);
+                    if (rotation == 90 || rotation == 270) {
+                        cb.addTemplate(page, 0, -factor, factor, 0, x1 + dx, y2[p] + dy + rect.height() * factor);
+                    }
+                    else {
+                        cb.addTemplate(page, factor, 0, 0, factor, x1 + dx, y2[p] + dy);
+                    }
                     cb.setRGBColorStroke(0xC0, 0xC0, 0xC0);
                     cb.rectangle(x3 - 5f, y2[p] - 5f, x4 - x3 + 10f, y1[p] - y2[p] + 10f);
                     for (float l = y1[p] - 19; l > y2[p]; l -= 16) {

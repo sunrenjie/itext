@@ -52,8 +52,8 @@ public class Split extends java.lang.Object {
                 }
                 
                 // step 1: creation of a document-object
-                Document document1 = new Document(reader.getPageSize(1));
-                Document document2 = new Document(reader.getPageSize(pagenumber));
+                Document document1 = new Document(reader.getPageSizeWithRotation(1));
+                Document document2 = new Document(reader.getPageSizeWithRotation(pagenumber));
                 // step 2: we create a writer that listens to the document
                 PdfWriter writer1 = PdfWriter.getInstance(document1, new FileOutputStream(args[1]));
                 PdfWriter writer2 = PdfWriter.getInstance(document2, new FileOutputStream(args[2]));
@@ -63,21 +63,34 @@ public class Split extends java.lang.Object {
                 document2.open();
                 PdfContentByte cb2 = writer2.getDirectContent();
                 PdfImportedPage page;
+                int rotation;
                 int i = 0;
                 // step 4: we add content
                 while (i < pagenumber - 1) {
                     i++;
-                    document1.setPageSize(reader.getPageSize(i));
+                    document1.setPageSize(reader.getPageSizeWithRotation(i));
                     document1.newPage();
                     page = writer1.getImportedPage(reader, i);
-                    cb1.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    rotation = reader.getPageRotation(i);
+                    if (rotation == 90 || rotation == 270) {
+                        cb1.addTemplate(page, 0, -1f, 1f, 0, 0, reader.getPageSizeWithRotation(i).height());
+                    }
+                    else {
+                        cb1.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    }
                 }
                 while (i < n) {
                     i++;
-                    document2.setPageSize(reader.getPageSize(i));
+                    document2.setPageSize(reader.getPageSizeWithRotation(i));
                     document2.newPage();
                     page = writer2.getImportedPage(reader, i);
-                    cb2.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    rotation = reader.getPageRotation(i);
+                    if (rotation == 90 || rotation == 270) {
+                        cb2.addTemplate(page, 0, -1f, 1f, 0, 0, reader.getPageSizeWithRotation(i).height());
+                    }
+                    else {
+                        cb2.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
+                    }
                     System.out.println("Processed page " + i);
                 }
                 // step 5: we close the document
