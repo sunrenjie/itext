@@ -86,8 +86,8 @@
 			<BR>
 			<B>PageSize</B><BR>
 			You could create your own <FONT FACE="Courier">Rectangle</FONT>-object in a certain
-			color and use this as pagesize.<BR>
-			In example <A HREF="Chap0102.java">Chap0102.java</A>, we create a long, small
+			color and use this as pageSize.<BR>
+			In example <A HREF="Chap0102.java">Chap0102.java</A>, we create a long, narrow
 			document with a yellowish backgroundcolor:<BR>
 			<FONT FACE="Courier">
 			Rectangle pageSize = new Rectangle(144, 720);<BR>
@@ -95,7 +95,7 @@
 			Document document = new Document(pageSize);
 			</FONT><BR>
 			This is the result: <A HREF="Chap0102.pdf">Chap0102.pdf</A>.
-			Normally, you don't have to worry about creating this rectangle,
+			Normally, you don't have to worry about creating this rectangle, since
 			you can use one of the statics in class
 			<A HREF="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java"><FONT FACE="Courier">PageSize.java</FONT></A>.
 			These are the pagesizes that are provided: A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E, FLSA and FLSE.<BR><BR>
@@ -164,7 +164,7 @@
 				can be useful for debugging reasons. HTML is a lot more straightforward
 				than PDF. When an error occurs while generating a PDF file, it is very hard
 				to find what bug caused the error. The resulting PDF-file is too damaged
-				to examin its contents. So while testing I always generate an HTML file
+				to examine its contents. So while testing I always generate an HTML file
 				at the same time in order to retrieve the exact place where the error occurs
 				or the exact object that throws the exception.<BR>
 				There is also a package <FONT FACE="Courier">com.lowagie.text.xml</FONT>,
@@ -235,7 +235,7 @@
 			</TR>
 			</TABLE>
 			As an additional illustration of the fact that you can send documents to any
-			outputstream, example 6 sends HTML to <FONT FACE="Courier">System.out</FONT>.<BR>
+			outputstream; example 6 sends HTML to <FONT FACE="Courier">System.out</FONT>.<BR>
 			<DIV ALIGN="center"><IMG SRC="Chap0106dos.png" WIDTH=668 HEIGHT=331 ALT="System.out" BORDER="0"></DIV><BR>
 			You can see that a custom header was used to add an 'Expires' META-tag.<BR>There is 1 exception:
 			if you add a custom header with as name <FONT SOURCE="Courier">HtmlWriter.STYLESHEET</FONT>,
