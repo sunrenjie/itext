@@ -77,11 +77,18 @@
 			then added some cells at random positions:<br>
 			<FONT FACE="Courier">
             Table aTable = new Table(4,4);<br>
+            aTable.setAutoFillEmptyCells(true);<br>
             aTable.addCell("2.2", new Point(2,2));<br>
             aTable.addCell("3.3", new Point(3,3));<br>
             aTable.addCell("2.1", new Point(2,1));<br>
             aTable.addCell("1.3", new Point(1,3));<br>
-			</FONT><br><br>
+			</FONT><br>
+			As you can see we have to set a parameter 'AutoFillEmptyCells' to <FONT FACE="Courier">true</FONT>.
+			This automagically fills the empty cells with a cell that follows the default cell layout.
+			If we forget to do this (as in the second table in the example), there will be no extra
+			cells added and rows that don't contain any cells will be omitted. In the example, the
+			first row is not shown, because it is empty.
+			<br><br>
 			Often a table will be filled with the results of a database query.
 			In most cases, you don't know in advance how many rows you will need.
 			That's why there is also a second constructor:<br>
@@ -303,14 +310,18 @@
 			If you want this table header to be repeated on every page, you can
 			mark the end of the header section by using the method
 			<FONT FACE="Courier">endHeaders()</FONT>. This is done in <A HREF="../examples/Chap0510.java">Example 10</A> (see <A HREF="../examples/Chap0510.pdf">Chap0510.pdf</A>).<br>
-			For reports like this, it is advised to set the cellspacing to 0 and to use only a certain cellpadding.
-			If you do the opposite (as in <A HREF="../examples/Chap0511.java">Example 11</A>),
-			the result will not be very nice: <A HREF="../examples/Chap0511.pdf">Chap0511.pdf</A>.<br>
+			For reports like this, it is advised to set the cellspacing to 0 and to use only a certain cellpadding.<br>
 			You may have noticed that when a table is split, some borders seem to be missing.
 			This is because cells that are completely drawn on the previous page, are not transfered
-			to the next page. They are gone and their border isn't drawn.<br>
-			In some cases, you may want to avoid cells been split into two parts. You can avoid this by using the
-			<FONT FACE="Courier">fitsPage</FONT>-method as described in the next item.<br><br>
+			to the next page. They are gone and their border isn't drawn.<br><br>
+			<A NAME="fitspage"><b>Force a table or a cell to fit a page</b></A><br>
+			In some cases, you may want to avoid cells or even the complete table to be split into two parts.
+			<A HREF="../examples/Chap0511.java">Example 11</A> has almost exactly the same code as <A HREF="../examples/Chap0508.java">Example 8</A>,
+			but we have set the parameter 'TableHasToFit' to <CODE FONT="Courier">true</CODE>.Take a look at the differences
+			between the <A HREF="../examples/Chap0508.pdf">original example 8</A> and
+			<A HREF="../examples/Chap0511.pdf">example 11</A>. In <A HREF="../examples/Chap0512.java">example 12</A>
+			we have changed <A HREF="../examples/Chap0510.java">Example 10</A> and we have set the parameter 'CellsHaveToFit'
+			to <CODE FONT="Courier">true</CODE>.  (Compare <A HREF="../examples/Chap0510.pdf">Chap0510.pdf</A> and <A HREF="../examples/Chap0512.pdf">Chap0512.pdf</A>.)<br><br>
 			<A NAME="memory"><b>Memory management</b></A><br>
 			When you add objects to a Document, these objects are written to the outputstream as soon as possible.
 			But when you construct a table, the <FONT FACE="Courier">Table</FONT>-object keeps on growing.
@@ -318,8 +329,8 @@
 			Also, if you are writing to a the outputstream of a <FONT FACE="Courier">HttpServletResponse</FONT>-object,
 			the timeout of the browser can be reached.<br>
 			That is why it can be useful to control the 'table-breaks' yourself, using the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
-			<FONT FACE="Courier">PdfWriter</FONT>. <A HREF="../examples/Chap0512.java">Example 12</A>
-			(<A HREF="../examples/Chap0512.pdf">Chap0512.pdf</A>) shows you how to do this.<BR>
+			<FONT FACE="Courier">PdfWriter</FONT>. <A HREF="../examples/Chap0513.java">Example 13</A>
+			(<A HREF="../examples/Chap0513.pdf">Chap0513.pdf</A>) shows you how to do this.<BR>
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -327,17 +338,35 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="nested"><B>Nested tables</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">	
-			Besides the method <FONT FACE="Courier">addColumns</FONT>, there is another way to make a table larger
-			in a dynamic way. Just use nested table. <A HREF="../examples/Chap0513.java">Example 13</A>
-			(<A HREF="../examples/Chap0513.pdf">Chap0513.pdf</A>), <A HREF="../examples/Chap0514.java">14</A>
-			(<A HREF="../examples/Chap0514.pdf">Chap0514.pdf</A>), <A HREF="../examples/Chap0515.java">15</A>
-			(<A HREF="../examples/Chap0515.pdf">Chap0515.pdf</A>), <A HREF="../examples/Chap0516.java">16</A>
-			(<A HREF="../examples/Chap0516.pdf">Chap0516.pdf</A>) and <A HREF="../examples/Chap0517.java">17</A>
-			(<A HREF="../examples/Chap0517.pdf">Chap0517.pdf</A>) show you how to do this.<br>
-			As you can see in example 14, empty cells are split automatically. Example 15 shows you what happens when you
-			add a new cell after you inserted a table. Example 16 demonstrates how the
-			relative widths of each inserted table are recalculated. Example 17
-			demonstrates 'deep nesting'.<br><br>
+			There are 2 different ways to nest tables. The first way, is to explicitly insert
+			one table into another table, using	the method 'insertTable'.
+			<A HREF="../examples/Chap0514.java">Example 14</A> (<A HREF="../examples/Chap0514.pdf">Chap0514.pdf</A>)
+			shows 5 tables that were constructed by inserting tables into eachother. As you can see in the first
+			2 tables, all empty cells automatically get split, thus changing the original table grid.
+			If a cell isn't empty, the colspan and/or rowspan are adjusted to the new situation.
+			The third table on this page shows that all the relative widths of the columns in the original
+			tables are preserved. The fourth table shows we can add other cells after we have inserted a
+			table: the cell is added in the next cell that is free. Finally there is a table that uses 'deep nesting'.<BR>
+			<BR>
+			When you use the 'insertTable' method, the widthpercentage of the table you are inserting
+			is not taken into account. If you want the table to take only 80% of the width of the cell
+			(this is the default width percentage), you have to wrap the table into a Cell.
+			This is shown in <A HREF="../examples/Chap0515.java">example 15</A>	(<A HREF="../examples/Chap0515.pdf">Chap0515.pdf</A>).
+			This is also to only way to have a table in combination with other elements in the same cell.
+			This is demonstrated in <A HREF="../examples/Chap0516.java">example 16</A> (<A HREF="../examples/Chap0516.pdf">Chap0516.pdf</A>).
+			<br><br>
+			</FONT>
+		</TD>
+	</TR>	
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="tableoffset"><B>Table offset</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Before a table is added to a document. A newline is added using the current leading (i.e.
+			the leading of the previous object that was added).	Sometimes you don't want this because
+			the space between the table and the previous object is to large/small. If you want to
+			change this space, you have to set the offset of the table as shown in
+			<A HREF="../examples/Chap0517.java">Example 17</A> (<A HREF="../examples/Chap0517.pdf">Chap0517.pdf</A>).<br><br>
 			</FONT>
 		</TD>
 	</TR>	

@@ -44,7 +44,6 @@ public class Chap0516 {
             secondTable.addCell("2nd table 1.1");
             Cell tableCell = new Cell("This is a nested table");
             tableCell.add(secondTable);
-            //tableCell.add(new Phrase("This was a nested table"));
             
             Table aTable = new Table(3,3);    // 3 rows, 3 columns
             aTable.addCell("0.0", new Point(0,0));
