@@ -20,6 +20,10 @@
 <site:changelog>
 <ul>
 <li>NOT YET RELEASED: iText1.1.3<ul>
+<li>Added the ability to generate soft linebreaks. This is currently only used 
+when list items contain linebreaks.</li>
+<li>Fixed a bug with list indentations. Multi-line list items should now be 
+correctly indented.</li>
 <li>implementation of the methods pause() and resume() in RtfWriter and RtfWriter2</li>
 <li>Chunk.BACKGROUND takes value Chunk.SUBSUPSCRIPT into account</li>
 <li>Some extra functionality in class Chunk:
