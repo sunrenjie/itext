@@ -33,7 +33,7 @@ in this format:<br />
 <pre class="commandline">
 <![CDATA[<site:faq-entry name="topic">
 <site:question>This is a question on 'topic'</site:question>
-<site:answer>This is my answer (HTML allowed).<site:answer>
+<site:answer>This is my answer (HTML allowed).</site:answer>
 </site:faq-entry>]]>
 </pre>
 </div>
@@ -561,13 +561,43 @@ Try <a href="http://jakarta.apache.org/poi/">Apache POI</a>.
 
 <site:faq-separator />
 
+<site:faq-entry name="tablespacing">
+<site:question>Why did the spacing for my Table change from what was in version 1.0*?</site:question>
+<site:answer>
+Some bugs were fixed related to the Table class that have changed how some spacing was calculated.
+Outside of the table, extra spacing is added based on the table offset (Table.setOffset) or the
+current leading if the table offset is not set.  The current leading is the leading of the last
+content added to the document (0 if the table is the first thing in the document).
+In version 1.02b, spacing outside the table worked like:
+<dl>
+<dt>Previous Content</dt>
+<dd>blank line with height = table offset + 6pt</dd>
+<dt>Table</dt>
+<dd>blank line with height = table offset</dd>
+</dl>
+Starting with version 1.1.2, spacing outside the table works like:
+<dl>
+<dt>Previous Content</dt>
+<dd>blank line with height = table offset</dd>
+<dt>Table</dt>
+<dd>-</dd>
+</dl>
+Some spacing has changed inside the Table also.  Inside Cells, the spacing of lines used to be based
+only on the Cell leading (Cell.setLeading). This caused problems if the content of the cell had
+different leading than the Cell.  As of version 1.1, the Cell content uses the leading of the
+content for all content derived from Phrase.  There is another handy feature of Cell (added in 1.1)
+that may let you generally ignore leading and have the height automatically set - use
+Cell.setUseAscender(true) and Cell.setUseDescender(true).
+</site:answer>
+</site:faq-entry>
+
 <site:faq-entry name="newpage">
 <site:question>How do I create a new page in iText?</site:question>
 <site:answer>
 
 Sometimes the most obvious answers are the hardest to find:
 <span class="commandline">document.newPage()</span>.
-See the <a href="http://itext.sourceforge.net/docs/com/lowagie/text/Document.html#newPage()">API</a>.
+See the <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#newpage">tutorial FAQ</a>.
 
 </site:answer>
 </site:faq-entry>
@@ -578,7 +608,7 @@ See the <a href="http://itext.sourceforge.net/docs/com/lowagie/text/Document.htm
 
 The default measurement system roughly corresponds to the various definitions
 of the typographic unit of measurement known as the <i>point</i>.
-This is covered in the <a href="tutorial/ch01.html#measurements">tutorial</a>.
+This is covered in the <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#measurements">tutorial FAQ</a>.
 
 </site:answer>
 </site:faq-entry>
@@ -592,7 +622,7 @@ These pages are shown in <i>portrait</i>. If you create a page with
 PageSize.A4.rotate(), the pages are shown in <i>landscape</i>.
 You can also use the setPageSize-method, but be aware of the
 fact that the PageSize will only be changed on the next page.<br />
-This is covered in the <a href="tutorial/ch01.html#landscape">tutorial</a>.
+This is covered in the <a href="http://itext.sourceforge.net/tutorial/general/index.html#step1">tutorial</a>.
 
 </site:answer>
 </site:faq-entry>
