@@ -326,6 +326,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 							<xsl:attribute name="href">.<xsl:value-of select="$root" />/index.html#<xsl:value-of select="translate(substring($branch, 2), '/', '_')" /></xsl:attribute>
 							Table of Contents
 						</xsl:element>
+						<div align="Center" class="small">Best viewed with: <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=1">Firefox</a></div>
 						<div class="sidetitle">Sections:</div>
 						<ul>
 							<xsl:for-each select="site:chapter/site:section">
