@@ -68,7 +68,142 @@ are not always correct. Adobe's print dialog has several options (like "fit to p
 that change the printed result, so be careful!<br />
 </div>
 	</site:section>
-	
+	<site:section name="transform">
+		<site:sectiontitle>Transformations</site:sectiontitle>
+<div>
+There are different ways to change the CTM. You can use the method
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="PdfContentByte.html#concatCTM(float,%20float,%20float,%20float,%20float,%20float)">PdfContentByte.html#concatCTM(float, float, float, float, float, float)</site:doc>.
+You can for instance shift the origin to the upper left corner and change the orientation of the y-axis with this line of code:
+<pre class="commandline">cb.concatCTM(1f, 0f, 0f, -1f, 0f, PageSize.A4.height());</pre>
+We take the same code as in the first example, but now everything is upside-down and
+the text is mirrored.
+<site:source class="UpsideDown" />
+These transformations are called <i>affine transformations</i>
+and you should have learnt about them at school when you were about 17 years old.<br />
+This is some algebra to freshen up your memory:
+if you want to translate, scale or rotate images or text, you need to use a Transformation Matrix.
+Most iText methods involving transformations ask you for the parameters a, b, c, d, e and f.
+Those parameters are elements of the Transformation Matrix:<br />
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>a</td>
+<td>b</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>c</td>
+<td>d</td>
+<td>0</td>
+</tr>
+<tr>
+<td>e</td>
+<td>f</td>
+<td>1</td>
+</tr>
+</table>
+The third column is fixed because we are only interested in 2D transformations,
+we are not discussing 3D here.
+With the parameters e and f, you can specify a translation.
+The following matrix moves everything e pixels in x-direction and f pixels
+in y-direction.
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>e</td>
+<td>f</td>
+<td>1</td>
+</tr>
+</table>
+You can use the a and d parameter to scale.
+The following matrix doubles everything in x-direction and triples everything in y-direction:
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</table>
+If you want to rotate something, you have to change a, b, c and d.
+With angle equals to the rotation angle in radians, you have a matrix like this:
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>Math.cos(angle)</td>
+<td>Math.sin(angle)</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>-Math.sin(angle)</td>
+<td>Math.cos(angle)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</table>
+There is one serious caveat when you rotate an object: the coordinate of the
+rotation pivot is (0, 0). If you rotate something, you have to watch out that
+it is not rotated 'off' your page. you may have to perform a
+translation to keep the object on the page.
+Of course you can combine translation (tX, tY), scaling (sX, sY) rotation (angle) in one matrix:
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>sX * Math.cos(angle)</td>
+<td>sY * Math.sin(angle)</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>-sX * Math.sin(angle)</td>
+<td>sY * Math.cos(angle)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>tX</td>
+<td>tY</td>
+<td>1</td>
+</tr>
+</table>
+So you will have to use these parameters:
+<ul>
+<li>a = sX * Math.cos(angle);</li>
+<li>b = sY * Math.sin(angle);</li>
+<li>c = -sX * Math.sin(angle);</li>
+<li>d = sY * Math.cos(angle)</li>
+<li>e = tX;</li>
+<li>f = tY;</li>
+</ul>
+</div>
+	</site:section>
 	</site:chapter>
 
 </site:page>
