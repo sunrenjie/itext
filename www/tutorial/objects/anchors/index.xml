@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Bookmarks, Anchors and Destinations</site:title>
+		<site:summary>Deals with all the Bookmarks, Outlines, Destinations, Anchors, RemoteGoto, LocalGoto,... functionality</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, anchors, remoteGoto, LocalGoto, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:keyword>PDF</site:keyword>
+			<site:keyword>JAVA</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="AHref" standalone="yes" />
+			<site:result>AHref.pdf</site:result>
+			<site:result>AHref.html</site:result>
+			<site:description>Using the Anchor object</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="intro">
+		<site:sectiontitle>the Anchor class</site:sectiontitle>
+<div>
+<site:source class="AHref" />
+</div>
+	</site:section>
+	</site:chapter>
+</site:page>
