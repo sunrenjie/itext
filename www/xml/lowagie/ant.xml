@@ -23,14 +23,16 @@ build their site(s). But those scripts are useful for iText users too.
 If you want to download or install ant, please go to the <a href="http://ant.apache.org/">ANT site @ Apache.org</a>. On this page,
 you will only find how to use ANT in the context of the iText project.
 <div class="title">Using ANT for iText</div>
-Every self-respecting JAVA project has its <a href="ant/build.xml">build.xml</a> file.
+Every self-respecting JAVA project has its <a href="build.xml">build.xml</a> file.
 If you want to use ANT for iText, you should start from a specific directory, say <span class="commandline">D:\iText</span>
 or <span class="commandline">/home/blowagie/projects</span>, with two subdirectories 'src' and 'www',
-one for each CVS module. Directory 'www' should have a subdirectory 'ant' with <a href="ant/">all the iText ANT scripts</a>
-in it. A third directory 'build' will be created with the results of compile-actions, jar-commands, downloads,...
+one for each CVS module. Directory 'src' should have a <a href="build.xml">build.xml</a> file on the root and a
+subdirectory 'ant' with all the iText ANT <a href="ant/">subscripts</a> in it, as well as a properties-file.
+A third directory 'build' will be created with the results of compile-actions, jar-commands, downloads,...
 You can change the location of all these directories, by changing the <a href="ant/.ant.properties">.ant.properties</a>-file.<br />
 If you look at the iText build.xml file,
-you will see that the master build.xml calls different subscripts.
+you will see that the master build.xml doesn't have a lot of actual code.
+It calls different subscripts.
 You can call most of the targets from this master build.xml,
 but for some of the specialized (hidden) targets, you will need to
 call the subscript directly with <span class="commandline">build -f</span>.
