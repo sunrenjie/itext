@@ -37,6 +37,24 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+	<site:section name="MyJavaServer">
+		<site:sectiontitle>MyJavaServer.com</site:sectiontitle>
+<div>
+<a href="http://www.myjavaserver.com/"><img src="http://www.myjavaserver.com/images/main/mycgiserver_logo_1.gif" align="right" /></a>
+All the examples in this chapter are hosted at <a href="http://www.myjavaserver.com/">MyJavaServer.com</a>.
+<a href="http://www.myjavaserver.com/">MyJavaServer.com</a> is a free J2EE
+hosting service, that is part of the <a href="http://www.javalobby.org/">Javalobby</a> network of Java
+developer sites. As a Java developer, you can get a free <a href="http://www.javalobby.org/">Javalobby</a> membership.
+This entitles you to great offers like free books, downloads, a weekly
+newsletter with the latest Java news and announcements, and access to
+a personalized version of the biggest Javadocs collection on the web:
+<a href="http://www.jdocs.com/">JDocs.com</a>. In addition, you can also
+create your own free Java blog at the Java blogging site,
+<a href="http://www.jroller.com">JRoller.com</a>.  
+</div>
+	</site:section>
+	
 	<site:section name="HelloWorld">
 		<site:sectiontitle>Hello World</site:sectiontitle>
 <div>

@@ -85,6 +85,10 @@ public class CellWidths {
 			table.setWidthPercentage(widths, r);
 			document.add(new Paragraph("We change the percentage using absolute widths:\n\n"));
 			document.add(table);
+			document.add(new Paragraph("We use a locked width:\n\n"));
+			table.setTotalWidth(300);
+			table.setLockedWidth(true);
+			document.add(table);
 		} catch (Exception de) {
 			de.printStackTrace();
 		}

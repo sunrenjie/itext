@@ -159,10 +159,17 @@ You can do this in different ways:<ul>
 For instance, if you want two 'normal' columns and a third column that's double the size of a 'normal' column,
 use the float-array <span class="commandline">{1f, 1f, 2f}</span> as relativewidths. iText will calculate the absolute width for you.</li>
 <li>You can also use the method <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidths(float[])">setWidths</site:doc>
-to change this array after you constructed the PdfPTable (but be carefull: the array needs to have the same size as the number of columns).</li>
+to change this array after you constructed the PdfPTable (but be carefull: the array needs to have the same size as the number of columns).
+In the example the percentages are changed from (10%, 10%, 5%, 75%) to (20%, 20%, 10%, 50%) so the second table looks completely different.</li>
 <li>If you want to work with absolute widths for the columns. You have to let iText calculate a widthpercentage for the table.
 In this case you should use: <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidthPercentage(float[],%20com.lowagie.text.Rectangle)">setWidthPercentage(float[] columnWidth, Rectangle pageSize)</site:doc>.
-As you can see in the example, you need to do some calculations first to get the right pagesize.</li></ul>
+As you can see in the example, you need to do some calculations first to get the right pagesize.</li>
+<li>It even easier to use absolute widths if you lock the width of the table to a 'total width'. You need the methods
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setTotalWidth(float)">setTotalWidth</site:doc>
+and 
+<site:doc class="com.lowagie.text.pdf.PdfPTable" target="setLockedWidth(boolean)">setLockedWidth</site:doc> for this.
+In the example the relation between the different cells will remain 10%, 10%, 5%, 75%, so you'll have 2 columns with a width of 30pt, one with a width of 15pt and one that's 225pt wide.</li>
+</ul>
 <site:source class="CellWidths" />
 If you don't change the defaults, all tables will be glued to eachother or to the other content of the page unless you add the necessary newlines.
 If you want to avoid this, you can also use the methods
