@@ -11,7 +11,7 @@ SPAN  {
 SPAN.topic  {
 	font-family : Arial, Helvetica;
 	font-size : 12;
-    font-weight : bold;
+	font-weight : bold;
 }
 
 DIV  {
@@ -63,11 +63,13 @@ a.normal  {
 	font-size : 12;
 	color : #008080;
 }
+
 a.download  {
 	font-family : Arial, Helvetica;
 	font-size : 12;
 	color : #000000;
 }
+
 code  {
 	font-family : Courier;
 	font-size : 12;
@@ -97,13 +99,13 @@ SPAN.light  {
 }
 
 SPAN.lightsmallbold  {
-	font-size : 12;
+	font-size : 14;
 	color : #FFFFFF;
 	font-weight : bold;
 }
 
 SPAN.lightsmall  {
-	font-size : 12;
+	font-size : 14;
 	color : #FFFFFF;
 }
 
@@ -146,5 +148,10 @@ A.verysmall  {
 PRE  {
 	font-size : 10;
 	text-align : left;
+}
+
+A:hover  {
+	font-weight : bold;
+	text-decoration : none;
 }
 
