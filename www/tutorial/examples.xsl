@@ -65,7 +65,7 @@
 					</xsl:element>
 				</javac>
 				<xsl:for-each select="site:example">
-					<xsl:if test="site:java/@standalone!='no'">
+					<xsl:if test="site:java/@standalone='yes'">
 						<xsl:element name="java">
 							<xsl:attribute name="fork">yes</xsl:attribute>
 							<xsl:attribute name="dir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
