@@ -35,6 +35,7 @@ import com.lowagie.text.pdf.PdfWriter;
 public class WidthHeight {
     /**
      * Width and height of a textstring
+     * @param args no arguments needed
      */
     public static void main(String[] args) {
         

@@ -44,12 +44,12 @@
 		<site:example>
 			<site:java src="FontEncoding" standalone="yes" />
 			<site:result>fontencoding.pdf</site:result>
-			<site:description>Displaying unicode characters</site:description>
+			<site:description>Using a True Type font that will be embedded in the PDF</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="EmbeddedTrueType" standalone="yes" />
-			<site:result>embeddedtruetype.pdf</site:result>
-			<site:description>Using an embedded True Type font</site:description>
+			<site:java src="UnicodeExample" standalone="yes" />
+			<site:result>unicode.pdf</site:result>
+			<site:description>Using BaseFont.IDENTITY_H as 'encoding'</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="EncodingFont" standalone="yes" />
@@ -199,19 +199,28 @@ For example, the glyphs A, <b>A</b> and <i>A</i> are renderings of the abstract 
 The encoding is the association between the character codes (obtained from text strings) and glyph descriptions.
 The same Java character in a Java String object can be rendered in many different ways, depending on the encoding.
 Basefont has some default values, but you could use any of the encodings that are available in the font you are using.
-<table width="100%" border="1">
+<table border="1">
 <tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="WINANSI">WINANSI</site:doc> = <site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1252">CP1252</site:doc></td><td>Latin 1</td></tr>
 <tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1250">CP1250</site:doc></td><td>Latin 2: Eastern Europe</td></tr>
 <tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="CP1257">CP1257</site:doc>1257</td><td>Windows Baltic</td></tr>
 <tr><td><site:doc class="com.lowagie.text.pdf.BaseFont" target="MACROMAN">MACROMAN</site:doc></td><td>MacRomanEncoding</td></tr>
-<tr><td rowspan="2">You could easily extend the list with "1251" (Cyrillic), "1253" (Greek), "1254" (Turkish)</td></tr>
+<tr><td colspan="2">You could easily extend the list with "1251" (Cyrillic), "1253" (Greek), "1254" (Turkish)</td></tr>
 </table>
 You can ask a font for its encodings as is done in the next example:
 <site:source class="ListEncodings" />
 Note that not all fonts contain all the encodings you want. Just go looking for the font that is best suited for your needs.<br />
 These are some examples that use different encodings:
 <site:source class="FontEncoding" />
-<site:source class="EmbeddedTrueType" />
+In the next example, we are passing the value <site:doc class="com.lowagie.text.pdf.BaseFont" target="IDENTITY_H">IDENTITY_H</site:doc>
+as <i>encoding</i>. BaseFont.IDENTITY_H and BaseFont.IDENTITY_V are not really encodings.
+They indicate that the unicode character wil be looked up in the font
+and stored as-is, taking two bytes of space. It's the only way to have
+Asian fonts and some encodings left out by Adobe such as Thai.
+For Europe or the Middle-East, it is better to use an available
+encoding that will store a single byte per character.
+Fonts with BaseFont.IDENTITY_H or BaseFont.IDENTITY_V
+will always be embedded no matter what you enter as third parameter.
+<site:source class="UnicodeExample" />
 Characters don't have to be single byte as you can see in the next example with double-byte unicode characters:
 <site:source class="EncodingFont" /></li>
 <li>With the third parameter you specify if you want to embed (a subset of) a font into the PDF document.

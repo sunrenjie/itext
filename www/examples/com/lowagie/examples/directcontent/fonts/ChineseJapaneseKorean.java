@@ -35,6 +35,10 @@ import com.lowagie.text.pdf.PdfWriter;
  */
 public class ChineseJapaneseKorean {
 
+	/**
+	 * Using CJK fonts
+	 * @param args no arguments needed
+	 */
 	public static void main(String[] args) {
         System.out.println("CJK Fonts");
         
@@ -85,8 +89,8 @@ public class ChineseJapaneseKorean {
             // step 4: we add content to the document
             BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
             Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
-            Paragraph chunk = new Paragraph(chinese, FontChinese);
-            document.add(chunk);
+            Paragraph p = new Paragraph(chinese, FontChinese);
+            document.add(p);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

@@ -30,13 +30,13 @@
 		<site:example>
 			<site:java src="TrueTypeCollections" standalone="yes" />
 			<site:result>truetypecollections.pdf</site:result>
+			<site:result>msgothic.txt</site:result>
 			<site:description>True Type Collections</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ChineseJapaneseKorean" standalone="yes" />
 			<site:result>cjk.pdf</site:result>
 			<site:extrajar>iTextAsian.jar</site:extrajar>
-			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
 			<site:description>Using CJK Fonts</site:description>
 		</site:example>
 		<site:example>
@@ -53,19 +53,26 @@
 			<site:java src="Vertical" standalone="yes" />
 			<site:result>vertical.pdf</site:result>
 			<site:extrajar>iTextAsian.jar</site:extrajar>
-			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
 			<site:description>Writing vertical text</site:description>
 		</site:example>
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="text">
-		<site:sectiontitle>Standard Type 1 Fonts</site:sectiontitle>
+	<site:section name="standard">
+		<site:sectiontitle>Fonts supported in iText</site:sectiontitle>
 <div>
 The first part of Chapter 5 of the PDF Reference Manual deals with
 <site:tutorial chapter="/directcontent/text">Text State</site:tutorial>;
-the second part (starting with section 5.4) tells you all about fonts.<br /><br />
-<div class="subtitle">Standard Type 1 Fonts</div>
+the second part (starting with section 5.4) tells you all about fonts.
+If you want to know more about how to use a Font object with iText,
+please read the chapter on
+<site:tutorial chapter="/objects/fonts">Font objects</site:tutorial> first.
+This chapter will tell you where to find the font you need.
+</div>
+	</site:section>
+	<site:section name="jars">
+		<site:sectiontitle>Built-in fonts</site:sectiontitle>
+<div>
 PDF prescribes a set of 14 standard fonts that can be used without prior definition.
 These include four faces each of three Latin text typefaces (Courier,
 Helvetica and Times), as well as two symbolic fonts (Symbol and ITC Zapf
@@ -98,21 +105,78 @@ of each 'glyph').
 </table>
 As you can see the different faces (normal, bold, italic and bolditalic) of the same type face (Courier, Helvetica, Times Roman)
 are considered to be different fonts.
-The use of these fonts is discussed in the chapter on <site:tutorial chapter="/objects/fonts">Font objects</site:tutorial>.
 </div>
 	</site:section>
-	<site:section name="fontfiles">
+	<site:section name="files">
 		<site:sectiontitle>Fonts from files</site:sectiontitle>
 <div>
 <site:source class="OpenTypeFont" />
 <site:source class="TrueType" />
+<div class="subtitle">TTC Files (True Type Collections)</div>
+A <i>True Type Collection</i> contains more than one font. As you can see in the example,
+we add a number after the TTC-file to indicate which of the fonts we want to use.
+If you want to know the names of the fonts in a certain TTC-file, you can use the
+method <site:doc class="com.lowagie.text.pdf.BaseFont" target="enumerateTTCNames(java.lang.String)">enumerateTTCNames(java.lang.String)</site:doc>.
+The file msgothic.ttc contains 3 fonts: (0) MS-Gothic, (1) MS-PGothic and (2) MS-UIGothic.
+In the example, we want to use MS-PGothic, so we add 1 to the path:
+<pre class="commandline">BaseFont.createFont(
+  "c:\\windows\\fonts\\msgothic.ttc,1",
+  BaseFont.IDENTITY_H,
+  BaseFont.EMBEDDED);</pre>
+Remark that this example will not run on your system if you don't have msgothic.ttc in your fonts directory.
+It's not there by default! If you want to run this example, you should look on your WINDOWS installation CDs
+and extract it to your fonts directory.
 <site:source class="TrueTypeCollections" />
+<div class="subtitle">AFM Files</div>
+If you have other .AFM and .PFB files than the afm files of Base14 fonts
+that are in the iText.jar,, you can put them in the same directory (com/lowagie/text/pdf/fonts)
+and then use something like this:
+<pre class="commandline">BaseBont bf = BaseFont.createFont("myfont.afm", BaseFont.WINANSI, BaseFont.EMBEDDED);</pre>
+However, if you have the alternative, use a true type font: the font will be subset and the resulting document will be a lot smaller.
 </div>
 	</site:section>
-	<site:section name="external">
-		<site:sectiontitle>Fonts using font packs</site:sectiontitle>
+	<site:section name="jars">
+		<site:sectiontitle>Fonts from jars</site:sectiontitle>
 <div>
+CID fonts are Postscript-based fonts which can support a large number
+(65,536 max) of characters. The format is often used for CJK fonts
+(CJK = Chinese Japanese Korean). CID format makes it possible to change
+the character order (encoding) of a font through the use of character-to-glyph tables (CMaps)
+which are external to the font.<br />
+If you want to use CJK fonts in iText, you need an extra jar:
+<a href="http://itext.sourceforge.net/downloads/iTextAsian.jar">iTextAsian.jar</a>.
+If you want to be able to read the text you generated with iText using CJK fonts,
+you will also need to download and install a special
+<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">font pack for Acrobat Reader</a>
+(or maybe your Reader will ask you to install such a font pack upon opening a PDF file with CJK fonts).
+For the rest, using the CJK fonts supported by the iTextAsian.jar is as easy as using any other font:
+<pre class="commandline">BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
+Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
+Paragraph p = new Paragraph(chinese, FontChinese);
+document.add(p);</pre>
 <site:source class="ChineseJapaneseKorean" />
+This is the list of fonts supported in the iTextAsian.jar:
+<ul>
+<li><b>Chinese Simplified:</b><br />
+STSong-Light and STSongStd-Light with the encodings UniGB-UCS2-H and UniGB-UCS2-V</li>
+<li><b>Chinese Traditional:</b><br />
+MHei-Medium, MSung-Light and MSungStd-Light with the encodings UniCNS-UCS2-H and UniCNS-UCS2-V</li>
+<li><b>Japanese:</b><br />
+HeiseiMin-W3, HeiseiKakuGo-W5 and KozMinPro-Regular with the encodings UniJIS-UCS2-H, UniJIS-UCS2-V, UniJIS-UCS2-HW-H and UniJIS-UCS2-HW-V</li>
+<li><b>Korean:</b><br />
+HYGoThic-Medium, HYSMyeongJo-Medium and HYSMyeongJoStd with the encodings UniKS-UCS2-H and UniKS-UCS2-V</li>
+</ul>
+But that's not all, there is also an extra jar
+<a href="http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar">iTextAsianCmaps.jar</a>.
+It contains the cmaps for lots of other CID fonts. This is how you can use them:
+<pre class="commandline">PdfEncodings.loadCmap(
+  "GBK2K-H",
+  PdfEncodings.CRLF_CID_NEWLINE); // needs to be done only once
+byte text[] = my_GB_encoded_text;
+String cid = PdfEncodings.convertCmap("GBK2K-H", text);
+BaseFont bf = BaseFont.createFont("STSong-Light", "Identity-H", false);
+Paragraph p = new Paragraph(cid, new Font(bf, 14));
+document .add(p);</pre>
 </div>
 	</site:section>
 	<site:section name="direction">

@@ -19,7 +19,9 @@
  */
 package com.lowagie.examples.directcontent.fonts;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import com.lowagie.text.Document;
@@ -45,11 +47,14 @@ public class TrueTypeCollections {
         Document document = new Document();
         
         try {
+			BufferedWriter out = new BufferedWriter(new FileWriter("msgothic.txt"));
             String[] names = BaseFont.enumerateTTCNames("c:\\windows\\fonts\\msgothic.ttc");
-            for (int i = 0; i < names.length; i++) {
-                System.out.println("font " + i + ": " + names[i]);                
-            }
-            
+            for (int i = 0; i < names.length; i++) {              
+	        	out.write("font " + i + ": " + names[i]);
+	        	out.write("\r\n");
+	        }
+	        out.flush();
+	        out.close();
             // step 2: creation of the writer
             PdfWriter.getInstance(document, new FileOutputStream("truetypecollections.pdf"));
             

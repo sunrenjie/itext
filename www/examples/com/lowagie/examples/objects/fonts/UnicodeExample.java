@@ -29,7 +29,7 @@ import com.lowagie.text.pdf.PdfWriter;
 /**
  * Embedding True Type fonts.
  */
-public class EmbeddedTrueType {
+public class UnicodeExample {
     
     /**
      * Embedding True Type Fonts.
@@ -45,7 +45,7 @@ public class EmbeddedTrueType {
         try {
             
             // step 2: creation of the writer-object
-            PdfWriter.getInstance(document, new FileOutputStream("embeddedtruetype.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("unicode.pdf"));
             
             // step 3: we open the document
             document.open();
