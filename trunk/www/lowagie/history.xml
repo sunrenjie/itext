@@ -19,6 +19,13 @@
 <site:remark>scheduled for january/february 2005</site:remark>
 <site:changelog>
 <ul>
+<li>2004-12-29: paulo 147<ul><li>added full support for Optional Content Groups (OCG) also known as
+layers. This covers not only the content streams but also annotations and
+XObjects.</li>
+<li>added PdfAction.setOCGstate()</li>
+<li>fixed ColumnText.showTextAligned() to put the activation rectangle
+in the right place if the rotation is 0.</li>
+<li>fixed in AcroFields setting combo fields with /Opt values.</li></ul></li>
 <li>2004-12-26: paulo 146 - 2004-12-27: iText1.1.4<ul>
 <li>removed PdfArray.add(PdfArray) that broke iText in many places. Bug
 introduced in itext-paulo-144/iText1.1.3.</li>
