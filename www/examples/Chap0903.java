@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Bruno Lowagie <--
+ * --> Copyright 2001 by Paulo Soares, Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -51,10 +51,14 @@ public class Chap0903 {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", "winansi", true);
-            Font FontComic = new Font(bfComic, 12, Font.NORMAL);
-            Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);
-            document.add(chunk);
+            BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            Font font = new Font(bfComic, 12);
+            String text1 = "This is the quite popular True Type font 'Comic'.";
+            String text2 = "Some greek characters: \u0393\u0394\u03b6";
+            String text3 = "Some cyrillic characters: \u0418\u044f";
+            document.add(new Paragraph(text1, font));
+            document.add(new Paragraph(text2, font));
+            document.add(new Paragraph(text3, font));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

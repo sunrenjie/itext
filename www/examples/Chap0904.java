@@ -51,7 +51,7 @@ public class Chap0904 {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);
+            BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
             Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
             Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);
             document.add(chunk);
