@@ -193,12 +193,13 @@
 			Sometimes it's necessary to know the length of a certain piece of text.
 			If you have created a <FONT FACE="Courier">BaseFont</FONT> object, you can use the method:<br>
 			<FONT FACE="Courier">public float getWidthPoint(String text, float fontSize);</FONT><br>
-			
 			So if you are using some barcode font with size 36 as in the previous example and
 			you want to know how much space you need on the line to print this barcode, you just
-			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f);</FONT>.<br>
+			do: <FONT FACE="Courier">getWidthPoint("0123456789", 36f)</FONT>.<br>
 			The result is the width in points. There are 72 points in 1 inch. So if you have
-			a result of 595 points / 72 = 8.2677 inch * 2.54 = 21 cm (see <A HREF="ch01.html#measurements">Chapter 1</A>).
+			a result of 252 points (as in <A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">example 6</A>),
+			you can convert this to inches and centimeters like this:
+			252 / 72 = 3.5 inch * 2.54 = 8.89 cm (see also <A HREF="ch01.html#measurements">Chapter 1</A>).
 			<BR><BR>
 			</FONT><br><br>
 		</TD>

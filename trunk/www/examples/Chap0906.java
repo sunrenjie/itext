@@ -22,15 +22,12 @@
  * tel. +32 (0)9 228.10.97
  * bruno@lowagie.com
  */
-
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 import com.lowagie.text.pdf.PdfBarcode;
 import com.lowagie.text.pdf.BaseFont;
-
 public class Chap0906 {
     
     public static void main(String[] args) {
@@ -61,6 +58,12 @@ public class Chap0906 {
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13BH.TTF", PdfBarcode.EAN13, 72, "5400111151441")));
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "12345678900987654321")));
             document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5NT.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "2345678900987654321")));       
+            // measuring the length of a string
+            BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\CODE39.TTF", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            float points = bf.getWidthPoint("0123456789", 36f);
+            float inches = points / 72f;
+            float cm = inches * 2.54f;
+            System.out.println("points: " + points + "; inches: " + inches + "; cm: " + cm);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
