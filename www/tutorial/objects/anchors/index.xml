@@ -172,7 +172,21 @@ In the previous example with the method <site:doc class="com.lowagie.text.pdf.Pd
 and in an earlier example with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setOpenAction(java.lang.String)">setOpenAction(String name)</site:doc>:
 <site:source class="LocalDestination" />
 
+
+
+
+
+
+
+
+
 <div class="subtitle">Application</div>
+You can open an application from a PDF file using a Launch Action.
+Be carefull: this is a very platformdependent feature and it isn't very safe to use.
+Read the Javadocs on method <site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">PdfAction(String application, String parameters, String operation, String defaultDir)</site:doc>
+for more information concerning the parameters. In the example below, we launch NOTEPAD (only on Windows, change the param if WINROOT does not equal C:\WINDOWS\).
+<pre class="commandline">new Chunk("Click to open NOTEPAD")
+	.setAction(new PdfAction("C:\\WINDOWS\\notepad.exe", null, null, null));</pre>
 <site:source class="OpenApplication" />
 </div>
 	</site:section>
