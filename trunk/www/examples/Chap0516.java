@@ -22,7 +22,6 @@
  * tel. +32 (0)9 228.10.97
  * bruno@lowagie.com
  */
-
 import java.awt.Point;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,9 +31,9 @@ import com.lowagie.text.pdf.PdfWriter;
 public class Chap0516 {
     
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 16: images in tables");
+        System.out.println("Chapter 5 example 16: nested tables");
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A4.rotate());
         try {
             // step 2:
             // we create a writer that listens to the document
@@ -43,30 +42,32 @@ public class Chap0516 {
             // step 3: we open the document
             document.open();
             // step 4: we create a table and add it to the document
-            Image img = Image.getInstance("pngnow.png");
-            img.scalePercent(70);
-            Chunk ck = new Chunk(img, 0, 0);
-            Table table = new Table(3);
-            table.setWidth(100);
-            table.setPadding(2);
-            table.setDefaultHorizontalAlignment(Element.ALIGN_CENTER);
-            Cell cell = new Cell(new Chunk(img, 0, -13));
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell("I see an image\non my right");
-            table.addCell(cell);
-            table.addCell("I see an image\non my left");
-            table.addCell(cell);
-            table.addCell("I see images\neverywhere");
-            table.addCell(cell);
-            table.addCell("I see an image\non my right");
-            table.addCell(cell);
-            table.addCell("I see an image\non my left");
+            Table a = new Table( 2 );
+            a.setWidths( new float[] { 85, 15 } );
+            a.addCell("a-1");
+            a.addCell("a-2");
             
-            Paragraph p1 = new Paragraph("This is an image ");
-            p1.add(ck);
-            p1.add(" just here.");
-            document.add(p1);
-            document.add(table);
+            Table b = new Table(10);
+            b.setWidths( new float[] { 15, 7, 4, 25, 7, 7, 7, 7, 7, 7 } );
+            b.addCell("b-1");
+            b.addCell("b-2");
+            b.addCell("b-3");
+            b.addCell("b-4");
+            b.addCell("b-5");
+            b.addCell("b-6");
+            b.addCell("b-7");
+            b.addCell("b-8");
+            b.addCell("b-9");
+            b.addCell("b-10");
+            
+            // now, insert these 2 tables into a third for layout purposes
+            Table c = new Table( 3, 1 );
+            c.setWidth( 100.0f );
+            c.setWidths( new float[] { 20, 2, 78 } );
+            c.insertTable(a, new Point(0,0) );
+            c.insertTable(b, new Point(0,2) );
+
+            document.add(c);
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
