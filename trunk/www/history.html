@@ -80,12 +80,34 @@
 			<LI><A HREF="#VERSION092">iText0.92</A>: april 2002
 			<LI><A HREF="#VERSION093">iText0.93 and 0.93b</A>: july 2002
 			<LI><A HREF="#VERSION094">iText0.94</A>: august 2002
+			<LI><A HREF="#VERSION095">iText0.95</A>: september 2002
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION094">iText0.94 (based on paulo's versions 102)</A></B><br
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION095">iText0.95 (based on paulo's version 103)</A></B><br
+		    <UL>
+		        <LI>added bidirectional support in ColumnText and PdfPTable for arabic and hebrew.
+		            Even with plain text the line splitting is improved. Hyphenation and CID addressed CJK fonts
+		            support were temporarily removed. (Paulo)
+                <LI>added support for ICC color profiles in images. Contribution by Phillip Pan.
+                <LI>added javascript support for html. Contribution by Joachim Eyrich.
+                <LI>fixed a bug in Graphic.drawBorder(). (Paulo)
+                <LI>imported pdf documents are closed even if an exception is thrown. (Paulo)
+                <LI>fixed a bug in CCITTG4Encoder. Some bit sequences threw an exception. (Paulo)
+                <LI>cjkfonts.properties and cjkencodings.properties are now together with the afm. (Paulo)
+                <LI>added transition support for pdf. Contribution by Josselin PUJO.
+                <LI>fixed the missing bookmarks in jdk 1.2. (Paulo)
+                <LI>improved suport for WMF (Paulo)
+                <LI>Borders of Table are drawn last so that Cell-backgrounds don't cover them anymore (Gerald Fehringer)
+		    </UL>
+		</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION094">iText0.94 (based on paulo's version 102)</A></B><br
 		    <UL>
 		        <LI>fixed a problem with multiple repeated images in Table
 		        <LI>fixed the kerning in TrueTypeFont.java
