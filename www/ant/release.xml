@@ -16,6 +16,7 @@
     <target name="help" description="--> shows the help screen">
         <echo>MAKING A NEW RELEASE (release.xml)</echo>
         <echo>archive.src: archiving the source</echo>
+        <echo>ant.zip: makes a zip file with the ANT scripts</echo>
         <echo>release.sf: making the release for SourceForge</echo>
         <echo />
 	</target>
@@ -38,6 +39,11 @@
 	
 	<target name="archive.src" depends="src.zip, src.tar.gz" description="--> archives the source code" />
 
+	<target name="ant.zip" description="--> makes a zipfile with the ANT scripts">
+		<mkdir dir="${itext.dist}"/>
+		<zip zipfile="${itext.dist}/ant.zip" basedir="${itext.www}" includes="ant/*.*" />
+	</target>
+
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Making a release, ready for upload to SourceForge                -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
@@ -48,6 +54,7 @@
 		<copy file="${itext.dist}/src.zip" tofile="${itext.sf}/itext-src-${releasenumber}.zip" overwrite="yes"/>
 		<copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/itext-src-${releasenumber}.tar.gz" overwrite="yes"/>
 		<copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/itext-docs-${releasenumber}.tar.gz" overwrite="yes"/>
+		<copy file="${itext.dist}/ant.zip" tofile="${itext.sf}/ant-${releasenumber}.zip" overwrite="yes"/>
 	</target>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
