@@ -217,8 +217,30 @@
 			of the algorithm in file <A HREF="Chap0609.pdf">Chap0609.pdf</A>.
 			</FONT><BR><BR><BR>
 		</TD>
+	</TR> 
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="advanced"><B>Advanced Example</B></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<a href="Chap0610.java">Example 10</a> is a very advanced example for three reasons:<br>
+			<ol>
+			<li>In the first place the
+			class <b>java.awt.Image</b> is used. This is a class in the JDK and it can be used for a
+			big variety of image-types, for instance TIFF-files, GIF-files that are on the iText list of
+			not supported images,... You will have to check the JDK to see if the image type you need
+			is supported.
+			<li>Also there is something you may have noticed in the previous examples: it doesn't matter
+			when you add an image, the text is allways on top of your image. In this example
+			we want the image to be <b>on top of the text</b>. That's why we are going to use the class
+			<FONT FACE="Courier">com.lowagie.text.pdf.PdfContentByte</FONT> (this class will be explained in
+			<a href="ch10.html">Chapter 10</a>).
+			<li>
+			Finally, you will notice that the image used in this example is a <b>transparent gif</b>.
+			Check out the <a href="Chap0610.pdf">resulting PDF-file</a>.
+			</ol>
+			</FONT><BR><BR><BR>
+		</TD>
 	</TR>
-	<!-- public static Image getInstance(int width, int height, int components, int bpc, byte data[]) -->
 	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch05.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>

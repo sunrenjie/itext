@@ -28,13 +28,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.*;
+import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
+import java.awt.Toolkit;
 
-public class Chap0201 {
+public class Chap0610 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 2 example 1: Chunks and fonts");
+		System.out.println("Chapter 6 example 10: Images using java.awt.image!");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -44,32 +46,19 @@ public class Chap0201 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0201.pdf"));
+ 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap0610.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
 			// step 4: we add content to the document
-			Font[] fonts = new Font[14];
-			fonts[0] = new Font(Font.COURIER, 12, Font.NORMAL);
-			fonts[1] = new Font(Font.COURIER, 12, Font.BOLD);
-			fonts[2] = new Font(Font.COURIER, 12, Font.ITALIC);
-			fonts[3] = new Font(Font.COURIER, 12, Font.BOLD | Font.ITALIC);
-			fonts[4] = new Font(Font.HELVETICA, 12, Font.NORMAL);
-			fonts[5] = new Font(Font.HELVETICA, 12, Font.BOLD);
-			fonts[6] = new Font(Font.HELVETICA, 12, Font.ITALIC);
-			fonts[7] = new Font(Font.HELVETICA, 12, Font.BOLD | Font.ITALIC);
-			fonts[8] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.NORMAL);
-			fonts[9] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD);
-			fonts[10] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.ITALIC);
-			fonts[11] = new Font(Font.TIMES_NEW_ROMAN, 12, Font.BOLD | Font.ITALIC);
-			fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);
-			fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);
-			for (int i = 0; i < 14; i++) {
-				Chunk chunk = new Chunk("This is some font", fonts[i]);
-				document.add(new Phrase(chunk));
+			for (int i = 0; i < 300; i++) {
+				document.add(new Phrase("Who is this? "));
 			}
-
+			PdfContentByte cb = writer.getDirectContent();
+			Image image = Image.getInstance(Toolkit.getDefaultToolkit().createImage("H.gif"), null);
+			image.setAbsolutePosition(100, 200);
+			cb.addImage(image);
 		}
 		catch(DocumentException de) {
 			System.err.println(de.getMessage());

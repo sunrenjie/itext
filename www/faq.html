@@ -264,7 +264,7 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
 			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			iText supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
+			<b>Simple iText</b> supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
 			<UL>These are the exceptions:
 			<LI>GIF
 				<UL>
@@ -296,7 +296,12 @@ com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
 			the color table from the image descriptor). If iText can't find this byte, the library
 			can't do anything with the GIF and rejects it...<BR>
 			You can try using another tool to create your GIF-file, one that generates images
-			that are conform to the specs. Or you can consider using PNG- or JPG-images instead.
+			that are conform to the specs. You can consider using PNG- or JPG-images instead.
+			Or you can use Advanced iText:<br>
+			<b>Advanced iText</b> uses the <FONT FACE="Courier">java.awt.Image</FONT>-object from the JDK,
+			so if you use this functionality (as described in the advanced example in
+			<a href="tutorial/ch06.html#advanced">Chapter 6</a>), you can add all the types of
+			images that are supported by the JDK (all kinds of GIFs, TIFF,...).
 			</FONT><BR><BR>
 		</TD>
 	</TR>
