@@ -81,7 +81,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="RTFfeatures"><B>Unsupported Features</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="unsupportedRTF"><B>Unsupported Features</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			These features are not supported by the RTF package. Everything else should work.<br/>
 			<ul>
@@ -97,18 +97,56 @@
 			    <li>Images other than JPEG and PNG</li>
 			    <li>Rotated images</li>
 			</ul>
+			</FONT><br/><br/>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="headersRTF"><B>Extended Headers and Footers in RTF</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			    With the RTF write it is not possible to change the header or footer for the next page just by calling setHeader
+			    before calling newPage(). There are two ways for getting around this problem:
+                <ul>
+                    <li>Using Chapters. You can use different headers or footers with each chapter, by calling setHeader or setFooter before
+                        adding the chapter to the document. See <A HREF="../examples/Chap0802.java">Chap0802.java</A> for an example.</li>
+                    <li>Using the RtfHeaderFooters class. This class allows you to set 4 headers or footers and to specify on which pages they
+                        appear. You can of course combine this class with Chapters to create up to 4 different headers or footers per chapter.
+                        See <A HREF="../examples/Chap0803.java">Chap0803.java</A> for an example.</li>
+                </ul>
+                <br />
+                <b>Using the RtfHeaderFooters class</b><br />
+                <BR><B>Step 1:</B><BR>
+                Create a new <FONT FACE="Courier">RtfHeaderFooters</FONT> object<br />
+                <FONT FACE="Courier">RtfHeaderFooters headers = new RtfHeaderFooters();</FONT><br />
+                <BR><B>Step 2:</B><BR>
+                Add <FONT FACE="Courier">HeaderFooter</FONT> objects<br />
+                <FONT FACE="Courier">headers.add(RtfHeaderFooters.LEFT_PAGES, new HeaderFooter(new Phrase("This header is only on left hand pages")));</FONT><br />
+                <FONT FACE="Courier">headers.add(RtfHeaderFooters.RIGHT_PAGES, new HeaderFooter(new Phrase("This header is only on right hand pages")));</FONT><br />
+                <BR><B>Step 3:</B><BR>
+                Use the <FONT FACE="Courier">RtfHeaderFooters</FONT> object as your header or footer<br />
+                <FONT FACE="Courier">document.setHeader(headers);</FONT><br /><br />
+                <b>Constants to use with the method RtfHeaderFooters.add(...)</b><br />
+                <ul>
+                    <li><b>FIRST_PAGE:</b> Use this to have a special header or footer on the first page of you document. You will have to
+                        call <FONT FACE="Courier">rtfWriter.setHasTitlePage(true)</FONT> for this to work.</li>
+                    <li><b>LEFT_PAGES:</b> Use this to have a header or footer on all left side pages.</li>
+                    <li><b>RIGHT_PAGES:</b> Use this to have a header or footer on all right side pages.</li>
+                    <li><b>ALL_PAGES:</b> Use this to have a header or footer an all pages. This only makes sense together with <b>FIRST_PAGE</b></li>
+                </ul><br />
+                One thing that is important is that if you use <b>LEFT_PAGES</b> or <b>RIGHT_PAGES</b> with either the header or footer then
+                <b>ALL_PAGES</b> will not work for both header and footer.
 			</FONT><br/>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="RTFexamples"><B>Examples of using the RtfWriter</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="ExamplesRTF"><B>Examples of using the RtfWriter</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<UL>
-			<LI><A HREF="../examples/Chap0801.java">Example 1</A> the <A HREF="../examples/Chap0801.rtf">Hello World example</A>
-			<LI><A HREF="../examples/Chap0802.java">Example 2</A> has <A HREF="../examples/Chap0802.rtf">some paragraphs and an anchor</A>
-			<LI><A HREF="../examples/Chap0803.java">Example 3</A> has <A HREF="../examples/Chap0803.rtf">a simple list</A>
-			<LI><A HREF="../examples/Chap0804.java">Example 4</A> has <A HREF="../examples/Chap0804.rtf">a simple table</A>
+			<LI><A HREF="../examples/Chap0801.java">Example 1</A> the Hello World example
+			<LI><A HREF="../examples/Chap0802.java">Example 2</A> has an example of using multiple different headers.
+			<LI><A HREF="../examples/Chap0803.java">Example 3</A> has an example of using the RtfHeaderFooters class.
+			<LI><A HREF="../examples/Chap0804.java">Example 4</A> has a simple table
 			</UL>
 			</FONT><br/>
 		</TD>
