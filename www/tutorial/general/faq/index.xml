@@ -16,11 +16,6 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="iTextVersion" standalone="yes" />
-			<site:result>version.pdf</site:result>
-			<site:description>Shows the iText version that was used to generate this example</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="Measurements" standalone="yes" />
 			<site:result>Measurements.pdf</site:result>
 			<site:description>Demonstrates the measurement system (points, inches, centimeters)</site:description>
@@ -34,6 +29,16 @@
 			<site:java src="NewPage" standalone="yes" />
 			<site:result>NewPage.pdf</site:result>
 			<site:description>Shows how to go to a new page or insert a blank page</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="iTextVersion" standalone="yes" />
+			<site:result>version.pdf</site:result>
+			<site:description>Shows the iText version that was used to generate this example</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="PdfVersion" standalone="yes" />
+			<site:result>pdfversion.pdf</site:result>
+			<site:description>Change the PDF version of a document</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -95,7 +100,7 @@ adding something 'invisible' to the page. In the example below, a
 	</site:section>
 	
 	<site:section name="version">
-		<site:sectiontitle>Version</site:sectiontitle>
+		<site:sectiontitle>iText Version</site:sectiontitle>
 <div>
 If you file a bugreport or post a question to the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list</a>,
 one of the first questions you will be asked is:<br /><i>What version of iText are you using?</i><br />
@@ -111,6 +116,45 @@ PDF Producer. In that case, you can ask the library programmatically for its ver
 with <site:doc class="com.lowagie.text.Document" target="getVersion()">Document.getVersion()</site:doc>
 and send the output to the System.out or System.err.
 <site:source class="iTextVersion" />
+</div>
+	</site:section>
+	
+	<site:section name="pdfversion">
+		<site:sectiontitle>PDF Version</site:sectiontitle>
+<div>
+Read the Portable Document Format Reference Manual Version 1.6 (section 3.4.1 'File Header' page 68):
+<blockquote>The first line of a PDF file is a header identifying the version of the PDF specification
+to which the file conforms. For a file conforming to PDF version 1.5, the
+header should be
+<pre class="commandline">%PDF−1.5</pre></blockquote>
+iText generated documents have version PDF-1.4 by default, but you can change
+the version with the method <site:doc class="com.lowagie.text.pdf.PdfWriter" target="setPdfVersion(char)">setPdfVersion</site:doc>.
+The parameter can be
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="VERSION_1_2">PdfWriter.VERSION_1_2</site:doc>,
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="VERSION_1_3">PdfWriter.VERSION_1_3</site:doc>,
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="VERSION_1_4">PdfWriter.VERSION_1_4</site:doc>,
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="VERSION_1_5">PdfWriter.VERSION_1_5</site:doc> or
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="VERSION_1_6">PdfWriter.VERSION_1_6</site:doc>.
+<pre class="commandline">writer.setPdfVersion(PdfWriter.VERSION_1_2);</pre>
+Remark: this only changes the header (iText doesn't keep the version in the catalog yet).
+If you change the version number to a lower version, you are responsible for
+making sure that you don't use newer features.
+<site:source class="PdfVersion" />
+</div>
+	</site:section>
+	
+	<site:section name="portability">
+		<site:sectiontitle>Why are there some strange characters in the PDF Header?</site:sectiontitle>
+<div>
+Read the Portable Document Format Reference Manual Version 1.6 (section 3.4.1 'File Header' page 68):
+<blockquote>If a PDF file contains binary data, as most do,
+it is recommended that the header line be immediately followed by a
+comment line containing at least four binary characters—that is, characters whose
+codes are 128 or greater. This ensures proper behavior of file transfer applications
+that inspect data near the beginning of a file to determine whether to treat the file's
+contents as text or as binary.</blockquote>
+iText adds these 4 binary characters automatically. The second line of an iText generated PDF file always looks like this when opened in a text editor:
+<pre class="commandline">%âãÏÓ</pre>
 </div>
 	</site:section>
 	</site:chapter>
