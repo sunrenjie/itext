@@ -81,10 +81,46 @@
 			<LI><A HREF="#VERSION093">iText0.93 and 0.93b</A>: july 2002
 			<LI><A HREF="#VERSION094">iText0.94</A>: august 2002
 			<LI><A HREF="#VERSION095">iText0.95</A>: september 2002
+			<LI><A HREF="#VERSION096">iText0.96</A>: oktober 2002
 		</UL></FONT>
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION096">iText0.96 (based on paulo's version 104 - 105 - 106)</A></B><br
+		    <UL>Update of the library by <b>Paulo Soares</b>
+		        <LI><UL>paulo 106
+		        <LI>added row grouping in Table. Contribution by <B>Gerald Fehringer</B>.
+		        <LI>added support for the barcode CODABAR.
+                <LI>fixed a bug in ColumnText where the chunk backgroung color was on top of the text.
+                <LI>fixed a bug and added some changes in PdfContentByte.escapeString().
+                <LI>Document.addHeader() inserts arbitrary keys in the info dictionary.
+                <LI>fixed a bug in PdfPTable where a nested table didn't align vertically.
+                <LI>added support to concatenate and split pdf documents including fields and
+                    annotations. Contribution by <B>Leonard Rosenthol</B>.
+                <LI>added DocWriter.setCloseStream() to have the option of not closing the
+                    output stream on document close.
+                </UL>
+		        <LI><UL>paulo 105
+		        <LI>added xref rebuild capabilities to PdfReader.
+		            Slightly damaged PDFs will now read successfully.
+		            The rebuild strategy is the same as xpdf. A new
+                    method PdfReader.isRebuilt() was introduced to check if the document had to be fixed.
+                </UL>
+		        <LI><UL>paulo 104
+		        <LI>added kerning support in PdfContentByte.
+		        <LI>fixed a bug in ColumnText when a Chunk had an empty string.
+                <LI>added additional actions in page objects.
+                <LI>fixed a bug in PdfGraphics2D when using create() and templates.
+                <LI>added support for colors and styles in outlines.
+                <LI>fixed a bug in imported pages when matrix was different than identity.
+                <LI>added support to free the memory used by PdfReader in PdfWriter.
+                </UL>
+                <LI>Several updates to the RTF part of the library by <B>Mark Hall</B>.
+		    </UL>
+		</FONT>
+		</TD>
+	</TR>	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION095">iText0.95 (based on paulo's version 103)</A></B><br
 		    <UL>
