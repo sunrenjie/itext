@@ -27,9 +27,19 @@
 			<site:description>Draws some shapes</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="Logo" standalone="yes" />
+			<site:result>logo.pdf</site:result>
+			<site:description>Draws the iText logo</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Templates" standalone="yes" />
 			<site:result>templates.pdf</site:result>
 			<site:description>Using templates</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EndPage" standalone="yes" />
+			<site:result>endpage.pdf</site:result>
+			<site:description>Using page events</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Events" standalone="yes" />
