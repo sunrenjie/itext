@@ -37,6 +37,41 @@
 			<site:description>Using templates</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="Transparency" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>transparency.pdf</site:result>
+			<site:description>Making images transparent.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Pattern" standalone="yes" />
+			<site:result>pattern.pdf</site:result>
+			<site:description>Painting colored patterns.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Patterns" standalone="yes" />
+			<site:externalresource>pngnow.png</site:externalresource>
+			<site:result>patterns.pdf</site:result>
+			<site:description>Painting patterns.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Shading" standalone="yes" />
+			<site:result>shading.pdf</site:result>
+			<site:description>Shading.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ShadingPattern" standalone="yes" />
+			<site:result>shading_pattern.pdf</site:result>
+			<site:description>Shading pattern.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Events" standalone="yes" />
+			<site:result>RomeoJuliet.pdf</site:result>
+			<site:extrajar>crimson.jar</site:extrajar>
+			<site:externalresource>tagmapRomeoJuliet.xml</site:externalresource>
+			<site:externalresource>playRomeoJuliet.xml</site:externalresource>
+			<site:description>Using PageEvents</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="PageNumbersWatermark" standalone="yes" />
 			<site:result>pageNumbersWatermark.pdf</site:result>
 			<site:externalresource>logo.gif</site:externalresource>

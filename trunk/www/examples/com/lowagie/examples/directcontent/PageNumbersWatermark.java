@@ -36,7 +36,6 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfGState;
 import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfPageEvent;
 import com.lowagie.text.pdf.PdfPageEventHelper;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
@@ -61,17 +60,21 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
      */
     public static void main(String args[]) {
         try {
+        	// step 1: creating the document
             Document doc = new Document(PageSize.A4, 50, 50, 100, 72);
+            // step 2: creating the writer
             PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("pageNumbersWatermark.pdf"));
-            PdfPageEvent pageEvent = new PageNumbersWatermark();
-            writer.setPageEvent(pageEvent);
+            // step 3: initialisations + opening the document
+            writer.setPageEvent(new PageNumbersWatermark());
             doc.open();
+            // step 4: adding content
             String text = "some padding text ";
             for (int k = 0; k < 10; ++k)
                 text += text;
             Paragraph p = new Paragraph(text);
             p.setAlignment(Element.ALIGN_JUSTIFIED);
             doc.add(p);
+            // step 5: closing the document
             doc.close();
         }
         catch ( Exception e ) {
@@ -84,6 +87,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
      */
     public void onOpenDocument(PdfWriter writer, Document document) {
         try {
+        	// initialization of the header table
             headerImage = Image.getInstance("logo.gif");
             table = new PdfPTable(2);
             Phrase p = new Phrase();
@@ -96,11 +100,14 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             table.addCell(p);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(new Phrase(new Chunk(headerImage, 0, 0)));
+            // initialization of the Graphic State
             gstate = new PdfGState();
             gstate.setFillOpacity(0.3f);
             gstate.setStrokeOpacity(0.3f);
+            // initialization of the template
             tpl = writer.getDirectContent().createTemplate(100, 100);
             tpl.setBoundingBox(new Rectangle(-20, -20, 100, 100));
+            // initialization of the font
             helv = BaseFont.createFont("Helvetica", BaseFont.WINANSI, false);
         }
         catch(Exception e) {
@@ -114,19 +121,23 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
     public void onEndPage(PdfWriter writer, Document document) {
         PdfContentByte cb = writer.getDirectContent();
         cb.saveState();
+        // write the headertable
         table.setTotalWidth(document.right() - document.left());
         table.writeSelectedRows(0, -1, document.left(), document.getPageSize().height() - 50, cb);
+        // compose the footer
         String text = "Page " + writer.getPageNumber() + " of ";
         float textSize = helv.getWidthPoint(text, 12);
         float textBase = document.bottom() - 20;
         cb.beginText();
         cb.setFontAndSize(helv, 12);
+        // for odd pagenumbers, show the footer at the left
         if ((writer.getPageNumber() & 1) == 1) {
             cb.setTextMatrix(document.left(), textBase);
             cb.showText(text);
             cb.endText();
             cb.addTemplate(tpl, document.left() + textSize, textBase);
         }
+        // for even numbers, show the footer at the right
         else {
             float adjust = helv.getWidthPoint("0", 12);
             cb.setTextMatrix(document.right() - textSize - adjust, textBase);
@@ -135,11 +146,13 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             cb.addTemplate(tpl, document.right() - adjust, textBase);
         }
         cb.saveState();
+        // draw a Rectangle around the page
         cb.setColorStroke(Color.orange);
         cb.setLineWidth(2);
         cb.rectangle(20, 20, document.getPageSize().width() - 40, document.getPageSize().height() - 40);
         cb.stroke();
         cb.restoreState();
+        // starting on page 3, a watermark with an Image that is made transparent
         if (writer.getPageNumber() >= 3) {
             cb.setGState(gstate);
             cb.setColorFill(Color.red);
@@ -148,7 +161,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             cb.showTextAligned(Element.ALIGN_CENTER, "Watermark Opacity " + writer.getPageNumber(), document.getPageSize().width() / 2, document.getPageSize().height() / 2, 45);
             cb.endText();
             try {
-                cb.addImage(headerImage, headerImage.width(), 0, 0, headerImage.height(), 300, 200);
+                cb.addImage(headerImage, headerImage.width(), 0, 0, headerImage.height(), 440, 80);
             }
             catch(Exception e) {
                 throw new ExceptionConverter(e);

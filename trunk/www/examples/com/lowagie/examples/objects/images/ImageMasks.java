@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.images.directcontent;
+package com.lowagie.examples.objects.images;
 
 import java.io.FileOutputStream;
 
