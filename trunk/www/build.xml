@@ -62,7 +62,7 @@
         <echo>DOCUMENTATION</echo>
         <echo>ant javadoc: generates the API documentation</echo>
         <echo>ant docstargz: generates the API docs and puts them in a tar.gz-file</echo>
-        <echo>ant tuttargz: generates several tar.gz-files with documentation (tutorial, examples,...)</echo>
+        <echo>ant tutorialtargz: generates several tar.gz-files with documentation (tutorial, examples,...)</echo>
         <echo>ant examples: generates most of the PDF files of the tutorial</echo>
         <echo />
         <echo>RELEASE</echo>
@@ -191,15 +191,15 @@
         <delete file="${itext.dist}/docs.tar" />
     </target>
 
-    <target name="tuttargz" description="--> makes several tar.gz-files with the tutorial, examples,...">
+    <target name="tutorialtargz" description="--> makes several tar.gz-files with the tutorial, examples,...">
         <mkdir dir="${itext.dist}" />
-        <tar tarfile="${itext.dist}/www.tar" basedir="${itext.www}" />
+        <tar tarfile="${itext.dist}/www.tar" basedir="${itext.www}" excludes="**/tutorial/*.*, **/examples/*.*" />
         <gzip zipfile="${itext.dist}/www.tar.gz" src="${itext.dist}/www.tar" />
         <delete file="${itext.dist}/www.tar" />
-        <tar tarfile="${itext.dist}/tutorial.tar" basedir="${itext.tutorial}" excludes="*.class, *.pdf" />
+        <tar tarfile="${itext.dist}/tutorial.tar" basedir="${itext.tutorial}" />
         <gzip zipfile="${itext.dist}/tutorial.tar.gz" src="${itext.dist}/tutorial.tar" />
         <delete file="${itext.dist}/tutorial.tar" />
-        <tar tarfile="${itext.dist}/examples.tar" basedir="${itext.examples}" />
+        <tar tarfile="${itext.dist}/examples.tar" basedir="${itext.examples}" excludes="**/*.class, **/*.pdf" />
         <gzip zipfile="${itext.dist}/examples.tar.gz" src="${itext.dist}/examples.tar" />
         <delete file="${itext.dist}/examples.tar" />
     </target>
@@ -361,9 +361,9 @@
 		<java fork="yes" dir="${itext.examples}" classname="Chap0901">
            <classpath refid="classpath" />
 		</java>
-		<echo>Chapter 9 example 2: this example requires a correct filepath to comic.tff</echo>
+		<echo>Chapter 9 example 2: this example requires a correct filepath to comic.ttf</echo>
 		<echo>Please compile and execute it seperately</echo>
-		<echo>Chapter 9 example 3: this example requires a correct filepath to comic.tff</echo>
+		<echo>Chapter 9 example 3: this example requires a correct filepath to comic.ttf</echo>
 		<echo>Please compile and execute it seperately</echo>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0904">
            <classpath refid="classpath" />
@@ -421,7 +421,7 @@
     <!-- Making a release                                                 -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
-    <target name="release" depends="jarWithXML, srczip, srctargz, docstargz, tuttargz" description="--> makes a complete iText release">
+    <target name="release" depends="jarWithXML, srczip, srctargz, docstargz, tutorialtargz" description="--> makes a complete iText release">
     </target>  
 	  
     <target name="release.sf" depends="release" description="--> makes a complete iText release ready to publish on SourceForge">
