@@ -83,7 +83,35 @@
 			<LI><A HREF="#VERSION095">iText0.95</A>: september 2002
 			<LI><A HREF="#VERSION096">iText0.96</A>: october 2002
 			<LI><A HREF="#VERSION097">iText0.97</A>: march 2003
+			<LI><A HREF="#VERSION098">iText0.98</A>: march 2003
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION098">iText0.98 (based on paulo's version 113)</A></B><br
+		    <UL>
+            <LI>added a new arabic shaper with farsi support.
+            <LI>FdfWriter will also output the fields from a PdfReader and AcroFields.
+            <LI>fixed PdfAcroForm for a problem when creating text fields. The /DA key
+                was being generated incorrectly.
+            <LI>added a file attachment annotation.
+            <LI>the subtype for the ink annotation was wrong.
+            <LI>modified toPdf() method to write directly to the stream.
+                OutputStreamCounter was created to aid.
+            <LI>added ModDate to the info dictionary.
+            <LI>added methods in PdfPTable to set absolute column widths.
+            <LI>added PdfReader.getMetadata() to get the XML metadata.
+            <LI>speed improvement in PdfReader.
+            <LI>fixed a bug in PdfStamperImp when stamping or flattening and the
+                original page content didn't end in an whitespace.
+            <LI>added the ability to manipulate directly the catalog and the info
+                dictionary in PdfWriter. Other methods where made public for ease
+                of access to low level features.
+            <li>Changes to RtfPageNumber by Mark Hall
+            <li>some fixes by Finn Bock, for instance: solving the problem of JDK1.4 compilation and 1.3 use.
+            </UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
