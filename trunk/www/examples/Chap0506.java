@@ -67,6 +67,7 @@ public class Chap0506 {
             cell.setRowspan(2);
             cell.setColspan(2);
             cell.setBorder(Rectangle.NO_BORDER);
+            cell.setGrayFill(0.9f);
             table.addCell(cell);
             table.addCell("cell test2");
             document.add(table);
