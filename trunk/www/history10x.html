@@ -49,6 +49,7 @@
         <br>
 		<div class="title"><A NAME="VERSION102">iText1.02</A> (based on paulo's version 127-128)</div>
         <div class="text"><UL>
+		<LI>Extra update 1.02b: bugfix in PdfReader by Paulo Soares
         <LI>paulo 128<UL>
             <li>changed FontFactory to register the fonts faster. TTC fonts register all the names.<li>added the methods in AcroFields: renameField, getFieldPositions, removeField, removeFieldsFromPage.<li>added support for arabic number conversion, forced or contextual.<li>improved font resource loader. If you have a security manager running even with "AllPermissions" remember to also grant RuntimePermission("ClassLoader").<li>added methods to PdfAction: createLaunch, gotoLocalPage, gotoRemotePage.<li>fixed a bug with PdfGraphics2D.drawRenderedImage().<li>PdfIndirectReference was made public.<li>several changes to PdfReader: PRAcroForm is only calculated if needed, only the reachable objects are read, added the methods removeFields and removeAnnotations.<li>fix to PdfReader to support pages without contents.<li>added partial form flattening to PdfStamper.<li>in SimpleBookmark the names with codes below 32 are escaped.<li>TextField.getAppearance() was made public.<li>added support for OTF fonts with CFF glyphs and Identity-H encoding. Contribution by Sivan Toledo (stoledo@tau.ac.il). 
             </ul>
