@@ -17,7 +17,7 @@
 		<site:example>
 			<site:java src="Tiff2Pdf" standalone="yes" />
 			<site:externalresource>12.tif</site:externalresource>
-			<site:externalresource>33814-00.tif</site:externalresource>
+			<site:externalresource>338814-00.tif</site:externalresource>
 			<site:externalresource>odd.tif</site:externalresource>
 			<site:externalresource>even.tif</site:externalresource>
 			<site:argument>12.tif</site:argument>

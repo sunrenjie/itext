@@ -18,7 +18,7 @@
 	<site:examples>
 		<site:example>
 			<site:java src="Images" standalone="yes" />
-			<site:externalresource>*.jpg</site:externalresource>
+			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:externalresource>iText.bmp</site:externalresource>
 			<site:externalresource>pngnow.png</site:externalresource>
 			<site:externalresource>iText.tif</site:externalresource>
