@@ -19,7 +19,7 @@ public class local_goto {
     {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\local_goto.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("local_goto.pdf"));
             OutPageGoto pageEvent = new OutPageGoto();
             writer.setPageEvent(pageEvent);
             document.open();

@@ -8,7 +8,7 @@ public class irregular {
     {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\irregular.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("irregular.pdf"));
             document.open();            
             PdfContentByte cb = writer.getDirectContent();
             BaseFont bf = BaseFont.createFont("Helvetica", "winansi", false);

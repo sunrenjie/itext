@@ -32,7 +32,7 @@ public class columns2 {
     {
         Document document = new Document(PageSize.LETTER, 90, 54, 72, 72);
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\columns2.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("columns2.pdf"));
             float gutter = 20;
             int numColumns = 3;
             float fullWidth = document.right() - document.left();

@@ -35,7 +35,7 @@ public class path {
         try
         {
             // creation of the different writers
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\pdfnstroke.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("pdfnstroke.pdf"));
             
             document.open();
             PdfContentByte cb = writer.getDirectContent();

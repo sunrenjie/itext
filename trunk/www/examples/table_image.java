@@ -8,7 +8,7 @@ public class table_image {
     {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("c:\\table_image.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("table_image.pdf"));
             document.open();
             Image img = Image.getInstance("pngnow.png");
             Chunk ck = new Chunk(img, 0, 0);
