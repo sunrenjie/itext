@@ -413,7 +413,7 @@ if(osName.equals("Windows 95") || osName.equals("Windows 98")){
 }
 //FOR WINDOWS NT/XP/2000 USE CMD.EXE
 else {
-    Runtime.getRuntime().exec("cmd.exe /C acrord32 /p /h" + claim.pdf);
+    Runtime.getRuntime().exec("cmd.exe start /C acrord32 /p /h" + claim.pdf);
 }
 </pre>
  (Code provided by Jasperlan Guela)<br />
