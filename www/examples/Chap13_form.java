@@ -46,8 +46,17 @@ public class Chap13_form extends java.lang.Object {
             // step 4: we add some content
             BaseFont helv = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
             float fontSize = 12;
-            acroForm.addSingleLineTextField("Hello iText!", helv, fontSize, "msg", 171, 730, 350, 750);
-            acroForm.addHtmlPostButton("SUBMIT", helv, fontSize, "btn", "Chap13.php", 171, 700, 250, 725);
+            acroForm.addSingleLineTextField("your name", helv, fontSize, "name", 171, 800, 350, 820);
+            acroForm.addMultiLineTextField("Hello iText!\nThis is a Test\nThere are multiple lines in this textfield", helv, fontSize, "msg", 171, 730, 350, 790);
+            acroForm.addSingleLinePasswordField("", helv, fontSize, "password", 171, 700, 350, 720);
+            acroForm.addHtmlPostButton("SUBMIT", helv, fontSize, "btn", "Chap13.php", 355, 700, 420, 725);
+            acroForm.addCheckBox("CB1", "Food", true, 180, 685, 190, 695);
+            acroForm.addCheckBox("CB2", "Drinks", false, 180, 645, 210, 675);
+            PdfFormField radiogroup = acroForm.getRadioGroup("CreditCard", "Visa", true);
+            acroForm.addRadioButton(radiogroup, "Visa", 180, 625, 195, 640);
+            acroForm.addRadioButton(radiogroup, "MasterCard", 200, 625, 215, 640);
+            acroForm.addRadioButton(radiogroup, "American", 220, 625, 235, 640);
+            acroForm.addRadioGroup(radiogroup);
         }
         catch (Exception de) {
             de.printStackTrace();
