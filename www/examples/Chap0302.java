@@ -57,14 +57,14 @@ public class Chap0302 {
             document.add(new Paragraph("some books I really like:"));
             ListItem listItem;
             list = new List(true, 15);
-            listItem = new ListItem("When Harlie was one", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
-            listItem.add(new Chunk(" by David Gerrold", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("When Harlie was one", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by David Gerrold", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("The World according to Garp", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
-            listItem.add(new Chunk(" by John Irving", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("The World according to Garp", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by John Irving", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
-            listItem = new ListItem("Decamerone", FontFactory.getFont(FontFactory.TIMES_ROMAN, 12));
-            listItem.add(new Chunk(" by Giovanni Boccaccio", FontFactory.getFont(FontFactory.TIMES_ROMAN, 11, Font.ITALIC)));
+            listItem = new ListItem("Decamerone", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 12));
+            listItem.add(new Chunk(" by Giovanni Boccaccio", FontFactory.getFont(FontFactory.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
             list.add(listItem);
             document.add(list);
             
