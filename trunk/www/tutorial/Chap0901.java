@@ -35,7 +35,7 @@ public class Chap0901 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 9 example 1: Asian fonts");
+		System.out.println("Chapter 9 example 1: Other encodings");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
