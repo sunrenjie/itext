@@ -25,6 +25,7 @@ import java.net.URL;
 
 import com.lowagie.text.*;
 import com.lowagie.text.html.*;
+import com.lowagie.text.markup.MarkupTags;
 
 public class Chap0708 {
     
@@ -41,7 +42,7 @@ public class Chap0708 {
             // we create a writer that listens to the document
             // and directs a XML-stream to a file
             HtmlWriter.getInstance(document, new FileOutputStream("Chap0708.html"));
-            document.add(new Header(HtmlTags.STYLESHEET, "myStyles.css"));
+            document.add(new Header(MarkupTags.STYLESHEET, "myStyles.css"));
             // step 3: we open the document
             document.open();
             
@@ -85,7 +86,7 @@ public class Chap0708 {
             list = new List(false, 20);
             list.setListSymbol(new Chunk("*"));
             listItem = new ListItem("Isaac Asimov");
-            listItem.setMarkupAttribute(ElementTags.CLASS, "small");
+            listItem.setMarkupAttribute(MarkupTags.CLASS, "small");
             list.add(listItem);
             List sublist;
             sublist = new List(true, 10);
@@ -96,7 +97,7 @@ public class Chap0708 {
             sublist.add("The Naked Sun");
             list.add(sublist);
             listItem = new ListItem("John Irving");
-            listItem.setMarkupAttribute(ElementTags.CLASS, "small");
+            listItem.setMarkupAttribute(MarkupTags.CLASS, "small");
             list.add(listItem);
             sublist = new List(true, 10);
             sublist.setListSymbol(new Chunk(""));
@@ -106,7 +107,7 @@ public class Chap0708 {
             sublist.add("Widow for a year");
             list.add(sublist);
             listItem = new ListItem("Kurt Vonnegut");
-            listItem.setMarkupAttribute(ElementTags.CLASS, "small");
+            listItem.setMarkupAttribute(MarkupTags.CLASS, "small");
             list.add(listItem);
             sublist = new List(true, 10);
             sublist.setListSymbol(new Chunk(""));
@@ -163,7 +164,7 @@ public class Chap0708 {
             // this loop will create 7 chapters
             for (int i = 1; i < 8; i++) {
                 Paragraph cTitle = new Paragraph("This is chapter " + i);
-                cTitle.setMarkupAttribute(ElementTags.CLASS, "red");
+                cTitle.setMarkupAttribute(MarkupTags.CLASS, "red");
                 Chapter chapter = new Chapter(cTitle, i);
                 
                 if (i == 4) {
@@ -184,7 +185,7 @@ public class Chap0708 {
                 // in every chapter 3 sections will be added
                 for (int j = 1; j < 4; j++) {
                     Paragraph sTitle = new Paragraph("This is section " + j + " in chapter " + i);
-                    sTitle.setMarkupAttribute(ElementTags.CLASS, "blue");
+                    sTitle.setMarkupAttribute(MarkupTags.CLASS, "blue");
                     Section section = chapter.addSection(sTitle, 1);
                     // in all chapters except the 1st one, some extra text is added to section 3
                     if (j == 3 && i > 1) {
@@ -193,7 +194,7 @@ public class Chap0708 {
                     // in every section 3 subsections are added
                     for (int k = 1; k < 4; k++) {
                         Paragraph subTitle = new Paragraph("This is subsection " + k + " of section " + j);
-                        subTitle.setMarkupAttribute(ElementTags.CLASS, "gray");
+                        subTitle.setMarkupAttribute(MarkupTags.CLASS, "gray");
                         Section subsection = section.addSection(subTitle, 3);
                         if (k == 1 && j == 3) {
                             subsection.add(blahblahblah);
