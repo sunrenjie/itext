@@ -317,6 +317,16 @@
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q262213">MS: Error Message "Error Locating Object Handler" When Downloading a .pdf File</A>
 			<A HREF="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q263847">MS: Unable to Locate Object Handler When Extension in URL Is Greater than 50 Characters</A>
 			<A HREF="http://www.ietf.org/rfc/rfc2183.txt">IETF: RFC2183 The Content-Disposition Header Field</A>
+			<br>
+			<br>In another context (dynamic CSV files over SSL), Nicolas Guichard posted this solution to the mailing-list:<br>
+			I have the same problem with CSV files, and i just found the solution on a <a href="http://php3.de/manual/en/function.session-cache-limiter.php">php forum</a>:
+            Following their advice, I add the following parameters to the response's headers:<br>
+            <FONT FACE="Courier">
+            response.setHeader("Expires", "0");<br>
+            response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");<br>
+            response.setHeader("Pragma", "public");<br>
+            </FONT><br>
+            And it works.... But don't ask me to explain this!!!
 			</FONT><BR><BR>
 		</TD>
 	</TR>
