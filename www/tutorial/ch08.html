@@ -48,7 +48,13 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			The RTF package is an extension to the base iText package and allows iText to output Rich Text files in addition
 			to PDF files. This package was written by <A HREF="mailto:mhall@myrealbox.com">Mark Hall</A>.<br/><br/>
-			Most of the PDF features are available but there are some features which are not supported in the RTF package.
+			Most of the PDF features are available but there are some features which are not supported in the RTF package.<br /><br />
+			Two different writers exist:
+			<ul>
+			  <li>The RtfWriter is the older one and is completely stable and well tested. Only bugfixes will be applied
+ 			  to this writer, no new functionality. It will be deprecated end of 2005 and removed end of 2007.</li>
+ 			  <li>The RtfWriter2 is the new writer. It is reasonably stable and tested. The writer is where the active
+ 			  development will take place. If you are starting from scratch, use this writer.</li>
 			</FONT><br/><br/>
 		</TD>
 	</TR>
@@ -57,24 +63,23 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="generatingRTF"><B>Generating a RTF document</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			You generate RTF documents the same way you generate PDF documents. The 5 basic steps are the same. The only change is that
-			you use a RtfWriter instead of the usual PdfWriter in Step 2.<br/>
+			you use a <b>RtfWriter2</b> instead of the usual PdfWriter in Step 2.<br/>
 			Download the source code for the Hello World example: <a href="../examples/Chap0801.java">Chap0801.java</a><br/>
 			<BR><B>Step 1:</B><BR>
-			Creates an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
+			Create an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
 			<FONT FACE="Courier">Document document = new Document();</FONT><BR>
 			<BR><B>Step 2:</B><BR>
-			Creates a RtfWriter that listens to this document and writes the document to the OutputStream of your choice:<BR>
-			<FONT FACE="Courier">RtfWriter.getInstance(document, new FileOutputStream("Chap0801.rtf"));</FONT><BR>
+			Create a RtfWriter2 that listens to this document and writes the document to the OutputStream of your choice:<BR>
+			<FONT FACE="Courier">RtfWriter2.getInstance(document, new FileOutputStream("Chap0801.rtf"));</FONT><BR>
 			<BR><B>Step 3:</B><BR>
-			Opens the document:<BR>
+			Open the document:<BR>
 			<FONT FACE="Courier">document.open();</FONT><BR>
 			<BR><B>Step 4:</B><BR>
-			Adds content to the document:<BR>
+			Add content to the document:<BR>
 			<FONT FACE="Courier">document.add(new Paragraph("Hello World"));</FONT><BR>
 			<BR><B>Step 5:</B><BR>
-			Closes the document:<BR>
+			Close the document:<BR>
 			<FONT FACE="Courier">document.close();</FONT><BR><BR>
-			Check the result here: <A HREF="../examples/Chap0801.rtf">Chap0801.rtf</A>.<BR><br/>
 			For help on how to create different objects and adding them to the document please look at the other sections of this tutorial.
 			</FONT><br/><br/>
 		</TD>
@@ -102,37 +107,45 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="headersRTF"><B>Extended Headers and Footers in RTF</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			    With the RTF write it is not possible to change the header or footer for the next page just by calling setHeader
-			    before calling newPage(). There are two ways for getting around this problem:
-                <ul>
-                    <li>Using Chapters. You can use different headers or footers with each chapter, by calling setHeader or setFooter before
-                        adding the chapter to the document. See <A HREF="../examples/Chap0802.java">Chap0802.java</A> for an example.</li>
-                    <li>Using the RtfHeaderFooters class. This class allows you to set 4 headers or footers and to specify on which pages they
-                        appear. You can of course combine this class with Chapters to create up to 4 different headers or footers per chapter.
-                        See <A HREF="../examples/Chap0803.java">Chap0803.java</A> for an example.</li>
-                </ul>
-                <br />
-                <b>Using the RtfHeaderFooters class</b><br />
-                <BR><B>Step 1:</B><BR>
-                Create a new <FONT FACE="Courier">RtfHeaderFooters</FONT> object<br />
-                <FONT FACE="Courier">RtfHeaderFooters headers = new RtfHeaderFooters();</FONT><br />
-                <BR><B>Step 2:</B><BR>
-                Add <FONT FACE="Courier">HeaderFooter</FONT> objects<br />
-                <FONT FACE="Courier">headers.add(RtfHeaderFooters.LEFT_PAGES, new HeaderFooter(new Phrase("This header is only on left hand pages")));</FONT><br />
-                <FONT FACE="Courier">headers.add(RtfHeaderFooters.RIGHT_PAGES, new HeaderFooter(new Phrase("This header is only on right hand pages")));</FONT><br />
-                <BR><B>Step 3:</B><BR>
-                Use the <FONT FACE="Courier">RtfHeaderFooters</FONT> object as your header or footer<br />
-                <FONT FACE="Courier">document.setHeader(headers);</FONT><br /><br />
-                <b>Constants to use with the method RtfHeaderFooters.add(...)</b><br />
-                <ul>
-                    <li><b>FIRST_PAGE:</b> Use this to have a special header or footer on the first page of you document. You will have to
-                        call <FONT FACE="Courier">rtfWriter.setHasTitlePage(true)</FONT> for this to work.</li>
-                    <li><b>LEFT_PAGES:</b> Use this to have a header or footer on all left side pages.</li>
-                    <li><b>RIGHT_PAGES:</b> Use this to have a header or footer on all right side pages.</li>
-                    <li><b>ALL_PAGES:</b> Use this to have a header or footer an all pages. This only makes sense together with <b>FIRST_PAGE</b></li>
-                </ul><br />
-                One thing that is important is that if you use <b>LEFT_PAGES</b> or <b>RIGHT_PAGES</b> with either the header or footer then
-                <b>ALL_PAGES</b> will not work for both header and footer.
+			    With the RtfWriter2 it is not possible to change the header or footer for the next page just by calling setHeader
+			    before calling newPage(). There are two solutions to this problem which can be combined:
+			    <ul>
+			      <li><b>Using Chapters</b>: You can define a different header or footer for each Chapter. Simply use the normal
+			        <FONT FACE="Courier">document.setHeader(HeaderFooter)</font> or <FONT FACE="Courier">document.setFooter(HeaderFooter)</font>
+			        methods to set the correct header or footer before you add the Chapter to the document.</li>
+			      <li><b>Using the RtfHeaderFooterGroup</b>: The RtfHeaderFooterGroup (in the com.lowagie.text.rtf.headerfooter package)
+			        allows you to define different headers or footers for different pages. Simply create a RtfHeaderFooterGroup and then
+			        use the <FONT FACE="Courier">setHeaderFooter(HeaderFooter, position)</font> method to set the correct headers or footers
+			        for the different positions and then set the RtfHeaderFooterGroup as header or footer. Valid positions are DISPLAY_FIRST_PAGE,
+			        DISPLAY_LEFT_PAGES, DISPLAY_RIGHT_PAGES, DISPLAY_ALL_PAGES</font>.<br /><br />This example creates a header that only displays
+			        on the title page:<br /><br />
+			        <FONT FACE="Courier">RtfHeaderFooterGroup headerGroup = new RtfHeaderFooterGroup();<br />
+			        headerGroup.setHeaderFooter(new RtfHeaderFooter(new Phrase("This is a header on the title page")), com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE);<br />
+			        document.setHeader(headerGroup);</font></li>
+			    </ul>
+			    For a detailed example using Chapters look at <a href="../examples/Chap0802.java">Example 2</a>.<br />
+			    For a detailed example using the RtfHeaderFooterGroup look at <a href="../examples/Chap0803.java">Example 3</a>.
+			</FONT><br/>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="headersRTF"><B>Table of Content in RTF</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			    You can add a table of contents to the rtf document by adding an instance of the RtfTableOfContents class to your document.
+			    The RtfTableOfContents is a Chunk, so it's best to wrap it in a Paragraph:<br /><br />
+			    <FONT FACE="Courier">RtfTableOfContents toc = new RtfTableOfContents(&quot;RIGHT-CLICK HERE AND THEN SELECT \&quot;UPDATE FIELD\&quot; TO UPDATE&quot;);<br />
+			    Paragraph para = new Paragraph();<br />
+			    para.add(toc);<br />
+			    document.add(para);</font><br /><br />
+			    The RtfTableOfContents constructor takes a String as a parameter. This text is displayed when the user opens the rtf document.
+			    The user then has to update the table of contents himself, since the RtfWriter2 can not determine which entries exist during
+			    the document creation process.<br /><br />
+			    After creating the table of contents add RtfTOCEntry objects wherever you want to have table of contents entries.<br /><br />
+			    <FONT FACE="Courier">document.add(new RtfTOCEntry("This is a TOC entry", new Font()));</font><br /><br />
+			    Alternatively you can use the setAutogenerateTOCEntries(autogenerate) method of the RtfWriter2 to instruct the RtfWriter2 to 
+			    automatically add RtfTOCEntry objects for each Chapter and Section you add.<br /><br />
+			    See <a href="../examples/Chap0804.java">Example 4</a> for a more detailed example.
 			</FONT><br/>
 		</TD>
 	</TR>
@@ -144,7 +157,7 @@
 			<LI><A HREF="../examples/Chap0801.java">Example 1</A> the Hello World example
 			<LI><A HREF="../examples/Chap0802.java">Example 2</A> has an example of using multiple different headers.
 			<LI><A HREF="../examples/Chap0803.java">Example 3</A> has an example of using the RtfHeaderFooters class.
-			<LI><A HREF="../examples/Chap0804.java">Example 4</A> has a simple table
+			<LI><A HREF="../examples/Chap0804.java">Example 4</A> has a table of content
 			</UL>
 			</FONT><br/>
 		</TD>
