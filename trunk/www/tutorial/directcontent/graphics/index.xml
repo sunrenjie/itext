@@ -35,7 +35,7 @@
 If you want to create graphics in PDF, you will need to know a lot
 about PDF syntax, in casu about its operators and its operands.
 Maybe you should read Chapter 4 of the PDF Reference Manual
-version 1.6 first. In this chapter, I will do an attempt to summarize some of
+version 1.6 first. In this tutorial chapter, I will do an attempt to summarize some of
 the most important concepts. But let's start by quoting what is on page 163
 of the Reference Manual:
 <blockquote>
@@ -152,7 +152,7 @@ can be used to clip output.</td>
 <td class="small" valign="top">color space</td>
 <td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setDefaultColorspace(com.lowagie.text.pdf.PdfName,%20com.lowagie.text.pdf.PdfObject)">setDefaultColorspace(com.lowagie.text.pdf.PdfName, com.lowagie.text.pdf.PdfObject)</site:doc><br />
 Remark that the different setColor methods change the colorspace automatically.
-Please go to the </td>
+Please go to the chapter on <site:tutorial chapter="/directcontent/colors">colors</site:tutorial> for more info and some examples.</td>
 </tr>
 <tr>
 <td class="small" valign="top">color</td>
@@ -187,7 +187,8 @@ float is a value between 0 (black) and 1 (white)<br />
 <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setColorStroke(com.lowagie.text.pdf.PdfSpotColor,%20float)">setColorStroke(com.lowagie.text.pdf.PdfSpotColor, float)</site:doc><br />
 <b>Extended Color:</b><br />
 <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setColorFill(java.awt.Color)">setColorFill(java.awt.Color)</site:doc> and
-<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setColorStroke(java.awt.Color)">setColorStroke(java.awt.Color)</site:doc>
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setColorStroke(java.awt.Color)">setColorStroke(java.awt.Color)</site:doc><br />
+Please go to the chapter on <site:tutorial chapter="/directcontent/colors">colors</site:tutorial> for more info and some examples.
 </td>
 </tr>
 <tr>

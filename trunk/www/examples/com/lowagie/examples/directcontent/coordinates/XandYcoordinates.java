@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.general.faq;
+package com.lowagie.examples.directcontent.coordinates;
 
 
 import java.io.FileOutputStream;
