@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.fonts.getting;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;

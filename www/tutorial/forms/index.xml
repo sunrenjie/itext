@@ -128,7 +128,7 @@ You are going to create a <site:doc class="com.lowagie.text.pdf.PdfAppearance">P
 </ul>
 Remark: the syntax to create this appearance is the same as for
 <site:doc class="com.lowagie.text.pdf.PdfContentByte">PdfContentByte</site:doc>
-as described in <site:tutorial chapter="/" section="part3">Part III</site:tutorial> of the tutorial.
+as described in <site:tutorial chapter="/" section="part4">Part IV</site:tutorial> of the tutorial.
 To visualize the button, you will set its widget annotations with
 <site:doc class="com.lowagie.text.pdf.PdfFormField" target="setWidget(com.lowagie.text.Rectangle,%20com.lowagie.text.pdf.PdfName)">setWidget(Rectangle rect, PdfName highlight)</site:doc>. Parameter <span class="commandline">rect</span>
 defines the position on the page, <span class="commandline">highlight</span> is one of the following values:

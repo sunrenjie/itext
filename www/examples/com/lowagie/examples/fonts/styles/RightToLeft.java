@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.directcontent.fonts;
+package com.lowagie.examples.fonts.styles;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
@@ -49,7 +49,7 @@ public class RightToLeft {
         	// step 1
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
             // step 2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("rightoleft.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("righttoleft.pdf"));
             // step 3
             document.open();
             // step 4

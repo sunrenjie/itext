@@ -92,7 +92,7 @@ In the following sections, all Chunk-functionality will be described:
 	<site:section name="underline">
 		<site:sectiontitle>Adding lines under, through or above a Chunk</site:sectiontitle>
 <div>
-As you can read in the chapter on <site:tutorial chapter="/objects/fonts" section="extrastyles">Fonts</site:tutorial>,
+As you can read in the chapter on <site:tutorial chapter="/fonts" section="extrastyles">Fonts</site:tutorial>,
 you can define the style as <site:doc class="com.lowagie.text.Font" target="UNDERLINE">Font.UNDERLINE</site:doc> or
 <site:doc class="com.lowagie.text.Font" target="STRIKETHRU">Font.STRIKETHRU</site:doc> to underline the text or
 strike through it. This works for RTF and HTML, but in PDF, you get a lot more functionality if you use the method
@@ -161,12 +161,12 @@ with the second method, you can make the rectangle bigger or smaller.
 <div>
 In the PDF syntax characters (glyphs) are regarded as filled shapes.
 If you want to change the color of a character, you change the
-<site:tutorial chapter="/objects/fonts/" section="extrastyles">color of the font</site:tutorial>,
+<site:tutorial chapter="/fonts/styles" section="styles">color of the font</site:tutorial>,
 but in reality you change the 'fill' color. This is demonstrated in the example:
 <site:source class="ChunkColor" />
 With the method <site:doc class="com.lowagie.text.Chunk" target="setTextRenderMode(int,%20float,%20java.awt.Color)">setTextRenderMode(int mode, float strokeWidth, Color strokeColor)</site:doc>,
-you can also change the 'outline' of the text. As you can read in the chapter
-on <site:tutorial chapter="" section="part3">graphics and text at absolute positions</site:tutorial>,
+you can also change the 'outline' of the text. As you can read in the chapters
+on <site:tutorial chapter="" section="part4">direct content</site:tutorial>,
 lines are not 'filled', but 'striken'. With the parameters <span class="commandline">strokeWidth</span>
 and <span class="commandline">strokeColor</span>, you define the width and the color of the strokes
 used to draw the character.<br />
@@ -234,7 +234,7 @@ It we passed the word "box", we draw a rectangle UNDER the Chunk.
     cb.rectangle(rect);
   }
 }</pre>
-Read the chapter on <site:tutorial chapter="" section="part3">Graphics and Text at Absolute Positions</site:tutorial>
+Read the chapters on <site:tutorial chapter="" section="part4">direct content</site:tutorial>
 to learn about the PDF syntax that gives you almost unlimited possibilities.
 <site:source class="Generic" />
 In the following example, we use the generic tag to keep a TreeMap of words

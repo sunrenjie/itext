@@ -24,7 +24,11 @@ import java.awt.Color;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
+/**
+ * A more complex example demonstrating the use of ColumnText.
+ */
 public class ColumnObjects {
+	/** Some data we want to output. */
     static public String headings[] = {
         "Book/Product Model:",
         "Sales Handle:",
@@ -37,6 +41,7 @@ public class ColumnObjects {
         "What's on the CD/DVD/Web:"
     };
 
+    /** Some text we want to output. */
     static public String texts[] = {
         "Ideally, choose one title (2-3 if absolutely necessary) that this book should perform like. Include full title, ISBN, author, and any sell through numbers if possible.",
         "One line description about the sales.",
@@ -49,6 +54,10 @@ public class ColumnObjects {
         "What is included on the Cd or Web site? Why is it necessary and what will it do for the purchaser (source code, examples, case studies)?\nIs there a value that can be associated with what is on the CD/DVD or Web?"
     };
 
+    /**
+     * A more complex example using ColumnText.
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
         
         System.out.println("Columns and objects");

@@ -33,7 +33,7 @@ import java.awt.Color;
 /**
  * An example using MultiColumnText with irregular columns.
  */
-public class MultiColumnSimple {
+public class MultiColumnR2L {
 
     /**
      * An example using MultiColumnText with irregular columns.
@@ -41,15 +41,16 @@ public class MultiColumnSimple {
      */
     public static void main(String[] args) {
         
-        System.out.println("Simple MultiColumnText");
+        System.out.println("MultiColumnText Right to Left");
         try {
             Document document = new Document();
-            OutputStream out = new FileOutputStream("multicolumnsimple.pdf");
+            OutputStream out = new FileOutputStream("multicolumnR2L.pdf");
             PdfWriter.getInstance(document, out);
             document.open();
 
 
             MultiColumnText mct = new MultiColumnText();
+            mct.setColumnsRightToLeft(true);
 
             // set up 3 even columns with 10pt space between
             mct.addRegularColumns(document.left(), document.right(), 10f, 3);

@@ -28,8 +28,15 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 
+/**
+ * Writes text in irregular columns that can be added at an absolute position.
+ */
 public class ColumnIrregular {
     
+    /**
+     * Demonstrates the use of ColumnText.
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
         
         System.out.println("Irregular Columns");

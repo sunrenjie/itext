@@ -69,14 +69,14 @@ as described in the <site:tutorial chapter="/objects/tables">previous chapter</s
 but you can also choose to put a PdfPTable at an absolute position with the method
 <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
 The mechanisms to add objects at absolute positions will be described in
-<site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial.
+<site:tutorial chapter="" section="part4">Part IV</site:tutorial> of the tutorial.
 All you need to know for now is that you have to pass the following parameters to the method:
 <ul>
 	<li>rowStart - the first row to be written, zero index</li>
 	<li>rowEnd - the last row to be written + 1. If it is -1 all the rows to the end are written.</li>
 	<li>xPos - the x write coodinate of the upper left corner of the table</li>
 	<li>yPos - the y write coodinate of the upper left corner of the table (remark: the 0 is at the bottom of the page as explained in the <site:tutorial chapter="/general/faq" section="xycoordinates">FAQ</site:tutorial>)</li>
-	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial)</li>
+	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part4">Part IV</site:tutorial> of the tutorial)</li>
 </ul>
 <site:source class="WriteSelectedRows" />
 As you can see in the example, there are some things you need to keep in mind
@@ -130,7 +130,7 @@ Remember the class <site:tutorial chapter="/objects/chunk" section="generic">Chu
 and how you could add your own functionality in a generic way with a PageEvent?
 You can do the same with a PdfPCell using a <site:doc class="com.lowagie.text.pdf.PdfPCellEvent">PdfPCellEvent</site:doc>.
 In the example, we want to strike a line OVER the contents from the lowerleft to the upperright corner.
-Using methods that are explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial, we can apply almost every layout that is possible within the PDF syntax.
+Using methods that are explained in <site:tutorial chapter="" section="part4">Part IV</site:tutorial> of the tutorial, we can apply almost every layout that is possible within the PDF syntax.
 We just have to implement the method
 <site:doc class="com.lowagie.text.pdf.PdfPCellEvent" target="cellLayout(com.lowagie.text.pdf.PdfPCell,%20com.lowagie.text.Rectangle,%20com.lowagie.text.pdf.PdfContentByte[])">cellLayout</site:doc>.
 You can use the cell itself that is passed as a parameter and you get a Rectangle object that holds to absolute position of the cell on the page.
@@ -158,7 +158,7 @@ In the next example cell and table events are combined to simulate cellspacing.
 Finally the answer to a question that pops up on the mailinglist from time to time:
 is it possible to put vertical text in a Cell. The answer is: yes, but you need to know
 how to use the class <site:doc class="com.lowagie.text.pdf.PdfTemplate">PdfTemplate</site:doc>
-(which is explained in <site:tutorial chapter="" section="part3">Part III</site:tutorial> of the tutorial).
+(which is explained in the <site:tutorial chapter="/directcontent" section="templates">direct content</site:tutorial> of the tutorial).
 If you can't wait, just take a look at the following example.
 <site:source class="VerticalTextInCells" />
 </div>
