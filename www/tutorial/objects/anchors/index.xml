@@ -16,6 +16,17 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="LocalGoto" standalone="yes" />
+			<site:result>LocalGoto.pdf</site:result>
+			<site:description>Creates a document with a local goto and a local destination</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="RemoteGoto" standalone="yes" />
+			<site:result>DocumentA.pdf</site:result>
+			<site:result>DocumentB.pdf</site:result>
+			<site:description>Creates two documents with links to eachother and to an external URL</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="AHref" standalone="yes" />
 			<site:result>AHref.pdf</site:result>
 			<site:result>AHref.html</site:result>
