@@ -14,7 +14,62 @@
 <xsl:param name="root" />
 <xsl:param name="branch" />
 
-<!-- Amazon related stuff -->
+<!-- metadata -->
+
+<xsl:template name="metadata">
+<head>
+	<xsl:element name="title">iText Tutorial: <xsl:value-of select="site:metadata/site:title" />
+	</xsl:element>
+	<xsl:element name="meta">
+		<xsl:attribute name="name">Description</xsl:attribute>
+		<xsl:attribute name="content"><xsl:value-of select="site:metadata/site:summary" /></xsl:attribute>
+	</xsl:element>
+	<xsl:element name="meta">
+		<xsl:attribute name="name">Keywords</xsl:attribute>
+		<xsl:attribute name="content"><xsl:value-of select="site:metadata/site:keywords" /></xsl:attribute>
+	</xsl:element>
+	<xsl:element name="link">
+		<xsl:attribute name="rel">stylesheet</xsl:attribute>
+		<xsl:attribute name="href">.<xsl:value-of select="$root" />/style.css</xsl:attribute>
+		<xsl:attribute name="type">text/css</xsl:attribute>
+	</xsl:element>
+</head>
+</xsl:template>
+
+<!-- commercial stuff -->
+
+<xsl:template name="commercial">
+
+<div class="commercial"><br />
+
+<script type="text/javascript"><![CDATA[<!--
+google_ad_client = "pub-0340380473790570";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_channel ="1357857646";
+google_ad_type = "text_image";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "1B09BD";
+google_color_url = "100670";
+google_color_text = "707070";
+//-->]]></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><br /><br />
+
+  <div class="subtitle">Amazon books:</div>
+  <xsl:for-each select="site:metadata/site:amazonbooks/site:book">
+    <xsl:call-template name="amazonasin"><xsl:with-param name="asins"><xsl:value-of select="string(@asin)" /></xsl:with-param></xsl:call-template><br />
+  </xsl:for-each>
+  <xsl:for-each select="site:metadata/site:amazonbooks/site:keyword">
+    <xsl:call-template name="amazonkeyword"><xsl:with-param name="keyword"><xsl:value-of select="." /></xsl:with-param></xsl:call-template><br />
+  </xsl:for-each>
+
+</div>
+
+</xsl:template>
 
 <xsl:template name="amazonasin">
 <xsl:param name="asins"/>
@@ -35,10 +90,42 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 //-->]]></script>
 </xsl:template>
 
-<!-- Keeping the html as is -->
+<!-- Table of Contents -->
 
 <xsl:template match="site:toc">
+<html>
+	<xsl:call-template name="metadata" />
+	<body>
+	
+    <a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
+    <h1>Tutorial</h1>
+    <h2><xsl:value-of select="site:metadata/site:title" /></h2>
+	<div id="content">
+		<xsl:for-each select="./site:chapter">
+			<xsl:variable name="path"><xsl:value-of select="@path" />/index.xml</xsl:variable>
+			<xsl:variable name="link"><xsl:value-of select="@path" />/index.html</xsl:variable>
+			<xsl:for-each select="document($path)/site:page">
+			<xsl:element name="a">
+				<xsl:attribute name="class">chapter</xsl:attribute>
+				<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
+				<xsl:value-of select="site:metadata/site:title"/>
+			</xsl:element>
+			<xsl:for-each select="site:chapter/site:section">
+				<li><xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
+					<xsl:value-of select="site:sectiontitle" />
+				</xsl:element></li>
+			</xsl:for-each>
+			</xsl:for-each>
+		</xsl:for-each>
+	</div>
+	
+	<xsl:call-template name="commercial" />
+    
+	</body>
+</html>
 </xsl:template>
+
+<!-- Keeping the html as is -->
 
 <xsl:template match="html:*">
 	<xsl:copy>
@@ -153,38 +240,20 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 <xsl:template match="site:page">
 <html>
-
-<head>
-	<xsl:element name="title">iText Tutorial: <xsl:value-of select="site:metadata/site:title" />
-	</xsl:element>
-	<xsl:element name="meta">
-		<xsl:attribute name="name">Description</xsl:attribute>
-		<xsl:attribute name="content"><xsl:value-of select="site:metadata/site:summary" /></xsl:attribute>
-	</xsl:element>
-	<xsl:element name="meta">
-		<xsl:attribute name="name">Keywords</xsl:attribute>
-		<xsl:attribute name="content"><xsl:value-of select="site:metadata/site:keywords" /></xsl:attribute>
-	</xsl:element>
-	<xsl:element name="link">
-		<xsl:attribute name="rel">stylesheet</xsl:attribute>
-		<xsl:attribute name="href">.<xsl:value-of select="$root" />/style.css</xsl:attribute>
-		<xsl:attribute name="type">text/css</xsl:attribute>
-	</xsl:element>
-</head>
-
-<body>
-	<a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
-	<h1>Tutorial</h1>
+  <xsl:call-template name="metadata" />
+  <body>
+    <a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
+    <h1>Tutorial</h1>
     <h2><xsl:value-of select="site:metadata/site:title" /></h2>
-    
-<xsl:element name="div">
+
+  <xsl:element name="div">
 	<xsl:attribute name="id">content</xsl:attribute>
     
     <xsl:element name="div">
 		<xsl:attribute name="id">sidebar</xsl:attribute>
 		<xsl:element name="a">
 		  <xsl:attribute name="class">toc</xsl:attribute>
-          <xsl:attribute name="href">.<xsl:value-of select="$root" /></xsl:attribute>
+          <xsl:attribute name="href">.<xsl:value-of select="$root" />/index.html</xsl:attribute>
 		  Table of Contents
 	    </xsl:element>
 		<div class="sidetitle">Sections:</div>
@@ -204,47 +273,11 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     	<xsl:apply-templates select="site:chapter" />
     </xsl:element>
     
-</xsl:element>
+  </xsl:element>
 
-<div class="commercial">
+  <xsl:call-template name="commercial" />
 
-<br />
-
-<!-- Google -->
-
-<script type="text/javascript"><![CDATA[<!--
-google_ad_client = "pub-0340380473790570";
-google_ad_width = 120;
-google_ad_height = 600;
-google_ad_format = "120x600_as";
-google_ad_channel ="1357857646";
-google_ad_type = "text_image";
-google_color_border = "FFFFFF";
-google_color_bg = "FFFFFF";
-google_color_link = "1B09BD";
-google_color_url = "100670";
-google_color_text = "707070";
-//-->]]></script>
-<script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-<br />
-<br />
-
-<!-- Amazon -->
-
-<div class="subtitle">Amazon books:</div>
-<xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:book">
-	<xsl:call-template name="amazonasin"><xsl:with-param name="asins"><xsl:value-of select="string(@asin)" /></xsl:with-param></xsl:call-template><br />
-</xsl:for-each>
-<xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:keyword">
-	<xsl:call-template name="amazonkeyword"><xsl:with-param name="keyword"><xsl:value-of select="." /></xsl:with-param></xsl:call-template><br />
-</xsl:for-each>
-
-</div>
-
-</body>
+  </body>
 </html>
 
 </xsl:template>
