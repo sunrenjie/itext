@@ -44,36 +44,36 @@ with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
 The current release on this site is <site:releasenumber />. This is considered a STABLE release (<site:releasedate />).
 iText<site:releasenumber /> was based on the Early Access release itext-paulo-<site:earlyaccessnumber />.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
-	<tr><th colspan="5">Download the library:</th></tr>
+	<tr><th colspan="2">Download the library:</th></tr>
 	<tr>
-		<td width="40%" class="small">Mirror</td>
 		<td width="20%" class="small">Source code</td>
-		<td width="20%" class="small">Compiled code</td>
-		<td width="20%" class="small">Documentation</td>
+		<td class="small"><site:releasesrc /></td>
 	</tr>
 	<tr>
-		<td class="small">prdownloads @ Sourceforge</td>
-		<td class="small"><site:releasesrc /></td>
+		<td width="20%" class="small">Compiled code</td>
 		<td class="small"><site:releasejar /></td>
+	</tr>
+	<tr>
+		<td width="20%" class="small">Documentation</td>
 		<td class="small"><site:releasedocs /></td>
 	</tr>
-	<tr>
-		<td class="small">downloads @ itext.sourceforge.net</td>
-		<td class="small"><a href="http://itext.sourceforge.net/downloads/src.tar.gz">src.tar.gz</a> or <a href="http://itext.sourceforge.net/downloads/src.zip">src.zip</a></td>
-		<td class="small"><a href="http://itext.sourceforge.net/downloads/iText.jar">iText.jar</a></td>
-		<td class="small"><a href="http://itext.sourceforge.net/downloads/docs.tar.gz">docs.tar.gz</a></td>
-	</tr>
 </table><br />
-If you download the source, jar or docs from prdownloads, you get the release number in the filename.
-If you download it from itext.sourceforge.net, you get the plain filenames: you can replace the old
-iText.jar with the new one without having to change your CLASSPATH. In any case: the content of
-the files with and the ones without the release number is the same, so you can choose which one to download.<br /><br />
-If you need a more recent release (because you need extra functionality or some specific bugfixes
+If you need a more recent release (because you need extra functionality or some specific bugfix
 that was added more recently), please go the the <a href="http://itextpdf.sourceforge.net/">Early Access</a>
-site (maintained by Paulo Soares) and check the version number (probably itext-paulo-<site:earlyaccesspaulo />).
-This itext-paulo-<site:earlyaccesspaulo /> corresponds with <site:earlyaccesssrc /> and <site:earlyaccessjar />.
+site (maintained by Paulo Soares) and check the version number (probably itext-paulo-<site:earlyaccesspaulo />).<br />
+The <a href="http://itext.sourceforge.net/downloads/iText.jar">iText.jar</a>
+you can find in the <a href="http://itext.sourceforge.net/downloads/">download directory</a>,
+is the current working version that was used to build the examples in the tutorial
+<a href="http://itext.sourceforge.net/tutorial/">iText by example</a>. It can be a
+more recent version than the stable version. For the moment, this
+<a href="http://itext.sourceforge.net/downloads/iText.jar">iText.jar</a>
+is identical to <site:earlyaccessjar /> (<site:earlyaccesssrc />)
+and is based on itext-paulo-<site:earlyaccesspaulo />.<br />
 To know the relation between the older version numbers of the release on this site and older versions
-of the Early Access release, please consult the <a href="history.html">history overview</a>.<br /><br />
+of the Early Access release, please consult the <a href="history.html">history overview</a>.
+If all this is too complicated, just download a jar, compile an example and
+read <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#version">this tutorial FAQ entry</a>
+to make sure what version of iText you are using.<br /><br />
 Another option to get the source code is to download it from the <a href="cvs.html">CVS repository</a>,
 for instance using <a href="ant.html">ant getFromCvs</a>.
 <div class="title">Compiling the source</div>
