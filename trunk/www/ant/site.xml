@@ -33,15 +33,25 @@
 		<copy file="${itext.xml.lowagie}/style.css" todir="${itext.lowagie}" overwrite="no" />
 		<copy file="${itext.xml.lowagie}/MPL-1.1.txt" todir="${itext.lowagie}" overwrite="no" />
 		<copy file="${itext.xml.lowagie}/lgpl.txt" todir="${itext.lowagie}" overwrite="no" />
-        <java classname="com.lowagie.tools.BuildSite">
-			<arg value="${itext.xml.lowagie}" />
-			<arg value="lowagie.xsl" />
-			<arg value="${itext.lowagie}" />
-	        <classpath>
-    	        <pathelement location="${itext.bin}/iText.jar" />
-    	        <pathelement location="${itext.bin}/crimson.jar" />
-        	</classpath>
-		</java>
+        <xslt basedir="${itext.xml.lowagie}" destdir="${itext.lowagie}" extension=".html" style="${itext.xml.lowagie}/lowagie.xsl" includes="*.xml">
+			<param name="releasenumber" expression="${releasenumber}"/>
+			<param name="earlyaccessnumber" expression="${earlyaccessnumber}"/>
+		</xslt>
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Building the build.xml for the examples                          -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="examples.build" description="--> building the pages for lowagie.com">
+        <mkdir dir="${itext.lowagie}" />
+		<copy todir="${itext.lowagie}/images" overwrite="no">
+			<fileset dir="${itext.xml.lowagie}/images" />
+		</copy>
+		<copy file="${itext.xml.lowagie}/style.css" todir="${itext.lowagie}" overwrite="no" />
+		<copy file="${itext.xml.lowagie}/MPL-1.1.txt" todir="${itext.lowagie}" overwrite="no" />
+		<copy file="${itext.xml.lowagie}/lgpl.txt" todir="${itext.lowagie}" overwrite="no" />
+        <xslt basedir="${itext.xml.lowagie}" destdir="${itext.lowagie}" extension=".html" style="${itext.xml.lowagie}/lowagie.xsl" includes="*.xml" />
     </target>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

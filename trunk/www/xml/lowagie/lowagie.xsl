@@ -12,13 +12,15 @@
 <xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" indent="no" media-type="text/html" />
 
 <!-- release number: change for every new release -->
+<xsl:param name="releasenumber"/>
+<xsl:param name="earlyaccessnumber"/>
 
 <xsl:template match="site:releasenumber" name="site:releasenumber">
-<xsl:value-of select="1.1"/>
+<xsl:value-of select="$releasenumber"/>
 </xsl:template>
 
 <xsl:template match="site:earlyaccessnumber">
-<xsl:value-of select="142"/>
+<xsl:value-of select="$earlyaccessnumber"/>
 </xsl:template>
 
 <!-- releaselinks to SourceForge -->
