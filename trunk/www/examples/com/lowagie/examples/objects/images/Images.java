@@ -52,6 +52,8 @@ public class Images {
             
             // step 3: we open the document
             document.open();
+            
+            // step 4:
             document.add(new Paragraph("A picture of my dog: otsoe.jpg"));
             Image jpg = Image.getInstance("otsoe.jpg");
             document.add(jpg);
