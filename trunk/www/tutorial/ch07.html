@@ -67,6 +67,24 @@
 				</FONT>
 				</TD>
 				</TR>
+			</TABLE>
+				<BR>
+				<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Remark:</B><BR>
+				The JDK 1.4 has now a built-in SaxParser. If you use this parser, you don't need the Xerces package.<br>
+				Just add the following line in the import section:<br>
+				<font face="Courier">import javax.xml.parsers.*;</font><br>
+				and change step 3 and 4 like this:<br>
+				<font face="Courier">
+				SAXParserFactory spf = SAXParserFactory.newInstance();<br>
+				SAXParser parser = spf.newSAXParser();<br>
+				parser.parse("Chap0701.xml", new SAXiTextHandler(document));</font>
+				</FONT>
+				</TD>
+				</TR>
 			</TABLE><BR>
 			In the first example: <a href="http://www.lowagie.com/iText/examples/Chap0701.java">Chap0701.java</a>,
 			we see how a document is generated containing almost all the objects we discussed in the previous chapters.
