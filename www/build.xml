@@ -426,13 +426,13 @@
 	  
     <target name="release.sf" depends="release" description="--> makes a complete iText release ready to publish on SourceForge">
         <mkdir dir="${itext.sf}" />
-        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/$itext-{release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/$itext-xml-{release}.jar" overwrite="yes" />
-        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/$itext-src-{release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/$itext-xml-src-{release}.zip" overwrite="yes" />
-        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/$itext-src-{release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/srcXML.tar.gx" tofile="${itext.sf}/$itext-xml-src-{release}.tar.gz" overwrite="yes" />
-        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/$itext-docs-{release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/$itext-${release}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/$itext-xml-${release}.jar" overwrite="yes" />
+        <copy file="${itext.dist}/src.zip" tofile="${itext.sf}/$itext-src-${release}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.zip" tofile="${itext.sf}/$itext-xml-src-${release}.zip" overwrite="yes" />
+        <copy file="${itext.dist}/src.tar.gz" tofile="${itext.sf}/$itext-src-${release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/srcXML.tar.gz" tofile="${itext.sf}/$itext-xml-src-${release}.tar.gz" overwrite="yes" />
+        <copy file="${itext.dist}/docs.tar.gz" tofile="${itext.sf}/$itext-docs-${release}.tar.gz" overwrite="yes" />
     </target>
 
 </project>
