@@ -1,315 +1,630 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
+
+
 <HTML>
+
 <HEAD>
+
 	<!-- $Header$ -->
+
 	<META NAME="Description" CONTENT="iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).">
+
 	<META NAME="Keywords" CONTENT="PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno">
+
 	<META CONTENT="0" HTTP-EQUIV="Expires">
+
 	<TITLE>iText - a JAVA-PDF library</TITLE>
+
 </HEAD>
+
+
 
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#008080" VLINK="#008080" ALINK="#00CCCC">
 
+
+
 <A NAME="top"></A>
 
+
+
 <TABLE WIDTH="95%" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center" BGCOLOR="#808080">
+
 <TR>
+
 	<TD>
+
 	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="7" BGCOLOR="#008080">
+
 	<TR>
+
 		<TD COLSPAN="2" ALIGN="center">
+
 			<FONT FACE="Times New Roman" SIZE="+3" COLOR="#FFFFFF"><I>i</I></FONT><FONT FACE="Arial,Helvetica" SIZE="+3" COLOR="#FFFFFF">Text</FONT>
+
 		</TD>
+
 		<TD ALIGN="center" BGCOLOR="#808080">
+
 			<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=15255" width=88 height=31 border=0 alt="SourceForge Logo"></a>
+
 		</TD>
+
 		<TD COLSPAN="2" BGCOLOR="#808080">
+
 			<FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">A Free Java-PDF library<BR>
-			by </FONT><A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A>
-			and Paulo Soares<BR>
+
+			by <A HREF="http://www.lowagie.com/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bruno Lowagie</FONT></A>
+
+			and Paulo Soares</FONT><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Home</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Docs</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1"><B>[FAQ]</B></FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="links.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Links</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="history.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">History</FONT></A>]</FONT></TD>
+
 	</TR>
+
 	<TR>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/projects/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">SourceForge</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://www.geocrawler.com/lists/3/SourceForge/8175/0/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailArchive</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://lists.sourceforge.net/mailman/listinfo/itext-questions"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">MailingList</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://sourceforge.net/bugs/?group_id=15255"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Bugs</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/itext/"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">CVS</FONT></A>]</FONT></TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<BR><BR>
+
 			<FONT FACE="Arial,Helvetica">
+
 			<B>These are some frequently asked questions</B>
+
 			<UL>
+
 				<LI><A HREF="#whatis">What is PDF?</A>
+
 				<li><a href="#ftp">I have troubles downloading the source/jarfile from the ftp-site.</A>
+
 				<li><a href="#msie">Problems with the Internet Explorer plugin</a>
+
 				<li><a href="#servlet">Where can I find an example of iText used in a Servlet application?</A>
+
 				<LI><A HREF="#landscape">How to make a page in <i>landscape</i></A>
+
 				<LI><A HREF="#firstpage">I added a header, footer or watermark, but it doesn't appear on my document.</A>
+
 				<LI><A HREF="#measurements">What measurement unit is used?</A>
+
 				<LI><A HREF="#template">Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A>
+
 				<LI><A HREF="#parsepdf">Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</A>
+
 				<LI><A HREF="#html2pdf">Can I convert a HTML file to a PDF document?</a>
+
 				<li><a href="#javadoc">How do I generate documentation files (the API)?</a>
+
 				<li><a href="#compile">When I compile the source code I get ClassNotFound errors!</A>
+
 				<li><a href="#jdk11">Can I use iText with the JDK1.1?</A>
+
 				<li><a href="#images">On the subject of images!</A>
+
 			</UL>
+
 			</FONT><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="whatis"><B>What is PDF?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			PDF is the 'Portable Document Format', i.e. the native file format of
+
 			the Adobe<SUP>(R)</SUP> Acrobat<SUP>(R)</SUP> family of products.
+
 			The goal of these products is to enable users to exchange and view
+
 			electronic documents easily and reliably, independent
+
 			of the environment in which they were created.<BR>
+
 			Check out the <A HREF="http://www.adobe.com/"><FONT FACE="Arial,Helvetica" SIZE="-1">Adobe</FONT></A> website
+
 			where you can download some
+
 			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/docs.html"><FONT FACE="Arial,Helvetica" SIZE="-1">White Papers</FONT></A>
+
 			and the
+
 			<A HREF="http://partners.adobe.com/asn/developer/acrosdk/DOCS/pdfspec.pdf"><FONT FACE="Arial,Helvetica" SIZE="-1">Portable Document Format Reference Manual</FONT></A>
+
 			for more information.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="ftp"><B>I have troubles downloading the source/jarfile from the ftp-site.</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			Maybe you're behind a Firewall or IP-masquerading setup.
+
 			In this case, you have to change your FTP-settings into 'passive mode'.
+
 			You can do this by typing 'passive' before you perform a 'get' or by
+
 			checking the option 'passive' if you use some GUI-program to FTP.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="msie"><B>Problems with the Internet Explorer plugin</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			See also the Support Knowledge Base at Adobe: <A HREF="http://www.adobe.com/support/techdocs/3d76.htm">document 311184</A>.<BR>
+
 			Solution 8 is very polite about this, but there is a bug in MSIE that
+
 			still has to be fixed by the developers at MicroSoft.
+
 			When you send dynamically created CORRECT (!) PDFs
+
 			(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
+
 			a blank browser window. This is because MSIE needs to know
+
 			the exact content length of the PDF file in advance!<BR>
+
 			You can use the following workaround to avoid this:<BR><BR>
+
 			&nbsp;<CODE>res.setContentType("application/pdf");</CODE><BR>
+
 			&nbsp;<CODE>ByteArrayOutputStream ba = new ByteArrayOutputStream();</CODE><BR>
+
 			&nbsp;<CODE>generate_pdf(ba);</CODE><BR>
+
 			&nbsp;<CODE>res.setContentLength(ba.size());</CODE><BR>
+
 			&nbsp;<CODE>ServletOutputStream out = res.getOutputStream();</CODE><BR>
+
 			&nbsp;<CODE>ba.writeTo(out);</CODE><BR>
+
 			&nbsp;<CODE>out.flush();</CODE><BR>
+
 			<BR>
+
 			If you don't include the content lenght it only works sometimes, if ever.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="servlet"><B>Where can I find an example of iText used in a Servlet application?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">					
+
 			I have an account on this server: <A HREF="http://webappcabaret.com/">
+
 			http://webappcabaret.com/</A>. This service is FREE and offers Servlet Support.
+
 			You can find my demo-application here: <A HREF="http://webappcabaret.com/blowagie/itext/">
+
 			http://webappcabaret.com/blowagie/itext/</A> or you can try the example in the
+
 			<A HREF="tutorial/ch01.html#servlet">tutorial</A>.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="landscape"><B>How to make a page in <i>landscape</i></B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			In most of the examples, the pages are created with a PageSize.A4.
+
 			These pages are shown in <i>portrait</i>. If you create a page with
+
 			PageSize.A4.rotate(), the pages are shown in <i>landscape</i>.
+
 			You can also use the setPageSize-method, but be aware of the
+
 			fact that the PageSize will only be changed on the next page.<BR>
+
 			This is covered in the <A HREF="tutorial/ch01.html#landscape">tutorial</A>.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="firstpage"><B>I added a header, footer or watermark, but it doesn't appear on my document.</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			Chances are you added the header, footer or watermark at the wrong place.
+
 			This is covered in the <A HREF="tutorial/ch01.html#firstpage">tutorial</A>.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="measurements"><B>What measurement unit is used?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			The default measurement system roughly corresponds to the various definitions
+
 			of the typographic unit of measurement known as the <I>point</I>.
+
 			This is covered in the <A HREF="tutorial/ch01.html#measurements">tutorial</A>.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="template"><B>Can I parse an existing PDF-document with iText? Can I use a template PDF and fill it with data?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			With iText you can only create new PDF documents from scratch;
+
 			so you can't parse an existing PDF file to retrieve its content or
+
 			a template PDF file to fill it with data from a database.
+
 			There are some other libraries that support this, please check
+
 			the <A HREF="links.html">links</A>-page.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="parsepdf"><B>Is it possible to parse an existing PDF-document and convert it to another format (HTML, DOC, EXCEL)?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			The pdf format is just a canvas where text and graphics are placed without
+
             any structure information and as such there isn't a table object.
+
             Tables are formed by placing text and lines at selected places. What you
+
             want is a text extraction tool, a far from trivial task.
+
 			Post your question on the newsgroup <A HREF="news://comp.text.pdf">news://comp.text.pdf</A>
+
 			and maybe you will get some answers from people that have built such a tool,
+
 			but don't expect tools that will perform a bullet-proof conversion.<BR>
+
             Remark: iText does not read pdfs.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="html2pdf"><B>Can I convert a HTML file to a PDF document?</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			This is not supported by iText, but there are people who use iText to convert HTML pages to PDF.
+
 			You can find some examples here:
+
 			<A HREF="http://128.146.184.28/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
+
 			and <A HREF="http://128.146.184.28/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="javadoc"><B>How do I generate documentation files (the API)? </B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			I have generated the API-pages using the <CODE>javadoc</CODE> tool that comes
+
 			with the JDK. This is the command line I used on Windows:
+
 			</FONT>
+
 <PRE>javadoc -use -windowtitle iText -doctitle "Java-Pdf-Html Library"
+
 -link http://java.sun.com/products/jdk/1.2/docs/api -classpath .
+
 -version -author -private -d D:/docs com.lowagie.text com.lowagie.text.pdf
+
 com.lowagie.text.pdf.font com.lowagie.text.html com.lowagie.text.xml</PRE>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile the source code I get ClassNotFound errors!</B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			If the missing classes are for instance java.util.Iterator or java.util.ArrayList,
+
 			this is a sign that your are not using the JDK1.2. You should upgrade your JDK or
+
 			use the <A HREF="#jdk11">1.1.x</A>-version of the library.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><a name="jdk11"><B>Can I use iText with the JDK1.1?</B></a></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			Yes, the original code was written for the JDK1.2, but it was ported
+
 			to the JDK 1.1.x by Volker Richert. You can download the source from
+
 			my <A HREF="ftp://ftp.lowagie.com/iText/jdk1.1-version/">FTP</A>-site.
+
 			(Remark: This 1.1 compatible version was tested by Rico Kahnert.)<BR>
+
 			There is also a 1.1.x port of iText0.35 by Paulo Soares.<BR>
+
 			<FONT COLOR="#FF0000">Important:</FONT> the zip- and jar-file only
+
 			contain the SOURCE CODE. You will have to unzip/unjar and compile
+
 			this code first!
+
 			You will also need to download the
+
 			<A HREF="http://java.sun.com/beans/infobus/index.html#DOWNLOAD_COLLECTIONS"><FONT FACE="Arial,Helvetica" SIZE="-1">Collection</FONT></A>
+
 			classes to make the library work (more
+
 			<A HREF="http://java.sun.com/beans/infobus/collectionsreadme.html"><FONT FACE="Arial,Helvetica" SIZE="-1">info</FONT></A>)
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">	
+
 			<FONT FACE="Arial,Helvetica"><A NAME="images"><B>On the subject of images! </B></A></FONT><BR>
+
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+
 			iText supports images (plain GIFs, JPEGs and PNGs), but there are some limitations!
+
 			<UL>These are the exceptions:
+
 			<LI>GIF
+
 				<UL>
+
 					<LI>Gifs without a global colortable
+
 					<LI>interlaced gifs or gifs using local color table
+
 					<LI>... (check out the error message!)
+
 				</UL>
+
 			<LI>JPG
+
 				<UL>
+
 					<LI>JPG with of which the number of 'Bits Per Component' != 8
+
 					<LI>JPG with 'invalid JPEG markers' (see the code of class Jpeg)
+
 				</UL>
+
 			<LI>PNG
+
 				<UL>
+
 					<LI>PNGs with BitDepth == 16
+
 					<LI>PNGs with another colortype than 0, 2 or 3
+
 					<LI>interlaced PNGs
+
 				</UL>
+
 			</UL>
+
 			GIF is the most delicate format. I followed the GIF specs as good as possible,
+
 			but you must know that there are also some legal limitations (the format is
+
 			owned by Unisys and there is a patent on LZW-compression/decompression). When an image
+
 			is rejected by iText, the exception that gets thrown always gives an explanation;
+
 			for instance:<BR><FONT FACE="Courier">the image separator '0x2c' is not found
+
 			after reading the color table</FONT><BR>
+
 			This is quite a cryptic error message, but the code can't possibly tell you more:
+
 			in the GIF specs, it is specified that the code 0x2c should be used as imageSeparator
+
 			(this is the byte that should separate the section with the GIF-header, the info and
+
 			the color table from the image descriptor). If iText can't find this byte, the library
+
 			can't do anything with the GIF and rejects it...<BR>
+
 			You can try using another tool to create your GIF-file, one that generates images
+
 			that are conform to the specs. Or you can consider using PNG- or JPG-images instead.
+
 			</FONT><BR><BR>
+
 		</TD>
+
 	</TR>
+
 	<TR>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="docs.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous Page</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%">&nbsp;</TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
+
 		<TD WIDTH="20%">&nbsp;</TD>
+
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="links.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Next Page</FONT></A>]</FONT></TD>
+
 	</TR>
+
 	<TR>
+
 		<TD COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#808080">
+
 			<FONT FACE="Arial,Helvetica" SIZE="-3">
+
 			<B>Page Updated: </B> $Date$<br>
+
 			Copyright &copy; 1999, 2000, 2001 by Bruno Lowagie
+
 			</FONT>
+
 		</TD>
+
 		<TD COLSPAN="3" ALIGN="right" BGCOLOR="#808080">
+
 			<FONT FACE="Arial,Helvetica" SIZE="-3">
+
 			Adolf Baeyensstraat 121, 9040 Gent, BELGIUM,<br>
+
 			tel +00 32 92 28 10 97 mailto:<A HREF="mailto:bruno@lowagie.com"><FONT COLOR="#000000">bruno@lowagie.com</FONT></A>
+
 			</FONT>
+
 		</TD>
+
 	</TR>
+
 	</TABLE>
+
 	</TD>
+
 </TR>
+
 </TABLE>
 
+
+
 </BODY>
+
 </HTML>
+
