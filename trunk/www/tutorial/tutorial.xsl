@@ -47,33 +47,33 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 <!-- the examples -->
 <xsl:template match="site:examples">
   <xsl:if test="count(./site:extrajar)>0">
-  	<ul>Extra jars needed to compile and run these examples:
-    <xsl:for-each select="./site:extrajar">
+  	<div class="small">Extra jars needed to compile and run these examples:</div>
+  	<ul><xsl:for-each select="./site:extrajar">
        <li><xsl:value-of select="." /></li>
     </xsl:for-each></ul>
   </xsl:if>
   <xsl:for-each select="site:example">
   	<div class="example">
   	<xsl:element name="a">
-  		<xsl:attribute name="class">example</xsl:attribute>
+  		<xsl:attribute name="class">source</xsl:attribute>
   		<xsl:attribute name="href">/examples/com/lowagie/examples<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
   		<xsl:value-of select="site:java/@src" />
     </xsl:element><br />
-  	<xsl:value-of select="site:description/." /><br />
+  	<div class="description"><xsl:value-of select="site:description/." /></div>
     <xsl:if test="count(site:argument)!=0" >
-      <ul>Argument(s):
-      <xsl:for-each select="site:argument">
+      <div class="small">Argument(s):</div>
+      <ul><xsl:for-each select="site:argument">
   		<li><xsl:value-of select="." /></li>
       </xsl:for-each></ul>
     </xsl:if>
     <xsl:if test="count(site:externalresource)!=0" >
-      <ul>Input:
-      <xsl:for-each select="site:externalresource">
+      <div class="small">Input:</div>
+      <ul><xsl:for-each select="site:externalresource">
   		<li><xsl:value-of select="." /></li>
       </xsl:for-each></ul>
     </xsl:if>
-    <ul>Output:
-    <xsl:for-each select="site:result">
+ 	<div class="small">Output:</div>
+ 	<ul><xsl:for-each select="site:result">
       <li><xsl:element name="a">
       	<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
   		<xsl:value-of select="." />
@@ -89,7 +89,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 <html>
 
 <head>
-	<xsl:element name="title">iText by Example: <xsl:value-of select="site:metadata/site:title" />
+	<xsl:element name="title">iText Tutorial: <xsl:value-of select="site:metadata/site:title" />
 	</xsl:element>
 	<xsl:element name="meta">
 		<xsl:attribute name="name">Description</xsl:attribute>
@@ -107,10 +107,33 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 </head>
 
 <body>
-
+	<a name="top" class="logo" href="http://www.lowagie.com/iText"><img src="http://www.lowagie.com/iText/images/logo.gif" border="0" alt="iText" /></a>
+	<h1>Tutorial</h1>
+    <h2><xsl:value-of select="site:metadata/site:title" /></h2>
+    
 <xsl:element name="div">
 	<xsl:attribute name="id">content</xsl:attribute>
-	<xsl:apply-templates select="site:content" />
+    
+    <xsl:element name="div">
+		<xsl:attribute name="id">sidebar</xsl:attribute>
+		<div class="title">Sections:</div>
+		<ul>
+		<xsl:for-each select="site:section">
+			<li><xsl:element name="a"><xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
+				<xsl:value-of select="site:sectiontitle" />
+			</xsl:element></li>
+		</xsl:for-each>
+		</ul><br /><br />
+		<div class="sidetitle">Examples:</div>
+		<xsl:apply-templates select="site:examples" />
+	</xsl:element>
+    
+	<xsl:for-each select="site:section">
+		<xsl:element name="a"><xsl:attribute name="name"><xsl:value-of select="@name" /></xsl:attribute></xsl:element>
+		<div class="title"><xsl:value-of select="site:sectiontitle" /></div>
+		<xsl:apply-templates select="site:sectioncontent" />
+		<a class="top" href="#top">Go to top of the page</a>
+	</xsl:for-each>
 	
 <div xmlns="http://www.w3.org/1999/xhtml" id="footer">
 Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
@@ -120,39 +143,42 @@ Copyright &#169; 1999-2004
 	
 </xsl:element>
 
-<xsl:element name="div">
-  <xsl:attribute name="id">examples</xsl:attribute>
-  <div class="subtitle">Examples:</div>
-  <xsl:apply-templates select="site:examples" />
-</xsl:element>
+<div class="commercial">
 
-<div id="google">
+<br />
+
+<!-- Google -->
+
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
 google_ad_height = 600;
 google_ad_format = "120x600_as";
-google_ad_channel ="0722422818";
-google_ad_type = "text";
-google_color_border = "000000";
+google_ad_channel ="1357857646";
+google_ad_type = "text_image";
+google_color_border = "FFFFFF";
 google_color_bg = "FFFFFF";
-google_color_link = "B31800";
-google_color_url = "B31800";
-google_color_text = "FF2200";
+google_color_link = "1B09BD";
+google_color_url = "100670";
+google_color_text = "707070";
 //-->]]></script>
 <script type="text/javascript"
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
-</div>
 
-<div id="amazon">
-<a class="amazonlinks" href="amazon.html" xmlns="http://www.w3.org/1999/xhtml">Amazon books:</a>
+<br />
+<br />
+
+<!-- Amazon -->
+
+<div class="subtitle">Amazon books:</div>
 <xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:book">
-	<xsl:call-template name="amazonasin"><xsl:with-param name="asins"><xsl:value-of select="string(@asin)" /></xsl:with-param></xsl:call-template>
+	<xsl:call-template name="amazonasin"><xsl:with-param name="asins"><xsl:value-of select="string(@asin)" /></xsl:with-param></xsl:call-template><br />
 </xsl:for-each>
 <xsl:for-each select="/site:page/site:metadata/site:amazonbooks/site:keyword">
-	<xsl:call-template name="amazonkeyword"><xsl:with-param name="keyword"><xsl:value-of select="." /></xsl:with-param></xsl:call-template>
+	<xsl:call-template name="amazonkeyword"><xsl:with-param name="keyword"><xsl:value-of select="." /></xsl:with-param></xsl:call-template><br />
 </xsl:for-each>
+
 </div>
 
 </body>
