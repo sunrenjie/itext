@@ -30,42 +30,42 @@ import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 
 public class Chap0102 {
-
-	public static void main(String[] args) {
-
-		System.out.println("Chapter 1 example 2: PageSize");
-
-		// step 1: creation of a document-object
-		Rectangle pageSize = new Rectangle(144, 720);
-		pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));
-		Document document = new Document(pageSize);
-
-		try {
-
-			// step 2:
-			// we create a writer that listens to the document
-			// and directs a PDF-stream to a file
-
-			PdfWriter.getInstance(document, new FileOutputStream("Chap0102.pdf"));
-
-			// step 3: we open the document
-			document.open();
-
-			// step 4: we add some paragraphs to the document
-			for (int i = 0; i < 5; i++) {
-				document.add(new Paragraph("Hello World"));
-			}
-
-		}
-		catch(DocumentException de) {
-			System.err.println(de.getMessage());
-		}
-		catch(IOException ioe) {
-			System.err.println(ioe.getMessage());
-		}
-
-		// step 5: we close the document
-		document.close();
-	}
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Chapter 1 example 2: PageSize");
+        
+        // step 1: creation of a document-object
+        Rectangle pageSize = new Rectangle(144, 720);
+        pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));
+        Document document = new Document(pageSize);
+        
+        try {
+            
+            // step 2:
+            // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
+            
+            PdfWriter.getInstance(document, new FileOutputStream("Chap0102.pdf"));
+            
+            // step 3: we open the document
+            document.open();
+            
+            // step 4: we add some paragraphs to the document
+            for (int i = 0; i < 5; i++) {
+                document.add(new Paragraph("Hello World"));
+            }
+            
+        }
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        
+        // step 5: we close the document
+        document.close();
+    }
 }
 
