@@ -77,6 +77,43 @@
 			<site:description>Writing vertical text</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="ChineseJapaneseKorean" standalone="yes" />
+			<site:result>cjk.pdf</site:result>
+			<site:extrajar>iTextAsian.jar</site:extrajar>
+			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
+			<site:description>Using CJK Fonts</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EncodingFont" standalone="yes" />
+			<site:result>encodingfont.pdf</site:result>
+			<site:description>Fonts and encoding</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FixedFontWidth" standalone="yes" />
+			<site:result>fixedfontwidth.pdf</site:result>
+			<site:description>Changing the width of the font glyphs</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FullFontNames" standalone="yes" />
+			<site:result>fullfontname_arialbi.txt</site:result>
+			<site:description>Retrieving the full font name</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="RegisterFont" standalone="yes" />
+			<site:result>registerfont.pdf</site:result>
+			<site:description>Registering Fonts with the FontFactory</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TrueTypeCollections" standalone="yes" />
+			<site:result>truetypecollections.pdf</site:result>
+			<site:description>True Type Collections</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FontFactoryStyles" standalone="yes" />
+			<site:result>fontfactorystyles.pdf</site:result>
+			<site:description>Changing the style of a fontfactory font</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="RightToLeft" standalone="yes" />
 			<site:result>complextext.pdf</site:result>
 			<site:description>Writing text from left to right</site:description>

@@ -32,6 +32,11 @@
 			<site:description>Demonstrates some more Paragraph functionality</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="SpaceWordRatio" standalone="yes" />
+			<site:result>spacewordratio.pdf</site:result>
+			<site:description>Space Word Ratio</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="DifferentFonts" standalone="yes" />
 			<site:result>differentfonts.pdf</site:result>
 			<site:description>A Paragraph can contain text in different fonts</site:description>
