@@ -52,8 +52,8 @@ class Month extends Table {
     public Month(int month, int year, String[] days, Color border, Color bgTable, Color bgCells) throws BadElementException, DocumentException {
         super(7);
         setWidth(80);
-        setCellpadding(2);
-        setCellspacing(2);
+        setPadding(2);
+        setSpacing(2);
         setWidths(WIDTHS);
         setBorderWidth(2);
         setBorderColor(border);
