@@ -25,6 +25,11 @@
 			<site:description>A very big table added with document.add()</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="TableBorders" standalone="yes" />
+			<site:result>TableBorders.pdf</site:result>
+			<site:description>Demonstrates different borderstyles</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="FragmentTable" standalone="yes" />
 			<site:result>FragmentTable.pdf</site:result>
 			<site:argument>50</site:argument>
@@ -36,6 +41,11 @@
 			<site:description>Demonstrates how to add vertical text in a cell</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="SplitTable" standalone="yes" />
+			<site:result>SplitTable.pdf</site:result>
+			<site:description>Demonstrates how to split a Table in two sections of columns</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="TableEvents1" standalone="yes" />
 			<site:result>TableEvents1.pdf</site:result>
 			<site:description>Demonstrates what one can do with table events</site:description>
@@ -44,6 +54,12 @@
 			<site:java src="TableEvents2" standalone="yes" />
 			<site:result>TableEvents2.pdf</site:result>
 			<site:description>Demonstrates what one can do with table events (cells with colspan &gt; 1)</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="CellEvents" standalone="yes" />
+			<site:result>CellEvents.pdf</site:result>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:description>Demonstrates what one can do with cell events</site:description>
 		</site:example>
 	</site:examples>
 	
