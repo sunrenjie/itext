@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Images</site:title>
+		<site:summary>Deals with all types of images that are supported by iText</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, tiff, gif, jpeg, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:keyword>GIF</site:keyword>
+			<site:keyword>JPEG</site:keyword>
+			<site:keyword>TIFF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Images" standalone="yes" />
+			<site:externalresource>*.jpg</site:externalresource>
+			<site:externalresource>iText.bmp</site:externalresource>
+			<site:externalresource>pngnow.png</site:externalresource>
+			<site:externalresource>iText.tif</site:externalresource>
+			<site:externalresource>getacro.gif</site:externalresource>
+			<site:externalresource>iText.wmf</site:externalresource>
+			<site:result>Images.pdf</site:result>
+			<site:description>Adds different formats of images to a document.</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="intro">
+		<site:sectiontitle>Images</site:sectiontitle>
+<div>
+<site:source class="Images" />
+</div>
+	</site:section>
+	</site:chapter>
+</site:page>
