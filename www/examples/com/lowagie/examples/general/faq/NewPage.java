@@ -48,7 +48,7 @@ public class NewPage {
             // we create a writer that listens to the document
             // and directs a PDF-stream to a file
             
-            PdfWriter.getInstance(document, new FileOutputStream("NewPage.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("NewPage.pdf"));
             
             // step 3: we open the document
             document.open();
@@ -61,9 +61,13 @@ public class NewPage {
             document.newPage();
             document.add(new Paragraph("We invoked new page twice, yet there was no blank page added. Between the second page and this one. This is normal behaviour."));
             document.newPage();
+            writer.setPageEmpty(false);
+            document.newPage();
+            document.add(new Paragraph("We told the writer the page wasn't empty."));
+            document.newPage();
             document.add(Chunk.NEWLINE);
             document.newPage();
-            document.add(new Paragraph("You should add something invisible if you want a blank page."));
+            document.add(new Paragraph("You can also add something invisible if you want a blank page."));
             document.add(Chunk.NEXTPAGE);
             document.add(new Paragraph("Using Chunk.NEXTPAGE also jumps to the next page"));
         }
