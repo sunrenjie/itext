@@ -41,8 +41,7 @@ public class Chap0517 {
             Table t2=new Table(3,3); 
             Table t3=new Table(4,4); 
 
-            t2.insertTable(t1,new Point(2,2)); 
-            t2.complete();
+            t2.insertTable(t1,new Point(2,2));
             t3.insertTable(t2,new Point(2,2)); 
 
             document.add(t3); 
