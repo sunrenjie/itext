@@ -3,9 +3,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Direct Content</site:title>
-		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:title status="finished">Coordinate Systems</site:title>
+		<site:summary>Coordinate Systems - changing the Current Transformation Matrix (CTM)</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, transformation matrix, coordinate systems, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>PDF</site:keyword>
@@ -71,16 +71,18 @@ that change the printed result, so be careful!<br />
 	<site:section name="transform">
 		<site:sectiontitle>Transformations</site:sectiontitle>
 <div>
-There are different ways to change the CTM. You can use the method
-<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="PdfContentByte.html#concatCTM(float,%20float,%20float,%20float,%20float,%20float)">PdfContentByte.html#concatCTM(float, float, float, float, float, float)</site:doc>.
-You can for instance shift the origin to the upper left corner and change the orientation of the y-axis with this line of code:
+There are different ways to change the CTM.<br />
+You can use the method
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="concatCTM(float,%20float,%20float,%20float,%20float,%20float)">concatCTM(float, float, float, float, float, float)</site:doc>.
+For instance, if you want to shift the origin to the upper left corner and change the orientation of the y-axis,
+you can use this statement right after getting the PdfContentByte:
 <pre class="commandline">cb.concatCTM(1f, 0f, 0f, -1f, 0f, PageSize.A4.height());</pre>
-We take the same code as in the first example, but now everything is upside-down and
-the text is mirrored.
+If we take the same code as in the first example, but apply this new transformation matrix, we see that
+everything is upside-down now and all text is mirrored.
 <site:source class="UpsideDown" />
 These transformations are called <i>affine transformations</i>
-and you should have learnt about them at school when you were about 17 years old.<br />
-This is some algebra to freshen up your memory:
+and you should have learnt about them at school when you were about 17 years old.
+If you want to freshen up your memory, I've got some algebra for you:<br /><br />
 if you want to translate, scale or rotate images or text, you need to use a Transformation Matrix.
 Most iText methods involving transformations ask you for the parameters a, b, c, d, e and f.
 Those parameters are elements of the Transformation Matrix:<br />
@@ -201,7 +203,66 @@ So you will have to use these parameters:
 <li>d = sY * Math.cos(angle)</li>
 <li>e = tX;</li>
 <li>f = tY;</li>
-</ul>
+</ul><br />
+<br />
+Another way to change the CTM is by using
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="transform(java.awt.geom.AffineTransform)">transform(java.awt.geom.AffineTransform)</site:doc>
+As you can see AffineTransform is an object in the JDK.
+It comes with some getInstance methods that are easier to understand.
+If you want a scale coordinate system, just get a 'scale instance':
+<pre class="commandline">cb.transform(AffineTransform.getScaleInstance(1.2, 0.75));</pre>
+Check SUN's API for more information.
+<site:source class="AffineTransformation" />
+</div>
+	</site:section>
+	<site:section name="templates">
+		<site:sectiontitle>Adding PdfTemplates</site:sectiontitle>
+<div>
+The stuff above probably seems rather theoretic, but it was a necessary introduction
+to this part: if you are using PdfTemplates, you are going to need a transformation matrix.
+Up till now, we only have used this method to add a PdfTemplate:
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float)">addTemplate(com.lowagie.text.pdf.PdfTemplate, float, float)</site:doc>.
+This method performs a translation, using this matrix:
+<table>
+<tr>
+<td rowspan="3" valign="middle"><font size="+4">[</font></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td rowspan="3" valign="middle"><font size="+4">]</font></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>x</td>
+<td>y</td>
+<td>1</td>
+</tr>
+</table>
+In fact, the method just calls the more sophisticated method:
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float,%20float,%20float,%20float,%20float)">addTemplate(com.lowagie.text.pdf.PdfTemplate, float,  float, float, float, float, float)</site:doc>.<br />
+Instead of <span class="commandline">cb.addTemplate(template, x, y)</span>, you could call
+<span class="commandline">cb.addTemplate(template, 1, 0, 0, 1, x, y)</span> (that's exactly what happens internally in iText).
+<site:source class="Transformations" /></div>
+	</site:section>
+	<site:section name="images">
+		<site:sectiontitle>Adding Images</site:sectiontitle>
+<div>
+What was explained for PdfTemplate objects also goes for Image objects.
+There's a method <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image)">addImage(com.lowagie.text.Image)</site:doc>
+that adds the Image at an absolute position (provided that you used
+<site:doc class="com.lowagie.text.Image" target="setAbsolutePosition(float,%20float)">setAbsolutePosition(float, float)</site:doc> first).
+But there's also <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image,%20float,%20float,%20float,%20float,%20float,%20float)">addImage(com.lowagie.text.Image, float, float, float, float, float, float)</site:doc>
+that allows you to transform the Image.
+<site:source class="TransformImage" />
+This is very tricky stuff. It's doable for PdfTemplates, but if you want to transform Images,
+you'd better trust on iText to construct the transformation matrix.
+Class Image has sufficient methods to perform most of the
+<site:tutorial chapter="/objects/images" section="transformations">Image transformations</site:tutorial>
+you are going to need.
 </div>
 	</site:section>
 	</site:chapter>

@@ -137,6 +137,13 @@
 <site:source class="Images" />
 </div>
 	</site:section>
+	<site:section name="transformations">
+		<site:sectiontitle>Image transformations</site:sectiontitle>
+<div>
+<site:source class="Scaling" />
+<site:source class="Rotating" />
+</div>
+	</site:section>
 	<site:section name="awt">
 		<site:sectiontitle>java.awt.Image</site:sectiontitle>
 <div>
