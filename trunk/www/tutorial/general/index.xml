@@ -41,6 +41,13 @@
 			<site:result>Margins.pdf</site:result>
 			<site:description>Demonstrates the margin functionality</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="HelloWorldMultiple" standalone="yes" />
+			<site:result>HelloWorldPdf.pdf</site:result>
+			<site:result>HelloWorldRtf.rtf</site:result>
+			<site:result>HelloWorldHtml.html</site:result>
+			<site:description>Writing to different writers at the same time; using pause() and resume()</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
@@ -146,7 +153,17 @@ The first parameter of the getInstance method is the <site:src class="com.lowagi
 created in <a href="#step1">step 1</a>. The second parameter can be any java.io.OutputStream object.
 In this tutorial we always use a java.io.FileOutputStream, but you can also use
 a java.io.ByteArrayOutputStream to create PDF files in memory or a javax.servlet.ServletOutputStream
-(see <site:tutorial chapter="/general/webapp">iText in a Web Application</site:tutorial>).
+(see <site:tutorial chapter="/general/webapp">iText in a Web Application</site:tutorial>).<br /><br />
+Remark that you can have different writers listening to the same document at the same time.
+For instance: if you want to sent a PDF to a browser directly from a servlet, but keep a copy
+of the PDF in a file on the server, you could invoke getInstance twice with the same document-object,
+but a different output stream.<br />
+At Ghent University, we write sheets with information on Study Programmes for the Course Catalogue
+in 2 versions: one in HTML for the website and one in PDF for printing. This is done simultaneously
+using the same source code, even using the same document object. The only difference is that at some
+point, we pause the PdfWriter and we add a link from the HTML page to the PDF document. This is
+demonstrated in the next example:
+<site:source class="HelloWorldMultiple" />
 		</div>
 	</site:section>
 	
