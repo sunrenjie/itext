@@ -41,6 +41,80 @@
 		</TD>
 	</TR>
 	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>The Image object</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			If you study the API, you will notice that there are several constructors
+			you can use to create an image. However in this tutorial, we will only look
+			at the most simple solution; by asking the Image object an instance of an
+			Image identified by an URL or a filename:<BR>
+			<FONT FACE="Courier">public static Image getInstance(URL url)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException<BR>
+			public static Image getInstance(String filename)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException
+			</FONT><BR><BR>
+			Image is an abstract class, so the getInstance method will detect if the type of
+			the given image (GIF, Jpeg or PNG) and return an object of type <FONT FACE="Courier">Gif</FONT>,
+			<FONT FACE="Courier">Jpeg</FONT> or <FONT FACE="Courier">Png</FONT>.
+			Some images will be rejected, please consult the <A HREF="http://www.lowagie.com/iText/faq.html#images">FAQ</A>
+			if you have questions about rejected images.<BR><BR>
+			<B>Getting an instance of an image using an URL</B><BR>
+			This is the most simple way to add an Image. In <A HREF="Chap0601.java">example 1</A>,
+			we add a GIF (<A HREF="vonnegut.gif">a picture of SF-writer Kurt Vonnegut 26 kByte</A>),
+			a Jpeg (<A HREF="myKids.jpg">a picture of my children 7 kByte</A>) and a PNG
+			(<A HREF="hitchcock.png">a picture of Alfred Hitchcock 16 kByte</A>) to the document,
+			using 3 URLs referring to my site:<BR>
+			<FONT FACE="Courier">
+			Image gif = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/vonnegut.gif"));<BR>
+			Image jpeg = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/myKids.jpg"));<BR>
+			Image png = Image.getInstance(new URL("http://www.lowagie.com/iText/tutorial/hitchcock.png"));
+			</FONT><BR>
+			The <A HREF="Chap0601.pdf">resulting PDF file</A> is 50 kByte: it contains the image data
+			of the 3 images. The <A HREF="Chap0601.html">resulting HTML file</A> is 1 kByte: it contains
+			the references to the urls of the 3 images.<BR>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Remark:</B><BR>
+				Lots of PDF libraries decompress images and change them into a Bitmap-like format
+				before adding them to the PDF-file. There are several reasons why I avoided such
+				an approach:<BR>
+				<UL>
+				<LI>This results in huge PDF files. The size of the resulting file is tens of
+				times larger than the sum of the different images.
+				<LI>In order to be able to use such a library, you often need to change some
+				UNIX configurations (X11).
+				<LI>There is a legal problem: the LZW-algorithm is patented, so I was not
+				allowed to decompress GIF-files.
+				</UL>
+				I found it much easier to copy the bits of the image file into the
+				PDF file instead of decompressing/compressing the image data (thus
+				avoiding all practical, technical and legal problems).<BR>
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><BR><BR>
+			<B>Getting an instance of an image using a filename</B><BR>
+			We can change example 1 into <A HREF="Chap0602.java">example 2</A> by simply changing
+			the way images are instanciated:<BR>
+			<FONT FACE="Courier">
+			Image gif = Image.getInstance("vonnegut.gif");<BR>
+			Image jpeg = Image.getInstance("myKids.jpg");<BR>
+			Image png = Image.getInstance("hitchcock.png");
+			</FONT><BR>
+			The <A HREF="Chap0602.pdf">resulting PDF file</A> is identical to the one in example 1,
+			but there is a big difference in the <A HREF="Chap0602.html">resulting HTML file</A>.<BR>
+			If we study the source code, we can immediately see what causes the problem:<BR>
+			<FONT FACE="Courier">&lt;IMG BORDER="0" HEIGHT="149" SRC="file:/D:/cvs/lib/vonnegut.gif" WIDTH="198"&gt;
+			</FONT><BR>
+			I generated the HTML file on the D:-drive of my NT workstation and afterwards I put
+			this file on my LINUX webserver. It is evident that the links to my local D:-drive
+			are broken (or isn't it: I see lots of similar errors on amateur webpages).<BR>
+			This is how you can avoid this problem:<BR>
+			
+			</FONT><BR>		
+		</TD>
+	</TR>
+	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch05.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="index.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">TOC</FONT></A>]</FONT></TD>
@@ -67,3 +141,4 @@
 
 </BODY>
 </HTML>
+ 
