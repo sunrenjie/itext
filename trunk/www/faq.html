@@ -301,6 +301,7 @@
 			(with ASP, JSP, a Servlet, Cold Fusion) to the client, the client only receives
 			a blank browser window. This is because MSIE needs to know
 			the exact content length of the PDF file in advance!<BR>
+
 			You can use the following workaround to avoid this:<BR><BR>
 			&nbsp;<CODE>res.setContentType("application/pdf");</CODE><BR>
 			&nbsp;<CODE>ByteArrayOutputStream ba = new ByteArrayOutputStream();</CODE><BR>
@@ -397,7 +398,7 @@
             
 			<div class="title"><A NAME="template">Can I read an existing PDF-document with iText? Can I use a template PDF and fill it with data?</A></div><BR>
 			<div class="text">
-			Yes, in some cases, you can: see <a href="tutorial/ch01.html#readingPDF" class="normal">example 12</A> in Chapter 1 of the tutorial.
+			Yes, in some cases, you can: see the <a href="tutorial/ch13.html" class="normal">example</A> in Chapter 1 of the tutorial.
 			You can extract complete pages of an existing PDF document and copy them to a newly created PDF document.
 			</div><br>
             
