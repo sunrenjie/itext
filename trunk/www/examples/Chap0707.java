@@ -24,42 +24,30 @@
  */
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 
-import org.xml.sax.Parser;
-import org.xml.sax.helpers.ParserFactory;
-
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.html.HtmlWriter;
-import com.lowagie.text.xml.*;
+import com.lowagie.text.html.HtmlParser;
 
-public class Chap0702 {
-
-    private static final String PARSER = "org.apache.xerces.parsers.SAXParser";
+public class Chap0707 {
         
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 7 example 2: parsing the result of example 1");
+		System.out.println("Chapter 7 example 7: parsing the HTML from example 2");
 
 		// step 1: creation of a document-object
-		Document document = new Document();
+		Document document = new Document(PageSize.A4, 80, 50, 30, 65);
 
 		try {
 
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a XML-stream to a file
- 			PdfWriter.getInstance(document, new FileOutputStream("Chap0702.pdf"));
- 			HtmlWriter.getInstance(document, new FileOutputStream("Chap0702.html"));
+ 			PdfWriter.getInstance(document, new FileOutputStream("Chap0707.pdf"));
 
-			// step 3: we create a parser and set the document handler
-            Parser parser = ParserFactory.makeParser(PARSER);
-            parser.setDocumentHandler(new SAXiTextHandler(document));
-
-			// step 4: we parse the document
-            parser.parse("Chap0701.xml");
-            
+			// step 3: we parse the document
+            HtmlParser.parse(document, "Chap0702.html");         
             
 		}
 		catch(Exception e) {

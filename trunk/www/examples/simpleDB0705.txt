@@ -1,0 +1,5 @@
+Bruno|Lowagie|bruno@lowagie.com|http://www.lowagie.com/iText
+Paulo|Soares|psoares@consiste.pt|http://www.geocities.com/itextpdf/
+Jan|Paesen|jan.paesen@japa.be|http://www.japa.be/
+James|Hansley|datec@wwa.com|http://www.datec.com/
+David|Gilbert|david.gilbert@bigfoot.com|http://www.jrefinery.com/
