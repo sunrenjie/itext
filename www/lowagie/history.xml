@@ -19,6 +19,37 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
+<li>2005-03-14: paulo 153<ul>
+<li>added the class PushbuttonField to create pushbutton fields.</li>
+<li>added the class RadioCheckField to create radio and check fields.</li>
+<li>added support for eps images. Support is very basic but it should be useful for simple logos. Contribution by Carsten Hammer.</li>
+<li>the package com.lowagie.text.pdf.wmf was moved to com.lowagie.text.pdf.codec.wmf</li>
+<li>fixed BaseFont.getAscent().</li>
+<li>FdfReader supports all the encoding</li>
+<li>a few more submit constants added to PdfAction.</li>
+<li>added PdfAnnotation.setHighlighting().</li>
+<li>modified PdfAnnotation.setMKIconFit().</li>
+<li>added support for PostScript XObject. See PdfContentByte.addPSXObject() and the class PdfPSXObject.</li>
+<li>fixed a bug in PdfPTableEvent for tables with headers.</li>
+<li>added support for open actions in PdfStamper.getWriter().</li>
+<li>added support for replies in comments in PdfStamper.addComments().</li>
+<li>TextField refactoring.</li>
+<li>XfdfReader supports nested fields.</li>
+<li>fixed a problem in List for list numbering. Contribution by Jurij Bilas</li>
+</ul></li>
+<li>Updates by Mark Hall:<ul>
+<li>support for Leading in Phrase and Paragraph</li>
+<li>support for SpaceBefore and SpaceAfter in Paragraph</li>
+<li>Remark: In a few cases code will have to be updated due to these new capabilities:
+<ul><li>If you use the default Phrase constructor then the default leading of 16pt 
+will now be respected. Solution: Either specify the desired leading or use a 
+Paragraph.</li>
+<li>If you are using Table.addCell("Test") then these cells will also have a 
+leading of 16pt since the addCell(String) method uses the default Phrase 
+constructor. Solution: Either use a Phrase with the desired leading or a 
+Paragraph.</li></ul></li></ul></li>
+<li>Misc:<ul><li>suggestion by Marc Campforts to remove a carriage return when adding images.</li>
+<li>support for pagesize and orientation in the XML package (update by Samuel Gabriel)</li></ul></li>
 <li>2005-02-17: iText 1.2.3<ul>
 <li>Added a header to some source files that were missing the MPL information</li>
 <li>Bug discovered by Mark-Jan Nederhof, fixed by Paulo: getAscent in BaseFont</li>
