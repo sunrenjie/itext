@@ -21,6 +21,11 @@
 			<site:result>text.pdf</site:result>
 			<site:description>Adding text at absolute positions</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Logo" standalone="yes" />
+			<site:result>logo.pdf</site:result>
+			<site:description>Draws the iText logo</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

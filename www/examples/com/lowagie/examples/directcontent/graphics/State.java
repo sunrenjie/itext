@@ -29,18 +29,18 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Changing the Graphics State.
+ * Changing the Graphics State with saveState() and restoreState().
  */
 public class State {
 
 	/**
-	 * Changing the Graphics State.
+	 * Changing the Graphics State with saveState() and restoreState().
 	 * 
 	 * @param args
 	 *            no arguments needed
 	 */
 	public static void main(String[] args) {
-		System.out.println("Changing the Graphics State");
+		System.out.println("Changing the Graphics State with save and restore");
 
 		// step 1: creation of a document-object
 		Document document = new Document();

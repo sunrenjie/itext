@@ -3,13 +3,14 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Direct Content</site:title>
-		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:title status="finished">Graphics State</site:title>
+		<site:summary>Add graphics directly to the PDF file using the PdfContentByte class.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
-			<site:keyword>JAVA</site:keyword>
 			<site:keyword>PDF</site:keyword>
+			<site:keyword>PostScript</site:keyword>
+			<site:keyword>Graphics</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
@@ -26,49 +27,20 @@
 			<site:result>gstate.pdf</site:result>
 			<site:description>Changing the Graphics State with setGState</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Circles" standalone="yes" />
+			<site:result>circles.pdf</site:result>
+			<site:description>Draws some concentric circles</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Shapes" standalone="yes" />
+			<site:result>shapes.pdf</site:result>
+			<site:description>Draws some shapes</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
-	<site:section name="graphics">
-		<site:sectiontitle>Graphics</site:sectiontitle>
-<div>
-If you want to create graphics in PDF, you will need to know a lot
-about PDF syntax, in casu about its operators and its operands.
-Maybe you should read Chapter 4 of the PDF Reference Manual
-version 1.6 first. In this tutorial chapter, I will do an attempt to summarize some of
-the most important concepts. But let's start by quoting what is on page 163
-of the Reference Manual:
-<blockquote>
-The graphics operators form six main groups.<br />
-<ul>
-<li><i>Graphics state operators</i> manipulate the data structure called
-the <i>graphics state</i>, the global framework within which the other
-graphics operators execute. The graphics state includes the <i>current
-transformation matrix</i> (CTM), which maps user space coordinates used
-within a PDF content stream into output device coordinates. It also
-includes the <i>current color</i>, the <i>current clipping path</i>,
-and many other parameters that are implicit operands of the painting
-operators.</li>
-<li><i>Path construction operators</i> specify <i>paths</i>, which
-define shapes, linie trajectories, and regions of various sorts.
-They include operators for beginning a new path, adding line segments
-and curves to it, and closing it.</li>
-<li><i>Path painting operators</i> fill a path with a color, paint a stroke
-along it, or use it as a clipping boundary.</li>
-<li><i>Other painting operators</i> paint certain self-describing graphics
-objects. These include sampled images, geometrically defined shadings, and
-entire content streams that in turn contain sequences of graphics operators.</li>
-<li><i>Text operators</i> select and show <i>character glyphs</i> from
-<i>fonts</i> (descriptions of typefaces for representing text characters).
-Because PDF treats glyphs as general graphical shapes, many of the text
-operators could be grouped with the graphics state or painting operators. (...)</li>
-<li><i>Marked-content operators</i> associate higher-level logical information
-with objects in the content stream. This information does not affect the rendered
-appearance of the content (...).</li>
-</ul>
-</blockquote>
-</div>
-	</site:section>
+
 	<site:section name="state">
 		<site:sectiontitle>Graphics State</site:sectiontitle>
 <div>
@@ -80,13 +52,14 @@ When using iText, you can change most of these defaults with methods in class
 Some of the parameters can only be changed with the
 <site:doc class="com.lowagie.text.pdf.PdfGState">PdfGState</site:doc> object,
 which is a special <site:doc class="com.lowagie.text.pdf.PdfDictionary">PdfDictionary</site:doc>
-(the Graphics State dictionary).<br />
+(the Graphics State dictionary).<br /><br />
 The Graphics State is stored in a stack. If you need to change the Graphics State,
 you can save the current state with
 <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="saveState()">PdfContentByte.saveState()</site:doc>
 and return to that state later on with
-<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="restoreState()">PdfContentByte.restoreState()</site:doc>.<br />
-In the example below, we first draw a circle with a radius of 250pts and
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="restoreState()">PdfContentByte.restoreState()</site:doc>.
+<site:source class="State" />
+In the example, we first draw a circle with a radius of 250pts and
 we see how the default fill-color is black.
 <pre class="commandline">cb.circle(260.0f, 500.0f, 250.0f);
 cb.fill();
@@ -116,7 +89,6 @@ original state and the circle with radius 50pts is drawn in black.
 cb.circle(260.0f, 500.0f, 50.0f);
 cb.fill();
 </pre>
-<site:source class="State" />
 Remark that the saveState and restoreState must be balanced.
 An exception will be thrown if you try to restore a graphics state before
 you have called saveState.<br /><br />
@@ -413,8 +385,11 @@ Again I will sum them up with their corresponding iText method.
 <td class="small" valign="top">n</td>
 <td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="newPath()">newPath()</site:doc></td>
 </tr>
-</table>
-
+</table><br />
+<div class="subtitle">Using PdfContentByte</div>
+These are some simple examples demonstrating some of the methods mentioned above:
+<site:source class="Shapes" />
+<site:source class="Circles" />
 </div>
 	</site:section>
 	</site:chapter>
