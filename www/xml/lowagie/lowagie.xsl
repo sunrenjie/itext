@@ -138,6 +138,7 @@ mailto:<A HREF="mailto:itext-questions@lists.sourceforge.net">itext-questions@li
 		<a class="navigation" href="http://lists.sourceforge.net/lists/listinfo/itext-questions">Mailing List Registration</a>
 		<a class="navigation" href="http://news.gmane.org/gmane.comp.java.lib.itext.general">Mailing List Archives</a>
 		<a class="navigation" href="links.html">Useful Links</a>
+		<a class="navigation" href="amazon.html">Shop @ Amazon</a>
 	</div>
 </div>
 
