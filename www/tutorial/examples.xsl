@@ -6,20 +6,23 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:site="http://www.lowagie.com/iText/site"
 exclude-result-prefixes="site">
   <xsl:output method="xml" indent="yes" media-type="text/xml" />
+
+  <xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
+
   <xsl:template match="site:metadata" />
-  <xsl:template match="site:content" />
+  <xsl:template match="site:section" />
   <xsl:template match="site:examples">
     <xsl:element name="project">
       <xsl:attribute name="name">examples</xsl:attribute>
       <xsl:attribute name="default">examples</xsl:attribute>
-      <xsl:attribute name="basedir">../../<xsl:value-of select="/site:page/site:metadata/site:tree/@root" /></xsl:attribute>
+      <xsl:attribute name="basedir">../..<xsl:value-of select="$root" /></xsl:attribute>
       <target name="examples">
 		<property name="build" value="${{basedir}}/build" />
 		<property name="bin" value="${{build}}/bin" />
 		<property name="release" value="${{build}}/release" />
 		<property name="tutorialsrc" value="${{basedir}}/www/tutorial" />
 		<property name="tutorial" value="${{build}}/tutorial" />
-		<property name="examples" value="${{basedir}}/www/examples" />
+		<property name="examples" value="${{build}}/examples" />
         <path id="classpath">
           <pathelement location="${{examples}}" />
           <pathelement location="${{bin}}/iText.jar" />
