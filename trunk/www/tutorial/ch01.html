@@ -45,19 +45,19 @@
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Creation of a document in 5 steps: Hello World</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			Download the source code of the first example: <A HREF="Chap0101.java">Chap0101.java</A>.<BR>
-			<BR><B>Step 1:</B><BR>
+			<BR><A HREF="#step1"><B>Step 1:</B></A><BR>
 			Create an instance of the <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object:<BR>
 			<FONT FACE="Courier">Document document = new Document();</FONT><BR>
-			<BR><B>Step 2:</B><BR>
+			<BR><A HREF="#step2"><B>Step 2:</B></A><BR>
 			Create a Writer that listens to this document and writes the document to the OutputStream of your choice:<BR>
 			<FONT FACE="Courier">PdfWriter.getInstance(document, new FileOutputStream("Chap0101.pdf"));</FONT><BR>
-			<BR><B>Step 3:</B><BR>
+			<BR><A HREF="#step3"><B>Step 3:</B></A><BR>
 			Open the document:<BR>
 			<FONT FACE="Courier">document.open();</FONT><BR>
-			<BR><B>Step 4:</B><BR>
+			<BR><A HREF="#step4"><B>Step 4:</B></A><BR>
 			Add content to the document:<BR>
 			<FONT FACE="Courier">document.add(new Paragraph("Hello World"));</FONT><BR>
-			<BR><B>Step 5:</B><BR>
+			<BR><A HREF="step5"><B>Step 5:</B></A><BR>
 			Close the document:<BR>
 			<FONT FACE="Courier">document.close();</FONT><BR><BR>
 			Check the result here: <A HREF="Chap0101.pdf">Chap0101.pdf</A>.<BR>
@@ -66,6 +66,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="step1"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 1: the Document-object</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			The <FONT FACE="Courier">com.lowagie.text.Document</FONT>-object has 3 constructors:<BR><BR>
@@ -81,27 +82,65 @@
 			The first constructor calls the second one, with
 			<FONT FACE="Courier">PageSize.A4</FONT> as parameter.<BR>
 			The second constructor calls the third one, with
-			<FONT FACE="Courier">30</FONT> as value for each margin.<BR>
+			<FONT FACE="Courier">36</FONT> as value for each margin.<BR>
 			<BR>
 			<B>PageSize</B><BR>
 			You could create your own <FONT FACE="Courier">Rectangle</FONT>-object in a certain
 			color and use this as pagesize.<BR>
 			In example <A HREF="Chap0102.java">Chap0102.java</A>, we create a long, small
-			document with a yellowish backgroundcolor:<BR><BR>
+			document with a yellowish backgroundcolor:<BR>
 			<FONT FACE="Courier">
-			Rectangle pageSize = new Rectangle(120, 720);<BR>
+			Rectangle pageSize = new Rectangle(144, 720);<BR>
 			pageSize.setBackgroundColor(new java.awt.Color(0xFF, 0xFF, 0xDE));<BR>
-			Document document = new Document(pageSize);<BR>
+			Document document = new Document(pageSize);
 			</FONT><BR>
-			This is the result: <A HREF="Chap0102.pdf">Chap0102.pdf</A>.<BR><BR>
+			This is the result: <A HREF="Chap0102.pdf">Chap0102.pdf</A>.
 			Normally, you don't have to worry about creating this rectangle,
 			you can use one of the statics in class
 			<A HREF="http://itext.sourceforge.net/src/com/lowagie/text/PageSize.java"><FONT FACE="Courier">PageSize.java</FONT></A>.
+			These are the pagesizes that are foreseen: A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E, FLSA and FLSE.<BR><BR>
+			Most these pageSizes are in PORTRAIT-format. If you want them to be in LANDSCAPE, all you have to do is <FONT FACE="Courier">rotate()</FONT>
+			the <FONT FACE="Courier">Rectangle</FONT>:<BR>
+			<FONT FACE="Courier">
+			Document document = new Document(PageSize.A4.rotate());
+			</FONT><BR>
+			Check out example <A HREF="Chap0103.java">Chap0103.java</A> and its <A HREF="Chap0103.pdf">result</A>.
+			<BR><BR>
+			<B>Margins</B><BR>
+			When creating a document, you can also define left, right, upper and lower margins:<BR>
+			<FONT FACE="Courier">
+			Document document = new Document(PageSize.A5, 36, 72, 108, 180);
+			</FONT><BR>
+			In example <A HREF="Chap0104.java">Chap0103.java</A> (and its result: <A HREF="Chap0104.pdf">Chap0104.pdf</A>),
+			you will see that this document has a left margin of half an inch and a right margin of an inch.			
+			The upper margin is one and a half inch, the lower two and a half.
+			<BR><BR>
+			<A NAME="measurements"></A>
+			<TABLE WIDTH="85%">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<B>Measurements</B><BR>When creating a rectangle or choosing a margin, you might wonder what measurement unit
+				is used: centimeters, inches or pixels. In fact, the default measurement system
+				roughly corresponds to the various definitions of the typographic unit of
+				measurement known as the <I>point</I>. There are 72 points in 1 inch.<BR>
+				If you want to create a rectangle in PDF that has the size of an A4-page,
+				you have to calculate the number of points:<BR>
+				&nbsp;&nbsp;&nbsp;21 cm / 2.54 = 8.2677 inch<BR>
+				&nbsp;&nbsp;&nbsp;8.2677 * 72 = 595 points<BR>
+				&nbsp;&nbsp;&nbsp;29.7 cm / 2.54 = 11.6929 inch<BR>
+				&nbsp;&nbsp;&nbsp;11.6929 * 72 = 842 points<BR>
+				The default border of 36 points corresponds with half an inch and the rectangle we created in Chap0102.java was 2 by 10 inches.</FONT>
+				</TD>
+				</TR>
+			</TABLE>
+
 			</FONT><BR>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="step2"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 2: the Writer-object</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			</FONT><BR>
@@ -109,6 +148,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="step3"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 3: Meta data + opening the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			</FONT><BR>
@@ -116,6 +156,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="step4"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 4: adding content</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			</FONT><BR>
@@ -123,6 +164,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<A NAME="step5"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Examining step 5: closing the document</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			</FONT><BR><BR><BR>
