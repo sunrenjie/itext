@@ -34,7 +34,7 @@ public class Chap1013 {
     
     public static void main(String[] args) {
         
-        System.out.println("Pantone example : Spot Color");
+        System.out.println("Chapter 10 Example 13: Spot Color");
         
         // step 1: creation of a document-object
         Document document = new Document();

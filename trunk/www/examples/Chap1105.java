@@ -23,37 +23,81 @@
  * bruno@lowagie.com
  */
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.*;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfDestination;
+import com.lowagie.text.pdf.PdfOutline;
+import com.lowagie.text.pdf.PdfTemplate;
 
 public class Chap1105 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 5: outlines with actions");
+        System.out.println("Chapter 11 example 5: Outlines and Destinations");
         
         // step 1: creation of a document-object
-        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        Document document = new Document();
         
         try {
+            
             // step 2:
             // we create a writer that listens to the document
+            // and directs a PDF-stream to a file
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1105.pdf"));
+            
             // step 3: we open the document
             document.open();
-            // step 4:
-            // we add some content
-            document.add(new Paragraph("Outline action example"));
-            // we add the outline
+            
+            // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
-            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.geocities.com/itextpdf"), "http://www.geocities.com/itextpdf"));
-            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.lowagie.com/iText"), "http://www.lowagie.com/iText"));
-            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("Chap1102b.pdf", 3), "Chap1102b.pdf"));
+            
+            // we create a PdfTemplate
+            PdfTemplate template = cb.createTemplate(25, 25);
+            
+            // we add some crosses to visualize the destinations
+            template.moveTo(13, 0);
+            template.lineTo(13, 25);
+            template.moveTo(0, 13);
+            template.lineTo(50, 13);
+            template.stroke();
+            
+            // we add the template on different positions
+            cb.addTemplate(template, 287, 787);
+            cb.addTemplate(template, 187, 487);
+            cb.addTemplate(template, 487, 287);
+            cb.addTemplate(template, 87, 87);
+            
+            // we define the destinations
+            PdfDestination d1 = new PdfDestination(PdfDestination.XYZ, 300, 800, 0);
+            PdfDestination d2 = new PdfDestination(PdfDestination.FITH, 500);
+            PdfDestination d3 = new PdfDestination(PdfDestination.FITR, 200, 300, 400, 500);
+            PdfDestination d4 = new PdfDestination(PdfDestination.FITBV, 100);
+            PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
+            
+            // we define the outlines
+            PdfOutline out1 = new PdfOutline(cb.getRootOutline(), d1, "root");
+            PdfOutline out2 = new PdfOutline(out1, d2, "sub 1");
+            PdfOutline out3 = new PdfOutline(out1, d3, "sub 2");
+            PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");
+            PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");
+            
+            cb.addOutline(out1);
+            cb.addOutline(out2);
+            cb.addOutline(out3);
+            cb.addOutline(out4);
+            cb.addOutline(out5);
+            
         }
-        catch (Exception de) {
-            de.printStackTrace();
+        catch(DocumentException de) {
+            System.err.println(de.getMessage());
+        }
+        catch(IOException ioe) {
+            System.err.println(ioe.getMessage());
         }
         
         // step 5: we close the document

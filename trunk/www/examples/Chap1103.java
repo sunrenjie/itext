@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001 by Bruno Lowagie <--
+ * --> Copyright 2001 by Paulo Soares <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -23,81 +23,45 @@
  * bruno@lowagie.com
  */
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.BaseFont;
-import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfDestination;
-import com.lowagie.text.pdf.PdfOutline;
-import com.lowagie.text.pdf.PdfTemplate;
+import com.lowagie.text.pdf.*;
 
 public class Chap1103 {
     
+    
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 3: Outlines and Destinations");
+        System.out.println("Chapter 11 example 3: named actions");
         
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         
         try {
             
-            // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
+            // step 2: we create a writer that listens to the document
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1103.pdf"));
-            
             // step 3: we open the document
             document.open();
-            
-            // step 4: we grab the ContentByte and do some stuff with it
-            PdfContentByte cb = writer.getDirectContent();
-            
-            // we create a PdfTemplate
-            PdfTemplate template = cb.createTemplate(25, 25);
-            
-            // we add some crosses to visualize the destinations
-            template.moveTo(13, 0);
-            template.lineTo(13, 25);
-            template.moveTo(0, 13);
-            template.lineTo(50, 13);
-            template.stroke();
-            
-            // we add the template on different positions
-            cb.addTemplate(template, 287, 787);
-            cb.addTemplate(template, 187, 487);
-            cb.addTemplate(template, 487, 287);
-            cb.addTemplate(template, 87, 87);
-            
-            // we define the destinations
-            PdfDestination d1 = new PdfDestination(PdfDestination.XYZ, 300, 800, 0);
-            PdfDestination d2 = new PdfDestination(PdfDestination.FITH, 500);
-            PdfDestination d3 = new PdfDestination(PdfDestination.FITR, 200, 300, 400, 500);
-            PdfDestination d4 = new PdfDestination(PdfDestination.FITBV, 100);
-            PdfDestination d5 = new PdfDestination(PdfDestination.FIT);
-            
-            // we define the outlines
-            PdfOutline out1 = new PdfOutline(cb.getRootOutline(), d1, "root");
-            PdfOutline out2 = new PdfOutline(out1, d2, "sub 1");
-            PdfOutline out3 = new PdfOutline(out1, d3, "sub 2");
-            PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");
-            PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");
-            
-            cb.addOutline(out1);
-            cb.addOutline(out2);
-            cb.addOutline(out3);
-            cb.addOutline(out4);
-            cb.addOutline(out5);
-            
+            // step 4: we add some content
+            String application = "c:/winnt/notepad.exe";
+            Paragraph p = new Paragraph(new Chunk("Click to open " + application).setAction(new PdfAction(application, null, null, null)));
+            PdfPTable table = new PdfPTable(4);
+            table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(new Phrase(new Chunk("First Page").setAction(new PdfAction(PdfAction.FIRSTPAGE))));
+            table.addCell(new Phrase(new Chunk("Prev Page").setAction(new PdfAction(PdfAction.PREVPAGE))));
+            table.addCell(new Phrase(new Chunk("Next Page").setAction(new PdfAction(PdfAction.NEXTPAGE))));
+            table.addCell(new Phrase(new Chunk("Last Page").setAction(new PdfAction(PdfAction.LASTPAGE))));
+            for (int k = 1; k <= 10; ++k) {
+                document.add(new Paragraph("This is page " + k));
+                document.add(table);
+                document.add(p);
+                document.newPage();
+            }
         }
-        catch(DocumentException de) {
-            System.err.println(de.getMessage());
-        }
-        catch(IOException ioe) {
-            System.err.println(ioe.getMessage());
+        catch (Exception de) {
+            de.printStackTrace();
         }
         
         // step 5: we close the document

@@ -32,10 +32,11 @@ public class Chap1107 {
     
     public static void main(String[] args) {
         
-        System.out.println("Chapter 11 example 7: open action");
+        System.out.println("Chapter 11 example 7: outlines with actions");
         
         // step 1: creation of a document-object
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        
         try {
             // step 2:
             // we create a writer that listens to the document
@@ -44,12 +45,12 @@ public class Chap1107 {
             document.open();
             // step 4:
             // we add some content
-            document.add(new Paragraph("Page 1"));
-            document.newPage();
-            document.add(new Paragraph("This PDF file jumps directly to page 2 when opened"));
+            document.add(new Paragraph("Outline action example"));
+            // we add the outline
             PdfContentByte cb = writer.getDirectContent();
-            cb.localDestination("page2", new PdfDestination(PdfDestination.XYZ, -1, 10000, 0));
-            writer.setOpenAction("page2");
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.geocities.com/itextpdf"), "http://www.geocities.com/itextpdf"));
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("http://www.lowagie.com/iText"), "http://www.lowagie.com/iText"));
+            cb.addOutline(new PdfOutline(cb.getRootOutline(), new PdfAction("Chap1102b.pdf", 3), "Chap1102b.pdf"));
         }
         catch (Exception de) {
             de.printStackTrace();
