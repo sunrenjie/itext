@@ -16,6 +16,11 @@
 	
 	<site:examples>
 		<site:example>
+			<site:java src="iTextVersion" standalone="yes" />
+			<site:result>version.pdf</site:result>
+			<site:description>Shows the iText version that was used to generate this example</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Measurements" standalone="yes" />
 			<site:result>Measurements.pdf</site:result>
 			<site:description>Demonstrates the measurement system (points, inches, centimeters)</site:description>
@@ -33,6 +38,7 @@
 	</site:examples>
 	
 	<site:chapter>
+	
 	<site:section name="measurements">
 		<site:sectiontitle>Measurements</site:sectiontitle>
 <div>
@@ -79,6 +85,26 @@ and the current page is blank, no new page will be added. You can only insert bl
 adding something 'invisible' to the page. In the example below, a
 <site:doc class="com.lowagie.text.Chunk" target="NEWLINE">Chunk.NEWLINE</site:doc> is added.
 <site:source class="NewPage" />
+</div>
+	</site:section>
+	
+	<site:section name="version">
+		<site:sectiontitle>Version</site:sectiontitle>
+<div>
+If you file a bugreport or post a question to the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list</a>,
+one of the first questions you will be asked is:<br /><i>What version of iText are you using?</i><br />
+There are two ways you can find out the answer. You can open the PDF file in Acrobat and
+go to the window File -&gt; Document Properties... Under 'Description' you'll see what library/product
+was used as 'PDF Producer'. In the screenshot below, it was <i>iText1.1.2 by lowagie.com (based on itext-paulo-144)</i>.
+The first part means you are using a release from the 'official' site (lowagie.com).
+The second part is the Early Access release the 'official' version was based on.
+You can always check the most recent releasenumber on the <a href="http://www.lowagie.com/iText/download.html">iText download page</a>.<br />
+<site:image source="metadata.gif">Document Properties Window</site:image><br />
+Of course, if a post-processing tool was used, another product will be listed as
+PDF Producer. In that case, you can ask the library programmatically for its version
+with <site:doc class="com.lowagie.text.Document" target="getVersion()">Document.getVersion()</site:doc>
+and send the output to the System.out or System.err.
+<site:source class="iTextVersion" />
 </div>
 	</site:section>
 	</site:chapter>

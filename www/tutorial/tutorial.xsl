@@ -202,6 +202,14 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		</xsl:element>
 	</xsl:template>
 
+	<xsl:template match="site:image">
+		<xsl:element name="img">
+			<xsl:attribute name="border">0</xsl:attribute>
+			<xsl:attribute name="src">.<xsl:value-of select="$root" />/images/<xsl:value-of select="@source" /></xsl:attribute>
+			<xsl:attribute name="alt"><xsl:value-of select="." /></xsl:attribute>
+		</xsl:element>
+	</xsl:template>
+
 <!-- examples -->
 
 	<xsl:template match="site:source">
