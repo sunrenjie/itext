@@ -16,23 +16,6 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="Destinations" standalone="yes" />
-			<site:result>Destinations.pdf</site:result>
-			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="Bookmarks" standalone="yes" />
-			<site:result>Bookmarks.pdf</site:result>
-			<site:description>Creates a document with Bookmarks for every new Paragraph that is added</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="ViewerPreferences" standalone="yes" />
-			<site:result>TwoColumnLeft.pdf</site:result>
-			<site:result>HideMenuToolbar.pdf</site:result>
-			<site:result>FullScreen.pdf</site:result>
-			<site:description>Creates three versions of the same document, but with different viewerpreferences</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="LocalGoto" standalone="yes" />
 			<site:result>LocalGoto.pdf</site:result>
 			<site:description>Creates a document with a local goto and a local destination</site:description>
