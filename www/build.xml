@@ -414,6 +414,9 @@
 		<echo>Please compile and execute it seperately</echo>
 		<echo>Chapter 6 example 12: this example requires JAI</echo>
 		<echo>Please compile and execute it seperately</echo>
+		<java fork="yes" dir="${itext.examples}" classname="Chap0613">
+           <classpath refid="classpath" />
+		</java>
 		<java fork="yes" dir="${itext.examples}" classname="Chap0701">
            <classpath refid="classpath" />
 		</java>
