@@ -107,11 +107,6 @@
 			<site:description>Images wrapped in a Chunk.</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="TemplateImages" standalone="yes" />
-			<site:result>templateImages.pdf</site:result>
-			<site:description>Templates used as image.</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="ImageMasks" standalone="yes" />
 			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:result>maskedImages.pdf</site:result>

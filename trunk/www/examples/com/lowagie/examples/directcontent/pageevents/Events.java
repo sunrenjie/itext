@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.directcontent;
+package com.lowagie.examples.directcontent.pageevents;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
