@@ -6,6 +6,7 @@
  * if you include the following copyright notice:
  *
  * --> Copyright 2001 by Bruno Lowagie <--
+ * --> Copyright 2004 by Mark Hall <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -21,24 +22,26 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.rtf.RtfWriter2;
 
 public class Chap0801 {
-
+    
     public static void main(String[] args) {
-
-        System.out.println("Chapter 8 example 1: Hello World");
-
+        
+        System.out.println("Chapter 8 example 1: RTF Hello World");
+        
         // step 1: creation of a document-object
         Document document = new Document();
-
+        
         try {
-
+            
             // step 2:
             // we create a writer that listens to the document
             // and directs a RTF-stream to a file
-
+            
             RtfWriter2.getInstance(document, new FileOutputStream("Chap0801.rtf"));
             
             // step 3: we open the document
