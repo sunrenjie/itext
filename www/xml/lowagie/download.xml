@@ -69,7 +69,11 @@ of the Early Access release, please consult the <a href="history.html">history o
 		<td class="small"><a href="http://itext.sourceforge.net/downloads/docs.tar.gz">docs.tar.gz</a></td>
 	</tr>
 </table><br />
-Another option to get the Source Code is to download it from the <a href="cvs.html">CVS repository</a>.
+If you download the source, jar or docs from prdownloads, you get the release number in the filename.
+If you download it from itext.sourceforge.net, you get the plain filenames: you can replace the old
+iText.jar with the new one without having to change your CLASSPATH. In any case: the content of
+the files with and the ones without the release number is the same, so you can choose which one to download.<br />
+Another option to get the source code is to download it from the <a href="cvs.html">CVS repository</a>.
 <div class="title">Compiling the source</div>
 The iText jar is compiled with the JDK1.4.
 If you are using an older JVM in your environment, you could experience some compatibility problems.
