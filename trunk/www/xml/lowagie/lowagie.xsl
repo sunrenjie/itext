@@ -23,7 +23,7 @@
 </xsl:template>
 
 <xsl:template match="site:releasedate">
-<xsl:value-of select="$releasenumber"/>
+<xsl:value-of select="$releasedate"/>
 </xsl:template>
 
 <xsl:template match="site:earlyaccessnumber">
