@@ -19,6 +19,10 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
+<li>2005-03-21: iText 1.2.4
+<ul><li>suggestion by Marc Campforts to remove a carriage return when adding images.</li>
+<li>support for pagesize and orientation in the XML package (update by Samuel Gabriel)</li></ul>
+</li>
 <li>2005-03-14: paulo 153<ul>
 <li>added the class PushbuttonField to create pushbutton fields.</li>
 <li>added the class RadioCheckField to create radio and check fields.</li>
@@ -38,6 +42,7 @@
 <li>fixed a problem in List for list numbering. Contribution by Jurij Bilas</li>
 </ul></li>
 <li>Updates by Mark Hall:<ul>
+<li>bug fixed when adding Tables that have cell and rowspanning Cells in the same Row.</li>
 <li>support for Leading in Phrase and Paragraph</li>
 <li>support for SpaceBefore and SpaceAfter in Paragraph</li>
 <li>Remark: In a few cases code will have to be updated due to these new capabilities:
@@ -48,8 +53,6 @@ Paragraph.</li>
 leading of 16pt since the addCell(String) method uses the default Phrase 
 constructor. Solution: Either use a Phrase with the desired leading or a 
 Paragraph.</li></ul></li></ul></li>
-<li>Misc:<ul><li>suggestion by Marc Campforts to remove a carriage return when adding images.</li>
-<li>support for pagesize and orientation in the XML package (update by Samuel Gabriel)</li></ul></li>
 <li>2005-02-17: iText 1.2.3<ul>
 <li>Added a header to some source files that were missing the MPL information</li>
 <li>Bug discovered by Mark-Jan Nederhof, fixed by Paulo: getAscent in BaseFont</li>

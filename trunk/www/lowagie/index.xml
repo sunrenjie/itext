@@ -18,9 +18,8 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
-			site of the week: <a href="http://yourpersonalizedpattern.com/">Your personalized pattern</a> (Create your own bookmark pattern).
-			february 17th: release of iText 1.2.3<br /><br />
-			Acrobat 7.0 Reader is available for download @ <a href="http://www.adobe.com/products/acrobat/readstep2.html">adobe.com</a>!<br/>
+			site of the week: <a href="http://yourpersonalizedpattern.com/">Your personalized pattern</a> (Create your own bookmark pattern).<br /><br />
+			march 21th: release of iText 1.2.4<br/>
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
