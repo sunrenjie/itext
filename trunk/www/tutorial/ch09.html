@@ -108,7 +108,11 @@
 			</FONT><BR>
             As you can see the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
             is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font
-			(Remark: When the encoding is BaseFont.IDENTITY_H the font is always embedded.).<BR>
+			(Remark: When the encoding is BaseFont.IDENTITY_H the font is always embedded.).<BR><br>
+			<b><b><A NAME="ttc">True Type Collections</A></b></b><br>
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0904.java">Example 4</A> shows you how to use
+			a True Type Collection. This is very similar to using a True Type Font.
+			<BR>
 			</FONT><BR>
 		</TD>
 	</TR>
@@ -124,8 +128,8 @@
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
 			</FONT>
-			This piece of code is used in <a href="http://www.lowagie.com/iText/examples/Chap0904.java">example4</a> and you can take
-			a look a the result <a href="http://www.lowagie.com/iText/examples/Chap0904.pdf">here</a>.<br><br>	
+			This piece of code is used in <a href="http://www.lowagie.com/iText/examples/Chap0905.java">example 5</a> and you can take
+			a look a the result <a href="http://www.lowagie.com/iText/examples/Chap0905.pdf">here</a>.<br><br>	
 			You can create PDF-documents with the following fonts:<br>
 			<ul>
 			<li><b>Chinese Simplified</b><br>
@@ -147,7 +151,7 @@
                 the Asian font pack from Adobe at:
 				<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>.
 				or use a localized Windows. An alternative for this kind of fonts, is using a True
-                Type Asian font such as msgothic.ttc with the encoding BaseFont.IDENTITY_H
+                Type Asian Font or Collection such as msgothic.ttc with the encoding BaseFont.IDENTITY_H
                 or BaseFont.IDENTITY_V. You can use them exactly the same way as we did in
                 the section about True Type Fonts and there will be no need to use the Asian
                 font pack from Adobe because a subset of the font will be embedded in the
@@ -163,7 +167,7 @@
 			<A NAME="barcode"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Barcodes</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			<A HREF="http://www.lowagie.com/iText/examples/Chap0905.java">Example 5</A> is a very specific
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">Example 6</A> is a very specific
             example in which we are going to use a special True Type font.<br />
 			iText has a class called <FONT FACE="Courier">PdfBarcode</FONT> that can be used to generate
 			4 types of barcodes: CODE 39, UPC-A, EAN-13 and Interleaved 2/5. This class has to be used in
@@ -180,7 +184,7 @@
 			you will have to make some changes to the class <FONT FACE="Courier">PdfBarcode</FONT>!<br />
 			The third and fourth parameter are the fontsize and finally the number you want to turn
 			into a barcode.<br />
-            For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="http://www.lowagie.com/iText/examples/Chap0905.java">example 5</A> and the <a href="http://www.lowagie.com/iText/examples/Chap0905.pdf">resulting PDF file</a>.<BR>
+            For UPC, EAN en I2/5, you can choose between different styles of fonts: see <A HREF="http://www.lowagie.com/iText/examples/Chap0906.java">example 6</A> and the <a href="http://www.lowagie.com/iText/examples/Chap0906.pdf">resulting PDF file</a>.<BR>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
