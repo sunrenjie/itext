@@ -56,9 +56,9 @@
 			<FONT FACE="Courier">public static Image getInstance(URL url)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException<BR>
 			public static Image getInstance(String filename)<BR>&nbsp;&nbsp;&nbsp;throws BadElementException, MalformedURLException, IOException
 			</FONT><BR><BR>
-			Image is an abstract class, so the getInstance method will detect if the type of
-			the given image (GIF, Jpeg or PNG) and return an object of type <FONT FACE="Courier">Gif</FONT>,
-			<FONT FACE="Courier">Jpeg</FONT> or <FONT FACE="Courier">Png</FONT>.
+			Image is an abstract class, so the getInstance method will detect the type of
+			the given image (GIF, Jpeg, PNG,...) and return an object of type <FONT FACE="Courier">Gif</FONT>,
+			<FONT FACE="Courier">Jpeg</FONT>, <FONT FACE="Courier">Png</FONT>,...
 			Some images will be rejected, please consult the <A HREF="http://www.lowagie.com/iText/faq.html#images">FAQ</A>
 			if you have questions about rejected images.<BR><BR>
 			<A NAME="imageurl"><B>Getting an instance of an image using an URL</B></A><BR>
@@ -147,9 +147,9 @@
 			But there's more, you can also specify that text has to be wrapped around the image
 			(see <A HREF="../examples/Chap0605.java">example 5</A> and the <A HREF="../examples/Chap0605.pdf">resulting PDF</A>):<BR>
 			<FONT FACE="Courier">
-			setAlignment(Image.RIGHT | TEXTWRAP)<BR>
+			setAlignment(Image.RIGHT | Image.TEXTWRAP)<BR>
 			setAlignment(Image.MIDDLE)<BR>
-			setAlignment(Image.LEFT | UNDERLYING)<BR>
+			setAlignment(Image.LEFT | Image.UNDERLYING)<BR>
 			</FONT>
 			The text is wrapped on the left side of the Vonnegut-picture, isn't wrapped around the
 			picture of my children and is written over the Hitchcock-image.<BR>
@@ -188,7 +188,7 @@
 			Finally, there is also the <FONT FACE="Courier">ScaleToFit</FONT>-method.
 			This method is used in the <A HREF="../examples/Calendar.java">Calendar</A>-class.
 			It reduces the image, preserving the original aspect ratio. In the
-			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar-application</A>,
+			<A HREF="../examples/calendar.html">Calendar-application</A>,
 			this method is used to allow you to put images of different size on each
 			Calendar-page. They are all resized to Fit on a certain area of the page.<BR>
 			<BR><A NAME="resolution"><B>Impact on the resolution</B></A><BR>		
@@ -392,9 +392,44 @@
 			</FONT><br>
 			Please take a look at the <a href="../examples/Chap0613.pdf">resulting PDF</a>.<br>
 			(for more info on the ContentByte-object read <a href="ch10.html">Chapter 10</a>).
-			</FONT><BR><BR><BR><br>
+			</FONT><BR><BR>
 		</TD>
 	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Images and other objects</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<A NAME="imagechunk"><b>Images inside a Chunk</b></A><br>
+			In some cases it can be handy to wrap an image inside a Chunk.
+			Just create a Chunk with an image and an offset:<br>
+			<FONT FACE="Courier">Chunk ck = new Chunk(img, 0, -5);</FONT><br>
+			As you can see in <a href="../examples/Chap0614.java">example 14</a> and the
+			<a href="../examples/Chap0614.pdf">resulting PDF</a>, we can add this special
+			image chunk to a phrase, a table,...<br><br>
+			<A NAME="imagetable"><b>Images inside a Table</b></A><br>
+			You can add an image to a Cell, but because of the technical complexity,
+			you have to take two side-effects into account:<br>
+			<UL>
+				<LI>The width of a Table is calculated internally. If an image doesn't
+				    fit the cell, the image is 'scaled-to-fit' automatically.
+				<LI>You can't use Image.TEXTWRAP or Image.UNDERLYING.
+			</UL>
+			See <a href="../examples/Chap0615.java">example 15</a>
+			(<a href="../examples/Chap0615.pdf">Chap0615.pdf</a>).<br><br>
+			<A NAME="annotationimage"><b>Annotations and images</b></A><br>
+			If you want a clickable image or you want to add an annotation to
+			an image, you have to construct an Annotation-object and add it
+			to the image. You don't need to specify a position (you can take 0, 0, 0, 0).
+			The position will be internally updated to fit the image:<br>
+			<FONT FACE="Courier">
+			gif.setAnnotation(new Annotation(0, 0, 0, 0, "Chap1102b.pdf", 3));<br>
+			jpeg.setAnnotation(new Annotation("picture", "These are my children", 0, 0, 0, 0));
+			</FONT><br>
+			This is demonstrated in<a href="../examples/Chap0616.java">example 16</a>
+			(<a href="../examples/Chap0616.pdf">Chap0616.pdf</a>).
+			</FONT><BR><br><BR><br>
+		</TD>
+	</TR> 
 	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch05.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
