@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Direct Content</site:title>
+		<site:summary>Add content directly to the PDF file using the PdfContentByte class.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Circles" standalone="yes" />
+			<site:result>circles.pdf</site:result>
+			<site:description>Draws some concentric circles</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="pdfcontentbyte">
+		<site:sectiontitle>PdfContentByte</site:sectiontitle>
+<div>
+<site:source class="Circles" />
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>
