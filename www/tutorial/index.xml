@@ -50,6 +50,7 @@
 		<site:chapter path="directcontent/graphics" />
 		<site:chapter path="directcontent/colors" />
 		<site:chapter path="directcontent/pageevents" />
+		<site:chapter path="directcontent/optionalcontent" />
 	</site:part>
 	<site:part name="part4">
 		<site:title>Part IV: Reading, Encrypting, Manipulating PDF files</site:title>
