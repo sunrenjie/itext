@@ -19,7 +19,25 @@
 		<ant antfile="download.xml" inheritAll="false" />
 		<ant antfile="compile.xml" inheritAll="false" />
 		<ant antfile="site.xml" inheritAll="false" />
+		<ant antfile="release.xml" inheritAll="false" />
     </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Make a new release after exporting the modules src/www from CVS  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<target name="release" description="--> builds a release after you have exported the src and www module from CVS">
+		<ant antfile="download.xml" inheritAll="false" target="download.bin" />
+		<ant antfile="release.xml" inheritAll="false" target="archive.src" />
+		<ant antfile="compile.xml" inheritAll="false" target="jar" />
+		<ant antfile="site.xml" inheritAll="false" target="docs.tar.gz" />
+		<ant antfile="site.xml" inheritAll="false" target="lowagie.com" />
+		<ant antfile="release.xml" inheritAll="false" target="release.sf" />
+	</target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Forwarding targetcalls to subscripts                             -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	
 	<target name="download">
 		<ant antfile="download.xml" inheritAll="false" target="download" />
@@ -59,6 +77,10 @@
 	
 	<target name="lowagie.com">
 		<ant antfile="site.xml" inheritAll="false" target="lowagie.com" />
+	</target>
+	
+	<target name="archive.src">
+		<ant antfile="release.xml" inheritAll="false" target="archive.src" />
 	</target>
 	
 </project>
