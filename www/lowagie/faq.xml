@@ -184,8 +184,8 @@ but we had little experience with PDF documents.
 We needed to find a pure Java class library
 that could produce sophisticated PDF documents in a server-side web application.
 We found a solution that completely met our needs: iText.</li>
-<li>Reto Stamm (<a href="http://teach2go.com/">Teach2go.com</a>):
-I have used iText for teach2go.com, to make flashcards to learn
+<li>Reto Stamm (<a href="http://www.retostamm.com/">LingoTeach</a>):
+I have used iText for LingoTeach, to make flashcards to learn
 Japanese. It's a great tool, I absolutely could not have done without it.</li>
 <li>Joe Hertvik (<a href="http://www.itjungle.com/tfh/tfh031802-story04.html">IBM iSeries and AS/400</a>):
 they can install the open-source iText software for generating PDF files on the fly
