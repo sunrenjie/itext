@@ -37,7 +37,9 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
 			<FONT FACE="Arial,Helvetica" SIZE="+1">Part I: Simple iText</FONT><BR><BR>
-			<FONT FACE="Arial,Helvetica"><B>Chapter 6: Images</B></FONT><BR><BR>
+			<FONT FACE="Arial,Helvetica"><B>Chapter 6: Images</B></FONT><BR>
+			Remark: in contrast to some other PDF libraries, there are no special X requirements
+			for running iText on a Unix box, except when you are adding a <A HREF="#awtimage">java.awt.Image</A>.<br><BR>
 		</TD>
 	</TR>
 	<TR>
@@ -186,6 +188,15 @@
 			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar-application</A>,
 			this method is used to allow you to put images of different size on each
 			Calendar-page. They are all resized to Fit on a certain area of the page.<BR>
+			<BR><A NAME="resolution"><B>Impact on the resolution</B></A><BR>		
+			If an image is placed without any scaling the the resolution will be 72.
+			If an image is placed with a scaling of 50% the the resolution will be 144.
+			With lower scalings the resolution will increase because the pixels are
+			the same but the size will be smaller. To put a picture with 300dpi use a scaling of 72/300=24%.
+			For instance: if you have a 5X5 inch image that you scan at 300 dpi, the resultant image
+			is 1500X1500 pixels (5X300 = 1500). When you place this image in the pdf with a scaling of 24% (72/300 = 0.24),
+			the image in the pdf will be 5X5 inch with 1500X1500 pixel at 300 dpi.
+			The image will always be 1500X1500 pixel whatever the size.<br>
 			<BR><A NAME="rotating"><B>Rotating</B></A><BR>
 			With the following method, you can rotate images:<BR>
 			<FONT FACE="Courier">public void setRotation(double r)<BR>
@@ -245,7 +256,7 @@
 	</TR> 
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="tiff"><A NAME="tiff"><B>TIFF and CCITT</B></A></a></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><a name="tiff"><B>TIFF and CCITT</B></a></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<a href="http://www.lowagie.com/iText/examples/Chap0611.java">Example 11</a> and
 			<a href="http://www.lowagie.com/iText/examples/Chap0612.java">example 12</a> are also
