@@ -445,7 +445,7 @@
 			What iText DOES provide is the possibility to READ a PDF document and copy an entire
 			page of this file into the PDF file you are constructing from scratch. This can be useful
 			if you want to create a new document based on (an) existing document(s). You can add
-			a Watermark, pagenumbers,... or even concatenate different PDF files.<br>
+			a Watermark, pagenumbers,...<br>
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0112.java">Example 12</A> takes a pdf
 			file from Chapter 7 and creates a new document where 4 pages of the original document
 			are painted on 1 page of the new document. We also added a Watermark and pagenumbers
@@ -457,8 +457,41 @@
 			existing PDF document, by saying: for instance replace the word Louagie by Lowagie.
 			To achieve this, you would have to know the exact location of the word Louagie,
 			paint a white rectangle over it and paint the word Lowagie on this white rectangle.
-			Please avoid this kind of 'patch' work. Do your PDF editing with an Adobe product.
-			</FONT><BR><BR><BR><br>
+			Please avoid this kind of 'patch' work. Do your PDF editing with an Adobe product.<br>
+			<br>
+			<b><a name="tools">Concat, Split, Handout, Encrypt</a></b><br>
+			Using the functionality to read PDFs, I have made 4 little tools that can be
+			called from the commandline:<br>
+			<UL>
+				<LI>java <a href="http://www.lowagie.com/iText/examples/Concat.java">Concat</a> destfile file1 file2 [file3 ...]<br>
+				concatenates the files file1, file2(, file3,...) and puts the result in destfile.<br><br>
+				<FONT FACE="Courier">
+				java Concat concat.pdf Chap0101.pdf Chap0102.pdf Chap0103.pdf Chap0107.pdf<br>
+				</FONT><br>
+				In the command above, we concatenate 4 files and put the result in file <a href="http://www.lowagie.com/iText/examples/concat.pdf">concat.pdf</a>.<br><br>
+				<LI>java <a href="http://www.lowagie.com/iText/examples/Split.java">Split</a> srcfile destfile1 destfile2 pagenumber<br>
+				splits the srcfile and puts pages 1 to (pagenumber - 1) in destfile1 and the rest of the pages
+				starting with pagenumber in destfile2.<br><br>
+				<FONT FACE="Courier">
+				java Split concat.pdf split1.pdf split2.pdf 4<br>
+				</FONT><br>
+				In the command above, we split a file and put pages 1-3 in file <a href="http://www.lowagie.com/iText/examples/split1.pdf">split1.pdf</a> and pages 4-... in file <a href="http://www.lowagie.com/iText/examples/split2.pdf">split2.pdf</a>.<br><br>
+				<LI>java <a href="http://www.lowagie.com/iText/examples/Handout.java">Handout</a> srcfile destfile pages<br>
+				For instance<br><br>
+				<FONT FACE="Courier">
+				java Concat concat.pdf handouts.pdf 4<br>
+				</FONT><br>
+				The command above creates a file handouts.pdf that put all the pages of concat.pdf 4 by 4 per page
+				and leaves some extra room for note, as shown in <a href="http://www.lowagie.com/iText/examples/handouts.pdf">handouts.pdf</a>.<br><br>
+				<LI>java <a href="http://www.lowagie.com/iText/examples/Encrypt.java">Encrypt</a> srcfile destfile password<br>
+				encrypts srcfile using password and put the result in destfile.<br><br>
+				<FONT FACE="Courier">
+				java Encrypt concat.pdf encrypted.pdf iText<br>
+				</FONT><br>
+				You will only be able to open the file <a href="http://www.lowagie.com/iText/examples/encrypted.pdf">encrypted.pdf</a>
+				if you know the password (= iText).
+			</UL>
+			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
 	<TR>
