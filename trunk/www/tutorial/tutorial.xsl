@@ -101,20 +101,30 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     <h1>Tutorial</h1>
     <h2><xsl:value-of select="site:metadata/site:title" /></h2>
 	<div id="content">
-		<xsl:for-each select="./site:chapter">
-			<xsl:variable name="path"><xsl:value-of select="@path" />/index.xml</xsl:variable>
-			<xsl:variable name="link"><xsl:value-of select="@path" />/index.html</xsl:variable>
-			<xsl:for-each select="document($path)/site:page">
+		<xsl:for-each select="./site:part">
 			<xsl:element name="a">
-				<xsl:attribute name="class">chapter</xsl:attribute>
-				<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
-				<xsl:value-of select="site:metadata/site:title"/>
+				<xsl:attribute name="name">#<xsl:value-of select="@name" /></xsl:attribute>
 			</xsl:element>
-			<xsl:for-each select="site:chapter/site:section">
-				<li><xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
-					<xsl:value-of select="site:sectiontitle" />
-				</xsl:element></li>
-			</xsl:for-each>
+			<div class="title"><xsl:value-of select="site:title" /></div>
+			<xsl:if test="count(./site:chapter)=0">
+				<div class="chapter">Under Construction</div>
+			</xsl:if>
+			<xsl:for-each select="./site:chapter">
+				<xsl:variable name="path"><xsl:value-of select="@path" />/index.xml</xsl:variable>
+				<xsl:variable name="link"><xsl:value-of select="@path" />/index.html</xsl:variable>
+				<xsl:for-each select="document($path)/site:page">
+					<xsl:element name="a">
+						<xsl:attribute name="class">chapter</xsl:attribute>
+						<xsl:attribute name="href"><xsl:value-of select="$link" /></xsl:attribute>
+						<xsl:value-of select="site:metadata/site:title"/>
+					</xsl:element>
+					<ul><xsl:for-each select="site:chapter/site:section">
+						<li><xsl:element name="a">
+							<xsl:attribute name="href"><xsl:value-of select="$link" />#<xsl:value-of select="@name" /></xsl:attribute>
+							<xsl:value-of select="site:sectiontitle" />
+						</xsl:element></li>
+					</xsl:for-each></ul>
+				</xsl:for-each>
 			</xsl:for-each>
 		</xsl:for-each>
 	</div>
