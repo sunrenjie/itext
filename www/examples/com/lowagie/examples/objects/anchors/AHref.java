@@ -55,8 +55,6 @@ public class AHref {
 		Document document = new Document();
 		try {
             // step 2:
-            // we create a writer that listens to the document
-            // and directs a PDF-stream to a file
             PdfWriter.getInstance(document, new FileOutputStream("AHref.pdf"));
             HtmlWriter.getInstance(document, new FileOutputStream("AHref.html"));
             

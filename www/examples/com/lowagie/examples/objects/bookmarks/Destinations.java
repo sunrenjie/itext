@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.anchors;
+package com.lowagie.examples.objects.bookmarks;
 
 import java.io.FileOutputStream;
 
