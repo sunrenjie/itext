@@ -70,7 +70,9 @@ public class Chap0201 {
             FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE))));
             document.add(new Phrase(new Chunk("This font is of type ITALIC | STRIKETHRU",
             FontFactory.getFont(FontFactory.HELVETICA, 12, Font.ITALIC | Font.STRIKETHRU))));
-            
+            Chunk ck = new Chunk("This text has a yellow background color", FontFactory.getFont(FontFactory.HELVETICA, 12));
+            ck.setBackground(new Color(0xFF, 0xFF, 0x00));
+            document.add(new Phrase(ck));
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
