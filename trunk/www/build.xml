@@ -38,8 +38,6 @@
             <pathelement location="${itext.bin}/iText.jar" />
             <pathelement location="${itext.bin}/iTextXML.jar" />
             <pathelement location="${itext.bin}/iTextHYPH.jar" />
-            <pathelement location="${itext.bin}/iTextAsian.jar" />
-            <pathelement location="${itext.bin}/iTextAsianCmaps.jar" />
             <pathelement location="${itext.examples}" />
         </path>
     </target>
@@ -168,7 +166,7 @@
 
     <target name="compile" depends="properties" description="--> compiles the core iText code">
         <mkdir dir="${itext.classes}" />
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" deprecation="on"
+        <javac srcdir="${itext.src}" destdir="${itext.classes}"
             excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java">
             <classpath refid="classpath" />
         </javac>
@@ -177,7 +175,7 @@
     <target name="compileWithXML" depends="properties" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />
         <echo>Your path to j2ee.jar: ${j2ee.jar}</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" deprecation="on">
+        <javac srcdir="${itext.src}" destdir="${itext.classes}">
             <classpath refid="classpath" />
         </javac>
     </target>
@@ -252,7 +250,6 @@
             destdir="${itext.docs}"
             author="true"
             private="true">
-            <classpath refid="classpath" />
             <link href="http://java.sun.com/j2se/1.3/docs/api/" />
         </javadoc>
     </target>
