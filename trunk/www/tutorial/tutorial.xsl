@@ -44,7 +44,18 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:attribute name="{local-name()}"><xsl:value-of select="."/></xsl:attribute>
 </xsl:template>
 
+<!-- path to examples -->
+
+<xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
+<xsl:template match="site:source">
+  <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+  	<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/<xsl:value-of select="@path" /></xsl:attribute>
+  	<xsl:value-of select="." />
+  </xsl:element>
+</xsl:template>
+
 <!-- the examples -->
+
 <xsl:template match="site:examples">
   <xsl:if test="count(./site:extrajar)>0">
   	<div class="small">Extra jars needed to compile and run these examples:</div>
@@ -56,7 +67,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
   	<div class="example">
   	<xsl:element name="a">
   		<xsl:attribute name="class">source</xsl:attribute>
-  		<xsl:attribute name="href">/examples/com/lowagie/examples<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
   		<xsl:value-of select="site:java/@src" />
     </xsl:element><br />
   	<div class="description"><xsl:value-of select="site:description/." /></div>
@@ -101,7 +112,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	</xsl:element>
 	<xsl:element name="link">
 		<xsl:attribute name="rel">stylesheet</xsl:attribute>
-		<xsl:attribute name="href"><xsl:value-of select="/site:page/site:metadata/site:tree/@root" />/style.css</xsl:attribute>
+		<xsl:attribute name="href">.<xsl:value-of select="$root" />/style.css</xsl:attribute>
 		<xsl:attribute name="type">text/css</xsl:attribute>
 	</xsl:element>
 </head>
