@@ -151,10 +151,74 @@
 			<B>Absolute positions</B><BR>
 			When generating PDF-files, you can use the method<BR>
 			<FONT FACE="Courier">public void setAbsolutePosition(int absoluteX, int absoluteY)</FONT><BR>
-			to place an image at an absolute position on a page.<BR>
+			to place an image at an absolute position on a page. In <A HREF="Chap06060.java">example 6</A>
+			we add two pictures at different coordinates. In the <A HREF="Chap0606.pdf">resulting PDF</A>,
+			you can see that the given coordinates are used to position the lowerleft corner of the
+			image. We took the width and height of the image as x- and y-coordinate for the first
+			image and two times these values for the second.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Scaling and Rotating the Image</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<B>Scaling</B><BR>
+			There are several possibilities to scale an image:<BR>
+			<FONT FACE="Courier">
+			public void scaleAbsolute(int newWidth, int newHeight)<BR>
+			public void scalePercent(int percent)<BR>
+			public void scalePercent(int percentX, int percentY)<BR>
+			public void scaleToFit(int fitWidth, int fitHeight)<BR>
+			</FONT>
+			The picture of my children is 194x202 pixels. If I wanted to make this
+			picture smaller I could scale it using <FONT FACE="Courier">scaleAbsolute(97, 101)</FONT>,
+			but using <FONT FACE="Courier">scalePercent(50)</FONT> would have the same effect.<BR>
+			I could also reduce it like this: <FONT FACE="Courier">scaleAbsolute(194, 101)</FONT>,
+			this would be the same as doing this: <FONT FACE="Courier">scalePercent(100, 50)</FONT>.
+			All these examples are bundled in <A HREF="Chap0607.java">example 7</A>, which results
+			in this <A HREF="Chap0607.pdf">PDF-document</A>.<BR>
+			Finally, there is also the <FONT FACE="Courier">ScaleToFit</FONT>-method.
+			This method is used in the <A HREF="Calendar.java">Calendar</A>-class.
+			It reduces the image, preserving the original aspect ratio. In the
+			<A HREF="http://webappcabaret.com/blowagie/itext/">Calendar-application</A>,
+			this method is used to allow you to put images of different size on each
+			Calendar-page. They are all resized to Fit on a certain area of the page.<BR>
+			<BR><B>Rotating</B><BR>
+			With the following method, you can rotate images:<BR>
+			<FONT FACE="Courier">public void setRotation(double r)<BR>
+			</FONT>
+			This method is demonstrated in <A HREF="Chap0608.java">example 8</A> (see <A HREF="Chap0608.pdf">result</A>).
+			</FONT><BR><BR>
+		</TD>
+	</TR> 
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Raw Image data</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			Uptil now all examples used images that were stored on your harddisk
+			or that were retrieved from some webserver, but it is also possible to
+			get an instance of an image using an array of bytes containing the image
+			data:<BR>
+			<FONT FACE="Courier">public static Image getInstance(byte[] img)</FONT><BR>
+			This method has the same effect as the other <FONT FACE="Courier">getInstance</FONT>-methods
+			discussed earlier: it returns a new <FONT FACE="Courier">Image</FONT>-object of type
+			<FONT FACE="Courier">Gif</FONT>, <FONT FACE="Courier">Jpeg</FONT> or <FONT FACE="Courier">Png</FONT>.<BR>
+			In <A HREF="Chap060x.java">example 9</A>, we first add an image that was read from a
+			jpeg-file into an array of bytes. It is evident that in this case it is better to
+			use another <FONT FACE="Courier">getInstance</FONT>-method, but this is just an
+			example. This <FONT FACE="Courier">getInstance</FONT>-method is especially useful
+			when you have images that were created 'on the fly', images that were never saved
+			to a file as such.<BR>
+			The example also demonstrates how you can create a Raw Image and use:<BR>
+			<FONT FACE="Courier">public static Image getInstance(int width, int height, int components, int bpc, byte data[])<BR></FONT>
+			In the example an image of 100 by 100 pixels is created. The images is 100 x 100 x 3 bytes
+			large, because every pixels is described by a RGB-value. You can see the result
+			of the algorithm in file <A HREF="Chap0609.pdf">Chap0609.pdf</A>.
 			</FONT><BR><BR><BR>
 		</TD>
 	</TR>
+	<!-- public static Image getInstance(int width, int height, int components, int bpc, byte data[]) -->
 	<TR>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="#top"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Top</FONT></A>]</FONT></TD>
 		<TD WIDTH="20%" ALIGN="center"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF" SIZE="-1">[<A HREF="ch05.html"><FONT FACE="Arial,Helvetica" COLOR="#FFFFFF">Previous</FONT></A>]</FONT></TD>
