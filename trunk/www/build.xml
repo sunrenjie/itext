@@ -168,7 +168,7 @@
     <target name="compileWithXML" description="--> compiles iText completely">
         <mkdir dir="${itext.classes}" />    
         <echo>Your path to j2ee.jar: ${j2ee.jar}</echo>
-        <javac srcdir="${itext.src}" destdir="${itext.classes}"	excludes="com/lowagie/servlets/*.java" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" />
     </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -215,7 +215,7 @@
         <tar tarfile="${itext.dist}/src.tar" basedir="${itext.src}" includes="**/*.java, **/*.txt" excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <tar tarfile="${itext.dist}/srcXML.tar" basedir="${itext.src}" includes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
         <gzip zipfile="${itext.dist}/classes.tar.gz" src="${itext.dist}/classes.tar" />
-		<gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
+        <gzip zipfile="${itext.dist}/src.tar.gz" src="${itext.dist}/src.tar" />
         <gzip zipfile="${itext.dist}/srcXML.tar.gz" src="${itext.dist}/srcXML.tar" />
         <delete file="${itext.dist}/classes.tar" />
         <delete file="${itext.dist}/src.tar" />
@@ -257,390 +257,390 @@
         <delete file="${itext.dist}/examples.tar" />
     </target>
 	
-	<target name="examples" depends="jarWithXML" description="--> executes (almost) all examples from the tutorial">
-	    <echo>Examples Chap0105.java, OutSimplePDF.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
-	    <echo>They will not compile without a servlet library.</echo>
-	    <echo>Examples Chap0611.java and Chap0612.java require JAI.</echo>
-	    <echo>They will not compile without this extra library.</echo>
+    <target name="examples" depends="jarWithXML" description="--> executes (almost) all examples from the tutorial">
+        <echo>Examples Chap0105.java, OutSimplePDF.java, Calendar.java and Month.java are NOT STANDALONE programs.</echo>
+        <echo>They will not compile without a servlet library.</echo>
+        <echo>Examples Chap0611.java and Chap0612.java require JAI.</echo>
+        <echo>They will not compile without this extra library.</echo>
         <javac srcdir="${itext.examples}" destdir="${itext.examples}" verbose="false" deprecation="false" excludes="Chap0105.java, OutSimplePDF.java, Calendar.java, Month.java, Chap0611.java, Chap0612.java" >
            <classpath refid="classpath" />
         </javac>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0101">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0102">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0103">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0104">
-           <classpath refid="classpath" />
-		</java>
-		<echo>Chapter 1 example 5: this is a Servlet example!</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0106">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0107">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0108">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0109">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0110">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0111">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Concat">
-			<arg value="concat.pdf"/>
-			<arg value="Chap0101.pdf"/>
-			<arg value="Chap0102.pdf"/>
-			<arg value="Chap0103.pdf"/>
-			<arg value="Chap0107.pdf"/>
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Split">
-			<arg value="concat.pdf"/>
-			<arg value="split1.pdf"/>
-			<arg value="split2.pdf"/>
-			<arg value="4"/>
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Handout">
-			<arg value="concat.pdf"/>
-			<arg value="handouts.pdf"/>
-			<arg value="4"/>
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Encrypt">
-			<arg value="concat.pdf"/>
-			<arg value="encrypted.pdf"/>
-			<arg value="iText"/>
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0201">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0202">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0203">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0204">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0205">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0206">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0207">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0208">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap02_hyphenation">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0209">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0301">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0302">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0303">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0304">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0401">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0402">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0403">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0404">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0405">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0501">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0502">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0503">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0504">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0505">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0506">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0507">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0508">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0509">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0510">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0511">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0512">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0513">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0514">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0515">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0516">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0517">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0518">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0601">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0602">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0603">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0604">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0605">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0606">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0607">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0608">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0609">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0610">
-           <classpath refid="classpath" />
-		</java>
-		<echo>Chapter 6 example 11: this example requires JAI</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<echo>Chapter 6 example 12: this example requires JAI</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0613">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0614">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0615">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0616">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0701">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0702">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0703">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0704">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0705">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0706">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0707">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0708">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Cv">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0112">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0801">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0802">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0803">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0804">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0901">
-           <classpath refid="classpath" />
-		</java>
-		<echo>Chapter 9 example 2: this example requires a correct filepath to comic.ttf</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<echo>Chapter 9 example 3: this example requires a correct filepath to comic.ttf</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<echo>Chapter 9 example 4: this example requires a correct filepath to msgothic.ttc</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0905">
-           <classpath refid="classpath" />
-		</java>
-		<echo>Chapter 9 example 6: this example requires a correct filepath to some ttc's and ttf's</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0907">
-           <classpath refid="classpath" />
-		</java>
-		<echo>Chapter 9 example 8: this example requires a correct filepath to some barcode ttf's</echo>
-		<echo>Please compile and execute it seperately</echo>
-		<java fork="yes" dir="${itext.examples}" classname="Chap0909">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1001">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1002">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1003">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1004">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1005">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1006">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1007">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1008">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1009">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1010">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1011">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1012">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1013">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1014">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1015">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap10_Graphics2D">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="iTextLogo">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1101">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1102">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1103">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1104">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1105">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1106">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1107">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1108">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1109">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1110">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1201">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1202">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap1203">
-           <classpath refid="classpath" />
-		</java>
-		<java fork="yes" dir="${itext.examples}" classname="Chap13_form">
-           <classpath refid="classpath" />
-		</java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0101">
+           <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0102">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0103">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0104">
+            <classpath refid="classpath" />
+        </java>
+        <echo>Chapter 1 example 5: this is a Servlet example!</echo>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0106">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0107">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0108">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0109">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0110">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0111">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Concat">
+            <arg value="concat.pdf"/>
+            <arg value="Chap0101.pdf"/>
+            <arg value="Chap0102.pdf"/>
+            <arg value="Chap0103.pdf"/>
+            <arg value="Chap0107.pdf"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Split">
+            <arg value="concat.pdf"/>
+            <arg value="split1.pdf"/>
+            <arg value="split2.pdf"/>
+            <arg value="4"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Handout">
+            <arg value="concat.pdf"/>
+            <arg value="handouts.pdf"/>
+            <arg value="4"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Encrypt">
+            <arg value="concat.pdf"/>
+            <arg value="encrypted.pdf"/>
+            <arg value="iText"/>
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0201">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0202">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0203">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0204">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0205">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0206">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0207">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0208">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap02_hyphenation">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0209">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0301">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0302">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0303">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0304">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0401">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0402">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0403">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0404">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0405">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0501">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0502">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0503">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0504">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0505">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0506">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0507">
+            <classpath refid="classpath" />
+	</java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0508">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0509">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0510">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0511">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0512">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0513">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0514">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0515">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0516">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0517">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0518">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0601">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0602">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0603">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0604">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0605">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0606">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0607">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0608">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0609">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0610">
+            <classpath refid="classpath" />
+        </java>
+        <echo>Chapter 6 example 11: this example requires JAI</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <echo>Chapter 6 example 12: this example requires JAI</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0613">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0614">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0615">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0616">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0701">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0702">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0703">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0704">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0705">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0706">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0707">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0708">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Cv">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0112">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0801">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0802">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0803">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0804">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0901">
+            <classpath refid="classpath" />
+        </java>
+        <echo>Chapter 9 example 2: this example requires a correct filepath to comic.ttf</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <echo>Chapter 9 example 3: this example requires a correct filepath to comic.ttf</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <echo>Chapter 9 example 4: this example requires a correct filepath to msgothic.ttc</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0905">
+            <classpath refid="classpath" />
+        </java>
+        <echo>Chapter 9 example 6: this example requires a correct filepath to some ttc's and ttf's</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0907">
+            <classpath refid="classpath" />
+        </java>
+        <echo>Chapter 9 example 8: this example requires a correct filepath to some barcode ttf's</echo>
+        <echo>Please compile and execute it seperately</echo>
+        <java fork="yes" dir="${itext.examples}" classname="Chap0909">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1001">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1002">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1003">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1004">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1005">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1006">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1007">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1008">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1009">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1010">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1011">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1012">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1013">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1014">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1015">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap10_Graphics2D">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="iTextLogo">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1101">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1102">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1103">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1104">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1105">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1106">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1107">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1108">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1109">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1110">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1201">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1202">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap1203">
+            <classpath refid="classpath" />
+        </java>
+        <java fork="yes" dir="${itext.examples}" classname="Chap13_form">
+            <classpath refid="classpath" />
+        </java>
         <delete>
             <fileset dir="${itext.examples}" includes="**/*.class"/>
         </delete>
-	</target>
+    </target>
   
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Making a release                                                 -->
@@ -649,15 +649,15 @@
     <target name="release" depends="jarWithXML, srczip, srctargz, docstargz, tutorialtargz" description="--> makes a complete iText release">
     </target>   
 	
-  	<target name="no.version.number" if="number.is.invalid">
-		<fail message="You didn't enter a version number: ant -Dnumber=XXX release.sf" />
-	</target>  
+    <target name="no.version.number" if="number.is.invalid">
+        <fail message="You didn't enter a version number: ant -Dnumber=XXX release.sf" />
+    </target>  
 	  
     <target name="release.sf" description="--> makes a complete iText release ready to publish on SourceForge">
-		<property name="number" value="${defaultnumber}" />
-		<property name="number.is.${number}" value="true" />
-		<antcall target="no.version.number" />
-		<antcall target="release" />
+        <property name="number" value="${defaultnumber}" />
+        <property name="number.is.${number}" value="true" />
+        <antcall target="no.version.number" />
+        <antcall target="release" />
         <mkdir dir="${itext.sf}" />
         <copy file="${itext.dist}/iText.jar" tofile="${itext.sf}/itext-${number}.jar" overwrite="yes" />
         <copy file="${itext.dist}/iTextXML.jar" tofile="${itext.sf}/itext-xml-${number}.jar" overwrite="yes" />
