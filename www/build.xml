@@ -217,7 +217,7 @@
 
     <target name="javadoc" description="--> generates the complete documentation with javadoc">
         <mkdir dir="${itext.docs}" />
-        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.xml.*"
+        <javadoc packagenames="com.lowagie.text.*, com.lowagie.text.pdf.*, com.lowagie.text.rtf.*, com.lowagie.text.pdf.afm.*, com.lowagie.text.pdf.wmf.*, com.lowagie.text.html.*, com.lowagie.text.markup.*, com.lowagie.text.xml.*"
             sourcepath="${itext.src}"
             destdir="${itext.docs}"
             author="true"
