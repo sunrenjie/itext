@@ -149,9 +149,15 @@
 				</TR>
 			</TABLE>
 			<BR><br>
-			<b><b><A NAME="ttc">True Type Collections</A></b></b><br>
+			<b><A NAME="ttc">True Type Collections</A></b><br>
 			<A HREF="http://www.lowagie.com/iText/examples/Chap0904.java">Example 4</A> shows you how to use
 			a True Type Collection. This is very similar to using a True Type Font.
+			<BR>
+			<BR><br>
+			<b><A NAME="adobefonts">Adobe fonts</A></b><br>
+			If you have some .AFM and .PFB files, describing an Adobe font, you can put them in the same directory and then use:<br>
+			<Font face="Courier">BaseBont bf = BaseFont.createFont("myfont.afm", BaseFont.WINANSI, BaseFont.EMBEDDED);</Font><br>
+			But if you have the alternative, use a true type font: the font will be subset and the resulting document will be a lot smaller.
 			<BR>
 			</FONT><BR>
 		</TD>
