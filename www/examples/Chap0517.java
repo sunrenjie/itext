@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2000, 2001 by Paulo Soares, Bruno Lowagie <--
+ * --> Copyright 2001 by Bruno Lowagie, Geert Poels, Chris Zachary <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -22,18 +22,18 @@
  * tel. +32 (0)9 228.10.97
  * bruno@lowagie.com
  */
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import java.awt.Color;
+import java.awt.Point;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.*;
+import com.lowagie.text.pdf.PdfWriter;
+
 public class Chap0517 {
     
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 17: images in tables");
+        System.out.println("Chapter 5 example 17: nested tables");
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A4.rotate());
         try {
             // step 2:
             // we create a writer that listens to the document
@@ -41,31 +41,16 @@ public class Chap0517 {
             PdfWriter.getInstance(document, new FileOutputStream("Chap0517.pdf"));
             // step 3: we open the document
             document.open();
-            // step 4: we create a table and add it to the document
-            Image img = Image.getInstance("pngnow.png");
-            img.scalePercent(70);
-            Chunk ck = new Chunk(img, 0, 0);
-            Table table = new Table(3);
-            table.setWidth(100);
-            table.setPadding(2);
-            table.setDefaultHorizontalAlignment(Element.ALIGN_CENTER);
-            Cell cell = new Cell(new Chunk(img, 0, -13));
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell("I see an image\non my right");
-            table.addCell(cell);
-            table.addCell("I see an image\non my left");
-            table.addCell(cell);
-            table.addCell("I see images\neverywhere");
-            table.addCell(cell);
-            table.addCell("I see an image\non my right");
-            table.addCell(cell);
-            table.addCell("I see an image\non my left");
-            
-            Paragraph p1 = new Paragraph("This is an image ");
-            p1.add(ck);
-            p1.add(" just here.");
-            document.add(p1);
-            document.add(table);
+            // step 4:
+            Table t1=new Table(2,2); 
+            Table t2=new Table(3,3); 
+            Table t3=new Table(4,4); 
+
+            t2.insertTable(t1,new Point(2,2)); 
+            t2.complete();
+            t3.insertTable(t2,new Point(2,2)); 
+
+            document.add(t3); 
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
@@ -76,4 +61,5 @@ public class Chap0517 {
         // step 5: we close the document
         document.close();
     }
+    
 }
