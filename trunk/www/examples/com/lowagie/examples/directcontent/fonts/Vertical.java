@@ -17,7 +17,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.directcontent.fonts;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
