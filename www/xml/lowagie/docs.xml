@@ -10,6 +10,7 @@
 			<site:book asin="0596006551">PDF Hacks</site:book>
 			<site:book asin="0201758393">PDF Reference: Version 1.4 (3rd Edition)</site:book>
 		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
@@ -27,8 +28,8 @@ Another good place to start, is the examples-xxx.zip available on
 iText has a very active mailing-list. If you don't want to
 <a href="http://lists.sourceforge.net/lists/listinfo/itext-questions">register</a>
 rightaway, you can browse through the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list archives</a>
-before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>,
-try describing your problem as concrete as possible. We can't answer questions such as
+before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>.
+Try describing your problem as concrete as possible. We can't answer questions such as
 "Why doesn't iText work on my computer". Please keep in mind that it is really difficult
 for us to solve problems or track down bugs that we can't reproduce.
 If possible, send us a small standalone source code example, demonstrating the

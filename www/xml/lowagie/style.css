@@ -1,3 +1,5 @@
+/* $Date$ */
+
 body  {
 	background-color : FF7700;
 	font-family : Arial;
@@ -120,6 +122,11 @@ a:hover  {
 
 .small  {
 	font-size : small;
+}
+
+.topic  {
+	display: list-item;
+	list-style : circle inside;
 }
 
 .sidetitle  {

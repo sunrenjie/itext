@@ -10,6 +10,7 @@
 			<site:book asin="1932111816">Open Source Development with CVS </site:book>
 			<site:book asin="0596004591">Essential CVS </site:book>
 		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
