@@ -26,6 +26,7 @@ import com.lowagie.text.pdf.*;
 public class Chap0614 {
     
     public static void main(String[] args) {
+        Document.compress = false;
         System.out.println("Chapter 6 example 14: images wrapped in a Chunk");
         // step 1: creation of a document-object
         Document document = new Document();
@@ -45,6 +46,7 @@ public class Chap0614 {
             table.setPadding(2);
             table.setDefaultHorizontalAlignment(Element.ALIGN_CENTER);
             Cell cell = new Cell(new Chunk(img, 0, -13));
+            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell("I see an image\non my right");
             table.addCell(cell);

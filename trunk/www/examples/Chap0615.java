@@ -55,6 +55,7 @@ public class Chap0615 {
 			// row 1
             table.addCell("I see an image\non my right");
             Cell cell = new Cell("This is the image (aligned in the middle):");
+            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
 			cell.add(img0);
 			cell.add(new Phrase("This was the image"));
             table.addCell(cell);
