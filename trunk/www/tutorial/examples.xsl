@@ -8,6 +8,7 @@ exclude-result-prefixes="site">
   <xsl:output method="xml" indent="yes" media-type="text/xml" />
 
   <xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
+  <xsl:param name="branch" select="/site:page/site:metadata/site:tree/@branch" />
 
   <xsl:template match="site:metadata" />
   <xsl:template match="site:section" />
@@ -40,10 +41,10 @@ exclude-result-prefixes="site">
         <xsl:for-each select="site:example">
           <xsl:if test="count(site:externalresource)!=0" >
             <xsl:element name="copy">
-              <xsl:attribute name="todir">${tutorial}<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" /></xsl:attribute>
+              <xsl:attribute name="todir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
               <xsl:attribute name="overwrite">no</xsl:attribute>
               <xsl:element name="fileset">
-                <xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" /></xsl:attribute>
+                <xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="$branch" /></xsl:attribute>
                 <xsl:for-each select="site:externalresource">
                   <xsl:element name="filename">
                     <xsl:attribute name="name"><xsl:value-of select="." /></xsl:attribute>
@@ -54,8 +55,8 @@ exclude-result-prefixes="site">
 		  </xsl:if>
           <xsl:element name="java">
             <xsl:attribute name="fork">yes</xsl:attribute>
-            <xsl:attribute name="dir">${tutorial}<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" /></xsl:attribute>
-            <xsl:attribute name="classname">com.lowagie.examples<xsl:value-of select="translate(/site:page/site:metadata/site:tree/@branch, '/', '.')" />.<xsl:value-of select="site:java/@src" /></xsl:attribute>
+            <xsl:attribute name="dir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
+            <xsl:attribute name="classname">com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" /></xsl:attribute>
             <xsl:for-each select="site:argument">
               <xsl:element name="arg">
                 <xsl:attribute name="value">

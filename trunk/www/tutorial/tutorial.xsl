@@ -47,6 +47,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 <!-- examples -->
 
 <xsl:param name="root" select="/site:page/site:metadata/site:tree/@root" />
+<xsl:param name="branch" select="/site:page/site:metadata/site:tree/@branch" />
 
 <xsl:template match="site:source">
   <xsl:param name="class" select="@class" />
@@ -55,8 +56,8 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
   	<xsl:if test="$class=./site:java/@src">
   	  Example: java
   	  <xsl:element name="a">
-  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
-  		com.lowagie.examples<xsl:value-of select="translate(/site:page/site:metadata/site:tree/@branch, '/', '.')" />.<xsl:value-of select="site:java/@src" />
+  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+  		com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" />
     </xsl:element>
     <xsl:if test="count(site:argument)!=0" >
       <xsl:for-each select="site:argument"><xsl:value-of select="string(' ')" /><xsl:value-of select="." /></xsl:for-each>
@@ -93,7 +94,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
   	<div class="example">
   	<xsl:element name="a">
   		<xsl:attribute name="class">source</xsl:attribute>
-  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+  		<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
   		<xsl:value-of select="site:java/@src" />
     </xsl:element><br />
   	<div class="description"><xsl:value-of select="site:description/." /></div>
@@ -177,7 +178,12 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
     
     <xsl:element name="div">
 		<xsl:attribute name="id">sidebar</xsl:attribute>
-		<div class="title">Sections:</div>
+		<xsl:element name="a">
+		  <xsl:attribute name="class">toc</xsl:attribute>
+          <xsl:attribute name="href">.<xsl:value-of select="$root" /></xsl:attribute>
+		  Table of Contents
+	    </xsl:element>
+		<div class="sidetitle">Sections:</div>
 		<ul>
 		<xsl:for-each select="site:chapter/site:section">
 			<li><xsl:element name="a"><xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
