@@ -53,7 +53,7 @@ public class Chap0206 implements SplitCharacter {
             document.open();
             
             // step 4:
-            // we create an Event and add it to the writer
+            // we add some content
             String text = "Some.text.to.show.the.splitting.action.of.the.interface.";
             Chap0206 split = new Chap0206();
             Chunk ck = new Chunk(text, new Font(Font.HELVETICA, 24));
