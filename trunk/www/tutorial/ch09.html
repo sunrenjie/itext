@@ -59,7 +59,7 @@
 			specifying an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
             27 characters; the encoding is also known as 'winansi').<br>
 			<FONT FACE="Courier">
-			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", false);<br>
+			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", BaseFont.NOT_EMBEDDED);<br>
 			Font font = new Font(helvetica, 12, Font.NORMAL);<br>
 			Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac.", font);<br>
 			document.add(chunk);<br>
@@ -77,24 +77,33 @@
 			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
             True Type font:<br>
 			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", false);<BR>
-			Font FontComic = new Font(bfComic, 12, Font.NORMAL);<BR>
-			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);<BR>
-			document.add(chunk);
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);<br>
+            Font font = new Font(bfComic, 12);<br>
+            String text1 = "This is the quite popular True Type font 'Comic'.";<br>
+            String text2 = "Some greek characters: \u0393\u0394\u03b6";<br>
+            String text3 = "Some cyrillic characters: \u0418\u044f";<br>
+            document.add(new Paragraph(text1, font));<br>
+            document.add(new Paragraph(text2, font));<br>
+            document.add(new Paragraph(text3, font));<br>
 			</FONT><BR>
+			<b>Unicode</b><br>
+			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
+			added in unicode (but this will make the resulting PDF file larger).<BR>
+			<br>
+			<b>The ttf-file</b><br>
 			As you can see, you need to create a font using the path to the ttf-file.
-            The above example works on a Windows 98 machine, but if you use another OS,
-            you will have to change this path. Also, if the used TrueType font is not
-            found on your machine, Acrobat Reader will throw an error such as: 'a font
+            The above example works on a Win2K machine, but if you use another OS,
+            you will have to change this path. Remark: the ttf file can be placed on
+			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
+			and Solaris too.<br><br>
+			<b>Embedding a ttf font</b><br>
+			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
             is missing or corrupted'. This can be the case when you try to open
             <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.<BR><BR>
             That is why it's safer to embed the font in the PDF file, by setting the last parameter
-            of method <FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">true</FONT>:<br>
+            of method <FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">BaseFont.EMBEDDED</FONT>:<br>
 			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", "winansi", true);<BR>
-			Font FontComic = new Font(bfComic, 12, Font.NORMAL);<BR>
-			Chunk chunk = new Chunk("This is the quite popular True Type font 'Comic'.", FontComic);<BR>
-			document.add(chunk);
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
 			</FONT><BR>
             As you can see in <A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>, the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
             is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font.<BR>
@@ -108,7 +117,7 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			You can also add text in some predefined Chinese/Korean/Japanese fonts (using UNICODE):<br>
 			<FONT FACE="Courier">
-			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", false);<br>
+			BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);<br>
             Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);<br>
 			Chunk chunk = new Chunk("\u6e96\u53d7\u4fdd\u4eba", FontChinese);<br>
 			document.add(chunk);<br>
