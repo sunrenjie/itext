@@ -59,8 +59,8 @@ public class Chap0303 {
             document.add(list);
             
             document.add(new Paragraph("some books I really like:"));
-			document.add(new Annotation("books", "This is really a very short list, I like a lot of books."));
-            ListItem listItem;			
+            document.add(new Annotation("books", "This is really a very short list, I like a lot of books."));
+            ListItem listItem;
             list = new List(true, 15);
             listItem = new ListItem("When Harlie was one", new Font(Font.TIMES_NEW_ROMAN, 12));
             listItem.add(new Chunk(" by David Gerrold", new Font(Font.TIMES_NEW_ROMAN, 11, Font.ITALIC)));
@@ -73,8 +73,8 @@ public class Chap0303 {
             list.add(listItem);
             document.add(list);
             
-            document.add(new Phrase("Some authors I really like:"));	
-			document.add(new Annotation("authors", "Maybe it's because I wanted to be an author myself that I wrote iText."));
+            document.add(new Phrase("Some authors I really like:"));
+            document.add(new Annotation("authors", "Maybe it's because I wanted to be an writer myself that I wrote iText."));
             list = new List(false, 20);
             list.setListSymbol(new Chunk("*", new Font(Font.HELVETICA, 20, Font.BOLD)));
             listItem = new ListItem("Isaac Asimov");

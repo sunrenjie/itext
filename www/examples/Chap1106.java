@@ -56,7 +56,7 @@ public class Chap1106 {
         System.out.println("Chapter 11 example 6: outline");
         
         // step 1: creation of a document-object
-        Document document = new Document();
+        Document document = new Document(PageSize.A6);
         
         try {
             
