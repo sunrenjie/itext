@@ -39,7 +39,7 @@
 	<xsl:template name="footer">
 		<div xmlns="http://www.w3.org/1999/xhtml" id="footer">
 			Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" />
-			Copyright &#169; 1999-2004
+			Copyright &#169; 1999-2005
 			<xsl:for-each select="/site:page/site:metadata/site:author"><xsl:value-of select="." /><xsl:if test="position()!=last()">, </xsl:if></xsl:for-each><br />
 			<a href="http://www.lowagie.com/iText/">iText</a> is a Free Java-Pdf library by Bruno Lowagie and Paulo Soares.
 		</div>
