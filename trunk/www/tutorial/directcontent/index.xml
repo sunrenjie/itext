@@ -77,6 +77,7 @@ operators.<br />
 <ul>
 <li><site:tutorial chapter="/directcontent/coordinates">PDF coordinate system</site:tutorial></li>
 <li><site:tutorial chapter="/directcontent/graphics" section="state">Graphics State</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent/colors">Colors</site:tutorial></li>
 </ul></div>
 </li>
 <li><i>Path construction operators</i> specify <i>paths</i>, which
@@ -94,7 +95,7 @@ objects. These include sampled images, geometrically defined shadings, and
 entire content streams that in turn contain sequences of graphics operators.
 <div class="small">For more info on how iText deals with this, see:
 <ul>
-<li><site:tutorial chapter="/directcontent/colors">Colors</site:tutorial></li>
+<li><site:tutorial chapter="/directcontent" section="templates">Templates</site:tutorial></li>
 <li><site:tutorial chapter="/objects/images">Images</site:tutorial></li>
 </ul></div></li>
 <li><i>Text operators</i> select and show <i>character glyphs</i> from
@@ -152,6 +153,21 @@ Summarized: when a page is finished, 4 layers are drawn on top of eachother in t
 </ol>
 Remark: this is iText specific stuff, do not confuse this tutorial section with the section on
 the <site:tutorial chapter="/directcontent/optionalcontent">Optional Content</site:tutorial> layers.
+</div>
+	</site:section>
+	<site:section name="templates">
+		<site:sectiontitle>Using templates</site:sectiontitle>
+<div>
+The 4 iText layers (direct content, high level text, high level graphics and direct content under)
+are written to a PDF stream of a page. However, there is a possibility to get a layer, a canvas, a <i>PdfTemplate</i>
+that can be external to the PDF page stream. It will be treated as a <i>Form XObject</i> (see section 4.9 of the PDF Reference Manual).<br />
+In iText these PdfTemplates are mainly used for two reasons:
+<ol>
+<li>You want to <i>repeat</i> a certain sequence of PDF syntax, but you want to save on disc space (reuse the stream) and processing time (write the stream only once).</li>
+<li>You want to add some content to a page, but you <i>don't know in advance</i> what the content will be. For instance: you want to add a footer saying 'this it is page x of y',
+but you don't know the value of y yet. In this case, you can add a template for y, but you can wait to add content to the template untill you know the exact number of pages
+in your document.</li>
+</ol>
 <br />
 <br />
 Other examples: PdfPTable, Images,...
