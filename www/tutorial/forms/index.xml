@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Interactive Forms</site:title>
+		<site:summary>Step for step creation of an Acroform.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Acroforms, Interactive PDF forms, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="acroform">
+		<site:sectiontitle>Acroform</site:sectiontitle>
+<div>
+Extract from the Portable Document Format Reference Manual Version 1.6 (section 8.6 'Interactive Forms' page 634):
+<blockquote>An <i>interactive form (PDF 1.2)</i>&#150;sometimes referred to as an <i>Acroform</i>&#150;is a collection
+of <i>fields</i> for gathering information interactively from the user. A PDF document may contain any number of fields
+appearing on any combination of pages, all of which make up a single, global interactive form spanning the entire document.</blockquote>
+Do not confuse Acroforms with HTML forms (&lt;form&gt;-tags). They share some of the same purposes (e.g. getting userdata),
+but they are completely different. You can't have more than one form in a PDF document. Fields in an acroform can be organized
+hierarchically and can inherit attributes from their ancestors in the field hierarchy. Each field has a name, but
+as is stated in the Portable Document Format Reference Manual Version 1.6 (section 8.6.2 'Field Dictionaries' page 638):
+<blockquote>The <i>fully qualified filed name</i> is not explicitly defined
+but is constructed from the partial field names of the field and all of its
+ancestors. For a field with no parent, the partial and fully qualified names are the same.
+For a field that is the child of another field, the fully qualified name is formed by appending
+the child field's partial name to the parent's fully qualified name, separated by a period (.):
+<pre class="commandline">  parent's_full_name.child's_partial_name</pre>
+For example, if a field with the partial field name <span class="commandline">PersonalData</span> has a child whose partial name is <span class="commandline">Address</span>,
+which in turn has a child with the partial name <span class="commandline">ZipCode</span>, the fully qualified name of this last field is
+<pre class="commandline">PersonalData.Address.ZipCode</pre>
+Thus, all fields descended from a common ancestor share the ancestor's fully qualified field name
+as a common prefix in their own filly qualified names.</blockquote>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>
