@@ -47,6 +47,25 @@
 	<TR>
 		<TD COLSPAN="5" Class="content">
         <br>
+		<div class="title"><A NAME="VERSION101">iText1.01</A> (based on paulo's version 123-124-125-126</div>
+        <div class="text"><UL>
+        <LI>paulo 126<UL>
+            <li>set the max number of lines in Cell.<li>added ALIGN_JUSTIFIED_ALL to justify the text including the last paragraph line. Use the attribute JustifyAll in XML.<li>added an explicit /DW for CJK fonts<li>fixed the reading of TIFF images without the ROWSPERSTRIP tag.<li>fixed a bug in PdfDocument for right aligned images.<li>changed PdfReader to provide information on the encryption flags.<li>changed PdfReader to provide information on the xref and trailer to facilitate the creation of updated documents.<li>fixed in PdfReader the reading of some 128 bit key encrypted documents.<li>fixed the flattening of documents that had pages without contents.<li>fixed the flattening of hidden fields.<li>fixed an exception with TrueType fonts without a kerning table.<li>better compliance for symbolic TrueType fonts.<li>fixed the rotation of text in WMF images when the extents were negative.<li>fixed the reading of images from byte array in RTF.<li>fixed a bug with nested Table.
+            </ul>
+        <LI>paulo 125<UL>
+            <li>added support for BMP in RTF.<li>removed the dependency on TextLayout for the bidi order levels. The awt toolkit is no longer needed for Arabic or Hebrew.<li>changed DocumentException to better track the stack trace.<li>some incorrect page sizes fixed in PageSize.<li>another hack to PdfReader. Reads files with pages without the /Page tag.<li>added PdfReader.createFakeFontSubsets(). Some producers, like Crystal Reports, create documents with subset fonts but without the correct prefix.<li>added bitmap support to WMF.<li>added ink spreading control to barcodes.
+            </ul>
+        <LI>paulo 124<UL>
+            <li>several changes made to ease the port to jdk 1.1<li>FontFactory registered directories using lower case names for files. This could fail in Unix.<li>fixed a bug in ColumnText that caused an infinite loop.<li>ColumnText can be duplicated. Useful to do simulations and write without having to load a new ColumnText.<li>added the constant FF_MULTISELECT in PdfFormField.<li>added opacity support in PdfGraphics2D. Colors with an alpha value will be translucid.<li>added a copy constructor to PdfReader.<li>added PdfReader.consolidateNamedDestinations to replaces all the local named links with the actual destinations.<li>added PdfReader.removeUnusedObjects to remove all the unreachable objects.<li>PdfStamper supports the addition of annotations. Adding new form fields is not yet supported.<li>the keys F and Ft are stored in the merged dictionary in PRAcroForm.<li>added createAwtImage() to the barcodes. The image is not used by iText but it's of use for other programs such as JasperReports.
+            </ul>
+        <LI>paulo 123<UL>
+            <li>Chunks with a background color can set the size of the background rectangle.<li>added ColumnText.getWidth() and ColumnText.showTextAligned() to facilitate the placing of complex text in PdfContentByte.<li>added PdfPCell.setUseDescender(). The height of the PdfPCell can optionaly be automatically extended to avoid the truncation of the last line descenders.<li>fixed TrueTypeFont to accept fonts with broken cmaps.<li>another hack to PdfReader. It now checks the length of streams and attemps to fix incorrect sizes.<li>added PdfReader.shuffleSubsetNames(). It finds all the font subset prefixes in the file and replaces them with new, random values.
+            </ul>
+        <LI>Mark Hall<UL>
+            <li>Fixed a NullPointerException.<LI>Fixed a problem where Fonts and Colors only in header/footers weren't added to the document.
+            </UL>
+        </UL></div>
+        
 		<div class="title"><A NAME="VERSION100">iText1.00</A> (based on paulo's version 119-120-121-122</div>
         <div class="text"><UL>
         <LI>paulo 122<UL>
