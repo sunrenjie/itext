@@ -372,7 +372,7 @@ to have your special symbols substituted (this only works with the base 14 fonts
 	
 	<site:section name="more">
 		<site:sectiontitle>To be continued...</site:sectiontitle>
-<div>There's a lot more to be told on Chunk, see <site:tutorial chapter="/objects/anchors">Bookmarks, Anchors and Destinations</site:tutorial>.</div>
+<div>There's a lot more to be told on Chunk, see <site:tutorial chapter="/objects/anchors">Anchors and Actions</site:tutorial>.</div>
 	</site:section>
 	
 	</site:chapter>

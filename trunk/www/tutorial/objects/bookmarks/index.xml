@@ -23,6 +23,11 @@
 			<site:description>Creates three versions of the same document, but with different viewerpreferences</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="PageLabels" standalone="yes" />
+			<site:result>PageLabels.pdf</site:result>
+			<site:description>Creates a document with pagelabels</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Destinations" standalone="yes" />
 			<site:result>Destinations.pdf</site:result>
 			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
@@ -37,11 +42,6 @@
 			<site:result>OutlineActions.pdf</site:result>
 			<site:result>remote.pdf</site:result>
 			<site:description>Creates a document with external destinations or actions that can be called from Bookmarks</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="PageLabels" standalone="yes" />
-			<site:result>PageLabels.pdf</site:result>
-			<site:description>Creates a document with pagelabels</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ChapterSection" standalone="yes" />
