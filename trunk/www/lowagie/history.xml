@@ -25,7 +25,15 @@
 <li>Some extra functionality in class Chunk:
 static final Chunk.NEXTPAGE,
 simple setUnderline method,
-getWidthPoint to retrieve the width of a Chunk in points</li></ul>
+getWidthPoint to retrieve the width of a Chunk in points</li>
+<li>added AcroFields.getBlankSignatureNames().</li>
+<li>optimization fix in BarcodePDF417.</li>
+<li>fixed the keep together in paragraphs and list in ColumnText.</li>
+<li>PdfCopyFields keeps the calculation order.</li>
+<li>added support to signature verifying with authenticated attributes.</li>
+<li>added PdfSignatureAppearance.setSignatureEvent() to support signature dictionary modification.</li>
+<li>added support to add comments from FDF in PdfStamper.</li>
+<li>PRStream will close the stream if it was not initially open.</li></ul>
 </li>
 <li>2004-12-14: paulo 144 - 2004-12-16: iText1.1.2<ul>
 <li>Some more Table changes by Steve Appling on top of itext-paulo-144</li>
