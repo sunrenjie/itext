@@ -128,6 +128,7 @@
 						<xsl:element name="fileset">
 							<xsl:attribute name="dir">${tutorialsrc}<xsl:value-of select="$branch" /></xsl:attribute>
 							<include name="*.jsp" />
+							<include name="web.xml" />
 						</xsl:element>
 					</xsl:element>
 					<xsl:element name="war">
