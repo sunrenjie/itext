@@ -114,7 +114,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 					<blockquote><xsl:value-of select="site:intro" /></blockquote>
 					<xsl:for-each select="./site:part">
 						<xsl:element name="a">
-							<xsl:attribute name="name">#<xsl:value-of select="@name" /></xsl:attribute>
+							<xsl:attribute name="name"><xsl:value-of select="@name" /></xsl:attribute>
 						</xsl:element>
 						<div class="title"><xsl:value-of select="site:title" /></div>
 						<xsl:if test="count(./site:chapter)=0">
