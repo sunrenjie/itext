@@ -20,12 +20,15 @@
 
 package com.lowagie.examples.objects.chunk;
 
+import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
@@ -56,14 +59,17 @@ public class SubSupScript {
 			// step 3: we open the document
 			document.open();
 			// step 4:
-			Chunk fox = new Chunk("quick brown fox");
-			fox.setTextRise(8.0f);
-			Chunk jumps = new Chunk(" jumps over ");
-			Chunk dog = new Chunk("the lazy dog");
-			dog.setTextRise(-8.0f);
-			document.add(fox);
-			document.add(jumps);
-			document.add(dog);
+			String s = "quick brown fox jumps over the lazy dog";
+			StringTokenizer st = new StringTokenizer(s, " ");
+			float textrise = 6.0f;
+			Chunk c;
+			while (st.hasMoreTokens()) {
+				c = new Chunk(st.nextToken());
+				c.setTextRise(textrise);
+				c.setUnderline(new Color(0xC0, 0xC0, 0xC0), 0.2f, 0.0f, 0.0f, 0.0f, PdfContentByte.LINE_CAP_BUTT);
+				document.add(c);
+				textrise -= 2.0f;
+			}
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {
