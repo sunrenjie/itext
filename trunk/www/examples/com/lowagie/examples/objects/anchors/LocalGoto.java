@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001-2004 by Bruno Lowagie <--
+ * --> Copyright 2001-2005 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
@@ -59,13 +59,23 @@ public class LocalGoto {
             // step 3: we open the document
             document.open();
             
-            // step 4: we add some content
+            // step 4:
+            
+            // we make some content
+            
+            // a paragraph with a local goto
             Paragraph p1 = new Paragraph("We will do something special with this paragraph. If you click on ", FontFactory.getFont(FontFactory.HELVETICA, 12));
             p1.add(new Chunk("this word", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test"));
             p1.add(" you will automatically jump to another location in this document.");
+            
+            // some paragraph
             Paragraph p2 = new Paragraph("blah, blah, blah");
+            
+            // a paragraph with a local destination
             Paragraph p3 = new Paragraph("This paragraph contains a ");
             p3.add(new Chunk("local destination", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
+            
+            // we add the content
             document.add(p1);
             document.add(p2);
             document.add(p2);

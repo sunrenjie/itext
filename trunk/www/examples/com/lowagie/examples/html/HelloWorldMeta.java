@@ -5,7 +5,7 @@
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
  *
- * --> Copyright 2001-2004 by Bruno Lowagie <--
+ * --> Copyright 2001-2005 by Bruno Lowagie <--
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
