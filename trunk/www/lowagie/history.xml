@@ -19,7 +19,7 @@
 <site:remark>NOT YET RELEASED</site:remark>
 <site:changelog>
 <ul>
-<li>2005-02-17: iText 1.2.3
+<li>2005-02-17: iText 1.2.3<ul>
 <li>Added a header to some source files that were missing the MPL information</li>
 <li>Bug discovered by Mark-Jan Nederhof, fixed by Paulo: getAscent in BaseFont</li>
 <li>Fixes and updates to RtfWriter2 by Mark Hall<ul>
@@ -42,7 +42,7 @@ specify if you want to use a temporary file.</li>
 <li>Fixed AcroFields.getAppearanceStates() that threw a class cast exception.</li>
 <li>PdfWriter.DOCUMENT_CLOSE was changed from /DC to /WC. It's not documented but it's what works in Acrobat.</li>
 <li>PdfStamper.getWriter().setAdditionalAction() is now supported.</li>
-</ul></li>
+</ul></li></ul>
 </li>
 <li>2005-01-31: iText 1.2.2
 <ul><li>Avoiding a NullPointerException in Phrase (bugfix by August Detlefsen)</li>
