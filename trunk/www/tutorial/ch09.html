@@ -57,13 +57,13 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			In the <a href="http://www.lowagie.com/iText/examples/Chap0901.java">following example</a> we will use a known font (Helvetica)
 			specifying an encoding that is widely used in Europe: 'Cp1252' (this is latin 1 extended with
-            27 characters; the encoding is also known as 'winansi').<br>
+            27 characters; the encoding is also known as 'winansi').<br><br>
 			<FONT FACE="Courier">
 			BaseFont helvetica = BaseFont.createFont("Helvetica", "Cp1252", BaseFont.NOT_EMBEDDED);<br>
 			Font font = new Font(helvetica, 12, Font.NORMAL);<br>
 			Chunk chunk = new Chunk("Sponsor this example and send me 1\u20ac.", font);<br>
 			document.add(chunk);<br>
-			</FONT>
+			</FONT><br>
 			As you can see, the EURO symbol is added by using its UNICODE value.
 			Check out the <a href="http://www.lowagie.com/iText/examples/Chap0901.pdf">result</a>.<BR><BR>
 			</FONT>
@@ -74,10 +74,37 @@
 			<A NAME="truetype"></A>
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>True Type Fonts</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			<b>Using a ttf font</b><br>
 			In <A HREF="http://www.lowagie.com/iText/examples/Chap0902.java">example 2</A>, we are going to use a very popular
-            True Type font:<br>
+            True Type font:<br><br>
 			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);<br>
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", "winansi", BaseFont.NOT_EMBEDDED);<br>
+            Font font = new Font(bfComic, 12);<br>
+            String text1 = "This is the quite popular True Type font 'Comic'.";<br>
+            document.add(new Paragraph(text1, font));<br>
+			</FONT><BR>
+			<b>Embedding a ttf font</b><br>
+			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
+            is missing or corrupted'. This can be the case when you try to open
+            <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.
+			To embed the font, you just have to set the last parameter of method
+			<FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">BaseFont.EMBEDDED</FONT>:<br>
+			<FONT FACE="Courier">
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", "winansi", BaseFont.NOT_EMBEDDED);<br>
+			</FONT><BR>
+			<b>The ttf-file</b><br>
+			As you can see, you need to create a font using the path to the ttf-file.
+            The above example works on a Win2K machine, but if you use another OS,
+            you will have to change this path. Remark: the ttf file can be placed on
+			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
+			and Solaris too.<br><br>
+			<b>Unicode</b><br>
+			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
+			added in unicode (but this will make the resulting PDF file larger). Please take a look at
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>:<BR>
+			<br>
+			<FONT FACE="Courier">
+			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
             Font font = new Font(bfComic, 12);<br>
             String text1 = "This is the quite popular True Type font 'Comic'.";<br>
             String text2 = "Some greek characters: \u0393\u0394\u03b6";<br>
@@ -86,27 +113,9 @@
             document.add(new Paragraph(text2, font));<br>
             document.add(new Paragraph(text3, font));<br>
 			</FONT><BR>
-			<b>Unicode</b><br>
-			Greek, cyrillic, special characters can be added using unicode. As a matter of fact all characters can be
-			added in unicode (but this will make the resulting PDF file larger).<BR>
-			<br>
-			<b>The ttf-file</b><br>
-			As you can see, you need to create a font using the path to the ttf-file.
-            The above example works on a Win2K machine, but if you use another OS,
-            you will have to change this path. Remark: the ttf file can be placed on
-			any OS. It isn't Windows-specific. It has been succesfully tested on Linux
-			and Solaris too.<br><br>
-			<b>Embedding a ttf font</b><br>
-			If the used TrueType font is not found on your machine, Acrobat Reader will throw an error such as: 'a font
-            is missing or corrupted'. This can be the case when you try to open
-            <A HREF="http://www.lowagie.com/iText/examples/Chap0902.pdf">Chap0902.pdf</A>.<BR><BR>
-            That is why it's safer to embed the font in the PDF file, by setting the last parameter
-            of method <FONT FACE="Courier">createFont</FONT> to <FONT FACE="Courier">BaseFont.EMBEDDED</FONT>:<br>
-			<FONT FACE="Courier">
-			BaseFont bfComic = BaseFont.createFont("c:\\winnt\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);<br>
-			</FONT><BR>
-            As you can see in <A HREF="http://www.lowagie.com/iText/examples/Chap0903.java">example 3</A>, the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
-            is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font.<BR>
+            As you can see the <a href="http://www.lowagie.com/iText/examples/Chap0903.pdf">resulting PDF file</a>
+            is a lot larger: it contains all Acrobat Reader needs to know to show the TrueType font
+			(Remark: When the encoding is BaseFont.IDENTITY_H the font is always embedded.).<BR>
 			</FONT>
 		</TD>
 	</TR>
@@ -140,12 +149,16 @@
 				<TD BGCOLOR="#CFCFCF">
 				<FONT FACE="Arial,Helvetica" SIZE="-1">
 				<B>Important:</B><BR>
-				When you use these CJK fonts, remember that you can only use the [Identity]-H or [Identity]-V encoding.
-				Also remember that you can't embed these fonts in the PDF file using iText.
-				Before trying to view a pdf with these Asian characters, you must download the Asian font pack from Adobe at:
+				Remember that you can't embed these fonts in the PDF file using iText.
+                Before trying to view a pdf with these Asian characters, you must download
+                the Asian font pack from Adobe at:
 				<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>.
-				An alternative for this kind of fonts, is using a True Type Asian font. You can use them exactly the same way as we did in the section about <a href="#truetype">True Type Fonts</a>.
-				</FONT>
+				or use a localized Windows. An alternative for this kind of fonts, is using a True
+                Type Asian font such as msgothic.ttc with the encoding BaseFont.IDENTITY_H
+                or BaseFont.IDENTITY_V. You can use them exactly the same way as we did in
+                the section about True Type Fonts and there will be no need to use the Asian
+                font pack from Adobe because a subset of the font will be embedded in the
+                document.</FONT>
 				</TD>
 				</TR>
 			</TABLE><br>
