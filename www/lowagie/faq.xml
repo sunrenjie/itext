@@ -153,8 +153,7 @@ You also have to distribute the source code of iText to your clients. An even be
 is to give them a link to the iText site. For instance: if you have a web application using iText,
 giving a link to <a href="http://www.lowagie.com/">the iText Home Page</a> is more practical
 than sending them the code.<br />
-You can't charge your client for iText, nor for the work you have done 'ameliorating iText'.
-All enhancements or bugfixes have to be published for free.<br />
+You can't charge your client for iText and all enhancements or bugfixes have to be published for free.<br />
 Of course you may charge people for your own application, for the service and content you
 are offering and/or for the work you did integrating iText in your product. Your own code
 may of course remain closed source. For instance: if you write an editor that produces PDF,
