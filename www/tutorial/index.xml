@@ -14,6 +14,24 @@
 		<site:author>Bruno Lowagie</site:author>
 	</site:metadata>
 	
-	<site:chapter path="rtf" />
+	<site:part name="part1">
+		<site:title>Part I: general use of iText</site:title>
+	</site:part>
+	<site:part name="part2">
+		<site:title>Part II: Advanced PDF functionality</site:title>
+	</site:part>
+	<site:part name="part3">
+		<site:title>Part III: Reading and (re)writing existing PDFs</site:title>
+	</site:part>
+	<site:part name="part4">
+		<site:title>Part IV: PDF Forms</site:title>
+	</site:part>
+	<site:part name="part5">
+		<site:title>Part V: Signing PDFs</site:title>
+	</site:part>
+	<site:part name="part6">
+		<site:title>Part VI: RTF</site:title>
+		<site:chapter path="rtf" />
+	</site:part>
 	
 </site:toc>
