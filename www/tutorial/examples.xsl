@@ -23,7 +23,7 @@
 			<xsl:attribute name="basedir">../..<xsl:value-of select="$root" /></xsl:attribute>
 			<target name="install">
 				<property name="tutorialsrc" value="${{basedir}}/www/tutorial" />
-				<property name="tutorial" value="${{build}}/tutorial" />
+				<property name="tutorial" value="${{basedir}}/build/tutorial" />
 				<xsl:for-each select="site:example">
 					<xsl:if test="count(site:externalresource)!=0" >
 						<xsl:element name="copy">
