@@ -22,6 +22,7 @@
 <li>2005-01-31: iText 1.2.2
 <ul><li>Avoiding a NullPointerException in Phrase (bugfix by August Detlefsen)</li>
 <li>Binary transparency worked for GIFs, not for all PNGs (bugfix by Chris Nokleberg)</li>
+<li>CreationDate doesn't throw an exception in RTF anymore (bugfix by Thomas 'taqua')</li>
 </ul>
 </li>
 <li>2005-01-29: paulo 151
