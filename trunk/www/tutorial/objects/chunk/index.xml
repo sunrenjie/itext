@@ -48,12 +48,23 @@
 		<site:example>
 			<site:java src="Generic" standalone="yes" />
 			<site:result>Generic.pdf</site:result>
-			<site:description>Using the Generic tag</site:description>
+			<site:description>Using the Generic tag to add styles</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Glossary" standalone="yes" />
+			<site:result>Glossary.pdf</site:result>
+			<site:description>Other use of the Generic tag: register keywords for a glossary</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="SplitChar" standalone="yes" />
 			<site:result>SplitChar.pdf</site:result>
 			<site:description>Defining Split Characters</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Hyphenation" standalone="yes" />
+			<site:result>Hyphenation.pdf</site:result>
+			<site:extrajar>iTextHYPH.jar</site:extrajar>
+			<site:description>Using auto-hyphenation</site:description>
 		</site:example>
 	</site:examples>
 	
