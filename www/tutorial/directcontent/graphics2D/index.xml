@@ -20,6 +20,11 @@
 			<site:description>A Simple Graphics2D example</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="ArabicText" standalone="yes" />
+			<site:result>arabictext.pdf</site:result>
+			<site:description>Drawing arabic text using the Graphics2D object</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="JFreeChartExample" standalone="yes" />
 			<site:result>barchart.pdf</site:result>
 			<site:result>piechart.pdf</site:result>
@@ -54,13 +59,17 @@ Graphics2D g2 = tp.createGraphics(w, h, new DefaultFontMapper());</pre>
 So if you already know all about Graphics2D in JAVA or if you have programs writing stuff
 to a Graphics2D object (for instance to a JPanel in some JFrame), you don't need to learn
 all about the PDF syntax, you can use your existing code to write your output to PDF!
+For instance, if you are familiar with java.awt.Font, but not that familiar with the Fonts in iText/PDF,
+you could use PdfGraphics2D as is done in the next example:
+<site:source class="ArabicText" />
 The only syntax you need to know is this:
-<pre class="commandline">PdfContentByte cb = writer.getDirectContent();
-cb.saveState();
-Graphics 2D g2 = cb.createGraphics(500, 300);
-// draw things to g2
-g2.dispose();
-cb.restoreState();</pre>
+<pre class="commandline">java.awt.Font font = new java.awt.Font("arial", 0, 18);
+PdfContentByte cb = writer.getDirectContent();
+java.awt.Graphics2D g2 =
+    cb.createGraphicsShapes(PageSize.A4.width(), PageSize.A4.height());
+g2.setFont(font);
+g2.drawString(text, 100, 100);
+g2.dispose();</pre>
 DO NOT FORGET to call <site:doc class="com.lowagie.text.pdf.PdfGraphics2D" target="dispose()">PdfGraphics2D.dispose()</site:doc>!!!<br /><br />
 A good example of how iText can be plugged in into another library that makes extensive use
 of Graphics2D can be found at <a href="http://www.jfree.org/jfreechart/">JFree.org</a>.

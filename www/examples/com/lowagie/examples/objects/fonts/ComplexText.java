@@ -17,20 +17,23 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.directcontent.text;
+package com.lowagie.examples.objects.fonts;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.Font;
+import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 /**
  * Adding text at an absolute position.
  */
-public class Text {
+public class ComplexText {
     /**
      * Adding text at absolute positions.
      * @param args no arguments needed
@@ -45,7 +48,7 @@ public class Text {
         try {
             
             // step 2: creation of the writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("text.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("complextext.pdf"));
             
             // step 3: we open the document
             document.open();
@@ -65,31 +68,19 @@ public class Text {
             cb.lineTo(400, 600);
             cb.stroke();
             
-            // we tell the ContentByte we're ready to draw text
-            cb.beginText();
-            
-            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            cb.setFontAndSize(bf, 12);
-            String text = "Sample text for alignment";
-            // we show some text starting on some absolute position with a given alignment
-            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + " Center", 250, 700, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_RIGHT, text + " Right", 250, 650, 0);
-            cb.showTextAligned(PdfContentByte.ALIGN_LEFT, text + " Left", 250, 600, 0);
-            
-            // we draw some text on a certain position
-            cb.setTextMatrix(100, 400);
-            cb.showText("Text at position 100,400.");
-            
-            // we draw some rotated text on a certain position
-            cb.setTextMatrix(0, 1, -1, 0, 100, 300);
-            cb.showText("Text at position 100,300, rotated 90 degrees.");
-            
-            // we draw some mirrored, rotated text on a certain position
-            cb.setTextMatrix(0, 1, 1, 0, 200, 200);
-            cb.showText("Text at position 200,200, mirrored and rotated 90 degrees.");
-            
-            // we tell the contentByte, we've finished drawing text
-            cb.endText();
+            // we construct a font
+            BaseFont bf = BaseFont.createFont("c:\\windows\\fonts\\arialuni.ttf", BaseFont.IDENTITY_H, true);
+            Font ft = new Font(bf, 12);
+            // This is the text:
+            String text = "\u0623\u0648\u0631\u0648\u0628\u0627, \u0628\u0631\u0645\u062c\u064a\u0627\u062a \u0627\u0644\u062d\u0627\u0633\u0648\u0628 + \u0627\u0646\u062a\u0631\u0646\u064a\u062a :";
+            Phrase center = new Phrase(text + " Center", ft);
+            ColumnText.showTextAligned(cb, PdfContentByte.ALIGN_CENTER, center, 250, 700, 0, PdfWriter.RUN_DIRECTION_RTL, 0);
+            ColumnText.showTextAligned(cb, PdfContentByte.ALIGN_RIGHT, new Phrase(text + " Right", ft), 250, 650, 20, PdfWriter.RUN_DIRECTION_RTL, 0);
+            ColumnText.showTextAligned(cb, PdfContentByte.ALIGN_LEFT, new Phrase("Some text Left aligned", ft), 250, 600, 20);
+            float size = ColumnText.getWidth(center, PdfWriter.RUN_DIRECTION_RTL, 0);
+            cb.setRGBColorStroke(255, 0, 0);
+            cb.rectangle(250 - size/2, 690, size, 30);
+            cb.stroke();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
