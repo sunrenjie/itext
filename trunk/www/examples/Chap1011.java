@@ -45,7 +45,7 @@ public class Chap1011 {
             document.open();
             // step 4:
             PdfTemplate template = writer.getDirectContent().createTemplate(20, 20);
-            BaseFont bf = BaseFont.createFont("Helvetica", "winansi", false);
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
             String text = "Vertical";
             float size = 16;
             float width = bf.getWidthPoint(text, size);
