@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Font types</site:title>
+		<site:summary>Overview of the different types of fonts supported by iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="OpenTypeFont" standalone="yes" />
+			<site:result>opentypefont.pdf</site:result>
+			<site:externalresource>liz.otf</site:externalresource>
+			<site:description>Using an Open Type Font with Compact Font Format (CFF) data only (no true type outlines)</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ChineseJapaneseKorean" standalone="yes" />
+			<site:result>cjk.pdf</site:result>
+			<site:extrajar>iTextAsian.jar</site:extrajar>
+			<site:extrajar>iTextAsianCmaps.jar</site:extrajar>
+			<site:description>Using CJK Fonts</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="text">
+		<site:sectiontitle>Simple Fonts</site:sectiontitle>
+<div>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>
