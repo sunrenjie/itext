@@ -25,6 +25,7 @@
 
     <target name="lowagie.com" description="--> building the pages for lowagie.com">
         <mkdir dir="${itext.lowagie}" />
+		<copy file="${itext.xml.lowagie}/style.css" todir="${itext.lowagie}" overwrite="no" />
         <java classname="com.lowagie.tools.BuildSite">
 			<arg value="${itext.xml.lowagie}" />
 			<arg value="lowagie.xsl" />
