@@ -73,7 +73,7 @@ document.open();
 document.add(new Paragraph("Hello World!"));
 document.close();
 </pre>
-<a href="examples/HelloRtf.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/HelloRtf.java">Full example source code</a>.
 
 <div class="subtitle">RtfWriter2 and RtfWriter. Which one to use?</div>
 Short version: If you are starting a new project using the RTF package,
@@ -163,7 +163,7 @@ For this to work, the correct font must be installed on the machine
 that is used to view the RTF document, not on the machine that creates
 the document. Also the given font name must match the name of the font
 on the viewer machine exactely.<br /><br />
-<a href="examples/RtfSpecialFont.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/RtfSpecialFont.java">Full example source code</a>.
 
 <div class="title"><a name="extendedhf"></a>Extended header / footer support</div>
 One of the limitations of the RTF format is that only one header
@@ -236,7 +236,7 @@ headerTable.addCell("Company Name");
 HeaderFooter header = new RtfHeaderFooter(headerTable);
 document.setHeader(header);
 </pre>
-<a href="examples/RtfWithHeadersFooters.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/RtfWithHeadersFooters.java">Full example source code</a>.
 
 <div class="title"><a name="tocsupport"></a>Table of contents support</div>
 The <span class="commandline">RtfWriter2</span> also supports the creation of a table
@@ -274,7 +274,7 @@ The second possibility is to let the
 <pre class="codeBlock">
 document.setAutogenerateTOCEntries(true);
 </pre>
-<a href="examples/RtfTOCandCellborders.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/RtfTOCandCellborders.java">Full example source code</a>.
 
 <div class="title"><a name="extendedcellborder"></a>Extended cell border support</div>
 The <span class="commandline">RtfWriter2</span> also provides support for using special
@@ -297,7 +297,7 @@ table.addCell(cellNoBorder);
 </pre>
 The RtfCell supports a long list of border styles. Please consult the javadoc documentation
 for an exhaustive list.<br />
-<a href="examples/RtfTOCandCellborders.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/RtfTOCandCellborders.java">Full example source code</a>.
 
 <div class="title"><a name="pagenumberelement"></a>Page number element</div>
 The <span class="commandline">RtfPageNumber</span> class allows you to add
@@ -313,7 +313,7 @@ headerTable.addCell("Company Name");
 HeaderFooter header = new RtfHeaderFooter(headerTable);
 document.setHeader(header);
 </pre>
-<a href="examples/RtfWithHeadersFooters.java">Full example source code</a>.
+<a href="/examples/com/lowagie/examples/rtf/RtfWithHeadersFooters.java">Full example source code</a>.
 
 	</site:content>
 </site:page>
