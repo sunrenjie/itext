@@ -218,10 +218,10 @@ Check SUN's API for more information.
 	<site:section name="templates">
 		<site:sectiontitle>Adding PdfTemplates</site:sectiontitle>
 <div>
-The stuff above probably seems rather theoretic, but it was a necessary introduction
+The stuff above probably seems rather theoretical, but it was a necessary introduction
 to this part: if you are using PdfTemplates, you are going to need a transformation matrix.
 Up till now, we only have used this method to add a PdfTemplate:
-<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float)">addTemplate(com.lowagie.text.pdf.PdfTemplate, float, float)</site:doc>.
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float)">PdfContentByte.addTemplate(com.lowagie.text.pdf.PdfTemplate, float, float)</site:doc>.
 This method performs a translation, using this matrix:
 <table>
 <tr>
@@ -246,6 +246,8 @@ In fact, the method just calls the more sophisticated method:
 <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addTemplate(com.lowagie.text.pdf.PdfTemplate,%20float,%20float,%20float,%20float,%20float,%20float)">addTemplate(com.lowagie.text.pdf.PdfTemplate, float,  float, float, float, float, float)</site:doc>.<br />
 Instead of <span class="commandline">cb.addTemplate(template, x, y)</span>, you could call
 <span class="commandline">cb.addTemplate(template, 1, 0, 0, 1, x, y)</span> (that's exactly what happens internally in iText).
+The parameters in this method are the (a, b, c, d, e, f) values
+as explained <site:tutorial chapter="/directcontent/coordinates" section="transform">above</site:tutorial>.
 <site:source class="Transformations" /></div>
 	</site:section>
 	<site:section name="images">
