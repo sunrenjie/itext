@@ -46,10 +46,8 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="RTFpackage"><B>The RTF package</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			The RTF package in iText is a very experimental package that is not a part of the core iText library.
-			The code is in separate tar.gz, zip and jar-file together with the also experimental XML functionality.
-			This package was written by <A HREF="http://www.uni-klu.ac.at/~mahall/index_en.html">Mark Hall</A>.<br/><br/>
-			The RTF package allows you to create RTF files in addition to the PDF files the core iText library generates.
+			The RTF package is an extension to the base iText package and allows iText to output Rich Text files in addition
+			to PDF files. This package was written by <A HREF="mailto:mhall@myrealbox.com">Mark Hall</A>.<br/><br/>
 			Most of the PDF features are available but there are some features which are not supported in the RTF package.
 			</FONT><br/><br/>
 		</TD>
@@ -83,95 +81,21 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="RTFfeatures"><B>Features available in the RTF package</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="RTFfeatures"><B>Unsupported Features</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
-			The following list of features is not complete. If you do not find the feature you wish to use in the following list,
-			then the feature is not supported in the RtfWriter.<br/>
-			<BR><A NAME="documentObject"><B>Document Object:</B></A><BR>
-			Available:
+			These features are not supported by the RTF package. Everything else should work.<br/>
 			<ul>
-			<li>Metadata: addTitle(...), addSubject(...), addKeywords(...), addAuthor(...), addCreator(...), addProducer(...),
-			 addCreationDate(...)</li>
-			<li>Headers and Footers</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Metadata: addHeader(...)</li>
-			<li>Page size</li>
-			<li>Page orientation</li>
-			<li>Watermarks</li>
-			<li>Viewer preferences</li>
-			<li>Encryption</li>
-			</ul>
-			<BR><A NAME="textObjects"><B>Chunk, Phrase, Paragraph, Font Objects:</B></A><BR>
-			Available:
-			<ul>
-			<li>Chunks with basic fonts</li>
-			<li>Phrases with basic fonts</li>
-			<li>Paragraphs with basic fonts</li>
-			<li>Paragraphs with an alignment</li>
-			<li>Paragraphs with a left indentation</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Chunks with embedded fonts<br/>&nbsp;Unknown results</li>
-			<li>Phrases with embedded fonts<br/>&nbsp;Unknown results</li>
-			<li>Phrases with a leading<br/>&nbsp;The leading will be ignored</li>
-			<li>Paragraphs with embedded fonts<br/>&nbsp;Unknown results</li>
-			<li>Paragraphs with a right indentation<br/>&nbsp;The right indentation will be ignored</li>
-			</ul>
-			<BR><A NAME="complexObjects"><B>Anchor, List, Annotation Objects:</B></A><BR>
-			Available:
-			<ul>
-			<li>Anchors with a reference to an external URL</li>
-			<li>Simple lists</li>
-			<li>Nested lists</li>
-			<li>Bulleted and numbered lists</li>
-			<li>Lists with a left indentation</li>
-			<li>Lists with a certain symbol indentation</li>
-			<li>Annotations</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Lists with a right indentation<br/>&nbsp;The right indentation will be ignored</li>
-			<li>Lists with a certain symbol<br/>&nbsp;The symbol will be ignored</li>
-			</ul>
-			<BR><A NAME="specialObjects"><B>HeaderFooter, Chapter, Section Objects:</B></A><BR>
-			Available:
-			<ul>
-			<li>One HeaderFooter per Document</li>
-			<li>Chapters</li>
-			<li>Sections</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Chapters and Sections have no results for the actual RTF document structure</li>
-			</ul>
-			<BR><A NAME="tableObject"><B>Table Object:</B></A><BR>
-			Available:
-			<ul>
-			<li>Simple tables</li>
-			<li>Tables with column- and row-spanning</li>
-			<li>Tables with borders</li>
-			<li>Tables with individual cell borders</li>
-			<li>Cells with cellspacing and cellpadding</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Nested tables<br/>&nbsp;The nested table will be ignored</li>
-			</ul>
-			<BR><A NAME="imageObject"><B>Image Object:</B></A><BR>
-			Available:
-			<ul>
-			<li>PNG images</li>
-			<li>JPEG images</li>
-			<li>Scaled images</li>
-			<li>Images with an alignment</li>
-			</ul>
-			Not Available:
-			<ul>
-			<li>Other image types<br/>&nbsp;Will throw a document exception</li>
-			<li>Rotated images<br/>&nbsp;The rotation will be ignored</li>
+			    <li>Watermarks</li>
+			    <li>Viewer preferences</li>
+			    <li>Encryption</li>
+			    <li>Embedded fonts</li>
+			    <li>Phrases with a leading</li>
+			    <li>Paragraphs with a right indentation</li>
+			    <li>Lists with a right indentation</li>
+			    <li>Lists with non-bullet symbols</li>
+			    <li>Nested tables</li>
+			    <li>Images other than JPEG and PNG</li>
+			    <li>Rotated images</li>
 			</ul>
 			</FONT><br/>
 		</TD>
