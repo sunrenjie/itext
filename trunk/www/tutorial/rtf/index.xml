@@ -64,7 +64,8 @@ Additionally the RTF package contains a few features, that are RTF specific:
 <a href="#extendedhf">Extended header / footer support</a>,
 <a href="#tocsupport">Table of contents support</a>,
 <a href="#extendedcellborder">Extended cell border support</a> and
-<a href="#pagenumberelement">Page number element</a>.
+<a href="#pagenumberelement">Page number element</a> and
+<a href="#diskcaching">Using a disk cache for document generation</a>.
 </div>
 	</site:section>
 
@@ -298,7 +299,7 @@ The second possibility is to let the
 <span class="commandline">RtfWriter2</span> automatically add
 <span class="commandline">RtfTOCEntry</span>s for every Chapter you add.
 <pre class="codeBlock">
-document.setAutogenerateTOCEntries(true);</pre>
+writer2.setAutogenerateTOCEntries(true);</pre>
 <site:source class="RtfTOCandCellborders" />
 </div>
 	</site:section>
@@ -348,6 +349,22 @@ document.setHeader(header);</pre>
 <site:source class="RtfWithHeadersFooters" />.
 </div>
 	</site:section>
+
+	<site:section name="diskcaching">
+		<site:sectiontitle>Using a Disk Cache for document generation</site:sectiontitle>
+<div>
+The RtfWriter2 differs in one more way from PdfWriter and that is that due to the way the
+rtf format works, the document data has to be cached and can only be written to the final
+file after the complete document has been generated. For very large documents and those containing
+big images, this results in huge memory requirements.<br />
+To solve this problem the RtfWriter2 supports caching the document data on disk in a temporary file.
+To activate disk caching insert the following code directly after creating the RtfWriter2.
+<pre class="commandline">
+writer2.setDataCacheStyle(com.lowagie.text.rtf.document.output.RtfDataCache.CACHE_DISK);
+</pre>
+</div>
+    </site:section>
+    
 	</site:chapter>
 
 </site:page>
