@@ -61,10 +61,12 @@
         <echo />
         <echo>COMPILING THE CODE</echo>
         <echo>ant compile: compiles iText without RTF and XML functionality</echo>
+        <echo>ant compiledebug: compiles iText without RTF and XML functionality and allows you to debug the code</echo>
         <echo>ant compileWithXML: compiles iText completely</echo>
         <echo />
         <echo>JARRING THE CODE</echo>
         <echo>ant jar: compiles and jars iText without RTF and XML functionality</echo>
+        <echo>ant jardebug: compiles for debugging and jars iText without RTF and XML functionality</echo>
         <echo>ant jarWithXML: compiles and jars iText completely</echo>
         <echo />
         <echo>ARCHIVING THE SOURCE</echo>
@@ -164,6 +166,14 @@
     <!-- Compiling the code                                               -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+    <target name="compiledebug" depends="properties" description="--> compiles the core iText code for debugging">
+        <mkdir dir="${itext.classes}" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" debug="true" debuglevel="lines,vars,source" 
+            excludes="com/lowagie/servlets/*.java,com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java">
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
     <target name="compile" depends="properties" description="--> compiles the core iText code">
         <mkdir dir="${itext.classes}" />
         <javac srcdir="${itext.src}" destdir="${itext.classes}"
@@ -183,6 +193,19 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- Jarring the code                                                 -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <target name="jardebug"  depends="properties,compiledebug" description="--> makes a jarfile from the core iText code">
+        <mkdir dir="${itext.dist}" />
+        <mkdir dir="${itext.bin}" />
+        <mkdir dir="${itext.classes}/com/lowagie/text/pdf/fonts" />
+        <copy todir="${itext.classes}/com/lowagie/text/pdf/fonts" overwrite="yes">
+            <fileset dir="${itext.src}/com/lowagie/text/pdf/fonts">
+                <include name="**/*.afm"/>
+            </fileset>
+        </copy>
+        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
+        <copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
+    </target>
 
     <target name="jar"  depends="properties,compile" description="--> makes a jarfile from the core iText code">
         <mkdir dir="${itext.dist}" />
