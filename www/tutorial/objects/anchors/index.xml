@@ -52,7 +52,7 @@
 		<site:example>
 			<site:java src="Actions" standalone="yes" />
 			<site:result>Actions.pdf</site:result>
-			<site:result>remote.html</site:result>
+			<site:result>remote.pdf</site:result>
 			<site:description>Creates a document with some goto actions</site:description>
 		</site:example>
 		<site:example>
