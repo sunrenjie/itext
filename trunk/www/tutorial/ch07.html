@@ -281,7 +281,33 @@
 			we use this HTML handler behind the screens (just like in the section 'making life easier').
 			Unfortunately, this part of iText is not yet completed. A lot of tags aren't supported yet.
 			There is a lot of room for improvement!<br>
-			</FONT><BR><BR>
+			</FONT><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="htmlwithCSS"><B>Generating a HTML file with a CSS</B></A> (special thanks to Matt Benson)</FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			In <a href="../examples/Chap0708.java">example 8</a>, we generate an HTML file that uses a CSS file.
+			We add the CSS file like this:<br>
+			<FONT FACE="Courier"><br>
+			document.add(new Header(HtmlTags.STYLESHEET, "myStyles.css"));<br>
+			</FONT><br>
+			If you look at the file <a href="../examples/myStyles.css">myStyles.css</a>,
+			you can see we defined not only some tags (like body, a,...), but also some
+			classes (small, red, blue, gray). We can now use these classes, by setting
+			the markup-attributes of the objects we are using:<br>
+			<FONT FACE="Courier"><br>
+			document.add(new Header(HtmlTags.STYLESHEET, "myStyles.css"));<br>
+			</FONT><br>
+            listItem = new ListItem("Isaac Asimov");<br>
+            listItem.setMarkupAttribute(ElementTags.CLASS, "small");<br>
+			Paragraph cTitle = new Paragraph("This is chapter " + i);<br>
+            cTitle.setMarkupAttribute(ElementTags.CLASS, "red");<br>
+			</FONT><br>
+			Take a look at the result to see the effect of the style sheet:
+			<a href="Chap0708.html">Chap0708.html</a>.
+			<BR><BR><br>
 		</TD>
 	</TR>
 	<TR>
