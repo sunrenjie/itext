@@ -28,7 +28,8 @@ If you want to use ANT for iText, you should start from a specific directory, sa
 or <span class="commandline">/home/blowagie/projects</span>, with two subdirectories 'src' and 'www',
 one for each CVS module. Directory 'src' should have a <a href="build.xml">build.xml</a> file on the root and a
 subdirectory 'ant' with all the iText ANT <a href="ant/">subscripts</a> in it, as well as a properties-file.
-A third directory 'build' will be created with the results of compile-actions, jar-commands, downloads,...
+You can download these scripts in one <site:antscriptszip />-file.<br />
+While running these scripts a third directory 'build' will be created with the results of compile-actions, jar-commands, downloads,...
 You can change the location of all these directories, by changing the <a href="ant/.ant.properties">.ant.properties</a>-file.<br />
 If you look at the iText build.xml file,
 you will see that the master build.xml doesn't have a lot of actual code.
@@ -49,6 +50,7 @@ help:
      [echo] DOWNLOADING iText (download.xml)
      [echo] ant download: downloads the source code needed to create iText.jar
      [echo] ant download.bin: downloads some precompiled jars and zips
+     [echo] ant getFromCvs: downloads the complete CVS repository
 
 
 help:
@@ -84,6 +86,9 @@ under the 'src' directory. The source code can now be compiled.
 Downloads some jars you needs for specific functionality, such as parsing XML,
 hyphenation, using Asian fonts,... Use this, just to make sure you have all
 the right jars in the CLASSPATH that is used in the other ANT scripts.
+<div class="commandline">ant -f download.xml getFromCvs</div>
+Downloads the complete CVS repository. If this doesn't work, please
+check the SourceForge status information. Anonymous CVS could be down.
 <div class="title">Compiling and jarring</div>
 subscript: <a href="ant/compile.xml">compile.xml</a><br />
 <div class="commandline">ant -f compile.xml compile</div>

@@ -15,6 +15,25 @@
 
 <site:history>
 
+<site:release number="V120" name="iText 1.2" date="NOT YET RELEASED">
+<site:remark>scheduled for january/february 2005</site:remark>
+<site:changelog>
+<ul><li>paulo 143 (2004-11-29)<ul>
+<li>when form filling, eliminated an extra vertical space that prevented the text to fit in the field.</li>
+<li>added in BaseFont: getDescent(), getAscent() and getCharBBox().</li>
+<li>added PdfContentByte.createPrinterGraphics(). Contribution by Alexandru Carstoiu.</li>
+<li>fixed PdfLine.getAscender() for images. Contribution by Steve Appling.</li>
+<li>PdfPKCS7 can sign authenticatedAttributes. See <a href="http://itextpdf.sourceforge.net/howtosign.html#signextdicattrib">HOW-TO SIGN</a>.</li>
+<li>fixes in duplicating PdfPTable. Contribution by Steve Appling.</li>
+<li>fix in PdfReader to read /Pages with empty /Kids.</li>
+<li>added PdfSignatureAppearance.setContact().</li>
+<li>PdfSpotColor was changed to allow external separations.</li>
+<li>added support for transitions and page actions to PdfStamper.</li>
+</ul></li>
+</ul>
+</site:changelog>
+</site:release>
+
 <site:release number="V110" name="iText 1.1" date="november 16th, 2004">
 <site:remark>based on Paulo's version 129-142</site:remark>
 <site:changelog>

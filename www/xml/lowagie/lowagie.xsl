@@ -13,14 +13,29 @@
 
 <!-- release number: change for every new release -->
 <xsl:param name="releasenumber"/>
+<xsl:param name="releasedate"/>
 <xsl:param name="earlyaccessnumber"/>
+<xsl:param name="earlyaccesspaulo"/>
+<xsl:param name="earlyaccesslowagie"/>
 
 <xsl:template match="site:releasenumber" name="site:releasenumber">
 <xsl:value-of select="$releasenumber"/>
 </xsl:template>
 
+<xsl:template match="site:releasedate">
+<xsl:value-of select="$releasenumber"/>
+</xsl:template>
+
 <xsl:template match="site:earlyaccessnumber">
 <xsl:value-of select="$earlyaccessnumber"/>
+</xsl:template>
+
+<xsl:template match="site:earlyaccesspaulo">
+<xsl:value-of select="$earlyaccesspaulo"/>
+</xsl:template>
+
+<xsl:template match="site:earlyaccesslowagie" name="site:earlyaccesslowagie">
+<xsl:value-of select="$earlyaccesslowagie"/>
 </xsl:template>
 
 <!-- releaselinks to SourceForge -->
@@ -48,6 +63,27 @@ itext-<xsl:call-template name="site:releasenumber" />.jar
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
 itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
+</xsl:element>
+</xsl:template>
+
+<xsl:template match="site:earlyaccesssrc">
+<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-src-<xsl:call-template name="site:earlyaccesslowagie" />.tar.gz</xsl:attribute>
+itext-src-<xsl:call-template name="site:earlyaccesslowagie" />.tar.gz
+</xsl:element>
+</xsl:template>
+
+<xsl:template match="site:earlyaccessjar">
+<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-<xsl:call-template name="site:earlyaccesslowagie" />.jar</xsl:attribute>
+itext-<xsl:call-template name="site:earlyaccesslowagie" />.jar
+</xsl:element>
+</xsl:template>
+
+<xsl:template match="site:antscriptszip">
+<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-ant-<xsl:call-template name="site:earlyaccesslowagie" />.zip</xsl:attribute>
+itext-ant-<xsl:call-template name="site:earlyaccesslowagie" />.zip
 </xsl:element>
 </xsl:template>
 
