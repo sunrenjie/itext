@@ -33,6 +33,11 @@
 			<site:result>ExtraStyles.html</site:result>
 			<site:description>Demonstrates how to underline or strike through text</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="UsingFontFactory" standalone="yes" />
+			<site:result>FontFactory.pdf</site:result>
+			<site:description>Sums up the Fonts that are available in some standard font directories on your system.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
