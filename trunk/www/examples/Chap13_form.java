@@ -46,10 +46,10 @@ public class Chap13_form extends java.lang.Object {
             // step 4: we add some content
             BaseFont helv = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
             float fontSize = 12;
-            acroForm.addSingleLineTextField("your name", helv, fontSize, "name", 171, 800, 350, 820);
-            acroForm.addMultiLineTextField("Hello iText!\nThis is a Test\nThere are multiple lines in this textfield", helv, fontSize, "msg", 171, 730, 350, 790);
-            acroForm.addSingleLinePasswordField("", helv, fontSize, "password", 171, 700, 350, 720);
-            acroForm.addHtmlPostButton("SUBMIT", helv, fontSize, "btn", "Chap13.php", 355, 700, 420, 725);
+            acroForm.addSingleLineTextField("name", "your name", helv, fontSize, 171, 800, 350, 820);
+            acroForm.addMultiLineTextField("msg", "Hello iText!\nThis is a Test\nThere are multiple lines in this textfield", helv, fontSize, 171, 730, 350, 790);
+            acroForm.addSingleLinePasswordField("password", "", helv, fontSize, 171, 700, 350, 720);
+            acroForm.addHtmlPostButton("btn", "SUBMIT", "Chap13.php", helv, fontSize, 355, 700, 420, 725);
             acroForm.addCheckBox("CB1", "Food", true, 180, 685, 190, 695);
             acroForm.addCheckBox("CB2", "Drinks", false, 180, 645, 210, 675);
             PdfFormField radiogroup = acroForm.getRadioGroup("CreditCard", "Visa", true);
@@ -57,6 +57,12 @@ public class Chap13_form extends java.lang.Object {
             acroForm.addRadioButton(radiogroup, "MasterCard", 200, 625, 215, 640);
             acroForm.addRadioButton(radiogroup, "American", 220, 625, 235, 640);
             acroForm.addRadioGroup(radiogroup);
+            String[] colors = {"Red", "Green", "Blue"};
+            String[][] colorvalues = {{"#FF0000", "Red"}, {"#00FF00", "Green"}, {"#0000FF", "Blue"}};
+            acroForm.addSelectList("list1", colors, "Green", helv, fontSize, 171, 550, 300, 600);
+            acroForm.addSelectList("list2", colorvalues, "#0000FF", helv, fontSize, 315, 550, 450, 600);
+            acroForm.addComboBox("combo1", colors, "Green", true, helv, fontSize, 171, 440, 300, 490);
+            acroForm.addComboBox("combo2", colorvalues, "#0000FF", false, helv, fontSize, 315, 440, 450, 490);
         }
         catch (Exception de) {
             de.printStackTrace();
