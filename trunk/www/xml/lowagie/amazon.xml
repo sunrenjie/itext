@@ -27,9 +27,15 @@ Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/exter
 </tr>
 <tr><td colspan="3"><div class="title">Books on PDF and Acrobat</div></td></tr>
 <site:amazonlist>
-	<site:amazonproduct asin="0201758393">
+	<site:amazonproduct asin="0321304748">
 		<site:amazontitle>PDF Reference </site:amazontitle>
-		PDF Reference Version 1.4 is a thorough, updated reference for software developers looking to incorporate PDF capabilities into their applications.
+		This comprehensive reference makes sure you're ready!
+		Containing all of the info from previous editions, plus new material on what's been added
+		to PDF Version 1.5, this essential guide makes a highly technical subject accessible and intelligible.
+		You'll find complete coverage of all major aspects of the format, imaging model, architecture, syntax,
+		graphics, operators, fonts, and rendering--as well as highly readable explanations of its interactive
+		and multimedia features, transparency capabilities, intellectual property issues, and more.
+		The first and last word on the most current PDF spec from the people who know it best: Adobe!
 	</site:amazonproduct>
 	<site:amazonproduct asin="0596006551">
 		<site:amazontitle>PDF Hacks</site:amazontitle>

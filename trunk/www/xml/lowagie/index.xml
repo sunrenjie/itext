@@ -8,7 +8,7 @@
 		<site:summary>iText is a JAVA library that can be used to generate complex PDF documents (with images, tables,...).</site:summary>
 		<site:keywords>PDF, JAVA, servlets, iText, generate, internet, documents, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
-			<site:book asin="0201758393">PDF Reference: Version 1.4 (3rd Edition)</site:book>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
 	</site:metadata>
@@ -18,12 +18,9 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
-		        <b>Nov 20th 2004:</b>
-				<br />Updated of the <a href="history.html">history page</a>.<br />
-		        <b>Nov 19th 2004:</b>
-				<br />Redesign FAQ and links page.<br />
-				<b>Nov 18th 2004:</b>
-				<br />The ANT scripts were published and the XSL generating this site was updated.<br />
+			The new <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=tg%2Fdetail%2F-%2F0321304748%2F">PDF Reference 1.5</a> book (4th edition)
+			is announced for january 2005! I have put it on my <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fregistry%2Fregistry.html%2Fref%3Dwlem-si-ht_gotowl%3F%255Fencoding%3DUTF8%26id%3D349FGS15S1PYV">wishlist</a>.
+			Have you put it on yours?
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
