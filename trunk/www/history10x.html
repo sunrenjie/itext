@@ -47,7 +47,18 @@
 	<TR>
 		<TD COLSPAN="5" Class="content">
         <br>
-		<div class="title"><A NAME="VERSION101">iText1.01</A> (based on paulo's version 123-124-125-126</div>
+		<div class="title"><A NAME="VERSION101">iText1.02</A> (based on paulo's version 127-128)</div>
+        <div class="text"><UL>
+        <LI>paulo 128<UL>
+            <li>changed FontFactory to register the fonts faster. TTC fonts register all the names.<li>added the methods in AcroFields: renameField, getFieldPositions, removeField, removeFieldsFromPage.<li>added support for arabic number conversion, forced or contextual.<li>improved font resource loader. If you have a security manager running even with "AllPermissions" remember to also grant RuntimePermission("ClassLoader").<li>added methods to PdfAction: createLaunch, gotoLocalPage, gotoRemotePage.<li>fixed a bug with PdfGraphics2D.drawRenderedImage().<li>PdfIndirectReference was made public.<li>several changes to PdfReader: PRAcroForm is only calculated if needed, only the reachable objects are read, added the methods removeFields and removeAnnotations.<li>fix to PdfReader to support pages without contents.<li>added partial form flattening to PdfStamper.<li>in SimpleBookmark the names with codes below 32 are escaped.<li>TextField.getAppearance() was made public.<li>added support for OTF fonts with CFF glyphs and Identity-H encoding. Contribution by Sivan Toledo (stoledo@tau.ac.il). 
+            </ul>
+        <LI>paulo 127<UL>
+            <li>PangoArabicShapping was renamed to ArabicLigaturizer.<li>added more support for arabic Urdu ligatures and fixed a bug with lam-alef ligatures.<li>added support for screen renditions. Contribution by Galo Gimenez.<li>added support for custom encoding with ExtraEncoding and PdfEncodings.addExtraEncoding().<li>new encodings available: "Symbol", "ZapfDingbats" and "Wingdings". This encodings map the Unicode characters to this fonts, where possible.<li>added Chunk.setUnderline() to set underline lines at arbitrary positions.<li>added Font.getCalculatedBaseFont() and Font.getCalculatedStyle().<li>added the class FontSelector to select fonts based on their Unicode coverage.<li>FontFactory catches exceptions when reading directories.<li>added AcroFields.getAppearanceStates() to get the names allowed with radio and checkbox fields.<li>added PdfReader.getAcroFields() to get the field info without using PdfStamper.<li>added BaseFont.charExists() and BaseFont.setCharAdvance().<li>changed DefaultFontMapper to be case insensitive with system font names. Other system font name aliases were added.<li>fixed a problem with resource name colisions when importing PDFs with shared page resources.<li>fixed a problem with adding only fields without appearances.<li>added specifific support for patterns in PdfGraphics2D.<li>removed the /Colorspace key if the image is a mask.<li>another hack to read broken PDFs without a media box.<li>fixed a bug with setting the PDF version in PdfStamper.<li>symbolic fonts with Identity-H are also mapped in \uf0xx.<li>added Table.setDefaultLayout().<li>fixed a limit situation in PdfCell.getLines(). fixed auto font size for single line text fields in TextField.<li>added extended support for barcodes 128 with BarcodeEAN128. Contribution by Emmanuel Hugonnet.<li>added direct support for TexturePaint in PdfGraphics2D<li>corrected GradientPaint direction and general paint scaling in PdfGraphics2D. Contribution by Emmanuel Deviller.<li>added support for bookmark manipulation in SimpleBookmark. It also has support for import/export to XML and page shifting and deleting<li>concat_pdf now keeps the bookmarks. 
+            </ul>
+            </UL>
+        </UL></div>
+		
+		<div class="title"><A NAME="VERSION101">iText1.01</A> (based on paulo's version 123-124-125-126)</div>
         <div class="text"><UL>
         <LI>paulo 126<UL>
             <li>set the max number of lines in Cell.<li>added ALIGN_JUSTIFIED_ALL to justify the text including the last paragraph line. Use the attribute JustifyAll in XML.<li>added an explicit /DW for CJK fonts<li>fixed the reading of TIFF images without the ROWSPERSTRIP tag.<li>fixed a bug in PdfDocument for right aligned images.<li>changed PdfReader to provide information on the encryption flags.<li>changed PdfReader to provide information on the xref and trailer to facilitate the creation of updated documents.<li>fixed in PdfReader the reading of some 128 bit key encrypted documents.<li>fixed the flattening of documents that had pages without contents.<li>fixed the flattening of hidden fields.<li>fixed an exception with TrueType fonts without a kerning table.<li>better compliance for symbolic TrueType fonts.<li>fixed the rotation of text in WMF images when the extents were negative.<li>fixed the reading of images from byte array in RTF.<li>fixed a bug with nested Table.
@@ -66,7 +77,7 @@
             </UL>
         </UL></div>
         
-		<div class="title"><A NAME="VERSION100">iText1.00</A> (based on paulo's version 119-120-121-122</div>
+		<div class="title"><A NAME="VERSION100">iText1.00</A> (based on paulo's version 119-120-121-122)</div>
         <div class="text"><UL>
         <LI>paulo 122<UL>
             <li>the subset prefix is generated randomly. Acrobat has problems in inserting pages with fonts with the same prefix.
