@@ -50,7 +50,7 @@ public class Chap1101 {
             Paragraph p1 = new Paragraph("We will do something special with this paragraph. If you click on ", FontFactory.getFont(FontFactory.HELVETICA, 12));
             p1.add(new Chunk("this word", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 0, 255))).setLocalGoto("test"));
             p1.add(" you will automatically jump to another location in this document.");
-            Paragraph p2 = new Paragraph("som blah, blah, blah");
+            Paragraph p2 = new Paragraph("blah, blah, blah");
             Paragraph p3 = new Paragraph("This paragraph contains a local ");
             p3.add(new Chunk("local destination", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             document.add(p1);

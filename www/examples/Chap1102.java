@@ -52,7 +52,7 @@ public class Chap1102 {
             Paragraph p1 = new Paragraph("We discussed anchors in chapter 3, but you can add an URL to a chunk to to make it an ", FontFactory.getFont(FontFactory.HELVETICA, 12));
             p1.add(new Chunk("anchor", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.UNDERLINE, new Color(0, 0, 255))).setAnchor(new URL("http://www.lowagie.com/iText/")));
             p1.add(" you will automatically jump to another location in this document.");
-            Paragraph p2 = new Paragraph("som blah, blah, blah");
+            Paragraph p2 = new Paragraph("blah, blah, blah");
             Paragraph p3a = new Paragraph("This paragraph contains a ");
             p3a.add(new Chunk("local destination in document A", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, new Color(0, 255, 0))).setLocalDestination("test"));
             Paragraph p3b = new Paragraph("This paragraph contains a local ");
