@@ -43,6 +43,11 @@
 			<site:description>Making images transparent.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="SpotColors" standalone="yes" />
+			<site:result>spotcolor.pdf</site:result>
+			<site:description>Using spotcolors.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Pattern" standalone="yes" />
 			<site:result>pattern.pdf</site:result>
 			<site:description>Painting colored patterns.</site:description>
