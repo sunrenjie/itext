@@ -49,7 +49,8 @@ public class Chap13_form extends java.lang.Object {
             acroForm.addSingleLineTextField("name", "your name", helv, fontSize, 171, 800, 350, 820);
             acroForm.addMultiLineTextField("msg", "Hello iText!\nThis is a Test\nThere are multiple lines in this textfield", helv, fontSize, 171, 730, 350, 790);
             acroForm.addSingleLinePasswordField("password", "", helv, fontSize, 171, 700, 350, 720);
-            acroForm.addHtmlPostButton("btn", "SUBMIT", "Chap13.php", helv, fontSize, 355, 700, 420, 725);
+            acroForm.addHtmlPostButton("btn", "SUBMIT", "noValue", "Chap13.php", helv, fontSize, 355, 700, 420, 725);
+            acroForm.addResetButton("reset", "RESET", null, helv, fontSize, 430, 700, 495, 725);
             acroForm.addCheckBox("CB1", "Food", true, 180, 685, 190, 695);
             acroForm.addCheckBox("CB2", "Drinks", false, 180, 645, 210, 675);
             PdfFormField radiogroup = acroForm.getRadioGroup("CreditCard", "Visa", true);
@@ -63,6 +64,23 @@ public class Chap13_form extends java.lang.Object {
             acroForm.addSelectList("list2", colorvalues, "#0000FF", helv, fontSize, 315, 550, 450, 600);
             acroForm.addComboBox("combo1", colors, "Green", true, helv, fontSize, 171, 440, 300, 490);
             acroForm.addComboBox("combo2", colorvalues, "#0000FF", false, helv, fontSize, 315, 440, 450, 490);
+            PdfContentByte cb = new PdfContentByte(null);
+            cb.setRGBColorStroke(0x00, 0x00, 0x00);
+            cb.setRGBColorFill(0xFF, 0x00, 0x00);
+            cb.arc(0, 0, 100, 100, 0, 360);
+            cb.fillStroke();
+            cb.setRGBColorStroke(0x00, 0x00, 0x00);
+            cb.setRGBColorFill(0xFF, 0xFF, 0xFF);
+            cb.arc(20, 20, 80, 80, 0, 360);
+            cb.fillStroke();
+            cb.setRGBColorStroke(0x00, 0x00, 0x00);
+            cb.setRGBColorFill(0xFF, 0x00, 0x00);
+            cb.arc(40, 40, 60, 60, 0, 360);
+            cb.fillStroke();
+            cb.setRGBColorFill(0x00, 0x00, 0x00);
+            cb.arc(48, 48, 52, 52, 0, 360);
+            cb.fill();
+            acroForm.addMap("map", null, "Chap13.php", cb, 171, 300, 271, 400);
         }
         catch (Exception de) {
             de.printStackTrace();
