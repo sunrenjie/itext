@@ -35,6 +35,26 @@
 			<site:result>Width.pdf</site:result>
 			<site:description>How to measure and scale the width of a Chunk</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Rendering" standalone="yes" />
+			<site:result>Rendering.pdf</site:result>
+			<site:description>Some special rendering functionality</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Skew" standalone="yes" />
+			<site:result>Skew.pdf</site:result>
+			<site:description>Skewing Chunks</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Generic" standalone="yes" />
+			<site:result>Generic.pdf</site:result>
+			<site:description>Using the Generic tag</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="SplitChar" standalone="yes" />
+			<site:result>SplitChar.pdf</site:result>
+			<site:description>Defining Split Characters</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
