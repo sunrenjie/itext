@@ -17,10 +17,10 @@
 		<div class="header">iText Homepage</div>
 		<div class="title">Project description</div>
 		<div id="side">
-			<div class="sidetitle">NEWS</div>
-			The new <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=tg%2Fdetail%2F-%2F0321304748%2F">PDF Reference 1.6</a> book (4th edition)
-			is announced for january 2005!<br />
-			The first new <a href="http://itext.sourceforge.net/">tutorial</a> chapters are written. More will follow soon!
+			<div class="sidetitle">NEWS</div><ul>
+			<li>The new <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=tg%2Fdetail%2F-%2F0321304748%2F">PDF Reference 1.6</a> book (4th edition)
+			is announced for january 2005!</li>
+			<li>The first new <a href="http://itext.sourceforge.net/">tutorial</a> chapters are written. More will follow soon!</li></ul>
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
