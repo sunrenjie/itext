@@ -73,7 +73,52 @@
 			<LI><A HREF="#VERSION084">iText0.84</A>: february 2002
 			<LI><A HREF="#VERSION085">iText0.85</A>: february 2002
 			<LI><A HREF="#VERSION086">iText0.86</A>: march 2002
+			<LI><A HREF="#VERSION087">iText0.87</A>: march 2002
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION087">iText0.87</A></B> (changes by Bruno Lowagie, Mark Hall and Steffen Stundzig)<br>
+		<UL>
+			<LI>class FontFactory:
+				<UL>
+				<LI>size of a font changed from int to float
+				<LI>new getFont method taking attributes (Properties-object)
+				<LI>added names of the built in fonts
+				<LI>added a way to register an alias for a fontname
+				<LI>added public static variables for encoding and embedding
+				</UL>
+			<LI>XML: nested tables, images in tables, remotegoto in Chunks,... are now supported
+			<LI>class Table:
+				<UL>
+				<LI>possibility to force a Table (or it's cells) to be kept on one page
+				<LI>possibility to set an offset
+				<LI>cellborders and background disappeared if a table had a backgroundcolor
+				<LI>empty elements are no longer being added to a Cell
+				<LI>empty cells are not automatically filled anymore
+				<LI>extended support for nested tables
+				<LI>throwing an UnsupportedOperationException when one tries to get dimensions
+				    of the Table or Cell.
+				<LI>it is now possible to add an Image to a Cell
+				</UL>
+			<LI>class Image:
+				<UL>
+				<LI>fixed some bugs in the constructor that takes a Properties list
+				<LI>possibility to add an annotation => clickable image
+				</UL>
+			<LI>RTF package:
+				<UL>
+				<LI>Padding table cells works correctly now
+				<LI>Borders for rows are now possible
+				<LI>Cellspacing now works correctly
+				<LI>\n are now automatically parsed into new lines
+				<LI>support for HeaderFooters
+				<LI>TOC generation
+				<LI>page breaks are only inserted before top-level chapters
+				</UL>
+			</UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
