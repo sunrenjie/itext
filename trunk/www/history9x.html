@@ -46,6 +46,37 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" Class="content">
+        
+        
+		<div class="title"><A NAME="VERSION099">iText0.99</A> (based on paulo's version 114-115-116-117-118 + several contributions integrated by Mark Hall and Bruno Lowagie)</div>
+        <div class="text"><UL>
+        <LI>paulo 118<UL>
+            <li>images created from java.awt.Image and transparency always created an smask even in the most simple cases.<li>damaged JPG will not hang the program.<li>fixed incorrect constants in Barcode.java that affected code 128.<li>added FULL support for GIF images in com.lowagie.text.pdf.codec.GifImage.<li>All the frames are read and no X server is needed.<li>fixed the reading of TIFF files that have the fill bits option incorrectly set in the G3 encoding.
+            </ul>
+        <li>paulo 117<ul>
+            <li>added dimensionless pixel aspect ratio in Image.<li>added opacity in Image for java.awt.Image.<li>added FULL support for PNG images with com.lowagie.text.pdf.codec.PngImage.<li>fixed a bug in PdfContentByte.remoteGoto().<li>fixes in PdfGraphics2D for null fonts and negative stroke widths.<li>class PdfLiteral was made public.
+            </ul>
+        <li>paulo 116<ul>
+            <li>added transparency/opacity support<li>Image suports explicit smask.<li>ColumnText suports several options on how the arabic shaping is done.<li>DefaultFontMapper didn't read all the fonts in a TTC.<li>more refactoring in resource handling.<li>added PdfGState and PdfTransparencyGroup.<li>fixes in PdfGraphics2D in fonts, strokes and pies.<li>PdfCopy hanged on closing.<li>added PdfWriter.setLinearPageMode() to allow page reordering.
+            </ul>
+        <li>paulo 115<ul>
+            <li>raw images can be palette based and already deflated.<li>AcroFields has the option of not generating the appearances. This is not recommended but may be useful for faster generation in controlled environments.<li>cached a font to speed up form filling.<li>PdfReader can read from an URL.<li>lifted the limit of 8192 pages. I tried with 200000 pages and worked well. Note that PdfCopy still has that limitation.<li>fixed the xref error in PdfStamper.<li>fixed the use of BW PNG for masks.<li>added support for TIFF images.
+            </ul>
+        <li>paulo 114<ul>
+            <li>all of the content of the official 0.98
+            <li>last version broke PdfCopy and PdfStamperImp
+            </ul>
+        <li>Mark Hall<ul>
+            <li>method to get the alignment of a HeaderFooter object
+            <li>RTF support for right indentation (contribution by Eric Mattes)
+            <li>RTF alignment in HeaderFooter objects
+            <li>RTF code cleanup + some alignment constants were made public
+            </ul>
+        <li>Bruno Lowagie<ul>
+            <li>Applied a patch sent by Xavier Le Vourch (optimalisation of the code and removal of dozens of Eclipse warnings)
+            </ul>
+        </UL></div>
+        
 		<div class="title"><A NAME="VERSION098">iText0.98</A> (based on paulo's version 113)</div>
         <div class="text"><UL>
         <LI>added a new arabic shaper with farsi support.
