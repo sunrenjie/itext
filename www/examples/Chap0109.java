@@ -31,11 +31,11 @@ import com.lowagie.text.pdf.PdfWriter;
 
 import com.lowagie.text.html.HtmlWriter;
 
-public class Chap0108 {
+public class Chap0109 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Chapter 1 example 8: Viewerpreferences");
+		System.out.println("Chapter 1 example 9: pause() and resume()");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -46,16 +46,15 @@ public class Chap0108 {
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
 
-			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0108a.pdf"));
-            writerA.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);
-			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0108b.pdf"));
-            writerB.setViewerPreferences(PdfWriter.HideMenubar | PdfWriter.HideToolbar);
-			PdfWriter writerC = PdfWriter.getInstance(document, new FileOutputStream("Chap0108c.pdf"));
-            writerC.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft | PdfWriter.PageModeFullScreen | PdfWriter.NonFullScreenPageModeUseThumbs);
+			PdfWriter writerA = PdfWriter.getInstance(document, new FileOutputStream("Chap0109a.pdf"));
+
+			PdfWriter writerB = PdfWriter.getInstance(document, new FileOutputStream("Chap0109b.pdf"));
 
 			// step 3:
 
 			// we add a Watermark that will show up on PAGE 1
+
+			writerB.pause();
 			try {
 				Watermark watermark = new Watermark(Image.getInstance("watermark.jpg"), 200, 420);			
 				document.add(watermark);
@@ -63,6 +62,8 @@ public class Chap0108 {
 			catch(Exception e) {
 				System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");
 			}
+
+			writerB.resume();
 			
 			// we add a Header that will show up on PAGE 1
 			HeaderFooter header = new HeaderFooter(new Phrase("This is a header"), false);
@@ -102,7 +103,11 @@ public class Chap0108 {
 			document.add(new Paragraph("Hello Earth"));
 
 			// we remove the header starting from PAGE 3
+
+			writerA.pause();
 			document.resetHeader();
+
+			writerA.resume();
 
 			// we trigger a page break
 			document.newPage();
@@ -111,10 +116,19 @@ public class Chap0108 {
 
 			// we add some more content
 			document.add(new Paragraph("Hello Sun"));
+
+			writerA.pause();
 			document.add(new Paragraph("Remark: the header has vanished!"));
 
+			writerA.resume();
+
+
 			// we reset the page numbering
+
+			writerB.pause();
 			document.resetPageCount();
+
+			writerB.resume();
 
 			// we trigger a page break
 			document.newPage();
@@ -123,7 +137,11 @@ public class Chap0108 {
 
 			// we add some more content
 			document.add(new Paragraph("Hello Moon"));
+
+			writerB.pause();
 			document.add(new Paragraph("Remark: the pagenumber has been reset!"));
+
+			writerB.resume();
 
 		}
 		catch(DocumentException de) {
