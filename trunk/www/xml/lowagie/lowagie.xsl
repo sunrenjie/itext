@@ -133,9 +133,27 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 		<th><xsl:if test="position()!=last()-1 and position()!=last()"><xsl:call-template name="amazonjs"><xsl:with-param name="asins"><xsl:value-of select="following-sibling::site:amazonproduct[position()=2]/@asin" /></xsl:with-param></xsl:call-template></xsl:if></th>
 		</tr>
 		<tr>
-		<td valign="Top" class="small"><xsl:apply-templates select="." /></td>
-		<td valign="Top" class="small"><xsl:if test="position()!=last()"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=1]" /></xsl:if></td>
-		<td valign="Top" class="small"><xsl:if test="position()!=last()-1 and position()!=last()"><xsl:apply-templates select="following-sibling::site:amazonproduct[position()=2]" /></xsl:if></td>
+		<td valign="Top" class="small">
+			<xsl:apply-templates select="." /><br /><br />in Europe: try
+			<xsl:element name="a">
+				<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="@asin" />/catloogjecom-21</xsl:attribute>
+				amazon.co.uk
+			</xsl:element>
+		</td>
+		<td valign="Top" class="small"><xsl:if test="position()!=last()">
+			<xsl:apply-templates select="following-sibling::site:amazonproduct[position()=1]" /><br /><br />in Europe: try
+			<xsl:element name="a">
+				<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="following-sibling::site:amazonproduct[position()=1]/@asin" />/catloogjecom-21</xsl:attribute>
+				amazon.co.uk
+			</xsl:element>
+		</xsl:if></td>
+		<td valign="Top" class="small"><xsl:if test="position()!=last()-1 and position()!=last()">
+			<xsl:apply-templates select="following-sibling::site:amazonproduct[position()=2]" /><br /><br />in Europe: try
+			<xsl:element name="a">
+				<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="following-sibling::site:amazonproduct[position()=2]/@asin" />/catloogjecom-21</xsl:attribute>
+				amazon.co.uk
+			</xsl:element>
+		</xsl:if></td>
 		</tr>
 		</xsl:if>
     </xsl:for-each>
@@ -148,6 +166,11 @@ itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 <script type="text/javascript"><![CDATA[<!--
 document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p=8&l=as1&asins=]]><xsl:value-of select="$asins" /><![CDATA[&fc1=000000&lc1=0000ff&bc1=&lt1=_blank&IS2=1&bg1=ffffff&f=ifr" width="120" height="240" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" align="Center"></iframe>');
 //-->]]></script>
+<xsl:element name="a">
+	<xsl:attribute name="href">http://www.amazon.co.uk/exec/obidos/ASIN/<xsl:value-of select="@asin" />/catloogjecom-21</xsl:attribute>
+	<xsl:attribute name="class">amazonlinks</xsl:attribute>
+	amazon.co.uk-link
+</xsl:element><br />
 </xsl:template>
 
 <!-- Keeping the html as is -->
@@ -219,7 +242,6 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 <div id="sourceforge" xmlns="http://www.w3.org/1999/xhtml"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 
 <div id="commercial">
-<a href="http://www.refactorit.com/" xmlns="http://www.w3.org/1999/xhtml"><img xmlns="http://www.w3.org/1999/xhtml" src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" border="0" width="120" height="26" /></a>
 <a class="amazonlinks" href="amazon.html" xmlns="http://www.w3.org/1999/xhtml">Amazon books:</a>
 <xsl:choose>
 	<xsl:when test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">
@@ -231,7 +253,6 @@ document.write('<iframe marginwidth="0" marginheight="0" src="http://rcm.amazon.
 //-->]]></script>
 	</xsl:otherwise>
 </xsl:choose>
-<div class="firefox"><a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=39296&amp;t=65"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="http://www.spreadfirefox.com/community/images/affiliates/Buttons/110x32/safer.gif"/></a></div>
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
@@ -248,6 +269,9 @@ google_color_text = "FF2200";
 <script type="text/javascript"
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
+<div class="amazonlinks">Other links:</div>
+<div class="firefox"><a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=39296&amp;t=65"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="http://www.spreadfirefox.com/community/images/affiliates/Buttons/110x32/safer.gif"/></a></div>
+<a href="http://www.refactorit.com/" xmlns="http://www.w3.org/1999/xhtml"><img xmlns="http://www.w3.org/1999/xhtml" src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" border="0" width="120" height="26" /></a>
 </div>
 
 </body>
