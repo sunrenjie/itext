@@ -66,8 +66,9 @@ public class Chap0201 {
 			fonts[12] = new Font(Font.SYMBOL, 12, Font.NORMAL);
 			fonts[13] = new Font(Font.ZAPFDINGBATS, 12, Font.NORMAL);
 			for (int i = 0; i < 14; i++) {
-				Chunk chunk = new Chunk("This is some font", fonts[i]);
+				Chunk chunk = new Chunk("This is some", fonts[i]);
 				document.add(new Phrase(chunk));
+				document.add(new Phrase(new Chunk(" font. ", fonts[i]).setTextRise((i % 2 == 0) ? -6 : 6)));
 			}
 
 		}
