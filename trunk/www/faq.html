@@ -403,7 +403,7 @@
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
-			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile the source code I get ClassNotFound errors!</B></A></FONT><BR>
+			<FONT FACE="Arial,Helvetica"><A NAME="compile"><B>When I compile/run the source code I get ClassNotFound errors!</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			If the source code doesn't compile, this can be caused by three different reasons:
 			<ol>
@@ -420,6 +420,12 @@
 			can use this batch file: <A HREF="examples/compile.bat">compile.bat</A>. Just run
 			it with the name of the example (not the filename) as parameter: for instance:
 			'compile Chap0101'.
+			<LI>If you are using iText in a Servlet, make sure you have the iText.jar in the right place.
+			If you are using Tomcat 4, and want all of your contexts to have access to the classes for iText,
+			then you can use the $CATALINA_HOME/common/lib folder. If you want only one context, or
+			application on your server to have access to them, they should be placed in a folder that only that
+			context can see. For example, for context, 'myApp', it would be $CATALINA_HOME/webapps/myApp/WEB-INF/lib folder.
+			(answer by Chris Ward).
 			<li>Any other problem with classes that are not found, are caused by errors in your
 			classpath. You and you alone can solve these kind of errors, so please don't mail us
 			before you're absolutely sure you've checked every detail on your system.
