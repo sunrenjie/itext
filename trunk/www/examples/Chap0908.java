@@ -44,15 +44,15 @@ public class Chap0908 {
             document.open();
             
             // step 4: we add content to the document
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-A.TTF", PdfBarcode.UPCA, 36, "203489343822")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\UPC-AHH.TTF", PdfBarcode.UPCA, 36, "203489343822")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13.TTF", PdfBarcode.EAN13, 36, "8010012529736")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13HH.TTF", PdfBarcode.EAN13, 48, "5400111151441")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13B.TTF", PdfBarcode.EAN13, 60, "8010012529736")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\EAN-13BH.TTF", PdfBarcode.EAN13, 72, "5400111151441")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "12345678900987654321")));
-            document.add(new Paragraph(new PdfBarcode("c:\\winnt\\fonts\\I2OF5NT.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "2345678900987654321")));       
+            document.add(new Paragraph(40, new PdfBarcode("c:\\winnt\\fonts\\CODE39.TTF", PdfBarcode.CODE39, 36, "0123456789")));
+            document.add(new Paragraph(50, new PdfBarcode("c:\\winnt\\fonts\\UPC-A.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(60, new PdfBarcode("c:\\winnt\\fonts\\UPC-AHH.TTF", PdfBarcode.UPCA, 36, "203489343822")));
+            document.add(new Paragraph(60, new PdfBarcode("c:\\winnt\\fonts\\EAN-13.TTF", PdfBarcode.EAN13, 36, "8010012529736")));
+            document.add(new Paragraph(60, new PdfBarcode("c:\\winnt\\fonts\\EAN-13HH.TTF", PdfBarcode.EAN13, 48, "5400111151441")));
+            document.add(new Paragraph(90, new PdfBarcode("c:\\winnt\\fonts\\EAN-13B.TTF", PdfBarcode.EAN13, 60, "8010012529736")));
+            document.add(new Paragraph(90, new PdfBarcode("c:\\winnt\\fonts\\EAN-13BH.TTF", PdfBarcode.EAN13, 72, "5400111151441")));
+            document.add(new Paragraph(60, new PdfBarcode("c:\\winnt\\fonts\\I2OF5.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "12345678900987654321")));
+            document.add(new Paragraph(60, new PdfBarcode("c:\\winnt\\fonts\\I2OF5NT.TTF", PdfBarcode.INTERLEAVED_2_OF_5, 48, "2345678900987654321")));       
             // measuring the length of a string
             BaseFont bf = BaseFont.createFont("c:\\winnt\\fonts\\CODE39.TTF", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             float points = bf.getWidthPoint("0123456789", 36f);
