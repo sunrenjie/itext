@@ -198,25 +198,30 @@
                         </TD>
                 </TR>
         	</TABLE>
-			</FONT><BR><BR>
+			</FONT>
 		</TD>
 	</TR>
 	<TR>
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<BR>
-			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>class Table</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Large tables</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">		
-			The <FONT SOURCE="Courier">Table</FONT>-class has 2 constructors:<BR>
-			<FONT FACE="Courier">public Table(int columns) throws BadElementException<BR>
-			public Table(int columns, int rows) throws BadElementException</FONT><BR><BR>
-			As you can see, you need to now the number of columns in advance, but it's
-			not necessary to know the number of rows.<BR>
-			<!--- Tables that span multiple pages are cut into different parts automatically
-			(unless you use the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
-			<FONT FACE="Courier">PdfWriter</FONT> to control the 'table-breaks').<BR>
-			If you want a table header to be repeated on every page, you may not forget to
+			Tables that span multiple pages are cut into different parts automatically.<br>
+			In <A HREF="http://www.lowagie.com/iText/examples/Chap0502.java">example 2</A>,
+			we have a table with 1 very large cell that is cut in two parts (see <A HREF="http://www.lowagie.com/iText/examples/Chap0502.pdf">Chap0502.pdf</A>).
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0503.java">Example 3</A> is a
+			more realistic example. <A HREF="http://www.lowagie.com/iText/examples/Chap0503.pdf">Chap0503.pdf</A>
+			shows a report that spans multiple pages. This report has a table header.
+			If you want this table header to be repeated on every page, you can
 			mark the end of the header section by using the method
-			<FONT FACE="Courier">endHeaders()</FONT>.<BR> --->
+			<FONT FACE="Courier">endHeaders()</FONT>. This is done in <A HREF="http://www.lowagie.com/iText/examples/Chap0504.java">Example 4</A> (see <A HREF="http://www.lowagie.com/iText/examples/Chap0504.pdf">Chap0504.pdf</A>).<br>
+			For reports like this, it is advised to set the cellspacing to 0 and to use only a certain cellpadding.
+			If you do the opposite (as in <A HREF="http://www.lowagie.com/iText/examples/Chap0505.java">Example 5</A>),
+			the result will not be very nice: <A HREF="http://www.lowagie.com/iText/examples/Chap0505.pdf">Chap0505.pdf</A>.<br>
+			In some cases, you may want to avoid cells been split into two parts.
+			To control these 'table-breaks', you can use the <FONT FACE="Courier">fitsPage()</FONT>-methods in class
+			<FONT FACE="Courier">PdfWriter</FONT> as shown in <A HREF="http://www.lowagie.com/iText/examples/Chap0506.java">Example 6</A>
+			(<A HREF="http://www.lowagie.com/iText/examples/Chap0506.pdf">Chap0506.pdf</A>).<BR>
 			</FONT><BR><BR>
 		</TD>
 	</TR>
