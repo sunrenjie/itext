@@ -28,7 +28,7 @@ import java.io.*;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class font_widths {
+public class Chap0908 {
     
     public static void main(String[] args) {
         
