@@ -22,6 +22,31 @@
 			<site:externalresource>pngnow.png</site:externalresource>
 			<site:description>Using Optional Content.</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ContentGroups" standalone="yes" />
+			<site:result>contentgroups.pdf</site:result>
+			<site:description>Grouping Optional Content.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="OrderedLayers" standalone="yes" />
+			<site:result>orderedlayers.pdf</site:result>
+			<site:description>Ordering Optional Content.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="NestedLayers" standalone="yes" />
+			<site:result>nestedlayers.pdf</site:result>
+			<site:description>Nesting Optional Content.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Automatic" standalone="yes" />
+			<site:result>automatic.pdf</site:result>
+			<site:description>Automatic grouping and nesting of Optional Content.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Layers" standalone="yes" />
+			<site:result>layers.pdf</site:result>
+			<site:description>Zooming and radio groups.</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
