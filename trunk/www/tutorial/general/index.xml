@@ -52,6 +52,53 @@ new PDF document you are creating from scratch with iText:
 In the following sections, we will take a closer look into each step.
 </div>
 	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>step 1: the Document object</site:sectiontitle>
+		<div>
+		</div>
+	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>step 2: the Writer object</site:sectiontitle>
+		<div>
+		</div>
+	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>step 3: metadata + opening the document</site:sectiontitle>
+		<div>
+		</div>
+	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>step 4: adding content</site:sectiontitle>
+		<div>
+There are different ways to add content to a PDF file.
+The easiest way is to use <site:tutorial chapter="." section="part2">high level objects</site:tutorial>
+such as Chunk, Phrase, Paragraph,...
+It is very important to realize that not all types of these objects are supported
+in all types of writers. For instance:  the <site:docs class="com.lowagie.text.pdf.PdfPTable">PdfPTable</site:docs>-object
+is only supported in PDF, not in RTF or HTML. If you add a <site:docs class="com.lowagie.text.pdf.PdfPTable">PdfPTable</site:docs>
+to a Document, the listening <site:docs class="com.lowagie.text.rtf.RtfWriter2">RtfWriter</site:docs>s or <site:docs class="com.lowagie.text.html.HtmlWriter">HtmlWriter</site:docs>s
+will ignore this.<br />
+If you don't need RTF or HTML, you can also add content at
+<site:tutorial chapter="." section="part3">absolute positions</site:tutorial>.
+A lot of the standard PDF syntax is supported in iText, so you can do some
+very powerful things with the library.<br />
+Adding content using the <site:docs class="com.lowagie.text.pdf.PdfGraphics2D">PdfGraphics2D</site:docs>-object
+(extends <a href="http://java.sun.com/j2se/1.3/docs/api/java/awt/Graphics2D.html">java.awt.Graphics2D</a>) is
+also possible. You can read more about this elsewhere in the tutorial.
+		</div>
+	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>step 5: closing the document</site:sectiontitle>
+		<div>
+ Closing the document is very important, because it flushes and closes the outputstream to which the writer is writing. The close-method is called in the finalize-method, but you shouldn't count on that. You should always close the document yourself!
+		</div>
+	</site:section>
+	
 	</site:chapter>
 
 </site:page>
