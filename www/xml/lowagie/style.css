@@ -2,7 +2,7 @@
 
 body  {
 	background-color : #FF7700;
-	font-family : Arial;
+	font-family : Arial, Helvetica;
 	font-size : 11pt;
 	margin : 0px;
 }
@@ -62,7 +62,7 @@ body  {
 
 #side  {
 	float : right;
-	width : 160;
+	width : 160px;
 	overflow : auto;
 	padding : 3px;
 	border : solid 2px #FF7700;

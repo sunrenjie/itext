@@ -60,7 +60,7 @@
 		<li>The first is the <a href="tutorial/">list of features</a>. This list is limited.
 		Not all of iText functionalities are listed, but it's a good place to start.
 		If you click on one of the features you get some explanation and some examples
-		on how to use these features. As you can read on the <a href="documentation.html">documentation</a>
+		on how to use these features. As you can read on the <a href="docs.html">documentation</a>
 		page, you will find lots of iText code samples, just by doing some simple Google searches.</li>
 		<li>If the examples don't work or you experience some typical newbie problems,
 		please consult the <a href="faq.html">Frequently Asked Questions</a> page.</li>
