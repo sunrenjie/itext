@@ -69,5 +69,6 @@ public class Chap0610 {
         
         // step 5: we close the document
         document.close();
+        System.exit(0);
     }
 }
