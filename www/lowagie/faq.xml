@@ -114,6 +114,14 @@ lots of time and money, you can support the developers in several ways:<br />
 <li>If iText really, really saved your company time and money, you can ask your company to <a href="#donate">donate something</a> to the original developer (Bruno Lowagie) and the co-developer (Paulo Soares). Personally, I prefer gifts (some <a href="http://shop.lego.com/wishlist/wishlist_search.asp?mode=email&amp;guid=A68BB5BE-B60E-4647-94DA-08D142CC5C4F&amp;user=Bruno">LEGO</a> for my kids, some books or DVDs from my wishlist at <a href="http://www.amazon.com/exec/obidos/redirect?tag=itisacatalofwebp&amp;path=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fregistry%2Fregistry.html%2Fref%3Dwlem-si-ht_gotowl%3F%255Fencoding%3DUTF8%26id%3D349FGS15S1PYV">amazon.com</a>, <A HREF="http://www.amazon.co.uk/exec/obidos/redirect?tag=catloogjecom-21&amp;path=registry/2NDAUO412HPTH/ref%253Dwl%255Fem%255Fto">amazon.co.uk</A>,
 <a href="http://www.dvdzone2.com/affiliate.asp?aid=100519&amp;redirect=http://www.dvdzone2.com/dvd/page.asp?do=9%26pid=155705%26pw=45641XICRPJITAU">DvdZone2</a>,...) above money. Money is rather impersonal, don't you agree?</li>
 </ul>
+
+</site:answer>
+</site:faq-entry>
+
+<site:faq-entry name="support">
+<site:question>Is support available?</site:question>
+<site:answer>
+Support is given on a voluntary basis throught the mailing-list.<br />
 Some companies have a policy not to use Free / Open Source Software without a license or a support contract. The iText developers can't and won't sell you
 such a contract, but they have granted Leonard Rosenthol and his company <a href="http://www.pdfsages.com/">PDF Sages</a> the right to sell licenses
 and support contracts on a case per case basis. There was no money involved in this deal; the developers of iText are not
@@ -545,6 +553,32 @@ The pdf version can be changed with PdfWriter.setPdfVersion(). This
 only alters the number (for instance %PDF-1.4 into %PDF-1.3),
 it doesn't check if the objects inside are valid for the version.
 (With very few exceptions the pdf generated is 1.3. compliant.)
+
+</site:answer>
+</site:faq-entry>
+
+<site:faq-entry name="asianfonts">
+<site:question>Why doesn't the CJK Font functionality work in my application?</site:question>
+<site:answer>
+
+Chances are you are missing some jars:
+The cmap-files and properties for these CJK fonts are in a separate jar.
+You need this jar in your CLASSPATH!!! You can download this jar here:
+<a href="http://itext.sourceforge.net/downloads/iTextAsian.jar">http://itext.sourceforge.net/downloads/iTextAsian.jar</a>.
+There is also a jar <a href="http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar">http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar</a>
+available for download. Those are the cmaps for direct CID addressing,
+needed for accessing the HK and Taiwan extensions. In most cases, you don't
+need this second jar.<br />
+Remember that you can't embed these fonts in the PDF file using iText.
+Before trying to view a pdf with these Asian characters, you must download
+the Asian font pack from Adobe at:
+<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>.
+or use a localized Windows.<br />
+An alternative for this kind of fonts, is using a True
+Type Asian Font or Collection such as msgothic.ttc with the encoding BaseFont.IDENTITY_H
+or BaseFont.IDENTITY_V. In this case there will be no need to use the Asian
+font pack from Adobe because a subset of the font will be embedded in the
+document.
 
 </site:answer>
 </site:faq-entry>
