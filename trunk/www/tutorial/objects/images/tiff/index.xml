@@ -3,15 +3,14 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Selected examples: EPS, TIFF</site:title>
-		<site:summary>Selected examples: Embedding PostScript, importing TIFF files,...</site:summary>
-		<site:keywords>PDF, JAVA, iText, examples, tiff, eps, PostScript, Lowagie, Bruno</site:keywords>
+		<site:title>Selected examples: EPS, TIFF, Barcodes</site:title>
+		<site:summary>Selected examples: Embedding PostScript, importing TIFF files, Barcodes</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, tiff, eps, barcodes, PostScript, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0201379228">PostScript(R) Language Reference (3rd Edition)</site:book>
 			<site:book asin="0201101793">PostScript(R) Language Tutorial and Cookbook</site:book>
 			<site:book asin="0240806050">File Interchange Handbook : For professional images, audio and metadata</site:book>
-			<site:keyword>PostScript</site:keyword>
-			<site:keyword>Barcodes</site:keyword>
+			<site:book asin="0943779502">Getting Started With Bar Codes: A Systematic Guide</site:book>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
