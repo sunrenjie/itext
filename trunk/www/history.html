@@ -64,7 +64,35 @@
 			<LI><A HREF="#VERSION050">iText0.50</A>: 13 August 2001
 			<LI><A HREF="#VERSION051">iText0.51 - iText0.70</A>: september-october 2001
 			<LI><A HREF="#VERSION071">iText0.71</A>: november 2001
+			<LI><A HREF="#VERSION072">iText0.72</A>: december 2001
 		</UL></FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+		<BR><FONT FACE="Arial,Helvetica"><B><A NAME="VERSION072">iText0.72</A></B> (Changes by Paulo Soares in paulo-85 + bugfixes by Bruno Lowagie)<br>
+		<UL>
+			<LI>Further ameliorations in the Table-class (all Table bugs should be fixed now)
+			<LI>corrected bug with jpg images input as a byte array.
+			<LI>added open actions. When the document is opened an action can be called
+                to position the document in a certain page or to call an URL, for example.
+			<LI>support for unicode meta tags in pdf such as author.
+			<LI>true type fonts can be used in unicode addressing mode. This is the only way
+                to use this fonts with some encodings, such as Thai. CJK fonts can also be
+                used this way, in fact, all the encodings can be used this way at the expense
+                of 2 bytes per character instead of one.
+			<LI>support for true type font subsets. Only the glyphs actually used in the
+                document are stored. The reduction of document size with fonts embedded
+                is dramatic.
+			<LI>support for having different line break characters.
+			<LI>changed greek character handling in Phrase. Only the fonts (class Font) not
+                constructed with BaseFont are elected to be automatically replaced with
+                Symbol when greek characters are present. It was impossible to use a font
+                with greek characters without them being replaced automatically.
+			<LI>some bugfixes by Mark Hall to the rtf package
+			<LI>some methods were changed from private to protected in the html package
+		</UL>
+		</FONT>
 		</TD>
 	</TR>
 	<TR>
