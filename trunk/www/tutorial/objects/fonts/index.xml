@@ -34,9 +34,14 @@
 			<site:description>Demonstrates how to underline or strike through text</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="FontColor" standalone="yes" />
+			<site:result>FontColor.pdf</site:result>
+			<site:description>Shows how to change the color of a font</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="UsingFontFactory" standalone="yes" />
 			<site:result>FontFactory.pdf</site:result>
-			<site:description>Sums up the Fonts that are available in some standard font directories on your system.</site:description>
+			<site:description>Sums up the Fonts that are available in some standard font directories on your system</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -95,6 +100,8 @@ fonts[9] =
 But there are other (and better) ways to do this:
 in the next example, we use the class <site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>,
 as this is the safest and most uniform way to get a new <site:doc class="com.lowagie.text.Font">Font</site:doc>-object.
+Further on in this chapter, we will see that class <site:doc class="com.lowagie.text.Font">Font</site:doc> is in many
+cases just a wrapper class for the more complex class <site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>.
 <pre class="commandline">fonts[0] =
 	FontFactory.getFont(
 		FontFactory.COURIER,
@@ -139,6 +146,32 @@ If you want complete control over the height, width, color,... of the line,
 you should use the method <site:doc class="Chunk" target="setUnderline(java.awt.Color,%20float,%20float,%20float,%20float,%20int)">Chunk.setUnderline</site:doc>
 as described in the chapter on <site:tutorial chapter="/objects/chunk" section="underline">Chunks</site:tutorial>.
 <site:source class="ExtraStyles" />
+<div class="subtitle">Font Color</div>
+If you want to change the font color, just ask the
+<site:doc class="com.lowagie.text.FontFactory">FontFactory</site:doc>
+for another font with the color of your choice:
+<pre class="commandline">font red =
+	FontFactory.getFont(
+		FontFactory.COURIER,
+		Font.DEFAULTSIZE,
+		Font.NORMAL,
+		new Color(0xFF, 0x00, 0x00));</pre>
+It's a little more complicated if you want to change the color of some
+text you want to add at an <site:tutorial chapter="" section="part3">absolute position</site:tutorial>.
+As you can read in <site:tutorial chapter="" section="part3">that specific chapter</site:tutorial>,
+you have to use class <site:doc class="com.lowagie.text.pdf.BaseFont">BaseFont</site:doc>
+and this class doesn't have a color value. In this case, you have to know that, according to
+the PDF specs, characters are seen as 'shapes'. Those shapes are filled with a certain color.
+So if you want to change the color of the font, you need to change the color with the 'ColorFill'
+of your choice in <site:doc class="com.lowagie.text.pdf.PdfContentByte">PdfContentByte</site:doc>:
+<pre class="commandline">BaseFont bf =
+	FontFactory.getFont(FontFactory.COURIER).getCalculatedBaseFont();
+cb.beginText();
+cb.setRGBColorFill(new Color(0x00, 0x00, 0xFF));
+cb.setFontAndSize(bf, 12);
+cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + "This text is centered", 250, 700, 0);
+cb.endText();</pre>
+<site:source class="FontColor" />
 </div>
 	</site:section>
 	
