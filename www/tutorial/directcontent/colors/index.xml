@@ -24,13 +24,13 @@
 		<site:example>
 			<site:java src="Pattern" standalone="yes" />
 			<site:result>pattern.pdf</site:result>
-			<site:description>Painting colored patterns.</site:description>
+			<site:description>A stencil example (you define a shape and a default color).</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Patterns" standalone="yes" />
 			<site:externalresource>pngnow.png</site:externalresource>
 			<site:result>patterns.pdf</site:result>
-			<site:description>Painting patterns.</site:description>
+			<site:description>Colored patterns.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Shading" standalone="yes" />
@@ -125,24 +125,52 @@ When stroking or filling a path, we always used a single color. However, it is a
 possible to apply <i>paint</i> that consists of a repeating graphical figure or a smoothly varying color gradient
 instead of a simple color. Such a repeating figure or smooth gradient is called a <i>pattern</i>.
 <div class="subtitle">Tiling patterns</div>
-<table>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float)">createPattern(float,%20float)</site:doc></td>
-</tr>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20java.awt.Color)">createPattern(float,%20float,%20java.awt.Color)</site:doc></td>
-</tr>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20float,%20float)">createPattern(float,%20float,%20float,%20float)</site:doc></td>
-</tr>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20float,%20float,%20java.awt.Color)">createPattern(float,%20float,%20float,%20float,%20java.awt.Color)</site:doc></td>
-</tr>
-</table>
+See PDF Reference Manual version 1.6 section 4.6.2 (p261)
+<blockquote>A <i>tiling pattern</i> consists of a small graphical figure called a
+<i>pattern cell</i>. Painting with the pattern replicates the cell at fixed horizontal
+and vertical intervals to fill an area. The effect is as if the figure were painted
+on the surface of a clear glass tile, identical copies of which were then laid down in
+an array covering the area and trimmed to its boundaries. This process is called tiling
+the area.</blockquote>
+We distinguish two kinds of tiling patterns: <i>colored tiling patterns</i> and <i>uncolored tiling patterns</i>.<br />
+A colored tiling pattern is a pattern who's color is self-contained.
+When the content stream begins, the current color is the one that was
+initially in effect in the pattern's parent content stream. In the course of
+painting the pattern cell, the pattern's content stream explicitly sets the color of
+each graphical element it paints (a pattern cell can contain elements that are painted in different colors).<br />
+An uncolored tiling pattern is a pattern that has no inherent color: the color must be
+specified separately whenever the pattern is used. The content stream describes
+a <i>stencil</i> through which the color is to be poured.<br />
+In iText, you create a <site:doc class="com.lowagie.text.pdf.PdfPatternPainter">PdfPatternPainter</site:doc> with one
+of the differen createPattern methods in PdfContentByte. When you specify a default color, the pattern is automatically a 'stencil' pattern.
+As an uncolored tiling pattern has no color of its own, so you have to define a default color. This color may be null if you plan to define the color
+each time you invoke setPatternFill.<br />
+In short, these are the methods you are going to use to create a <site:doc class="com.lowagie.text.pdf.PdfPatternPainter">PdfPatternPainter</site:doc>:
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float)">createPattern(float, float)</site:doc> (colored pattern, just defining a width and a height, the horizontal and vertical intervals are equal to width and height),
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20java.awt.Color)">createPattern(float, float, java.awt.Color)</site:doc> (uncolored pattern, defining a width and a height and the default color for the uncolored pattern),
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20float,%20float)">createPattern(float, float, float, float)</site:doc> (colored pattern, defining a width, a height and the horizontal/vertical interval) and
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="createPattern(float,%20float,%20float,%20float,%20java.awt.Color)">createPattern(float, float, float, float, java.awt.Color)</site:doc> (uncolored pattern).<br />
+Once you have a <site:doc class="com.lowagie.text.pdf.PdfPatternPainter">PdfPatternPainter</site:doc> object, you can use it in the different
+<site:doc class="com.lowagie.text.pdf.PdfWriter" target="setPatternFill(com.lowagie.text.pdf.PdfPatternPainter)">setPatternFill</site:doc>/<site:doc class="com.lowagie.text.pdf.PdfWriter" target="setPatternStroke(com.lowagie.text.pdf.PdfPatternPainter)">setPatternStroke</site:doc> methods.
+As was the case with spot colors, you can also use a class extending <site:doc class="com.lowagie.text.pdf.ExtendedColor">ExtendedColor</site:doc>
+to use a pattern as color for high level objects: <site:doc class="com.lowagie.text.pdf.PatternColor">PatternColor</site:doc>.
 <site:source class="Pattern" />
 <site:source class="Patterns" />
 <div class="subtitle">Shading patterns</div>
+See PDF Reference Manual version 1.6 section 4.6.3 (p272)
+<blockquote><i>Shading patterns</i> provide a smooth transition between colors and across an area
+to be painted, independent of the resolution of any particular output device and without
+specifying the number of steps in the color transition.</blockquote>
+There are different types of shading. Check the API of
+<site:doc class="com.lowagie.text.pdf.PdfShading">PdfShading</site:doc>
+if you want to know how to construct a Shading object that can be used to paint a path
+with method <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="paintShading(com.lowagie.text.pdf.PdfShading)">paintShading(com.lowagie.text.pdf.PdfShading)</site:doc>
+(this paints the path, so you don't have to call <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="fill()">fill()</site:doc> or <site:doc class="com.lowagie.text.pdf.PdfContentByte" target="stroke()">stroke()</site:doc>).
 <site:source class="Shading" />
+You can also create a <site:doc class="com.lowagie.text.pdf.PdfShadingPattern">PdfShadingPattern</site:doc>.
+This can be used to paint a path (<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="paintShading(com.lowagie.text.pdf.PdfShadingPattern)">paintShading(com.lowagie.text.pdf.PdfShadingPattern)</site:doc>),
+but also to set a fill or stroke color:
+<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setShadingFill(com.lowagie.text.pdf.PdfShadingPattern)">setShadingFill(com.lowagie.text.pdf.PdfShadingPattern)</site:doc>/<site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setShadingStroke(com.lowagie.text.pdf.PdfShadingPattern)">setShadingStroke(com.lowagie.text.pdf.PdfShadingPattern)</site:doc>.
 <site:source class="ShadingPattern" />
 </div>
 	</site:section>

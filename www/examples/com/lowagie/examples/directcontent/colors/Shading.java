@@ -27,7 +27,6 @@ import com.lowagie.text.pdf.CMYKColor;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfFunction;
 import com.lowagie.text.pdf.PdfShading;
-import com.lowagie.text.pdf.PdfShadingPattern;
 import com.lowagie.text.pdf.PdfWriter;
 /**
  * Shading example
@@ -52,7 +51,6 @@ public class Shading {
                 new PdfFunction[]{function1, function2}, new float[]{.708f}, new float[]{1, 0, 0, 1});
             PdfShading shading = PdfShading.type3(writer, new CMYKColor(0, 0, 0, 0),
                 new float[]{0, 0, .096f, 0, 0, 1}, null, function3, new boolean[]{true, true});
-            PdfShadingPattern shadingPattern = new PdfShadingPattern(shading);
             PdfContentByte cb = writer.getDirectContent();
             cb.moveTo(316.789f, 140.311f);
             cb.curveTo(303.222f, 146.388f, 282.966f, 136.518f, 279.122f, 121.983f);
