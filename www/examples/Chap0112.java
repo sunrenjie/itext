@@ -19,12 +19,19 @@ public class Chap0112 {
             Rectangle psize = reader.getPageSize(1);
             float width = psize.width();
             float height = psize.height();
-        
+            
             // step 1: creation of a document-object
             Document document = new Document(psize, 50, 50, 50, 50);
             // step 2: we create a writer that listens to the document
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap0112.pdf"));
             // step 3: we open the document
+            try {
+                Watermark watermark = new Watermark(Image.getInstance("watermark.jpg"), 200, 320);
+                document.add(watermark);
+            }
+            catch(Exception e) {
+                System.err.println("Are you sure you have the file 'watermark.jpg' in the right path?");
+            }
             document.open();
             // step 4: we add content
             PdfContentByte cb = writer.getDirectContent();
