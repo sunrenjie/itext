@@ -234,7 +234,7 @@
         <tar tarfile="${itext.dist}/tutorial.tar" basedir="${itext.tutorial}" />
         <gzip zipfile="${itext.dist}/tutorial.tar.gz" src="${itext.dist}/tutorial.tar" />
         <delete file="${itext.dist}/tutorial.tar" />
-        <tar tarfile="${itext.dist}/examples.tar" basedir="${itext.examples}" excludes="**/*.class, **/*.pdf" />
+        <tar tarfile="${itext.dist}/examples.tar" basedir="${itext.examples}" excludes="**/*.class" />
         <gzip zipfile="${itext.dist}/examples.tar.gz" src="${itext.dist}/examples.tar" />
         <delete file="${itext.dist}/examples.tar" />
     </target>
