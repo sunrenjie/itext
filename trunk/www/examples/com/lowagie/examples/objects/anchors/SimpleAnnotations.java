@@ -71,25 +71,25 @@ public class SimpleAnnotations {
             PdfContentByte cb1 = writer1.getDirectContent();
             Annotation a1 = new Annotation(
             		"authors", "Maybe it's because I wanted to be an author myself that I wrote iText.",
-					100f, 700f, 200f, 800f);
+					250f, 700f, 350f, 800f);
             document1.add(a1);
-            Annotation a2 = new Annotation(100f, 550f, 200f, 650f,
+            Annotation a2 = new Annotation(250f, 550f, 350f, 650f,
             		new URL("http://www.lowagie.com/iText/"));
             document1.add(a2);
-            Annotation a3 = new Annotation(	100f, 400f, 200f, 500f,
+            Annotation a3 = new Annotation(250f, 400f, 350f, 500f,
             		"http://www.lowagie.com/iText");
             document1.add(a3);
 			Image image = Image.getInstance("iText.gif");
 			image.setAnnotation(a3);
 			document1.add(image);
             Annotation a4 = new Annotation(
-            		100f, 250f, 200f, 350f, PdfAction.LASTPAGE);
+            		250f, 250f, 350f, 350f, PdfAction.LASTPAGE);
             document1.add(a4);
             // draw rectangles to show where the annotations were added
-            cb1.rectangle(100, 700, 100, 100);
-            cb1.rectangle(100, 550, 100, 100);
-            cb1.rectangle(100, 400, 100, 100);
-            cb1.rectangle(100, 250, 100, 100);
+            cb1.rectangle(250, 700, 100, 100);
+            cb1.rectangle(250, 550, 100, 100);
+            cb1.rectangle(250, 400, 100, 100);
+            cb1.rectangle(250, 250, 100, 100);
             cb1.stroke();
             // more content
             document1.newPage();

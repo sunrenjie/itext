@@ -21,6 +21,11 @@
 			<site:result>Chunk.pdf</site:result>
 			<site:description>Demonstrates some Chunk functionality</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="Paragraphs" standalone="yes" />
+			<site:result>Paragraph.pdf</site:result>
+			<site:description>Demonstrates some Paragraph functionality</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

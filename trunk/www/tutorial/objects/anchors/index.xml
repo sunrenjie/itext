@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Anchors, Actions and Annotations</site:title>
+		<site:title status="finished">Anchors, Actions and Annotations</site:title>
 		<site:summary>Deals with all the RemoteGoto, LocalGoto, Action, Annotation,... functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, anchors, remoteGoto, LocalGoto, Actions, Annotations, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
