@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>Viewerpreferences, Bookmarks and Labels</site:title>
+		<site:summary>Deals with all the PDF Viewerpreferences, Bookmarks, Outlines, Destinations,... functionality</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, bookmarks, outlines, destinations, Chapter, Section, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:keyword>PDF</site:keyword>
+			<site:keyword>JAVA</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="ViewerPreferences" standalone="yes" />
+			<site:result>TwoColumnLeft.pdf</site:result>
+			<site:result>HideMenuToolbar.pdf</site:result>
+			<site:result>FullScreen.pdf</site:result>
+			<site:description>Creates three versions of the same document, but with different viewerpreferences</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Destinations" standalone="yes" />
+			<site:result>Destinations.pdf</site:result>
+			<site:description>Creates a document with destinations that can be called from Bookmarks</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Bookmarks" standalone="yes" />
+			<site:result>Bookmarks.pdf</site:result>
+			<site:description>Creates a document with Bookmarks for every new Paragraph that is added</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="OutlineActions" standalone="yes" />
+			<site:result>OutlineActions.pdf</site:result>
+			<site:result>remote.pdf</site:result>
+			<site:description>Creates a document with external destinations or actions that can be called from Bookmarks</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="PageLabels" standalone="yes" />
+			<site:result>PageLabels.pdf</site:result>
+			<site:description>Creates a document with pagelabels</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ChapterSection" standalone="yes" />
+			<site:result>ChapterSection.pdf</site:result>
+			<site:description>Creates a document with Chapters and Sections (automatic outlines)</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="intro">
+		<site:sectiontitle>the Chapter class</site:sectiontitle>
+<div>
+<site:source class="ChapterSection" />
+</div>
+	</site:section>
+	</site:chapter>
+</site:page>
