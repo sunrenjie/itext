@@ -23,45 +23,49 @@
 <!ELEMENT sectioncontent (#PCDATA | section | paragraph | list | anchor | phrase | chunk | annotation | newline | newpage | image)*>
 <!ELEMENT paragraph (#PCDATA | anchor | list | phrase | chunk | annotation | newline | newpage | image)*> 
 <!ATTLIST paragraph
-	leading		CDATA	#IMPLIED
-	font	        CDATA	#IMPLIED
-	size		CDATA	#IMPLIED
-	style		CDATA	#IMPLIED
-	red		CDATA	#IMPLIED
-	green		CDATA	#IMPLIED
-	blue		CDATA	#IMPLIED
-	align		CDATA	#IMPLIED
-	left		CDATA	#IMPLIED
-	right		CDATA	#IMPLIED
+	leading     CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size        CDATA	#IMPLIED
+	style       CDATA	#IMPLIED
+	color       CDATA   #IMPLIED
+	red         CDATA	#IMPLIED
+	green       CDATA	#IMPLIED
+	blue        CDATA	#IMPLIED
+	align       CDATA	#IMPLIED
+	left        CDATA	#IMPLIED
+	right       CDATA	#IMPLIED
 >
 <!ELEMENT anchor (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST anchor
-	leading		CDATA	#IMPLIED
-	font	        CDATA	#IMPLIED
-	size		CDATA	#IMPLIED
-	style		CDATA	#IMPLIED
-	red		CDATA	#IMPLIED
-	green		CDATA	#IMPLIED
-	blue		CDATA	#IMPLIED
-	name		CDATA	#IMPLIED
-	reference	CDATA	#IMPLIED
+	leading     CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size        CDATA	#IMPLIED
+	style       CDATA	#IMPLIED
+	color       CDATA   #IMPLIED
+	red         CDATA	#IMPLIED
+	green       CDATA	#IMPLIED
+	blue        CDATA	#IMPLIED
+	name        CDATA	#IMPLIED
+	reference   CDATA	#IMPLIED
 >
 <!ELEMENT phrase (#PCDATA | chunk | annotation | newline | newpage)*> 
 <!ATTLIST phrase
-	leading		CDATA	#IMPLIED
-	font	        CDATA	#IMPLIED
-	size		CDATA	#IMPLIED
-	style		CDATA	#IMPLIED
-	red		CDATA	#IMPLIED
-	green		CDATA	#IMPLIED
-	blue		CDATA	#IMPLIED
+	leading     CDATA	#IMPLIED
+	font	    CDATA	#IMPLIED
+	size        CDATA	#IMPLIED
+	style       CDATA	#IMPLIED
+	color       CDATA   #IMPLIED
+	red         CDATA	#IMPLIED
+	green       CDATA	#IMPLIED
+	blue        CDATA	#IMPLIED
 >
 <!ELEMENT chunk (#PCDATA | newline | newpage)*> 
 <!ATTLIST chunk
-	font	    	    CDATA	#IMPLIED
-	size		    CDATA	#IMPLIED
+	font	    	CDATA	#IMPLIED
+	size            CDATA	#IMPLIED
 	style		    CDATA	#IMPLIED
-	red                 CDATA	#IMPLIED
+	color           CDATA   #IMPLIED
+	red             CDATA	#IMPLIED
 	green		    CDATA	#IMPLIED
 	blue		    CDATA	#IMPLIED
 	localgoto 	    CDATA	#IMPLIED
@@ -75,26 +79,28 @@
 	first               CDATA	#IMPLIED
 	indentationleft     CDATA	#IMPLIED
 	indentationright    CDATA	#IMPLIED
-	listsymbol	CDATA	#IMPLIED
-	font	        CDATA	#IMPLIED
-	size		CDATA	#IMPLIED
-	style		CDATA	#IMPLIED
-	red		CDATA	#IMPLIED
-	green		CDATA	#IMPLIED
-	blue		CDATA	#IMPLIED
+	listsymbol          CDATA	#IMPLIED
+	font        CDATA	#IMPLIED
+	size        CDATA	#IMPLIED
+	style       CDATA	#IMPLIED
+	color       CDATA   #IMPLIED
+	red         CDATA	#IMPLIED
+	green       CDATA	#IMPLIED
+	blue        CDATA	#IMPLIED
 >
 <!ELEMENT listitem (#PCDATA | anchor | phrase | list | chunk | annotation | newline | newpage | image)*> 
 <!ATTLIST listitem
-	leading		CDATA	#IMPLIED
-	font            CDATA	#IMPLIED
+	leading     CDATA	#IMPLIED
+	font        CDATA	#IMPLIED
 	size		CDATA	#IMPLIED
 	style		CDATA	#IMPLIED
-	red		CDATA	#IMPLIED
-	green		CDATA	#IMPLIED
-	blue		CDATA	#IMPLIED
-	align		CDATA	#IMPLIED
-	left		CDATA	#IMPLIED
-	right		CDATA	#IMPLIED
+	color       CDATA   #IMPLIED
+	red         CDATA	#IMPLIED
+	green       CDATA	#IMPLIED
+	blue        CDATA	#IMPLIED
+	align       CDATA	#IMPLIED
+	left        CDATA	#IMPLIED
+	right       CDATA	#IMPLIED
 >
 <!ELEMENT table (cell*)>
 <!ATTLIST table
@@ -110,9 +116,11 @@
     right           CDATA   #IMPLIED
     top             CDATA   #IMPLIED
     bottom          CDATA   #IMPLIED
+	bordercolor     CDATA   #IMPLIED
     red             CDATA   #IMPLIED
     green           CDATA   #IMPLIED
     blue            CDATA   #IMPLIED
+	color           CDATA   #IMPLIED
     bgred           CDATA   #IMPLIED
     bggreen         CDATA   #IMPLIED
     bgblue          CDATA   #IMPLIED
@@ -134,9 +142,11 @@
     right           CDATA   #IMPLIED
     top             CDATA   #IMPLIED
     bottom          CDATA   #IMPLIED
+	bordercolor     CDATA   #IMPLIED
     red             CDATA   #IMPLIED
     green           CDATA   #IMPLIED
     blue            CDATA   #IMPLIED
+	color           CDATA   #IMPLIED
     bgred           CDATA   #IMPLIED
     bggreen         CDATA   #IMPLIED
     bgblue          CDATA   #IMPLIED
