@@ -15,23 +15,6 @@ H1 {
 	color: #8F8F8F;
 }
 
-.chapter {
-	display: block;
-	font-size: 12pt;
-	font-weight: bold;
-	color: #8F8F8F;
-}
-
-.toc {
-	color: #FFFFFF;
-	font-size: 12pt;
-	font-weight: bold;
-	display: block;
-	padding: 5px;
-	border: outset #8F8F8F;
-	background-color: #817BBD;
-}
-
 H2 {
 	display: block;
 	text-align: right;
@@ -80,6 +63,24 @@ li {
 	padding: 5px;
 }
 
+.toc {
+	color: #FFFFFF;
+	font-size: 12pt;
+	font-weight: bold;
+	display: block;
+	padding: 5px;
+	border: outset #8F8F8F;
+	background-color: #817BBD;
+}
+
+.chapter {
+	margin-top: 5px;
+	display: block;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #4D4970;
+}
+
 .commercial {
 	float: left;
 	width: 125px;
@@ -121,7 +122,7 @@ a:hover  {
 
 .example {
 	padding: 3px;
-	border-top: dotted #FFFFFF 1px;
+	border-top: dotted #AFAFAF 1px;
 }
 
 .source {
