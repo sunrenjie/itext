@@ -98,6 +98,45 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><A NAME="graphic"><B>Graphic</B></A></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+			If you want to add graphics, such as lines, circles, geometrical forms, you can read
+			<A HREF="ch10.html#graphics">Chapter 10</A>, but if you only need very limited functionality,
+			you can also use the <FONT FACE="Courier">Graphic</FONT>-object.<br><br>
+			<FONT FACE="Courier">
+			Graphic grx = new Graphic();<br>
+			// add a rectangle<br>
+			grx.rectangle(100, 700, 100, 100);<br>
+			// add the diagonal<br>
+			grx.moveTo(100, 700);<br>
+			grx.lineTo(200, 800);<br>
+			// stroke the lines<br>
+			grx.stroke();<br>
+			document.add(grx);<br>
+			</FONT><br>
+			This is demonstrated in <A HREF="http://www.lowagie.com/iText/examples/Chap0404.java">example 4</A>
+			(<A HREF="http://www.lowagie.com/iText/examples/Chap0404.pdf">Chap0404.pdf</A>).
+			For a complete overview of all the methods, please consult the
+			<a href="http://itext.sourceforge.net/docs/com/lowagie/text/pdf/PdfContentByte.html">API of class
+            PdfContentByte</A> of which the <FONT FACE="Courier">Graphic</FONT>-object is derived.<br><br>
+			The <FONT FACE="Courier">Graphic</FONT>-object can also be useful if you want to draw a border around
+			your page or if you want to insert a horizontal line at the current position in the text.<br>
+			The following methods draw a border with a certain width, a certain spacing and (if needed) a certain color:<br><br>
+			<FONT FACE="Courier">
+			public void setBorder(float linewidth, float extraSpace);<br>
+			public void setBorder(float linewidth, float extraSpace, Color color);<br>
+			</FONT><br>
+			These methods draw a horizontal line with a certain width and (if needed) a certain color.
+			The length of the line is a certain percentage of the available space between the
+			margins. The line is always centered:
+			<br><br>
+			<FONT FACE="Courier">
+			public void setHorizontalLine(float linewidth, float percentage)<br>
+			public void setHorizontalLine(float linewidth, float percentage, Color color)<br>
+			</FONT><br>
+			<A HREF="http://www.lowagie.com/iText/examples/Chap0405.java">Example 5</A>
+			(<A HREF="http://www.lowagie.com/iText/examples/Chap0405.pdf">Chap0405.pdf</A>)
+			has a border of 3 points, 5 points inside the margins. There are also two horizontal
+			lines, one in black of 5 points that takes 100% of the available space, another in
+			red of 3 points that takes only 80% of the available space.
             <BR>
             </FONT><BR><BR><BR>
 		</TD>
