@@ -49,6 +49,14 @@
 		<ant antfile="compile.xml" inheritAll="false" target="jar.debug" />
 	</target>
 	
+	<target name="javadoc">
+		<ant antfile="site.xml" inheritAll="false" target="javadoc" />
+	</target>
+	
+	<target name="docs.tar.gz">
+		<ant antfile="site.xml" inheritAll="false" target="docs.tar.gz" />
+	</target>
+	
 	<target name="lowagie.com">
 		<ant antfile="site.xml" inheritAll="false" target="lowagie.com" />
 	</target>

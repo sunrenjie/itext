@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title>iText &amp; ANT</site:title>
+		<site:summary>How-to use ANT to compile, download ant document iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, download, compile, release, ANT, examples, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="1930110588">Java Development With Ant</site:book>
+			<site:book asin="0596001843">Ant: The Definitive Guide</site:book>
+		</site:amazonbooks>
+	</site:metadata>
+	<site:content>
+	<div>
+	<div class="header">iText ANT scripts</div>
+<div class="title">A Neat Tool (What is ANT?)</div>
+iText comes with a handful of ANT scripts that makes it easy for the developers of iText to compile the code, make a new release,
+build their site(s). But those scripts are useful for iText users too.
+<blockquote>Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles.</blockquote>
+If you want to download or install ant, please go to the <a href="http://ant.apache.org/">ANT site @ Apache.org</a>. On this page,
+you will only find how to use ANT in the context of the iText project.
+<div class="title">build.xml</div>
+Every self respecting JAVA project has its build.xml file.
+If you look at the iText <a href="ant/build.xml">build.xml</a> file,
+you will see that the master build.xml calls different subscripts.
+You can call most of the targets from this master build.xml,
+but for some of the specialized (hidden) targets, you will need to
+call the subscript directly with <span class="commandline">build -f</span>.
+The default target of the build.xml is 'help' and this is what you get if
+you call this target:<br />
+<pre class="commandline">
+Buildfile: build.xml
+
+help:
+     [echo] Using ANT for iText
+
+
+help:
+     [echo] DOWNLOADING iText (download.xml)
+     [echo] ant download: downloads the source code needed to build a release
+     [echo] ant download.bin: downloads some precompiled jars and zips
+     [echo] ant download.site: downloads the website
+
+
+help:
+     [echo] COMPILING AND JARRING THE CODE (compile.xml)
+     [echo] ant compile: compiles iText
+     [echo] ant compile.debug: compiles iText and allows you to debug the code
+     [echo] ant jar: compiles and jars iText
+     [echo] ant jar.debug: compiles for debugging and jars iText
+
+
+help:
+     [echo] BUILDING THE iText SITE (site.xml)
+     [echo] ant javadoc: Building the API documentation
+     [echo] ant docs.tar.gz: Building and jarring the API documentation
+     [echo] ant lowagie.com: Building the lowagie.com part
+
+
+BUILD SUCCESSFUL
+Total time: 1 second</pre>
+<div class="title">download.xml</div>
+UNDER CONSTRUCTION
+<div class="title">compile.xml</div>
+UNDER CONSTRUCTION
+<div class="title">site.xml</div>
+UNDER CONSTRUCTION
+	</div>
+	</site:content>
+</site:page>
