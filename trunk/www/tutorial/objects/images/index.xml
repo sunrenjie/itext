@@ -81,20 +81,6 @@
 			<site:description>images and annotations.</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="ImageSequence" standalone="yes" />
-			<site:externalresource>otsoe.jpg</site:externalresource>
-			<site:externalresource>getacro.gif</site:externalresource>
-			<site:result>inSequence.pdf</site:result>
-			<site:result>NotInSequence.pdf</site:result>
-			<site:description>Adds images to a document, once respecting the order in which they were added, once in the default order.</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="ImageMasks" standalone="yes" />
-			<site:externalresource>otsoe.jpg</site:externalresource>
-			<site:result>maskedImages.pdf</site:result>
-			<site:description>Applying a mask to an image.</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="DvdCover" standalone="yes" />
 			<site:externalresource>sunflower-front.jpg</site:externalresource>
 			<site:externalresource>sunflower-back.jpg</site:externalresource>
@@ -105,6 +91,31 @@
 			<site:argument>sunflower-back.jpg</site:argument>
 			<site:result>dvdcover.pdf</site:result>
 			<site:description>Make a DVD Cover.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ImageSequence" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>getacro.gif</site:externalresource>
+			<site:result>inSequence.pdf</site:result>
+			<site:result>NotInSequence.pdf</site:result>
+			<site:description>Adds images to a document, once respecting the order in which they were added, once in the default order.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ImageChunks" standalone="yes" />
+			<site:externalresource>pngnow.png</site:externalresource>
+			<site:result>imageChunks.pdf</site:result>
+			<site:description>Images wrapped in a Chunk.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="TemplateImages" standalone="yes" />
+			<site:result>templateImages.pdf</site:result>
+			<site:description>Templates used as image.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="ImageMasks" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>maskedImages.pdf</site:result>
+			<site:description>Applying a mask to an image.</site:description>
 		</site:example>
 	</site:examples>
 	
@@ -121,6 +132,7 @@
 <li><b>WMF:</b> Windows Metafile Format. A vector graphics format for Windows-compatible computers used mostly for word-processing clip art.</li>
 <li>basic support for <b>EPS:</b> Encapsulated PostScript; a graphics format that describes an image in the PostScript language.</li>
 <li><b>java.awt.Image:</b> a JAVA object that is in the JDK from SUN</li>
+<li><b>com.lowagie.text.pdf.PdfTemplate:</b> a sequence of PDF syntax, defined in a PdfTemplate can be wrapped in an Image</li>
 </ul>
 <site:source class="Images" />
 </div>

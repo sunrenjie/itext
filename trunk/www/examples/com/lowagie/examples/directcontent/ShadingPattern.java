@@ -58,7 +58,6 @@ public class ShadingPattern {
             PdfShading shadingR = PdfShading.simpleRadial(writer, 200, 500, 50, 300, 500, 100, new Color(255, 247, 148), new Color(247, 138, 107), false, false);
             cb.paintShading(shadingR);
             document.close();
-            System.out.println("The End");
         }
         catch (Exception de) {
             de.printStackTrace();

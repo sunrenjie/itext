@@ -38,7 +38,7 @@ public class ImageMasks {
      * @param args no arguments needed
      */
     public static void main(String[] args) {
-        System.out.println("asked images");
+        System.out.println("masked images");
         
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
