@@ -47,11 +47,13 @@ public class Chap0603 {
 
 			PdfWriter.getInstance(document, new FileOutputStream("Chap0603.pdf"));
 			HtmlWriter writer = HtmlWriter.getInstance(document, new FileOutputStream("Chap0603.html"));
-			writer.setBasepath("../../images/kerstmis/");
+			
+			writer.setImagepath("../../images/kerstmis/");
 
 			// step 3: we open the document
 			document.open();
-
+			
+			// step 4: we add content
 			Image jpg = Image.getInstance("raf.jpg");
 			jpg.scalePercent(50);
 			document.add(jpg);
