@@ -62,10 +62,10 @@ to the upper left corner. All measurements are done in points.
 This is not an iText specific choice. All this is documented in the PDF Reference Manual,
 section 4.2 Coordinate Systems.
 <site:source class="XandYcoordinates" />
-Remark: if you measure the locations on the page, you will see that the distances
-measured from the bottom or the left side of the page are not always correct.
-Adobe's print dialog has several options (like "fit to paper") that change
-the printed result.
+If you print the resulting PDF of the example and measure the locations on the page,
+you will see that the distances measured from the bottom or the left side of the page
+are not always correct. Adobe's print dialog has several options (like "fit to paper")
+that change the printed result, so be careful!<br />
 </div>
 	</site:section>
 	
