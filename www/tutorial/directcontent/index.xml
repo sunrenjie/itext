@@ -159,14 +159,7 @@ Other examples: PdfPTable, Images,...
 
 createTemplate createAppearance
 
-<table>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image)">addImage(com.lowagie.text.Image)</site:doc></td>
-</tr>
-<tr>
-<td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="addImage(com.lowagie.text.Image,%20float,%20float,%20float,%20float,%20float,%20float)">addImage(com.lowagie.text.Image,%20float,%20float,%20float,%20float,%20float,%20float)</site:doc></td>
-</tr>
-</table>
+
 </div>
 	</site:section>
 	</site:chapter>
