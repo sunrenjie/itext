@@ -9,7 +9,6 @@
 		<site:amazonbooks>
 			<site:book asin="0201379228">PostScript(R) Language Reference (3rd Edition)</site:book>
 			<site:book asin="0201101793">PostScript(R) Language Tutorial and Cookbook</site:book>
-			<site:book asin="0240806050">File Interchange Handbook : For professional images, audio and metadata</site:book>
 			<site:book asin="0943779502">Getting Started With Bar Codes: A Systematic Guide</site:book>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
