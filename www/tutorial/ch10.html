@@ -64,9 +64,10 @@
 			method <font face="Courier">getInstance</font> on class <font face="Courier">PdfWriter</font>, you
 			must actually have a <font face="Courier">PdfWriter</font>-object. You can obtain this object by using
 			the method <font face="Courier">getDirectContent()</font> on this writer-object.<br>
+            <B>Example:</B><BR>
 			<font face="Courier">
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));<br>
-			PdfContentByte cb = writer.getDirectContentByte();<br>
+			PdfContentByte cb = writer.getDirectContent();<br>
 			</font>
 			</FONT><BR>
 		</TD>
@@ -75,6 +76,67 @@
 		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
 			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Graphics</B></FONT><BR>
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            In <A HREF="Chap1001.java">example 1</A>, some simple graphics are drawn.
+            We use methods such as <FONT FACE="Courier">moveTo</FONT> and <FONT FACE="Courier">lineTo</FONT>
+            to move to a certain position on the page and draw a line to another position.
+            We use methods such as <FONT FACE="Courier">setLineWith</FONT> and
+            <FONT FACE="Courier">setLineDash</FONT> to alter the appearance of the line.<br>
+            <B>Example:</B><BR>
+            <FONT FACE="Courier">
+            cb.setLineWidth(10f);<BR>
+			cb.moveTo(100, 700);<BR>
+			cb.lineTo(200, 800);<BR>
+			cb.stroke();
+            </FONT>
+            <br><br>
+			<TABLE WIDTH="85%" ALIGN="center">
+				<TR>
+				<TD BGCOLOR="#CFCFCF">
+				<FONT FACE="Arial,Helvetica" SIZE="-1">
+				<b>Remark:</b><br>
+				When you change the properties such as color, linewidth,... these changes will been
+                taken into account on the moment you call one of the <FONT FACE="Courier">stroke</FONT>-methods.
+                In the example with the triangle, we set the color to green, but before we stroke the triangle
+                we change it to red. The resulting triangle will be red, not green.
+				</FONT>
+				</TD>
+				</TR>
+			</TABLE><BR>
+            As you can see in the <A HREF="Chap1001.pdf">resulting PDF</A> some other
+            methods such as <FONT FACE="Courier">rectangle</FONT> and <FONT FACE="Courier">circle</FONT>
+            are used. Please consult the welldocumented <a href="http://itext.sourceforge.net/docs/com/lowagie/text/pdf/PdfContentByte.html">API of class
+            PdfContentByte</A> and the PDF Reference manual for more info.
+			</FONT><BR><BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="5" BGCOLOR="#FFFFFF">
+			<FONT FACE="Arial,Helvetica" COLOR="#008080"><B>Text</B></FONT><BR>
+			<FONT FACE="Arial,Helvetica" SIZE="-1">
+            When you want to write text to the contentbyte, you have to use the methods
+            <FONT FACE="Courier">beginText()</FONT> and <FONT FACE="Courier">endText()</FONT>.
+            You also have to set the font and size. As in the graphics example, there are lots
+            of methods that can be used to write and position text, but the ones you will need
+            the most are the method <FONT FACE="Courier">showTextAligned</FONT> and the method
+            <FONT FACE="Courier">showText</FONT> in combination with <FONT FACE="Courier">setTextMatrix</FONT>.<br>
+            <B>Example 1:</B><br>
+            <FONT FACE="Courier">
+            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);&nbsp;
+            cb.beginText();<BR>
+            cb.setFontAndSize(bf, 12);<BR>
+            cb.showTextAligned(PdfContentByte.ALIGN_CENTER, text + "This text is centered", 250, 700, 0);<BR>
+            cb.endText();
+            </FONT><BR>
+            <B>Example 2:</B><br>
+            <FONT FACE="Courier">
+            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);<BR>
+            cb.beginText();<BR>
+            cb.setFontAndSize(bf, 12);<BR>
+            cb.setTextMatrix(100, 400);<BR>
+            cb.showText("Text at position 100,400.");<BR>
+            cb.endText();
+            </FONT><BR>
+            Please take a look at <a href="Chap1002.java">example 2</A> and its <A HREF="Chap1002.pdf">resulting PDF</A>.
 			</FONT><BR><BR><BR>
 		</TD>
 	</TR>

@@ -28,6 +28,7 @@ import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfContentByte;
 
 public class Chap1001 {
 
@@ -43,23 +44,44 @@ public class Chap1001 {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to a file
-
-			PdfWriter.getInstance(document, new FileOutputStream("Chap1001.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap1001.pdf"));
 
 			// step 3: we open the document
 			document.open();
 
-			// step 4: we add a Graphic to the document
-			Graphic grx = new Graphic();
-			// add a rectangle
-			grx.rectangle(100, 700, 100, 100);
+			// step 4: we grab the ContentByte and do some stuff with it
+            PdfContentByte cb = writer.getDirectContent();
+            
+            // an example of a rectangle with a diagonal in very thick lines
+			cb.setLineWidth(10f);
+            // draw a rectangle
+            cb.rectangle(100, 700, 100, 100);
 			// add the diagonal
-			grx.moveTo(100, 700);
-			grx.lineTo(200, 800);
+			cb.moveTo(100, 700);
+			cb.lineTo(200, 800);
 			// stroke the lines
-			grx.stroke();
-			document.add(grx); 
-
+			cb.stroke();
+            
+            // an example of some circles
+            cb.setLineDash(3, 3, 0);
+            cb.setRGBColorStrokeF(0f, 255f, 0f);
+            cb.circle(150f, 500f, 100f);
+            cb.stroke();
+            
+ 			cb.setLineWidth(5f);           
+            cb.resetRGBColorStroke();
+            cb.circle(150f, 500f, 50f);
+            cb.stroke();
+            
+            // example with colorfill
+            cb.setRGBColorFillF(0f, 255f, 0f);
+            cb.moveTo(100f, 200f);
+            cb.lineTo(200f, 250f);
+            cb.lineTo(400f, 150f);
+            // because we change the fill color BEFORE we stroke the triangle
+            // the color of the triangle will be red instead of green
+            cb.setRGBColorFillF(255f, 0f, 0f);
+            cb.closePathFillStroke();
 		}
 		catch(DocumentException de) {
 			System.err.println(de.getMessage());
