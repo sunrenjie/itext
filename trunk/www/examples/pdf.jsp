@@ -33,5 +33,6 @@ document.close();
 // step 6: we output the writer as bytes to the response output
 DataOutput output = new DataOutputStream( response.getOutputStream() );
 byte[] bytes = buffer.toByteArray();
+response.setContentLength(bytes.length);
 for( int i = 0; i < bytes.length; i++ ) { output.writeByte( bytes[i] ); }
 %>
