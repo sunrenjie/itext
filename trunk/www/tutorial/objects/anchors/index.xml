@@ -261,7 +261,7 @@ Annotation annot = new Annotation(
 	"C://windows/notepad.exe", null, null, null);</pre>
 </li>
 <li>
-<b>Media Clip:</b> you can specify a rectangle and a movie file and its MIMETYPE. You also need to specify if the clips needs to be shown on display of the page.
+<b>Media Clip:</b> you can specify a rectangle and a movie file and its MIMETYPE. You also need to specify if the clips needs to be shown on display of the page (since PDF 1.5).
 <pre class="commandline">new Annotation(200f, 700f, 300f, 800f, "cards.mpg", "video/mpeg", true);</pre>
 </li>
 
@@ -269,8 +269,10 @@ Annotation annot = new Annotation(
 <site:source class="SimpleAnnotations" />
 As an alternative for using the <site:doc class="com.lowagie.text.Annotation" target="constructor_summary">Annotation constructors</site:doc>,
 you can use the constructor in <site:doc class="com.lowagie.text.pdf.PdfAnnotation" target="PdfAnnotation(com.lowagie.text.pdf.PdfWriter,%20float,%20float,%20float,%20float,%20com.lowagie.text.pdf.PdfAction)">class PdfAnnotation</site:doc>.
-As you can pass any action to this constructor, you have a more options then with class <site:doc class="com.lowagie.text.Annotation">Annotation</site:doc>.
+As you can pass any action to this constructor, you have a more options than with class <site:doc class="com.lowagie.text.Annotation">Annotation</site:doc>.
 <site:doc class="com.lowagie.text.pdf.PdfAnnotation">PdfAnnotation</site:doc> also has lots of static methods that allow you to create specific annotations.
+In the example below some more complex features are presented using the constructor and static methods
+of PdfAnnotation, but keep in mind that some of these features only work since PDF version 1.5.
 <site:source class="Annotations" />
 </div>
 	</site:section>
