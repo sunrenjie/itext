@@ -19,17 +19,13 @@
  */
 
 import java.io.*;
-
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 
-public class Chap0112 {
-    
-    
+public class Chap13_pdfreader {
+
     public static void main(String[] args) {
-        
-        System.out.println("Chapter 1 example 12: reading an existing PDF file");
-        
+        System.out.println("Chapter 13 example pdfreader: reading an existing PDF file");
         try {
             // we create a reader for a certain document
             PdfReader reader = new PdfReader("Chap0703.pdf");
@@ -43,7 +39,7 @@ public class Chap0112 {
             // step 1: creation of a document-object
             Document document = new Document(psize, 50, 50, 50, 50);
             // step 2: we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap0112.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Chap13_pdfreader.pdf"));
             // step 3: we open the document
             try {
                 Watermark watermark = new Watermark(Image.getInstance("watermark.jpg"), 200, 320);
