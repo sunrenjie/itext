@@ -32,7 +32,7 @@
 
  *
 
- * itext@lowagie.com
+ * itext-questions@lists.sourceforge.net
 
  */
 

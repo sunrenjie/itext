@@ -15,7 +15,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * itext@lowagie.com
+ * itext-questions@lists.sourceforge.net
  */
 import java.awt.Color;
 import java.io.*;
