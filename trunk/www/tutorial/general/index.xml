@@ -73,7 +73,7 @@ In the following sections, we will take a closer look into each step.
 </div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="step1">
 		<site:sectiontitle>step 1: the Document object</site:sectiontitle>
 <div>
 Class <site:src class="com.lowagie.text.Document" /> has <site:doc class="com.lowagie.text.Document" target="constructor_summary">3 constructors</site:doc>:
@@ -115,19 +115,19 @@ If you want to know more about the measurement unit, see the <site:tutorial chap
 </div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="step2">
 		<site:sectiontitle>step 2: the Writer object</site:sectiontitle>
 		<div>
 		</div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="step3">
 		<site:sectiontitle>step 3: metadata + opening the document</site:sectiontitle>
 		<div>
 		</div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="step4">
 		<site:sectiontitle>step 4: adding content</site:sectiontitle>
 		<div>
 There are different ways to add content to a PDF file.
@@ -148,7 +148,7 @@ also possible. You can read more about this elsewhere in the tutorial.
 		</div>
 	</site:section>
 	
-	<site:section>
+	<site:section name="step5">
 		<site:sectiontitle>step 5: closing the document</site:sectiontitle>
 		<div>
  Closing the document is very important, because it flushes and closes the outputstream to which the writer is writing. The close-method is called in the finalize-method, but you shouldn't count on that. You should always close the document yourself!
