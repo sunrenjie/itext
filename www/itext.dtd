@@ -126,7 +126,21 @@
     indentationright   CDATA   #IMPLIED
 >
 
-<!ELEMENT title (#PCDATA | newline | newpage | phrase | chunk | annotation)*>
+<!ELEMENT title (#PCDATA | newline | newpage | phrase | chunk | annotation)*> 
+<!ATTLIST title
+    font   CDATA   #IMPLIED
+    size   CDATA   #IMPLIED
+    style  CDATA   #IMPLIED
+    color  CDATA   #IMPLIED
+    red    CDATA   #IMPLIED
+    green  CDATA   #IMPLIED
+    blue   CDATA   #IMPLIED
+    leading    CDATA   #IMPLIED
+    align              CDATA   #IMPLIED
+    indentationleft    CDATA   #IMPLIED
+    indentationright   CDATA   #IMPLIED
+>
+
 <!ELEMENT sectioncontent (#PCDATA | newline | newpage | chunk | anchor | list | table | annotation | section | paragraph | phrase | image)*>
 
 <!ELEMENT table (cell*)>

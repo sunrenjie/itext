@@ -16,7 +16,7 @@
 
     <target name="compile" depends="properties">
         <mkdir dir="${itext.classes}" />
-        <javac srcdir="${itext.src}" destdir="${itext.classes}" excludes="com/lowagie/text/xml/*.java" />
+        <javac srcdir="${itext.src}" destdir="${itext.classes}" excludes="com/lowagie/text/xml/*.java,com/lowagie/text/html/HtmlParser.java,com/lowagie/text/html/HtmlPeer.java,com/lowagie/text/html/HtmlTagMap.java,com/lowagie/text/html/SAXmyHtmlHandler.java" />
     </target>
 	
 	<target name="compileWithXML" depends="properties">
@@ -28,16 +28,16 @@
     <target name="jar" depends="compile, properties">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
-        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="/com/lowagie/text/xml/*.class" />
+        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
 		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
 
     <target name="jarWithXML" depends="compileWithXML, properties">
         <mkdir dir="${itext.dist}" />
         <mkdir dir="${itext.bin}" />
-        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="**/com/lowagie/text/xml/*.class" />
+        <jar jarfile="${itext.dist}/iText.jar" basedir="${itext.classes}" excludes="/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
 		<copy file="${itext.dist}/iText.jar" todir="${itext.bin}" overwrite="yes" />
-        <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="com/lowagie/text/xml/*.class" />
+        <jar jarfile="${itext.dist}/iTextXML.jar" basedir="${itext.classes}" includes="**/com/lowagie/text/xml/*.class,**/HtmlPeer.class,**/HtmlParser.class,**/HtmlTagMap.class,**/SAXmyHtmlHandler.class" />
 		<copy file="${itext.dist}/iTextXML.jar" todir="${itext.bin}" overwrite="yes" />
     </target>
 
@@ -79,7 +79,7 @@ just press enter when asked for it</echo>
 		<cvs cvsroot="${itext.cvsroot}" package="src" dest="${itext.home}" />
 	</target>
     
-    <target name="get" depends="properties, checkout">
+    <target name="download" depends="properties, checkout">
         <mkdir dir="${itext.bin}" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
     </target>
