@@ -28,12 +28,51 @@
 			<site:description>Adds different formats of images to a document.</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="RawData" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>rawdata.pdf</site:result>
+			<site:description>Using raw image data to construct an Image object.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="AwtImage" standalone="yes" />
+			<site:externalresource>H.gif</site:externalresource>
+			<site:result>awt_image.pdf</site:result>
+			<site:description>Using a java.awt.Image object to construct an Image object.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Alignment" standalone="yes" />
+			<site:externalresource>vonnegut.gif</site:externalresource>
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>hitchcock.png</site:externalresource>
+			<site:result>alignment.pdf</site:result>
+			<site:description>Alignment of images.</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="ImagesAlignment" standalone="yes" />
 			<site:externalresource>vonnegut.gif</site:externalresource>
 			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:externalresource>hitchcock.png</site:externalresource>
 			<site:result>imagesAlignment.pdf</site:result>
 			<site:description>Alignment and wrapping of images.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Scaling" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>scaling.pdf</site:result>
+			<site:description>Scaling images.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Rotating" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:result>rotating.pdf</site:result>
+			<site:description>Rotating images.</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="AnnotatedImage" standalone="yes" />
+			<site:externalresource>otsoe.jpg</site:externalresource>
+			<site:externalresource>iText.wmf</site:externalresource>
+			<site:result>annotated_images.pdf</site:result>
+			<site:description>images and annotations.</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DvdCover" standalone="yes" />
