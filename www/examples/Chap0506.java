@@ -30,7 +30,7 @@ import com.lowagie.text.pdf.PdfWriter;
 
 public class Chap0506 {
     public static void main(String[] args) {
-        System.out.println("Chapter 5 example 6: spacing and padding");
+        System.out.println("Chapter 5 example 6: spacing, padding, alignment");
         // step 1: creation of a document-object
         Document document = new Document();
         try {
@@ -62,6 +62,8 @@ public class Chap0506 {
             cell = new Cell("big cell");
             cell.setRowspan(2);
             cell.setColspan(2);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
             table.addCell(cell);
             table.addCell("cell test2");
