@@ -15,7 +15,7 @@
 	<site:content>
 	<div>
 	<div class="header">iText ANT scripts</div>
-<div class="title">A Neat Tool (What is ANT?)</div>
+<div class="title">Another Neat Tool (What is ANT?)</div>
 iText comes with a handful of ANT scripts that makes it easy for the developers of iText to compile the code, make a new release,
 build their site(s). But those scripts are useful for iText users too.
 <blockquote>Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles.</blockquote>

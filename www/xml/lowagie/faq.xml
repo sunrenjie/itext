@@ -3,9 +3,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>iText &amp; ANT</site:title>
-		<site:summary>How-to use ANT to compile, download ant document iText.</site:summary>
-		<site:keywords>PDF, JAVA, iText, download, compile, release, ANT, examples, Lowagie, Bruno</site:keywords>
+		<site:title>FAQ</site:title>
+		<site:summary>Frequently Asked Questions about iText</site:summary>
+		<site:keywords>PDF, JAVA, iText, FAQ, Lowagie, Bruno</site:keywords>
 		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
