@@ -81,6 +81,13 @@ just press enter when asked for it</echo>
     
     <target name="download" depends="properties, checkout">
         <mkdir dir="${itext.bin}" />
+        <get src="http://www.lowagie.com/iText/examples/H.gif" dest="${itext.www}/examples/H.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/caesar_coin.jpg" dest="${itext.www}/examples/caesar_coin.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/hitchcock.png" dest="${itext.www}/examples/hitchcock.png" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/myKids.jpg" dest="${itext.www}/examples/myKids.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/raf.jpg" dest="${itext.www}/examples/raf.jpg" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/vonnegut.gif" dest="${itext.www}/examples/vonnegut.gif" verbose="true" />
+        <get src="http://www.lowagie.com/iText/examples/watermark.jpg" dest="${itext.www}/examples/watermark.jpg" verbose="true" />
         <get src="http://www.lowagie.com/iText/downloads/xerces_1_3_1.jar" dest="${itext.bin}/xerces_1_3_1.jar" verbose="true" />
     </target>
 	
