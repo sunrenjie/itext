@@ -36,7 +36,6 @@
 		<site:chapter path="objects/chunk" />
 		<site:chapter path="objects/anchors" />
 		<site:chapter path="objects/bookmarks" />
-		<site:chapter path="objects/fonts" />
 		<site:chapter path="objects/images" />
 		<site:chapter path="objects/images/tiff" />
 		<site:chapter path="objects/tables" />
@@ -45,25 +44,27 @@
 		<site:chapter path="objects/columns" />
 	</site:part>
 	<site:part name="part3">
-		<site:title>Part III: Graphics and Text at Absolute Positions</site:title>
+		<site:title>Part III: Fonts</site:title>
+		<site:chapter path="fonts" />
+		<site:chapter path="fonts/styles" />
+		<site:chapter path="fonts/getting" />
+	</site:part>
+	<site:part name="part4">
+		<site:title>Part IV: Graphics and Text at Absolute Positions</site:title>
 		<site:chapter path="directcontent" />
 		<site:chapter path="directcontent/coordinates" />
 		<site:chapter path="directcontent/graphics" />
 		<site:chapter path="directcontent/colors" />
 		<site:chapter path="directcontent/text" />
-		<site:chapter path="directcontent/fonts" />
 		<site:chapter path="directcontent/pageevents" />
 		<site:chapter path="directcontent/optionalcontent" />
 		<site:chapter path="directcontent/graphics2D" />
 	</site:part>
-	<site:part name="part4">
-		<site:title>Part IV: Reading, Encrypting, Manipulating PDF files</site:title>
-	</site:part>
 	<site:part name="part5">
-		<site:title>Part V: PDF Forms</site:title>
+		<site:title>Part V: Reading, Encrypting, Manipulating PDF files</site:title>
 	</site:part>
 	<site:part name="part6">
-		<site:title>Part VI: Signing PDFs</site:title>
+		<site:title>Part VI: Interactive Features</site:title>
 	</site:part>
 	<site:part name="part7">
 		<site:title>Part VII: RTF</site:title>

@@ -250,7 +250,7 @@ is only supported in PDF, not in RTF or HTML. If you add a <site:docs class="com
 to a Document, the listening <site:docs class="com.lowagie.text.rtf.RtfWriter2">RtfWriter</site:docs>s or <site:docs class="com.lowagie.text.html.HtmlWriter">HtmlWriter</site:docs>s
 will ignore this.<br />
 If you don't need RTF or HTML, you can also add content at
-<site:tutorial chapter="" section="part3">absolute positions</site:tutorial>.
+<site:tutorial chapter="" section="part4">absolute positions</site:tutorial>.
 A lot of the standard PDF syntax is supported in iText, so you can do some
 very powerful things with the library.<br />
 Adding content using the <site:docs class="com.lowagie.text.pdf.PdfGraphics2D">PdfGraphics2D</site:docs>-object

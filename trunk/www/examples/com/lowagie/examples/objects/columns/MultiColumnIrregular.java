@@ -30,8 +30,15 @@ import com.lowagie.text.pdf.MultiColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
+/**
+ * An example using MultiColumnText with irregular columns.
+ */
 public class MultiColumnIrregular {
 
+    /**
+     * An example using MultiColumnText with irregular columns.
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
         try {
         	// step 1

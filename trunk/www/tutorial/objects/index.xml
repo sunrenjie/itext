@@ -111,7 +111,7 @@ For the complete functionality on this object, please read the <site:tutorial ch
 Functionalities such as subscript, superscript, underline and background are demonstrated in the following example:
 <site:source class="Chunks" />
 There is a complete chapter on the <site:tutorial chapter="/objects/chunk">Chunk object</site:tutorial> if you need to know more about Chunks.
-Also related are the chapters on <site:tutorial chapter="/objects/anchors">Anchors</site:tutorial> and <site:tutorial chapter="/objects/fonts">Fonts</site:tutorial>.
+Also related are the chapters on <site:tutorial chapter="/objects/anchors">Anchors</site:tutorial> and <site:tutorial chapter="/fonts">Fonts</site:tutorial>.
 </div>
 	</site:section>
 	<site:section name="paragraph">

@@ -26,8 +26,15 @@ import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 
+/**
+ * Writes text in a column that can be added at an absolute position.
+ */
 public class ColumnSimple {
     
+    /**
+     * Demonstrating the use of ColumnText
+     * @param args no arguments needed
+     */
     public static void main(String[] args) {
         
         System.out.println("Simple Column");
@@ -86,9 +93,12 @@ public class ColumnSimple {
         // step 5: we close the document
         document.close();
     }
-    
+
+    /** a string array we want to output. */
     public static String[] uni = new String[27];
+    /** a string array we want to output. */
     public static String[] code = new String[27];
+    /** a string array we want to output. */
     public static String[] name = new String[27];
     
     static {

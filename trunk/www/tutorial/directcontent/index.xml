@@ -92,7 +92,7 @@ operators could be grouped with the graphics state or painting operators. (...)<
 <div class="small">For more info on how iText deals with this, see:
 <ul>
 <li><site:tutorial chapter="/directcontent/text">Text</site:tutorial></li>
-<li><site:tutorial chapter="/objects/fonts">Fonts</site:tutorial></li>
+<li><site:tutorial chapter="/fonts">Fonts</site:tutorial></li>
 </ul></div></li>
 <li><i>Marked-content operators</i> associate higher-level logical information
 with objects in the content stream. This information does not affect the rendered

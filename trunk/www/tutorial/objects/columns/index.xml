@@ -43,6 +43,11 @@
 			<site:description>Defining a simple MultiColumnText object</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="MultiColumnR2L" standalone="yes" />
+			<site:result>multicolumnR2L.pdf</site:result>
+			<site:description>Defining a MultiColumnText object that adds its columns from right to left</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="MultiColumnIrregular" standalone="yes" />
 			<site:result>multicolumnirregular.pdf</site:result>
 			<site:description>Defining an irregular MultiColumnText object</site:description>
@@ -66,7 +71,9 @@ a next column.<br /><br />
 To show a certain phrase, centered in a rectangle between the coordinates (100, 300) and (200, 500), we write some code like this:
 <pre class="commandline">PdfContentByte cb = writer.getDirectContent();
 ColumnText ct = new ColumnText(cb);
-ct.setSimpleColumn(phrase, 100, 300, 200, 500, 15, Element.ALIGN_CENTER);
+ct.setSimpleColumn(phrase,
+  100, 300, 200, 500, 15,
+  Element.ALIGN_CENTER);
 ct.go();</pre>
 <site:doc class="com.lowagie.text.pdf.ColumnText" target="setSimpleColumn(com.lowagie.text.Phrase,%20float,%20float,%20float,%20float,%20float,%20int)">setSimpleColumn(com.lowagie.text.Phrase, float, float, float, float, float, int)</site:doc>.
 This specific method only works with content in a
@@ -126,6 +133,8 @@ If you want iText to take care of the distribution of columns over multiple page
 <pre class="commandline">MultiColumnText mct = new MultiColumnText();</pre>
 Otherwise, you specify the height of the column and a Y position; and you will have to check if all the text was displayed.
 <site:source class="MultiColumnSimple" />
+If, for some reason, you want to add the columns from right to left, take a look at this example:
+<site:source class="MultiColumnR2L" />
 MultiColumnText can also be used for irregular columns.
 Just add one or more columns with
 <site:doc class="com.lowagie.text.pdf.MultiColumnText" target="addColumn(float[],%20float[])">addColumn(float[],%20float[])</site:doc>,

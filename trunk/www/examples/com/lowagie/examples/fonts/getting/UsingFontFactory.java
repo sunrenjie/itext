@@ -18,36 +18,36 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.fonts.getting;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.TreeSet;
 
-import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
-import com.lowagie.text.html.HtmlWriter;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.rtf.RtfWriter2;
 
 /**
- * Demonstrates how to underline and strike through text.
+ * Special rendering of Chunks.
  * 
  * @author blowagie
  */
 
-public class ExtraStyles {
+public class UsingFontFactory {
 
 	/**
-	 * Underline or strike through text.
+	 * Special rendering of Chunks.
 	 * 
 	 * @param args no arguments needed here
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("Underline and Strike through.");
+		System.out.println("Fonts in the FontFactory");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -55,27 +55,37 @@ public class ExtraStyles {
 			// step 2:
 			// we create a writer that listens to the document
 			PdfWriter.getInstance(document,
-					new FileOutputStream("ExtraStyles.pdf"));
-			HtmlWriter.getInstance(document,
-					new FileOutputStream("ExtraStyles.html"));
-			RtfWriter2.getInstance(document,
-					new FileOutputStream("ExtraStyles.rtf"));
+					new FileOutputStream("FontFactory.pdf"));
 
 			// step 3: we open the document
 			document.open();
 			// step 4:
-			Font font;
-			Chunk chunk;
-			font = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.UNDERLINE);
-			chunk = new Chunk("underline", font);
-			document.add(chunk);
-			font = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.NORMAL);
-			chunk = new Chunk(" and ", font);
-			document.add(chunk);
-			font = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.STRIKETHRU);
-			chunk = new Chunk("strike through", font);
-			document.add(chunk);
-			
+			String name;
+			Paragraph p = new Paragraph("Font Families", FontFactory.getFont(FontFactory.HELVETICA, 16f));
+			document.add(p);
+			FontFactory.registerDirectories();
+			TreeSet families = new TreeSet(FontFactory.getRegisteredFamilies());
+			for (Iterator i = families.iterator(); i.hasNext(); ) {
+				name = (String) i.next();
+				p = new Paragraph(name);
+				document.add(p);
+			}
+			document.newPage();
+			String quick = "quick brown fox jumps over the lazy dog";
+			p = new Paragraph("Fonts", FontFactory.getFont(FontFactory.HELVETICA, 16f));
+			TreeSet fonts = new TreeSet(FontFactory.getRegisteredFonts());
+			for (Iterator i = families.iterator(); i.hasNext(); ) {
+				name = (String) i.next();
+				p = new Paragraph(name);
+				document.add(p);
+				try {
+					p = new Paragraph(quick, FontFactory.getFont(name, BaseFont.WINANSI, BaseFont.EMBEDDED));
+					document.add(p);
+				}
+				catch (Exception e) {
+					document.add(new Paragraph(e.getMessage()));
+				}
+			}
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {
