@@ -49,6 +49,7 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
             Sometimes you need a link to allow the reader of your document to jump from
             one position in the text to another. You can achieve this with two methods of
+
             class <FONT FACE="Courier">Chunk</FONT>: <FONT FACE="Courier">setLocalGoto</FONT>
             and <FONT FACE="Courier">setLocalDestination</FONT>. Both methods take 1 parameter:
             this is the unique name you want to give to the destination.<BR><BR>
@@ -69,7 +70,7 @@
 			<FONT FACE="Arial,Helvetica" SIZE="-1">
 			<A NAME="anchor"></A>
             <B>anchors again</B><BR>
-            In <A HREF="../examples/ch03.html">Chapter 3</A> we showed how an <FONT FACE="Courier">Anchor</FONT>
+            In <A HREF="ch03.html">Chapter 3</A> we showed how an <FONT FACE="Courier">Anchor</FONT>
             to an external URL could be created. Class <FONT FACE="Courier">Anchor</FONT> extended
             class <FONT FACE="Courier">Phrase</FONT>, so an anchor could contains different chunks
             with different fonts, styles and colors. In advanced iText, there is another way to define
@@ -128,6 +129,7 @@
 			public PdfAction(String application, String parameters, String operation, String defaultDir)<br>
 			</FONT><br>
 			with for instance application equals to "c:/winnt/notepad.exe" (the rest of the parameters can be <FONT FACE="Courier">null</FONT>),
+
 			you can launch NOTEPAD from a link in your PDF document (if you have the notepad executable in the specified directory).<br><br>
 			<A NAME="openaction"><B>Open action</B></A><br>
             You can also trigger an action the moment somebody opens the document.
