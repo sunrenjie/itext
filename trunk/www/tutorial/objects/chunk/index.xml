@@ -31,9 +31,9 @@
 			<site:description>How to change the background color of a Chunk</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="Width" standalone="yes" />
-			<site:result>Width.pdf</site:result>
-			<site:description>How to measure and scale the width of a Chunk</site:description>
+			<site:java src="ChunkColor" standalone="yes" />
+			<site:result>ChunkColor.pdf</site:result>
+			<site:description>Changing the color of a Chunk</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="Rendering" standalone="yes" />
@@ -54,6 +54,16 @@
 			<site:java src="Glossary" standalone="yes" />
 			<site:result>Glossary.pdf</site:result>
 			<site:description>Other use of the Generic tag: register keywords for a glossary</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Width" standalone="yes" />
+			<site:result>Width.pdf</site:result>
+			<site:description>How to measure and scale the width of a Chunk</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="EndOfLine" standalone="yes" />
+			<site:result>EndOfLine.pdf</site:result>
+			<site:description>What happens when the end of the line is reached?</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="SplitChar" standalone="yes" />
@@ -146,6 +156,189 @@ with the second method, you can make the rectangle bigger or smaller.
 </div>
 	</site:section>
 	
-	</site:chapter>
+	<site:section name="rendering">
+		<site:sectiontitle>Stroking vs. Filling</site:sectiontitle>
+<div>
+In the PDF syntax characters (glyphs) are regarded as filled shapes.
+If you want to change the color of a character, you change the
+<site:tutorial chapter="/objects/fonts/" section="extrastyles">color of the font</site:tutorial>,
+but in reality you change the 'fill' color. This is demonstrated in the example:
+<site:source class="ChunkColor" />
+With the method <site:doc class="com.lowagie.text.Chunk" target="setTextRenderMode(int,%20float,%20java.awt.Color)">setTextRenderMode(int mode, float strokeWidth, Color strokeColor)</site:doc>,
+you can also change the 'outline' of the text. As you can read in the chapter
+on <site:tutorial chapter="" section="part3">graphics and text at absolute positions</site:tutorial>,
+lines are not 'filled', but 'striken'. With the parameters <span class="commandline">strokeWidth</span>
+and <span class="commandline">strokeColor</span>, you define the width and the color of the strokes
+used to draw the character.<br />
+The <span class="commandline">mode</span> parameter, can be one of the following values:
+<ol>
+<li><site:doc class="com.lowagie.text.PdfContentByte" target="TEXT_RENDER_MODE_FILL">PdfContentByte.TEXT_RENDER_MODE_FILL</site:doc>: glyphs will be filled (fontcolor), the strokeWidth and strokeColor don't play a role here.</li>
+<li><site:doc class="com.lowagie.text.PdfContentByte" target="TEXT_RENDER_MODE_STROKE">PdfContentByte.TEXT_RENDER_MODE_STROKE</site:doc>: you will only see the outline of the glyphs, with the given strokeWidth and strokeColor.</li>
+<li><site:doc class="com.lowagie.text.PdfContentByte" target="TEXT_RENDER_MODE_FILL_STROKE">PdfContentByte.TEXT_RENDER_MODE_FILL_STROKE</site:doc>: glyphs will be filled with the fontcolor and will have an outline with the given strokeWidth and strokeColor.</li>
+<li><site:doc class="com.lowagie.text.PdfContentByte" target="TEXT_RENDER_MODE_INVISIBLE">PdfContentByte.TEXT_RENDER_MODE_INVISIBLE</site:doc>: the glyphs will be invisible.</li>
+</ol>
+This method can also be used to simulate a bold font (for instance if you are using a font that doesn't support
+<site:doc class="com.lowagie.text.Font" target="BOLD">Font.Bold</site:doc>).
+<site:source class="Rendering" />
+</div>
+	</site:section>
 
+	<site:section name="skew">
+		<site:sectiontitle>Skewing text</site:sectiontitle>
+<div>
+Method <site:doc class="com.lowagie.text.Chunk" target="setSkew(float,%20float)">setSkew(float alpha, float beta)</site:doc> can be
+used to simulate italic fonts (if you are using a font that doesn't support
+<site:doc class="com.lowagie.text.Font" target="ITALIC">Font.ITALIC</site:doc>),
+just take 0f as value for alfa and 12f as value for beta.<br />
+Alfa is the angle of the baseline in degrees. In the example, we rotate some text
+45f and -45f degrees. Beta is the square-angle on the baseline.
+<site:source class="Skew" />
+</div>
+	</site:section>
+	
+	<site:section name="generic">
+		<site:sectiontitle>Generic functionality</site:sectiontitle>
+<div>If all the features summed up above still doesn't answer your needs,
+you can create your own functionality, using the PageEvent
+<site:doc class="com.lowagie.text.pdf.PdfPageEvent" target="onGenericTag(com.lowagie.text.pdf.PdfWriter,%20com.lowagie.text.Document,%20com.lowagie.text.Rectangle,%20java.lang.String)">onGenericTag(PdfWriter writer,
+Document document, Rectangle rect, String text)</site:doc>.
+You can create your own class implementing the
+<site:doc class="com.lowagie.text.pdf.PdfPageEvent">PdfPageEvent</site:doc>-interface.
+The best way to do this, is to extend the class <site:doc class="com.lowagie.text.pdf.PdfPageEventHelper">PdfPageEventHelper</site:doc>
+and define some custom functionality, overriding the <site:doc class="com.lowagie.text.pdf.PdfPageEvent" target="onGenericTag(com.lowagie.text.pdf.PdfWriter,%20com.lowagie.text.Document,%20com.lowagie.text.Rectangle,%20java.lang.String)">onGenericTag</site:doc>-method.
+<pre class="commandline">public class Generic extends PdfPageEventHelper {
+  public void onGenericTag(PdfWriter writer, Document document, Rectangle rect, String text) {
+    // writer is the current writer to which the Chunk is written
+    // document is the document to which the Chunk was added
+    // rect is the area surrounding the Chunk
+    // text is the text you passed with setGenericTag
+  }
+}</pre>
+Don't forget to set the PageEvent:
+<pre class="commandline">writer.setPageEvent(new Generic());</pre>
+In the first example, we look at the text that is passed with the genericTag
+(<site:doc class="com.lowagie.text.Chunk" target="setGenericTag(java.lang.String)">setGenericTag(String text)</site:doc>).
+If this text equals to "ellipse", we draw an ellipse OVER the Chunk.
+It we passed the word "box", we draw a rectangle UNDER the Chunk.
+<pre class="commandline">public void onGenericTag(PdfWriter writer, Document document, Rectangle rect, String text) {
+  if ("ellipse".equals(text)) {
+    PdfContentByte cb = writer.getDirectContent();
+    cb.setRGBColorStroke(0xFF, 0x00, 0x00);
+    cb.ellipse(rect.left(), rect.bottom() - 5f, rect.right(), rect.top());
+    cb.stroke();
+    cb.resetRGBColorStroke();
+  }
+  else if ("box".equals(text)) {
+    PdfContentByte cb = writer.getDirectContentUnder();
+    rect.setGrayFill(0.5f);
+    cb.rectangle(rect);
+  }
+}</pre>
+Read the chapter on <site:tutorial chapter="" section="part3">Graphics and Text at Absolute Positions</site:tutorial>
+to learn about the PDF syntax that gives you almost unlimited possibilities.
+<site:source class="Generic" />
+In the following example, we use the generic tag to keep a TreeMap of words
+and we register the page on which the words were used. Once the document is completed,
+we add an extra page, that gives us a glossary of words. It's a very simple example,
+but with some changes, you can do a lot of really complex stuff with it.
+<site:source class="Glossary" />
+</div>
+	</site:section>
+	
+	<site:section>
+		<site:sectiontitle>Measuring and Scaling a Chunk</site:sectiontitle>
+<div>
+If you have a Chunk and you want to know it's width on a page,
+you can use the method <site:doc class="com.lowagie.text.Chunk" target="getWidthPoint()">getWidthPoint()</site:doc>.
+It gives you the width in points and you will have to do
+<site:tutorial chapter="/general/faq" section="measurements">maths</site:tutorial>
+to know the width in inches or centimeters.<br/>
+With the method <site:doc class="com.lowagie.text.Chunk" target="setHorizontalScaling(float)">setHorizontalScaling(float scale)</site:doc>,
+you can shrink (scale &lt; 1.0f) or expand (scale &gt; 1.0f) the Chunk.
+In the example we first print the Chunk in its actual size,
+then we print it twice at half its size (scale = 0.5f).
+<site:source class="Width" />
+</div>
+	</site:section>
+
+	<site:section>
+		<site:sectiontitle>When the end of a line is reached</site:sectiontitle>
+<div>
+<div class="subtitle">Phrase</div>
+If you keep on adding Chunks to a document, you reach the end of the line at a certain moment.
+Of course, you haven't defined yet, what iText should do when this happens.
+By default, iText performs a 'carriage return', but what about 'newline'?
+How much space should iText take? The space between two (base)lines in a text,
+is called 'leading' and you can't define it in class Chunk. You need other classes
+such as <site:doc class="com.lowagie.text.Paragraph">Paragraph</site:doc> for this
+kind of stuff.<br />
+In the following example we use the lesser known (and a little bit superfluous) class
+<site:doc class="com.lowagie.text.Phrase">Phrase</site:doc>. A Phrase is a series of chunks
+(that can have different styles) and with a certain leading as extra parameter.
+Unlike class Paragraph, it doesn't know anything about indentation. The default fontsize
+is 12, so we take a leading of 16. Take a look at the first page of the example:
+all Chunks are written on the same line, over and over again. On the second page,
+we added the same Chunks, but grouped in a Phrase with a leading of 16. When the
+end of the line is reached, a new line is started.
+<site:source class="EndOfLine" />
+<div class="subtitle">SplitCharacter</div>
+The default behaviour of iText, is to try to add as many 'complete words' to a line as possible.
+iText will split sentences when a space or a hyphen is encountered. But what if the Chunk is longer than the
+page width? In that case, iText will split the Chunk, just before the first character that doesn't
+fit the page. In some cases, you don't want this to happen. You can avoid this by implementing
+the interface <site:doc class="com.lowagie.text.SplitCharacter">SplitCharacter</site:doc>
+and add this class to the Chunk with <site:doc class="com.lowagie.text.Chunk" target="setSplitCharacter(com.lowagie.text.SplitCharacter)">setSplitCharacter(SplitCharacter splitCharacter)</site:doc>.
+You have to write your own <site:doc class="com.lowagie.text.SplitCharacter" target="isSplitCharacter(int,%20int,%20int,%20char[],%20com.lowagie.text.pdf.PdfChunk[])">isSplitCharacter</site:doc>,
+which may seem rather complex at first sight. This is the default implementation:
+<pre class="commandline">public boolean isSplitCharacter(int start, int current, int end, char[] cc, PdfChunk[] ck) {
+   char c;
+   if (ck == null)
+       c = cc[current];
+   else
+       c = ck[Math.min(current, ck.length - 1)].getUnicodeEquivalent(cc[current]);
+   if (c &lt;= ' ' || c == '-') {
+       return true;
+   }
+   if (c &lt; 0x2e80)
+       return false;
+   return ((c &gt;= 0x2e80 &amp;&amp; c &lt; 0xd7a0)
+   || (c &gt;= 0xf900 &amp;&amp; c &lt; 0xfb00)
+   || (c &gt;= 0xfe30 &amp;&amp; c &lt; 0xfe50)
+   || (c &gt;= 0xff61 &amp;&amp; c &lt; 0xffa0));
+}</pre>
+You can copy this method in your own <site:doc class="com.lowagie.text.SplitCharacter">SplitCharacter</site:doc> implementation and make these small changes to have iText split words on dots and slashes too:
+<pre class="commandline">if (c &lt;= ' ' || c == '-' || c == '.' || c == '/') {
+    return true;
+}</pre>
+<site:source class="SplitChar" />
+<div class="subtitle">Hyphenation</div>
+To conclude this section, it is also possible to let iText hyphenate your
+Chunks automatically. To achieve this, you have to create an instance of
+the class <site:doc class="com.lowagie.text.pdf.HyphenationAuto">HyphenationAuto</site:doc>:
+<pre class="commandline">// Hyphenating a British text
+Chunk ckEN = new Chunk(textEN);
+HyphenationAuto autoEN = new HyphenationAuto("en", "GB", 2, 2);
+ckEN.setHyphenation(autoEN);
+// Hyphenating a Dutch text
+Chunk ckNL = new Chunk(textNL);
+HyphenationAuto autoNL = new HyphenationAuto("nl", null, 2, 2);
+ckNL.setHyphenation(autoNL);</pre>
+In the example, the same text (the introduction of Charles Dickens's epic Tale of Two Cities)
+is hyphenated once according to UK-hyphenation rules and once according to US-hyphenation rules.
+As you can see, there is a slight difference.<br />
+Important remark: you need the <site:download>iTextHYPH.jar</site:download> in your CLASSPATH
+if you want to use this functionality. In this jar, you'll find files like:
+<ul><li>en_GB.hyp</li><li>en_US.hyp</li><li>fr.hyp</li><li>nl.hyp</li></ul>
+These files contain all the hyphenation rules that are specific for a certain language
+(GB english, US english, French, Dutch,...). As you can see the first two parameters of the
+<site:doc class="com.lowagie.text.pdf.HyphenationAuto" target="HyphenationAuto(java.lang.String,%20java.lang.String,%20int,%20int)">HyphenationAuto constructor</site:doc>
+correspond with parts of the filename, the third and fourth parameter specify how
+many characters may be 'orphaned' at the start of a word resp. at the end of a word.<br />
+If you want to build a hyph-file yourself for a language that is not supported, you can download a
+<site:download>hyph-tools.zip</site:download>, a tool to convert standard XML files (used in TeX and FOP)
+into the hyph-files used by iText.		
+</div>
+	</site:section>
+	
+	</site:chapter>
 </site:page>

@@ -18,7 +18,7 @@
  * itext-questions@lists.sourceforge.net
  */
 
-package com.lowagie.examples.objects.fonts;
+package com.lowagie.examples.objects.chunk;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
@@ -35,7 +35,7 @@ import com.lowagie.text.pdf.PdfWriter;
  * @author blowagie
  */
 
-public class FontColor {
+public class ChunkColor {
 
 	/**
 	 * Changing Font colors
@@ -44,7 +44,7 @@ public class FontColor {
 	 */
 	public static void main(String[] args) {
 
-		System.out.println("ChunkColor");
+		System.out.println("FontColor");
 
 		// step 1: creation of a document-object
 		Document document = new Document();
@@ -52,7 +52,7 @@ public class FontColor {
 			// step 2:
 			// we create a writer that listens to the document
 			PdfWriter writer = PdfWriter.getInstance(document,
-					new FileOutputStream("FontColor.pdf"));
+					new FileOutputStream("ChunkColor.pdf"));
 
 			// step 3: we open the document
 			document.open();

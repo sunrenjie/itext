@@ -195,6 +195,13 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		</xsl:element>
 	</xsl:template>
 
+	<xsl:template match="site:download">
+		<xsl:element name="a">
+			<xsl:attribute name="href">..<xsl:value-of select="$root" />/downloads/<xsl:value-of select="." /></xsl:attribute>
+			<xsl:value-of select="." />
+		</xsl:element>
+	</xsl:template>
+
 	<xsl:template match="site:tutorial">
 		<xsl:element name="a">
 			<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="@chapter" />/index.html#<xsl:value-of select="@section" /></xsl:attribute>
