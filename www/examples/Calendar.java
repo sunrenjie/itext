@@ -229,7 +229,7 @@ public class Calendar extends HttpServlet {
         }
         
         // step1: creating the document object
-        Document document = new Document(PageSize.A4, 30, 30, 80, 50);
+        Document document = new Document(PageSize.A4, 30, 30, 50, 50);
         
         // step2.1: creating an OutputStream
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
