@@ -22,7 +22,10 @@
 <li>NOT YET RELEASED: iText1.1.3<ul>
 <li>implementation of the methods pause() and resume() in RtfWriter and RtfWriter2</li>
 <li>Chunk.BACKGROUND takes value Chunk.SUBSUPSCRIPT into account</li>
-<li>New static final Chunk.NEXTPAGE</li></ul>
+<li>Some extra functionality in class Chunk:
+static final Chunk.NEXTPAGE,
+simple setUnderline method,
+getWidthPoint to retrieve the width of a Chunk in points</li></ul>
 </li>
 <li>2004-12-14: paulo 144 - 2004-12-16: iText1.1.2<ul>
 <li>Some more Table changes by Steve Appling on top of itext-paulo-144</li>
