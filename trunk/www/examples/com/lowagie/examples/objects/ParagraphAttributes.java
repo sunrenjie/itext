@@ -65,7 +65,6 @@ public class ParagraphAttributes {
             p[4] = new Paragraph("Ea res est Helvetiis per indicium enuntiata.  Moribus suis Orgetoricem ex vinculis causam dicere coegerunt; damnatum poenam sequi oportebat, ut igni cremaretur.  Die constituta causae dictionis Orgetorix ad iudicium omnem suam familiam, ad hominum milia decem, undique coegit, et omnes clientes obaeratosque suos, quorum magnum numerum habebat, eodem conduxit; per eos ne causam diceret se eripuit.  Cum civitas ob eam rem incitata armis ius suum exequi conaretur multitudinemque hominum ex agris magistratus cogerent, Orgetorix mortuus est; neque abest suspicio, ut Helvetii arbitrantur, quin ipse sibi mortem consciverit.");
             for (int i = 0; i < 5; i++) {
             	p[i].setAlignment(Element.ALIGN_JUSTIFIED);
-            	p[i].setFirstLineIndent(15f);
             	document.add(p[i]);
             }
             document.newPage();
