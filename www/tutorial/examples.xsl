@@ -14,7 +14,7 @@ exclude-result-prefixes="site ant">
 	<target name="examples">
     	<xsl:element name="property">
 	        <xsl:attribute name="name">build</xsl:attribute>
-    	    <xsl:attribute name="value">../..<xsl:value-of select="site:tree/@root" />/build</xsl:attribute>
+    	    <xsl:attribute name="value">../../<xsl:value-of select="/site:page/site:metadata/site:tree/@root" />/build</xsl:attribute>
         </xsl:element>
     	<xsl:element name="property">
 	        <xsl:attribute name="name">bin</xsl:attribute>
@@ -25,11 +25,11 @@ exclude-result-prefixes="site ant">
     	    <xsl:attribute name="value">${build}/release</xsl:attribute>
         </xsl:element>
     	<xsl:element name="property">
-	        <xsl:attribute name="name">classes</xsl:attribute>
-    	    <xsl:attribute name="value">${build}/bin/classes</xsl:attribute>
+	        <xsl:attribute name="name">examples</xsl:attribute>
+    	    <xsl:attribute name="value">../<xsl:value-of select="/site:page/site:metadata/site:tree/@root" />/www/examples</xsl:attribute>
         </xsl:element>
         <path id="classpath">
-          <pathelement location="${{classes}}" />
+          <pathelement location="${{examples}}" />
           <pathelement location="${{bin}}/iText.jar" />
           <xsl:for-each select="./site:extrajar">
           	<xsl:element name="pathelement">
@@ -37,15 +37,17 @@ exclude-result-prefixes="site ant">
           	</xsl:element>
           </xsl:for-each>
         </path>
-        <javac srcdir="${{examples}}" destdir="${{examples}}" verbose="false" deprecation="false">
-          <classpath refid="classpath" />
-        </javac>
         <xsl:for-each select="site:example">
+          <xsl:element name="javac">
+          	<xsl:attribute name="srcdir">${examples}/com/lowagie/examples/<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+          	<xsl:attribute name="destdir">${examples}</xsl:attribute>
+          	<xsl:attribute name="verbose">false</xsl:attribute>
+          	<classpath refid="classpath" />
+          </xsl:element>
           <xsl:element name="java">
             <xsl:attribute name="fork">yes</xsl:attribute>
-            <xsl:attribute name="dir">${examples}</xsl:attribute>
-            <xsl:attribute name="classname">
-              <xsl:value-of select="site:java/@src" />
+            <xsl:attribute name="dir">.</xsl:attribute>
+            <xsl:attribute name="classname">${examples}/com.lowagie.examples.<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />.<xsl:value-of select="site:java/@src" />
             </xsl:attribute>
             <xsl:for-each select="site:argument">
               <xsl:element name="arg">
@@ -56,10 +58,10 @@ exclude-result-prefixes="site ant">
             </xsl:for-each>
             <classpath refid="classpath" />
           </xsl:element>
+          <xsl:element name="delete">
+          	<xsl:attribute name="file">${examples}/com/lowagie/examples/<xsl:value-of select="/site:page/site:metadata/site:tree/@branch" />/<xsl:value-of select="site:java/@src" />.class</xsl:attribute>
+          </xsl:element>
         </xsl:for-each>
-        <delete>
-          <fileset dir="${{examples}}" includes="**/*.class" />
-        </delete>
       </target>
     </project>
   </xsl:template>
