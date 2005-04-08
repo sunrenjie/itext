@@ -192,8 +192,7 @@ and add the PS XObject with
 However, it is no longer recommended to use Postscript XObjects in PDF.
 These PS fragments are used only when printing to a PostScript output device.
 They should be used with extreme caution, because they can cause PDF files
-to print incorrectly (See section 4.7.1 if the PDF Reference Manual: this feature is likely to be removed from PDF in a future version).<br />
-Remark that there is also basic support for <site:tutorial chapter="/objects/images/tiff" section="eps">Encapsulated PostScript</site:tutorial> in iText.
+to print incorrectly (See section 4.7.1 if the PDF Reference Manual: this feature is likely to be removed from PDF in a future version).
 </div>
 	</site:section>
 	</site:chapter>

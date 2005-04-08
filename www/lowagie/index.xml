@@ -19,8 +19,9 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
-			site of the week: <a href="http://yourpersonalizedpattern.com/">Your personalized pattern</a> (Create your own bookmark pattern).<br /><br />
-			march 21th: release of iText 1.2.4<br/>
+			april 6th: release of iText 1.3<br /><br />
+			iText.jar can now be used as an executable jar!
+			Also try the iText <a href="itext.jnlp">Java Web Start</a> application!<br/>
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
