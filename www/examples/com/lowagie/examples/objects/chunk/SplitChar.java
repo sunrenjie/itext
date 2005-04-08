@@ -2,14 +2,9 @@
  * $Id$
  * $Name$
  *
- * This code is free software. It may only be copied or modified
- * if you include the following copyright notice:
- *
- * --> Copyright 2001-2005 by Paulo Soares <--
- *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
- * http://www.lowagie.com/iText/tutorial/
+ * http://itext.sourceforge.net/tutorial/
  *
  * This code is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of

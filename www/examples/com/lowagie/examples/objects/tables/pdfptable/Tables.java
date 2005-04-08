@@ -28,6 +28,7 @@ import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
@@ -47,7 +48,7 @@ public class Tables {
 		Font font8 = FontFactory.getFont(FontFactory.HELVETICA, 8);
 		
 		// step 1
-		Document document = new Document(PageSize.A4, 36, 72, 0, 180);
+		Document document = new Document(PageSize.A4);
 
 		try {
 			// step 2
@@ -61,29 +62,51 @@ public class Tables {
 			// step 4
 			float[] columnDefinitionSize = { 33.33F, 33.33F, 33.33F };
 
-			float increm = height / 2;
+			float pos = height / 2;
 			PdfPTable table = null;
+			PdfPCell cell = null;
 
-			for (int i = 1; i < 3; i++) {
-				table = new PdfPTable(columnDefinitionSize);
-				table.getDefaultCell().setBorder(0);
-				table.setHorizontalAlignment(0);
-				table.setTotalWidth(width - 72);
-				table.setLockedWidth(true);
+			table = new PdfPTable(columnDefinitionSize);
+			table.getDefaultCell().setBorder(0);
+			table.setHorizontalAlignment(0);
+			table.setTotalWidth(width - 72);
+			table.setLockedWidth(true);
 
-				table.addCell(new Phrase("Louis Pasteur", font8));
-				table.addCell(new Phrase("Albert Einstein", font8));
-				table.addCell(new Phrase("Isaac Newton", font8));
-				table.addCell(new Phrase("8, Rabic street", font8));
-				table.addCell(new Phrase("2 Photons Avenue", font8));
-				table.addCell(new Phrase("32 Gravitation Court", font8));
-				table.addCell(new Phrase("39100 Dole France", font8));
-				table.addCell(new Phrase("12345 Ulm Germany", font8));
-				table.addCell(new Phrase("45789 Cambridge  England", font8));
-				table.writeSelectedRows(0, -1, 50, i * increm, writer
-						.getDirectContent());
+			cell = new PdfPCell(new Phrase("Table added with document.add()"));
+			cell.setColspan(columnDefinitionSize.length);
+			table.addCell(cell);
+			table.addCell(new Phrase("Louis Pasteur", font8));
+			table.addCell(new Phrase("Albert Einstein", font8));
+			table.addCell(new Phrase("Isaac Newton", font8));
+			table.addCell(new Phrase("8, Rabic street", font8));
+			table.addCell(new Phrase("2 Photons Avenue", font8));
+			table.addCell(new Phrase("32 Gravitation Court", font8));
+			table.addCell(new Phrase("39100 Dole France", font8));
+			table.addCell(new Phrase("12345 Ulm Germany", font8));
+			table.addCell(new Phrase("45789 Cambridge  England", font8));
+			
+			document.add(table);
+			
+			table = new PdfPTable(columnDefinitionSize);
+			table.getDefaultCell().setBorder(0);
+			table.setHorizontalAlignment(0);
+			table.setTotalWidth(width - 72);
+			table.setLockedWidth(true);
 
-			}
+			cell = new PdfPCell(new Phrase("Table added with writeSelectedRows"));
+			cell.setColspan(columnDefinitionSize.length);
+			table.addCell(cell);
+			table.addCell(new Phrase("Louis Pasteur", font8));
+			table.addCell(new Phrase("Albert Einstein", font8));
+			table.addCell(new Phrase("Isaac Newton", font8));
+			table.addCell(new Phrase("8, Rabic street", font8));
+			table.addCell(new Phrase("2 Photons Avenue", font8));
+			table.addCell(new Phrase("32 Gravitation Court", font8));
+			table.addCell(new Phrase("39100 Dole France", font8));
+			table.addCell(new Phrase("12345 Ulm Germany", font8));
+			table.addCell(new Phrase("45789 Cambridge  England", font8));
+			
+			table.writeSelectedRows(0, -1, 50, pos, writer.getDirectContent());
 		}
 
 		catch (DocumentException de) {
