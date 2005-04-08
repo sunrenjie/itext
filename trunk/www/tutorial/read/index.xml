@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<site:page
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:site="http://www.lowagie.com/iText/site" >
+	<site:metadata>
+		<site:title status="finished">Basic Text Objects</site:title>
+		<site:summary>Some basic text objects that are used in iText.</site:summary>
+		<site:keywords>PDF, JAVA, iText, examples, Chunk, Phrase, Paragraph, Lowagie, Bruno</site:keywords>
+		<site:amazonbooks>
+			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:keyword>JAVA</site:keyword>
+			<site:keyword>PDF</site:keyword>
+		</site:amazonbooks>
+		<site:updated>$Date$</site:updated>
+		<site:author>Bruno Lowagie</site:author>
+	</site:metadata>
+	
+	<site:examples>
+		<site:example>
+			<site:java src="Info" standalone="yes" />
+			<site:result>info.txt</site:result>
+			<site:description>Reading information from a PDF file</site:description>
+		</site:example>
+	</site:examples>
+	
+	<site:chapter>
+	<site:section name="reader">
+		<site:sectiontitle>the PdfReader object</site:sectiontitle>
+<div>
+</div>
+	</site:section>
+	</site:chapter>
+
+</site:page>
