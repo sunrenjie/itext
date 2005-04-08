@@ -15,8 +15,8 @@
 
 <site:history>
 
-<site:release number="V130" name="iText 1.3" date="unknown">
-<site:remark>NOT YET RELEASED</site:remark>
+<site:release number="V130" name="iText 1.3" date="april 6th, 2005">
+<site:remark>Stable release based on iText1.2.4</site:remark>
 <site:changelog>
 <ul>
 <li>iText 1.3
