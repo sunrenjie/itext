@@ -74,5 +74,11 @@
 		<site:title>Part VIII: HTML</site:title>
 		<site:chapter path="html" />
 	</site:part>
+	<site:part name="part9">
+		<site:title>Part IX: XML</site:title>
+	</site:part>
+	<site:part name="part10">
+		<site:title>Part X: Under the hood</site:title>
+	</site:part>
 	
 </site:toc>

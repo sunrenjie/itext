@@ -21,6 +21,11 @@
 			<site:description>Demonstrates the writeSelectedRows method</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="Tables" standalone="yes" />
+			<site:result>tables.pdf</site:result>
+			<site:description>Adds a table to an absolute position</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="SplitTable" standalone="yes" />
 			<site:result>SplitTable.pdf</site:result>
 			<site:description>Demonstrates how to split a Table in two sections of columns</site:description>
@@ -79,6 +84,7 @@ All you need to know for now is that you have to pass the following parameters t
 	<li>canvas - the PdfContentByte where the rows will be written to (explained in <site:tutorial chapter="" section="part4">Part IV</site:tutorial> of the tutorial)</li>
 </ul>
 <site:source class="WriteSelectedRows" />
+<site:source class="Tables" />
 As you can see in the example, there are some things you need to keep in mind
 when using <site:doc class="com.lowagie.text.pdf.PdfPTable" target="writeSelectedRows(int,%20int,%20float,%20float,%20com.lowagie.text.pdf.PdfContentByte)">writeSelectedRows</site:doc>.
 If you add a PdfPTable with document.add(), the width of the table
