@@ -18,6 +18,8 @@
 	<site:examples>
 		<site:example>
 			<site:java src="Info" standalone="yes" />
+			<site:externalresource>RomeoJuliet.pdf</site:externalresource>
+			<site:argument>RomeoJuliet.pdf</site:argument>
 			<site:result>info.txt</site:result>
 			<site:description>Reading information from a PDF file</site:description>
 		</site:example>
