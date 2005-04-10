@@ -23,6 +23,12 @@
 			<site:result>info.txt</site:result>
 			<site:description>Reading information from a PDF file</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="ReadEncrypted" standalone="yes" />
+			<site:externalresource>HelloEncrypted.pdf</site:externalresource>
+			<site:result>info_encrypted.txt</site:result>
+			<site:description>Reading information from an encrypted PDF file</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>
