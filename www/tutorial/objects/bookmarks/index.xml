@@ -152,7 +152,7 @@ The third line says that the labels starting on the 'real' page 8 should be arab
 		<site:sectiontitle>Optional Content</site:sectiontitle>
 <div>
 If you set the viewerpreferences to mode PageModeUseOC (only since PDF version 1.5), you will be able to turn on or off different layers in the document.
-There will be more about this functionality elsewhere in the tutorial.
+You can read all about these layers in the chapter on <site:tutorial chapter="directcontent/optionalcontent">Optional Content</site:tutorial>.
 <site:source class="Layers" />
 </div>
 	</site:section>

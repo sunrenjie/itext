@@ -12,7 +12,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.read;
+package com.lowagie.examples.general.read;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
