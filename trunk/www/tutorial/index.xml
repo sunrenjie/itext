@@ -27,8 +27,8 @@
 	<site:part name="part1">
 		<site:title>Part I: General Use of iText</site:title>
 		<site:chapter path="general" />
-		<site:chapter path="general/faq" />
 		<site:chapter path="general/webapp" />
+		<site:chapter path="general/faq" />
 	</site:part>
 	<site:part name="part2">
 		<site:title>Part II: Using High Level Objects</site:title>
@@ -61,10 +61,10 @@
 		<site:chapter path="directcontent/graphics2D" />
 	</site:part>
 	<site:part name="part5">
-		<site:title>Part V: Reading, Encrypting, Manipulating PDF files</site:title>
+		<site:title>Part V: Interactive Features (AcroForms)</site:title>
 	</site:part>
 	<site:part name="part6">
-		<site:title>Part VI: Interactive Features</site:title>
+		<site:title>Part VI: the iText Toolbox explained</site:title>
 	</site:part>
 	<site:part name="part7">
 		<site:title>Part VII: RTF</site:title>
