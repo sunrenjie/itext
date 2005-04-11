@@ -18,6 +18,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 import com.lowagie.text.pdf.PdfReader;
+import com.lowagie.text.pdf.PdfWriter;
 
 /**
  * Reading an encrypted PDF file (you need the owner password to do this).
@@ -38,7 +39,23 @@ public class ReadEncrypted {
 						.getBytes());
 			out.write(r.getInfo().toString());
 			out.write("\r\n");
-			out.write(String.valueOf(r.getPermissions()));
+			int permissions = r.getPermissions();
+			out.write("Printing allowed: " + ((PdfWriter.AllowPrinting & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Modifying contents allowed: " + ((PdfWriter.AllowModifyContents & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Copying allowed: " + ((PdfWriter.AllowCopy & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Modifying annotations allowed: " + ((PdfWriter.AllowModifyAnnotations & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Fill in allowed: " + ((PdfWriter.AllowFillIn & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Screen Readers allowed: " + ((PdfWriter.AllowScreenReaders & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Assembly allowed: " + ((PdfWriter.AllowAssembly & permissions) > 0) );
+			out.write("\r\n");
+			out.write("Degraded printing allowed: " + ((PdfWriter.AllowDegradedPrinting & permissions) > 0) );
+			out.write("\r\n");
 			out.flush();
 			out.close();
 		} catch (Exception e) {
