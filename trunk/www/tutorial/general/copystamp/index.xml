@@ -31,27 +31,6 @@
 			<site:description>Adds pagenumbers and a watermark to an existing document</site:description>
 		</site:example>
 		<site:example>
-			<site:java src="Register" standalone="yes" />
-			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
-			<site:result>registered.pdf</site:result>
-			<site:result>registered_flat.pdf</site:result>
-			<site:description>Fills in a form</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="FdfExample" standalone="yes" />
-			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
-			<site:result>SimpleRegistrationForm.fdf</site:result>
-			<site:result>registered_fdf.pdf</site:result>
-			<site:description>Creates an FDF and merges it with a PDF</site:description>
-		</site:example>
-		<site:example>
-			<site:java src="XfdfExample" standalone="yes" />
-			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
-			<site:externalresource>register.xfdf</site:externalresource>
-			<site:result>registered_xfdf.pdf</site:result>
-			<site:description>merges an XFDF file with a PDF</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="Concatenate" standalone="yes" />
 			<site:externalresource>ChapterSection.pdf</site:externalresource>
 			<site:externalresource>Destinations.pdf</site:externalresource>
