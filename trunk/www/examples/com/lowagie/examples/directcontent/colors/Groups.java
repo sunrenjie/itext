@@ -19,7 +19,6 @@ import java.io.FileOutputStream;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.PageSize;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfGState;
 import com.lowagie.text.pdf.PdfTemplate;
@@ -83,7 +82,6 @@ public class Groups {
             // step 3: we open the document
             document.open();
             // step 4: content
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
             PdfContentByte cb = writer.getDirectContent();
             float gap = (document.getPageSize().width() - 400) / 3;
             
