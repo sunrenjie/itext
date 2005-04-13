@@ -20,18 +20,22 @@
  */
 package com.lowagie.examples.general.copystamp;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.lowagie.text.Document;
-import com.lowagie.text.pdf.*;
-import java.util.List;
-import java.util.ArrayList;
+import com.lowagie.text.pdf.PRAcroForm;
+import com.lowagie.text.pdf.PdfCopy;
+import com.lowagie.text.pdf.PdfImportedPage;
+import com.lowagie.text.pdf.PdfReader;
+import com.lowagie.text.pdf.SimpleBookmark;
 
 /**
  * Tool that can be used to concatenate existing PDF files.
  */
 public class Concatenate {
-    
+
     /**
      * This class can be used to concatenate existing PDF files.
      * (This was an example known as PdfCopy.java)
@@ -42,6 +46,7 @@ public class Concatenate {
             System.err.println("arguments: file1 [file2 ...] destfile");
         }
         else {
+        	System.out.println("PdfCopy example");
             try {
                 int pageOffset = 0;
                 ArrayList master = new ArrayList();
@@ -62,7 +67,6 @@ public class Concatenate {
                         master.addAll(bookmarks);
                     }
                     pageOffset += n;
-                    System.out.println("There are " + n + " pages in " + args[f]);
                     
                     if (f == 0) {
                         // step 1: creation of a document-object
@@ -78,7 +82,6 @@ public class Concatenate {
                         ++i;
                         page = writer.getImportedPage(reader, i);
                         writer.addPage(page);
-                        System.out.println("Processed page " + i);
                     }
                     PRAcroForm form = reader.getAcroForm();
                     if (form != null)
