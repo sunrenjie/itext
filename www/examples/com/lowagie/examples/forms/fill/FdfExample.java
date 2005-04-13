@@ -12,29 +12,40 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.general.copystamp;
+package com.lowagie.examples.forms.fill;
 
 import java.io.FileOutputStream;
 
 import com.lowagie.text.pdf.AcroFields;
+import com.lowagie.text.pdf.FdfReader;
+import com.lowagie.text.pdf.FdfWriter;
 import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfStamper;
-import com.lowagie.text.pdf.XfdfReader;
 
 /**
- * How to merge an XFDF file with a PDF form.
+ * How to create an FDF file.
+ * How to merge an FDF file with a PDF form.
  */
-public class XfdfExample {
+public class FdfExample {
     /**
-     * Merges an XFDF file with a PDF form.
+     * Writes an FDF file and merges it with a PDF form.
      * @param args no arguments needed
      */
     public static void main(String[] args) {
         try {
+        	// writing the FDF file
+            FdfWriter fdf = new FdfWriter();
+            fdf.setFieldAsString("name", "Bruno Lowagie");
+            fdf.setFieldAsString("address", "Baeyensstraat 121, Sint-Amandsberg");
+            fdf.setFieldAsString("postal_code", "BE-9040");
+            fdf.setFieldAsString("email", "bruno@lowagie.com");
+            fdf.setFile("SimpleRegistrationForm.pdf");
+            fdf.writeTo(new FileOutputStream("SimpleRegistrationForm.fdf"));
+
             // merging the FDF file
             PdfReader pdfreader = new PdfReader("SimpleRegistrationForm.pdf");
-            PdfStamper stamp = new PdfStamper(pdfreader, new FileOutputStream("registered_xfdf.pdf"));
-            XfdfReader fdfreader = new XfdfReader("register.xfdf");
+            PdfStamper stamp = new PdfStamper(pdfreader, new FileOutputStream("registered_fdf.pdf"));
+            FdfReader fdfreader = new FdfReader("SimpleRegistrationForm.fdf");
             AcroFields form = stamp.getAcroFields();
             form.setFields(fdfreader);
             stamp.close();

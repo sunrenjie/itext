@@ -12,7 +12,7 @@
  *
  * itext-questions@lists.sourceforge.net
  */
-package com.lowagie.examples.general.copystamp;
+package com.lowagie.examples.forms.fill;
 
 import java.io.FileOutputStream;
 
