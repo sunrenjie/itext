@@ -68,7 +68,6 @@ public class UsingFontFactory {
 			document.newPage();
 			String quick = "quick brown fox jumps over the lazy dog";
 			p = new Paragraph("Fonts", FontFactory.getFont(FontFactory.HELVETICA, 16f));
-			TreeSet fonts = new TreeSet(FontFactory.getRegisteredFonts());
 			for (Iterator i = families.iterator(); i.hasNext(); ) {
 				name = (String) i.next();
 				p = new Paragraph(name);

@@ -51,7 +51,6 @@ public class RightToLeft {
             PdfContentByte cb = writer.getDirectContent();
             BaseFont bf = BaseFont.createFont("c:\\windows\\fonts\\times.ttf", BaseFont.IDENTITY_H, true);
             Font f2 = new Font(bf, 24, Font.NORMAL, Color.BLUE);
-            Phrase ph = new Phrase();
             float llx = 100;
             float lly = 100;
             float urx = 500;

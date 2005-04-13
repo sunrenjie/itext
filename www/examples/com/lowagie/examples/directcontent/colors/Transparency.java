@@ -21,7 +21,6 @@ import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfGState;
@@ -84,7 +83,6 @@ public class Transparency {
             // step 3: we open the document
             document.open();
             // step 4: content
-            BaseFont bf = BaseFont.createFont("Helvetica", "Cp1252", false);
             PdfContentByte cb = writer.getDirectContent();
             float gap = (document.getPageSize().width() - 400) / 3;
             
