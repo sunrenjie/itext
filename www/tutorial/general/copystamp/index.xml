@@ -24,6 +24,34 @@
 			<site:description>Combines 2 pages on 1</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="AddWatermarkPageNumbers" standalone="yes" />
+			<site:externalresource>ChapterSection.pdf</site:externalresource>
+			<site:externalresource>watermark.jpg</site:externalresource>
+			<site:result>watermark_pagenumbers.pdf</site:result>
+			<site:description>Adds pagenumbers and a watermark to an existing document</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="Register" standalone="yes" />
+			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
+			<site:result>registered.pdf</site:result>
+			<site:result>registered_flat.pdf</site:result>
+			<site:description>Fills in a form</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="FdfExample" standalone="yes" />
+			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
+			<site:result>SimpleRegistrationForm.fdf</site:result>
+			<site:result>registered_fdf.pdf</site:result>
+			<site:description>Creates an FDF and merges it with a PDF</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="XfdfExample" standalone="yes" />
+			<site:externalresource>SimpleRegistrationForm.pdf</site:externalresource>
+			<site:externalresource>register.xfdf</site:externalresource>
+			<site:result>registered_xfdf.pdf</site:result>
+			<site:description>merges an XFDF file with a PDF</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="Concatenate" standalone="yes" />
 			<site:externalresource>ChapterSection.pdf</site:externalresource>
 			<site:externalresource>Destinations.pdf</site:externalresource>
@@ -52,21 +80,22 @@ This being said, let's see what iText can do.
 With <site:doc class="com.lowagie.text.pdf.PdfReader">PdfReader</site:doc>, you can get
 all kinds of metadata from an existing PDF, you can read formfields and you can extract pages
 as if it were images for use in a new PDF document. Depending on what you want to achieve,
-you are going to use one of the following classes:
+you are going to use one of the following classes to manipulate existing PDF documents:
 <ul>
-<li><site:doc class="com.lowagie.text.pdf.PdfWriter">PdfWriter:</site:doc> document from scratch.
-Possibility to import pages, but loss of all interactive features: annotations, bookmarks, fields,...</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfWriter">PdfWriter:</site:doc> generates a document from scratch,
+but has the possibility to import pages. There's one big downside: all interactive features of the imported
+pages are lost in the process (annotations, bookmarks, fields,...).</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfStamper">PdfStamper:</site:doc> can manipulate the
+content of one (1!) existing PDF document. For instance: add pagenumbers and a watermark,
+fill and/or flatten formfields, sign or encrypt an existing PDF document,...</li>
+<li><site:doc class="com.lowagie.text.pdf.PdfEncryptor">PdfEncryptor:</site:doc> uses PdfStamper
+to offer some userfriendly methods for encrypting an existing document.</li>
 <li><site:doc class="com.lowagie.text.pdf.PdfCopy">PdfCopy:</site:doc> can concatenate (a selection of) pages
 from (one of) multiple existing PDF forms. Can adjust bookmarks, but possible loss of formfields.
 No possibility to change content!</li>
 <li><site:doc class="com.lowagie.text.pdf.PdfCopyFields">PdfCopyFields:</site:doc> concatenates
 multiple PDF documents, keeping the fields (puts the fields of the different sourcefiles in one
 Acroform).</li>
-<li><site:doc class="com.lowagie.text.pdf.PdfStamper">PdfStamper:</site:doc> can manipulate the
-content of one existing PDF document. For instance: add pagenumbers and a watermark, fill and/or flatten formfields,
-sign or encrypt an existing PDF document,...</li>
-<li><site:doc class="com.lowagie.text.pdf.PdfEncryptor">PdfEncryptor:</site:doc> uses PdfStamper
-to offer some userfriendly methods for encrypting an existing document.</li>
 </ul>
 </div>
 	</site:section>
