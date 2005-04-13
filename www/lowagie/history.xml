@@ -15,6 +15,18 @@
 
 <site:history>
 
+
+<site:release number="V140" name="iText 1.4" date="unknown">
+<site:remark>Not yet released</site:remark>
+<site:changelog>
+<ul>
+<li>Image background for Signatures by Cesar jz</li>
+<li>Some new tools for the Toolbox</li>
+</ul>
+</site:changelog>
+</site:release>
+
+
 <site:release number="V130" name="iText 1.3" date="april 6th, 2005">
 <site:remark>Stable release based on iText1.2.4</site:remark>
 <site:changelog>
