@@ -50,7 +50,7 @@
 		<site:chapter path="fonts/getting" />
 	</site:part>
 	<site:part name="part4">
-		<site:title>Part IV: Graphics and Text at Absolute Positions</site:title>
+		<site:title>Part IV: Direct Content</site:title>
 		<site:chapter path="directcontent" />
 		<site:chapter path="directcontent/coordinates" />
 		<site:chapter path="directcontent/graphics" />
