@@ -56,19 +56,16 @@ public class TwoOnOne {
             PdfContentByte cb = writer.getDirectContent();
             int i = 0;
             int p = 0;
-            System.out.println("There are " + n + " pages in the document.");
             while (i < n) {
                 document.newPage();
                 p++;
                 i++;
                 PdfImportedPage page1 = writer.getImportedPage(reader, i);
                 cb.addTemplate(page1, .5f, 0, 0, .5f, 60, 120);
-                System.err.println("processed page " + i);
                 if (i < n) {
                     i++;
                     PdfImportedPage page2 = writer.getImportedPage(reader, i);
                     cb.addTemplate(page2, .5f, 0, 0, .5f, width / 2 + 60, 120);
-                    System.err.println("processed page " + i);
                 }
                 BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
                 cb.beginText();
