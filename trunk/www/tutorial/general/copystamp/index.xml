@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title status="finished">Manipulating existing PDF documents</site:title>
+		<site:title>Manipulating existing PDF documents</site:title>
 		<site:summary>How-to copy/manipulate existing PDF documents.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, copy PDF, stamp, existing PDF</site:keywords>
 		<site:amazonbooks>
@@ -80,10 +80,9 @@ This being said, let's see what iText can do. Depending on what you want to achi
 you are going to use one of the following objects to manipulate existing PDF documents:
 <ul>
 <li><site:doc class="com.lowagie.text.pdf.PdfWriter">PdfWriter:</site:doc> generates a document from scratch,
-but has the possibility to add pages imported with <site:doc class="com.lowagie.text.pdf.PdfReader">PdfReader</site:doc> as a Template.
-There's one big downside: all interactive features
+but also supports importing pages from other PDF documents. There's one big downside: all interactive features
 of the <site:doc class="com.lowagie.text.pdf.PdfImportedPage">PdfImportedPage</site:doc> are lost in the process
-(annotations, bookmarks, fields,...).</li>
+(annotations, bookmarks, fields,...) if you use PdfWriter.</li>
 <li><site:doc class="com.lowagie.text.pdf.PdfStamper">PdfStamper:</site:doc> can manipulate the
 content of one (1!) existing PDF document. For instance: add pagenumbers and a watermark,
 fill and/or flatten formfields, sign or encrypt an existing PDF document,...</li>
@@ -91,11 +90,14 @@ fill and/or flatten formfields, sign or encrypt an existing PDF document,...</li
 to offer some userfriendly methods for encrypting an existing document.</li>
 <li><site:doc class="com.lowagie.text.pdf.PdfCopy">PdfCopy:</site:doc> can concatenate (a selection of) pages
 from (one or) multiple existing PDF forms. Can adjust bookmarks, but possible loss of formfields.
-No possibility to change content!</li>
+PdfCopy doesn't allow new content!</li>
 <li><site:doc class="com.lowagie.text.pdf.PdfCopyFields">PdfCopyFields:</site:doc> concatenates
 multiple PDF documents, keeping the fields (puts the fields of the different sourcefiles in one
 Acroform).</li>
 </ul>
+Before we start with the examples, always remember that <b>the outputfile must have a different name than the input file!!!</b>
+If you open a file with PdfReader, you can't write to it with PdfWriter/PdfStamper/PdfCopy!
+If you want to 'edit' an existing file, you need to use a temporary file and rename it afterwards.
 </div>
 	</site:section>
 	
