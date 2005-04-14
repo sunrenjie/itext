@@ -20,6 +20,7 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
+<li>Mark Hall fixed an IndexOutOfBoundsException in the row handling code</li>
 <li>Image background for Signatures by Cesar jz</li>
 <li>Some new tools for the Toolbox</li>
 </ul>
