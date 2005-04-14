@@ -28,6 +28,7 @@
 		<site:title>Part I: General Use of iText</site:title>
 		<site:chapter path="general" />
 		<site:chapter path="general/webapp" />
+		<site:chapter path="general/copystamp" />
 		<site:chapter path="general/faq" />
 	</site:part>
 	<site:part name="part2">
