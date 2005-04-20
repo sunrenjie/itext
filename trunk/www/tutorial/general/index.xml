@@ -135,7 +135,14 @@ You can also change the margins while you are adding content. Remark that the ch
 will only be noticed on the NEXT page. If you want the margins mirrored (odd and even pages),
 you can do this with this method: <site:doc class="com.lowagie.text.Document" target="setMarginMirroring(boolean)">setMarginMirroring(true)</site:doc>.
 <site:source class="Margins" />
-If you want to know more about the measurement unit, see the <site:tutorial chapter="/general/faq" section="measurements">FAQ</site:tutorial>.
+If you want to know more about the measurement unit, see the <site:tutorial chapter="/general/faq" section="measurements">FAQ</site:tutorial>.<br /><br />
+<div class="subtitle">Why getPagenumber doesn't work.</div>
+Class Document is all about content, not about presentation.
+Different writers can listen to the same Document object,
+so it makes absolutely no sense asking the Document object for its current pagenumber.
+Which number would the Document have to return? The pagenumber of the PDF representation
+or the one of the HTML (this makes even less sense)? In short: you should ask the specific writer
+for the pagenumber, NOT the Document object.
 </div>
 	</site:section>
 	
