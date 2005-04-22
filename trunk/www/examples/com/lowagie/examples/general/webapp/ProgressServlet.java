@@ -108,7 +108,7 @@ public class ProgressServlet extends HttpServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
     	// We get a Session object
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession(true);
         Object o = session.getAttribute("myPdf");
         MyPdf pdf;
         if (o == null) {
