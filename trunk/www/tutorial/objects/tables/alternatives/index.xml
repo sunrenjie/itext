@@ -25,6 +25,16 @@
 			<site:description>Generate a table with the Table object</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="SpecificCells" standalone="yes" />
+			<site:result>specificcells.pdf</site:result>
+			<site:description>Adding Cells at specific positions</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="RepeatingTable" standalone="yes" />
+			<site:result>repeatingtable.pdf</site:result>
+			<site:description>Shows how a table is split if it doesn't fit the page</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="TableWithImage" standalone="yes" />
 			<site:result>imageTable.pdf</site:result>
 			<site:externalresource>otsoe.jpg</site:externalresource>
