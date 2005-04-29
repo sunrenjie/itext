@@ -35,6 +35,11 @@
 			<site:description>Shows how a table is split if it doesn't fit the page</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="NestedTables" standalone="yes" />
+			<site:result>nestedtables.pdf</site:result>
+			<site:description>Nested tables</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="TableWithImage" standalone="yes" />
 			<site:result>imageTable.pdf</site:result>
 			<site:externalresource>otsoe.jpg</site:externalresource>
