@@ -53,10 +53,11 @@ public class RepeatingTable {
             document.open();
             
             Table datatable = new Table(10);
-            //datatable.setBorder(Rectangle.NO_BORDER);
+            
             int headerwidths[] = {10, 24, 12, 12, 7, 7, 7, 7, 7, 7};
             datatable.setWidths(headerwidths);
             datatable.setWidth(100);
+            datatable.setPadding(5);
             
             // the first cell spans 10 columns
             Cell cell = new Cell(new Phrase("Administration -System Users Report", FontFactory.getFont(FontFactory.HELVETICA, 24, Font.BOLD)));
