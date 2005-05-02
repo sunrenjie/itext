@@ -21,6 +21,7 @@ import com.lowagie.text.Cell;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Image;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
@@ -57,6 +58,9 @@ public class TableWithImage {
 			Cell c2 = new Cell();
 			c2.add(Image.getInstance("otsoe.jpg"));
 			table.addCell(c2);
+			document.add(table);
+			document.add(new Paragraph("converted to PdfPTable:"));
+			table.setConvert2pdfptable(true);
 			document.add(table);
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());

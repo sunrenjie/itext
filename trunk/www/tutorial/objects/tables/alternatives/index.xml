@@ -20,9 +20,14 @@
 			<site:description>Print a Swing jTable to a PDF file</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="OldTable" standalone="yes" />
+			<site:result>oldtable.pdf</site:result>
+			<site:description>Generates a table with the Table object</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="MyFirstTable" standalone="yes" />
 			<site:result>MyFirstTable.pdf</site:result>
-			<site:description>Generate a table with the Table object</site:description>
+			<site:description>Generate a table with the Table/PdfPTable object</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="SpecificCells" standalone="yes" />

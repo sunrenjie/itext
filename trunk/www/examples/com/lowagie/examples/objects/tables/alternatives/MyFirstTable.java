@@ -19,6 +19,7 @@ import java.io.IOException;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
@@ -51,6 +52,9 @@ public class MyFirstTable {
 			table.addCell("0.1");
 			table.addCell("1.0");
 			table.addCell("1.1");
+			document.add(table);
+			document.add(new Paragraph("converted to PdfPTable:"));
+			table.setConvert2pdfptable(true);
 			document.add(table);
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());

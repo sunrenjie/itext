@@ -71,7 +71,7 @@ public class RepeatingTable {
             datatable.setDefaultCellBorderWidth(2);
             datatable.setDefaultHorizontalAlignment(1);
             datatable.addCell("User Id");
-            datatable.addCell(new Phrase("Name", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD)));
+            datatable.addCell("Name\nAddress");
             datatable.addCell("Company");
             datatable.addCell("Department");
             datatable.addCell("Admin");
@@ -104,8 +104,10 @@ public class RepeatingTable {
                 datatable.addCell("Yes");
                 
             }
-            
-            
+            datatable.setCellsFitPage(true);
+            document.add(datatable);
+            document.newPage();
+            datatable.setConvert2pdfptable(true);
             document.add(datatable);
         }
         catch(Exception e) {
