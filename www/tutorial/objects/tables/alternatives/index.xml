@@ -25,6 +25,11 @@
 			<site:description>Generates a table with the Table object</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="PaddingBorders" standalone="yes" />
+			<site:result>paddingborders.pdf</site:result>
+			<site:description>Generates tables with different padding, bordercolors and borderwidths</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="MyFirstTable" standalone="yes" />
 			<site:result>MyFirstTable.pdf</site:result>
 			<site:description>Generate a table with the Table/PdfPTable object</site:description>

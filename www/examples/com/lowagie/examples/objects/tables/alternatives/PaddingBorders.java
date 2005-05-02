@@ -21,16 +21,17 @@ import java.io.IOException;
 import com.lowagie.text.Cell;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
- * Uses the old Table class to have rowspan and spacing.
+ * Changing the padding and the borders of table cells.
  */
-public class OldTable {
+public class PaddingBorders {
     /**
-     * Demonstrates the features of the old Table class.
-     * @param args no arguments needed
+     * Creating tables with different borders and padding.
+     * @param args no arguments needed.
      */
     public static void main(String[] args) {
         System.out.println("Old Table class");
@@ -38,34 +39,54 @@ public class OldTable {
         Document document = new Document();
         try {
             // step 2: creation of the writer-object
-            PdfWriter.getInstance(document, new FileOutputStream("oldtable.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("paddingborders.pdf"));
             // step 3: we open the document
             document.open();
             // step 4: we create a table and add it to the document
             Table table = new Table(3);
             table.setBorderWidth(1);
             table.setBorderColor(new Color(0, 0, 255));
-            table.setPadding(5);
-            table.setSpacing(5);
+            table.setPadding(10);
             Cell cell = new Cell("header");
             cell.setHeader(true);
             cell.setColspan(3);
             table.addCell(cell);
-            cell = new Cell("example cell with colspan 1 and rowspan 2");
-            cell.setRowspan(2);
-            cell.setBorderColor(new Color(255, 0, 0));
-            table.addCell(cell);
             table.addCell("1.1");
             table.addCell("2.1");
+            table.addCell("3.1");
             table.addCell("1.2");
             table.addCell("2.2");
-            table.addCell("cell test1");
-            cell = new Cell("big cell");
-            cell.setRowspan(2);
-            cell.setColspan(2);
-            cell.setBackgroundColor(new Color(0xC0, 0xC0, 0xC0));
+            table.addCell("3.2");
+            document.add(table);
+            table.setConvert2pdfptable(true);
+			document.add(new Paragraph("converted to PdfPTable:"));
+            document.add(table);
+            
+            table = new Table(3);
+            table.setBorderWidth(3);
+            table.setBorderColor(new Color(255, 0, 0));
+            table.setPadding(0);
+            cell = new Cell("header");
+            cell.setHeader(true);
+            cell.setBorderColorBottom(new Color(0, 0, 255));
+            cell.setColspan(3);
             table.addCell(cell);
-            table.addCell("cell test2");
+            table.addCell("1.1");
+            cell = new Cell("2.1");
+            cell.setBorderWidthLeft(4);
+            cell.setBorderWidthRight(8);
+            cell.setBorderWidthTop(2);
+            cell.setBorderWidthBottom(10);
+            cell.setUseBorderPadding(true);
+            cell.setBorderColorBottom(new Color(0, 255, 0));
+            table.addCell(cell);
+            table.addCell("3.1");
+            table.addCell("1.2");
+            table.addCell("2.2");
+            table.addCell("3.2");
+            document.add(table);
+            table.setConvert2pdfptable(true);
+			document.add(new Paragraph("converted to PdfPTable:"));
             document.add(table);
         }
         catch(DocumentException de) {
