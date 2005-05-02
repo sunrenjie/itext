@@ -17,7 +17,11 @@ package com.lowagie.examples.objects.tables.alternatives;
 import java.awt.Point;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import com.lowagie.text.*;
+
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
@@ -55,7 +59,10 @@ public class NestedTables {
             aTable.addCell("2.1", new Point(2,1));
             aTable.insertTable(secondTable, new Point(1,3));
             document.add(aTable);
-            
+			document.add(new Paragraph("converted to PdfPTable:"));
+			aTable.setConvert2pdfptable(true);
+			document.add(aTable);
+            document.newPage();
             // example with 2 nested tables
             
             Table thirdTable = new Table(2);
@@ -71,7 +78,11 @@ public class NestedTables {
             aTable.addCell("2.1", new Point(2,1));
             aTable.insertTable(secondTable, new Point(1,3));
             aTable.insertTable(thirdTable, new Point(6,2));
-            document.add(aTable);        
+            document.add(aTable); 
+			document.add(new Paragraph("converted to PdfPTable:"));
+			aTable.setConvert2pdfptable(true);
+			document.add(aTable);     
+            document.newPage();  
             
             // adding extra cells after adding a table
             
@@ -87,7 +98,10 @@ public class NestedTables {
             // now insert the nested
             t1.insertTable(t2);
             t1.addCell("new cell");    // correct row/column ?
-            document.add(t1);       
+            document.add(t1);    
+			document.add(new Paragraph("converted to PdfPTable:"));
+			t1.setConvert2pdfptable(true);
+			document.add(t1);   
 
         }
         catch(DocumentException de) {
