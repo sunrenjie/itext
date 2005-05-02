@@ -44,7 +44,7 @@ public class NestedTables {
             document.open();
             // step 4: we create a table and add it to the document
             
-            // simple example
+            // example 1
             
             Table secondTable = new Table(2);
             secondTable.addCell("2nd table 0.0");
@@ -63,7 +63,8 @@ public class NestedTables {
 			aTable.setConvert2pdfptable(true);
 			document.add(aTable);
             document.newPage();
-            // example with 2 nested tables
+            
+            // example 2
             
             Table thirdTable = new Table(2);
             thirdTable.addCell("3rd table 0.0");
@@ -84,24 +85,53 @@ public class NestedTables {
 			document.add(aTable);     
             document.newPage();  
             
-            // adding extra cells after adding a table
-            
-            Table t1 = new Table(3);
-            t1.addCell("1.1");
-            t1.addCell("1.2");
-            t1.addCell("1.3");
+            // example 3
+            aTable = new Table(3);
+            float[] widths = {1, 2, 1};
+            aTable.setWidths(widths);
+            aTable.addCell("1.1");
+            aTable.addCell("1.2");
+            aTable.addCell("1.3");
             // nested
             Table t2 = new Table(2);
             t2.addCell("2.1");
             t2.addCell("2.2");
             
             // now insert the nested
-            t1.insertTable(t2);
-            t1.addCell("new cell");    // correct row/column ?
-            document.add(t1);    
+            aTable.insertTable(t2);
+            aTable.addCell("new cell");
+            document.add(aTable);    
 			document.add(new Paragraph("converted to PdfPTable:"));
-			t1.setConvert2pdfptable(true);
-			document.add(t1);   
+			aTable.setConvert2pdfptable(true);
+			document.add(aTable);
+			document.newPage();
+			
+			// relative column widths are preserved
+            
+            Table a = new Table( 2 );
+            a.setWidths( new float[] { 85, 15 } );
+            a.addCell("a-1");
+            a.addCell("a-2");
+            
+            Table b = new Table(5);
+            b.setWidths( new float[] { 15, 7, 7, 7, 7 } );
+            b.addCell("b-1");
+            b.addCell("b-2");
+            b.addCell("b-3");
+            b.addCell("b-4");
+            b.addCell("b-5");
+
+            // now, insert these 2 tables into a third for layout purposes
+            Table c = new Table( 3, 1 );
+            c.setWidth( 100.0f );
+            c.setWidths( new float[] { 20, 2, 78 } );
+            c.insertTable(a, new Point(0,0) );
+            c.insertTable(b, new Point(0,2) );
+
+            document.add(c);
+			document.add(new Paragraph("converted to PdfPTable:"));
+			c.setConvert2pdfptable(true);
+			document.add(c);
 
         }
         catch(DocumentException de) {
