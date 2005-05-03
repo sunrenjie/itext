@@ -287,8 +287,8 @@ public class Events {
 		public RomeoJulietMap() throws IOException {
 			super(new FileInputStream("tagmapRomeoJuliet.xml"));
 			XmlPeer peer = new XmlPeer(ElementTags.CHUNK, "SPEAKER");
-			peer.addValue(MarkupTags.CSS_FONTSIZE, "10");
-			peer.addValue(MarkupTags.CSS_FONTWEIGHT, MarkupTags.CSS_BOLD);
+			peer.addValue(MarkupTags.CSS_KEY_FONTSIZE, "10");
+			peer.addValue(MarkupTags.CSS_KEY_FONTWEIGHT, MarkupTags.CSS_VALUE_BOLD);
 			peer.addValue(ElementTags.GENERICTAG, "");
 			put(peer.getAlias(), peer);
 		}
