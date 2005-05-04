@@ -25,6 +25,12 @@
 			<site:description>Generates a table with the Table object</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="TablePdfPTable" standalone="yes" />
+			<site:result>tableattributes.pdf</site:result>
+			<site:result>tableattributes.rtf</site:result>
+			<site:description>Generates a table with the TableAttributes object</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="PaddingBorders" standalone="yes" />
 			<site:result>paddingborders.pdf</site:result>
 			<site:description>Generates tables with different padding, bordercolors and borderwidths</site:description>
