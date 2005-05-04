@@ -50,8 +50,27 @@ public class TablePdfPTable {
             SimpleTable table = new SimpleTable();
             table.setCellpadding(5);
             table.setCellspacing(8);
+            SimpleCell row = new SimpleCell(SimpleCell.ROW);
+            row.setBackgroundColor(Color.yellow);
+            SimpleCell cell = new SimpleCell(SimpleCell.CELL);
+            cell.setWidth(100f);
+            cell.addElement(new Paragraph("rownumber"));
+            row.addElement(cell);
+            cell = new SimpleCell(SimpleCell.CELL);
+            cell.setWidth(50f);
+            cell.addElement(new Paragraph("A"));
+            row.addElement(cell);
+            cell = new SimpleCell(SimpleCell.CELL);
+            cell.setWidth(50f);
+            cell.addElement(new Paragraph("B"));
+            row.addElement(cell);
+            cell = new SimpleCell(SimpleCell.CELL);
+            cell.setWidth(50f);
+            cell.addElement(new Paragraph("C"));
+            row.addElement(cell);
+            table.addElement(row);
             for (int i = 0; i < 100; i++) {
-            	SimpleCell row = new SimpleCell(SimpleCell.ROW);
+            	row = new SimpleCell(SimpleCell.ROW);
             	switch (i % 3) {
         		case 0:
         			row.setBackgroundColor(Color.red);
@@ -66,7 +85,6 @@ public class TablePdfPTable {
             	if (i % 2 == 1) {
             		row.setBorderWidth(3f);
             	}
-            	SimpleCell cell;
             	cell = new SimpleCell(SimpleCell.CELL);
             	cell.addElement(new Paragraph("Row " + (i + 1)));
             	row.addElement(cell);
