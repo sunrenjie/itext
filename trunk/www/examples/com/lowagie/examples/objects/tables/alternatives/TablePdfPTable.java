@@ -54,20 +54,20 @@ public class TablePdfPTable {
             row.setBackgroundColor(Color.yellow);
             SimpleCell cell = new SimpleCell(SimpleCell.CELL);
             cell.setWidth(100f);
-            cell.addElement(new Paragraph("rownumber"));
-            row.addElement(cell);
+            cell.add(new Paragraph("rownumber"));
+            row.add(cell);
             cell = new SimpleCell(SimpleCell.CELL);
             cell.setWidth(50f);
-            cell.addElement(new Paragraph("A"));
-            row.addElement(cell);
+            cell.add(new Paragraph("A"));
+            row.add(cell);
             cell = new SimpleCell(SimpleCell.CELL);
             cell.setWidth(50f);
-            cell.addElement(new Paragraph("B"));
-            row.addElement(cell);
+            cell.add(new Paragraph("B"));
+            row.add(cell);
             cell = new SimpleCell(SimpleCell.CELL);
             cell.setWidth(50f);
-            cell.addElement(new Paragraph("C"));
-            row.addElement(cell);
+            cell.add(new Paragraph("C"));
+            row.add(cell);
             table.addElement(row);
             for (int i = 0; i < 100; i++) {
             	row = new SimpleCell(SimpleCell.ROW);
@@ -86,28 +86,28 @@ public class TablePdfPTable {
             		row.setBorderWidth(3f);
             	}
             	cell = new SimpleCell(SimpleCell.CELL);
-            	cell.addElement(new Paragraph("Row " + (i + 1)));
-            	row.addElement(cell);
+            	cell.add(new Paragraph("Row " + (i + 1)));
+            	row.add(cell);
             	if (i % 5 == 4) {
             		cell = new SimpleCell(SimpleCell.CELL);
             		cell.setColspan(3);
             		cell.setBorderColor(Color.orange);
             		cell.setBorderWidth(5f);
-            		cell.addElement(new Paragraph("Hello!"));
+            		cell.add(new Paragraph("Hello!"));
             		cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            		row.addElement(cell);
+            		row.add(cell);
             	}
             	else {
             		cell = new SimpleCell(SimpleCell.CELL);
-            		cell.addElement(new Paragraph("A"));
-            		row.addElement(cell);
+            		cell.add(new Paragraph("A"));
+            		row.add(cell);
             		cell = new SimpleCell(SimpleCell.CELL);
-            		cell.addElement(new Paragraph("B"));
+            		cell.add(new Paragraph("B"));
             		cell.setBackgroundColor(Color.gray);
-            		row.addElement(cell);
+            		row.add(cell);
             		cell = new SimpleCell(SimpleCell.CELL);
-            		cell.addElement(new Paragraph("C"));
-            		row.addElement(cell);
+            		cell.add(new Paragraph("C"));
+            		row.add(cell);
             	}
             	table.addElement(row);
             }
