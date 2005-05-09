@@ -178,10 +178,40 @@ document.add(para);
 For this to work, the correct font must be installed on the machine
 that is used to view the RTF document, not on the machine that creates
 the document. Also the given font name must match the name of the font
-on the viewer machine exactely.
+on the viewer machine exactely.<br /><br />
+
 <site:source class="RtfSpecialFont" />
 </div>
+
 	</site:section>
+
+<site:section name="additionalfontstyles">
+	<site:sectiontitle>Additional font styles</site:sectiontitle>
+	<div>
+		The <span class="commandline">RtfFont</span> provides additional font styles that only
+		work with the <span class="commandline">RtfWriter2</span>. To use these simply specify
+		the desired style when constructing the RtfFont.
+<pre class="commandline">
+RtfFont doubleStrikethroughFont = new RtfFont("Times New Roman", 12, RtfFont.STYLE_DOUBLE_STRIKETHROUGH);
+para = new Paragraph("This paragraph uses the double strikethrough style", doubleStrikethroughFont);
+document.add(para);
+
+RtfFont hiddenFont = new RtfFont("Times New Roman", 12, RtfFont.STYLE_HIDDEN);
+para = new Paragraph("This paragraph uses the hidden style", hiddenFont);
+document.add(para);
+</pre>
+		The supported styles are:
+		<ul>
+			<li>STYLE_DOUBLE_STRIKETHROUGH: for a double strikethrough line.</li>
+			<li>STYLE_SHADOW: for text with a shadow.</li>
+			<li>STYLE_OUTLINE: for outlined text.</li>
+			<li>STYLE_EMBOSSED: for embossed text.</li>
+			<li>STYLE_ENGRAVED: for engraved text.</li>
+			<li>STYLE_HIDDEN: for text that is initially hidden from user view.</li>
+		</ul>
+		<site:source class="RtfSpecialFont"/>
+	</div>
+</site:section>
 
 	<site:section name="extendedhf">
 		<site:sectiontitle>Extended header / footer support</site:sectiontitle>
