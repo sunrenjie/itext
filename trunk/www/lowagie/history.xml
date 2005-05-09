@@ -23,6 +23,8 @@
 <li>Mark Hall fixed an IndexOutOfBoundsException in the row handling code</li>
 <li>Image background for Signatures by Cesar jz</li>
 <li>Some new tools for the Toolbox</li>
+<li>Experimenting with Table: convert com.lowagie.text.Table to com.lowagie.text.pdf.PdfPTable or use new classes SimpleTable and SimpleCell?</li>
+<li>Fixed a border bug when TableCells span multiple pages.</li>
 </ul>
 </site:changelog>
 </site:release>
