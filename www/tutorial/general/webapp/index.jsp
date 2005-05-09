@@ -1,1 +1,1 @@
-<% response.sendRedirect("http://itext.sourceforge.net/tutorial/general/webapp/"); %>
+<% response.sendRedirect("http://itextdocs.lowagie.com/tutorial/general/webapp/"); %>
