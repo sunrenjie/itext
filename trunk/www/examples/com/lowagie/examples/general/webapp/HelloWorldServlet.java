@@ -4,7 +4,7 @@
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
- * http://itext.sourceforge.net/tutorial/
+ * http://itextdocs.lowagie.com/tutorial/
  *
  * This code is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -65,7 +65,7 @@ public class HelloWorldServlet extends HttpServlet {
                 RtfWriter.getInstance(document, response.getOutputStream());
             }
             else {
-                response.sendRedirect("http://itext.sourceforge.net/tutorial/general/webapp/index.html#HelloWorld");
+                response.sendRedirect("http://itextdocs.lowagie.com/tutorial/general/webapp/index.html#HelloWorld");
             }
             
             // step 3
