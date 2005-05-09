@@ -55,6 +55,18 @@ public class RtfSpecialFont {
             RtfFont comicSansFont = new RtfFont("Comic Sans MS");
             Paragraph para = new Paragraph("This was written in Comic Sans MS", comicSansFont);
             document.add(para);
+            
+            RtfFont doubleStrikethroughFont = new RtfFont("Times New Roman", 12, RtfFont.STYLE_DOUBLE_STRIKETHROUGH);
+            para = new Paragraph("This paragraph uses the double strikethrough style", doubleStrikethroughFont);
+            document.add(para);
+            
+            RtfFont hiddenFont = new RtfFont("Times New Roman", 12, RtfFont.STYLE_HIDDEN);
+            para = new Paragraph("This paragraph uses the hidden style", hiddenFont);
+            document.add(para);
+
+            RtfFont embossedFont = new RtfFont("Times New Roman", 12, RtfFont.STYLE_EMBOSSED);
+            para = new Paragraph("This paragraph uses the embossed style", embossedFont);
+            document.add(para);
         } catch (DocumentException de) {
             System.err.println(de.getMessage());
         } catch (IOException ioe) {
