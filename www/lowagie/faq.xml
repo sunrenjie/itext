@@ -397,7 +397,7 @@ There are a lot of known issues with Internet Explorer.
 They aren't a problem in any version of MSIE, but it is always safe to
 use some standard workarounds in order to avoid unforeseen problems.
 All these workarounds are described in the tutorial:
-<a href="http://itext.sourceforge.net/tutorial/general/webapp/">iText in Web Applications</a>
+<a href="http://itextdocs.lowagie.com/tutorial/general/webapp/">iText in Web Applications</a>
 </site:answer>
 </site:faq-entry>
 
@@ -408,7 +408,7 @@ All these workarounds are described in the tutorial:
 <site:answer>
 Yes, but why would you? I haven't found one argument that makes sense to do so.
 You can read the most important reasons why you shouldn't to this in the
-<a href="http://itext.sourceforge.net/tutorial/general/webapp/index.html#JSP">tutorial</a>
+<a href="http://itextdocs.lowagie.com/tutorial/general/webapp/index.html#JSP">tutorial</a>
 </site:answer>
 </site:faq-entry>
 
@@ -608,7 +608,7 @@ Cell.setUseAscender(true) and Cell.setUseDescender(true).<br />
 
 Sometimes the most obvious answers are the hardest to find:
 <span class="commandline">document.newPage()</span>.
-See the <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#newpage">tutorial FAQ</a>.
+See the <a href="http://itextdocs.lowagie.com/tutorial/general/faq/index.html#newpage">tutorial FAQ</a>.
 
 </site:answer>
 </site:faq-entry>
@@ -619,7 +619,7 @@ See the <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#ne
 
 The default measurement system roughly corresponds to the various definitions
 of the typographic unit of measurement known as the <i>point</i>.
-This is covered in the <a href="http://itext.sourceforge.net/tutorial/general/faq/index.html#measurements">tutorial FAQ</a>.
+This is covered in the <a href="http://itextdocs.lowagie.com/tutorial/general/faq/index.html#measurements">tutorial FAQ</a>.
 
 </site:answer>
 </site:faq-entry>
@@ -633,7 +633,7 @@ These pages are shown in <i>portrait</i>. If you create a page with
 PageSize.A4.rotate(), the pages are shown in <i>landscape</i>.
 You can also use the setPageSize-method, but be aware of the
 fact that the PageSize will only be changed on the next page.<br />
-This is covered in the <a href="http://itext.sourceforge.net/tutorial/general/index.html#step1">tutorial</a>.
+This is covered in the <a href="http://itextdocs.lowagie.com/tutorial/general/index.html#step1">tutorial</a>.
 
 </site:answer>
 </site:faq-entry>
@@ -686,8 +686,8 @@ it doesn't check if the objects inside are valid for the version.
 Chances are you are missing some jars:
 The cmap-files and properties for these CJK fonts are in a separate jar.
 You need this jar in your CLASSPATH!!! You can download this jar here:
-<a href="http://itext.sourceforge.net/downloads/iTextAsian.jar">http://itext.sourceforge.net/downloads/iTextAsian.jar</a>.
-There is also a jar <a href="http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar">http://itext.sourceforge.net/downloads/iTextAsianCmaps.jar</a>
+<a href="http://itextdocs.lowagie.com/downloads/iTextAsian.jar">http://itextdocs.lowagie.com/downloads/iTextAsian.jar</a>.
+There is also a jar <a href="http://itextdocs.lowagie.com/downloads/iTextAsianCmaps.jar">http://itextdocs.lowagie.com/downloads/iTextAsianCmaps.jar</a>
 available for download. Those are the cmaps for direct CID addressing,
 needed for accessing the HK and Taiwan extensions. In most cases, you don't
 need this second jar.<br />
