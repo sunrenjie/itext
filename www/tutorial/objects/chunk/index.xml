@@ -73,7 +73,7 @@
 		<site:example>
 			<site:java src="Hyphenation" standalone="yes" />
 			<site:result>Hyphenation.pdf</site:result>
-			<site:extrajar>iTextHYPH.jar</site:extrajar>
+			<site:extrajar>itext-hyph-xml.jar</site:extrajar>
 			<site:description>Using auto-hyphenation</site:description>
 		</site:example>
 	</site:examples>
@@ -326,17 +326,24 @@ ckNL.setHyphenation(autoNL);</pre>
 In the example, the same text (the introduction of Charles Dickens's epic Tale of Two Cities)
 is hyphenated once according to UK-hyphenation rules and once according to US-hyphenation rules.
 As you can see, there is a slight difference.<br />
-Important remark: you need the <site:download>iTextHYPH.jar</site:download> in your CLASSPATH
+Important remark: you need the <site:download>itext-hyph-xml.jar</site:download> in your CLASSPATH
 if you want to use this functionality. In this jar, you'll find files like:
-<ul><li>en_GB.hyp</li><li>en_US.hyp</li><li>fr.hyp</li><li>nl.hyp</li></ul>
+<ul><li>en_GB.xml</li><li>en_US.xml</li><li>fr.xml</li><li>nl.xml</li></ul>
 These files contain all the hyphenation rules that are specific for a certain language
 (GB english, US english, French, Dutch,...). As you can see the first two parameters of the
 <site:doc class="com.lowagie.text.pdf.HyphenationAuto" target="HyphenationAuto(java.lang.String,%20java.lang.String,%20int,%20int)">HyphenationAuto constructor</site:doc>
 correspond with parts of the filename, the third and fourth parameter specify how
 many characters may be 'orphaned' at the start of a word resp. at the end of a word.<br />
-If you want to build a hyph-file yourself for a language that is not supported, you can download a
-<site:download>hyph-tools.zip</site:download>, a tool to convert standard XML files (used in TeX and FOP)
-into the hyph-files used by iText.		
+Remark that the XML files were not created by the iText developers.
+The XML files were created for Apache FOP.
+We have downloaded them and we have put them in a separate jar
+for your convenience. Some of them may be GPL or not usable
+for commercial purposes so, read the licenses and decide what to keep.<br />
+If you can't find the hyphenation pattern you are looking for,
+you can create your own as described at the
+<a href="http://xml.apache.org/fop/hyphenation.html">FOP</a> site.
+Put your xml file as a resource in the package com.lowagie.text.pdf.hyphenation.hyph
+or put the xml file in some directory and call <site:doc class="com.lowagie.text.pdf.hyphenation.Hyphenator" target="setHyphenDir(java.lang.String)">Hyphenator.setHyphenDir()</site:doc>.
 </div>
 	</site:section>
 	

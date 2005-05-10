@@ -20,11 +20,42 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
-<li>Mark Hall fixed an IndexOutOfBoundsException in the row handling code</li>
-<li>Image background for Signatures by Cesar jz</li>
+<li>
+<ul>Early Access release by Paulo Soares (itext-paulo-154)
+<li>CCITTG4Encoder.java has a bug somewhere that for some patterns causes
+an out of memory exception. The bug is not corrected but an exception
+is thrown early on and the JVM is not brought down.</li>
+<li>revised hyphenation. The XML FOP hyphenation patterns are now used
+directly. I've included all the patterns in itext-hyph-xml.jar but
+some of them may be GPL or not usable for commercial purposes so,
+read the licenses and decide what to keep.</li>
+<li>added a new constructor PdfReader(RandomAccessFileOrArray raf, byte ownerPassword[]).
+Contrary to the other constructors only the xref is read into memory.
+The reader is said to be working in "partial" mode as only parts of the pdf
+are read as needed. The memory needs can be tiny.</li>
+<li>fixed a bug in ColumnText with columns with zero width.</li>
+<li>added simple background image support in signatures.
+There was a contribution by Cesar jz for this but the implemented
+solution is more generic and puts the image in the n2 layer instead
+of the n0 layer as recommended for Acrobat 6 and later.</li>
+<li>added print scaling, a new viewer preference, in PdfWriter.</li>
+<li>added a workaround for symbolic true type fonts that have incorrect cmaps.</li>
+</ul>
+</li>
+<li><ul>updates to the RTF package by Mark Hall
+<li>Bugfix in the RTF row handling code</li>
+<li>Support for the background colour in the Chunk</li>
+<li>Support for additional font styles in RtfFont. This includes support for 
+text hiding.</li></ul></li>
+<li>fixed two minor bugs in the early access release</li>
 <li>Some new tools for the Toolbox</li>
 <li>Experimenting with Table: convert com.lowagie.text.Table to com.lowagie.text.pdf.PdfPTable or use new classes SimpleTable and SimpleCell?</li>
 <li>Fixed a border bug when TableCells span multiple pages.</li>
+<li>Started writing a new parser that is able to read CSS markup (not yet finished!!!).</li>
+<li>Mark Horsfield suggested a change to the PageSize object:
+he needed a map with all the pagesizes and their description.
+I didn't use the code contribution, but made a PageSizeArgument
+that can be used to obtain such a map.</li>
 </ul>
 </site:changelog>
 </site:release>
