@@ -25,6 +25,11 @@
 			<site:description>Generates a table with the Table object</site:description>
 		</site:example>
 		<site:example>
+			<site:java src="LargeCell" standalone="yes" />
+			<site:result>largecell.pdf</site:result>
+			<site:description>Trying to fit a Cell on a page</site:description>
+		</site:example>
+		<site:example>
 			<site:java src="TablePdfPTable" standalone="yes" />
 			<site:result>tableattributes.pdf</site:result>
 			<site:result>tableattributes.rtf</site:result>
