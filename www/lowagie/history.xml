@@ -56,6 +56,8 @@ text hiding.</li></ul></li>
 he needed a map with all the pagesizes and their description.
 I didn't use the code contribution, but made a PageSizeArgument
 that can be used to obtain such a map.</li>
+<li>fixed bug #786427: endless loop adding table with cell longer than 1 page</li>
+<li>bugfix in class Table by Peter Hodgkinson</li>
 </ul>
 </site:changelog>
 </site:release>
