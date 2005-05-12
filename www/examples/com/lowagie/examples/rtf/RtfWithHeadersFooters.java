@@ -25,6 +25,7 @@ import java.io.IOException;
 
 import com.lowagie.text.Cell;
 import com.lowagie.text.Chapter;
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
@@ -37,6 +38,7 @@ import com.lowagie.text.rtf.RtfWriter2;
 import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
 import com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup;
 import com.lowagie.text.rtf.field.RtfPageNumber;
+import com.lowagie.text.rtf.field.RtfTotalPageNumber;
 
 /**
  * This example creates a RTF document with more complex headers and footers
@@ -65,6 +67,8 @@ public class RtfWithHeadersFooters {
             headerTable.addCell("Document header");
             Cell pageNumberCell = new Cell();
             pageNumberCell.add(new RtfPageNumber());
+            pageNumberCell.add(new Chunk(" of "));
+            pageNumberCell.add(new RtfTotalPageNumber());
             headerTable.addCell(pageNumberCell);
             headerTable.addCell("Company Name");
             HeaderFooter header = new RtfHeaderFooter(headerTable);
