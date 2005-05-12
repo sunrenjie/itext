@@ -370,6 +370,8 @@ Table headerTable = new Table(3);
 headerTable.addCell("Document header");
 Cell pageNumberCell = new Cell();
 pageNumberCell.add(new RtfPageNumber());
+pageNumberCell.add(new Chunk(" of "));
+pageNumberCell.add(new RtfTotalPageNumber());
 headerTable.addCell(pageNumberCell);
 headerTable.addCell("Company Name");
 HeaderFooter header = new RtfHeaderFooter(headerTable);
