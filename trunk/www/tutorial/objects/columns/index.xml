@@ -147,11 +147,11 @@ using a PageEvent), but instead we created the MultiColumnText object like this:
 <pre class="commandline">MultiColumnText mct = new MultiColumnText(document.top() - document.bottom());</pre>
 The parameter defines a maximum height for the column. If you do this, the columns will not
 automatically be distributed over different pages! You will need to use a loop:
-<pre class="commandline">while (mct.hasMoreText()) {
+<pre class="commandline">do {
     document.add(mct);
     mct.nextColumn();
     document.newPage();
-}</pre>
+} while (mct.isOverflow());</pre>
 </div>
 	</site:section>
 	</site:chapter>
