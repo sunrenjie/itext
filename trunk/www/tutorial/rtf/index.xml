@@ -60,12 +60,15 @@ in the RTF package. The new <span class="commandline">RtfWriter2</span>
 class and the old <span class="commandline">RtfWriter</span> class.
 For details please read <a href="#rtfdocument">Creating a RTF document</a>.<br /><br />
 Additionally the RTF package contains a few features, that are RTF specific:
-<a href="#extendedfont">Extended font support</a>,
-<a href="#extendedhf">Extended header / footer support</a>,
-<a href="#tocsupport">Table of contents support</a>,
-<a href="#extendedcellborder">Extended cell border support</a> and
-<a href="#pagenumberelement">Page number element</a> and
-<a href="#diskcaching">Using a disk cache for document generation</a>.
+<ul>
+  <li><a href="#extendedfont">Extended font support</a></li>
+  <li><a href="#extendedhf">Extended header / footer support</a> </li>
+  <li><a href="#tocsupport">Table of contents support</a> </li>
+  <li><a href="#extendedcellborder">Extended cell border support</a></li>
+  <li><a href="#pagenumberelement">Page number element</a></li>
+  <li><a href="#diskcaching">Using a disk cache for document generation</a></li>
+  <li><a href="#documentsettings">Using document output settings</a></li>
+</ul>
 </div>
 	</site:section>
 
@@ -392,6 +395,33 @@ To activate disk caching insert the following code directly after creating the R
 <pre class="commandline">
 writer2.setDataCacheStyle(com.lowagie.text.rtf.document.output.RtfDataCache.CACHE_DISK);
 </pre>
+</div>
+    </site:section>
+
+	<site:section name="documentsettings">
+		<site:sectiontitle>Using document output settings</site:sectiontitle>
+<div>
+In some situations it is necessary to modify how some document elements are written to the rtf file.
+For example a certain feature might not be supported by the target rtf viewer application or
+there is a requirement to keep the document as small as possible. To this end there is the
+<span class="commandline">RtfDocumentSettings</span> class. It provides settings for the following features:
+<ul>
+  <li>setOutputTableRowDefinitionAfter: Whether to output the table row definitions twice. Once before
+    and one after the cell data. This is recommended for use with Word 2000, on the other hand this
+    causes problems with OpenOffice.org. Defaults to <span class="commandline">true</span>.</li>
+  <li>setOutputDebugLineBreaks: To make the rtf document source more readable line breaks are inserted
+    at certain points. This of course increases the size of the document. This option allows this
+    feature to be turned off. Defaults to <span class="commandline">true</span>. Turning this feature off
+    does not remove all line breaks since some are required by the rtf specification and also because
+    this flag has not yet been fully implemented.</li>
+</ul>
+
+The <span class="commandline">RtfDocumentSettings</span> can be accessed via
+<pre class="commandline">
+RtfWriter2 rtfWriter2 = RtfWriter.getInstance(doc, new FileOutputStream("document.rtf"));
+rtfWriter2.getDocumentSettings().setOutputTableRowDefinitionAfter(false);
+</pre>
+
 </div>
     </site:section>
     
