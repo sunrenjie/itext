@@ -60,7 +60,7 @@
 			<site:externalresource>otsoe.jpg</site:externalresource>
 			<site:externalresource>getacro.gif</site:externalresource>
 			<site:result>inSequence.pdf</site:result>
-			<site:result>NotInSequence.pdf</site:result>
+			<site:result>notInSequence.pdf</site:result>
 			<site:description>Adds images to a document, once respecting the order in which they were added, once in the default order.</site:description>
 		</site:example>
 		<site:example>
