@@ -287,7 +287,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<xsl:if test="$jsp=./site:java/@jsp">
 					Example:
 					<xsl:element name="a">
-						<xsl:attribute name="href"><xsl:value-of select="site:java/@jsp" /></xsl:attribute>
+						<xsl:attribute name="href">http://cvs.sourceforge.net/viewcvs.py/*checkout*/itext/www/tutorial<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@jsp" /></xsl:attribute>
 						<xsl:value-of select="site:java/@jsp" />
 					</xsl:element><br />
 					<xsl:value-of select="site:description/." />
@@ -319,7 +319,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<xsl:if test="site:java/@jsp">
 					<xsl:element name="a">
 						<xsl:attribute name="class">source</xsl:attribute>
-						<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@jsp" /></xsl:attribute>
+						<xsl:attribute name="href">http://cvs.sourceforge.net/viewcvs.py/*checkout*/itext/www/tutorial<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@jsp" /></xsl:attribute>
 						<xsl:value-of select="site:java/@jsp" />
 					</xsl:element><br />
 				</xsl:if>

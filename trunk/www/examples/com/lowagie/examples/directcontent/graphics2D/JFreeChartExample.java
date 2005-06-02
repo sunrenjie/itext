@@ -46,6 +46,8 @@ public class JFreeChartExample {
 	 */
 	public static void main(String[] args) {
 		System.out.println("JFreeChart example");
+		/** the following line is a workaround for JDK 1.5 (fix by Adriaan Joubert) */
+		org.jfree.text.TextUtilities.setUseDrawRotatedStringWorkaround(false);
 		convertToPdf(getBarChart(), 400, 600, "barchart.pdf");
 		convertToPdf(getPieChart(), 400, 600, "piechart.pdf");
 		convertToPdf(getXYChart(), 400, 600, "xychart.pdf");
