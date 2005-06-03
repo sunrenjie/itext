@@ -246,7 +246,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:apply-templates select="site:content" />
 
 <div xmlns="http://www.w3.org/1999/xhtml" id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
-Copyright &#169; 1999-2004 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
+Copyright &#169; 1999-2005 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
 Read the <a href="privacypolicy.html">Privacy Policy</a> at lowagie.com;
 mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a></div>
 
