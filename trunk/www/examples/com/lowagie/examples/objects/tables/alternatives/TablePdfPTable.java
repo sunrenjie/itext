@@ -87,6 +87,7 @@ public class TablePdfPTable {
             	}
             	cell = new SimpleCell(SimpleCell.CELL);
             	cell.add(new Paragraph("Row " + (i + 1)));
+            	cell.setSpacing_left(20f);
             	row.add(cell);
             	if (i % 5 == 4) {
             		cell = new SimpleCell(SimpleCell.CELL);
