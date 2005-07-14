@@ -248,7 +248,7 @@ For the horizontal alignment, you can choose:
 <li>Element.ALIGN_RIGHT</li>
 <li>Element.ALIGN_JUSTIFIED</li>
 </ul>
-For the horizontal alignment:
+For the vertical alignment:
 <ul>
 <li>Element.ALIGN_TOP</li>
 <li>Element.ALIGN_MIDDLE</li>
