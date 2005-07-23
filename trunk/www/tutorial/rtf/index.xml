@@ -414,6 +414,10 @@ there is a requirement to keep the document as small as possible. To this end th
     feature to be turned off. Defaults to <span class="commandline">true</span>. Turning this feature off
     does not remove all line breaks since some are required by the rtf specification and also because
     this flag has not yet been fully implemented.</li>
+  <li>setAlwaysGenerateSoftLinebreaks: Whether linebreaks (\n) in Chunks are always output as soft or hard
+    linebreaks. Setting this to <span class="commandline">true</span> means that all linebreaks within
+    Chunks, Paragraphs, Phrases,... are generated as soft linebreaks while the end of Paragraphs is still
+    generated as a hard linebreak.</li>
 </ul>
 
 The <span class="commandline">RtfDocumentSettings</span> can be accessed via
