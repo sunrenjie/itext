@@ -20,6 +20,63 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
+<li>2005-07-29: iText 1.3.2
+<ul>
+<li>Changes made by Paulo:
+<ul>
+<li>Annotations in Image now work everywhere</li>
+<li>PdfContentByte.addImage() didn't respect layers</li>
+<li>PdfContentByte.addImage() draws the borders</li>
+<li>Dpi fix in BmpImage</li>
+<li>Support for inline images (all colorspaces)</li>
+<li>Better CCITTG4Encoder</li>
+<li>Support for TIFF images rotated</li>
+<li>Support for some jpeg tiff images. Very incomplete.</li>
+<li>Fix in List: float parsing instead of int parsing</li>
+<li>Fix in checkboxes with the same name but different appearances</li>
+<li>Codabar fix, B and C were switched</li>
+<li>Make Arabic Diactrics (tashkeel) have zero advance</li>
+<li>Added support for Type3 fonts</li>
+<li>Signature fields can't be exported</li>
+<li>Signing empty fields didn't keep the flags</li>
+<li>Self sign doesn't need to extend size</li>
+<li>Fix for DSA signatures</li>
+<li>MultiColumnText page position didn't update after page 1</li>
+<li>PdfCopyFields: fix for PDFs with null elements in the /CO array</li>
+<li>PdfFormField.setFieldName() is only set if not null</li>
+<li>Password field and choice field fix</li>
+<li>PdfDictionary: CRLF correction</li>
+<li>Embedded files: set the length information</li>
+<li>Fix in constructor PdfReader(PdfReader)</li>
+<li>Workaround for pdfs with broken bookmark dictionary</li>
+<li>Daylight Savings Time is taken into account when creating a date</li>
+</ul>
+</li>
+<li>Changes made by Mark:
+<ul>
+<li>Bugfixes in the RtfList to correctly handle indentations, nesting > 2.</li>
+<li>Bugfixes in the RtfFont so that it can be used like a true Font and also so 
+that UNDEFINED properties are handled more cleanly.</li>
+<li>Bugfixes in the RtfAnchor to use the Anchor.reference instead of the url 
+Method.</li>
+<li>Bugfixes in the RtfTable to match the PDF output more precisely.</li>
+<li>New Class RtfTotalPageNumber.</li>
+<li>The user can set whether soft or hard linebreaks should be generated for  "\n".</li>
+</ul>
+</li>
+<li>Changes made by Bruno:
+<ul>
+<li>Made the method getVersion final so that it can't be changed by subclassing</li>
+<li>Applied suggestions made in bugreport #1227749 concerning JDK 1.3 compatibility</li>
+<li>Avoiding NullPointerExceptions in Phrase (not sure if this is a good thing)</li>
+<li>Changed spacing in SimpleTable/SimpleCell classes</li>
+<li>Added the UserUnit entry to the PdfPage dictionary. A user unit is 1/72 inch by default, but you can now change it from 1 to 75,000</li>
+<li>Added Watermarker plugin (Carsten Hammer)</li>
+<li>Txt2Pdf: implemented suggestion by Carsten Hammer</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>2005-05-11: iText 1.3.1
 <ul>
 <li>fixed a pagenumber problem in PdfStamper</li>

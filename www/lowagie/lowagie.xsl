@@ -14,24 +14,14 @@
 <!-- release number: change for every new release -->
 <xsl:param name="releasenumber"/>
 <xsl:param name="releasedate"/>
-<xsl:param name="earlyaccessnumber"/>
-<xsl:param name="earlyaccesspaulo"/>
 <xsl:param name="earlyaccesslowagie"/>
 
 <xsl:template match="site:releasenumber" name="site:releasenumber">
 <xsl:value-of select="$releasenumber"/>
 </xsl:template>
 
-<xsl:template match="site:releasedate">
+<xsl:template match="site:releasedate" name="site:releasedate">
 <xsl:value-of select="$releasedate"/>
-</xsl:template>
-
-<xsl:template match="site:earlyaccessnumber">
-<xsl:value-of select="$earlyaccessnumber"/>
-</xsl:template>
-
-<xsl:template match="site:earlyaccesspaulo">
-<xsl:value-of select="$earlyaccesspaulo"/>
 </xsl:template>
 
 <xsl:template match="site:earlyaccesslowagie" name="site:earlyaccesslowagie">
@@ -260,7 +250,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 	<div id="links" xmlns="http://www.w3.org/1999/xhtml">
 		<a class="navigation" href="http://www.lowagie.com/iText/index.html">Home @ Lowagie.com</a>
 		<a class="navigation" href="http://sourceforge.net/projects/itext/">Home @ SourceForge.net</a>
-		<a class="navigation" href="http://itextpdf.sourceforge.net/">Early Access (Paulo)</a>
+		<a class="navigation" href="http://itextsharp.sourceforge.net/">iTextSharp (.NET port)</a>
 		<br />
 		<a class="navigation" href="download.html">Download &amp; Compile</a>
 		<a class="navigation" href="docs.html">Documentation</a>
