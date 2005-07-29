@@ -50,6 +50,7 @@
 <li>Fix in constructor PdfReader(PdfReader)</li>
 <li>Workaround for pdfs with broken bookmark dictionary</li>
 <li>Daylight Savings Time is taken into account when creating a date</li>
+<li>Waiting Image in the last page was not placed</li>
 </ul>
 </li>
 <li>Changes made by Mark:
