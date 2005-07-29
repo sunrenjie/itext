@@ -94,8 +94,6 @@ one of the first questions you will be asked is:<br /><i>What version of iText a
 There are two ways you can find out the answer. You can open the PDF file in Acrobat and
 go to the window File -&gt; Document Properties... Under 'Description' you'll see what library/product
 was used as 'PDF Producer'. In the screenshot below, it was <i>iText1.1.2 by lowagie.com (based on itext-paulo-144)</i>.
-The first part means you are using a release from the 'official' site (lowagie.com).
-The second part is the Early Access release the 'official' version was based on.
 You can always check the most recent releasenumber on the <a href="http://www.lowagie.com/iText/download.html">iText download page</a>.<br />
 <site:image source="metadata.gif">Document Properties Window</site:image><br />
 Of course, if a post-processing tool was used, another product will be listed as

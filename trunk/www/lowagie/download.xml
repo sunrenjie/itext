@@ -43,8 +43,7 @@ There was no money involved in this deal; the developers of iText are not
 on the paylist of PDF Sages.  The responsibility for these contracts lies
 with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
 <div class="title">Current release</div>
-The current release on this site is <site:releasenumber />. This is considered a STABLE release (<site:releasedate />).
-iText<site:releasenumber /> was based on the Early Access release itext-paulo-<site:earlyaccessnumber />.<br /><br />
+The current major release on this site is <site:releasenumber />. This is considered a STABLE release.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
 	<tr><th colspan="2">Download the library:</th></tr>
 	<tr>
@@ -61,19 +60,12 @@ iText<site:releasenumber /> was based on the Early Access release itext-paulo-<s
 	</tr>
 </table><br />
 If you need a more recent release (because you need extra functionality or some specific bugfix
-that was added more recently), please go the the <a href="http://itextpdf.sourceforge.net/">Early Access</a>
-site (maintained by Paulo Soares) and check the version number (probably itext-paulo-<site:earlyaccesspaulo />).<br />
-There are also Early Access releases available on the lowagie.com site.
-You should check the version numbers to see which Early Access version is the most recent one:
-the current Early Access version at lowagie.com is <site:earlyaccessjar /> (<site:earlyaccesssrc />).
-It is based on itext-paulo-<site:earlyaccesspaulo />.<br />
-To know the relation between the older version numbers of the releases on this site and older versions
-of the Early Access release, please consult the <a href="history.html">history overview</a>.
-If all this is too complicated, just download a jar, compile an example and
-read <a href="http://itextdocs.lowagie.com/tutorial/general/faq/index.html#version">this tutorial FAQ entry</a>
-to make sure what version of iText you are using.<br /><br />
+that was added more recently), you can often download an early access version on the lowagie.com site.
+The current Early Access version at lowagie.com is <site:earlyaccessjar /> (<site:earlyaccesssrc />).
+It was released on this date: <site:releasedate />.
+Please consult the <a href="history.html">history overview</a> for more info.<br />
 Another option to get the source code is to download it from the <a href="cvs.html">CVS repository</a>,
-for instance using <a href="ant.html">ant getFromCvs</a>.
+for instance using <a href="ant.html">ant getFromCvs</a>. There, you'll always find the most recent iText version.
 <div class="title">Compiling the source</div>
 The iText jar is compiled with the JDK1.4.
 If you are using an older JVM in your environment, you could experience some compatibility problems.
