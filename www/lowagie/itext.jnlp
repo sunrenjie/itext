@@ -19,7 +19,7 @@ iText JavaWebStart file
    </information> 
    <resources>
       <j2se version="1.3+"/>
-      <jar href="http://itextdocs.lowagie.com/downloads/itext-signed.jar" main="true" download="eager"/>
+      <jar href="http://blowagie.users.mcs2.netarray.com/itext-signed.jar" main="true" download="eager"/>
    </resources>
    <application-desc main-class="com.lowagie.tools.Toolbox"/>
    <security>
