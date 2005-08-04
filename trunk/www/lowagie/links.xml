@@ -44,6 +44,7 @@
 		<a href="http://xmlroff.sourceforge.net/" class="topic">xmlroff:</a> an XSL formatter written in C that produces PDF and PostScript.
 		<a href="http://www.tug.org/applications/pdftex/" class="topic">PdfTeX:</a> pdfTeX (by Han The Thanh) is a TeX variant that can generate PDF output directly instead of dvi.
 		<a href="http://www.pdfbox.org/" class="topic">PDFBox:</a> PDFBox is a Java PDF Library. This project will allow access to all of the components in a PDF document.
+		<a href="http://jpdfunit.sourceforge.net/" class="topic">JpdfUnit:</a> a framework for testing a generated pdf document with the JUnit Test Framework so JPdfUnit is a high level api. The framework is designed for an easy access to the PDFBox library.
 		<a href="http://doc2pdf.sourceforge.net/" class="topic">Doc2pdf:</a> Doc2pdf is an email robot that converts Microsoft Office attachments (.doc, .ppt, and .xls) to PDF.
 		<a href="http://gnujpdf.sourceforge.net/" class="topic">gnujpdf:</a> a Java package (gnu.jpdf.*) licensed under the LGPL. It provides a simple API to create pdf files and print using subclasses of java.awt.Graphics and java.awt.PrintJob
 		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.
@@ -79,6 +80,7 @@
 		<a href="http://www.vbxml.com/xsl/xsltref.asp" class="topic">Top XML:</a> XSLT Reference
 		<a href="http://www.mailinglistshq.com/javamailinglist/" class="topic">Java Mailing Lists:</a> at <a href="http://www.mailinglistshq.com/">Mailing Lists Head Quarters</a>.
 <a name="misc"><div class="title">Miscellaneous links</div></a>
+        <a href="https://www.bearprinting.com/" class="topic">BearPrinting.com:</a> create your own professional flyers and postcards, internet-based Graphic Design. Try the <a href="https://www.bearprinting.com/index.jsp?page=FredDemoGateway.jsp">Demo</a>.
 		<a href="http://www.accesspdf.com/article.php/20041203110039573" class="topic">PDFTK:</a> an iText based commandline toolkit, by Sid Stewart (author of the book 'PDF Hacks'), that can be used to (post)process PDF files.
 		<a href="http://www.trosoft.net/_en-US/030+Produkte.htm" class="topic">TroSoft:</a> iText is used for secure PDF generation in the Trodat Digital Sealing and Trodat E-Form Server products.
 		<a href="http://www.variex.de/" class="topic">Variex:</a> dynamic document solution (uses iText)
