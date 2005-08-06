@@ -45,43 +45,43 @@ Search Amazon.com for books on: <a href="http://www.amazon.com/exec/obidos/exter
 		<site:amazontitle>PDF Hacks</site:amazontitle>
 		PDF Hacks unveils the true promise of Portable Document Format, going way beyond the usual PDF as paged output mechanism.
 	</site:amazonproduct>
-	<site:amazonproduct asin="0321193741">
-		<site:amazontitle>Adobe Acrobat 6.0 Standard Classroom in a Book </site:amazontitle>
-		Adobe Acrobat 6.0 Standard Classroom in a Book is the fastest, easiest, and most comprehensive way to master Adobe Acrobat 6.0 Standard.
+	<site:amazonproduct asin="0321294009">
+		<site:amazontitle>Adobe Acrobat 7.0 Classroom in a Book </site:amazontitle>
+		Adobe Acrobat 7.0 Classroom in a Book is the fastest, easiest, and most comprehensive way to master Adobe Acrobat 7.0.
 	</site:amazonproduct>
-	<site:amazonproduct asin="0072229462">
-		<site:amazontitle>How to Do Everything with Adobe Acrobat 6.0 (Windows) </site:amazontitle>
-		This guide provides step-by-step instructions for using Adobe Acrobat 6.0 (both the Standard and Professional versions) to create, edit, and distribute documents as Portable Document Format (PDF) files.
+	<site:amazonproduct asin="0072257881">
+		<site:amazontitle>How to Do Everything with Adobe Acrobat 7.0</site:amazontitle>
+		This guide provides step-by-step instructions for using Adobe Acrobat 7.0 to create, edit, and distribute documents as Portable Document Format (PDF) files.
 	</site:amazonproduct>
-	<site:amazonproduct asin="0764540475">
-		<site:amazontitle>Adobe Acrobat 6 PDF Bible </site:amazontitle>
-		Adobe Acrobat 6 PDF Bible is an essential reference for learning and utilizing the capabilities of Adobe Acrobat 6 Standard and Professional.
+	<site:amazonproduct asin="0764583786">
+		<site:amazontitle>Adobe Acrobat 7 PDF Bible </site:amazontitle>
+		Adobe Acrobat 7 PDF Bible is an essential reference for learning and utilizing the capabilities of Adobe Acrobat 7 Standard and Professional.
 	</site:amazonproduct>
-	<site:amazonproduct asin="0764537601">
-		<site:amazontitle>Adobe Acrobat 6 PDF for Dummies </site:amazontitle>
-		Guide to using Adobe Acrobat 6 PDF to make document sharing fast and easy. Shows how to convert documents, distill files, make edits, extract elements, archive, and share creations with others.
+	<site:amazonproduct asin="0321305302">
+		<site:amazontitle>Adobe Acrobat 7 Tips and Tricks : The 150 Best</site:amazontitle>
+		Sure, you know how to read PDFs with it, but do you know how to add comments to documents or embed 3D objects in your PDFs or establish document-level security settings? With its staggering array of document-enhancing features and supported formats, Adobe Acrobat 7 offers a world of functionality just waiting to be tapped.
 	</site:amazonproduct>
-	<site:amazonproduct asin="0321202996">
-		<site:amazontitle>Acrobat 6 Hands-On Training </site:amazontitle>
-		Text provides hands-on exercises covering the Standard and Professional versions of Acrobat 6. Shows how to create dynamic PDF presentations by embedding multimedia items such as sound and video. For beginning to intermediate users.
+	<site:amazonproduct asin="0672327015">
+		<site:amazontitle>Adobe Acrobat 7 in a Snap (Sams Teach Yourself)</site:amazontitle>
+		Guide to using Adobe Acrobat 7 PDF in about 80 short tasks that are designed to teach you what you need to know and let you get back to work and apply your new skills..
 	</site:amazonproduct>
 </site:amazonlist>
 <tr><td colspan="3"><div class="title">Overview of some Adobe Products</div></td></tr>
 <site:amazonlist>
-	<site:amazonproduct asin="B00008ZGRY">
-		<site:amazontitle>Adobe Acrobat 6.0 Standard Edition</site:amazontitle>
+	<site:amazonproduct asin="B00069E7JA">
+		<site:amazontitle>Adobe Acrobat 7.0 Standard Edition</site:amazontitle>
 		<ul><li>Easily convert any paper or electronic document to Adobe PDF</li><li>Capture research information from the Web and combine it with reports</li><li>Makes it easy to track, manage, and incorporate feedback into original documents</li><li>Batch process PDF files with settings for adding security</li><li>Control whether users are allowed to view, edit, comment on, sign, or print PDF files</li></ul>
 	</site:amazonproduct>
-	<site:amazonproduct asin="B00008ZGS2">
-		<site:amazontitle>Adobe Acrobat 6.0 Professional</site:amazontitle>
+	<site:amazonproduct asin="B00069E7KO">
+		<site:amazontitle>Adobe Acrobat 7.0 Professional</site:amazontitle>
 		<ul><li>Create PDF files with the click of a button from Microsoft applications and AutoCAD</li><li>Convert and combine application files into one compact PDF file in a single step</li><li>Create lists of reviewers and track the feedback you receive</li><li>Create interactive electronic forms that can be completed and submitted online</li><li>View two areas of a large drawing simultaneously by using a split-pane view</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00005M63M">
 		<site:amazontitle>Adobe PageMaker 7.0</site:amazontitle>
 		<ul><li>Create professional-quality publications</li><li>Build from scratch or choose from hundreds of templates</li><li>Achieve a uniform look with master frames to hold text and graphics</li><li>Professional typesetting with kerning and tracking</li><li>Includes thousands of clip art photos and illustrations</li></ul>
 	</site:amazonproduct>
-	<site:amazonproduct asin="B00005QVPY">
-		<site:amazontitle>Adobe Illustrator 10.0</site:amazontitle>
+	<site:amazonproduct asin="B00081G3V6">
+		<site:amazontitle>Adobe Illustrator CS2</site:amazontitle>
 		<ul><li>Create vector-based graphics for the Web, emerging media, and print</li><li>Keep file sizes small and manage repeating graphics with new symbolism tools</li><li>Bend, stretch, and twist design elements and retain editability</li><li>Generate custom artwork variations using dynamic data-driven graphics</li><li>Optimize Web graphics with object-based slicing and cascading style sheet layers</li></ul>
 	</site:amazonproduct>
 	<site:amazonproduct asin="B00004S85Q">
