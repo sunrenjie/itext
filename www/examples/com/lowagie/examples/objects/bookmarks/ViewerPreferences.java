@@ -54,6 +54,8 @@ public class ViewerPreferences {
 					new FileOutputStream("FullScreen.pdf"));
 			PdfWriter writer4 = PdfWriter.getInstance(document,
 					new FileOutputStream("WithTitle.pdf"));
+			PdfWriter writer5 = PdfWriter.getInstance(document,
+					new FileOutputStream("NoScaling.pdf"));
 			// step 3:
 			writer1.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);
 			writer2.setViewerPreferences(PdfWriter.HideMenubar
@@ -62,6 +64,7 @@ public class ViewerPreferences {
 					| PdfWriter.PageModeFullScreen
 					| PdfWriter.NonFullScreenPageModeUseThumbs);
 			writer4.setViewerPreferences(PdfWriter.DisplayDocTitle);
+			writer5.setViewerPreferences(PdfWriter.PrintScalingNone);
 			document.addTitle("Julius Caesar");
 			document.open();
 			// step 4: we grab the ContentByte and do some stuff with it
