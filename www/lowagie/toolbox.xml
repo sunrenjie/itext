@@ -68,7 +68,7 @@ be used is Courier 11pt for documents in PORTRAIT, Courier 10pt for documents in
 <div class="title">Encrypt</div>
 <div class="small">This set of tools allows you to encrypt/decrypt PDF files:
 <ul>
-<li><b>Encrypt:</b>
+<li><b>Encrypt:</b> encrypts a PDF
 <ul>arguments
 <li><b>srcfile:</b> the unencrypted PDF file you want to encrypt</li>
 <li><b>destfile:</b> the path to the encrypted PDF that should be generated</li>
@@ -77,6 +77,24 @@ be used is Courier 11pt for documents in PORTRAIT, Courier 10pt for documents in
 <li><b>permissions:</b> (optional) check the permissions that should be present in the PDF file.
 If you are using this tool from the commandline, it's a String with a series of '0' and '1' values.</li>
 <li><b>strength:</b> (optional) you can choose 40 bit or 128 bit encoding</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="title">Inspect</div>
+<div class="small">This set of tools allows you to inspect PDF files:
+<ul>
+<li><b>HtmlBookmarks:</b> makes an HTML file containing the bookmarks of your PDF.
+<ul>arguments
+<li><b>srcfile:</b> the PDF file you want to inspect</li>
+<li><b>ownerpassword:</b> (optional) if the file is encrypted, you have to enter the ownerpassword</li>
+</ul>
+</li>
+<li><b>PdfInfo:</b> generates a property list.
+<ul>arguments
+<li><b>srcfile:</b> the PDF file you want to inspect</li>
+<li><b>ownerpassword:</b> (optional) if the file is encrypted, you have to enter the ownerpassword</li>
 </ul>
 </li>
 </ul>
