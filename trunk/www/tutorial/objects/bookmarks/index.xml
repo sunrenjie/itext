@@ -24,7 +24,8 @@
 			<site:result>HideMenuToolbar.pdf</site:result>
 			<site:result>FullScreen.pdf</site:result>
 			<site:result>WithTitle.pdf</site:result>
-			<site:description>Creates three versions of the same document, but with different viewerpreferences</site:description>
+			<site:result>NoScaling.pdf</site:result>
+			<site:description>Creates five versions of the same document, but with different viewerpreferences</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="PageLabels" standalone="yes" />
@@ -119,6 +120,7 @@ This is the list with viewerpreferences that are supported in iText:
 <li><b>NonFullScreenPageModeUseOC</b> - Optional content group panel visible</li>
 </ul>
 </li>
+<li><b>PrintScalingNone</b> - Sets the print scaling to 'None'</li>
 </ul>
 </div>
 	</site:section>
