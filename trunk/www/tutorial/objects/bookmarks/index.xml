@@ -58,6 +58,12 @@
 			<site:result>ChapterSection.pdf</site:result>
 			<site:description>Creates a document with Chapters and Sections (automatic outlines)</site:description>
 		</site:example>
+		<site:example>
+			<site:java src="HtmlIndex" standalone="yes" />
+			<site:result>ChapterSection_index.html</site:result>
+			<site:result>OutlineActions_index.html</site:result>
+			<site:description>Creates an HTML index of a file that has bookmarks</site:description>
+		</site:example>
 	</site:examples>
 	
 	<site:chapter>

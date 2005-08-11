@@ -86,6 +86,10 @@ If you are using this tool from the commandline, it's a String with a series of 
 <div class="small">This set of tools allows you to inspect PDF files:
 <ul>
 <li><b>HtmlBookmarks:</b> makes an HTML file containing the bookmarks of your PDF.
+For instance, if you have the file <a href="http://itextdocs.lowagie.com/tutorial/objects/bookmarks/ChapterSection.pdf">ChapterSection.pdf</a> from the tutorial,
+you can make a <a href="http://itextdocs.lowagie.com/tutorial/objects/bookmarks/ChapterSection_index.html">ChapterSection_index.html</a> that holds contains the index for the
+PDF and links to the specific pages. The same goes for <a href="http://itextdocs.lowagie.com/tutorial/objects/bookmarks/OutlineActions.pdf">OutlineActions.pdf</a> and
+<a href="http://itextdocs.lowagie.com/tutorial/objects/bookmarks/OutlineActions_index.html">OutlineActions_index.html</a> (where the bookmarks can be links to a remote document or URL too).
 <ul>arguments
 <li><b>srcfile:</b> the PDF file you want to inspect</li>
 <li><b>ownerpassword:</b> (optional) if the file is encrypted, you have to enter the ownerpassword</li>
