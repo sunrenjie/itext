@@ -24,17 +24,49 @@
 <ul>
 <li>Changes made by Paulo:
 <ul>
-<li></li>
+<li>com.lowagie.text.Image: scaledToFit() didn 't take rotation into account</li>
+<li>MultiColumnText didn't respect mirrored margins</li>
+<li>Waiting image in the last page was not being placed</li>
+<li>PdfStamper supports encryption in append mode</li>
+<li>PdfGraphics2D: some attempts to fix the 'very small font' scaling problem</li>
+<li>PdfReader.selectPages() is working again.</li>
+<li>RandomAccessFileOrArray.InputStreamToArray() was made public.</li>
 </ul>
 </li>
 <li>Changes made by Mark:
 <ul>
-<li></li>
+<li>Table width bugfix</li>
+<li>Set the topLevelElement for RtfImages added directly to the document</li>
+<li>Fixed a bug with undefined styles in RTF</li>
+<li>Added empty line between images in RTF</li>
+<li>RtfImage: Corrected the scaling to mimick the pdf more precisely. If added directly to the document includes a finishing new-line</li>
+<li>Added a switch to enable/disable unicode generation (RTF)</li>
+<li>When filtering characters the alwaysUseUnicode switch in the RtfDocumentSettings is now observed.</li>
+<li>Added methods to update the indentations in RtfParagraph</li>
+<li>Correctly handle the indentation properties of Chapters and Sections. Improved match between pdf and rtf output.</li>
 </ul>
 </li>
 <li>Changes made by Bruno:
 <ul>
-<li></li>
+<li>bugfix: initialrotation wasn 't copied in the copy constructor of com.lowagie.text.Image</li>
+<li>Made the toString() of class com.lowagie.text.Rectangle more verbose</li>
+<li>Added a class com.lowagie.text.markup.WebColors</li>
+<li>Added some methods to MultiColumnText for arabic and RTL text.</li>
+<li>When using a MultiColumnText with only 1 column, the currentY of the PdfDocument is no longer the total available width (triggering a new page every time a ColumnText is added), but it is changed according to the space used by the MultiColumnText.
+In other words: you can now use MultiColumnText as if it was a Paragraph object (which is handy if you need R2L or BiDi).</li>
+<li>Added a static method to PdfEncryptor, to get a verbose explanation of the permissions</li>
+<li>Bugfix: PageModeUseOC and PrintScalingNone had the same value.</li>
+<li>The PDF version is set to 1.6 automatically when the userunit is changed</li>
+<li>Changes in the Toolbox:
+It now contains an About MenuItem that points to a page explaining the tools.
+The tools are now in different categories.</li>
+<li>As suggested by Carsten Hammer: 'Help 'is moved to the right;
+new internal windows are shown with an offset and have setSelected(true).</li>
+<li>Burst-tool: SinglePages was renamed to Burst; the new PDF-filenames now get leading zeros in the sequence number,
+so that they are in the right order when sorted alphabetically.</li>
+<li>New HtmlBookmarks tool that allows you to generate an HTML with links to the bookmarked pages of a PDF</li>
+<li>New InspectPdf tool: tool that gives you some info about a PDF.</li>
+<li>New tool to make a PhotoAlbum PDF with all the images of a given directory</li>
 </ul>
 </li>
 </ul>
