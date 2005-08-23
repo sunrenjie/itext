@@ -97,6 +97,18 @@ If you are using this tool from the commandline, it's a String with a series of 
 <li><b>destfile:</b> the path to the PDF that should be generated</li>
 </ul>
 </li>
+<li><b>SelectedPages:</b> Allows you to copy a selection of pages from an existing PDF into a new PDF file.
+<ul>arguments
+<li><b>srcfile:</b> the path to the original PDF</li>
+<li><b>destfile:</b> the path to the PDF that should be generated</li>
+<li><b>selection:</b> a range of pages; the general syntax is:
+<span class="commandline">[!][o][odd][e][even]start-end</span><br />
+You can have multiple ranges separated by commas ','.<br />
+The '!' modifier removes the range from what is already selected.<br />
+The range changes are incremental, that is, numbers are added or deleted as the range appears.<br />
+The start or the end, but not both, can be ommited.</li>
+</ul>
+</li>
 <li><b>Split:</b> Splits a PDF file into two separate PDF files.
 <ul>arguments
 <li><b>srcfile:</b> the original PDF file</li>
