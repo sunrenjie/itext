@@ -67,6 +67,8 @@ so that they are in the right order when sorted alphabetically.</li>
 <li>New HtmlBookmarks tool that allows you to generate an HTML with links to the bookmarked pages of a PDF</li>
 <li>New InspectPdf tool: tool that gives you some info about a PDF.</li>
 <li>New tool to make a PhotoAlbum PDF with all the images of a given directory</li>
+<li>New tool to copy selected pages of an existing PDF file into a new one</li>
+<li>Added a CvsLogParser to help me make the history.html file for every new release</li>
 </ul>
 </li>
 </ul>
