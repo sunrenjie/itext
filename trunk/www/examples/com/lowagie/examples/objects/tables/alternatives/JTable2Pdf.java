@@ -127,7 +127,6 @@ public class JTable2Pdf extends JFrame {
             // Create the graphics as shapes
             cb.saveState();
             Graphics2D g2 = cb.createGraphicsShapes(500, 500);
-            
             // Print the table to the graphics
             Shape oldClip = g2.getClip();
             g2.clipRect(0, 0, 500, 500);
@@ -152,10 +151,9 @@ public class JTable2Pdf extends JFrame {
             g2.dispose();
             cb.restoreState();
             
-        } catch (DocumentException de) {
-            System.err.println(de.getMessage());
-        } catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
+        } catch (Exception e) {
+        	e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         
         document.close();
