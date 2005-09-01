@@ -97,6 +97,14 @@ If you are using this tool from the commandline, it's a String with a series of 
 <li><b>destfile:</b> the path to the PDF that should be generated</li>
 </ul>
 </li>
+<li><b>N-up:</b> Generates a new PDF based on an existing one and put N pages of
+the existing PDF on 1 page of the new PDF.
+<ul>arguments
+<li><b>srcfile:</b> the path to the source PDF</li>
+<li><b>destfile:</b> the path to the resulting PDF</li>
+<li><b>pow2:</b> N = Math.pow(2, pow2); so pow2 = 1 if you want 2 pages on 1, pow2 = 2 if you want 4 pages on 1, pow2 = 3 if you want 8 pages on 1, etc...</li>
+</ul>
+</li>
 <li><b>SelectedPages:</b> Allows you to copy a selection of pages from an existing PDF into a new PDF file.
 <ul>arguments
 <li><b>srcfile:</b> the path to the original PDF</li>
