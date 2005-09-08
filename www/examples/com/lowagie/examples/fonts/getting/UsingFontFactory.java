@@ -60,15 +60,17 @@ public class UsingFontFactory {
 			document.add(p);
 			FontFactory.registerDirectories();
 			TreeSet families = new TreeSet(FontFactory.getRegisteredFamilies());
-			for (Iterator i = families.iterator(); i.hasNext(); ) {
+			int c = 0;
+			for (Iterator i = families.iterator(); i.hasNext() && c < 15; ) {
 				name = (String) i.next();
 				p = new Paragraph(name);
 				document.add(p);
+				c++;
 			}
 			document.newPage();
 			String quick = "quick brown fox jumps over the lazy dog";
 			p = new Paragraph("Fonts", FontFactory.getFont(FontFactory.HELVETICA, 16f));
-			for (Iterator i = families.iterator(); i.hasNext(); ) {
+			for (Iterator i = families.iterator(); i.hasNext() && c > 0; ) {
 				name = (String) i.next();
 				p = new Paragraph(name);
 				document.add(p);
@@ -79,6 +81,7 @@ public class UsingFontFactory {
 				catch (Exception e) {
 					document.add(new Paragraph(e.getMessage()));
 				}
+				c--;
 			}
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
