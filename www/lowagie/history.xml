@@ -20,6 +20,58 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
+<li>2005-09-22: iText 1.3.4
+<ul>
+<li>Changes made by Paulo:
+<ul>
+<li>added adjustable margins to text fields to better mimic Acrobat 's layout</li>
+<li>added PdfWriter.releaseTemplate() to free resources before close()</li>
+<li>added support for macro PDF417 (contribution by Matthias Germann)</li>
+<li>PdfCopy: beads are removed from pages to avoid dragging unnecessary objects</li>
+<li>PdfGraphics2D: the underline was in the wrong place (mirrored)</li>
+<li>Added support for flattening free text annotations</li>
+<li>Flattening all fields didn 't clear the acroform field array</li>
+<li>PdfStamper: extra null check</li>
+<li>RandomAccessFileOrArray: a file stream was not being closed</li>
+<li>OTF fonts didn 't have the subset prefix</li>
+</ul>
+</li>
+<li>Changes made by Mark:
+<ul>
+<li>Observe the value of closeStream in the DocWriter.</li>
+<li>Dereference the RtfDocument structure when closing the document (speed up release of memory)</li>
+<li>Added ability to get last element added (needed in RtfChapter)</li>
+<li>Only write a new page if the RtfChapter is not the first element added and the last element added was also not a RtfChapter.</li>
+<li>Fonts are now supported in rtf fields.</li>
+<li>Fixed a bug where headers /footers were not being displayed on all required pages in certain situations.</li>
+<li>Fixed a bug where footers were being set as headers</li>
+<li>The alignment is now correctly set if the RtfHeaderFooter is constructed with a Paragraph/Table/Image.</li>
+</ul>
+</li>
+<li>Changes made by Bruno:
+<ul>
+<li>RandomAccessFileOrArray: allow full read of file when constructing a RandomAccessFileOrArray</li>
+<li>Adding Images to a SimpleCell is now allowed</li>
+<li>Special PageEvents implementation that allows you to build an index (contribution by Michael Niedermair)</li>
+<li>Code for chapters /sections that are automatically numbered (contribution by Michael Niedermair)</li>
+<li>It is now possible to add a PdfPTable to a Phrase (contribution by mr. Karen Vardanyan)</li>
+<li>Adding Images to a SimpleCell is now allowed</li>
+<li>Added a method to set the default alignment of the MultiColumnText</li>
+<li>Automatic XMP generation after setting the Metadata</li>
+<li>Added XMP support to PdfStamper</li>
+<li>Fix posted to itextsharp site concerning automatic splitting of large tables</li>
+<li>Verbose representation of Permissions was wrong for Degraded Printing</li>
+<li>Selecting odd and even in SelectPages is now allowed without adding a page range</li>
+<li>list with the (versions of the) plugins in the Toolbox (+ other contributions by Carsten Hammer)</li>
+<li>Removed PRAcroForm from concatenation tool in the Toolbox</li>
+<li>Bugfix in the Burst plugin regarding the numbering of the bursted files</li>
+<li>Bugfix in the Encrypt tool; Added a decrypt plugin</li>
+<li>When generating an index.html with bookmarks of a PDF file, you can now enter a link to a CSS file</li>
+<li>Added an N-up tool (to copy N pages of an existing document on 1 page; with N = 2, 4, 8, 16...)</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>2005-08-24: iText 1.3.3
 <ul>
 <li>Changes made by Paulo:
