@@ -49,6 +49,9 @@
 		<a href="http://doc2pdf.sourceforge.net/" class="topic">Doc2pdf:</a> Doc2pdf is an email robot that converts Microsoft Office attachments (.doc, .ppt, and .xls) to PDF.
 		<a href="http://gnujpdf.sourceforge.net/" class="topic">gnujpdf:</a> a Java package (gnu.jpdf.*) licensed under the LGPL. It provides a simple API to create pdf files and print using subclasses of java.awt.Graphics and java.awt.PrintJob
 		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.
+		<a href="http://www.aquaforest.com/en/merge_tiff_junction.asp" class="topic">OCR PDF:</a> Batch Convert Tiff to PDF with lightning speed!
+		TIFF Junction is a command line tool that can rapidly process high volumes of document image files.
+		TIFF Junction can also merge and split single and multipage tiff images files.
 		<a href="http://www.pdfill.com/" class="topic">PDFill Form Filler:</a>
 		iText makes it possible to come up with a PDF Form Filler at only
 		$9.99.  This form filler allows you to fill PDF form
