@@ -28,7 +28,6 @@
 <li>TrueTypeFontUnicode: Identity-H fonts with subset==false will include all the font</li>
 <li>PdfReader: files with /Content null could be problematic; wrong assumption that trailer was followed by \n</li>
 <li>Image: method skip didn 't check EOF; Image.toUrl() didn 't escape the filename chars</li>
-<li>HTMLWorker: extra support for Links, Images</li>
 <li>AcroFields: lists couldn 't be set by the export value</li>
 <li>ColumnText: fixed the image alignment in method addElement</li>
 <li>Made it possible to create an empty PdfAnnotation</li>
