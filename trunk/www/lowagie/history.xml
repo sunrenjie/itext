@@ -20,6 +20,46 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
+<li>2005-10-20: iText 1.3.4 (based on version paulo-155)
+<ul>
+<li>Changes made by Paulo:
+<ul>
+<li>FontFactory: case insensitive font search and a much better font family pairing</li>
+<li>TrueTypeFontUnicode: Identity-H fonts with subset==false will include all the font</li>
+<li>PdfReader: files with /Content null could be problematic; wrong assumption that trailer was followed by \n</li>
+<li>Image: method skip didn 't check EOF; Image.toUrl() didn 't escape the filename chars</li>
+<li>HTMLWorker: extra support for Links, Images</li>
+<li>AcroFields: lists couldn 't be set by the export value</li>
+<li>ColumnText: fixed the image alignment in method addElement</li>
+<li>Made it possible to create an empty PdfAnnotation</li>
+<li>Basic support for Tagged PDFs;  the high level objects don't
+generate tags yet, but it's possible to create a fully legal tagged PDF using
+PdfContentByte.</li>
+<li>SimpleBookmark: method made public</li>
+</ul>
+</li>
+<li>Changes made by Mark:
+<ul><li>Fixed a bug where style and colour were not being set if the fontname was unknown;
+two RtfFonts equality now ignores style and colour attributes.</li>
+</ul>
+</li>
+<li>Changes made by Bruno:
+<ul>
+<li>Changes in ChapterAutoNumber and Section. Deleted SectionAutoNumber as it seems to be redundant</li>
+<li>Chunk: added the toString method as asked by G.Ralph Kuntz</li>
+<li>List: added some extra constant values that can be used as parameter when creating a List</li>
+<li>Added a FieldPositioningEvents class; this is a PdfPageEvents/PdfPCellEvent implementation
+that allows you to add PdfFormFields with onGenericChunk or cellLayout.</li>
+<li>Added an EventForwarder and moved 2 relatively new event classes to a separate package.</li>
+<li>Bugfix Christopher MacKenzie: when used in Append mode PdfStamper didn 't add the XMP metadata properly</li>
+<li>iText toolbox: added a LabelAccessory that tells you more about the selected PDF file in the FileChooser (by Anonymous);
+also updated comments for several plug-ins.</li>
+<li>iText toolbox: new plug-in that searches for Launch actions in a PDF and replaces them with a Javascript Alert.</li>
+<li>iText toolbox: added a ReversePages tool (by Anonymous)</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>2005-09-22: iText 1.3.4
 <ul>
 <li>Changes made by Paulo:
