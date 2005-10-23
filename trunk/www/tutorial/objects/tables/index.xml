@@ -22,7 +22,7 @@
 		</site:example>
 		<site:example>
 			<site:java src="TableWidthAlignment" standalone="yes" />
-			<site:result>TableWidthAligment.pdf</site:result>
+			<site:result>TableWidthAlignment.pdf</site:result>
 			<site:description>Changing the width and the alignment of the complete table</site:description>
 		</site:example>
 		<site:example>
