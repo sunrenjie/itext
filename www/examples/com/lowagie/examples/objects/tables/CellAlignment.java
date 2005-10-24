@@ -52,7 +52,6 @@ public class CellAlignment {
 			Paragraph p = new Paragraph("Quick brown fox jumps over the lazy dog. Quick brown fox jumps over the lazy dog.");
 			table.addCell("default alignment");
 			cell = new PdfPCell(p);
-			cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			table.addCell(cell);
 			table.addCell("centered alignment");
 			cell = new PdfPCell(p);
