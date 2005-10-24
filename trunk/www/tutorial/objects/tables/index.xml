@@ -216,7 +216,7 @@ You can use this to add an Image that will be scaled to fit in the Cell.
 This is similar to adding a cell that was constructed with
 <site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image)">PdfPCell(Image image)</site:doc> or
 <site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image,%20boolean)">setColspanPdfPCell(Image image, boolean fit)</site:doc>,
-buy as you can see in the example, there are some small differences:
+but as you can see in the example, there are some small differences:
 <site:source class="ImageCell" />
 </div>
 	</site:section>
