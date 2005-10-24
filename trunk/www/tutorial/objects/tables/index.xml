@@ -214,8 +214,8 @@ Finally, there is one 'addCell' method left in PdfPTable:
 <site:doc class="com.lowagie.text.pdf.PdfPTable" target="addCell(com.lowagie.Image)">addCell(Image image)</site:doc>.
 You can use this to add an Image that will be scaled to fit in the Cell.
 This is similar to adding a cell that was constructed with
-<site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image)">PdfPCell(Image image)</site:doc> or
-<site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image,%20boolean)">setColspanPdfPCell(Image image, boolean fit)</site:doc>,
+<site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image)">new PdfPCell(Image image)</site:doc> or
+<site:doc class="com.lowagie.text.pdf.PdfPCell" target="PdfPCell(com.lowagie.text.Image,%20boolean)">new PdfPCell(Image image, boolean fit)</site:doc>,
 but as you can see in the example, there are some small differences:
 <site:source class="ImageCell" />
 </div>
