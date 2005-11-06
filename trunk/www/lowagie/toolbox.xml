@@ -171,12 +171,31 @@ PDF and links to the specific pages. The same goes for <a href="http://itextdocs
 <li><b>side:</b> (optional) the side image of the DVD Cover</li>
 </ul>
 </li>
+<li><b>ExtractAttachments:</b> Extracts all the files that are added to the PDF as an attachment.
+<ul>arguments
+<li><b>srcfile:</b> the path to the PDF with the attachments.</li></ul>
+</li>
 <li><b>Handouts:</b> Generates handouts with room for notes, based on an existing PDF file.
 <ul>arguments
 <li><b>srcdir:</b> the path to the directory that contains all the images</li>
 <li><b>destfile:</b> the path to the PDF that should be generated</li>
 <li><b>pages:</b> you can choose the number of original pages that should come on one page</li>
 </ul>
+</li>
+<li><b>LPRClient:</b> Allows to print pdf files directly to network reachable postscript printers that support rfc1179 lpr protocoll (port 515).<br />
+The source code was derived from <a href="http://www.hemasoft.de/dev/lprj/">http://www.hemasoft.de/dev/lprj/</a><br />
+It seems that most of the printers supporting postscript language level 3 are able to process
+pdf directly but I am not sure about this (Another thing that can break pdf support is
+the amount of ram in the printer).
+<ul>arguments
+<li><b>srcfile:</b> the path to the PDF you want to print;
+if you do not choose a input file it uses a built-in postscript file
+and sends it to the printer that makes the printer print some internal settings,
+the postscript engine version and the postscript language level.</li>
+<li><b>hostname</b> (or ip-adress)</li>
+<li><b>queuename:</b> try "raw" or "raw1","raw2" on HP Jetdirect print servers,
+some other manufacters need "print" or something else</li>
+<li><b>copies:</b> 1-n, just the number of copies you want to print</li></ul>
 </li>
 </ul>
 </div>
