@@ -19,9 +19,10 @@
 		<div class="title">Project description</div>
 		<div id="side">
 			<div class="sidetitle">NEWS</div>
-			The review process of the first third of the book 'iText in Action' has started.
-			The <a href="http://www.lowagie.com/">next deadline</a> is December 23.<br /><br />
-			october 20th: release of iText 1.3.5<br /><br />
+			The review process of the first third of the book 'iText in Action' was done.
+			The <a href="http://www.lowagie.com/">next deadline</a> is December 23,
+			but I will be a few weeks late. I already have 9 of the 18 chapters.<br /><br />
+			december 9th: release of iText 1.3.6<br /><br />
 			april 6th: release of iText 1.3<br /><br />
 			Try the iText <a href="itext.jnlp">Java Web Start</a> application!<br/>
 		</div>
