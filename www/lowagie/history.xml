@@ -21,6 +21,7 @@
 <site:changelog>
 <ul>
 <li>2005-12-09: iText 1.3.6
+<ul>
 <li>Changes made by Paulo
 <ul>
 <li>Uploaded the code clean up by Xavier Le Vourch</li>
@@ -55,9 +56,7 @@
 <li>For BMP images the scaled height/width is always written. Otherwise the image is displayed with the wrong size.</li>
 </ul>
 </li>
-</li>
-</ul>
-<ul>
+</ul></li>
 <li>2005-10-20: iText 1.3.5 (based on version paulo-155)
 <ul>
 <li>Changes made by Paulo:
