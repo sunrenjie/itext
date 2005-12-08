@@ -18,11 +18,20 @@
 		<div class="header">iText Homepage</div>
 		<div class="title">Project description</div>
 		<div id="side">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0340380473790570";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQxZqazgEaCMOiwb9yonQWKIHD93M";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><iframe name="google_ads_frame" src="http://pagead2.googlesyndication.com/cpa/ads?client=ca-pub-0340380473790570&amp;cpa_choice=CAAQxZqazgEaCMOiwb9yonQWKIHD93M&amp;dt=1134053133562&amp;lmt=1131793723&amp;format=120x60_as_rimg&amp;output=html&amp;url=http%3A%2F%2Fwww.lowagie.com%2FiText%2F&amp;region=_google_cpa_region_&amp;cc=100&amp;u_h=1024&amp;u_w=1280&amp;u_ah=994&amp;u_aw=1280&amp;u_cd=32&amp;u_tz=60&amp;u_his=1&amp;u_java=true&amp;u_nplug=24&amp;u_nmime=84" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="60" scrolling="no" width="120">&lt;img&gt;</iframe>
 			<div class="sidetitle">NEWS</div>
 			The review process of the first third of the book 'iText in Action' was done.
 			The <a href="http://www.lowagie.com/">next deadline</a> is December 23,
 			but I will be a few weeks late. I already have 9 of the 18 chapters.<br /><br />
-			december 9th: release of iText 1.3.6<br /><br />
+			december 12th: release of iText 1.3.6<br /><br />
 			april 6th: release of iText 1.3<br /><br />
 			Try the iText <a href="itext.jnlp">Java Web Start</a> application!<br/>
 		</div>
