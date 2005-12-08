@@ -20,6 +20,44 @@
 <site:remark>Not yet released</site:remark>
 <site:changelog>
 <ul>
+<li>2005-12-09: iText 1.3.6
+<li>Changes made by Paulo
+<ul>
+<li>Uploaded the code clean up by Xavier Le Vourch</li>
+<li>Some simplifications in PdfReader</li>
+<li>Support to reuse images from existing docs</li>
+<li>In nested PdfPTables the inner cell background overlayed the outer cell borders</li>
+<li>Zero width nested tables threw an exception</li>
+<li>Added footer support for PdfPTable</li>
+<li>Special fit to page in PdfPTable</li>
+<li>A PdfOutline constructor couldn't close the outlines</li>
+<li>A call to dispose() was missing in MetaDoPS</li>
+<li>Fix to WMF files</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>You can now add multiple events to the same PdfWriter, PdfPTable and PdfPCell</li>
+<li>Choosing a BaseFont for SAXiTextHandler (suggestions made by Ralf Hauser)</li>
+<li>Replace HashMap by Map in XmpWriter</li>
+<li>New plug-in to view the internal structure of a PDF (by Anonymous)</li>
+<li>When opening the toolbox, the frame is centered on the screen (by Anonymous)</li>
+<li>Extra info about iText version, Java version and OS in the Toolbox (by Anonymous)</li>
+<li>Toolbox System.out and System.err redirected to another window</li>
+<li>LPRClient submitted by Anonymous</li>
+<li>New tool to extract attachments by Anonymous</li>
+<li>The PdfFilter didn 't accept .Pdf or .PDF files, only .pdf</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li>Fixed a bug where an additional paragraph was added on new pages.</li>
+<li>For BMP images the scaled height/width is always written. Otherwise the image is displayed with the wrong size.</li>
+</ul>
+</li>
+</li>
+</ul>
+<ul>
 <li>2005-10-20: iText 1.3.5 (based on version paulo-155)
 <ul>
 <li>Changes made by Paulo:
