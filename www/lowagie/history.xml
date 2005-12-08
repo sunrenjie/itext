@@ -34,13 +34,34 @@
 <li>A PdfOutline constructor couldn't close the outlines</li>
 <li>A call to dispose() was missing in MetaDoPS</li>
 <li>Fix to WMF files</li>
+<li>SimpleTable didn't copy the horizontal alignment</li>
+<li>Integer parsing simplification in class PRTokeniser</li>
+<li>TIFF images with filenames with spaces didn't work</li>
+<li>New constructor for ImgPostScript</li>
+<li>improvements to HTMLWorker</li>
+<li>AcroFields: new lists in list and combo fields can be set</li>
+<li>AcroFields: changed setFields() to iterate from the source (not a bug just better logic)</li>
+<li>Better CJK Field support in DocumentFont</li>
+<li>PdfContentByte.showTextAligned() supports char spacing, word spacing and horizontal scaling (Federico Scala)</li>
+<li>PdfGraphics2D: added support for setting the color in text attributes</li>
+<li>Added a constant for XFA to PdfName</li>
+<li>added PdfReader.getStreamBytesRaw() to get the bytes without any filtering</li>
 </ul>
 </li>
 <li>Changes made by Bruno
 <ul>
+<li>Major Table bugfix by Karsten Klein + extra fix by me. This solves the CellsFitPage functionality
+and produces a better layout if the cells are split.</li>
+<li>Added toString methods for the internal PDF objects</li>
+<li>added well known places on each OS X system for registerDirectories of the FontFactory</li>
+<li>bugfix: if you passed an alias with capitals, you could never call it with getFont</li>
+<li>Fix in the GreekList</li>
+<li>Bordercolors weren't correct if useVariableBorders was set manually in class Rectangle.</li>
 <li>You can now add multiple events to the same PdfWriter, PdfPTable and PdfPCell</li>
 <li>Choosing a BaseFont for SAXiTextHandler (suggestions made by Ralf Hauser)</li>
 <li>Replace HashMap by Map in XmpWriter</li>
+<li>ColumnText: added a convenience method to check the status and a start value for the column status</li>
+<li>ColumnText allows SimpleTable</li>
 <li>New plug-in to view the internal structure of a PDF (by Anonymous)</li>
 <li>When opening the toolbox, the frame is centered on the screen (by Anonymous)</li>
 <li>Extra info about iText version, Java version and OS in the Toolbox (by Anonymous)</li>
@@ -48,6 +69,7 @@
 <li>LPRClient submitted by Anonymous</li>
 <li>New tool to extract attachments by Anonymous</li>
 <li>The PdfFilter didn 't accept .Pdf or .PDF files, only .pdf</li>
+<li>PdfCopy bugfix by John Englar</li>
 </ul>
 </li>
 <li>Changes made by Mark
