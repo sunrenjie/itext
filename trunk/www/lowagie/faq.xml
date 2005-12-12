@@ -486,7 +486,9 @@ else {
 }
 </pre>
  (Code provided by Jasperlan Guela)<br />
-Remark: the /h-option suppresses the Acrobat Reader Dialog Box. 
+Remark: the /h-option suppresses the Acrobat Reader Dialog Box. <br />
+There's some more info on printing PDF <a href="http://princeoflightning.blogspot.com/2005/12/silent-print-pdf-print-pdf.html">here</a>
+and <a href="http://itextdocs.lowagie.com/tutorial/general/webapp/#silentprint">here</a>.
 </site:answer>
 </site:faq-entry>
 
