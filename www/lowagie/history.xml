@@ -27,8 +27,6 @@
 <li>Uploaded the code clean up by Xavier Le Vourch</li>
 <li>Some simplifications in PdfReader</li>
 <li>Support to reuse images from existing docs</li>
-<li>In nested PdfPTables the inner cell background overlayed the outer cell borders</li>
-<li>Zero width nested tables threw an exception</li>
 <li>Added footer support for PdfPTable</li>
 <li>Special fit to page in PdfPTable</li>
 <li>A PdfOutline constructor couldn't close the outlines</li>
@@ -38,6 +36,7 @@
 <li>Integer parsing simplification in class PRTokeniser</li>
 <li>TIFF images with filenames with spaces didn't work</li>
 <li>New constructor for ImgPostScript</li>
+<li>corrected the name setcmykcolor (PS)</li>
 <li>improvements to HTMLWorker</li>
 <li>AcroFields: new lists in list and combo fields can be set</li>
 <li>AcroFields: changed setFields() to iterate from the source (not a bug just better logic)</li>
@@ -46,6 +45,13 @@
 <li>PdfGraphics2D: added support for setting the color in text attributes</li>
 <li>Added a constant for XFA to PdfName</li>
 <li>added PdfReader.getStreamBytesRaw() to get the bytes without any filtering</li>
+<li>added a Chunk copy constructor</li>
+<li>changed Rectangle gray fill processing to just depend on the background color: Rectangle, Table, ColumnText,...</li>
+<li>changed the way variable borders are rendered to have a better viewer display at low zoom</li>
+<li>fixed double background writes in PdfPTable</li>
+<li>in nested PdfPTables the inner cell background overlayed the outer cell borders</li>
+<li>Zero width nested tables threw an exception</li>
+<li>PdfReader.killIndirect() was made public</li>
 </ul>
 </li>
 <li>Changes made by Bruno
