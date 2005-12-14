@@ -454,7 +454,7 @@ such as <a href="http://www.apago.com/PDF_Enhancer">PDF Enhancer</a>.
 <site:answer>
 
 No, use Acrobat Reader or GhostView or any other PDF viewer instead.<br />
-Carsten Hammer made the following suggestions if you REALLY need a Java solution to view PDFs:
+If you need a Java solution to view PDFs, you can try out this suggestion made by Carsten Hammer:
 <ul>
 <li>Use <a href="http://www.jpedal.org/">jpedal</a>. There is an example on their site.</li>
 <li>Adobe once released a PDF Viewer library: Adobe Acrobat Viewer (for Java).
@@ -464,6 +464,7 @@ You can find this jar <a href="http://itext.sourceforge.net/downloads/pdfviewer.
 Just do <span class="commandline">java -jar pdfviewer.jar</span>.
 Before you download the zip, please read the
 License Agreement from Adobe first.</li>
+Or you can try this commercial product from <a href="http://www.icesoft.com">ICEsoft</a>: <a href="http://www.icesoft.com/products/icepdf.html">ICEpdf</a>.
 </ul>
 
 </site:answer>
@@ -520,12 +521,10 @@ Tables are formed by placing text and lines at selected places.
 <site:answer>
 
 This is not really supported by iText. In <a href="tutorial/ch07.html#htmlparsing">Chapter 7</a>,
-you find a (very experimental) example. There are people who have succeeded in using this functionality in combination with
-the HtmlTidy and there are also some examples here (but the links are broken most of the time):
-<a href="http://128.146.118.49/pdfsamples/asp_readme.htm">http://128.146.184.28/pdfsamples/asp_readme.htm</a>
-and <a href="http://128.146.118.49/pdfsamples/Html2pdf.asp">http://128.146.184.28/pdfsamples/Html2pdf.asp</a>.<br />
-If you really need HTML to PDF conversion, use HtmlDoc or post your question to the mailing list to hear
-from other subscribers how they achieved to parse their HTML.
+you find a (very experimental) example.<br />
+There's a commercial solution using iText as PDF engine called ICEbrowser.
+It was developed by <a href="http://www.icesoft.com/">ICEsoft</a>
+and you'll find more info <a href="http://www.icesoft.com/products/icebrowser_itext.html">here</a>.
 
 </site:answer>
 </site:faq-entry>
