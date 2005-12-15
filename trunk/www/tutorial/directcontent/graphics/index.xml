@@ -141,7 +141,7 @@ original state and the circle with radius 50pts is drawn in black.
 cb.circle(260.0f, 500.0f, 50.0f);
 cb.fill();
 </pre>
-Remark that the saveState and restoreState must be balanced.
+Note that the saveState and restoreState must be balanced.
 An exception will be thrown if you try to restore a graphics state before
 you have called saveState.<br /><br />
 The next example shows you how to use the
@@ -175,7 +175,7 @@ can be used to clip output.</td>
 <tr>
 <td class="small" valign="top">color space</td>
 <td><site:doc class="com.lowagie.text.pdf.PdfContentByte" target="setDefaultColorspace(com.lowagie.text.pdf.PdfName,%20com.lowagie.text.pdf.PdfObject)">setDefaultColorspace(com.lowagie.text.pdf.PdfName, com.lowagie.text.pdf.PdfObject)</site:doc><br />
-Remark that the different setColor methods change the colorspace automatically.
+Note that the different setColor methods change the colorspace automatically.
 Please go to the chapter on <site:tutorial chapter="/directcontent/colors">colors</site:tutorial> for more info and some examples.</td>
 </tr>
 <tr>

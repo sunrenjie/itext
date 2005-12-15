@@ -192,7 +192,7 @@ If you want to scale the image to a size of your own choice, use on of the
 <site:doc class="com.lowagie.text.Image" target="scaleAbsolute(float,%20float)">scaleAbsolute[Width|Height]</site:doc>-methods.
 If you want to scale the image to a certain percentage, use on of the
 <site:doc class="com.lowagie.text.Image" target="scalePercent(float)">scalePercent</site:doc>-methods.<br />
-Remark that the resolution of an image that is added without scaling will be 72dpi by default.
+Note that the resolution of an image that is added without scaling will be 72dpi by default.
 If an image is placed with a scaling of 50% the the resolution will be 144.
 With lower scalings the resolution will increase because the pixels are the same but the size will be smaller.
 To put a picture with 300dpi use a scaling of 72/300=24%. For instance: if you have a 5X5 inch image that
@@ -200,10 +200,10 @@ you scan at 300 dpi, the resultant image is 1500X1500 pixels (5X300 = 1500). Whe
 in the pdf with a scaling of 24% (72/300 = 0.24), the image in the pdf will be 5X5 inch with 1500X1500 pixel at 300 dpi.
 The image will always be 1500X1500 pixel whatever the size.
 <site:source class="Scaling" />
-Another usefull method for scaling is
+Another useful method for scaling is
 <site:doc class="com.lowagie.text.Image" target="scaleToFit(float,%20float)">scaleToFit</site:doc>.
 This method will scale the image to fit a rectangle, but will keep the XY-ratio intact.
-Remark that the Images used for the next example are not my own. They are used by courtesy of
+Note that the Images used for the next example are not my own. They are used by courtesy of
 <a href="http://www.bigfoto.com">www.bigfoto.com</a>.
 <site:source class="DvdCover" />
 <div class="subtitle">Rotating</div>
@@ -342,7 +342,7 @@ the concept of stencil masks is discussed. You can use the mask we created from 
 <pre class="commandline">PdfContentByte cb = writer.getDirectContent();
 cb.setRGBColorFill(255, 0, 0);
 cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 400);</pre>
-(Remark that for the addImage method, you will need to read more about <site:tutorial chapter="/directcontent/coordinates">coordinate systems</site:tutorial>...)
+(Note that for the addImage method, you will need to read more about <site:tutorial chapter="/directcontent/coordinates">coordinate systems</site:tutorial>...)
 <site:source class="ImageMasks" />
 <div class="subtitle">Selected examples</div>
 EPS, Tiff and barcode functionality is discussed in a <site:tutorial chapter="/objects/images/tiff">separate chapter</site:tutorial>.

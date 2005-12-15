@@ -61,7 +61,7 @@ he wrote for O'Reilly's <a href="http://www.onjava.com/">onJava.com</a>:
 <br />
 For an introduction in German, I can refer you to an <a href="http://www.javamagazin.de/itr/online_artikel/psecom,id,441,nodeid,11.html">article
 in JavaMagazin</a> by Cord Jastram. In a few selected examples, it gives you an overview
-of some powerfull features such as generating an encrypted document, using PageEvents, generating Graphics, etc...<br />
+of some powerful features such as generating an encrypted document, using PageEvents, generating Graphics, etc...<br />
 Ilie Nae wrote a similar article in Romanian for NetReport:
 <a href="http://www.agora.ro/netreport126/atelier1.shtml">Crearea de documente PDF in JAVA</a><br />
 If you understand Portuguese and you are using iText in the context of a Web Application,

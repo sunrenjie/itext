@@ -137,7 +137,7 @@ If you want to use fontnames defined by yourself, just register them with an ali
 (<site:doc class="com.lowagie.text.FontFactory" target="register(java.lang.String,%20java.lang.String)">register(java.lang.String, java.lang.String)</site:doc>)
 and use that alias instead of the actual fontname.
 <site:source class="RegisterFont" />
-Remark that all methods in class FontFactory are static. So if you have different applications in the same JVM,
+Note that all methods in class FontFactory are static. So if you have different applications in the same JVM,
 you may discover that there were more fonts registered than you expected...<br />
 Remember when we said there was a different font for every fontstyle?
 It can be quite difficult having to switch to another font everytime
@@ -167,7 +167,7 @@ In the example, we want to use MS-PGothic, so we add 1 to the path:
   "c:\\windows\\fonts\\msgothic.ttc,1",
   BaseFont.IDENTITY_H,
   BaseFont.EMBEDDED);</pre>
-Remark that this example will not run on your system if you don't have msgothic.ttc in your fonts directory.
+Note that this example will not run on your system if you don't have msgothic.ttc in your fonts directory.
 It's not there by default! If you want to run this example, you should look on your WINDOWS installation CDs
 and extract it to your fonts directory.
 <site:source class="TrueTypeCollections" />

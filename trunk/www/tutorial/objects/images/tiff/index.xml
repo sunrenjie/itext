@@ -168,7 +168,7 @@ The colors specify the color of the bars and text are:
 If you want a barcode without any text, just set the font to <span class="commandline">null</span>
 with <site:doc class="com.lowagie.text.pdf.Barcode" target="setFont(com.lowagie.text.pdf.BaseFont)">setFont(com.lowagie.text.pdf.BaseFont)</site:doc>
 <br />
-Remark that you also can create a textless java.awt.Image of the barcode object with
+Note that you also can create a textless java.awt.Image of the barcode object with
 <site:doc class="com.lowagie.text.pdf.Barcode" target="createAwtImage(java.awt.Color,%20java.awt.Color)">createAwtImage(java.awt.Color, java.awt.Color)</site:doc>.
 </div>
 	</site:section>

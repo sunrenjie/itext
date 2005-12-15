@@ -97,7 +97,7 @@ In the example, we accept a parameter <span class="commandline">presentationtype
 can be one of the following values:<ul><li>pdf</li><li>html</li><li>rtf</li></ul>
 Depending on the parameter you passed, you should see a PDF, HTML or RTF page in your browser.
 <site:source class="HelloWorldServlet" />
-Remark that I didn't say 'you <i>will</i> see a PDF, HTML or RTF page in your browser'.
+Note that I didn't say 'you <i>will</i> see a PDF, HTML or RTF page in your browser'.
 It <i>should</i> work on all browsers, but we know it <i>won't</i> work on some.
 For instance: we have set the ContentType to PDF:
 <pre class="commandline">response.setContentType("application/pdf");</pre>

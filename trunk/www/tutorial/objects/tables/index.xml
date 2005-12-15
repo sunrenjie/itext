@@ -160,7 +160,7 @@ You can do this in different ways:<ul>
 For instance, if you want two 'normal' columns and a third column that's double the size of a 'normal' column,
 use the float-array <span class="commandline">{1f, 1f, 2f}</span> as relativewidths. iText will calculate the absolute width for you.</li>
 <li>You can also use the method <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidths(float[])">setWidths</site:doc>
-to change this array after you constructed the PdfPTable (but be carefull: the array needs to have the same size as the number of columns).
+to change this array after you constructed the PdfPTable (but be careful: the array needs to have the same size as the number of columns).
 In the example the percentages are changed from (10%, 10%, 5%, 75%) to (20%, 20%, 10%, 50%) so the second table looks completely different.</li>
 <li>If you want to work with absolute widths for the columns. You have to let iText calculate a widthpercentage for the table.
 In this case you should use: <site:doc class="com.lowagie.text.pdf.PdfPTable" target="setWidthPercentage(float[],%20com.lowagie.text.Rectangle)">setWidthPercentage(float[] columnWidth, Rectangle pageSize)</site:doc>.
@@ -226,7 +226,7 @@ but as you can see in the example, there are some small differences:
 <div>
 The content of a cell is wrapped by default. You can change this default with
 <site:doc class="com.lowagie.text.pdf.PdfPCell" target="setNoWrap(boolean)">setNoWrap(true)</site:doc>,
-but the result can look rather ugly, so be carefull with this option.<br />
+but the result can look rather ugly, so be careful with this option.<br />
 If you are using the default (nowrap = false), the height of the Cell is adjusted dynamically.
 Each cell in the same row has the height of the 'highest' cell.
 iText calculates this height based on different parameters: the number of lines of the content, the leading, the padding,...

@@ -131,7 +131,7 @@ In step 4, you will be adding content to the document. If you use high level obj
 you needn't worry about margins and page layout. The high level objects take care of that
 for you. Of course you will have to define the margins first. That is: if you want other
 margins than the standard 36 points (half an inch).<br />
-You can also change the margins while you are adding content. Remark that the changes
+You can also change the margins while you are adding content. Note that the changes
 will only be noticed on the NEXT page. If you want the margins mirrored (odd and even pages),
 you can do this with this method: <site:doc class="com.lowagie.text.Document" target="setMarginMirroring(boolean)">setMarginMirroring(true)</site:doc>.
 <site:source class="Margins" />
