@@ -137,7 +137,7 @@ If you want to add a Chunk above or below the current y-position,
 you can use the method <site:doc class="com.lowagie.text.Chunk" target="setTextRise(float)">setTextRise</site:doc>.
 In the example, we marked the baseline with <span class="commandline">c.setUnderline(new Color(0xC0, 0xC0, 0xC0), 0.2f, 0.0f, 0.0f, 0.0f, PdfContentByte.LINE_CAP_BUTT);</span>
 to demonstrate how a positive textrise puts text above the baseline and a negative textrise below.<br />
-Remark that 'underline' definitions are not affected by this value.
+Note that 'underline' definitions are not affected by this value.
 The underline has to follow the baseline otherwise mixing normal text
 and superscript would cause a discontinuity. As for subscript: it doesn't
 have much sense mixing it with underline text.

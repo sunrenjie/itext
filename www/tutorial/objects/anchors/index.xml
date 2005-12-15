@@ -142,7 +142,7 @@ A PDF document can have a certain interactivity: you can create several 'actions
 for instance to jump to another page or location,
 to start an other application, to invoke a JavaScript function,...
 In the next subsections, some actions that are supported in iText will be explained; see the javadocs (<site:doc class="com.lowagie.text.PdfAction">class PdfAction</site:doc>) for more types of actions.
-Remark that many of the action can be constructed in two alternative ways: with the constructor or with a static method that calls the constructor.<br /><br />
+Note that many of the action can be constructed in two alternative ways: with the constructor or with a static method that calls the constructor.<br /><br />
 <div class="subtitle">Named Actions</div>
 There are 5 predefined named actions in iText:
 <ul>
@@ -207,7 +207,7 @@ action.next(new PdfAction("http://www.lowagie.com/iText/"));</pre>
 <site:source class="ChainedActions" />
 <div class="subtitle">Launching an Application</div>
 You can open an application from a PDF file using a Launch Action.
-Be carefull: this is a very platformdependent feature and it isn't very safe to use.
+Be careful: this is a very platformdependent feature and it isn't very safe to use.
 Read the Javadocs on method <site:doc class="com.lowagie.text.pdf.PdfAction" target="PdfAction(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">PdfAction(String application, String parameters, String operation, String defaultDir)</site:doc>
 for more information concerning the parameters. In the example below, we launch NOTEPAD (only on Windows, change the param if WINROOT does not equal C://windows/).
 <pre class="commandline">new Chunk("Click to open NOTEPAD")

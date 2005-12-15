@@ -117,7 +117,7 @@ PdfReader:
 <pre class="commandline">PdfReader reader = new PdfReader("existing.pdf");
 PdfImportedPage page1 = writer.getImportedPage(reader, 1);
 directcontent.addTemplate(page1, 1, 0, 0, 1, 0, 0);</pre>
-Remark that you can't change the content of a PdfImportedPage-object.
+Note that you can't change the content of a PdfImportedPage-object.
 If you want to write extra content over or under the page, you need
 to ask the PdfWriter object for a PdfContentByte object.
 This is explained in the tutorial part on
