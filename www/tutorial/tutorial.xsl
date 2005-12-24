@@ -402,7 +402,16 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 							<xsl:attribute name="href">.<xsl:value-of select="$root" />/index.html#<xsl:value-of select="translate(substring($branch, 2), '/', '_')" /></xsl:attribute>
 							Table of Contents
 						</xsl:element>
-						<div align="Center" class="small">Best viewed with: <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=1">Firefox</a></div>
+						<div align="Center" class="small">Best viewed with:<br />
+						<script type="text/javascript"><![CDATA[<!--
+google_ad_client = "pub-0340380473790570";
+google_ad_width = 180;
+google_ad_height = 60;
+google_ad_format = "180x60_as_rimg";
+google_cpa_choice = "CAAQyaj8zwEaCIwcWMzeycafKMu293M";
+//-->]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
 						<div class="sidetitle">Sections:</div>
 						<ul>
 							<xsl:for-each select="site:chapter/site:section">
