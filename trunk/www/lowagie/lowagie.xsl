@@ -297,7 +297,15 @@ google_color_text = "FF2200";
   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 <div class="amazonlinks">Other links:</div>
-<div class="firefox"><a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=39296&amp;t=65"><img border="0" alt="Get Firefox!" title="Get Firefox!" src="http://www.spreadfirefox.com/community/images/affiliates/Buttons/110x32/safer.gif"/></a></div>
+<div class="firefox"><script type="text/javascript"><![CDATA[<!--
+google_ad_client = "pub-0340380473790570";
+google_ad_width = 110;
+google_ad_height = 32;
+google_ad_format = "110x32_as_rimg";
+google_cpa_choice = "CAAQ_-KZzgEaCHfyBUS9wT0_KOP143Q";
+//-->]]></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
 <a href="http://www.refactorit.com/" xmlns="http://www.w3.org/1999/xhtml"><img xmlns="http://www.w3.org/1999/xhtml" src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" border="0" width="120" height="26" /></a>
 </div>
 
