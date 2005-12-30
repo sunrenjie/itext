@@ -39,7 +39,7 @@
 		<a href="http://www.ghostscript.com/" class="topic">Ghostscript:</a> a suite of free PDF tools
 		<a href="http://www.planetpdf.com/" class="topic">Planet PDF:</a> A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses. Planet PDF also incorporates <a href="http://forum.planetpdf.com/">Planet PDF Forum</a> and <a href="http://www.pdfstore.com/">Planet PDF Store</a>.
 		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.
-		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> a 100% Java library designed to ease the integration of pdf files into any workflow. concentrating on the easy display, manipulation and extraction of content.
+		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> Pure Java PDF and Forms viewer and extraction library with Open Source and commercial versions.
 		<a href="http://pangopdf.sourceforge.net/" class="topic">PangoPDF:</a> a PDF backend for Pango for creating PDF output (using PDFLib).
 		<a href="http://www.pdfx3.org/" class="topic">PDF/X:</a>  PDF/X is not an alternative to PDF, it’s a focused subset of PDF designed specifically for reliable prepress data interchange.
 		<a href="http://xmlroff.sourceforge.net/" class="topic">xmlroff:</a> an XSL formatter written in C that produces PDF and PostScript.
