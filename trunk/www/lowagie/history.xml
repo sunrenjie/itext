@@ -17,9 +17,84 @@
 
 
 <site:release number="V140" name="iText 1.4" date="unknown">
-<site:remark>Not yet released</site:remark>
+<site:remark>2005-03-01</site:remark>
 <site:changelog>
 <ul>
+<li>2005-03-01: iText 1.3.7
+<ul>
+<li>Changes made by Paulo
+<ul>
+<li>Basic Building Blocks<ul>
+<li>Added support for cell rotation in PdfPCell</li>
+<li>Better list symbol printing</li>
+</ul></li>
+<li>AcroForms<ul>
+<li>AcroFields: removed the /I key when setting a field</li>
+<li>RadioCheckField: uppercase Color constants converted to lowercase</li>
+<li>PushbuttonField.getAppearance ()was made public</li>
+<li>Added support for Unicode fields. This includes Arabic and Hebrew and will work in localized Acrobat 6.0 and in Acrobat 7.0 with font substitutions.</li>
+</ul></li>
+<li>Fonts<ul>
+<li>Added FontFactoryImp. Does the same as FontFactory but it 's not static</li>
+<li>FontSelector: small optimization</li>
+</ul></li>
+<li>Graphics/Images<ul>
+<li>GrayColor: added constants for white and black</li>
+<li>BufferedImageOp in drawImage() is optional</li>
+<li>Hack for tiff images with missing StripByteCounts tag</li>
+<li>g2 text changed to be compatible with osx</li>
+<li>ImageFilter class Toolbox: image extensions can also be upper case</li>
+<li>Changed the way variable borders are rendered to have a better viewer display at low zoom</li>
+</ul></li>
+<li>Barcodes<ul>
+<li>1D Barcodes: added alternative text</li>
+<li>PDF417 barcodes: added the option to force all binary encoding in BarcodePDF417</li>
+</ul></li>
+<li>Simple HTML Parser<ul>
+<li>Option to use a local FontFactoryImp</li>
+<li>IncTable/IncCell: public fields changed to private</li>
+</ul></li>
+<li>ByteBuffer: added an option to generate high precision floating point numbers</li>
+<li>Added a new class: PdfContentParser</li>
+<li>PdfReader.killIndirect() was made public</li>
+<li>Fix for empty /AP /N when flattening</li>
+<li>extra check to prevent the use PdfWriter.getDirectContent() and PdfWriter.getDirectContentUnder() from PdfStamper</li>
+<li>Versions Toolbox: removed HeaderlessException</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li>deprecation of RtfWriter, including the old classes: RtfFont, RtfField, GenericRtfField, AbstractRtfField, RtfTable, RtfCell, RtfRow, RtfTableCell, RtfPageNumber, RtfHeadersFooters, RtfTOC, RtfTOCEntry</li>
+<li>RtfParagraph: refactored all settings into the rtf.style.RtfParagraphStyle object</li>
+<li>RtfParagraphStyle: Style name was not being set, Uppercase Color constants converted to lowercase</li>
+<li>Added a default constructor to RtfPhrase.</li>
+<li>RtfPhrase In table constant now public</li>
+<li>Lists in a cell are now handled correctly.</li>
+<li>Support for the stylesheet in RTF</li>
+<li>RtfFont: null fonts are now handled more gracefully</li>
+<li>RtfFont: added a number of get/set method</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>Image: two new constructors that allow you to convert any java.awt.Image to a JPG</li>
+<li>Phrase: Added a methods that allows you to get a String based on the content of all the chunks in the phrase.</li>
+<li>Solved a problem GrayFill and Table</li>
+<li>Some extra methods concerning page boundaries</li>
+<li>Added PageModeUseAttachments to the viewer preferences.</li>
+<li>Added two new PageLayout preferences (PDF 1.5):TwoPageLeft and TwoPageRight</li>
+<li>FieldpositioningEvents: Create Fields that are kids of a parent field</li>
+<li>FieldpositioningEvents: Added a value to define the padding between form fields and cells</li>
+<li>iText Toolbox changes<ul>
+<li>ExtractAttachments plug-in: bugfixes Eberhard Schulte</li>
+<li>Treeview plug-in: bugfixes and a simplification in the LabelAccessory</li>
+<li>Two extra bookmarks plug-ins by Hans-Werner Hilse</li>
+<li>PhotoAlbum plug-in: labels don 't show the image type anymore</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>2005-12-12: iText 1.3.6
 <ul>
 <li>Changes made by Paulo
