@@ -43,7 +43,7 @@ There was no money involved in this deal; the developers of iText are not
 on the paylist of PDF Sages.  The responsibility for these contracts lies
 with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
 <div class="title">Current release</div>
-The current major release on this site is <site:releasenumber />. This is considered a STABLE release.<br /><br />
+The release on this site is <site:releasenumber />.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
 	<tr><th colspan="2">Download the library:</th></tr>
 	<tr>
@@ -59,10 +59,6 @@ The current major release on this site is <site:releasenumber />. This is consid
 		<td class="small"><site:releasedocs /></td>
 	</tr>
 </table><br />
-If you need a more recent release (because you need extra functionality or some specific bugfix
-that was added more recently), you can often download an early access version on the lowagie.com site.
-The current Early Access version at lowagie.com is <site:earlyaccessjar /> (<site:earlyaccesssrc />).
-It was released on this date: <site:releasedate />.
 Please consult the <a href="history.html">history overview</a> for more info.<br />
 Another option to get the source code is to download it from the <a href="cvs.html">CVS repository</a>,
 for instance using <a href="ant.html">ant getFromCvs</a>. There, you'll always find the most recent iText version.
