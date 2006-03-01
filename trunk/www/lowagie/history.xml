@@ -16,11 +16,11 @@
 <site:history>
 
 
-<site:release number="V140" name="iText 1.4" date="unknown">
-<site:remark>2005-03-01</site:remark>
+<site:release number="V140" name="iText 1.4" date="2006-03-01">
+<site:remark>2006-03-01</site:remark>
 <site:changelog>
 <ul>
-<li>2005-03-01: iText 1.3.7
+<li>2006-03-01: iText 1.3.7
 <ul>
 <li>Changes made by Paulo
 <ul>
