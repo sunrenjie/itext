@@ -17,10 +17,10 @@
 
 
 <site:release number="V140" name="iText 1.4" date="2006-03-01">
-<site:remark>2006-03-01</site:remark>
+<site:remark>2006-03-03</site:remark>
 <site:changelog>
 <ul>
-<li>2006-03-01: iText 1.3.7
+<li>2006-03-03: iText 1.3.7
 <ul>
 <li>Changes made by Paulo
 <ul>
@@ -33,6 +33,7 @@
 <li>RadioCheckField: uppercase Color constants converted to lowercase</li>
 <li>PushbuttonField.getAppearance ()was made public</li>
 <li>Added support for Unicode fields. This includes Arabic and Hebrew and will work in localized Acrobat 6.0 and in Acrobat 7.0 with font substitutions.</li>
+<li>Allowed signatures with dots in the name.</li>
 </ul></li>
 <li>Fonts<ul>
 <li>Added FontFactoryImp. Does the same as FontFactory but it 's not static</li>
