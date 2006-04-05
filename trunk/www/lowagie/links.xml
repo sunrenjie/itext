@@ -63,6 +63,7 @@
 		resumed later. It has Spell-Checker for the filled
 		texts and Smart Positioning for accurate alignment. 
 <a name="reports"><div class="title">Reporting tools</div></a>
+		<a href="http://www.informatica.info/projects/carte/" class="topic">Carte:</a> a report engine for the Java platform.
 		<a href="http://jasperreports.sourceforge.net/" class="topic">JasperReports:</a> a powerful open source Java reporting tool that has the ability to deliver rich content onto the screen, to the printer or into PDF, HTML, XLS, CSV and XML files.
 		<a href="http://www.jfree.org/jfreereport/index.html" class="topic">JFreeReport:</a> a free Java report library (using iText for PDF output).
 		<a href="http://ujac.sourceforge.net/" class="topic">UJAC:</a>  UJAC provides a collection of JAVA components which may be useful in some projects. (Improved XML to PDF using iText included.)
