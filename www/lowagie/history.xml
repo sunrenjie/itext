@@ -16,6 +16,35 @@
 <site:history>
 
 
+<site:release number="V150" name="iText 1.5" date="unknown">
+<site:remark>not yet released</site:remark>
+<site:changelog>
+<ul>not yet released: iText 1.4.1</ul>
+<ul>
+<li>Changes made by Paulo</li>
+<ul>
+<li>HTMLWorker: treatment of http images; made some fields protected</li>
+<li>PdfGraphics2D: some clarification on compiling with JDK 1.3</li>
+<li>PS: some fixes</li>
+<li>TIFF: a compression tag was set in the wrong variable</li>
+</ul>
+<li>Changes made by Bruno
+<ul>
+<li>Removed some unused code/classes</li>
+<li>Image alignment fix</li>
+<li>MultiColumnText: fixed an endless loop problem and made the object more user-friendly</li>
+<li>XML Handler: Ricardo Coutinho removed a side-effect that prevented you to define the pagesize/orientation or a document</li>
+<li>XHTML parsing made case insensitive</li>
+<li>Changes to the Toolbox<ul>
+<li>Added a tool to view images that are inside the PDF as an Image XObject (code contributed by Carsten Hammer)</li>
+<li>It is now possible to define the opacity of a text watermark added using the toolbox plug-in (code contributed by Carsten Hammer)</li>
+<li>Added a DirFilter for the PhotoAlbum plug-in (code contribution by Johannes Schindelin)</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</site:changelog>
+</site:release>
 <site:release number="V140" name="iText 1.4" date="March 3rd, 2006">
 <site:remark>2006-03-03</site:remark>
 <site:changelog>
