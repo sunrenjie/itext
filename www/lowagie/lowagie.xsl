@@ -244,10 +244,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 
 <div id="navigation" xmlns="http://www.w3.org/1999/xhtml">
 	<div id="itext" xmlns="http://www.w3.org/1999/xhtml">
-		<a href="http://www.lowagie.com/iText/"><script type="text/javascript"><![CDATA[<!--
-document.write('<img border="0" src="images/logo.php?r=' + escape(document.referrer) + '" class="logo"/>');
-//-->]]></script>
-		</a><br />
+		<a href="http://www.lowagie.com/iText/"><xsl:call-template name="tracker" /></a><br />
 		a Free Java-PDF library<br />by <a class="author" HREF="http://www.lowagie.com/">Bruno Lowagie</a><br /> and <a class="author" HREF="http://itextpdf.sourceforge.net/">Paulo Soares</a>
 	</div>
 	<div id="links" xmlns="http://www.w3.org/1999/xhtml">
@@ -317,4 +314,10 @@ google_cpa_choice = "CAAQ_-KZzgEaCHfyBUS9wT0_KOP143Q";
 
 </xsl:template>
 
+<!-- tracker -->
+<xsl:template name="tracker">
+<script type="text/javascript"><![CDATA[<!--
+document.write('<img border="0" src="images/logo.php?r=' + escape(document.referrer) + '" class="logo"/>');
+//-->]]></script>
+</xsl:template>
 </xsl:stylesheet>
