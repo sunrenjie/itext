@@ -64,6 +64,7 @@
 		resumed later. It has Spell-Checker for the filled
 		texts and Smart Positioning for accurate alignment. 
 <a name="reports"><div class="title">Reporting tools</div></a>
+		<a href="http://www.yellowfin.com.au/" class="topic">Yellowfin:</a> Yellowfin is a web-based enterprise reporting application, featuring OLAP drill-down capabilities, charts and drill-through on any JDBC/ODBC data-source. Exports to HTML, XML, PDF, RTF and Excel.
 		<a href="http://www.informatica.info/projects/carte/" class="topic">Carte:</a> a report engine for the Java platform.
 		<a href="http://jasperreports.sourceforge.net/" class="topic">JasperReports:</a> a powerful open source Java reporting tool that has the ability to deliver rich content onto the screen, to the printer or into PDF, HTML, XLS, CSV and XML files.
 		<a href="http://www.jfree.org/jfreereport/index.html" class="topic">JFreeReport:</a> a free Java report library (using iText for PDF output).
