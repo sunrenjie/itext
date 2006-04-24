@@ -90,7 +90,7 @@ This is a short (and incomplete) list of iText high-level objects:
 <li><site:tutorial chapter="/objects/bookmarks">Bookmarks</site:tutorial></li>
 <li><site:tutorial chapter="/objects" section="list">List</site:tutorial></li>
 <li><site:tutorial chapter="/objects/images">Images</site:tutorial></li>
-<li><site:tutorial chapter="/objects/table">Tables</site:tutorial></li>
+<li><site:tutorial chapter="/objects/tables">Tables</site:tutorial></li>
 <li><site:tutorial chapter="/objects/columns">Columns</site:tutorial></li>
 <li>...</li>
 </ul>
