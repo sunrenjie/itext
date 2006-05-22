@@ -42,6 +42,8 @@
 </li>
 <li>Changes made by Bruno
 <ul>
+<li>Class Table: rowspan fix by Bruno</li>
+<li>Class Table: bug report #1460051 concerning table split over different pages</li>
 <li>GreekList: upper- and lowercase were switched (bug reported by Shawn Qi)</li>
 <li>List.setListSymbol always overwrites the list symbol set with ListItem.setListSymbol (bug reported by Shawn Qi)</li>
 <li>Removed some unused code/classes</li>
@@ -54,7 +56,6 @@
 <li>Added a tool to view images that are inside the PDF as an Image XObject (code contributed by Carsten Hammer)</li>
 <li>It is now possible to define the opacity of a text watermark added using the toolbox plug-in (code contributed by Carsten Hammer)</li>
 <li>Added a DirFilter for the PhotoAlbum plug-in (code contribution by Johannes Schindelin)</li>
-<li>Class Table: rowspan fix</li>
 </ul></li>
 </ul>
 </li>
