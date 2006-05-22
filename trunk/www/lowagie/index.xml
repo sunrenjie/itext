@@ -19,7 +19,7 @@
 		<div class="title">Project description</div>
 		<div id="side"><div class="sidetitle">NEWS</div>
 		<div align="center">
-		<script type="text/javascript" language="JavaScript" src="http://xslt.alexa.com/site_stats/js/t/a?amzn_id=itisacatalofwebp&amp;url=lowagie.com"> </script><br /><br />
+		Read the most recent news in my <a href="http://www.lowagie.com/">BLOG</a>!<br/><br/>
 		<script type="text/javascript">
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
@@ -29,11 +29,9 @@ google_cpa_choice = "CAAQxZqazgEaCMOiwb9yonQWKIHD93M";
 </script>
 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>
 		</div><br />
-			The review process of the complete manuscript of the Manning book 'iText in Action' could start any day now.
-			In its current state, the book has 487 pages and 259 code samples.
-			The manuscript was accepted and I am now working on the production version with my developmental editor.<br /><br />
-			march 3rd: release of iText 1.4<br /><br />
-			Try the iText <a href="itext.jnlp">Java Web Start</a> application!<br/>
+		May 22: release of iText 1.4.1
+		<br /><br />
+		Try the iText <a href="itext.jnlp">Java Web Start</a> application!<br/>
 		</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
 		<br />
