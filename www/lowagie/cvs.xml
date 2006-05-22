@@ -30,13 +30,13 @@ from individual developers to large, distributed teams:
 </ul></blockquote>
 <div class="title">Browse the CVS repository</div>
 One of the most interesting features of CVS at SourceForge, is the ability to consult
-<a href="http://cvs.sourceforge.net/viewcvs.py/itext/">the CVS repository</a> just using
+<a href="http://itext.cvs.sourceforge.net/itext/">the CVS repository</a> just using
 your browser (no CVS client installation needed).
 You can look for code that was removed; for instance if you used classes in
-<a href="http://cvs.sourceforge.net/viewcvs.py/itext/src/com/lowagie/servlets/">package com.lowagie.servlets</a>
+<a href="http://itext.cvs.sourceforge.net/itext/src/com/lowagie/servlets/">package com.lowagie.servlets</a>
 you can look in the CVS 'Attic' and download them from there if you still need them.
 This can be useful to track down problems if you update from a very old version to
-the most recent one. You can also look at the <a href="http://cvs.sourceforge.net/viewcvs.py/itext/src/com/lowagie/text/Cell.java?r1=1.88&amp;r2=1.89">difference</a>
+the most recent one. You can also look at the <a href="http://itext.cvs.sourceforge.net/itext/src/com/lowagie/text/Cell.java?r1=1.88&amp;r2=1.89">difference</a>
 between one version and the other. This way, you can see what bugfixes and optimalizations were
 added between versions.
 <div class="title">Downloading iText from the CVS repository</div>
@@ -46,16 +46,16 @@ Please read the <a href="http://sourceforge.net/docman/display_doc.php?docid=766
 if you want to know how to obtain and install a CVS client. If you are new at using CVS,
 you should also read the <a href="http://sourceforge.net/docman/display_doc.php?docid=14033&amp;group_id=1">Basic Introduction to CVS and SourceForge.net (SF.net) Project CVS Services</a>.
 In a tool such as WinCVS you will need to enter the servertype (pserver), the server
-(cvs.sourceforge.net), a directory (/cvsroot/itext), a username (anonymous)
+(itext.cvs.sourceforge.net), a directory (/cvsroot/itext), a username (anonymous)
 and maybe a password (just press the Enter key if prompted for it). This results in
-the following CVSROOT: <span class="commandline">:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext</span>.<br /><br />
+the following CVSROOT: <span class="commandline">:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext</span>.<br /><br />
 If you use CVS from the commandline, you'll have to login like this.
-<div class="commandline">cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext login</div>
+<div class="commandline">cvs -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext login</div>
 When asked for the <span class="commandline">CVS password:</span> just press enter.
 You can obtain todays complete sourcecode tree using this statement:
-<div class="commandline">cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext export -D now src</div>
+<div class="commandline">cvs -z3 -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext export -D now src</div>
 The complete iText site, tutorial and examples are in another module:
-<div class="commandline">cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/itext export -D now www</div><br /><br />
+<div class="commandline">cvs -z3 -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext export -D now www</div><br /><br />
 The three actions described above are also combined in the <a href="ant.html">ANT scripts</a>.
 You can get the source with this command <span class="commandline">ant getFromCvs</span>.<br /><br />
 If all this doesn't work, please check the SourceForge status information. Anonymous CVS could be down.

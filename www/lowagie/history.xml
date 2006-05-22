@@ -19,7 +19,7 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
-<ul>not yet released: iText 1.4.1</ul>
+<ul>2006-05-22: iText 1.4.1</ul>
 <ul>
 <li>Changes made by Paulo</li>
 <ul>
@@ -27,18 +27,34 @@
 <li>PdfGraphics2D: some clarification on compiling with JDK 1.3</li>
 <li>PS: some fixes</li>
 <li>TIFF: a compression tag was set in the wrong variable</li>
+<li>TIFF: allow the reading of tiffs without the rowstrip tag (extra fix)</li>
+<li>bugfix: PdfContentByte.saveState() was not making a copy of the state</li>
+<li>PdfReader hack to read broken pfds that have nulls in the kid page array</li>
+<li>PdfCopy: changes made to allow replacing existing images</li>
+<li>PdfCopy.freeReader() for better memory management</li>
+<li>Read encrypted PDF with keylength not 128 Bit and revision 3</li>
+<li>More efficient rectangles (Mark Storer)</li>
 </ul>
+<li>Changes made by Mark Hall
+<ul>
+<li>RtfLists in RtfListItems are now handled correctly.</li>
+</ul>
+</li>
 <li>Changes made by Bruno
 <ul>
+<li>GreekList: upper- and lowercase were switched (bug reported by Shawn Qi)</li>
+<li>List.setListSymbol always overwrites the list symbol set with ListItem.setListSymbol (bug reported by Shawn Qi)</li>
 <li>Removed some unused code/classes</li>
 <li>Image alignment fix</li>
 <li>MultiColumnText: fixed an endless loop problem and made the object more user-friendly</li>
 <li>XML Handler: Ricardo Coutinho removed a side-effect that prevented you to define the pagesize/orientation or a document</li>
+<li>XML Handler: basefont problem fixed after a report by Conta Matteo</li>
 <li>XHTML parsing made case insensitive</li>
 <li>Changes to the Toolbox<ul>
 <li>Added a tool to view images that are inside the PDF as an Image XObject (code contributed by Carsten Hammer)</li>
 <li>It is now possible to define the opacity of a text watermark added using the toolbox plug-in (code contributed by Carsten Hammer)</li>
 <li>Added a DirFilter for the PhotoAlbum plug-in (code contribution by Johannes Schindelin)</li>
+<li>Class Table: rowspan fix</li>
 </ul></li>
 </ul>
 </li>
