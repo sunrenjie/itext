@@ -43,13 +43,21 @@ google_cpa_choice = "CAAQxZqazgEaCMOiwb9yonQWKIHD93M";
         how your servlet's output will look.<br />
 		<br />
 		iText requires JDK 1.4. It's available for free under a multiple license: MPL and LGPL.
-
+		<div class="title">Introduction</div>
+		You will find lots of code samples in the online tutorial <a href="http://itextdocs.lowagie.com/tutorial/">iText by Example</a>,
+		but for a nice and simple introduction to the tool, please the articles about iText that was published on the site of
+		<a href="http://www.adobepress.com/articles/article.asp?p=420686&amp;seqNum=1">AdobePress</a> and <a href="http://www-128.ibm.com/developerworks/opensource/library/os-javapdf/">IBM</a>
+		(Note that the IBM article was translated into <a href="http://www-06.ibm.com/jp/developerworks/opensource/060419/j_os-javapdf.shtml">Japanese</a>
+		and <a href="http://www-128.ibm.com/developerworks/cn/opensource/os-javapdf/">Chinese</a>,
+		<a href="http://www-128.ibm.com/developerworks/kr/library/os-javapdf/index.html">Korean</a>). More experienced iText users will
+		certainly benefit from the article published on <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">O'Reilly Network</a>.
+		Please keep an eye on the news column or on my <a href="http://www.lowagie.com/">blog</a>: the <a href="http://www.manning.com">Manning</a> book on iText is nearly finished!
 		<DIV CLASS="title">Technical Requirements</DIV>
 		In order to be able to use these classes you should be
 		acquainted with JAVA (TM) programming.<br />
 		You'll also need the following Software:<br />
 		<ul>
-		<li>The Java Development Kit (JDK) 1.2 (or any later version)
+		<li>The Java Development Kit (JDK) 1.4 (or any later version)
 		from <a href="http://java.sun.com/">Sun Microsystems Incorporated</a>.<br />
 		If for some reason the library should have to work with an earlier version
 		of the JDK, you will have to compile a slightly altered version of
@@ -64,11 +72,11 @@ google_cpa_choice = "CAAQxZqazgEaCMOiwb9yonQWKIHD93M";
 		<div class="title">Getting started with iText</div>
 		There are three pages that are extremely important if you want to work with iText.<br />
 		<ol>
-		<li>The first is the <a href="tutorial/">list of features</a>. This list is limited.
-		Not all of iText functionalities are listed, but it's a good place to start.
-		If you click on one of the features you get some explanation and some examples
-		on how to use these features. As you can read on the <a href="docs.html">documentation</a>
-		page, you will find lots of iText code samples, just by doing some simple Google searches.</li>
+		<li>The first is the <a href="http://itextdocs.lowagie.com/tutorial/">tutorial</a>.
+		Not all functionality available in iText is explained, but it's a good place to start.
+		If you click on one of the features in the overview, you get some explanation and some examples
+		on how to use these features. There's also the <a href="http://itextdocs.lowagie.com/docs/">Javadoc</a>
+		pages for more detail on every method (again: not every method is documented, but we're working on it).</li>
 		<li>If the examples don't work or you experience some typical newbie problems,
 		please consult the <a href="faq.html">Frequently Asked Questions</a> page.</li>
 		<li>If you need something that isn't on the feature list, please check the
