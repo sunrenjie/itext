@@ -22,7 +22,7 @@
 <ul>2006-05-23: iText 1.4.2
 <li>Changes made by Paulo
 <ul>
-<li>Font factory: cached option added</li>
+<li>Font factory: cached option added for TrueType fonts</li>
 <li>Support for document level file attachments in PdfWriter and PdfStamper</li>
 <li>When reading a PDF: accept names of any size (even names that are longer than allowed)</li>
 <li>PdfGraphics2D: class cast exception fix in doAttributes()</li>
