@@ -46,9 +46,9 @@ google_cpa_choice = "CAAQxZqazgEaCMOiwb9yonQWKIHD93M";
 		<div class="title">Introduction</div>
 		You will find lots of code samples in the online tutorial <a href="http://itextdocs.lowagie.com/tutorial/">iText by Example</a>,
 		but for a nice and simple introduction to the tool, please the articles about iText that was published on the site of
-		<a href="http://www.adobepress.com/articles/article.asp?p=420686&amp;seqNum=1">AdobePress</a> and <a href="http://www-128.ibm.com/developerworks/opensource/library/os-javapdf/">IBM</a>
+		<a href="http://www.pdfdev.com/page/articles_1/">PDFDev</a>, <a href="http://www.adobepress.com/articles/article.asp?p=420686&amp;seqNum=1">AdobePress</a> and <a href="http://www-128.ibm.com/developerworks/opensource/library/os-javapdf/">IBM</a>
 		(Note that the IBM article was translated into <a href="http://www-06.ibm.com/jp/developerworks/opensource/060419/j_os-javapdf.shtml">Japanese</a>
-		and <a href="http://www-128.ibm.com/developerworks/cn/opensource/os-javapdf/">Chinese</a>,
+		<a href="http://www-128.ibm.com/developerworks/cn/opensource/os-javapdf/">Chinese</a>, and
 		<a href="http://www-128.ibm.com/developerworks/kr/library/os-javapdf/index.html">Korean</a>). More experienced iText users will
 		certainly benefit from the article published on <a href="http://www.onjava.com/pub/a/onjava/2003/06/18/dynamic_files.html">O'Reilly Network</a>.
 		Please keep an eye on the news column or on my <a href="http://www.lowagie.com/">blog</a>: the <a href="http://www.manning.com">Manning</a> book on iText is nearly finished!
