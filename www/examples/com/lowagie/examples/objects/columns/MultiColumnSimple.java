@@ -59,7 +59,6 @@ public class MultiColumnSimple {
                 mct.addElement(newPara(randomWord(adverb), Element.ALIGN_LEFT, Font.NORMAL));
                 mct.addElement(newPara("\n\n", Element.ALIGN_LEFT, Font.NORMAL));
             }
-System.err.println("hier");
             document.add(mct);
             document.close();
         } catch (DocumentException e) {
