@@ -19,7 +19,31 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
-<ul>2006-05-23: iText 1.4.2
+
+<ul>2006-07-29: iText 1.4.3
+<li>Changes made by Paulo
+<ul>
+<li>Fixed bold and italic output with fonts created from BaseFont</li>
+<li>Image.LEFT wasn 't working in some places</li>
+<li>Forms: the rotation was not being taken care of in getFieldPositions()</li>
+<li>in 128 bit encryption the owner key was being set to blank</li>
+<li>Fix: change PdfGraphics2D.getFontRenderContext() method to create FontRenderContext according to current hints and use context from this method throughout the code.</li>
+<li>PdfGraphics2D: fixed a class cast exception in doAttributes()</li>
+<li>PdfSignatureAppearance: added new appearance types</li>
+<li>TIFFLZWDecoder: fix for broken tiffs with lzw compression</li>
+<li>TiffImage: some extra support for jpeg images</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li>RtfSection/RtfTableOfContents/RtfTOCEntry: removed the font parameters in the constructor since they were ignored and confusing people.</li>
+<li>RtfHeaderFooter: reworked so that now multiple Elements can be set into the header</li>
+<li>Fixed a cell/row spanning bug (tables/cells)</li>
+</ul>
+</li>
+</ul>
+
+<ul>2006-06-23: iText 1.4.2
 <li>Changes made by Paulo
 <ul>
 <li>Font factory: cached option added</li>
@@ -40,7 +64,7 @@
 <li>Tab support for the RTFWriter2</li>
 </ul>
 </li>
-<li>Changes made by Brunoo
+<li>Changes made by Bruno
 <ul>
 <li>Extra table fix for class Table (rowspan problem)</li>
 <li>TreeView changes by Carsten Hammer</li>
