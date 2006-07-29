@@ -83,7 +83,7 @@ public class RtfTest {
             doc.open();
 
             Paragraph p = new Paragraph();
-            p.add(new RtfTableOfContents("UPDATE ME!", new Font()));
+            p.add(new RtfTableOfContents("UPDATE ME!"));
             doc.add(p);
 
             p = new Paragraph("", new RtfFont("Staccato222 BT"));
@@ -137,7 +137,7 @@ public class RtfTest {
             doc.add(chapter);
 
             com.lowagie.text.rtf.field.RtfTOCEntry rtfTOC = new com.lowagie.text.rtf.field.RtfTOCEntry(
-                    "Table Test", new Font());
+                    "Table Test");
             doc.add(rtfTOC);
 
             Table table = new Table(3);

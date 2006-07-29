@@ -61,7 +61,7 @@ public class RtfTOCandCellborders {
             document.open();
             
             Paragraph para = new Paragraph();
-            para.add(new RtfTableOfContents("RIGHT CLICK AND HERE AND SELECT \"UPDATE FIELD\" TO UPDATE.", new Font()));
+            para.add(new RtfTableOfContents("RIGHT CLICK AND HERE AND SELECT \"UPDATE FIELD\" TO UPDATE."));
             document.add(para);
 
             Paragraph par = new Paragraph("This is some sample content.");
@@ -74,12 +74,12 @@ public class RtfTOCandCellborders {
             
             for(int i = 0; i < 300; i++) {
                 if(i == 158) {
-                    document.add(new RtfTOCEntry("This is line 158.", new Font()));
+                    document.add(new RtfTOCEntry("This is line 158."));
                 }
                 document.add(new Paragraph("Line " + i));
             }
             
-            document.add(new RtfTOCEntry("Cell border demonstration", new Font()));
+            document.add(new RtfTOCEntry("Cell border demonstration"));
 
             Table table = new Table(3);
 
