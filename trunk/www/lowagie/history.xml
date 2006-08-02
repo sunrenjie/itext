@@ -54,7 +54,7 @@
 <li>PdfGraphics2D: some dispose calls were missing</li>
 <li>PdfNameTree/PdfNumberTree: values can be PdfObject and not only PdfIndirectReference</li>
 <li>PdfReader: fixed a class cast exception signing encrypted PDFs in append mode</li>
-<li>Added support for certified PDFs (contributed by Antonio Iacono)</li>
+<li>Added support for certified documents (contributed by Antonio Iacono)</li>
 <li>PostScript fixes by Carsten Hammer</li>
 </ul>
 </li>
