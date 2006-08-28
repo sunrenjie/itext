@@ -20,6 +20,36 @@
 <site:remark>not yet released</site:remark>
 <site:changelog>
 
+<ul>2006-08-28: iText 1.4.4
+<li>Changes made by Paulo
+<ul>
+<li>XFA support static forms</li>
+<li>more names in GlyphList (list is now read from a txt file in com.lowagie.text.pdf.fonts)</li>
+<li>custom encodings as strings in BaseFont.createFont()</li>
+<li>PdfGraphics2D: fixed the drawing order bug with create()</li>
+<li>PdfPTable: big padding values exceeding the cell dimensions wrapped around and created a space that should be zero</li>
+<li>TiffImage: more fixes for OJPEG</li>
+</ul></li>
+<li>Changes made by Mark
+<ul>
+<li>RtfDirectContent and RtfParser provide the functionality for adding arbitrary RTF content directly and for adding complete RTF documents or document fragments into the RTF document being written.</li>
+<li>RtfShape provides the capabilities for using Word 97-2000 Drawing Objects with the RtfWriter.</li>
+</ul></li>
+<li>Changes made by Bruno
+<ul>
+<li>HTML parsing: values of HTML attributes were made lowercase (bugfix #1507632 by Kazuya Ujihara)</li>
+<li>Table/Cell: applied bugfix #1531800 and #1531812 posted by John Hammen</li>
+<li>Table2PdfPTable: applied bugfix #1528846</li>
+<li>Graphics State: patch #1514667 asked for a method to set the Overprint Mode. Bruno added a method (slightly different from the patch)</li>
+<li>Updated license information (Bouncy Castle, Carsten Hammer no longer 'anonymous',...)</li>
+<li>icons for the tree viewer plug-in were not in the release</li>
+<li>resolved a code audit warning posted by Darryl Miles in DefaultFontMapper, BuildTutorial and PhotoAlbum</li>
+<li>removal of some XmlToXXX classes that weren't used anymore</li>
+<li>resolved some Eclipse warning in the XMP and toolbox packages</li>
+<li>toolbox plug-in: refactored some variable names (translated German words into English)</li>
+</ul></li>
+</ul>
+
 <ul>2006-07-29: iText 1.4.3
 <li>Changes made by Paulo
 <ul>
