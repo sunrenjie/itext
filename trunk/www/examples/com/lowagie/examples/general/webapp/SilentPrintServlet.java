@@ -61,11 +61,10 @@ public class SilentPrintServlet extends HttpServlet {
 	 * 
 	 * @param requ	the request object
 	 * @param resp	the response object
-	 * @throws ServletException
 	 * @throws IOException
 	 */
 	public void doWork(HttpServletRequest requ, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws IOException {
 		ServletOutputStream out = resp.getOutputStream();
 		
 		// what did the user request?

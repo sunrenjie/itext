@@ -63,11 +63,8 @@ public class OutSimplePdf extends HttpServlet {
 	 * @param request	the Servlets request object
 	 * @param response	the Servlets request object
 	 * @param methodGetPost	the method that was used in the form
-	 * @throws ServletException
-	 * @throws IOException
 	 */
-	public void makePdf(HttpServletRequest request, HttpServletResponse response, String methodGetPost)
-		throws ServletException, IOException {
+	public void makePdf(HttpServletRequest request, HttpServletResponse response, String methodGetPost) {
 		try {
 
 			// take the message from the URL or create default message
