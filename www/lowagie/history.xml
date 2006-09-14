@@ -20,6 +20,27 @@
 <site:remark>not yet released</site:remark>
 <site:changelog>
 
+<ul>2006-09-14: iText 1.4.5
+<li>Changes made by Paulo
+<ul>
+<li>added support for the attribute "style" in HTMLWorker</li>
+<li>better handling of null or invalid values when reading PDFs</li>
+<li>used a MappedByteBuffer instead of a RandomAccessFile (suggested by Joakim Sandstroem)</li>
+<li>PdfArray: null values are handled in toPdf()</li>
+<li>PdfDictionary: null and PdfNull values are not inserted</li>
+<li>added some support for alpha composite (by Alexej Suchov)</li>
+<li>PdfPTable et al.: padding adjustment for rotation 180 degrees + fix with rotated cells</li>
+</ul></li>
+<li>Changes made by Bruno
+<ul>
+<li>the init.ps was not integrated into the release (jar, src)</li>
+<li>removed e-mail addresses that 'bounce' from the source code</li>
+</ul></li>
+<li>Changes made by Mark
+<ul>
+<li>fixed a bug where headers /footers on the first page were being calculated from wrong page sizes.</li>
+</ul></li>
+</ul>
 <ul>2006-08-28: iText 1.4.4
 <li>Changes made by Paulo
 <ul>
