@@ -14,10 +14,21 @@
  */
 package com.lowagie.examples.objects.columns;
 
-import java.io.*;
 import java.awt.Color;
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.*;
+import java.io.FileOutputStream;
+
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.Element;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.Image;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.ColumnText;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 
 /**
  * A more complex example demonstrating the use of ColumnText.

@@ -19,7 +19,11 @@ package com.lowagie.examples.general;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**

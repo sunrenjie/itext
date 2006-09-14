@@ -20,15 +20,34 @@
 
 package com.lowagie.examples.rtf;
 
-import java.io.*;
 import java.awt.Color;
-import com.lowagie.text.*;
+import java.io.FileOutputStream;
+
+import com.lowagie.text.Anchor;
+import com.lowagie.text.Annotation;
+import com.lowagie.text.Cell;
+import com.lowagie.text.Chapter;
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.Element;
+import com.lowagie.text.HeaderFooter;
+import com.lowagie.text.Image;
+import com.lowagie.text.List;
+import com.lowagie.text.ListItem;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.Section;
+import com.lowagie.text.Table;
 import com.lowagie.text.rtf.RtfWriter;
 import com.lowagie.text.rtf.RtfWriter2;
-import com.lowagie.text.rtf.headerfooter.*;
-import com.lowagie.text.rtf.field.*;
-import com.lowagie.text.rtf.table.*;
+import com.lowagie.text.rtf.field.RtfTableOfContents;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup;
 import com.lowagie.text.rtf.style.RtfFont;
+import com.lowagie.text.rtf.table.RtfBorder;
+import com.lowagie.text.rtf.table.RtfBorderGroup;
+import com.lowagie.text.rtf.table.RtfCell;
 
 /**
  * This is a test suite in which all kinds of RTF functionality are tested

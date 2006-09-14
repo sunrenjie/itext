@@ -17,9 +17,10 @@ package com.lowagie.examples.directcontent.graphics;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
 import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfWriter;
 
 /**
  * Simple use of PdfContentByte: drawing Circles

@@ -19,7 +19,10 @@ package com.lowagie.examples.general.faq;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.*;
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
 /**
