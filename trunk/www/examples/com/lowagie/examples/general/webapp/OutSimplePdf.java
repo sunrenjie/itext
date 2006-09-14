@@ -34,6 +34,8 @@ import com.lowagie.text.pdf.PdfWriter;
  * Hello World example as a Servlet.
  */
 public class OutSimplePdf extends HttpServlet {
+	private static final long serialVersionUID = 2788260006560387781L;
+
 	/**
 	 * @see javax.servlet.GenericServlet#init(javax.servlet.ServletConfig)
 	 */
