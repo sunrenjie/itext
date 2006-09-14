@@ -19,7 +19,19 @@
 		<div class="title">Project description</div>
 		<div id="side">
 		<div class="sidetitle">NEWS</div>
-		August 28: release of iText 1.4.4<br />
+		<div align="center">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" id="JavaPolis banner" height="125" width="125">
+			<param name="movie" value="http://itext.ugent.be/img/JavaPolis%20banner%20125x125.swf" />
+			<param name="quality" value="high" />
+			<param name="allowscriptaccess" value="samedomain" />
+			<param name="flashvars" value="$swf.flashvars" />
+			<param name="quality" value="high" />
+			<embed src="http://itext.ugent.be/img/JavaPolis%20banner%20125x125.swf" quality="high" name="JavaPolis banner" swliveconnect="true" allowscriptaccess="samedomain" flashvars="$swf.flashvars" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" height="125" width="125" />
+		</object>
+		<br />
+		Meet your <a href="http://www.javapolis.com/confluence/display/JP06/Bruno+Lowagie">idol</a> @ JavaPolis ;-)</div>
+		<br />
+		September 14: release of iText 1.4.5<br /><br />
 		Read the most recent news in my <a href="http://www.lowagie.com/">BLOG</a>!<br />
 		Visit the <a href="http://itext.ugent.be/">new iText site</a>.<br />
 		Read more about the upcoming <a href="http://itext.ugent.be/itext-in-action/">iText book</a> (November 2006):<br />
