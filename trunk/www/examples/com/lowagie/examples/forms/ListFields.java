@@ -68,7 +68,7 @@ public class ListFields {
                 }
                 for (int page = 1; page <= reader.getNumberOfPages(); ++page) {
                     PdfDictionary dPage = reader.getPageN(page);
-                    PdfArray annots = (PdfArray)PdfReader.getPdfObject((PdfObject)dPage.get(PdfName.ANNOTS));
+                    PdfArray annots = (PdfArray)PdfReader.getPdfObject(dPage.get(PdfName.ANNOTS));
                     if (annots == null)
                         continue;
                     ArrayList ali = annots.getArrayList();
@@ -90,7 +90,7 @@ public class ListFields {
                                 ref = (PRIndirectReference)refObj;
                                 field = (PRAcroForm.FieldInformation)refToField.get(new Integer(ref.getNumber()));
                             }
-                            refObj = (PdfObject)an.get(PdfName.PARENT);
+                            refObj = an.get(PdfName.PARENT);
                             an = (PdfDictionary)PdfReader.getPdfObject(refObj);
                         }
                         if (fName.endsWith("."))

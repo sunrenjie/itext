@@ -70,7 +70,7 @@ public class OutSimplePdf extends HttpServlet {
 		try {
 
 			// take the message from the URL or create default message
-			String msg = (String) request.getParameter("msg");
+			String msg = request.getParameter("msg");
 			if (msg == null || msg.trim().length() <= 0)
 				msg = "[ specify a message in the 'msg' argument on the URL ]";
 
