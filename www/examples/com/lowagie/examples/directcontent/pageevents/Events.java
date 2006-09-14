@@ -173,13 +173,10 @@ public class Events {
 	 * Gets a Handler object.
 	 * @param document  the document on which the handler operates
 	 * @return a Handler object
-	 * @throws IOException
 	 */
-	public MyHandler getXmlHandler(Document document) throws IOException {
+	public MyHandler getXmlHandler(Document document) {
 		try {
 			return new MyHandler(document, new RomeoJulietMap());
-		} catch (DocumentException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -240,10 +237,8 @@ public class Events {
 		 * We have to override the constructor
 		 * @param document	the Document object
 		 * @param tagmap	the tagmap
-		 * @throws IOException
-		 * @throws DocumentException
 		 */
-		public MyHandler(Document document, HashMap tagmap) throws DocumentException, IOException {
+		public MyHandler(Document document, HashMap tagmap) {
 			super(document, tagmap);
 		}
 
