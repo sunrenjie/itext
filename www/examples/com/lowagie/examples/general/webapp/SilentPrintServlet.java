@@ -34,6 +34,8 @@ import com.lowagie.text.pdf.PdfWriter;
  * @author     Heiner Jostkleigrewe, Heiner.Jostkleigrewe@gt-net.de
  */
 public class SilentPrintServlet extends HttpServlet {
+	private static final long serialVersionUID = -3250788071256174348L;
+
 	/** a possible status */
 	public static final int ACT_INIT = 0;
 

@@ -283,6 +283,8 @@ public class Events {
 
 	class RomeoJulietMap extends TagMap {
 
+		private static final long serialVersionUID = 1024517625414654121L;
+
 		/**
 		 * Constructs a TagMap based on an XML file
 		 * and/or on XmlPeer objects that are added.

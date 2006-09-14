@@ -38,7 +38,8 @@ import com.lowagie.text.pdf.PdfWriter;
  * Constructing a JTable and printing it to PDF.
  */
 public class JTable2Pdf extends JFrame {
-    /** The JTable we will show in a Swing app and print to PDF. */
+    private static final long serialVersionUID = 8461166420041411734L;
+	/** The JTable we will show in a Swing app and print to PDF. */
     private JTable table;
     
     /**

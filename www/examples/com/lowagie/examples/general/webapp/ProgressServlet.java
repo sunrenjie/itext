@@ -38,6 +38,8 @@ import com.lowagie.text.pdf.PdfWriter;
  */
 public class ProgressServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 6272312661092621179L;
+
 	/**
 	 * This class will keep a Pdf file
 	 * @author blowagie
