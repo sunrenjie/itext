@@ -35,10 +35,10 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.Table;
 import com.lowagie.text.rtf.RtfWriter2;
-import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
-import com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup;
 import com.lowagie.text.rtf.field.RtfPageNumber;
 import com.lowagie.text.rtf.field.RtfTotalPageNumber;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
+import com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup;
 
 /**
  * This example creates a RTF document with more complex headers and footers

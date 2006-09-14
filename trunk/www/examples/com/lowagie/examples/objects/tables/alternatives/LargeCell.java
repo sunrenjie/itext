@@ -14,11 +14,9 @@
  */
 package com.lowagie.examples.objects.tables.alternatives;
 
-import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.lowagie.text.Cell;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
