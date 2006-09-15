@@ -33,7 +33,6 @@ public class Register {
         try {
             // we create a reader for a certain document
             PdfReader reader = new PdfReader("SimpleRegistrationForm.pdf");
-            int n = reader.getNumberOfPages();
             // filling in the form
             PdfStamper stamp1 = new PdfStamper(reader, new FileOutputStream("registered.pdf"));
             AcroFields form1 = stamp1.getAcroFields();
