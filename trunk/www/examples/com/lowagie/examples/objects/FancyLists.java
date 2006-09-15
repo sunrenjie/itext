@@ -61,7 +61,7 @@ public class FancyLists {
 			roman.add(new ListItem("first item"));
 			roman.add(new ListItem("second item blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"));
 			for (int i = 3; i < 151; i++) {
-				roman.add(String.valueOf(i) + "th item");
+				roman.add(i + "th item");
 			}
 			document.add(roman);
 			document.newPage();
@@ -69,7 +69,7 @@ public class FancyLists {
 			roman2.add(new ListItem("first item"));
 			roman2.add(new ListItem("second item"));
 			for (int i = 3; i < 11; i++) {
-				roman2.add(String.valueOf(i) + "th item");
+				roman2.add(i + "th item");
 			}
 			document.add(roman2);
 			document.newPage();
@@ -80,7 +80,7 @@ public class FancyLists {
 			greek.add(new ListItem("first item"));
 			greek.add(new ListItem("second item"));
 			for (int i = 3; i < 20; i++) {
-				greek.add(String.valueOf(i) + "th item");
+				greek.add(i + "th item");
 			}
 			document.add(greek);
 			document.newPage();
@@ -91,7 +91,7 @@ public class FancyLists {
 			greek2.add(new ListItem("first item"));
 			greek2.add(new ListItem("second item"));
 			for (int i = 3; i < 20; i++) {
-				greek2.add(String.valueOf(i) + "th item");
+				greek2.add(i + "th item");
 			}
 			document.add(greek2);
 			
@@ -100,7 +100,7 @@ public class FancyLists {
 			z.add(new ListItem("first item"));
 			z.add(new ListItem("second item"));
 			for (int i = 3; i < 20; i++) {
-				z.add(String.valueOf(i) + "th item");
+				z.add(i + "th item");
 			}
 			document.add(z);
 			document.newPage();
@@ -110,28 +110,28 @@ public class FancyLists {
 			z0.add(new ListItem("first item"));
 			z0.add(new ListItem("second item"));
 			for (int i = 3; i < 11; i++) {
-				z0.add(String.valueOf(i) + "th item");
+				z0.add(i + "th item");
 			}
 			document.add(z0);
 			ZapfDingbatsNumberList z1 = new ZapfDingbatsNumberList(1, 15);
 			z1.add(new ListItem("first item"));
 			z1.add(new ListItem("second item"));
 			for (int i = 3; i < 11; i++) {
-				z1.add(String.valueOf(i) + "th item");
+				z1.add(i + "th item");
 			}
 			document.add(z1);
 			ZapfDingbatsNumberList z2 = new ZapfDingbatsNumberList(2, 15);
 			z2.add(new ListItem("first item"));
 			z2.add(new ListItem("second item"));
 			for (int i = 3; i < 11; i++) {
-				z2.add(String.valueOf(i) + "th item");
+				z2.add(i + "th item");
 			}
 			document.add(z2);
 			ZapfDingbatsNumberList z3 = new ZapfDingbatsNumberList(3, 15);
 			z3.add(new ListItem("first item"));
 			z3.add(new ListItem("second item"));
 			for (int i = 3; i < 11; i++) {
-				z3.add(String.valueOf(i) + "th item");
+				z3.add(i + "th item");
 			}
 			document.add(z3);
 

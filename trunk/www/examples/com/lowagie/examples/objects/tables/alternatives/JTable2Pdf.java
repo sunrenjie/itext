@@ -63,14 +63,14 @@ public class JTable2Pdf extends JFrame {
     private void createTable() {
         Object[][] data ={
             {"Mary", "Campione", "Snowboarding", new
-             Integer(5), new Boolean(false)},
+             Integer(5), Boolean.FALSE},
              {"Alison", "Huml", "Rowing", new
-              Integer(3), new Boolean(true)},
+              Integer(3), Boolean.TRUE},
               {"Kathy", "Walrath", "Chasing toddlers",
-               new Integer(2), new Boolean(false)},
+               new Integer(2), Boolean.FALSE},
                {"Mark", "Andrews", "Speed reading", new
-                Integer(20), new Boolean(true)},
-                {"Angela", "Lih", "Teaching high school", new Integer(4), new Boolean(false)}
+                Integer(20), Boolean.TRUE},
+                {"Angela", "Lih", "Teaching high school", new Integer(4), Boolean.FALSE}
         };
         
         String[] columnNames =

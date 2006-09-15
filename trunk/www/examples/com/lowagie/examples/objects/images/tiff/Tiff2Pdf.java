@@ -50,7 +50,7 @@ public class Tiff2Pdf {
 		String pdf_file;
 		for (int i = 0; i < args.length; i++) {
 			tiff_file = args[i];
-			pdf_file = tiff_file.substring(0, tiff_file.lastIndexOf(".") + 1) + "pdf";
+			pdf_file = tiff_file.substring(0, tiff_file.lastIndexOf('.') + 1) + "pdf";
 			Document document = new Document();
 			try {
 				PdfWriter writer = PdfWriter.getInstance(document,

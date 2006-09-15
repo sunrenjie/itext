@@ -54,7 +54,7 @@ public class SymbolSubstitution {
             document.add(Phrase.getInstance("What is the " + (char) 945 + "-coefficient of the "
                     + (char) 946 + "-factor in the " + (char) 947 + "-equation?\n"));
                     for (int i = 913; i < 970; i++) {
-                        document.add(Phrase.getInstance(" " + String.valueOf(i) + ": " + (char) i));
+                        document.add(Phrase.getInstance(" " + i + ": " + (char) i));
                     }
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());

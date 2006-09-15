@@ -124,11 +124,11 @@ public class MultiColumnSimple {
     {
        StringBuffer results = new StringBuffer(150);
        results.append(randomWord(adjective));
-       results.append(" ");
+       results.append(' ');
        results.append(randomWord(noun));
-       results.append(" ");
+       results.append(' ');
        results.append(randomWord(verb));
-       results.append(" ");
+       results.append(' ');
        results.append(randomWord(adverb));
        results.append(", ");
        return results.toString();
