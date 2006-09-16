@@ -28,7 +28,7 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.html.HtmlWriter;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.rtf.RtfWriter;
+import com.lowagie.text.rtf.RtfWriter2;
 
 /**
  * Hello World example as a Servlet.
@@ -64,7 +64,7 @@ public class HelloWorldServlet extends HttpServlet {
             }
             else if ("rtf".equals(presentationtype)) {
                 response.setContentType("text/rtf");
-                RtfWriter.getInstance(document, response.getOutputStream());
+                RtfWriter2.getInstance(document, response.getOutputStream());
             }
             else {
                 response.sendRedirect("http://itextdocs.lowagie.com/tutorial/general/webapp/index.html#HelloWorld");
