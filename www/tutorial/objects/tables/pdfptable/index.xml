@@ -7,6 +7,7 @@
 		<site:summary>Some extra PdfPTable functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, PdfPTable, Table, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
@@ -65,7 +66,15 @@
 	</site:examples>
 	
 	<site:chapter>
-	
+
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="6" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section new="writeselectedrows">
 		<site:sectiontitle>Adding a PdfPTable at an absolute position</site:sectiontitle>
 <div>

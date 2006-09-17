@@ -7,6 +7,7 @@
 		<site:summary>Selected examples: Embedding PostScript, importing TIFF files, Barcodes</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, tiff, eps, barcodes, PostScript, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0201379228">PostScript(R) Language Reference (3rd Edition)</site:book>
 			<site:book asin="0201101793">PostScript(R) Language Tutorial and Cookbook</site:book>
 			<site:book asin="0943779502">Getting Started With Bar Codes: A Systematic Guide</site:book>
@@ -67,6 +68,15 @@
 	</site:examples>
 	
 	<site:chapter>
+			
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="5" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="eps">
 		<site:sectiontitle>Encapsulated PostScript</site:sectiontitle>
 <div>

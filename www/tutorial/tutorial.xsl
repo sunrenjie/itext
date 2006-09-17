@@ -111,8 +111,55 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<h2><xsl:value-of select="site:metadata/site:title" /></h2>
 				<div id="content">
 					<div class="title">Introduction:</div>
-					<blockquote><xsl:value-of select="site:intro" /></blockquote>
-					<ul>
+					<blockquote>
+					<p><xsl:value-of select="site:intro" /></p>
+					<p>This tutorial is far from complete; for a more comprehensive
+					overview of iText's functionality, please buy the book
+					<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>.</p>
+					</blockquote>
+					<div class="title">Table of Contents ot the book:</div>
+					<a href="http://itext.ugent.be/itext-in-action/"><img align="right" border="0" width="195" height="244" src="http://itext.ugent.be/img/iia.jpg" /></a>
+<h3>Part 1: Introduction</h3>
+<ul>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=1">Chapter 1:</a> iText, when and why</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=2">Chapter 2:</a> PDF engine jump-start</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=3">Chapter 3:</a> PDF, why and when</li>
+</ul>
+<h3>Part 2: Basic building blocks</h3>
+<ul>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=4">Chapter 4:</a> Composing text elements</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=5">Chapter 5:</a> Inserting images</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=6">Chapter 6:</a> Constructing tables</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=7">Chapter 7:</a> Constructing columns</li>
+</ul>
+<h3>Part 3: PDF text and graphics</h3>
+<ul>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=8">Chapter 8:</a> Choosing the right font</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=9">Chapter 9:</a> Using fonts</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=10">Chapter 10:</a> Constructing and painting paths</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=11">Chapter 11:</a> Adding color and text</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=12">Chapter 12:</a> Drawing to Java Graphics2D</li>
+</ul>
+
+<h3>Part 4: Interactive PDF</h3>
+<ul>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=13">Chapter 13:</a> Browsing a PDF document</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=14">Chapter 14:</a> Automating PDF creation</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=15">Chapter 15:</a> Creating annotations and fields</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=16">Chapter 16:</a> Filling and signing AcroForms</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=17">Chapter 17:</a> iText in web applications</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=18">Chapter 18:</a> Under the hood</li>
+</ul>
+
+<h3>Extra: Appendices and more samples</h3>
+<ul>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=19">Extra:</a> Appendices</li>
+	<li><a class="subtitle" href="http://itext.ugent.be/itext-in-action/chapter.php?chapter=20">Extra:</a> More samples (not in the book)</li>
+</ul>
+<br />
+<div class="title">Table of contents of this online tutorial</div>
+<br />
+<ul>
 					<xsl:for-each select="./site:part">
 						<li><xsl:element name="a">
 							<xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
@@ -201,6 +248,54 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 		<xsl:element name="a">
 			<xsl:attribute name="href">http://itext.ugent.be/library/api/<xsl:value-of select="translate(@class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
 			<xsl:value-of select="." />
+		</xsl:element>
+	</xsl:template>
+	
+	<xsl:template match="site:bookchapter">
+		<xsl:element name="li">
+			<xsl:element name="a">
+				<xsl:attribute name="class">subtitle</xsl:attribute>
+				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/chapter.php?chapter=<xsl:value-of select="@chapter" /></xsl:attribute>
+				Chapter <xsl:value-of select="@chapter" />:
+			</xsl:element>
+			<xsl:variable name="book_toc">./chapters.xml</xsl:variable>
+			<xsl:variable name="chapter"><xsl:value-of select="@chapter" /></xsl:variable>
+			<xsl:for-each select="document($book_toc)/site:bookchapters/site:bookchapter">
+				<xsl:if test="$chapter=./@chapter">
+					<xsl:value-of select="."/>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:element>
+	</xsl:template>
+	
+	<xsl:template match="site:book">
+		<xsl:element name="p">
+			<xsl:element name="a">
+				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/</xsl:attribute>
+				<xsl:element name="img">
+					<xsl:attribute name="src">http://itext.ugent.be/img/iia.jpg</xsl:attribute>
+					<xsl:attribute name="border">0</xsl:attribute>
+					<xsl:attribute name="align">right</xsl:attribute>
+					<xsl:attribute name="width">130</xsl:attribute>
+					<xsl:attribute name="height">163</xsl:attribute>
+				</xsl:element>
+			</xsl:element>
+			The examples in this free online tutorial will help you getting started
+			with iText. Note that most examples are two years old.
+			Some of the examples may be obsolete. Also the theory that
+			comes with the examples isn't always 100% accurate.
+			If you want more recent examples or if you want to know more
+			about the theoretical background of	PDF and iText, please consult the book
+			<xsl:element name="a">
+				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/</xsl:attribute>
+				"iText in Action"
+			</xsl:element>.
+		</xsl:element>
+		<xsl:element name="p">
+			More specifically:
+			<xsl:element name="ul">
+				<xsl:apply-templates select="*" />
+			</xsl:element>
 		</xsl:element>
 	</xsl:template>
 

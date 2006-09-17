@@ -7,6 +7,7 @@
 		<site:summary>Describes the different Font objects in iText.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Fonts, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:book asin="0201570440">Adobe type 1 font format</site:book>
 			<site:keyword>Fonts</site:keyword>
@@ -59,6 +60,16 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="8" />
+			<site:bookchapter chapter="9" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="font">
 		<site:sectiontitle>The Font-class</site:sectiontitle>
 <div>

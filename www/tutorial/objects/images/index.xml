@@ -7,6 +7,7 @@
 		<site:summary>Deals with all types of images that are supported by iText</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, tiff, gif, jpeg, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:keyword>GIF</site:keyword>
 			<site:keyword>JPEG</site:keyword>
 			<site:keyword>TIFF</site:keyword>
@@ -115,6 +116,16 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+			
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="5" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="intro">
 		<site:sectiontitle>Images</site:sectiontitle>
 <div>

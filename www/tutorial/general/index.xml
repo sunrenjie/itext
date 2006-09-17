@@ -7,6 +7,7 @@
 		<site:summary>How-to generate a PDF document with iText in 5 easy steps.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="3540608540">Postscript and Acrobat/Pdf Bible: Applications, Troubleshooting and Cross-Platform Publishing</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:book asin="0321305310">Adobe Reader 7 Revealed</site:book>
@@ -68,6 +69,16 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="2" />
+			<site:bookchapter chapter="3" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="5steps">
 		<site:sectiontitle>Creating a document in 5 steps.</site:sectiontitle>
 <div>
