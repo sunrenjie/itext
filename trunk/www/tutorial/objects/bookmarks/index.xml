@@ -7,6 +7,7 @@
 		<site:summary>Deals with all the PDF Viewerpreferences, Bookmarks, Outlines, Destinations,... functionality</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, pagelabels, viewerpreferences, bookmarks, outlines, destinations, Chapter, Section, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:book asin="3540608540">Postscript and Acrobat/Pdf Bible: Applications, Troubleshooting and Cross-Platform Publishing</site:book>
 			<site:keyword>PDF</site:keyword>
@@ -67,7 +68,17 @@
 	</site:examples>
 	
 	<site:chapter>
-	
+			
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="4" />
+			<site:bookchapter chapter="13" />
+			<site:bookchapter chapter="15" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="viewerprefs">
 		<site:sectiontitle>Viewerpreferences</site:sectiontitle>
 <div>

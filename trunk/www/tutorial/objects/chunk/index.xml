@@ -7,6 +7,7 @@
 		<site:summary>Describes the functionality of the Chunk object.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Chunk, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:keyword>PDF</site:keyword>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
@@ -79,6 +80,15 @@
 	</site:examples>
 	
 	<site:chapter>
+		
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="4" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="intro">
 		<site:sectiontitle>Introduction</site:sectiontitle>
 <div>

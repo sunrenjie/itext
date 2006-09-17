@@ -7,6 +7,7 @@
 		<site:summary>Add text content directly to the PDF file using the PdfContentByte class.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, PdfContentByte, Graphics, absolute positions, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>PDF</site:keyword>
 		</site:amazonbooks>
@@ -29,6 +30,14 @@
 	
 	<site:chapter>
 
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="11" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="pdfsyntax">
 		<site:sectiontitle>PDF Syntax</site:sectiontitle>
 <div>

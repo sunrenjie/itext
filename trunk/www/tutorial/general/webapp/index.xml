@@ -7,6 +7,7 @@
 		<site:summary>How-to use iText in Web Applications.</site:summary>
 		<site:keywords>PDF, JAVA, iText, Servlet, JSP, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0596000405">Java Servlet Programming (2nd Edition)</site:book>
 			<site:keyword>JAVA Servlets</site:keyword>
 			<site:keyword>J2EE</site:keyword>
@@ -68,6 +69,14 @@
 	
 	<site:chapter>
 	
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="17" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="MyJavaServer">
 		<site:sectiontitle>MyJavaServer.com</site:sectiontitle>
 <div>

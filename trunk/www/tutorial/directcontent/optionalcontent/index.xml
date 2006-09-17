@@ -7,6 +7,7 @@
 		<site:summary>Add optional content to a PDF file.</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, optional content, OCG, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>JAVA</site:keyword>
 			<site:keyword>PDF</site:keyword>
@@ -50,6 +51,15 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="12" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="ocg">
 		<site:sectiontitle>Optional Content Groups</site:sectiontitle>
 <div>

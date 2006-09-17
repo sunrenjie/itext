@@ -6,6 +6,7 @@
 		<site:summary>Examples and tutorial for using iText, a free Java-Pdf library</site:summary>
 		<site:keywords>PDF, JAVA, iText, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
 			<site:keyword>PDF</site:keyword>
 			<site:keyword>JAVA</site:keyword>
@@ -20,9 +21,7 @@
 		generation. In this tutorial, you will find lots of standalone examples
 		to learn how to use most of the iText functionality and features.
 		It should be easy to integrate most of the solutions in a Servlet, a
-		Java Web Start application or some other Java program.<br />
-		This tutorial is far from complete, but it will be updated on a regular
-		basis.
+		Java Web Start application or some other Java program.
 	</site:intro>
 	<site:part name="part1">
 		<site:title>Part I: General Use of iText</site:title>
@@ -32,7 +31,7 @@
 		<site:chapter path="general/faq" />
 	</site:part>
 	<site:part name="part2">
-		<site:title>Part II: Using High Level Objects</site:title>
+		<site:title>Part II: Using Basic Building Blocks</site:title>
 		<site:chapter path="objects" />
 		<site:chapter path="objects/chunk" />
 		<site:chapter path="objects/anchors" />
@@ -63,23 +62,13 @@
 	</site:part>
 	<site:part name="part5">
 		<site:title>Part V: Interactive Features (AcroForms)</site:title>
+		<site:chapter path="forms" />
+		<site:chapter path="forms/create" />
+		<site:chapter path="forms/fill" />
 	</site:part>
 	<site:part name="part6">
-		<site:title>Part VI: the iText Toolbox explained</site:title>
-	</site:part>
-	<site:part name="part7">
-		<site:title>Part VII: RTF</site:title>
+		<site:title>Part VI: RTF</site:title>
 		<site:chapter path="rtf" />
-	</site:part>
-	<site:part name="part8">
-		<site:title>Part VIII: HTML</site:title>
-		<site:chapter path="html" />
-	</site:part>
-	<site:part name="part9">
-		<site:title>Part IX: XML</site:title>
-	</site:part>
-	<site:part name="part10">
-		<site:title>Part X: Under the hood</site:title>
 	</site:part>
 	
 </site:toc>

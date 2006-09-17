@@ -7,6 +7,7 @@
 		<site:summary>Some alternative ways to create a Table</site:summary>
 		<site:keywords>PDF, JAVA, iText, Table, JTable, Swing, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
+			<site:book asin="1932394796">iText in Action</site:book>
 			<site:keyword>JAVA</site:keyword>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
@@ -70,6 +71,17 @@
 	</site:examples>
 	
 	<site:chapter>
+	
+			
+	<site:section name="inaction">
+		<site:sectiontitle>In the book</site:sectiontitle>
+		<div>
+		<site:book>
+			<site:bookchapter chapter="6" />
+			<site:bookchapter chapter="12" />
+		</site:book>
+		</div>
+	</site:section>
 	<site:section name="jtable">
 		<site:sectiontitle>JTable to PDF</site:sectiontitle>
 <div>
