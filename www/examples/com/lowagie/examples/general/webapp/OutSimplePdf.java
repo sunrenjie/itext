@@ -37,13 +37,6 @@ public class OutSimplePdf extends HttpServlet {
 	private static final long serialVersionUID = 2788260006560387781L;
 
 	/**
-	 * @see javax.servlet.GenericServlet#init(javax.servlet.ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-	}
-
-	/**
 	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest,
 	 *      javax.servlet.http.HttpServletResponse)
 	 */
