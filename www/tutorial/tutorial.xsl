@@ -115,7 +115,9 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 					<p><xsl:value-of select="site:intro" /></p>
 					<p>This tutorial is far from complete; for a more comprehensive
 					overview of iText's functionality, please buy the book
-					<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>.</p>
+					<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>.
+					You can also download an 'unedited draft' of the first chapter
+					<a href="http://manning.com/lowagie">here</a>.</p>
 					</blockquote>
 					<div class="title">Table of Contents ot the book:</div>
 					<a href="http://itext.ugent.be/itext-in-action/"><img align="right" border="0" width="195" height="244" src="http://itext.ugent.be/img/iia.jpg" /></a>
