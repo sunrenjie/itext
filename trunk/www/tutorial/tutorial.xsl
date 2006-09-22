@@ -116,8 +116,8 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 					<p>This tutorial is far from complete; for a more comprehensive
 					overview of iText's functionality, please buy the book
 					<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>.
-					You can also download an 'unedited draft' of the first chapter
-					<a href="http://manning.com/lowagie">here</a>.</p>
+					You can also download an 'unedited draft' of the first chapter from
+					<a href="http://manning.com/lowagie">http://manning.com/lowagie/</a>.</p>
 					</blockquote>
 					<div class="title">Table of Contents ot the book:</div>
 					<a href="http://itext.ugent.be/itext-in-action/"><img align="right" border="0" width="195" height="244" src="http://itext.ugent.be/img/iia.jpg" /></a>
@@ -290,8 +290,10 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 			about the theoretical background of	PDF and iText, please consult the book
 			<xsl:element name="a">
 				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/</xsl:attribute>
-				"iText in Action"
-			</xsl:element>.
+				"iText in Action".
+			</xsl:element>
+			Note that an 'unedited draft' of the first chapter of the book
+			can be downloaded from <a href="http://manning.com/lowagie/">http://manning.com/lowagie/</a>
 		</xsl:element>
 		<xsl:element name="p">
 			More specifically:
