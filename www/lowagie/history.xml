@@ -19,7 +19,35 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
-
+<ul>2006-10-25: iText 1.4.6
+<li>Changes made by Paulo
+<ul><li>Normalization of Colors (conversion from 0-255 to 0-1); fix of a problem reported by Roger Misteli</li>
+<li>Normalization of Rectangles in fields (when coordinates are not given in the expected order).</li>
+<li>null exception prevention in classes DocumentFont, GlyphList and PdfCopy</li>
+<li>GlyphList: use the name "bar" instead of "verticalbar".</li>
+<li>Annotation Unicode support</li>
+<li>PdfReader: more robust error handling + removeUnusedObjects() is not recursive anymore</li>
+<li>PdfStream: multiple filters would fail</li>
+<li>PdfWriter: the info output intent was switched with the registry name</li>
+<li>shared resource dictionaries won't share any longer the objects of all the pages</li>
+</ul></li>
+<li>Changes made by Mark
+<ul><li>Update of the RTF tutorial</li>
+<li>RtfTokeniser: speed improvement (contributed by Bullo in a SourceForge bug report #1566255)</li>
+<li>RtfFont: access to the charset (contributed by Lidong Liu on the mailinglist)</li>
+<li>RtfAnchor: escape text correctly for anchor url</li>
+<li>Override isEmpty() from Chunk. This was causing bugs where RtfAddableElement subclasses were not being added to Cells correctly.</li>
+</ul></li>
+<li>Changes made by Xavier
+<ul>
+<li>new target in the ANT scripts to regenerate the JavaCC generated classes</li>
+<li>target is set to 1.4 for compilation (ANT scripts)</li>
+<li>code cleanup of the tutorial examples: removal of unnecessary import clauses, useless casts, and so forth</li>
+<li>Several code optimizations and cleanup operations in many different iText classes.
+In some cases unreported bugs were fixed (for instance: better handling of empty Strings).</li>
+<li>Removal of class StringCompare</li>
+</ul></li>
+</ul>
 <ul>2006-09-14: iText 1.4.5
 <li>Changes made by Paulo
 <ul>
