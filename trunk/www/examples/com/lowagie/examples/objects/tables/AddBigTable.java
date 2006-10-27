@@ -40,7 +40,7 @@ public class AddBigTable {
 		Document document = new Document(PageSize.A4.rotate(), 10, 10, 10, 10);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("AddBigTable.pdf"));
 			// step3
 			document.open();
@@ -82,7 +82,7 @@ public class AddBigTable {
 					datatable.addCell(bogusData[x]);
 				}
 				if (i % 2 == 1) {
-					datatable.getDefaultCell().setGrayFill(0.0f);
+					datatable.getDefaultCell().setGrayFill(1);
 				}
 			}
 			document.add(datatable);
