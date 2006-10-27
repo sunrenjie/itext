@@ -19,7 +19,7 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
-<ul>2006-10-25: iText 1.4.6
+<ul>2006-10-27: iText 1.4.6
 <li>Changes made by Paulo
 <ul><li>Normalization of Colors (conversion from 0-255 to 0-1); fix of a problem reported by Roger Misteli</li>
 <li>Normalization of Rectangles in fields (when coordinates are not given in the expected order).</li>
