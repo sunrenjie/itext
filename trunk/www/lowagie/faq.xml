@@ -12,6 +12,8 @@
 	<site:content>
 	<div>
 <div class="header">Frequently Asked Questions</div>
+<blockquote>This is the old FAQ page, for a more recent (and interactive) FAQ,
+please visit <a href="http://itext.ugent.be/library/faq.php">http://itext.ugent.be/library/faq.php</a>.</blockquote>
 <div class="title">General remark</div>
 <div class="small">This FAQ covers mainly non-technical questions.
 For examples on the technical use of iText, please refer to the <a href="docs.html">technical documentation</a>.
