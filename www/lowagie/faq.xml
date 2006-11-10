@@ -92,18 +92,6 @@ to the Portable Document Format.
 </site:answer>
 </site:faq-entry>
 
-<site:faq-entry name="support">
-<site:question>Is support available?</site:question>
-<site:answer>
-Support is given on a voluntary basis throught the mailing-list.<br />
-Some companies have a policy not to use Free / Open Source Software without a license or a support contract. The iText developers can't and won't sell you
-such a contract, but they have granted Leonard Rosenthol and his company <a href="http://www.pdfsages.com/">PDF Sages</a> the right to sell licenses
-and support contracts on a case per case basis. There was no money involved in this deal; the developers of iText are not
-on the paylist of PDF Sages.  The responsibility for these contracts lies with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
-
-</site:answer>
-</site:faq-entry>
-
 <site:faq-entry name="free">
 <site:question>Is iText really free?</site:question>
 <site:answer>
