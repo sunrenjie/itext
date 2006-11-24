@@ -20,7 +20,7 @@ You can execute it with:
 java -jar iText.jar
 </pre>
 Or you can install it as a Java Web Start (JWS) application, just by clicking this
-<a href="itext.jnlp">JNLP</a>-file.<br />
+<a href="http://itext.ugent.be/library/itext.jnlp">JNLP</a>-file.<br />
 All tools can also be called from the commandline with the same arguments in the same order as documented below.
 Or you can call the tools from your own Java applications (see the <a href="http://itextdocs.lowagie.com/docs/com/lowagie/tools/plugins/package-summary.html">API</a> for more info).
 </div>
