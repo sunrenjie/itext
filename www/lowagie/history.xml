@@ -19,6 +19,45 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
+<ul>2006-11-24: iText 1.4.7
+<li>Changes made by Paulo
+<ul><li>added support for AES encryption</li>
+<li>added support for encryption with metadata in clear text</li>
+<li>PdfBoolean: consistent toString()</li>
+<li>PdfDictionary: testing the dictionary type no longer throws NullPointerExceptions</li>
+<li>PdfDocument: fixed inconsisten null checking</li>
+<li>AcroFields: added a method replacePushbuttonField() (rewrite of Bruno's setIcon method)</li>
+<li>BaseField: static final variable values were modified. Don 't forget to recompile programs that depend on these values.</li>
+<li>PdfGraphics2D: clip reset correction</li>
+<li>GlyphList: standard glyph names take precedence over the more exotic ones</li>
+<li>XfaForm: removed code duplication</li>
+</ul></li>
+<li>Changes made by Bruno
+<ul><li>By default a Chapter started on a new page ;whereas a Section didn 't. 
+Now you can change this default with setTriggerNewPage()</li>
+<li>Fixed a problem with sigma in Greek lists.</li>
+<li>PageSize: fixed some values that were wrong (reported by Feng Dihai)</li>
+<li>PageSize: added some new values for page sizes (for instance for identity cards)</li>
+<li>Paragraph: fixed the constructor new Paragraph(Phrase p); If you pass a Paragraph
+(extends Phrase), the properties of the original paragraph weren't copied.</li>
+<li>AcroFields: method regenerateField, to be called after changing the
+properties of a field without changing its value.</li>
+<li>Table: when using rowspan on a cell that reached the final row of the Table,
+an error was thrown. Bruno implemented a bug fix suggested by Calvin Lee.</li>
+<li>Table/PdfDocument: removed some unused code. This <i>could</i> break some of the
+Table functionality, but all of my own tests worked just fine.</li>
+<li>TagMap constructor: implemented a bugfix in the constructor (suggested by Ray Burkes)</li>
+</ul></li>
+<li>Changes made by Mark
+<ul><li>Fixed a bug where setFont was being ignored on RtfField and its subclasses.</li>
+</ul></li>
+<li>Code cleanup by Xavier<ul>
+<li>using Boolean.valueOf instead of Boolean constructor</li>
+<li>use Collection.isEmpty() instead of comparing size() to 0</li>
+<li>removed unused imports in PdfString and StandardDecryption</li>
+<li>PostScript classes: System.exit() call removed ,calls to System.out only in debug mode</li>
+</ul></li>
+</ul>
 <ul>2006-10-27: iText 1.4.6
 <li>Changes made by Paulo
 <ul><li>Normalization of Colors (conversion from 0-255 to 0-1); fix of a problem reported by Roger Misteli</li>
