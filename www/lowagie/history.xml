@@ -19,6 +19,26 @@
 <site:release number="V150" name="iText 1.5" date="unknown">
 <site:remark>not yet released</site:remark>
 <site:changelog>
+<ul>2006-12-19: iText 1.4.8
+<li>Changes made by Paulo<ul>
+<li>AcroFields: MAXLEN was not being applied to the display value.</li>
+<li>Bugfix: AES encryption could fail with an incorrect length calculation.</li>
+<li>Bugfix: the key NeedAppearances in AcroForm must be deleted when signing.</li>
+</ul></li>
+<li>Changes made by Bruno<ul>
+<li>Added AES support in class PdfEncryptor.</li>
+<li>Added support for PDF packages in PdfStamper (code contribution by Leonard Rosenthol)</li>
+<li>When using Graphics2D binary images will now be stored as G4 compressed images (instead of RGB); patch provided by Robert Engels.</li>
+<li>Bugfix: on some occasions small invisible chunks with font Helvetica were inserted breaking PDF/X compliancy.</li>
+<li>Bugfix: when switching fonts, a space character was sometimes inserted at the start of a new line.</li>
+<li>Bugfix: I finally fixed the newPage() problem caused by class Table.</li>
+<li>Bugfix: a blank page problem caused by class PdfPTable (when using setExtendLastRow(true)) was fixed.</li>
+<li>Bugfix: the indentation of paragraphs was wrong when adding a PdfPTable to a Paragraph.</li>
+<li>Bugfix: the indentation of chapters/sections was wrong when adding a PdfPTable to a Chapter/Section.</li>
+<li>Bugfix: I solved a null problem in TreeViewPDF</li>
+<li>Replacement of the image icons in TreeViewPDF and translation of some German words to English.</li>
+</ul></li>
+</ul>
 <ul>2006-11-24: iText 1.4.7
 <li>Changes made by Paulo
 <ul><li>added support for AES encryption</li>
