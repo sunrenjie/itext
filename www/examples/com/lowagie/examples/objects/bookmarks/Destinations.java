@@ -23,6 +23,7 @@ import com.lowagie.text.pdf.PdfDestination;
 import com.lowagie.text.pdf.PdfOutline;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.internal.PdfViewerPreferences;
 
 /**
  * Creates a document with some goto actions.
@@ -49,7 +50,7 @@ public class Destinations {
 			// step 2:
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Destinations.pdf"));
 			// step 3:       
-            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOutlines);
 			document.open();
             // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
