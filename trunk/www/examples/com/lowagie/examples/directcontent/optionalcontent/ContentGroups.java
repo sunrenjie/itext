@@ -33,6 +33,7 @@ import com.lowagie.text.pdf.PdfOCProperties;
 import com.lowagie.text.pdf.PdfObject;
 import com.lowagie.text.pdf.PdfString;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.internal.PdfViewerPreferences;
 
 /**
  * Demonstrates how to group optional content.
@@ -51,7 +52,7 @@ public class ContentGroups {
             // step 2
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("contentgroups.pdf"));
             writer.setPdfVersion(PdfWriter.VERSION_1_5);
-            writer.setViewerPreferences(PdfWriter.PageModeUseOC);
+            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOC);
             // step 3
             document.open();
             // step 4
