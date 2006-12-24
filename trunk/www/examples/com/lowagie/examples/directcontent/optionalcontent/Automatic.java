@@ -26,7 +26,7 @@ import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfLayer;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.internal.PdfViewerPreferences;
+import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Automatic layer grouping and nesting
