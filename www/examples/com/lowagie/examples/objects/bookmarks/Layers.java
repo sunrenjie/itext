@@ -35,7 +35,7 @@ import com.lowagie.text.pdf.PdfOCProperties;
 import com.lowagie.text.pdf.PdfObject;
 import com.lowagie.text.pdf.PdfString;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.internal.PdfViewerPreferences;
+import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates how layers work.

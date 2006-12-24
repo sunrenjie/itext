@@ -31,7 +31,7 @@ import com.lowagie.text.pdf.PdfLayerMembership;
 import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfOCProperties;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.internal.PdfViewerPreferences;
+import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates how to order optional content groups.
