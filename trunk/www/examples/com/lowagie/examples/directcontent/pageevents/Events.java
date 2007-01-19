@@ -33,7 +33,7 @@ import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.TextElementArray;
-import com.lowagie.text.markup.MarkupTags;
+import com.lowagie.text.html.Markup;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfPageEventHelper;
@@ -293,8 +293,8 @@ public class Events {
 		public RomeoJulietMap() throws IOException {
 			super(new FileInputStream("tagmapRomeoJuliet.xml"));
 			XmlPeer peer = new XmlPeer(ElementTags.CHUNK, "SPEAKER");
-			peer.addValue(MarkupTags.CSS_KEY_FONTSIZE, "10");
-			peer.addValue(MarkupTags.CSS_KEY_FONTWEIGHT, MarkupTags.CSS_VALUE_BOLD);
+			peer.addValue(Markup.CSS_KEY_FONTSIZE, "10");
+			peer.addValue(Markup.CSS_KEY_FONTWEIGHT, Markup.CSS_VALUE_BOLD);
 			peer.addValue(ElementTags.GENERICTAG, "");
 			put(peer.getAlias(), peer);
 		}
