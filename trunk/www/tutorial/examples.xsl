@@ -24,15 +24,6 @@
 			<target name="install">
 				<property name="tutorialsrc" value="${{basedir}}/../www/tutorial" />
 				<property name="tutorial" value="${{basedir}}/tutorial" />
-				<xsl:for-each select="site:example">
-					<xsl:for-each select="site:externalresource">
-						<xsl:element name="copy">
-							<xsl:attribute name="file">${tutorialsrc}<xsl:value-of select="$branch" />/<xsl:value-of select="." /></xsl:attribute>
-							<xsl:attribute name="todir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
-							<xsl:attribute name="overwrite">no</xsl:attribute>
-						</xsl:element>
-					</xsl:for-each>
-				</xsl:for-each>
 				<antcall target="examples" />
 			</target>
 
@@ -76,7 +67,7 @@
 					<xsl:if test="site:java/@standalone='yes'">
 						<xsl:element name="java">
 							<xsl:attribute name="fork">yes</xsl:attribute>
-							<xsl:attribute name="dir">${tutorial}<xsl:value-of select="$branch" /></xsl:attribute>
+							<xsl:attribute name="dir">${examples}/com/lowagie/examples<xsl:value-of select="$branch" /></xsl:attribute>
 							<xsl:attribute name="classname">com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" /></xsl:attribute>
 							<xsl:for-each select="site:argument">
 								<xsl:element name="arg">
