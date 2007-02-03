@@ -293,7 +293,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<xsl:if test="$class=./site:java/@src">
 					Example: java
 					<xsl:element name="a">
-						<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+						<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
 						com.lowagie.examples<xsl:value-of select="translate($branch, '/', '.')" />.<xsl:value-of select="site:java/@src" />
 					</xsl:element>
 					<xsl:if test="count(site:argument)!=0" >
@@ -304,7 +304,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 						<xsl:for-each select="site:result">
 							<xsl:value-of select="string(' ')" />
 							<xsl:element name="a">
-								<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+								<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="." /></xsl:attribute>
 								<xsl:value-of select="." />
 							</xsl:element>
 						</xsl:for-each>
@@ -313,7 +313,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 						<xsl:for-each select="site:path">
 							<xsl:value-of select="string(' ')" />
 							<xsl:element name="a">
-								<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+								<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="." /></xsl:attribute>
 								<xsl:value-of select="@name" />
 							</xsl:element>
 						</xsl:for-each>
@@ -324,7 +324,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 						<xsl:for-each select="site:externalresource">
 							<xsl:value-of select="string(' ')" />
 							<xsl:element name="a">
-								<xsl:attribute name="href"><xsl:value-of select="." /></xsl:attribute>
+								<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$branch" />/<xsl:value-of select="." /></xsl:attribute>
 								<xsl:value-of select="." />
 							</xsl:element>
 						</xsl:for-each><br />
@@ -370,7 +370,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<xsl:if test="site:java/@src">
 					<xsl:element name="a">
 						<xsl:attribute name="class">source</xsl:attribute>
-						<xsl:attribute name="href">..<xsl:value-of select="$root" />/examples/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
+						<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="site:java/@src" />.java</xsl:attribute>
 						<xsl:value-of select="site:java/@src" />
 					</xsl:element><br />
 				</xsl:if>
@@ -397,14 +397,14 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<xsl:if test="count(site:externalresource)!=0" >
 					<div class="small">Input:</div>
 					<ul><xsl:for-each select="site:externalresource">
-						<li><xsl:element name="a"><xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute><xsl:value-of select="." /></xsl:element></li>
+						<li><xsl:element name="a"><xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute><xsl:value-of select="." /></xsl:element></li>
 					</xsl:for-each></ul>
 				</xsl:if>
 				<xsl:if test="count(site:result)!=0" >
 					<div class="small">Output:</div>
 					<ul><xsl:for-each select="site:result">
 						<li><xsl:element name="a">
-							<xsl:attribute name="href">.<xsl:value-of select="$root" /><xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
+							<xsl:attribute name="href">http://itext.ugent.be/library/com/lowagie/examples<xsl:value-of select="$dir" />/<xsl:value-of select="." /></xsl:attribute>
 							<xsl:value-of select="." />
 						</xsl:element></li>
 					</xsl:for-each></ul>
