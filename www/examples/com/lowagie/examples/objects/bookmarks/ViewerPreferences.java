@@ -22,7 +22,6 @@ import com.lowagie.text.Font;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Creates a document with different viewerpreferences.
@@ -59,13 +58,13 @@ public class ViewerPreferences {
 					new FileOutputStream("NoScaling.pdf"));
 			// step 3:
 			writer1.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);
-			writer2.setViewerPreferences(PdfViewerPreferences.HideMenubar
-					| PdfViewerPreferences.HideToolbar);
+			writer2.setViewerPreferences(PdfWriter.HideMenubar
+					| PdfWriter.HideToolbar);
 			writer3.setViewerPreferences(PdfWriter.PageLayoutTwoColumnRight
 					| PdfWriter.PageModeFullScreen
 					| PdfWriter.NonFullScreenPageModeUseThumbs);
-			writer4.setViewerPreferences(PdfViewerPreferences.DisplayDocTitle);
-			writer5.setViewerPreferences(PdfViewerPreferences.PrintScalingNone);
+			writer4.setViewerPreferences(PdfWriter.DisplayDocTitle);
+			writer5.setViewerPreferences(PdfWriter.PrintScalingNone);
 			document.addTitle("Julius Caesar");
 			document.open();
 			// step 4: we grab the ContentByte and do some stuff with it
