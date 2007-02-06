@@ -28,7 +28,6 @@ import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Section;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Creates a document with outlines (bookmarks) using the Chapter and Section object.
@@ -54,7 +53,7 @@ public class ChapterSection {
             // step 2: we create a writer that listens to the document
             PdfWriter writer=PdfWriter.getInstance(document, new FileOutputStream("ChapterSection.pdf"));
             // step 3: we open the document
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
             document.open();
             // step 4: we add content to the document
             // we define some fonts

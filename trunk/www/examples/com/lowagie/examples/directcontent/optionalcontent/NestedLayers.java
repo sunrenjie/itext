@@ -30,7 +30,6 @@ import com.lowagie.text.pdf.PdfLayer;
 import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfOCProperties;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates the use of nested layers.
@@ -49,7 +48,7 @@ public class NestedLayers {
             // step 2
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("nestedlayers.pdf"));
             writer.setPdfVersion(PdfWriter.VERSION_1_5);
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOC);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOC);
             // step 3
             document.open();
             // step 4

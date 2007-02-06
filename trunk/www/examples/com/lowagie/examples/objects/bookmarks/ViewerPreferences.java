@@ -58,12 +58,12 @@ public class ViewerPreferences {
 			PdfWriter writer5 = PdfWriter.getInstance(document,
 					new FileOutputStream("NoScaling.pdf"));
 			// step 3:
-			writer1.setViewerPreferences(PdfViewerPreferences.PageLayoutTwoColumnLeft);
+			writer1.setViewerPreferences(PdfWriter.PageLayoutTwoColumnLeft);
 			writer2.setViewerPreferences(PdfViewerPreferences.HideMenubar
 					| PdfViewerPreferences.HideToolbar);
-			writer3.setViewerPreferences(PdfViewerPreferences.PageLayoutTwoColumnRight
-					| PdfViewerPreferences.PageModeFullScreen
-					| PdfViewerPreferences.NonFullScreenPageModeUseThumbs);
+			writer3.setViewerPreferences(PdfWriter.PageLayoutTwoColumnRight
+					| PdfWriter.PageModeFullScreen
+					| PdfWriter.NonFullScreenPageModeUseThumbs);
 			writer4.setViewerPreferences(PdfViewerPreferences.DisplayDocTitle);
 			writer5.setViewerPreferences(PdfViewerPreferences.PrintScalingNone);
 			document.addTitle("Julius Caesar");

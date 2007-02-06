@@ -26,7 +26,6 @@ import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfLayer;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Automatic layer grouping and nesting
@@ -45,7 +44,7 @@ public class Automatic {
             // step 2
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("automatic.pdf"));
             writer.setPdfVersion(PdfWriter.VERSION_1_5);
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOC);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOC);
             // step 3
             document.open();
             // step 4
