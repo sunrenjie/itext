@@ -23,7 +23,6 @@ import com.lowagie.text.pdf.PdfDestination;
 import com.lowagie.text.pdf.PdfOutline;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Creates a document with some goto actions.
@@ -50,7 +49,7 @@ public class Destinations {
 			// step 2:
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Destinations.pdf"));
 			// step 3:       
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
 			document.open();
             // step 4: we grab the ContentByte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
@@ -81,9 +80,9 @@ public class Destinations {
             // we define the outlines
             PdfOutline out1 = new PdfOutline(cb.getRootOutline(), d1, "root");
             PdfOutline out2 = new PdfOutline(out1, d2, "sub 1");
-            PdfOutline out3 = new PdfOutline(out1, d3, "sub 2");
-            PdfOutline out4 = new PdfOutline(out2, d4, "sub 2.1");
-            PdfOutline out5 = new PdfOutline(out2, d5, "sub 2.2");
+            new PdfOutline(out1, d3, "sub 2");
+            new PdfOutline(out2, d4, "sub 2.1");
+            new PdfOutline(out2, d5, "sub 2.2");
 		} catch (Exception de) {
 			de.printStackTrace();
 		}

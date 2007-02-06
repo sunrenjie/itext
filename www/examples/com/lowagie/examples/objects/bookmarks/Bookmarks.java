@@ -26,7 +26,6 @@ import com.lowagie.text.pdf.PdfDestination;
 import com.lowagie.text.pdf.PdfOutline;
 import com.lowagie.text.pdf.PdfPageEventHelper;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Creates a document with outlines (bookmarks).
@@ -49,7 +48,7 @@ public class Bookmarks extends PdfPageEventHelper {
         n++;
         PdfContentByte cb = writer.getDirectContent();
         PdfDestination destination = new PdfDestination(PdfDestination.FITH, position);
-        PdfOutline outline = new PdfOutline(cb.getRootOutline(), destination, "paragraph " + n);
+        new PdfOutline(cb.getRootOutline(), destination, "paragraph " + n);
     }
 
 	/**
@@ -69,7 +68,7 @@ public class Bookmarks extends PdfPageEventHelper {
 			// step 2:
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Bookmarks.pdf"));
 			// step 3:
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
 			document.open();
             // step 4: we grab the ContentByte and do some stuff with it
             writer.setPageEvent(new Bookmarks());

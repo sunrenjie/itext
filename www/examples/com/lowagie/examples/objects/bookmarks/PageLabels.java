@@ -23,7 +23,6 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPageLabels;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates how pagelabels work.
@@ -48,7 +47,7 @@ public class PageLabels {
             // step 2:
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("PageLabels.pdf"));
             // step 3:
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseThumbs);
+            writer.setViewerPreferences(PdfWriter.PageModeUseThumbs);
             document.open();
             // step 4:
             // we add some content

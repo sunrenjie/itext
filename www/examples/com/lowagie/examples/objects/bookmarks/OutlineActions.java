@@ -29,7 +29,6 @@ import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfDestination;
 import com.lowagie.text.pdf.PdfOutline;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates how pagelabels work.
@@ -56,7 +55,7 @@ public class OutlineActions {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("OutlineActions.pdf"));
             PdfWriter.getInstance(remote, new FileOutputStream("remote.pdf"));
             // step 3:
-            writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
             document.open();
             remote.open();
             // step 4:

@@ -31,7 +31,6 @@ import com.lowagie.text.pdf.PdfLayerMembership;
 import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfOCProperties;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.interfaces.PdfViewerPreferences;
 
 /**
  * Demonstrates how to order optional content groups.
@@ -51,7 +50,7 @@ public class OrderedLayers {
 			PdfWriter writer = PdfWriter.getInstance(document,
 					new FileOutputStream("orderedlayers.pdf"));
 			writer.setPdfVersion(PdfWriter.VERSION_1_5);
-			writer.setViewerPreferences(PdfViewerPreferences.PageModeUseOC);
+			writer.setViewerPreferences(PdfWriter.PageModeUseOC);
 			// step 3
 			document.open();
 			// step 4
