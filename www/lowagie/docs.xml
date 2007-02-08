@@ -18,7 +18,7 @@
 <div class="header">Documentation</div>
 <div class="title">API documentation</div>
 For every new release the API documentation is automatically generated using
-javadoc. You can consult the API <a href="http://itextdocs.lowagie.com/docs/">online</a>
+javadoc. You can consult the API <a href="http://itext.ugent.be/library/api/">online</a>
 or download a <a href="http://itextdocs.lowagie.com/downloads/docs.tar.gz">tar.gz</a> file with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
 There's a very comprehensive tutorial (<a href="http://itext.sourceforge.net/tutorial/">iText by Example</a>) under construction,

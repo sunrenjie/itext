@@ -80,7 +80,7 @@
 		<li>The first is the <a href="http://itextdocs.lowagie.com/tutorial/">tutorial</a>.
 		Not all functionality available in iText is explained, but it's a good place to start.
 		If you click on one of the features in the overview, you get some explanation and some examples
-		on how to use these features. There's also the <a href="http://itextdocs.lowagie.com/docs/">Javadoc</a>
+		on how to use these features. There's also the <a href="http://itext.ugent.be/library/api/">Javadoc</a>
 		pages for more detail on every method (again: not every method is documented, but we're working on it).</li>
 		<li>If the examples don't work or you experience some typical newbie problems,
 		please consult the <a href="faq.html">Frequently Asked Questions</a> page.</li>
