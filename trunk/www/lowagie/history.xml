@@ -16,9 +16,91 @@
 <site:history>
 
 
-<site:release number="V150" name="iText 1.5" date="unknown">
-<site:remark>not yet released</site:remark>
+<site:release number="V200" name="iText 2" date="unknown">
+<site:remark>2006-02-??</site:remark>
 <site:changelog>
+<ul>2006-02-??: iText 2.0.0
+<li>Changes made by Paulo
+<ul>
+<li>Certificate encryption. This change has a huge impact on projects that use encryption.
+All com.lowagie.bc.* packages were removed from the iText jar.
+You now have to include two BouncyCastle jars into your CLASSPATH.</li>
+<li>PdfTemplate and PdfAppearance can now be statically created.
+This also fixes some problems when using PdfStamper where getDirectContent()
+is not allowed.</li>
+<li>Bugfix: class FontSelector: newline bug was fixed</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>Bugfix: class Barcode: inkspreading was not set</li>
+<li>PDF 1.7 brought new preferences concerning printing (Duplex, Simplex, number of copies,...).
+All these new preferences are now implemented, including some other (1.6) preferences
+that were overlooked in previous iText versions. The constants defining the preferences have
+changed, and there's a new method to set key/value preferences (instead of setting the
+preferences bitwise). Because of these changes, you will have to recompile your own source
+code if you want to upgrade to iText 2.</li>
+<li>iText and SEAM:<br />
+iText is now being used in jBoss SEAM, and after informing with Norman Richards (who developed
+the PDF package in SEAM) I added some methods to iText:
+<ul>
+<li>ElementTags: You can now convert an alignment String to an alignment value</li>
+<li>PageSize: there's a method in the toolbox that translates a String to a Rectangle,
+but I rewrote a method by Norman Richards that has more potential. My method could only
+translate Strings like "A4" and "LETTER" to a corresponding Rectangle; with Norman's method
+you can also use Strings like "400 600". I adapted the method so that "166.66 333.33" are
+also allowed.</li>
+</ul>
+</li>
+<li>Entities: Integer values were changed to Character values (because that makes more sense)</li>
+<li>I completely revised the code in DocListener/PdfWriter/PdfDocument. This means that:
+<ul>
+<li>I changed the order of the methods in both classes, and added extra comments to the source code,
+so that we now have a better view on what every method does. The readibility of the code has improved.
+This is a work in progress. More changes will follow in iText 2.0.1.</li>
+<li>Method clearTextWrap was moved from DocListener to PdfWriter/PdfDocument.
+I'm not sure what the method does, but it was PDF only, so it didn't have to be in DocListener.</li>
+<li>Except for the ElementListener inferface (a super-interface for DocListener),
+no method in DocListener throws a DocumentException anymore. This was a result
+of a suggestion made by Andrew Binstock concerning the newPage() method.</li>
+</ul>
+</li>
+<li>Moving around code:
+<ul>
+<li>SimpleXMLParser and related classes were moved to com.lowagie.text.xml.simpleparser.
+Some lists that were inside SimpleXMLParser (entities and IANA encodings) were moved to separate classes outside HTMLWorker</li>
+<li>com.lowagie.text.Entities moved to com/lowagie/text/xml/simpleparser/EntitiesToSymbol</li>
+<li>com.lowagie.text.markup.MarkupTags moved to com.lowagie.text.html.Markup</li>
+<li>com.lowagie.text.markup.WebColors moved to com.lowagie.text.html.WebColors</li>
+</ul>
+</li>
+<li>Removal of old classes/functionality; this can cause your applications to break,
+but you weren't supposed to use any of these obsolete classes, so chances are there
+will be no problem with these issues. If you do have problems, please follow the following
+instructions:
+<ul>
+<li>class XmlWriter: the output of this class, and everything you could do with this output, didn't meet our standards.
+The code is still available in CVS if you really, really need it.</li>
+<li>class Graphic: if you were still using it: use direct content and/or PdfTemplate instead.<br />
+TODO: the <hr> tag doesn't work anymore in the XML parser.</li>
+<li>class Watermark: if you were still using it: use page events instead.</li>
+<li>class MarkupParser: some methods were kept in another class, but the MarkupParser itself was
+never finished, and is now being abandonned.</li>
+<li>interface MarkupAttributes: this interface could only be used to add markup attributes to HTML output.
+This was completely refactored. If you want to add attributes to an HTML file, you should now use MarkedObject
+and/or MarkedSection. These new classes will probably also serve for enhanced tagged PDF support in the future.<br />
+Removal of this interface affects almost all basic building blocks.
+You will have to recompile your code if you decide to upgrade to iText 2.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
 <ul>2006-12-19: iText 1.4.8
 <li>Changes made by Paulo<ul>
 <li>AcroFields: MAXLEN was not being applied to the display value.</li>
