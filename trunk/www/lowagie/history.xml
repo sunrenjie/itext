@@ -28,11 +28,31 @@ You now have to include two BouncyCastle jars into your CLASSPATH.</li>
 <li>PdfTemplate and PdfAppearance can now be statically created.
 This also fixes some problems when using PdfStamper where getDirectContent()
 is not allowed.</li>
+<li>Another hack to read broken PDF files with strange version numbers in the header.</li>
+<li>Another fix to read broken tiffs</li>
+<li>PdfGraphics2D: null handling for hints</li>
+<li>Simplification in PdfPRow</li>
+<li>problem with nonbreakingspace and softhyphen: there aren 't any metrics for them in the AFM files.
+Hotfix by Bruno; more thorough fix by Paulo.</li>
+<li>Bugfix: form flatten failed with an empty appearance dictionary</li>
 <li>Bugfix: class FontSelector: newline bug was fixed</li>
+<li>Bugfix: class MappedRandomAccessFile: finalize() would try to close a null channel</li>
 </ul>
 </li>
 <li>Changes made by Bruno
 <ul>
+<li>Added full support for portable collections (PDF 1.7)</li>
+<li>Added support for GoToE actions (PDF 1.6)</li>
+<li>New class PdfSmartCopy by Michael Neuweiler and Bruno;
+improved by Paulo. It needs more CPU and memory than PdfCopy,
+but generally produces files with a reduced file size (compared to the
+file size after concatening PDFs with PdfCopy).</li>
+<li>Bugfix: if a field in an AcroForm is required, its value should not be set;
+otherwise the form can be submitted without entering a value (the empty string
+that was set by iText is sent to the server).</li>
+<li>Solved a problem when adding WMF or PS with PdfStamper (a more thorough solution was provided by Paulo afterwards)</li>
+<li>Bugfix: PdfPTables wrapped in a Paragraph were still causing troubles with newlines and alignments</li>
+<li>Extra method to add the name (NM) of an annotation</li>
 <li>Bugfix: class Barcode: inkspreading was not set</li>
 <li>PDF 1.7 brought new preferences concerning printing (Duplex, Simplex, number of copies,...).
 All these new preferences are now implemented, including some other (1.6) preferences
@@ -44,6 +64,7 @@ code if you want to upgrade to iText 2.</li>
 iText is now being used in jBoss SEAM, and after informing with Norman Richards (who developed
 the PDF package in SEAM) I added some methods to iText:
 <ul>
+<li>A helper method for jBoss SEAM :convert a String with entities to a normal string (with unicode characters)</li>
 <li>ElementTags: You can now convert an alignment String to an alignment value</li>
 <li>PageSize: there's a method in the toolbox that translates a String to a Rectangle,
 but I rewrote a method by Norman Richards that has more potential. My method could only
@@ -63,8 +84,17 @@ I'm not sure what the method does, but it was PDF only, so it didn't have to be 
 <li>Except for the ElementListener inferface (a super-interface for DocListener),
 no method in DocListener throws a DocumentException anymore. This was a result
 of a suggestion made by Andrew Binstock concerning the newPage() method.</li>
+<li>I made different new interfaces that make it more clear how to set encryption, viewer preferences, PDF/X Conformance,...</li>
+<li>When the PDF version is set automatically to a value that is higher than the default
+(for instance because new functionality was used), we now check if the current version
+isn 't higher already. It is now also possible to change the version <i>after</i> the header
+was written. In this case the version number is added to the catalog dictionary.</li>
+<li>The method getMaxSize wasn't used anyhere; it may be a remains of the Erwin Acherman code
+(July 2002.0). I removed it, and introduced a method addToLine that probably does more or less
+the same.</li>
 </ul>
 </li>
+<li>Toolbox: bugfix by Carsten Hammer :the value for the srcfile (corresponding with a key containing the filename) was wrong</li>
 <li>Moving around code:
 <ul>
 <li>SimpleXMLParser and related classes were moved to com.lowagie.text.xml.simpleparser.
