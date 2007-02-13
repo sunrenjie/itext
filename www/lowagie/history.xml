@@ -25,6 +25,7 @@
 <li>Certificate encryption. This change has a huge impact on projects that use encryption.
 All com.lowagie.bc.* packages were removed from the iText jar.
 You now have to include two BouncyCastle jars into your CLASSPATH.</li>
+<li>Better certificate parser; more certificate options.</li>
 <li>PdfTemplate and PdfAppearance can now be statically created.
 This also fixes some problems when using PdfStamper where getDirectContent()
 is not allowed.</li>
@@ -34,6 +35,8 @@ is not allowed.</li>
 <li>Simplification in PdfPRow</li>
 <li>problem with nonbreakingspace and softhyphen: there aren 't any metrics for them in the AFM files.
 Hotfix by Bruno; more thorough fix by Paulo.</li>
+<li>RtfWriter and RtfWriter2: avoid calling flush() after closing the stream</li>
+<li>Bugfix: lest strict object type was needed during signature verifying</li>
 <li>Bugfix: form flatten failed with an empty appearance dictionary</li>
 <li>Bugfix: class FontSelector: newline bug was fixed</li>
 <li>Bugfix: class MappedRandomAccessFile: finalize() would try to close a null channel</li>
@@ -47,6 +50,13 @@ Hotfix by Bruno; more thorough fix by Paulo.</li>
 improved by Paulo. It needs more CPU and memory than PdfCopy,
 but generally produces files with a reduced file size (compared to the
 file size after concatening PDFs with PdfCopy).</li>
+<li>Lists no longer need a symbol indent. iText can calculate the
+indentation automatically; with the option of each item having its own
+indentation, or all items having the same (maximum) indentation.</li>
+<li>Lettered lists and greek lists can now have more than 26 or 24 items.
+z is followed by aa, ab, ac,... zz is followed by aaa, aab, aac,...</li>
+<li>Added a new static method in PdfPageLabels that gives you a String array with all the page labels.</li>
+<li>Added a method to set the NeedAppearances entry form an AcroForm</li>
 <li>Bugfix: if a field in an AcroForm is required, its value should not be set;
 otherwise the form can be submitted without entering a value (the empty string
 that was set by iText is sent to the server).</li>
@@ -95,6 +105,8 @@ the same.</li>
 </ul>
 </li>
 <li>Toolbox: bugfix by Carsten Hammer :the value for the srcfile (corresponding with a key containing the filename) was wrong</li>
+<li>Toolbox: Carsten Hammer added some functionality to sort the Versions</li>
+<li>Toolbox: Carsten added more JavaDoc info to the Watermarker plug-in</li>
 <li>Moving around code:
 <ul>
 <li>SimpleXMLParser and related classes were moved to com.lowagie.text.xml.simpleparser.
@@ -112,7 +124,7 @@ instructions:
 <li>class XmlWriter: the output of this class, and everything you could do with this output, didn't meet our standards.
 The code is still available in CVS if you really, really need it.</li>
 <li>class Graphic: if you were still using it: use direct content and/or PdfTemplate instead.<br />
-TODO: the <hr> tag doesn't work anymore in the XML parser.</li>
+TODO: the &lt;hr&gt; tag doesn't work anymore in the XML parser.</li>
 <li>class Watermark: if you were still using it: use page events instead.</li>
 <li>class MarkupParser: some methods were kept in another class, but the MarkupParser itself was
 never finished, and is now being abandonned.</li>
