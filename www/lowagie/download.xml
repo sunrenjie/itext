@@ -36,12 +36,8 @@ This library is distributed in the hope that it will be useful, but WITHOUT
 any warranty. If you don't like free software, don't (ab)use it!<br /><br />
 Some companies have a policy not to use Free / Open Source Software
 without a license or a support contract. The iText developers can't and won't sell you
-such a contract, but they have granted Leonard Rosenthol and his company
-<a href="http://www.pdfsages.com/">PDF Sages</a> the right to sell licenses
-and support contracts on a case per case basis.
-There was no money involved in this deal; the developers of iText are not
-on the paylist of PDF Sages.  The responsibility for these contracts lies
-with PDF Sages, not with the developers Paulo Soares and/or Bruno Lowagie.
+such a contract, but they are currently negociating with Ghent University,
+the employer of Bruno, that is interested in providing a license for commercial use.
 <div class="title">Current release</div>
 The release on this site is <site:releasenumber />.<br /><br />
 <table align="center" border="1" cellpadding="3" cellspacing="0" width="80%">
