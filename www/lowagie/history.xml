@@ -63,6 +63,7 @@ that was set by iText is sent to the server).</li>
 <li>Solved a problem when adding WMF or PS with PdfStamper (a more thorough solution was provided by Paulo afterwards)</li>
 <li>Bugfix: PdfPTables wrapped in a Paragraph were still causing troubles with newlines and alignments</li>
 <li>ChapterAutoNumber used a static value to keep the chapter number, this wasn't a good idea; I changed this.</li>
+<li>Added support for Paragraph.setFirstLineIndent in document.add(Paragraph p); formerly this was only supported in combination with ColumnText.</li>
 <li>Extra method to add the name (NM) of an annotation</li>
 <li>Bugfix: class Barcode: inkspreading was not set</li>
 <li>PDF 1.7 brought new preferences concerning printing (Duplex, Simplex, number of copies,...).
