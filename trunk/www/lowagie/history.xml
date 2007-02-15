@@ -62,6 +62,7 @@ otherwise the form can be submitted without entering a value (the empty string
 that was set by iText is sent to the server).</li>
 <li>Solved a problem when adding WMF or PS with PdfStamper (a more thorough solution was provided by Paulo afterwards)</li>
 <li>Bugfix: PdfPTables wrapped in a Paragraph were still causing troubles with newlines and alignments</li>
+<li>ChapterAutoNumber used a static value to keep the chapter number, this wasn't a good idea; I changed this.</li>
 <li>Extra method to add the name (NM) of an annotation</li>
 <li>Bugfix: class Barcode: inkspreading was not set</li>
 <li>PDF 1.7 brought new preferences concerning printing (Duplex, Simplex, number of copies,...).
@@ -86,7 +87,7 @@ also allowed.</li>
 <li>Entities: Integer values were changed to Character values (because that makes more sense)</li>
 <li>I completely revised the code in DocListener/PdfWriter/PdfDocument. This means that:
 <ul>
-<li>I changed the order of the methods in both classes, and added extra comments to the source code,
+<li>I changed the order of the methods these classes, and added extra comments to the source code,
 so that we now have a better view on what every method does. The readibility of the code has improved.
 This is a work in progress. More changes will follow in iText 2.0.1.</li>
 <li>Method clearTextWrap was moved from DocListener to PdfWriter/PdfDocument.
