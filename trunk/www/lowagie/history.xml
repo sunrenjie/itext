@@ -17,7 +17,7 @@
 
 
 <site:release number="V200" name="iText 2" date="unknown">
-<site:remark>2006-02-??</site:remark>
+<site:remark>2006-02-15</site:remark>
 <site:changelog>
 <ul>2006-02-??: iText 2.0.0
 <li>Changes made by Paulo
@@ -137,11 +137,6 @@ Removal of this interface affects almost all basic building blocks.
 You will have to recompile your code if you decide to upgrade to iText 2.</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Changes made by Mark
-<ul>
-<li></li>
 </ul>
 </li>
 </ul>
