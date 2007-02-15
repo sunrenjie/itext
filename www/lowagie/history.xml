@@ -19,13 +19,14 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>2006-02-15</site:remark>
 <site:changelog>
-<ul>2006-02-??: iText 2.0.0
+<ul>2006-02-15: iText 2.0.0
 <li>Changes made by Paulo
 <ul>
 <li>Certificate encryption. This change has a huge impact on projects that use encryption.
 All com.lowagie.bc.* packages were removed from the iText jar.
 You now have to include two BouncyCastle jars into your CLASSPATH.</li>
-<li>Better certificate parser; more certificate options.</li>
+<li>Better certificate parser</li>
+<li>digital signatures: more certification options.</li>
 <li>PdfTemplate and PdfAppearance can now be statically created.
 This also fixes some problems when using PdfStamper where getDirectContent()
 is not allowed.</li>
@@ -106,7 +107,7 @@ was written. In this case the version number is added to the catalog dictionary.
 the same.</li>
 </ul>
 </li>
-<li>Toolbox: bugfix by Carsten Hammer :the value for the srcfile (corresponding with a key containing the filename) was wrong</li>
+<li>Toolbox: bugfix by Carsten Hammer: the value for the srcfile (corresponding with a key containing the filename) was wrong</li>
 <li>Toolbox: Carsten Hammer added some functionality to sort the Versions</li>
 <li>Toolbox: Carsten added more JavaDoc info to the Watermarker plug-in</li>
 <li>Moving around code:
