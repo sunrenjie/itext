@@ -51,22 +51,22 @@ public class ImagesURL {
             
             // step 4:
             document.add(new Paragraph("A picture of my dog: otsoe.jpg"));
-            Image jpg = Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/otsoe.jpg"));
+            Image jpg = Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/otsoe.jpg"));
             document.add(jpg);
             document.add(new Paragraph("getacro.gif"));
-            Image gif= Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/getacro.gif"));
+            Image gif= Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/getacro.gif"));
             document.add(gif);
             document.add(new Paragraph("pngnow.png"));
-            Image png = Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/pngnow.png"));
+            Image png = Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/pngnow.png"));
             document.add(png);
             document.add(new Paragraph("iText.bmp"));
-            Image bmp = Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/iText.bmp"));
+            Image bmp = Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/iText.bmp"));
             document.add(bmp);
             document.add(new Paragraph("iText.wmf"));
-            Image wmf = Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/iText.wmf"));
+            Image wmf = Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/iText.wmf"));
             document.add(wmf);
             document.add(new Paragraph("iText.tif"));
-            Image tiff = Image.getInstance(new URL("http://itextdocs.lowagie.com/tutorial/html/iText.tif"));
+            Image tiff = Image.getInstance(new URL("http://itext.ugent.be/library/com/lowagie/examples/html/iText.tif"));
             document.add(tiff);
         }
         catch(DocumentException de) {
