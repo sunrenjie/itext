@@ -19,6 +19,61 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>2006-02-15</site:remark>
 <site:changelog>
+<ul>2006-03-07: iText 2.0.1
+<li>Changes made by Paulo
+<ul>
+<li>JPG: fix for the Adobe Application-Specific JPEG Marker length (fix by Cory Lewis)</li>
+<li>PdfCopy: fixed the internal links to other pages. Uses a balanced page tree.</li>
+<li>PdfSmartCopy: the stream keys are also compared</li>
+<li>PdfReader: added method removeUsageRights()</li>
+<li>AcroFields: new nodes will be created in the datasets section if needed (XFA)</li>
+<li>AcroFields: made some methods and fields public</li>
+<li>PdfPKCS7: more flexible algorithm decoding</li>
+<li>AESCipher: fixed the exception throwing when using AES encryption</li>
+<li>Removed debug code from several classes</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>In PdfDocument, all indentation variables are now grouped
+in an (inner) Indentation object. For the moment, this doesn't
+change anything to the functionality, but it will be helpful
+in the future. I'll add some methods to the Indentation object
+to reset the indentation, change the indentation,...</li>
+<li>ExceptionConverter: added attribution to the original
+author of the class.</li>
+<li>Support for multipliedLeading for paragraphs when using
+document.add(). Formerly this only worked in ColumnText.</li>
+<li>Replaced IntHashtable by ACME with code based on class IntHashMap licensed by the Apache Software Foundation.</li>
+<li>SimpleXMLParser: complete refactoring operation</li>
+<li>EntitiesToUnicode now also supports entities like &amp;#x148 ;or &amp;#8222.0;
+The corresponding code was removed from the simple parser.</li>
+<li>EntitiesToUnicode bugfix: decode entities in Strings: chunks of strings were eaten</li>
+<li>IanaEncodings: Xerces license update.</li>
+<li>LPR and LPRClient: sorry, the original developer of this code didn't respond
+to numerous mails. Because of possible IP issues I had to remove this code.</li>
+<li>Some compilers didn 't want to compile class OptionArgument. Shoaib Gauhar posted a solution on the mailing list.</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li>Added support for upper and lowercase lettered and roman lists to the RtfList.</li>
+<li>RtfTOCEntry now uses filterSpecialChar, should fix encoding problems in the TOC default text.</li>
+<li>Color values are now generated correctly in the RtfShapeProperty.</li>
+<li>Fixed a bug where list numbering was getting lost after returning from a sublist.</li>
+<li>Font settings are now reset to their defaults at the start of paragraphs and phrases.</li>
+<li>Charset information is now propagated correctly through Font.difference()</li>
+<li>Added support for the firstLineIndent property of the Paragraph, allowing a different indentation for the first line of a Paragraph.</li>
+</ul>
+</li>
+<li>Changes made by Xavier
+<ul>
+<li>Code cleanup in the basic building blocks (interface Element, TextElementArray was already implemented by parent)</li>
+<li>Replaced " " by ' ' in MarkedSection.</li>
+<li>Code cleanup in several classes</li>
+</ul>
+</li>
+</ul>
 <ul>2006-02-15: iText 2.0.0
 <li>Changes made by Paulo
 <ul>
