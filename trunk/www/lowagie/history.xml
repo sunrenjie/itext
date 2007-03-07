@@ -26,6 +26,7 @@
 <li>PdfCopy: fixed the internal links to other pages. Uses a balanced page tree.</li>
 <li>PdfSmartCopy: the stream keys are also compared</li>
 <li>PdfReader: added method removeUsageRights()</li>
+<li>PdfReader: added method getCertificationLevel()</li>
 <li>AcroFields: new nodes will be created in the datasets section if needed (XFA)</li>
 <li>AcroFields: made some methods and fields public</li>
 <li>PdfPKCS7: more flexible algorithm decoding</li>
