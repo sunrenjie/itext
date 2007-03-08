@@ -29,7 +29,7 @@
 		<div>
 		  The RTF package is an extension of the iText library and allows iText
 		  to output Rich Text Files in additon to PDF files. These files can then
-		  be viewed and edited with RTF viewers such as Microsoft Word or OpenOffice.or
+		  be viewed and edited with RTF viewers such as Microsoft Word or OpenOffice.org
 		  Writer.
 		</div>
 		<div>
@@ -49,7 +49,7 @@
 		    <li>RTF specific features
 		      <ul>
 		        <li>Paragraph stylesheets</li>
-		        <li>Tab support</li>
+		        <li><site:tutorial chapter="/rtf/features/tabs">Tab support</site:tutorial></li>
 		        <li>Table of contents</li>
 		        <li>Page numbering</li>
 		        <li>Word 97-2000 RTF for Drawing Objects (Shapes)</li>
@@ -192,83 +192,6 @@ document.close();
         </div>
     </site:section>
 
-	<site:section name="extendedhf">
-		<site:sectiontitle>Extended header / footer support</site:sectiontitle>
-<div>
-One of the limitations of the RTF format is that only one header
-and footer is allowed per section. There are two ways to overcome 
-this limitation. It is possible to
-<ul>
-<li>use multiple Chapters. Every Chapter can have different headers and footers.</li>
-<li>use the RtfHeaderFooterGroup to have up to 3 different headers or footers per document or Chapter.</li>
-</ul>
-<br />
-<div class="subtitle">Using multiple Chapters</div>
-The first solution is very simple. Before adding the Chapter to the document,
-you set the headers and footers that you want to have in that Chapter.
-<pre class="commandline">
-HeaderFooter header1 = new HeaderFooter("This is the first chapter", false);
-HeaderFooter header2 = new HeaderFooter("This is page", ".");
-Chapter chapter1 = new Chapter(new Paragraph("This is the first Chapter"), 1);
-Chapter chapter2 = new Chapter(new Paragraph("Chapter 2"), 2);
-document.setHeader(header1);
-document.add(chapter1);
-document.setHeader(header2);
-document.add(chapter2);</pre>
-<br />
-<div class="subtitle">Using the RtfHeaderFooterGroup</div>
-The second solution is to use the <span class="commandline">RtfHeaderFooterGroup</span>.
-This is slightly more complex. You will have to create a
-<span class="commandline">RtfHeaderFooterGroup</span> object
-and then add the <span class="commandline">HeaderFooter</span> objects
-to the <span class="commandline">RtfHeaderFooterGroup</span> specifying
-on which pages the headers / footers should appear. The following positions are supported:
-<ul>
-<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE</span></li>
-<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_ALL_PAGES</span></li>
-<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_LEFT_PAGES</span></li>
-<li><span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_RIGHT_PAGES</span></li>
-</ul>
-DISPLAY_ALL_PAGES and DISPLAY_LEFT_PAGES/DISPLAY_RIGHT_PAGES cannot be combined,
-otherwise all combinations are possible.<br /><br />
-The first step is to create a RtfHeaderFooterGroup and then you add the HeaderFooter
-objects and specify where they are to appear.
-<pre class="commandline">
-RtfHeaderFooterGroup footer = new RtfHeaderFooterGroup();
-footer.setHeaderFooter(
-	new RtfHeaderFooter(
-		new Phrase("This is the footer on the title page")),
-			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_FIRST_PAGE);
-footer.setHeaderFooter(
-	new RtfHeaderFooter(
-		new Phrase("This is a left side page")),
-			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_LEFT_PAGES);
-footer.setHeaderFooter(
-	new RtfHeaderFooter(
-		new Phrase("This is a right side page")),
-			com.lowagie.text.rtf.headerfooter.RtfHeaderFooter.DISPLAY_RIGHT_PAGES);
-document.setFooter(footer);</pre>
-<br />
-<div class="subtitle">Arbitrary Elements in the header</div>
-To give the <span class="commandline">RtfWriter2</span> more flexibility 
-when creating headers or footers, the
-<span class="commandline">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter</span> 
-makes it possible to add any <span class="commandline">Element</span> 
-as a header or footer. This can be used to add tables to the header, 
-giving improved formating capabilities.
-<pre class="commandline">
-Table headerTable = new Table(3);
-headerTable.addCell("Document header");
-Cell pageNumberCell = new Cell();
-pageNumberCell.add(new RtfPageNumber());
-headerTable.addCell(pageNumberCell);
-headerTable.addCell("Company Name");
-HeaderFooter header = new RtfHeaderFooter(headerTable);
-document.setHeader(header);</pre>
-<site:source class="RtfWithHeadersFooters" />
-</div>
-	</site:section>
-
 	<site:section name="tocsupport">
 		<site:sectiontitle>Table of contents support</site:sectiontitle>
 <div>
@@ -311,33 +234,6 @@ writer2.setAutogenerateTOCEntries(true);</pre>
 </div>
 	</site:section>
 
-	<site:section name="extendedcellborder">
-		<site:sectiontitle>Extended cell border support</site:sectiontitle>
-<div>
-The <span class="commandline">RtfWriter2</span> also provides support for using special
-border styles with table cells. To use this feature you add <span class="commandline">RtfCell</span>
-objects to the <span class="commandline">Table</span> instead of <span class="commandline">Cell</span>s.
-<pre class="commandline">
-RtfCell cellDotted = new RtfCell("Dotted border");
-cellDotted.setBorders(new RtfBorderGroup(
-	Rectangle.BOX, RtfBorder.BORDER_DOTTED, 1, new Color(0, 0, 0)));
-RtfCell cellEmbossed = new RtfCell("Embossed border");
-cellEmbossed.setBorders(
-	new RtfBorderGroup(
-		Rectangle.BOX, RtfBorder.BORDER_EMBOSS, 1, new Color(0, 0, 0)));
-			    RtfCell cellNoBorder = new RtfCell("No border")
-cellNoBorder.setBorders(new RtfBorderGroup());
- 
-table.addCell(cellDotted);
-table.addCell(cellEmbossed);
-table.addCell(cellNoBorder);
-</pre>
-The RtfCell supports a long list of border styles. Please consult the javadoc documentation
-for an exhaustive list.
-<site:source class="RtfTOCandCellborders" />
-</div>
-	</site:section>
-
 	<site:section name="pagenumberelement">
 		<site:sectiontitle>Page number element</site:sectiontitle>
 <div>
@@ -359,21 +255,6 @@ document.setHeader(header);</pre>
 </div>
 	</site:section>
 
-	<site:section name="diskcaching">
-		<site:sectiontitle>Using a Disk Cache for document generation</site:sectiontitle>
-<div>
-The RtfWriter2 differs in one more way from PdfWriter and that is that due to the way the
-rtf format works, the document data has to be cached and can only be written to the final
-file after the complete document has been generated. For very large documents and those containing
-big images, this results in huge memory requirements.<br />
-To solve this problem the RtfWriter2 supports caching the document data on disk in a temporary file.
-To activate disk caching insert the following code directly after creating the RtfWriter2.
-<pre class="commandline">
-writer2.setDataCacheStyle(com.lowagie.text.rtf.document.output.RtfDataCache.CACHE_DISK);
-</pre>
-</div>
-    </site:section>
-    
 	</site:chapter>
 
 </site:page>
