@@ -48,10 +48,10 @@
 		    </li>
 		    <li>RTF specific features
 		      <ul>
-		        <li>Paragraph stylesheets</li>
+		        <li><site:tutorial chapter="/rtf/features/styles">Paragraph stylesheets</site:tutorial></li>
 		        <li><site:tutorial chapter="/rtf/features/tabs">Tab support</site:tutorial></li>
-		        <li>Table of contents</li>
-		        <li>Page numbering</li>
+		        <li><site:tutorial chapter="/rtf/features/toc">Table of contents</site:tutorial></li>
+		        <li><site:tutorial chapter="/rtf/features/pagenumber">Page numbering</site:tutorial></li>
 		        <li>Word 97-2000 RTF for Drawing Objects (Shapes)</li>
 		        <li>Direct content</li>
 		      </ul>
@@ -77,16 +77,6 @@
           to such things as page numbers or page events.<br /><br />
           Apart from these considerations creating an RTF document works just like
           creating any other document with iText.
-          
-          <div class="subtitle">RtfWriter2 and RtfWriter. Which one to use?</div>
-          
-          If you are starting with a new iText project, then use the
-          <site:doc class="com.lowagie.text.rtf.RtfWriter2">RtfWriter2</site:doc>. It
-          generates better RTF code, provides more functionality and is actively maintained.
-          The old RtfWriter is only provided for backward compatability and will be
-          removed by the end of 2007.<br /><br />
-          If you have an existing project using the old RtfWriter, read the section on
-          <a href="#transition">transitioning to the RtfWriter2</a>.
         </div>
     </site:section>
     
@@ -138,6 +128,10 @@ document.close();
             <dd></dd>
             <dt style="font-weight: bold">Viewer preferences</dt>
             <dd>These only apply to the Adobe Acrobat Viewer.</dd>
+            <dt style="font-weight: bold">Image borders</dt>
+            <dd></dd>
+            <dt style="font-weight: bold">Forms</dt>
+            <dd></dd>
           </dl>
         </div>
     </site:section>
@@ -145,6 +139,7 @@ document.close();
     <site:section name="transition">
         <site:sectiontitle>Transitioning from the RtfWriter to the RtfWriter2</site:sectiontitle>
         <div>
+          <b style="color: #ff0000;">IF YOU HAVEN'T TRANSITIONED YET, NOW IS THE TIME. THE RTFWRITER WILL BE REMOVED END OF 2007</b><br /><br />
           The <site:doc class="com.lowagie.text.rtf.RtfWriter">RtfWriter</site:doc>
           is the old RTF generating class. It has been deprecated and superceded by
           the <site:doc class="com.lowagie.text.rtf.RtfWriter2">RtfWriter2</site:doc>
@@ -191,69 +186,6 @@ document.close();
           </table>
         </div>
     </site:section>
-
-	<site:section name="tocsupport">
-		<site:sectiontitle>Table of contents support</site:sectiontitle>
-<div>
-The <span class="commandline">RtfWriter2</span> also supports the creation of a table
-of contents and the addition of entries into that table of contents. There is one
-limitation and that is that the actual table of contents will have to be generated
-by the RTF viewer application, because iText does not know how to render RTF documents
-and can therefore not calculate the correct page numbers. When creating the
-<span class="commandline">RtfTableOfContents</span> it is necessary to specify
-the text that is displayed before the field is updated by the viewer.<br />
-<br />
-<div class="subtitle">Adding a table of contents</div>
-You can add the actual table of contents anywhere in the document.
-Simply create an instance of
-<span class="commandline">com.lowagie.text.rtf.toc.RtfTableOfContents</span>
-and add it to a paragraph. The constructor takes the default string to display
-and the font to use as parameters.
-<pre class="commandline">
-Paragraph para = new Paragraph();
-para.add(new RtfTableOfContents(
-	"RIGHT CLICK AND HERE AND SELECT \"UPDATE FIELD\" TO UPDATE.", 
-	new Font()));
-doc.add(para);</pre>
-<br />
-<div class="subtitle">Adding entries to the table of contents</div>
-You can add entries to the table of contents before or after you've added
-the actual table of contents. It's as simple as adding an instance of RtfTOCEntry
-to the document.
-<pre class="commandline">
-RtfTOCEntry tocEntry =
-	new RtfTOCEntry("Manually added TOC entry", new Font());
-document.add(tocEntry);
-</pre>
-The second possibility is to let the
-<span class="commandline">RtfWriter2</span> automatically add
-<span class="commandline">RtfTOCEntry</span>s for every Chapter you add.
-<pre class="codeBlock">
-writer2.setAutogenerateTOCEntries(true);</pre>
-<site:source class="RtfTOCandCellborders" />
-</div>
-	</site:section>
-
-	<site:section name="pagenumberelement">
-		<site:sectiontitle>Page number element</site:sectiontitle>
-<div>
-The <span class="commandline">RtfPageNumber</span> class allows you to add
-the number of the current page at any position in the document. The primary use is
-in headers or footers with special formatting.
-<pre class="commandline">
-Table headerTable = new Table(3);
-headerTable.addCell("Document header");
-Cell pageNumberCell = new Cell();
-pageNumberCell.add(new RtfPageNumber());
-pageNumberCell.add(new Chunk(" of "));
-pageNumberCell.add(new RtfTotalPageNumber());
-headerTable.addCell(pageNumberCell);
-headerTable.addCell("Company Name");
-HeaderFooter header = new RtfHeaderFooter(headerTable);
-document.setHeader(header);</pre>
-<site:source class="RtfWithHeadersFooters" />.
-</div>
-	</site:section>
 
 	</site:chapter>
 
