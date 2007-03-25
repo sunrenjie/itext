@@ -47,7 +47,7 @@ public class TableOfContents {
      * @param args Unused
      */
     public static void main(String[] args) {
-        System.out.println("Demonstrates using the paragraph stylesheets");
+        System.out.println("Demonstrates using the RTF table of contents.");
         try {
             Document document = new Document();
             RtfWriter2 rtfWriter2 = RtfWriter2.getInstance(document, new FileOutputStream("TableOfContents.rtf"));
