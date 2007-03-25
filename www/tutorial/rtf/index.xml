@@ -52,7 +52,7 @@
 		        <li><site:tutorial chapter="/rtf/features/tabs">Tab support</site:tutorial></li>
 		        <li><site:tutorial chapter="/rtf/features/toc">Table of contents</site:tutorial></li>
 		        <li><site:tutorial chapter="/rtf/features/pagenumber">Page numbering</site:tutorial></li>
-		        <li>Word 97-2000 RTF for Drawing Objects (Shapes)</li>
+		        <li><site:tutorial chapter="/rtf/features/shape">Drawing Objects</site:tutorial></li>
 		        <li>Direct content</li>
 		      </ul>
 		    </li>
