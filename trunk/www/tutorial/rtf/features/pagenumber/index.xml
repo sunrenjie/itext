@@ -4,7 +4,7 @@
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
 		<site:title status="finished">Page numbering</site:title>
-		<site:summary>Support for RTF TOCs.</site:summary>
+		<site:summary>Support for RTF page numbering.</site:summary>
 		<site:keywords>JAVA, iText, RTF, examples</site:keywords>
 		<site:amazonbooks>
 			<site:book asin="0596004753">RTF Pocket Guide</site:book>
