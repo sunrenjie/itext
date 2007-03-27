@@ -45,7 +45,7 @@ public class PageNumber {
      * @param args Unused
      */
     public static void main(String[] args) {
-        System.out.println("Demonstrates using the paragraph stylesheets");
+        System.out.println("Demonstrates creating a footer with a page number");
         try {
             Document document = new Document();
             RtfWriter2.getInstance(document, new FileOutputStream("PageNumber.rtf"));
