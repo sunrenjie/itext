@@ -3,7 +3,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:site="http://www.lowagie.com/iText/site" >
 	<site:metadata>
-		<site:title>Rich Text Format</site:title>
+		<site:title status="finished">Rich Text Format</site:title>
 		<site:summary>How-to generate RTF documents using iText.</site:summary>
 		<site:keywords>PDF, JAVA, iText, RTF, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
@@ -52,8 +52,8 @@
 		        <li><site:tutorial chapter="/rtf/features/tabs">Tab support</site:tutorial></li>
 		        <li><site:tutorial chapter="/rtf/features/toc">Table of contents</site:tutorial></li>
 		        <li><site:tutorial chapter="/rtf/features/pagenumber">Page numbering</site:tutorial></li>
-		        <li><site:tutorial chapter="/rtf/features/shape">Drawing Objects</site:tutorial></li>
-		        <li>Direct content</li>
+		        <li><site:tutorial chapter="/rtf/features/shape">Drawing objects</site:tutorial></li>
+		        <li><site:tutorial chapter="/rtf/features/direct">Direct content</site:tutorial></li>
 		      </ul>
 		    </li>
 		    <li><site:tutorial chapter="/rtf/documentsettings">RTF generation settings</site:tutorial></li>
