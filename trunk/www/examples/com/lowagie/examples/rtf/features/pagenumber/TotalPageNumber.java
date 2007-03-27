@@ -46,7 +46,7 @@ public class TotalPageNumber {
      * @param args Unused
      */
     public static void main(String[] args) {
-        System.out.println("Demonstrates using the paragraph stylesheets");
+        System.out.println("Demonstrates creating a header with page number and total page count");
         try {
             Document document = new Document();
             RtfWriter2.getInstance(document, new FileOutputStream("TotalPageNumber.rtf"));
