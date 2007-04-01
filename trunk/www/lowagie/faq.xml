@@ -83,8 +83,8 @@ The conditions of such copyright permission are:
 <li>Anyone who uses the copyrighted list of data structures and operators, as stated above, must include an appropriate copyright notice.</li>
 </ul>
 </blockquote>
-Because decrypting an encrypted PDF-file is not possible with iText
-(and it will never be) and because there are lots of pointers to <a href="http://www.adobe.com/" class="normal">Adobe</a>
+Because decrypting an encrypted PDF-file is not possible with iText if you don't provide a password,
+and because there are lots of pointers to <a href="http://www.adobe.com/" class="normal">Adobe</a>
 and to the PDF Reference Manual everytime some explanation is given about
 the data structure, iText is allowed to prepare files whose content conforms
 to the Portable Document Format.
