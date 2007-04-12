@@ -19,6 +19,45 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>2006-02-15</site:remark>
 <site:changelog>
+<ul>2006-04-13: iText 2.0.2
+<li>Changes made by Paulo
+<ul>
+<li>Added some convenience methods in PdfArray and PdfDictionary</li>
+<li>intHashtable: next() didn 't return the right object</li>
+<li>AcroFields: short names are recognized in all methods if the form is XFA</li>
+<li>PdfGraphics2D bugfix: getComposite() will return what was set in setComposite()</li>
+<li>Barcodes: pattern caching to improve speed</li>
+<li>Barcodes: added DataMatrix barcode support</li>
+<li>PdfName: added the property user units</li>
+<li>Type3Font: more flexible glyph definition (contributed by Kevin Knowlden)</li>
+<li>iText now makes a distinction between the user and owner password</li>
+<li>bugfix: hyphenation could throw an exception if the split character was not a space</li>
+<li>javadoc corrections in CFFFontSubset, PdfArray, PdfDashPattern, PdfDictionary, PdfString</li>
+</ul>
+</li><li>Changes made by Xavier
+<ul>
+<li>Made the source code ASCII only to fix encoding problems</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>Lists: removal of some System.out debug code</li>
+<li>The inner class to handle indentation was made static in PdfDocument</li>
+<li>HTMLWorker: avoiding a NumberFormatException for numeric attribute values (quick and dirty fix)</li>
+<li>Files altered with PdfStamper get a fileID</li>
+<li>SimpleBookmark: better exception message</li>
+<li>SAXiTextHandler: moved addImage to an separate method</li>
+<li>iText toolbox: added a new tool to compress/decompress page streams</li>
+<li>PdfEncryption/PdfReader: added some convenience methods contributed by Michael Schierl.
+These convenience methods make it easier for tool builders to work with encryption.</li>
+</ul>
+</li>
+<li>Changes made by Mark
+<ul>
+<li>RtfDocument: made the filterSpecialChar method resilient against null Strings</li>
+</ul>
+</li>
+</ul>
 <ul>2006-03-07: iText 2.0.1
 <li>Changes made by Paulo
 <ul>
