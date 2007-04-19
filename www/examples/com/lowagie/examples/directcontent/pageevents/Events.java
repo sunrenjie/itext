@@ -109,7 +109,7 @@ public class Events {
 			StringBuffer buf = new StringBuffer();
 			for (Iterator i = title.getChunks().iterator(); i.hasNext();) {
 				Chunk chunk = (Chunk) i.next();
-				buf.append(chunk.content());
+				buf.append(chunk.getContent());
 			}
 			act = buf.toString();
 		}
