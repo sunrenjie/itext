@@ -49,7 +49,7 @@ public class HelloEncrypted {
 			// and directs a PDF-stream to a file
 			PdfWriter writer = PdfWriter.getInstance(document,
 					new FileOutputStream("HelloEncrypted.pdf"));
-			writer.setEncryption("Hello".getBytes(), "World".getBytes(), PdfWriter.AllowCopy | PdfWriter.AllowPrinting, PdfWriter.ENCRYPTION_RC4_128);
+			writer.setEncryption("Hello".getBytes(), "World".getBytes(), PdfWriter.AllowCopy | PdfWriter.AllowPrinting, PdfWriter.ENCRYPTION_ARCFOUR_128);
 			// step 3: we open the document
 			document.open();
 			// step 4: we add a paragraph to the document
