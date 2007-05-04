@@ -79,7 +79,7 @@ public class MultiColumnR2L {
        Font font = FontFactory.getFont("Helvetica", 10, type, Color.BLACK);
        Paragraph p = new Paragraph(text, font);
        p.setAlignment(alignment);
-       p.setLeading(font.size() * 1.2f);
+       p.setLeading(font.getSize() * 1.2f);
        return p;
     }
 
