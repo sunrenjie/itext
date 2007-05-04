@@ -140,7 +140,7 @@ public class TableBorders {
         table = new PdfPTable(4);
         table.setWidthPercentage(100f);
 
-        float leading = tableFont.size() * 1.2f;
+        float leading = tableFont.getSize() * 1.2f;
 
         table.addCell(makeCell("1-Top", Element.ALIGN_TOP, Element.ALIGN_LEFT, tableFont, leading, padding, borders, ascender, descender));
         table.addCell(makeCell("2-Middle", Element.ALIGN_MIDDLE, Element.ALIGN_LEFT, tableFont, leading, padding, borders, ascender, descender));
