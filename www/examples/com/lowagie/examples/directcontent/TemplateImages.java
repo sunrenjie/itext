@@ -88,11 +88,11 @@ public class TemplateImages {
             Paragraph p1 = new Paragraph("This is a template ");
             p1.add(ck);
             p1.add(" just here.");
-            p1.setLeading(img.scaledHeight() * 1.1f);
+            p1.setLeading(img.getScaledHeight() * 1.1f);
             document.add(p1);
             document.add(table);
             Paragraph p2 = new Paragraph("More templates ");
-            p2.setLeading(img.scaledHeight() * 1.1f);
+            p2.setLeading(img.getScaledHeight() * 1.1f);
             p2.setAlignment(Element.ALIGN_JUSTIFIED);
             img.scalePercent(70);
             for (int k = 0; k < 20; ++k)

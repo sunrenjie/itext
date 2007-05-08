@@ -57,10 +57,10 @@ public class FloatingBoxes implements PdfPCellEvent, PdfPTableEvent {
 	 */
 	public void cellLayout(PdfPCell cell, Rectangle position,
 			PdfContentByte[] canvases) {
-		float x1 = position.left() + 2;
-		float x2 = position.right() - 2;
-		float y1 = position.top() - 2;
-		float y2 = position.bottom() + 2;
+		float x1 = position.getLeft() + 2;
+		float x2 = position.getRight() - 2;
+		float y1 = position.getTop() - 2;
+		float y2 = position.getBottom() + 2;
 		PdfContentByte canvas = canvases[PdfPTable.LINECANVAS];
 		canvas.setRGBColorStroke(0xFF, 0x00, 0x00);
 		canvas.rectangle(x1, y1, x2 - x1, y2 - y1);

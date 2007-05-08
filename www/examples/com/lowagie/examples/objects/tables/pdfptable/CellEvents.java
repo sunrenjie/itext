@@ -38,8 +38,8 @@ public class CellEvents implements PdfPCellEvent {
 	public void cellLayout(PdfPCell cell, Rectangle position,
 			PdfContentByte[] canvases) {
 		PdfContentByte cb = canvases[PdfPTable.TEXTCANVAS];
-		cb.moveTo(position.left(), position.bottom());
-		cb.lineTo(position.right(), position.top());
+		cb.moveTo(position.getLeft(), position.getBottom());
+		cb.lineTo(position.getRight(), position.getTop());
 		cb.stroke();
 	}
 

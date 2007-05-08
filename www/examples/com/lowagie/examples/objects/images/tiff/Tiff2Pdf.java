@@ -74,7 +74,7 @@ public class Tiff2Pdf {
                         Image img = TiffImage.getTiffImage(ra, c + 1);
                         if (img != null) {
                             System.out.println("page " + (c + 1));
-                            if (img.scaledWidth() > 500 || img.scaledHeight() > 700) {
+                            if (img.getScaledWidth() > 500 || img.getScaledHeight() > 700) {
                                 img.scaleToFit(500, 700);
                             }
                             img.setAbsolutePosition(20, 20);

@@ -71,7 +71,7 @@ public class ImageMasks {
             byte maskr[] = {(byte)0x3c, (byte)0x7e, (byte)0xe7, (byte)0xc3, (byte)0xc3, (byte)0xe7, (byte)0x7e, (byte)0x3c};
             Image mask = Image.getInstance(8, 8, 1, 1, maskr);
             mask.makeMask();
-            mask.setInvertMask(true);
+            mask.setInverted(true);
             Image image = Image.getInstance("otsoe.jpg");
             image.setImageMask(mask);
             image.setAbsolutePosition(60, 550);
@@ -79,11 +79,11 @@ public class ImageMasks {
             cb.addImage(image);
             // stencil masking
             cb.setRGBColorFill(255, 0, 0);
-            cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 450);
+            cb.addImage(mask, mask.getScaledWidth() * 8, 0, 0, mask.getScaledHeight() * 8, 100, 450);
             cb.setRGBColorFill(0, 255, 0);
-            cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 400);
+            cb.addImage(mask, mask.getScaledWidth() * 8, 0, 0, mask.getScaledHeight() * 8, 100, 400);
             cb.setRGBColorFill(0, 0, 255);
-            cb.addImage(mask, mask.scaledWidth() * 8, 0, 0, mask.scaledHeight() * 8, 100, 350);
+            cb.addImage(mask, mask.getScaledWidth() * 8, 0, 0, mask.getScaledHeight() * 8, 100, 350);
             document.close();
         }
         catch (Exception de) {
