@@ -65,7 +65,7 @@ public class Patterns {
 
             PdfPatternPainter p = cb.createPattern(60f, 60f, 60f, 60f);
             PdfPatternPainter p1 = cb.createPattern(60f, 60f, 60f, 60f);
-            PdfPatternPainter p2 = cb.createPattern(img.scaledWidth(), img.scaledHeight(), img.scaledWidth(), img.scaledHeight());
+            PdfPatternPainter p2 = cb.createPattern(img.getScaledWidth(), img.getScaledHeight(), img.getScaledWidth(), img.getScaledHeight());
             
             
             // step 6: put your drawing instruction in the painter canvas
@@ -98,7 +98,7 @@ public class Patterns {
             p1.stroke();
             
             // A pattern with an image and position
-            p2.addImage(img, img.scaledWidth(), 0f, 0f, img.scaledHeight(), 0f, 0f);
+            p2.addImage(img, img.getScaledWidth(), 0f, 0f, img.getScaledHeight(), 0f, 0f);
             p2.setPatternMatrix(1f, 0f, 0f, 1f, 60f, 60f);
             
             // See if we can apply the pattern color to chunk, phrase or paragraph
@@ -169,7 +169,7 @@ public class Patterns {
             document.add(new Paragraph(text, FontFactory.getFont(FontFactory.HELVETICA, 60, Font.BOLD, pat2)));
             // The original Image for comparison reason.
             // Note: The width and height is the same as bbox in pattern
-            cb.addImage(img, img.scaledWidth(), 0f, 0f, img.scaledHeight(), 350f, 400f);
+            cb.addImage(img, img.getScaledWidth(), 0f, 0f, img.getScaledHeight(), 350f, 400f);
             
             // draw a rectangle
             cb.setPatternFill(p2);

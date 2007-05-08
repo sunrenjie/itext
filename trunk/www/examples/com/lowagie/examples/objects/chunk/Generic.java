@@ -43,7 +43,7 @@ public class Generic extends PdfPageEventHelper {
 		if ("ellipse".equals(text)) {
 			PdfContentByte cb = writer.getDirectContent();
 			cb.setRGBColorStroke(0xFF, 0x00, 0x00);
-			cb.ellipse(rect.left(), rect.bottom() - 5f, rect.right(), rect.top());
+			cb.ellipse(rect.getLeft(), rect.getBottom() - 5f, rect.getRight(), rect.getTop());
 			cb.stroke();
 			cb.resetRGBColorStroke();
 		}

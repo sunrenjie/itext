@@ -121,8 +121,8 @@ public class ColumnObjects {
             }
             cb.stroke();
             Image img = Image.getInstance("cover.png");
-            cb.addImage(img, img.scaledWidth(), 0, 0, img.scaledHeight(), document.left(), currentY - img.scaledHeight());
-            currentY -= img.scaledHeight() + 10;
+            cb.addImage(img, img.getScaledWidth(), 0, 0, img.getScaledHeight(), document.left(), currentY - img.getScaledHeight());
+            currentY -= img.getScaledHeight() + 10;
             ct.setYLine(currentY);
             ct.addText(new Chunk("Key Data:", font14B));
             ct.go();

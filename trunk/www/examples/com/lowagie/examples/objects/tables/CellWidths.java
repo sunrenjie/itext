@@ -76,7 +76,7 @@ public class CellWidths {
 			widths[1] = 40f;
 			widths[2] = 20f;
 			widths[3] = 300f;
-			Rectangle r = new Rectangle(PageSize.A4.right(72), PageSize.A4.top(72));
+			Rectangle r = new Rectangle(PageSize.A4.getRight(72), PageSize.A4.getTop(72));
 			table.setWidthPercentage(widths, r);
 			document.add(new Paragraph("We change the percentage using absolute widths:\n\n"));
 			document.add(table);
