@@ -64,6 +64,19 @@
     	    <dd>This setting is primarily for debugging purposes and leads to slightly larger,
     	      but more readable RTF files. Set it to <span class="commandline">false</span>
     	      to decrease the RTF file size.</dd>
+    	    <dt style="font-weight: bold;">imagePDFConformance (Boolean)</dt>
+    	    <dd>This setting controls whether images are scaled so that the result is equivalent to
+    	      the PDF display. Defaults to <span class="commandline">true</span>. The result of this
+    	      is that images are added at 72 DPI and if any other resolution is required, this must
+    	      be achieved through scaling. Set it to <span class="commandline">false</span> to 
+    	      add images with the default RTF resolution.</dd>
+    	    <dt style="font-weight: bold;">writeImageScalingInformation (Boolean)</dt>
+    	    <dd>Whether to write additional styling information that is required to display scaled
+    	      images correctly in Word 2000, Word 97 and Word for Mac. Defaults to
+    	      <span class="commandline">false</span>. If you want images to be scaled correctly
+    	      in Word 2000, Word 97 and Word for Mac set this setting to <span class="commandline">false</span>.
+    	      Must be <span class="commandline">false</span> for images to be displayed correctly
+    	      in Word XP.</dd>
     	  </dl>
     	  You access these generation settings by getting the <span class="commandline">RtfDocumentSettings</span>
     	  object from the <span class="commandline">RtfWriter2</span>.
@@ -82,5 +95,29 @@ document.close();
           <site:source class="DocumentSettings" />
     	</div>
     </site:section>
+    
+    <site:section name="shortcuts">
+    	<site:sectiontitle>Viewer version settings</site:sectiontitle>
+    	<div>
+    	  The <site:doc class="com.lowagie.text.rtf.document.RtfDocumentSettings">RtfDocumentSettings</site:doc> also provides a number of
+    	  methods to set generation options for specific viewers. These act as shortcuts to
+    	  set a number of the generation settings listed above. Methods for the following viewers
+    	  are provided
+    	  <ul>
+    	    <li><b>Word 2000 and 97</b>: Sets the options for Word 2000 and Word 97 compliance -
+    	      <span class="commandline">outputTableRowDefinitionAfter = true</span> and
+    	      <span class="commandline">writeImageScalingInformation = true</span></li>
+    	    <li><b>Word for Mac</b>: Sets the options for Word for Mac compliance - 
+    	      <span class="commandline">writeImageScalingInformation = true</span></li>
+    	    <li><b>Word XP</b>: Sets the options for Word XP compliance - 
+    	      <span class="commandline">writeImageScalingInformation = false</span></li>
+    	    <li><b>OpenOffice.org</b>: Sets the options for OpenOffice.org compliance - 
+    	      <span class="commandline">outputTableRowDefinitionAfter = true</span></li>
+    	  </ul><br />
+    	  
+    	  You should only call one of these methods as they are partially mutually exclusive.
+    	</div>
+    </site:section>
     </site:chapter>
+    
 </site:page>
