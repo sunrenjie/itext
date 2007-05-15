@@ -106,7 +106,7 @@ document.close();
           RTF format itself. The following list may not be complete, since the development
           of the RtfWriter2 sometimes lags behind the development of the core library.<br />
           <dl>
-            <dt style="font-weight: bold">Images other than JPEG, PNG, BMP and WMF</dt>
+            <dt style="font-weight: bold">Images other than JPEG, PNG, BMP, GIF and WMF</dt>
             <dd>Only these image types are supported natively in the RTF format.</dd>
             <dt style="font-weight: bold">Rotated images</dt>
             <dd></dd>
