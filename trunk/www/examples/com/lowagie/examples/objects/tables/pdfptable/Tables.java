@@ -54,8 +54,8 @@ public class Tables {
 			// step 2
 			PdfWriter writer = PdfWriter.getInstance(document,
 					new FileOutputStream("tables.pdf"));
-			float width = document.getPageSize().width();
-			float height = document.getPageSize().height();
+			float width = document.getPageSize().getWidth();
+			float height = document.getPageSize().getHeight();
 			// step 3
 			document.open();
 

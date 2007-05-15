@@ -83,7 +83,7 @@ public class Groups {
             document.open();
             // step 4: content
             PdfContentByte cb = writer.getDirectContent();
-            float gap = (document.getPageSize().width() - 400) / 3;
+            float gap = (document.getPageSize().getWidth() - 400) / 3;
             
             pictureBackdrop(gap, 500, cb);
             pictureBackdrop(200 + 2 * gap, 500, cb);

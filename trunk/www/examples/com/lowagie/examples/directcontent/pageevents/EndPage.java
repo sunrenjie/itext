@@ -61,13 +61,13 @@ public class EndPage extends PdfPageEventHelper {
             PdfPTable head = new PdfPTable(3);
             for (int k = 1; k <= 6; ++k)
                 head.addCell("head " + k);
-            head.setTotalWidth(page.width() - document.leftMargin() - document.rightMargin());
-            head.writeSelectedRows(0, -1, document.leftMargin(), page.height() - document.topMargin() + head.getTotalHeight(),
+            head.setTotalWidth(page.getWidth() - document.leftMargin() - document.rightMargin());
+            head.writeSelectedRows(0, -1, document.leftMargin(), page.getHeight() - document.topMargin() + head.getTotalHeight(),
                 writer.getDirectContent());
             PdfPTable foot = new PdfPTable(3);
             for (int k = 1; k <= 6; ++k)
                 foot.addCell("foot " + k);
-            foot.setTotalWidth(page.width() - document.leftMargin() - document.rightMargin());
+            foot.setTotalWidth(page.getWidth() - document.leftMargin() - document.rightMargin());
             foot.writeSelectedRows(0, -1, document.leftMargin(), document.bottomMargin(),
                 writer.getDirectContent());
         }

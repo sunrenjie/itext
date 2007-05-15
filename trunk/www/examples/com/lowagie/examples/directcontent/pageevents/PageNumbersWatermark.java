@@ -118,7 +118,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
         cb.saveState();
         // write the headertable
         table.setTotalWidth(document.right() - document.left());
-        table.writeSelectedRows(0, -1, document.left(), document.getPageSize().height() - 50, cb);
+        table.writeSelectedRows(0, -1, document.left(), document.getPageSize().getHeight() - 50, cb);
         // compose the footer
         String text = "Page " + writer.getPageNumber() + " of ";
         float textSize = helv.getWidthPoint(text, 12);
@@ -144,7 +144,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
         // draw a Rectangle around the page
         cb.setColorStroke(Color.orange);
         cb.setLineWidth(2);
-        cb.rectangle(20, 20, document.getPageSize().width() - 40, document.getPageSize().height() - 40);
+        cb.rectangle(20, 20, document.getPageSize().getWidth() - 40, document.getPageSize().getHeight() - 40);
         cb.stroke();
         cb.restoreState();
         // starting on page 3, a watermark with an Image that is made transparent
@@ -153,10 +153,10 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             cb.setColorFill(Color.red);
             cb.beginText();
             cb.setFontAndSize(helv, 48);
-            cb.showTextAligned(Element.ALIGN_CENTER, "Watermark Opacity " + writer.getPageNumber(), document.getPageSize().width() / 2, document.getPageSize().height() / 2, 45);
+            cb.showTextAligned(Element.ALIGN_CENTER, "Watermark Opacity " + writer.getPageNumber(), document.getPageSize().getWidth() / 2, document.getPageSize().getHeight() / 2, 45);
             cb.endText();
             try {
-                cb.addImage(headerImage, headerImage.width(), 0, 0, headerImage.height(), 440, 80);
+                cb.addImage(headerImage, headerImage.getWidth(), 0, 0, headerImage.getHeight(), 440, 80);
             }
             catch(Exception e) {
                 throw new ExceptionConverter(e);
@@ -175,7 +175,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             cb.setColorFill(Color.pink);
             cb.beginText();
             cb.setFontAndSize(helv, 48);
-            cb.showTextAligned(Element.ALIGN_CENTER, "My Watermark Under " + writer.getPageNumber(), document.getPageSize().width() / 2, document.getPageSize().height() / 2, 45);
+            cb.showTextAligned(Element.ALIGN_CENTER, "My Watermark Under " + writer.getPageNumber(), document.getPageSize().getWidth() / 2, document.getPageSize().getHeight() / 2, 45);
             cb.endText();
             cb.restoreState();
         }
