@@ -50,7 +50,7 @@ public class UpsideDown {
             
             // step 4:
             PdfContentByte cb = writer.getDirectContent();
-            cb.concatCTM(1f, 0f, 0f, -1f, 0f, PageSize.A4.height());
+            cb.concatCTM(1f, 0f, 0f, -1f, 0f, PageSize.A4.getHeight());
             
             // we create a PdfTemplate
             PdfTemplate template = cb.createTemplate(25, 25);

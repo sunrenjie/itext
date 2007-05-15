@@ -43,7 +43,7 @@ public class ArabicText {
             String text1 = "This text has \u0634\u0627\u062f\u062c\u0645\u0647\u0648\u0631 123,456 \u0645\u0646 (Arabic)";
             java.awt.Font font = new java.awt.Font("arial", 0, 18);
             PdfContentByte cb = writer.getDirectContent();
-            java.awt.Graphics2D g2 = cb.createGraphicsShapes(PageSize.A4.width(), PageSize.A4.height());
+            java.awt.Graphics2D g2 = cb.createGraphicsShapes(PageSize.A4.getWidth(), PageSize.A4.getHeight());
             g2.setFont(font);
             g2.drawString(text1, 100, 100);
             g2.dispose();

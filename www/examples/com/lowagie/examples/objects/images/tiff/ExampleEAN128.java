@@ -82,7 +82,7 @@ public class ExampleEAN128 {
             Image imgShipBarCode = shipBarCode.createImageWithBarcode(cb, Color.black, Color.blue);
             PdfPCell shipment = new PdfPCell(new Phrase(
             new Chunk(imgShipBarCode, 0, 0)));
-            shipment.setFixedHeight(shipBarCode.getBarcodeSize().height() + 16f);
+            shipment.setFixedHeight(shipBarCode.getBarcodeSize().getHeight() + 16f);
             shipment.setPaddingTop(5f);
             shipment.setPaddingBottom(10f);
             shipment.setBorder(Rectangle.BOX);

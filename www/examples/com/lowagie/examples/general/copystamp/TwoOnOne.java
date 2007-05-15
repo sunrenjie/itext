@@ -43,8 +43,8 @@ public class TwoOnOne {
             int n = reader.getNumberOfPages();
             // we retrieve the size of the first page
             Rectangle psize = reader.getPageSize(1);
-            float width = psize.height();
-            float height = psize.width();
+            float width = psize.getHeight();
+            float height = psize.getWidth();
             
             // step 1: creation of a document-object
             Document document = new Document(new Rectangle(width, height));
