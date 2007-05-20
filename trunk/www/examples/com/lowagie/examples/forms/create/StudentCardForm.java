@@ -90,7 +90,6 @@ public class StudentCardForm implements PdfPCellEvent {
             Paragraph p = new Paragraph("Ghent University", font);
             p.setAlignment(Element.ALIGN_CENTER);
             document.add(p);
-            PdfContentByte cb = writer.getDirectContent();
             Font f = FontFactory.getFont(FontFactory.HELVETICA, 8);
             PdfPTable outertable = new PdfPTable(3);
             outertable.setTotalWidth(200);

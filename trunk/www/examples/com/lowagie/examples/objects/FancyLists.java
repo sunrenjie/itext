@@ -57,7 +57,7 @@ public class FancyLists {
 
 			// RomanList
 			RomanList roman = new RomanList(35);
-			roman.setRomanLower(true);
+			roman.setLowercase(true);
 			roman.add(new ListItem("first item"));
 			roman.add(new ListItem("second item blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"));
 			for (int i = 3; i < 151; i++) {
@@ -76,7 +76,7 @@ public class FancyLists {
 			
 			// GreekList
 			GreekList greek = new GreekList(15);
-			greek.setGreekLower(true);
+			greek.setLowercase(true);
 			greek.add(new ListItem("first item"));
 			greek.add(new ListItem("second item"));
 			for (int i = 3; i < 20; i++) {
@@ -87,7 +87,7 @@ public class FancyLists {
 			
 			// GreekList
 			GreekList greek2 = new GreekList(15);
-			greek2.setGreekLower(false);
+			greek2.setLowercase(false);
 			greek2.add(new ListItem("first item"));
 			greek2.add(new ListItem("second item"));
 			for (int i = 3; i < 20; i++) {

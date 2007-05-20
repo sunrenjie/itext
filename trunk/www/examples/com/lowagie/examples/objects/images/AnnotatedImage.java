@@ -38,7 +38,7 @@ public class AnnotatedImage {
         try {
             // step 2:
             // we create a writer that listens to the document
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("annotated_images.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("annotated_images.pdf"));
             // step 3: we open the document
             document.open();
             // step 4: we add some content

@@ -43,7 +43,7 @@ public class CellColors {
 		Document document = new Document(PageSize.A4);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("CellColors.pdf"));
 			// step3
 			document.open();

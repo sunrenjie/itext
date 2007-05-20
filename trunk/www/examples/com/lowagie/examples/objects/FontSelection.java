@@ -36,7 +36,7 @@ public class FontSelection {
         	// step 1
         	Document document = new Document();
         	// step 2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("fontselection.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("fontselection.pdf"));
             // step 3
             document.open();
             // step 4

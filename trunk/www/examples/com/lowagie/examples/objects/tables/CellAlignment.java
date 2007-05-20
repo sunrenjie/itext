@@ -42,7 +42,7 @@ public class CellAlignment {
 		Document document = new Document(PageSize.A4.rotate(), 10, 10, 10, 10);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("Alignment.pdf"));
 			// step3
 			document.open();

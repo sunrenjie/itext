@@ -53,7 +53,7 @@ public class HelloWorldMultiple {
 					new FileOutputStream("HelloWorldPdf.pdf"));
 			RtfWriter2 rtf = RtfWriter2.getInstance(document,
 					new FileOutputStream("HelloWorldRtf.rtf"));
-			HtmlWriter html = HtmlWriter.getInstance(document,
+			HtmlWriter.getInstance(document,
 					new FileOutputStream("HelloWorldHtml.html"));
 
 			// step 3: we open the document

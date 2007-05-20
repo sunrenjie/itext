@@ -41,7 +41,7 @@ public class CellWidths {
 		Document document = new Document(PageSize.A4, 36, 36, 36, 36);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("CellWidths.pdf"));
 			// step3
 			document.open();

@@ -43,7 +43,7 @@ public class TableWidthAlignment {
 		Document document = new Document(PageSize.A4);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("TableWidthAlignment.pdf"));
 			// step3
 			document.open();

@@ -36,7 +36,7 @@ public class OpenTypeFont {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
         try {
         	// step 2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("opentypefont.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("opentypefont.pdf"));
             // step 3
             document.open();
             // step 4

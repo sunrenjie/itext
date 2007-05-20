@@ -42,7 +42,7 @@ public class TableSpacing {
 		Document document = new Document(PageSize.A4);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("TableSpacing.pdf"));
 			// step3
 			document.open();
