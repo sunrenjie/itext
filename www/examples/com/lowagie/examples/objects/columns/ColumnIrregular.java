@@ -20,11 +20,9 @@ import java.io.IOException;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
-import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.Image;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.ColumnText;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
@@ -55,9 +53,6 @@ public class ColumnIrregular {
             document.open();
             
             // step 4:
-            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font font = new Font(bf, 11, Font.NORMAL);
-            
             // we grab the contentbyte and do some stuff with it
             PdfContentByte cb = writer.getDirectContent();
             

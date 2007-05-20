@@ -41,7 +41,7 @@ public class EncodingFont {
         	// step 1
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
             // step 2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("encodingfont.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("encodingfont.pdf"));
             // step 3
             document.open();
             // step 4

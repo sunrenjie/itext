@@ -42,7 +42,7 @@ public class FontFactoryStyles {
         try {
             
             // step 2: creation of the writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("fontfactorystyles.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("fontfactorystyles.pdf"));
             
             // step 3: we open the document
             document.open();

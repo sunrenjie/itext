@@ -51,7 +51,7 @@ public class NamedActions {
 		try {
 
 			// step 2: we create a writer that listens to the document
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("NamedActions.pdf"));
 			// step 3: we open the document
 			document.open();

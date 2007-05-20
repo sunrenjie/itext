@@ -35,7 +35,7 @@ public class DifferentFonts {
         	// step 1
         	Document document = new Document();
         	// step 2
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("differentfonts.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("differentfonts.pdf"));
             // step 3
             document.open();
             // step 4

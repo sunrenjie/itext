@@ -17,7 +17,6 @@ package com.lowagie.examples.objects.tables.pdfptable;
 import java.awt.Color;
 import java.io.FileOutputStream;
 
-import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Image;
@@ -67,9 +66,6 @@ public class VerticalTextInCells {
             // make an Image object from the template
             Image img = Image.getInstance(template);
             img.setRotationDegrees(90);
-            // embed the image in a Chunk
-            Chunk ck = new Chunk(img, 0, 0);
-            
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(100);
             table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);

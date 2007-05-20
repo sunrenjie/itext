@@ -41,7 +41,7 @@ public class CellHeights {
 		Document document = new Document(PageSize.A4);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("CellHeights.pdf"));
 			// step3
 			document.open();

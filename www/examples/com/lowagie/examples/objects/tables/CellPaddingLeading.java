@@ -41,7 +41,7 @@ public class CellPaddingLeading {
 		Document document = new Document(PageSize.A4.rotate(), 10, 10, 10, 10);
 		try {
 			// step2
-			PdfWriter writer = PdfWriter.getInstance(document,
+			PdfWriter.getInstance(document,
 					new FileOutputStream("PaddingLeading.pdf"));
 			// step3
 			document.open();

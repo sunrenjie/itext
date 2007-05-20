@@ -56,7 +56,6 @@ public class Phrases {
 			// step 3: we open the document
 			document.open();
 			// step 4:
-			Phrase phrase0 = new Phrase();
 			Phrase phrase1 = new Phrase("(1) this is a phrase\n");
 			// In this example the leading is passed as a parameter
 			Phrase phrase2 = new Phrase(

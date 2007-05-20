@@ -49,7 +49,7 @@ public class LocalGoto {
         try {
             
             // step 2:
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("LocalGoto.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("LocalGoto.pdf"));
             
             // step 3: we open the document
             document.open();
