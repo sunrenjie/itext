@@ -18,13 +18,6 @@
 	
 	<site:examples>
 		<site:example>
-			<site:java src="EncapsulatedPostScript" standalone="yes" />
-			<site:externalresource>parrot.ps</site:externalresource>
-			<site:externalresource>tiger.ps</site:externalresource>
-			<site:result>eps.pdf</site:result>
-			<site:description>Adding EPS to PDF</site:description>
-		</site:example>
-		<site:example>
 			<site:java src="Tiff2Pdf" standalone="yes" />
 			<site:externalresource>12.tif</site:externalresource>
 			<site:externalresource>338814-00.tif</site:externalresource>
@@ -80,10 +73,7 @@
 	<site:section name="eps">
 		<site:sectiontitle>Encapsulated PostScript</site:sectiontitle>
 <div>
-Since version 1.2.4 of iText, it's possible to add EPS images into your document (as a com.lowagie.text.Image).
-EPS is an extension of the PostScript graphics file format developed by Adobe Systems.
-Support in iText for this format is very basic, but it should be useful for simple logos.
-<site:source class="EncapsulatedPostScript" />
+Since version 2.0.3 of iText, it's no longer possible to add EPS images into your document.
 </div>
 	</site:section>
 	<site:section name="tiff">
