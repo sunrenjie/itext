@@ -19,6 +19,88 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>2006-02-15</site:remark>
 <site:changelog>
+<ul>2006-05-25: iText 2.0.3
+ <li>Changes made by Paulo
+  <ul>
+  <li>AcroForms: make sure there 's always a /DA key</li>
+  <li>Digital Signatures: fixed the "n miscellaneous changes" message in Acrobat with signatures when "Compute Modifications List" was called</li>
+  <li>Digital Signatures: support for Adobe style CRL</li>
+  <li>Digital Signatures: better certificate parser</li>
+  <li>Digital Signatures: always create an appearance even if it 's an invisible signature</li>
+  <li>Encryption: change public key encryption permissions</li>
+  <li>Encryption: better enforcement of PDF restrictions</li>
+  <li>fix broken TIFF with incorrect TIFFTAG _STRIPBYTECOUNTS</li>
+  <li>BaseFont: option for not throwing an exception if the font name is invalid</li>
+  <li>Barcodes: extended code39 had problems with checksum</li>
+  <li>BarcodeDataMatrix: removal of some unused variables (+ bugfix)</li>
+  <li>HTMLWorker: SUB and SUP take the font size into account for the positioning</li>
+  <li>PageSize: typo for size ID-3 corrected by Andrew Binstock</li>
+  <li>PdfCell: fixed a bug with lists in cells (contributed by <a href="https://sourceforge.net/tracker/?func=detail&amp;atid=536237&amp;aid=1702398&amp;group_id=72954">Jeremy Torbert</a>)</li>
+  <li>PdfCopy: /Type can be an indirect reference</li>
+  <li>PdfGraphics2D: support for TextAttribute.WIDTH</li>
+  <li>PdfPatternPainter: fixed a NullPointerException</li>
+  <li>PdfStamperImp: fixed a NullPointerException with incorrect annotation</li>
+  </ul>
+ </li>
+ <li>Changes made by Bruno
+  <ul>
+   <li>Introduction of a class named Utilities with some static methods
+   that are used throughout the library</li>
+   <li>
+   Massive reorganization of the 'basic building blocks' code.
+   Deprecation of methods such as leading(), height(), width(),...
+   in favor of getLeading(), getHeight(), getWidth().
+   Deprecation of constructors like Anchor(Properties attributes)
+   in favor of methods in a new class called ElementFactory.
+   Removal of all the isTag() methods.
+   </li>
+   <li>
+   Bugfix in GreekList (auto indent wasn't working), and
+   reorganization of the method to set the list item to
+   lower/upper case.
+   </li>
+   <li>
+   Removal of the iText toolbox. The toolbox is now available
+   as a separate project with a different license. See
+   <a href="http://itexttoolbox.sourceforge.net/">http://itexttoolbox.sourceforge.net/</a>.
+   A class ToolboxAvailable checks if the toolbox.jar is available
+   (and run the toolbox if possible).
+   </li>
+   <li>
+   Removal of EPS support. The code that was used from SUN's
+   PostscriptDemo had ambiguous license information.
+   Therefore it is better to look for an alternative.
+   </li>
+   <li>Update of some references to an old version of the
+   PDF Reference. (A more thorough update would be nice.)</li>
+   <li>BidiOrder: applied correct license info</li>
+   <li>SimpleXMLParser and IANAEncodings: clarifications in the copyright notices.</li>
+   <li>Removal of all references to RC4. We now use the term
+   "standard encryption" in constants and ARCFOUR (Alleged RC4)
+   for algorithms.</li>
+   <li>
+   PdfGraphics2D: Daniel Harvey submitted a patch that changes the
+   way PdfGraphics2D deals with polylines.
+   </li>
+   <li>Support for Lang Alt in XMP contributed by Armin Häberling</li>
+  </ul>
+ </li>
+ <li>Changes made by Mark
+  <ul>
+   <li>Fixed a bug where fonts/colors only used in the header or footer were not being registered before the respective tables were written to the RTF document.</li>
+   <li>Fixed a REALLY ugly bug where only the red colour component was being set. Thanks to Raffaele Gambelli for finding it.</li>
+   <li>Document settings: Added settings to control the image generation, so that correct images for Word 2000,
+       97 and Mac can be generated. Also added shortcuts to set all required options for certain Word versions.</li>
+   <li>Images: Updated the image scaling code to improve the conformance with the PDF output. That means that images will now be displayed at 72 dpi by default and not at 96 dpi any more. This now completely mimicks the PDF output.</li>
+   <li>Images: Added support for GIF images as Word is happy as long as image type PNG is written. Thanks to Raffaele Gambelli for pointing that out.</li>
+  </ul>
+ </li>
+ <li>Changes made by Xavier
+  <ul>
+  <li>Code cleanup</li>
+  </ul>
+ </li>
+</ul>
 <ul>2006-04-13: iText 2.0.2
 <li>Changes made by Paulo
 <ul>
