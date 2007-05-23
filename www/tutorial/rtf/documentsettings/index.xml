@@ -54,6 +54,10 @@
     	      <ul>
     	        <li>CACHE_MEMORY: The default keeps the whole document in memory. This increases
     	          the generation speed, but places a maximum size on the document.</li>
+    	        <li>CACHE_MEMORY_EFFICIENT: The document is kept in memory, but the use of memory
+    	          is minimised. Depending on how your document is structured, using this might
+    	          slightly slow down the generation speed, but should reduce the memory footprint
+    	          by at least 50%.</li>
     	        <li>Cache_DISK: The document is cached on disk. This decreases the document generation
     	          speed, but the maximum document size is increased to the amount of space free
     	          on the disk.</li>
