@@ -87,6 +87,7 @@
  </li>
  <li>Changes made by Mark
   <ul>
+   <li>A major update to the RtfWriter2 (and all its helper classes); provided by Thomas Bickel.</li>
    <li>Fixed a bug where fonts/colors only used in the header or footer were not being registered before the respective tables were written to the RTF document.</li>
    <li>Fixed a REALLY ugly bug where only the red colour component was being set. Thanks to Raffaele Gambelli for finding it.</li>
    <li>Document settings: Added settings to control the image generation, so that correct images for Word 2000,
