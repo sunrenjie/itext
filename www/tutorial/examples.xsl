@@ -28,32 +28,30 @@
 			</target>
 
 			<target name="examples">
-				<property name="bin" value="${{basedir}}/bin" />
+				<property name="lib" value="${{basedir}}/../lib" />
 				<property name="tutorial" value="${{basedir}}/tutorial" />
 				<property name="examples" value="${{basedir}}/examples" />
 				<property name="webapp" value="${{basedir}}/webapp" />
 				<path id="classpath">
 					<pathelement location="${{examples}}" />
-					<pathelement location="${{bin}}/iText.jar" />
+					<pathelement location="${{lib}}/iText.jar" />
 					<xsl:for-each select="./*/site:extrajar">
 						<xsl:element name="pathelement">
-							<xsl:attribute name="location">${bin}/<xsl:value-of select="." /></xsl:attribute>
+							<xsl:attribute name="location">${lib}/<xsl:value-of select="." /></xsl:attribute>
 						</xsl:element>
 					</xsl:for-each>
 				</path>
-				<available file="${{bin}}" type="dir" property="bin.dir.present" />
-				<fail unless="bin.dir.present" message="${{basedir}} has no subdirectory 'bin'" />
-				<available file="${{bin}}/iText.jar" type="file" property="itext.jar.present" />
-				<fail unless="itext.jar.present" message="You need the iText.jar in this directory: ${{bin}}" />
+				<available file="${{lib}}/iText.jar" type="file" property="itext.jar.present" />
+				<fail unless="itext.jar.present" message="You need the iText.jar in this directory: ${{lib}}" />
 				<xsl:for-each select="./*/site:extrajar">
 					<xsl:element name="available">
-						<xsl:attribute name="file">${bin}/<xsl:value-of select="." /></xsl:attribute>
+						<xsl:attribute name="file">${lib}/<xsl:value-of select="." /></xsl:attribute>
 						<xsl:attribute name="type">file</xsl:attribute>
 						<xsl:attribute name="property"><xsl:value-of select="." />.present</xsl:attribute>
 					</xsl:element>
 					<xsl:element name="fail">
 						<xsl:attribute name="unless"><xsl:value-of select="." />.present</xsl:attribute>
-						<xsl:attribute name="message">You need <xsl:value-of select="." /> in this directory ${bin}</xsl:attribute>
+						<xsl:attribute name="message">You need <xsl:value-of select="." /> in this directory ${lib}</xsl:attribute>
 					</xsl:element>
 				</xsl:for-each>
 				
@@ -82,7 +80,7 @@
 							<xsl:attribute name="dir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/lib</xsl:attribute>
 						</xsl:element>
 						<xsl:element name="copy">
-							<xsl:attribute name="file">${bin}/iText.jar</xsl:attribute>
+							<xsl:attribute name="file">${lib}/iText.jar</xsl:attribute>
 							<xsl:attribute name="todir">${webapp}/<xsl:value-of select="site:java/@webapp" />/WEB-INF/lib</xsl:attribute>
 							<xsl:attribute name="overwrite">no</xsl:attribute>
 						</xsl:element>
