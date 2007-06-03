@@ -181,6 +181,8 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 					<xsl:call-template name="footer" />
 				</div>
 				<xsl:call-template name="commercial" />
+				<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+				<script type="text/javascript"><![CDATA[_uacct = "UA-1749025-1";urchinTracker();]]></script>
 			</body>
 		</html>
 	</xsl:template>
@@ -490,6 +492,8 @@ google_cpa_choice = "CAAQyaj8zwEaCIwcWMzeycafKMu293M";
 					</xsl:element>
 				</xsl:element>
 				<xsl:call-template name="commercial" />
+				<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+				<script type="text/javascript"><![CDATA[_uacct = "UA-1749025-1";urchinTracker();]]></script>
 			</body>
 		</html>
 	</xsl:template>

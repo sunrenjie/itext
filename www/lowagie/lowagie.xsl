@@ -14,7 +14,6 @@
 <!-- release number: change for every new release -->
 <xsl:param name="releasenumber"/>
 <xsl:param name="releasedate"/>
-<xsl:param name="earlyaccesslowagie"/>
 
 <xsl:template match="site:releasenumber" name="site:releasenumber">
 <xsl:value-of select="$releasenumber"/>
@@ -22,10 +21,6 @@
 
 <xsl:template match="site:releasedate" name="site:releasedate">
 <xsl:value-of select="$releasedate"/>
-</xsl:template>
-
-<xsl:template match="site:earlyaccesslowagie" name="site:earlyaccesslowagie">
-<xsl:value-of select="$earlyaccesslowagie"/>
 </xsl:template>
 
 <!-- releaselinks to SourceForge -->
@@ -54,60 +49,6 @@ itext-<xsl:call-template name="site:releasenumber" />.jar
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
 itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
-</xsl:template>
-
-<xsl:template match="site:earlyaccesssrc">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-src-<xsl:call-template name="site:earlyaccesslowagie" />.tar.gz</xsl:attribute>
-itext-src-<xsl:call-template name="site:earlyaccesslowagie" />.tar.gz
-</xsl:element>
-</xsl:template>
-
-<xsl:template match="site:earlyaccessjar">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-<xsl:call-template name="site:earlyaccesslowagie" />.jar</xsl:attribute>
-itext-<xsl:call-template name="site:earlyaccesslowagie" />.jar
-</xsl:element>
-</xsl:template>
-
-<xsl:template match="site:antscriptszip">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-ant-<xsl:call-template name="site:earlyaccesslowagie" />.zip</xsl:attribute>
-itext-ant-<xsl:call-template name="site:earlyaccesslowagie" />.zip
-</xsl:element>
-</xsl:template>
-
-<!-- FAQ entries -->
-
-<xsl:template match="site:faq">
-	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Questions</div>
-	<br xmlns="http://www.w3.org/1999/xhtml" />
-	<xsl:for-each select="./*">
-		<xsl:if test="local-name()='faq-entry'">
-			<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-				<xsl:attribute name="href">#<xsl:value-of select="@name" /></xsl:attribute>
-				<xsl:attribute name="class">small</xsl:attribute>
-				<xsl:value-of select="./site:question" />
-			</xsl:element>
-		</xsl:if>
-		<br xmlns="http://www.w3.org/1999/xhtml" />
-	</xsl:for-each>
-	<br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="80%" /><br xmlns="http://www.w3.org/1999/xhtml" />
-	<div xmlns="http://www.w3.org/1999/xhtml" class="title">Answers</div>
-	<br xmlns="http://www.w3.org/1999/xhtml" />
-	<xsl:for-each select="./*">
-		<xsl:choose>
-			<xsl:when test="local-name()='faq-entry'">
-				<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-					<xsl:attribute name="name"><xsl:value-of select="@name" /></xsl:attribute>
-					<xsl:apply-templates select="./site:question" />
-				</xsl:element>
-				<div class="small" xmlns="http://www.w3.org/1999/xhtml"><xsl:apply-templates select="./site:answer" /></div>
-			</xsl:when>
-			<xsl:otherwise><br xmlns="http://www.w3.org/1999/xhtml" /><hr xmlns="http://www.w3.org/1999/xhtml" align="Center" width="10%" /></xsl:otherwise>
-		</xsl:choose>
-		<br xmlns="http://www.w3.org/1999/xhtml" />
-	</xsl:for-each>
 </xsl:template>
 
 <!-- History entries -->
@@ -236,8 +177,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:apply-templates select="site:content" />
 
 <div xmlns="http://www.w3.org/1999/xhtml" id="footer">Page Updated: <xsl:value-of select="substring(site:metadata/site:updated, 8, 19)" /><br />
-Copyright &#169; 1999-2005 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
-Read the <a href="privacypolicy.html">Privacy Policy</a> at lowagie.com;
+Copyright &#169; 1999-2007 by Bruno Lowagie, Adolf Baeyensstraat 121, 9040 Gent, BELGIUM<br />
 mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a></div>
 
 </xsl:element>
@@ -258,12 +198,10 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<a class="navigation" href="svn.html">SVN Repository</a>
 		<a class="navigation" href="eclipse.html">Using Eclipse</a>
 		<a class="navigation" href="ant.html">ANT Scripts</a>
-		<a class="navigation" href="faq.html">FAQ</a>
+		<a class="navigation" href="http://itext.ugent.be/library/faq.php">FAQ</a>
 		<br />
 		<a class="navigation" href="http://lists.sourceforge.net/lists/listinfo/itext-questions">Mailing List Registration</a>
-		<a class="navigation" href="http://news.gmane.org/gmane.comp.java.lib.itext.general">Mailing List Archives</a>
-		<a class="navigation" href="links.html">Useful Links</a>
-		<a class="navigation" href="amazon.html">Shop @ Amazon</a>
+		<a class="navigation" href="http://itext.ugent.be/info/contact.php">Mailing List Archives</a>
 	</div>
 </div>
 
@@ -307,8 +245,11 @@ google_cpa_choice = "CAAQ_-KZzgEaCHfyBUS9wT0_KOP143Q";
 //-->]]></script>
 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script></div>
-<a href="http://www.refactorit.com/" xmlns="http://www.w3.org/1999/xhtml"><img xmlns="http://www.w3.org/1999/xhtml" src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" border="0" width="120" height="26" /></a>
 </div>
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript"><![CDATA[_uacct = "UA-1749025-1";urchinTracker();]]></script>
 
 </body>
 </html>

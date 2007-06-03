@@ -11,92 +11,9 @@
 	</site:metadata>
 	<site:content>
 	<div class="small" xmlns="http://www.w3.org/1999/xhtml">
-		<div class="header">Useful links</div>
-<a name="people"><div class="title">People</div></a>
-		<a href="http://www.lowagie.com/" class="topic">Bruno Lowagie:</a> original developer of iText
-		<a href="http://itextpdf.sourceforge.net/" class="topic">Paulo Soares</a> this is the most active iText developer of the moment
-		<b class="topic">Mark Hall:</b> the author of the RTF functionality
-		<a href="http://www.pdfsages.com/" class="topic">Leonard Rosenthol:</a> CTO of PDF Sages, a company dedicated to providing unmatched PDF-oriented consulting and development services.
-		<a href="http://www.ujihara.jp/iTextdotNET/" class="topic">Kazuya Ujihara:</a> author of the iText .NET port
-		<br />
-		<a href="http://www.jfree.org/" class="topic">David Gilbert:</a> JFree.org
-		<a href="http://servlets.com/" class="topic">Jason Hunter</a> author of JDOM and the book I read to learn all about Servlets
-		if you think your name should be on this list, just send me a mail.
-<a name="java"><div class="title">JAVA links</div></a>
-		<a href="http://www.refactorit.com/"><img src="http://www.refactorit.com/failid/rit_media/refactorit140x30.png" align="left" alt="RefactorIT"/></a> All important software systems evolve, but over time entropy causes structural rot. Refactoring instills efficiency to the internal structure of a system and refactoring can restore evolving software to vibrant health. Manual refactoring can be an involved process, hence use of RefactorIT, the world's fastest and easiest automated way to refactor Java systems can save you considerable time, effort, and financial resources.
-		<a href="http://www.jetbrains.com/idea/" class="topic">IntelliJ IDEA:</a> The Most Intelligent Java IDE
-		<a href="http://java.sun.com/" class="topic">JAVA<sup>(TM)</sup>:</a> SUN MICROSYSTEMS INC.
-		<a href="http://www.javalobby.org " class="topic">Javalobby:</a> The heart of the Java community
-		<a href="http://www.myjavaserver.com/" class="topic">MyJavaServer:</a> free application deployment
-		<a href="http://www.jdocs.com/" class="topic">JDocs:</a> Your javadocs super center
-		<a href="http://www.jroller.com/" class="topic">JRoller:</a> Free, Java-powered weblogs
-		<a href="http://www.onjava.com/" class="topic">ONJava:</a> O'Reilly on Java
-		<a href="http://ant.apache.org/" class="topic">Apache ANT</a> a Java-based build tool.
-		<a href="http://www.junlu.com/" class="topic">JUNLU:</a> some major mailinglists (including iText) made searchable.
-		<a href="http://www.java-tips.org/" class="topic">Java-tips:</a> a collection of java tips.
-<a name="pdf"><div class="title">PDF links</div></a>
-		<a href="http://www.adobe.com/" class="topic">ADOBE:</a> ADOBE SYSTEMS INC.
-		<a href="http://www.quite.com/personal/aandi.htm" class="topic">Quite Software:</a> The home of Aandi Inston, PDF expert
-		<a href="http://www.ghostscript.com/" class="topic">Ghostscript:</a> a suite of free PDF tools
-		<a href="http://www.planetpdf.com/" class="topic">Planet PDF:</a> A comprehensive, popular and independent Web site exclusively focused on Adobe Acrobat/PDF users and uses. Planet PDF also incorporates <a href="http://forum.planetpdf.com/">Planet PDF Forum</a> and <a href="http://www.pdfstore.com/">Planet PDF Store</a>.
-		<a href="http://www.pdfzone.com/" class="topic">PDF Zone</a> The online authority for Acrobat, PDF and Document Management Professionals.
-		<a href="http://www.jpedal.org/" class="topic">JPedal:</a> Pure Java PDF and Forms viewer and extraction library with Open Source and commercial versions.
-		<a href="http://pangopdf.sourceforge.net/" class="topic">PangoPDF:</a> a PDF backend for Pango for creating PDF output (using PDFLib).
-		<a href="http://www.pdfx3.org/" class="topic">PDF/X:</a>  PDF/X is not an alternative to PDF, it’s a focused subset of PDF designed specifically for reliable prepress data interchange.
-		<a href="http://xmlroff.sourceforge.net/" class="topic">xmlroff:</a> an XSL formatter written in C that produces PDF and PostScript.
-		<a href="http://www.tug.org/applications/pdftex/" class="topic">PdfTeX:</a> pdfTeX (by Han The Thanh) is a TeX variant that can generate PDF output directly instead of dvi.
-		<a href="http://www.pdfbox.org/" class="topic">PDFBox:</a> PDFBox is a Java PDF Library. This project will allow access to all of the components in a PDF document.
-		<a href="http://jpdfunit.sourceforge.net/" class="topic">JpdfUnit:</a> a framework for testing a generated pdf document with the JUnit Test Framework so JPdfUnit is a high level api. The framework is designed for an easy access to the PDFBox library.
-		<a href="http://doc2pdf.sourceforge.net/" class="topic">Doc2pdf:</a> Doc2pdf is an email robot that converts Microsoft Office attachments (.doc, .ppt, and .xls) to PDF.
-		<a href="http://gnujpdf.sourceforge.net/" class="topic">gnujpdf:</a> a Java package (gnu.jpdf.*) licensed under the LGPL. It provides a simple API to create pdf files and print using subclasses of java.awt.Graphics and java.awt.PrintJob
-		<a href="http://xml.apache.org/fop/" class="topic">Apache FOP:</a> the world's first print formatter driven by XSL formatting objects (XSL-FO) and the world's first output independent formatter.
-		<a href="http://www.aquaforest.com/en/merge_tiff_junction.asp" class="topic">OCR PDF:</a> Batch Convert Tiff to PDF with lightning speed!
-		TIFF Junction is a command line tool that can rapidly process high volumes of document image files.
-		TIFF Junction can also merge and split single and multipage tiff images files.
-		<a href="http://www.pdfill.com/" class="topic">PDFill Form Filler:</a>
-		iText makes it possible to come up with a PDF Form Filler at only
-		$9.99.  This form filler allows you to fill PDF form
-		fields, insert formatted text, check box, image, URL,
-		whiteout and blank page without Adobe Acrobat. The
-		edited file can be saved locally for email and
-		archiving with options of password, information and
-		view preference. The filling can be stopped now and
-		resumed later. It has Spell-Checker for the filled
-		texts and Smart Positioning for accurate alignment. 
-<a name="reports"><div class="title">Reporting tools</div></a>
-		<a href="http://www.yellowfin.com.au/" class="topic">Yellowfin:</a> Yellowfin is a web-based enterprise reporting application, featuring OLAP drill-down capabilities, charts and drill-through on any JDBC/ODBC data-source. Exports to HTML, XML, PDF, RTF and Excel.
-		<a href="http://www.informatica.info/projects/carte/" class="topic">Carte:</a> a report engine for the Java platform.
-		<a href="http://jasperreports.sourceforge.net/" class="topic">JasperReports:</a> a powerful open source Java reporting tool that has the ability to deliver rich content onto the screen, to the printer or into PDF, HTML, XLS, CSV and XML files.
-		<a href="http://www.jfree.org/jfreereport/index.html" class="topic">JFreeReport:</a> a free Java report library (using iText for PDF output).
-		<a href="http://ujac.sourceforge.net/" class="topic">UJAC:</a>  UJAC provides a collection of JAVA components which may be useful in some projects. (Improved XML to PDF using iText included.)
-		<a href="http://reportman.sourceforge.net/" class="topic">reportman:</a> Report manager is a reporting application (Report Manager Designer) and also a set of components for Delphi , Builder and Kylix, also supports development environment accepting ActiveX controls (Visual Basic,Visual FoxPro,any Visual Studio.Net language...), also a C dynamic standard library  with exported functions is provided to use the engine with any other language like GNU C.
-		<a href="http://sourceforge.net/projects/tagprint/" class="topic">TagPrint:</a> a DOM serialization library. It prints DOM documents with various format, such as XML, HTML, PDF, RTF, etc... You can write these documents very easily.
-		<a href="http://datavision.sourceforge.net/" class="topic">Datavision:</a> an Open Source reporting tool similar to Crystal Reports.
-<a name="fos"><div class="title">Free / Open Source Software links</div></a>
-		<a href="http://sourceforge.net/" class="topic">SourceForge:</a>  the world's largest Open Source software development website.
-		<a href="http://freshmeat.net/" class="topic">Freshmeat:</a> maintains the Web's largest index of Unix and cross-platform software.
-		<a href="http://java-source.net/" class="topic">Java-source:</a> Open Source Software in JAVA (tm)
-<a name="tech"><div class="title">Other technical links</div></a>
-		<a href="http://www.blooberry.com/indexdot/html/index.html" class="topic">Blooberry Index DOT html:</a> technical reference on HTML
-		<a href="http://www.blooberry.com/indexdot/css/index.html" class="topic">Blooberry Index DOT css:</a> technical reference on CSS
-		<a href="http://www.html-code-resources.com/" class="topic">html-code-resources.com:</a> directory of resources
-		<a href="http://www.chrispederick.com/work/firefox/webdeveloper/" class="topic">Web Developer:</a> a plugin for <a href="http://www.mozilla.org/products/firefox/">Mozilla Firefox</a>. I use it to design my site. It has some awesome CSS functionalities.
-		<a href="http://www.zvon.org/xxl/CSS2Reference/Output/" class="topic">zvon.org:</a> CSS 2 reference with examples
-		<a href="http://www.mulberrytech.com/quickref/XSLTquickref.pdf" class="topic">Mullberry Technologies:</a> XSLT and XPath Quick Reference
-		<a href="http://www.w3schools.com/xsl/xsl_w3celementref.asp" class="topic">w3schools on XSL:</a> XSLT Elements Reference
-		<a href="http://www.vbxml.com/xsl/xsltref.asp" class="topic">Top XML:</a> XSLT Reference
-		<a href="http://www.mailinglistshq.com/javamailinglist/" class="topic">Java Mailing Lists:</a> at <a href="http://www.mailinglistshq.com/">Mailing Lists Head Quarters</a>.
-<a name="misc"><div class="title">Miscellaneous links</div></a>
-		<a href="http://en.sdjournal.org/" class="topic">Software Developer's Journal:</a> publishes news and professional information concerning the software world. In their articles, ready-made programming solutions are presented.
-		<a href="http://www.icesoft.com/products/icebrowser_itext.html" class="topic">ICEbrowser:</a> Easily convert HTML to PDF in Java.
-        <a href="https://www.bearprinting.com/" class="topic">Bear Printing:</a> create your own professional flyers and postcards, internet-based Graphic Design. Try the <a href="https://www.bearprinting.com/index.jsp?page=FredDemoGateway.jsp">Demo</a>.
-		<a href="http://www.accesspdf.com/article.php/20041203110039573" class="topic">PDFTK:</a> an iText based commandline toolkit, by Sid Stewart (author of the book 'PDF Hacks'), that can be used to (post)process PDF files.
-		<a href="http://www.trosoft.net/_en-US/030+Produkte.htm" class="topic">TroSoft:</a> iText is used for secure PDF generation in the Trodat Digital Sealing and Trodat E-Form Server products.
-		<a href="http://www.variex.de/" class="topic">Variex:</a> dynamic document solution (uses iText)
-		<a href="http://yourpersonalizedpattern.com/" class="topic">Your personalized pattern:</a> A very nice application using iText: make your own bookmark pattern!
-		<a href="http://slashdot.org/" class="topic">Slashdot:</a> News for Nerds, Stuff that Matters
-		<a href="http://www.retostamm.com/" class="topic">Learn Japanese:</a> if you register at this site ($17.99 for 30 lessons), you receive daily mails with Japanese lessons.
-		Each lesson teaches you 5 to 10 new words, expressions, pronunciations, grammatical and cultural information you need to know for the daily conversation. The flashcards are made using iText!
+<div class="header">Links</div>
+<blockquote>The links have moved to <a href="http://itext.ugent.be/links/">http://itext.ugent.be/links/</a>.</blockquote>
+
 	</div>
 	</site:content>
 </site:page>
