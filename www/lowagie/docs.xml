@@ -8,30 +8,40 @@
 		<site:summary>How-to use iText. Where to find the tutorial and examples.</site:summary>
 		<site:keywords>PDF, JAVA, iText, tutorial, examples, Lowagie, Bruno</site:keywords>
 		<site:amazonbooks>
-			<site:book asin="0596006551">PDF Hacks</site:book>
-			<site:book asin="0321304748">PDF Reference (4th Edition)</site:book>
+			<site:book asin="1932394796">iText in Action</site:book>
 		</site:amazonbooks>
 		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
 <div class="header">Documentation</div>
+<a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://itext.ugent.be/img/lowagie_3d.jpg" border="0" align="Left" /></a>
+<div class="title">iText in Action</div>
+The first place to look for information about iText is the iText book:
+<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>,
+the first and only book about iText.<br />
+You can download <a href="http://itext.ugent.be/itext-in-action/#free">two free chapters</a> and/or
+buy the eBook from <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">Manning Publications Co</a>.
 <div class="title">API documentation</div>
-For every new release the API documentation is automatically generated using
-javadoc. You can consult the API <a href="http://itext.ugent.be/library/api/">online</a>
+With every new release, the API documentation is generated automatically, using the
+javadoc tool that comes with the JDK. You can consult the API <a href="http://itext.ugent.be/library/api/">online</a>
 or download a <a href="http://itextdocs.lowagie.com/downloads/docs.tar.gz">tar.gz</a> file with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
-There's a very comprehensive tutorial (<a href="http://itext.sourceforge.net/tutorial/">iText by Example</a>) under construction,
-with hundreds of small standalone examples. Just puzzle together these code bits to build your own applications.
-Another good place to start, is the examples-xxx.zip available on
-<a href="http://itextpdf.sourceforge.net/">Paulo's Early Access page</a>
-(replace the xxx with the current early access release number).
+If you own the book, you have access to hundreds of small standalone examples
+that are organized per chapter at <a href="http://itext.ugent.be/itext-in-action/chapter.php">itext.ugent.be</a>
+(note that you have to answer a magic question in order to see the examples).<br />
+If you don't own the book, you could turn to the free online tutorial (<a href="http://itext.sourceforge.net/tutorial/">iText by Example</a>)
+or try the examples presented in the <a href="http://www.lowagie.com/itextwiki/">iText Wiki</a>.
+Some more specialized examples can be found at <a href="http://itext.ugent.be/articles/">articles @ itext.ugent.be</a>.
 <div class="title">Mailing-list</div>
 iText has a very active mailing-list. If you don't want to
 <a href="http://lists.sourceforge.net/lists/listinfo/itext-questions">register</a>
 rightaway, you can browse through the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list archives</a>
-before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>.
-Try describing your problem as concrete as possible. We can't answer questions such as
+before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>.<br />
+Of course you should always consult the <a href="http://itext.ugent.be/library/faq.php">FAQ</a>
+before you <a href="http://itext.ugent.be/info/contact.php">contact us</a>.<br />
+If you do send a question to the list,
+try describing your problem as concrete as possible. We can't answer questions such as
 "Why doesn't iText work on my computer". Please keep in mind that it is really difficult
 for us to solve problems or track down bugs that we can't reproduce.
 If possible, send us a small standalone source code example, demonstrating the
