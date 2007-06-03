@@ -192,7 +192,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<a class="navigation" href="http://sourceforge.net/projects/itext/">Home @ SourceForge.net</a>
 		<a class="navigation" href="http://itextsharp.sourceforge.net/">iTextSharp (.NET port)</a>
 		<br />
-		<a class="navigation" href="download.html">Download &amp; Compile</a>
+		<a class="navigation" href="download.html">Download iText</a>
 		<a class="navigation" href="docs.html">Documentation</a>
 		<a class="navigation" href="http://itextdocs.lowagie.com/tutorial/">iText by Example</a>
 		<a class="navigation" href="svn.html">SVN Repository</a>
@@ -208,6 +208,10 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 <div id="sourceforge" xmlns="http://www.w3.org/1999/xhtml"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=group_id=15255&amp;type=6" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a></div>
 
 <div id="commercial">
+<div class="firefox">
+<a href="http://www.prchecker.info/" target="_blank" title="iText, the #1 Java-PDF library">
+<img src="http://www.prchecker.info/PR1_img.gif" alt="iText, the #1 Java-PDF library" border="0" /></a>
+</div>
 <a class="amazonlinks" href="amazon.html" xmlns="http://www.w3.org/1999/xhtml">Amazon books:</a>
 <xsl:choose>
 	<xsl:when test="count(/site:page/site:metadata/site:amazonbooks/site:book)>0">

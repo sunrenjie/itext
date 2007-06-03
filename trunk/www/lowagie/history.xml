@@ -19,6 +19,46 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>2006-02-15</site:remark>
 <site:changelog>
+<ul>2006-06-04: iText 2.0.4
+ <li>Changes made by Xavier
+  <ul>
+  <li>We have moved from CVS to SVN! Xavier is also starting a JDK 1.3 and a 1.5 branch for iText.</li>
+  <li>BarcodePDF417: use StringBuffer instead of concatenating strings. side effect: code now compiles with jdk13.</li>
+  <li>Dynamic generation of the MANIFEST.MF file (change in the ANT script)</li>
+  <li>Several code clean up operations</li>
+  </ul>
+ </li>
+ <li>Changes made by Paulo
+  <ul>
+  <li>TIFF: broken tiffs may not have the next IFD pointer</li>
+  <li>HTMLWorker: added ImageProvider to be able to select arbitrary
+  images based on the "src" property</li>
+  <li>PdfPKCS7: the X509 parsing code for the sub-filter adbe.x509.rsa_sha1 was taking the certificates from the wrong place.</li>
+  <li>added the option to not use memory mapped files</li>
+  <li>named destinations are treated as binary allowing the eventual localization</li>
+  <li>RtfParagraph: changed a member from private to protected to be able to compile RtfListItem</li>
+  <li>Several javadoc corrections</li>
+  </ul>
+ </li>
+ <li>Changes made by Mark
+  <ul>
+  <li>Modified the filterSpecialChar method to write directly to the OutputStream (Thomas Bickel).</li>
+  <li>RtfDocument: just use getBytes for String to byte[] translation.</li>
+  <li>RtfNewPage: made NEW_PAGE constant public</li>
+  <li>Added support for different bullet characters and for spacing before/after list items.
+  The idea for the solution was suggested by Felix Satyaputra.</li>
+  </ul>
+ </li>
+ <li>Changes made by Bruno
+  <ul>
+  <li>The organization of the files (lib directory) has been changed;
+  the jars needed to compile iText and the tutorial examples are now in SVN.</li>
+  <li>Changes to the ANT scripts due to the move from CVS to SVN.</li>
+  <li>Clean up of the ANT scripts</li>
+  <li>New documentation: how to get the code from SVN, how to create an Eclipse project, how to use the ANT scripts</li>
+  </ul>
+ </li>
+</ul>
 <ul>2006-05-25: iText 2.0.3
  <li>Changes made by Paulo
   <ul>

@@ -50,6 +50,9 @@
 	<xsl:template name="commercial">
 		<div class="commercial"><br />
 		
+		<div align="Center"><a href="http://www.prchecker.info/" target="_blank" title="iText, the #1 Java-PDF library">
+		<img src="http://www.prchecker.info/PR1_img.gif" alt="iText, the #1 Java-PDF library" border="0" /></a></div><br />
+		
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
