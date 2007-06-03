@@ -15,120 +15,130 @@
 	</site:metadata>
 	<site:content>
 	<div>
-	<div class="header">iText ANT scripts</div>
-<div class="title">Another Neat Tool (What is ANT?)</div>
-iText comes with a handful of ANT scripts that makes it easy for the developers of iText to compile the code, make a new release,
-build their site(s). But those scripts are useful for iText users too.
-<blockquote>Apache Ant is a Java-based build tool. In theory, it is kind of like Make, but without Make's wrinkles.</blockquote>
-If you want to download or install ant, please go to the <a href="http://ant.apache.org/">ANT site @ Apache.org</a>. On this page,
-you will only find how to use ANT in the context of the iText project.
-<div class="title">Using ANT for iText</div>
+<div class="header">How I install my development environment for iText (ANT)</div>
+In the previous pages, you learned how to get the most recent iText source code
+(see <a href="svn.html">SVN</a>) and how to set up your development environment
+(see <a href="eclipse.html">Eclipse</a>). Now we are going to use ANT to compile
+and jar the library. We'll also use ANT to create the HTML pages for lowagie.com
+and the tutorial pages. In other words: we'll create all the files necessary to
+make a new iText release using ANT.<br />
+For more info about ANT (A Neat Tool), go to <a href="http://ant.apache.org/">ANT site @ Apache.org</a>.
+<div class="title">The iText ANT files</div>
 Every self-respecting JAVA project has its <a href="build.xml">build.xml</a> file.
-If you want to use ANT for iText, you should start from a specific directory, say <span class="commandline">D:\iText</span>
-or <span class="commandline">/home/blowagie/projects</span>, with two subdirectories 'src' and 'www',
-one for each CVS module. Directory 'src' should have a <a href="build.xml">build.xml</a> file on the root and a
-subdirectory 'ant' with all the iText ANT <a href="ant/">subscripts</a> in it, as well as a properties-file.
-You can download these scripts in one <site:antscriptszip />-file.<br />
-While running these scripts a third directory 'build' will be created with the results of compile-actions, jar-commands, downloads,...
-You can change the location of all these directories, by changing the <a href="ant/.ant.properties">.ant.properties</a>-file.<br />
-If you look at the iText build.xml file,
-you will see that the master build.xml doesn't have a lot of actual code.
-It calls different subscripts.
-You can call most of the targets from this master build.xml,
-but for some of the specialized (hidden) targets, you will need to
-call the subscript directly with <span class="commandline">build -f</span>.
-The default target of the build.xml is 'help' and this is what you get if
-you call this target:<br />
+Sure, we have heard about Maven, but all sites built with Maven look exactly the same.
+Moreover Maven is overkill for a project such as iText; why learn an obscure language
+such as APT or mess with POMs, if ANT provides the same functionality in a much
+easier way?<br />
+Let's open our main <a href="build.xml">build.xml</a> in Eclipse
+(you'll find it under the <code>src</code> directory in the <code>main</code> project):
+<div class="figure"><img src="images/ant_targets.png" /></div>
+<br />
+In the outline panel, you'll see all the available targets;
+the <code>help</code> target being the default target.
+Execute the help target, and you'll find the output in the
+<code>Console</code> panel:
 <pre class="commandline">
-Buildfile: build.xml
-
+Buildfile: C:\itext-core\main\src\build.xml
 help:
      [echo] Using ANT for iText
-
-
-help:
-     [echo] DOWNLOADING iText (download.xml)
-     [echo] ant download: downloads the source code needed to create iText.jar
-     [echo] ant download.bin: downloads some precompiled jars and zips
-     [echo] ant getFromCvs: downloads the complete CVS repository
-
-
 help:
      [echo] COMPILING AND JARRING THE CODE (compile.xml)
      [echo] ant compile: compiles iText
      [echo] ant compile.debug: compiles iText and allows you to debug the code
      [echo] ant jar: compiles and jars iText
      [echo] ant jar.debug: compiles for debugging and jars iText
-
-
 help:
      [echo] BUILDING THE iText SITE (site.xml)
+     [echo] ant lowagie.com: Building the lowagie.com pages
      [echo] ant javadoc: Building the API documentation
      [echo] ant docs.tar.gz: Building and jarring the API documentation
-     [echo] ant lowagie.com: Building the lowagie.com part
-
-
+     [echo] ant tutorial: creates the tutorial pages (without the examples)
+     [echo] ant tutorial.tar.gz: creates the tutorial and makes tar.gz files
 help:
      [echo] MAKING A NEW RELEASE (release.xml)
-     [echo] archive.src: archiving the source
-     [echo] ant.zip: makes a zip file with the ANT scripts
-     [echo] release.sf: making the release for SourceForge
-
-
+     [echo] archive.src: archiving the source (zip and tar.gz)
+     [echo] asian.jar: creates a new version of iTextAsian.jar and iTextAsianCmaps.jar
+     [echo] release: making the all the files needed for a release (except tutorial)
 BUILD SUCCESSFUL
-Total time: 1 second</pre>
-<div class="title">Downloading iText</div>
-subscript: <a href="ant/download.xml">download.xml</a><br />
-<div class="commandline">ant -f download.xml download</div>
-This action gets the src.tar.gz from SourceForge and unzips+untars it
-under the 'src' directory. The source code can now be compiled.
-<div class="commandline">ant -f download.xml download.bin</div>
-Downloads some jars you needs for specific functionality, such as parsing XML,
-hyphenation, using Asian fonts,... Use this, just to make sure you have all
-the right jars in the CLASSPATH that is used in the other ANT scripts.
-<div class="commandline">ant -f download.xml getFromCvs</div>
-Downloads the complete CVS repository. If this doesn't work, please
-check the SourceForge status information. Anonymous CVS could be down.
+Total time: 375 milliseconds</pre>
+Compare this list with the outline presented by Eclipse, and you'll discover that
+the <code>help</code> target doesn't do anything but listing the available targets.<br />
+These targets are organized in three groups, each referring to a subscript that can
+be found in the <a href="ant/">ant</a> subdirectory: <code>c:/itext-core/main/src/ant/</code><br />
+These subscripts have more targets than the ones made available through the main ant file <a href="build.xml">build.xml</a>,
+but in general you won't need them. Please consider these targets to be 'private helper methods'.<br />
+In the <a href="ant/">ant</a> subdirectory, you'll also find an <a href="ant/.ant.properties">.ant.properties</a>
+file. I use this file every time I make a new release: it keeps the release number and date for the current or next release.<br />
+You will only have to change it if the directory structure you're using on your system is different from mine.
+No directory is used in a hardcoded way in the ANT scripts. All directories that are used,
+are defined in this <a href="ant/.ant.properties">.ant.properties</a> file.<br />
+Let's have a closer look at an overview of the 'public' targets in the main ant file, <a href="build.xml">build.xml</a>.
+
 <div class="title">Compiling and jarring</div>
-subscript: <a href="ant/compile.xml">compile.xml</a><br />
-<div class="commandline">ant -f compile.xml compile</div>
-Compiles the downloaded sourcecode (i.e. the code in the src directory).
-<div class="commandline">ant -f compile.xml jar</div>
-Jars the compiled code into iText.jar<br />
-You can also use <span class="commandline">compile.debug</span> and <span class="commandline">jar.debug</span>
-if you need extended debugging capabilities.
-<div class="title">Creating HTML</div>
+subscript: <a href="ant/compile.xml">compile.xml</a>
+
+<div class="commandline">ant compile</div>
+Compiles the sourcecode (i.e. the code in the src directory).
+
+<div class="commandline">ant jar</div>
+Calls compile, then jars the compiled code into iText.jar (in the directory <code>lib</code>)
+<br /><br />
+You can also use <span class="commandline">ant compile.debug</span> and <span class="commandline">ant jar.debug</span>
+if you need extended debugging capabilities. Don't forget to remove your class files before you execute this target.
+
+<div class="title">Creating the iText site</div>
 subscript: <a href="ant/site.xml">site.xml</a><br />
-<div class="commandline">ant -f site.xml javadoc</div>
-Creates the API documentation using JAVADOC. You can also immediately make
-the docs.tar.gz with <span class="commandline">ant -f site.xml docs.tar.gz</span>.<br />
-<div class="commandline">ant -f site.xml lowagie.com</div>
+
+<div class="commandline">ant lowagie.com</div>
 Every page on the site and every tutorial chapter was written in XML
 and is converted to HTML using XSLT. The target is self explanatory.
+
+<div class="commandline">ant javadoc</div>
+Creates the API documentation using JAVADOC. You can also immediately make
+the docs.tar.gz with <span class="commandline">ant docs.tar.gz</span>.
+
+<div class="commandline">ant tutorial</div>
+Creates the tutorial pages (HTML only!)<br />
+If you also want to compile and execute the example code,
+you need <span class="commandline">ant tutorial.tar.gz</span>.
+This will also create two tar.gz.files: one with the HTML,
+another one with the source code and resulting documents (PDF, RTF,...).
+
 <div class="title">Preparing a release</div>
 subscript: <a href="ant/release.xml">release.xml</a><br />
-<div class="commandline">ant -f release.xml archive.src</div>
+
+<div class="commandline">ant archive.src</div>
 Makes the src.zip and src.tar.gz file.
-<div class="commandline">ant -f release.xml release.sf</div>
-Once src.zip, src.tar.gz, iText.jar and docs.tar.gz are created with
-some of the other ANT instructions, this command will copy those
-files to files that have the release number in the filename.
-For every new release, you should change the 'official' release
-number and the 'early access' release number the release was based on
+
+<div class="commandline">ant asian.jar</div>
+This creates a zip (a jar is nothing more than a zipped archive)
+with the files you need for CJK support (iTextAsian.jar) or advanced
+Asian font support (iTextAsianCmaps.jar). Generally, you won't ever
+need this target, because the files in these jars never change, and
+the jars are stored in the SVN repository.
+
+<div class="commandline">ant release</div>
+This target calls many of the targets listed above:
+archive.src, docs.tar.gz, jar, lowagie.com, and release.sf.
+This last target is one of the 'private methods' mentioned before.
+For every new release, I change the release number and date
 in the <a href="ant/.ant.properties">ant.properties</a> file.
-<div class="title">Releasing all in once</div>
-If you want to make a complete new release, you have to export
-both CVS modules 'src' and 'www' and change directory to 'www/ant'.
-<span class="commandline">ant release</span> will first download some
-jars that don't need to be compiled. Then src.tar.gz, src.zip, ant.zip
-and docs.tar.gz will be constructed. The code will be compiled
-and jarred into iText.jar. The pages for lowagie.com will be
-constructed and the files that will need to be uploaded to SourceForge
-will get a releasenumber in their filename. Later on, more
-functionality will be added to generate examples and tutorial chapters.
-Usually I (Bruno) will do this. You won't need this target, nor
-<span class="commandline">ant lowagie.com</span>, nor some other
-hidden targets.
+The target release.sf will create files in the directory
+<code>build/bin/release/dist</code> for my own private use;
+and it will copy these files to <code>build/bin/release/sf</code>
+that can be posted on SourceForge. All these files have the
+release number found in the properties file in the filename.
+
+<div class="title">Summary</div>
+Usually, when I make a new release, I throw away my <code>build</code> directory.
+Then I execute:
+<div class="commandline">ant release</div>
+This creates all the jar, zip and tar.gz files I need to upload
+to my site and to SourceForge. But before I do this, I also run:
+<div class="commandline">ant tutorial.tar.gz</div>
+This creates the tutorial pages, and compiles and executes all the examples.
+Usually I have a look at the sample documents generated by the tutorial
+examples to see if no functionality was broken in the new release.
 	</div>
 	</site:content>
 </site:page>
