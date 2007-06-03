@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- $Header$ -->
+<!-- $Header: /cvsroot/itext/www/lowagie/lowagie.xsl,v 1.9 2006/04/12 12:32:51 blowagie Exp $ -->
 <!-- author: Bruno Lowagie -->
 
 <xsl:stylesheet version="1.0"
@@ -255,7 +255,8 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<a class="navigation" href="download.html">Download &amp; Compile</a>
 		<a class="navigation" href="docs.html">Documentation</a>
 		<a class="navigation" href="http://itextdocs.lowagie.com/tutorial/">iText by Example</a>
-		<a class="navigation" href="cvs.html">CVS Repository</a>
+		<a class="navigation" href="svn.html">SVN Repository</a>
+		<a class="navigation" href="eclipse.html">Using Eclipse</a>
 		<a class="navigation" href="ant.html">ANT Scripts</a>
 		<a class="navigation" href="faq.html">FAQ</a>
 		<br />
