@@ -16,52 +16,9 @@
 	<site:content>
 	<div>
 <div class="header">CVS Repository</div>
-<div class="title">Concurrent Versions System</div>
-CVS is the open standard for version control.
-CVS provides the means to store not only the current version of a piece of source code, but a record of all changes (and who made those changes) that have occurred to that source code.<br />
-See <a href="http://cvshome.org">cvshome.org</a> for more info:
-<blockquote>CVS is the Concurrent Versions System, the dominant open-source
-network-transparent version control system. CVS is useful for everyone
-from individual developers to large, distributed teams:
-<ul>
-<li>Its client-server access method lets developers access the latest code from anywhere there's an Internet connection.</li>
-<li>Its unreserved check-out model to version control avoids artificial conflicts common with the exclusive check-out model.</li>
-<li>Its client tools are available on most platforms.</li>
-</ul></blockquote>
-<div class="title">Browse the CVS repository</div>
-One of the most interesting features of CVS at SourceForge, is the ability to consult
-<a href="http://itext.cvs.sourceforge.net/itext/">the CVS repository</a> just using
-your browser (no CVS client installation needed).
-You can look for code that was removed; for instance if you used classes in
-<a href="http://itext.cvs.sourceforge.net/itext/src/com/lowagie/servlets/">package com.lowagie.servlets</a>
-you can look in the CVS 'Attic' and download them from there if you still need them.
-This can be useful to track down problems if you update from a very old version to
-the most recent one. You can also look at the <a href="http://itext.cvs.sourceforge.net/itext/src/com/lowagie/text/Cell.java?r1=1.88&amp;r2=1.89">difference</a>
-between one version and the other. This way, you can see what bugfixes and optimalizations were
-added between versions.
-<div class="title">Downloading iText from the CVS repository</div>
-The iText repository is hosted at <a href="http://sourceforge.net/">SourceForge</a>.
-You need CVS client software to be able to get the source from the CVS repository.
-Please read the <a href="http://sourceforge.net/docman/display_doc.php?docid=766&amp;group_id=1">WinCvs CVS Client Installation Instructions</a>
-if you want to know how to obtain and install a CVS client. If you are new at using CVS,
-you should also read the <a href="http://sourceforge.net/docman/display_doc.php?docid=14033&amp;group_id=1">Basic Introduction to CVS and SourceForge.net (SF.net) Project CVS Services</a>.
-In a tool such as WinCVS you will need to enter the servertype (pserver), the server
-(itext.cvs.sourceforge.net), a directory (/cvsroot/itext), a username (anonymous)
-and maybe a password (just press the Enter key if prompted for it). This results in
-the following CVSROOT: <span class="commandline">:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext</span>.<br /><br />
-If you use CVS from the commandline, you'll have to login like this.
-<div class="commandline">cvs -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext login</div>
-When asked for the <span class="commandline">CVS password:</span> just press enter.
-You can obtain todays complete sourcecode tree using this statement:
-<div class="commandline">cvs -z3 -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext export -D now src</div>
-The complete iText site, tutorial and examples are in another module:
-<div class="commandline">cvs -z3 -d:pserver:anonymous@itext.cvs.sourceforge.net:/cvsroot/itext export -D now www</div><br /><br />
-The three actions described above are also combined in the <a href="ant.html">ANT scripts</a>.
-You can get the source with this command <span class="commandline">ant getFromCvs</span>.<br /><br />
-If all this doesn't work, please check the SourceForge status information. Anonymous CVS could be down.
-<div class="title">Developer Access</div>
-For the moment only 3 developers have been granted <a href="http://sourceforge.net/cvs/?group_id=15255">Developer CVS Access via SSH</a>.
-They are the only ones allowed to commit changes to the CVS repository. All other users only have anonymous ReadOnly access.
+CVS is no longer used for iText.
+The most recent version of iText can now be found
+in the <a href="svn.html">SVN repository</a>.
 	</div>
 	</site:content>
 </site:page>
