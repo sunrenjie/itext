@@ -17,9 +17,9 @@
 
 
 <site:release number="V200" name="iText 2" date="unknown">
-<site:remark>2006-02-15</site:remark>
+<site:remark>?</site:remark>
 <site:changelog>
-<ul>2006-06-04: iText 2.0.4
+<ul>2007-06-04: iText 2.0.4
  <li>Changes made by Xavier
   <ul>
   <li>We have moved from CVS to SVN! Xavier is also starting a JDK 1.3 and a 1.5 branch for iText.</li>
@@ -59,7 +59,7 @@
   </ul>
  </li>
 </ul>
-<ul>2006-05-25: iText 2.0.3
+<ul>2007-05-25: iText 2.0.3
  <li>Changes made by Paulo
   <ul>
   <li>AcroForms: make sure there 's always a /DA key</li>
@@ -142,7 +142,7 @@
   </ul>
  </li>
 </ul>
-<ul>2006-04-13: iText 2.0.2
+<ul>2007-04-13: iText 2.0.2
 <li>Changes made by Paulo
 <ul>
 <li>Added some convenience methods in PdfArray and PdfDictionary</li>
@@ -181,7 +181,7 @@ These convenience methods make it easier for tool builders to work with encrypti
 </ul>
 </li>
 </ul>
-<ul>2006-03-07: iText 2.0.1
+<ul>2007-03-07: iText 2.0.1
 <li>Changes made by Paulo
 <ul>
 <li>JPG: fix for the Adobe Application-Specific JPEG Marker length (fix by Cory Lewis)</li>
@@ -237,7 +237,7 @@ to numerous mails. Because of possible IP issues I had to remove this code.</li>
 </ul>
 </li>
 </ul>
-<ul>2006-02-15: iText 2.0.0
+<ul>2007-02-15: iText 2.0.0
 <li>Changes made by Paulo
 <ul>
 <li>Certificate encryption. This change has a huge impact on projects that use encryption.
