@@ -92,7 +92,9 @@ public class ChapterSection {
                     if (i > 2) section.setBookmarkOpen(false);
                     // in all chapters except the 1st one, some extra text is added to section 3
                     if (j == 3 && i > 1) {
+                    	section.setIndentationLeft(72);
                         section.add(blahblah);
+                    	section.add(new Paragraph("test"));
                     }
                     // in every section 3 subsections are added
                     for (int k = 1; k < 4; k++) {
