@@ -55,6 +55,7 @@ one suggestion was sent to Bruno by Actuate.</li>
 <li>Fixed a series of indentation bugs reported by Janis Achenbach (fix by Bruno in more than one try; tested by Janis).</li>
 <li>Fixed a page size/page margins problem in PdfDocument</li>
 <li>FontFactoryImp: parsing the size of a font was not done correctly (fix by Janis Achenbach)</li>
+<li>Font propagation affected Phrases/Paragraphs that were reused.</li>
 <li>Update of the toString() methods in PdfString, PdfDictionary and PdfStream;
 for instance: it no longer says 'Dictionary of type: null' for Dictionaries without a /TYPE key.</li>
 <li>XMP: the 'Subject' of PDF metadata is now also added as a Description in the XMP metadata (Suggested by Seung Hyun Park)</li>
