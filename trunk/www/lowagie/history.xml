@@ -30,6 +30,8 @@
 <li>Outlines can be set all at once in PdfWriter. Note that outlines set by other means, like Chapter, will be overridden.</li>
 <li>PdfFileSpecification: file parameters and mime type can be set</li>
 <li>Better password restriction control</li>
+<li>XML parsing: whitespace is significant and must be processed.</li>
+<li>Field flattening could cause a class cast exception with broken PDFs.</li>
 <li>Tiff: broken tiffs with an invalid IFD pointer returned one less the real number of images</li>
 <li>Tiff: TIFFTAG_JPEGIFOFFSET can be optional</li>
 <li>PdfDate: dates in W3C format in the metadata were different than the PDF dates in the Info dictionary</li>
@@ -38,15 +40,19 @@
 <li>RandomAccessFileOrArray: it's very expensive to open a memory mapped file
 and for the usage pattern of this class in iText it's faster the next re-openings
 to be done as a plain random access file</li>
+<li>Preserve hyperlinks in PdfImportedPage (Michael Schierl)</li>
 <li>Optimization of the DPI rounding in BMP, PNG and TIFF images</li>
+<li>Removed some superfluous synchronized method modifiers.</li>
 <li>Several improvements in memory fragmentation and thread locking in processing font data;
 some of the improvements were suggested on the mailing list and implemented by Paulo;
 one suggestion was sent to Bruno by Actuate.</li>
 <li>PdfGraphics2D: jpeg compression is done with imageio (instead of with com.sun.image.codec.jpg.JPEGCodec)</li>
 <li>PdfGraphics2D: partial acceptance of some extra functionality in drawString contributed by John Hellerud</li>
+<li>PdfGraphics2D: enable bold simulation as proposed by John Hellerud, but with with extra check of the BaseFont</li>
 <li>PdfPageLabels: added a series of null checks</li>
 <li>PdfReader: fix to ascii85 decode (fixed by Aiken Sam)</li>
 <li>PdfReader: page dimensions were assumed as direct objects</li>
+<li>PdfSmartCopy was too liberal in comparing streams. Form XObjects (templates) are not candidates for comparison anymore.</li>
 <li>FdfReader: extra check for the FDF key</li>
 <li>PdfPageLabels: better page label options</li>
 <li>Utilities: simplification in toURL()</li>
@@ -58,15 +64,19 @@ one suggestion was sent to Bruno by Actuate.</li>
 <li>Added support for custom names for document-level JavaScript actions in the Name Dictionary.</li>
 <li>Fixed a series of indentation bugs reported by Janis Achenbach (fix by Bruno in more than one try; tested by Janis).</li>
 <li>Fixed a page size/page margins problem in PdfDocument</li>
+<li>A Copy/Paste error made that DUPLEXFLIPLONGEDGE was not seen as a possible value for DUPLEX.</li>
 <li>FontFactoryImp: parsing the size of a font was not done correctly (fix by Janis Achenbach)</li>
-<li>Font propagation affected Phrases/Paragraphs that were reused.</li>
-<li>Update of the toString() methods in PdfString, PdfDictionary and PdfStream;
+<li>Bugfix: font propagation affected Phrases/Paragraphs that were reused.</li>
+<li>Bugfix: extra space after a Paragraph affected the indentation.</li>
+<li>Bugfix: Paragraph.setKeepTogether(true) affected the indentation and doubled the spacing after a Paragraph.</li>
+<li>Update of the toString() methods in PdfDictionary and PdfStream;
 for instance: it no longer says 'Dictionary of type: null' for Dictionaries without a /TYPE key.</li>
 <li>XMP: the 'Subject' of PDF metadata is now also added as a Description in the XMP metadata (Suggested by Seung Hyun Park)</li>
 <li>XMP: added support for adding XMP metadata to the page dictionary of each page</li>
 <li>BaseField: if you are using a template as icon, the state of the content of the template can be affected by the background color
 of the button (probably also by other properties of the button appearance).</li>
 <li>PdfPageLabels: minor memory improvement</li>
+<li>Made iText more tolerant towards the type of PDF object that is accepted as value for the /TYPE key.</li>
 <li>Bugfix: table threw an IndexOutOfBoundsException in two specific cases that almost never occur</li>
 <li>Bugfix: List.add(Object o) didn't always return the expected value (suggested by Dhruba Bandopadhyay)</li>
 <li>Bugfix: if an image is new and it's a WMF image, the template has to be read, even if it's not null.</li>
@@ -77,6 +87,7 @@ of the button (probably also by other properties of the button appearance).</li>
 <ul>
 <li>Removal of unused imports</li>
 <li>Removal of useless redefinition of open() in PdfCopy and RtfWriter</li>
+<li>Update from BouncyCastle 1.35 to BouncyCastle 1.37</li>
 </ul></li>
 </ul>
 <ul>2007-06-04: iText 2.0.4
