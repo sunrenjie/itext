@@ -19,7 +19,7 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>?</site:remark>
 <site:changelog>
-<ul>2007-09-01: iText 2.0.5
+<ul>2007-09-09: iText 2.0.5
 <li>Changes made by Paulo
 <ul>
 <li>Added stamping capabilities for PdfCopy (contributed by Ryo Nakamura; optimized + support for adding annotations by Paulo)</li>
