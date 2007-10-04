@@ -19,6 +19,38 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>?</site:remark>
 <site:changelog>
+<ul>2007-10-05: iText 2.0.6
+<li>Changes made by Paulo
+<ul>
+<li>Solved a problem with NameTree: in iText 2.0.5, it was possible to create unsorted PDF Name Trees.</li>
+<li>Class ColumnText: it is now possible to have better control over the 'first line' behavior.</li>
+<li>PDF417: removed the optional macro field segment count. Some readers can't process it.</li>
+<li>Fonts: more properties can be extracted from fonts: sub/superscript size and position,
+underline/strikethrough thickness and position.</li>
+<li>Extra check in PdfContentByte: very small font sizes can crash some viewers.</li>
+<li>Fix: PdfReader in partial mode misbehaved in PdfStamper.</li>
+<li>Fix: iText now scales the WMF font size if necessary.</li>
+<li>Fix: an error was thrown if the /Annots array had a null element.</li>
+<li>Fix: Cp437 must also output the control codes (&lt;32).</li>
+<li>Fix: underline or strikethrough fonts could leave a visible line in the wrong place when spacing before was applied.</li>
+<li>Fix: Checkboxes should behave as Radioboxes specially concerning the Opt array</li>
+<li>Performance: avoid the creation of new fonts.</li>
+<li>Support for JPEG2000 images (.jp2 and .j2k)</li>
+<li>Added support to set the button image with images coded in base64. This is particulary important for XFA forms where the image may be coded in the dataset.</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>All lines in a Cell (old Table class) were assumed to have equal heights.
+This isn't always the case. This problem was reported by Chad Loder on the mailing list.</li>
+<li>A lot of RTF functionality was broken in iText 2.0.5. This is fixed in iText 2.0.6.</li>
+<li>Some indentation bugs were fixed in iText 2.0.5; but by doing so a new indentation bug
+was introduced. The bug was reported on SourceForge #1797927 and has now been solved.</li>
+<li>Extra null checks in Font and Phrase; changes to the copy constructor of class Phrase.</li>
+<li>For what it's worth: I changed single quotes into double quotes in XmpWriter</li>
+</ul>
+</li>
+</ul>
 <ul>2007-09-09: iText 2.0.5
 <li>Changes made by Paulo
 <ul>
