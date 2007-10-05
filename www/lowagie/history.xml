@@ -50,6 +50,9 @@ was introduced. The bug was reported on SourceForge #1797927 and has now been so
 <li>For what it's worth: I changed single quotes into double quotes in XmpWriter</li>
 </ul>
 </li>
+<li>Changes made by Xavier
+<ul><li>Code cleanup in class Jpeg2000</li></ul>
+</li>
 </ul>
 <ul>2007-09-09: iText 2.0.5
 <li>Changes made by Paulo
