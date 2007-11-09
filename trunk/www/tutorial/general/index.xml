@@ -59,7 +59,7 @@
 		<site:example>
 			<site:java src="HelloEncrypted" standalone="yes" />
 			<site:result>HelloEncrypted.pdf</site:result>
-			<site:extrajar>bcprov-jdk14-137.jar</site:extrajar>
+			<site:extrajar>bcprov-jdk14-138.jar</site:extrajar>
 			<site:description>Again a PDF with the text 'Hello World', but this time the document is encrypted. To read it, you need to know the userpassword: 'Hello'</site:description>
 		</site:example>
 		<site:example>

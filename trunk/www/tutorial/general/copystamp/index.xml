@@ -43,7 +43,7 @@
 			<site:java src="EncryptorExample" standalone="yes" />
 			<site:externalresource>ChapterSection.pdf</site:externalresource>
 			<site:result>encrypted.pdf</site:result>
-			<site:extrajar>bcprov-jdk14-137.jar</site:extrajar>
+			<site:extrajar>bcprov-jdk14-138.jar</site:extrajar>
 			<site:description>Encrypts an existing PDF file</site:description>
 		</site:example>
 		<site:example>
