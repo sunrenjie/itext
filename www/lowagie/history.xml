@@ -19,6 +19,44 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>?</site:remark>
 <site:changelog>
+<ul>iText 2.0.7
+<li>Changes made by Paulo
+<ul>
+<li>TiffImage: Deflate compression can also be identified by type 8.</li>
+<li>TiffImage: Added support for fill order in tiff.</li>
+<li>PdfDocument: Indentation right was missing the image offset.</li>
+<li>Barcode128: The AIs from 7030 to 7039 couldn't be used.</li>
+<li>Page number added to "Invalid page number" exception message</li>
+<li>Supported button replacement when several buttons have the same name.</li>
+<li>PdfGraphics2D: A null transform should draw at 0,0 (reported on the mailing list by Phil Cope Nov 6, 2007).</li>
+<li>PdfGraphics2D: Keep the transform immutable in drawImage() (suggested on the mailing list by Mark Storer)</li>
+<li>PdfReader: Some producers don't have a document id with encrypted documents.</li>
+<li>Fix: PDF/A docs should have version 1.4</li>
+</ul>
+</li>
+<li>Changes made by Xavier
+<ul>
+<li>Toolbox error dialog now has version number in title.
+
+Side effect: "java -jar iText.jar" is enough to get the version number.
+If the toolbox jar is present, the GUI can display the versions numbers
+using "Help->Versions". If the toolbox is not there, the iText version is in the dialog title.
+This may help with customer support queries. Also make sure the iText version and toolbox error are also displayed for headless mode.</li>
+<li>Code cleanup: e.g. serialVersionUID added to remove eclipse warning</li>
+<li>Bouncy Castle update to v138</li>
+<li>Added an ANT script to compile the examples</li>
+<li>ExtendedColor is now an abstract class</li>
+</ul>
+</li>
+<li>Changes made by Bruno
+<ul>
+<li>XmpWriter: Typo in Processing Instruction (reported on the mailing list).
+Removal of unnecessary space characters.</li>
+<li>Renamed a class: the Greek 'numbering' isn't really a 'numbering'; in analogy with the RomanNumberingFactory vs the RomanAlphabetFactory, it's better to talk about GreekAlphabetFactory.</li>
+<li>Added a number of convenience methods in PdfEncryptor as suggested by Bruno Waes</li>
+</ul>
+</li>
+</ul>
 <ul>2007-10-05: iText 2.0.6
 <li>Changes made by Paulo
 <ul>
