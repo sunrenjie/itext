@@ -37,7 +37,7 @@ public class EncryptorExample {
 					new FileOutputStream("encrypted.pdf"),
 					"Hello".getBytes(),
 					"World".getBytes(),
-					PdfWriter.AllowPrinting | PdfWriter.AllowCopy,
+					PdfWriter.ALLOW_PRINTING | PdfWriter.ALLOW_COPY,
 					false);
 		}
 		catch(Exception e) {
