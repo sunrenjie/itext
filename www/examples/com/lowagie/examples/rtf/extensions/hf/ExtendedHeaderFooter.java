@@ -67,7 +67,7 @@ public class ExtendedHeaderFooter {
             // Create the table that will be used as the footer
             Table footer = new Table(2);
             footer.setBorder(0);
-            footer.getDefaultLayout().setBorder(0);
+            footer.getDefaultCell().setBorder(0);
             footer.setWidth(100);
             footer.addCell(new Cell("(c) Mark Hall"));
             Paragraph pageNumber = new Paragraph("Page ");
