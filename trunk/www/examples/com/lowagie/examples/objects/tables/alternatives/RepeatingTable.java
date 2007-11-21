@@ -70,8 +70,8 @@ public class RepeatingTable {
             datatable.addCell(cell);
             
             // These cells span 2 rows
-            datatable.getDefaultLayout().setBorderWidth(2);
-            datatable.getDefaultLayout().setHorizontalAlignment(1);
+            datatable.getDefaultCell().setBorderWidth(2);
+            datatable.getDefaultCell().setHorizontalAlignment(1);
             datatable.addCell("User Id");
             datatable.addCell("Name\nAddress");
             datatable.addCell("Company");
@@ -86,18 +86,18 @@ public class RepeatingTable {
             // this is the end of the table header
             datatable.endHeaders();
             
-            datatable.getDefaultLayout().setBorderWidth(1);
+            datatable.getDefaultCell().setBorderWidth(1);
             
             for (int i = 1; i < 30; i++) {
                 
-                datatable.getDefaultLayout().setHorizontalAlignment(Element.ALIGN_LEFT);
+                datatable.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
                 
                 datatable.addCell("myUserId");
                 datatable.addCell("Somebody with a very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long long name");
                 datatable.addCell("No Name Company");
                 datatable.addCell("D" + i);
                 
-                datatable.getDefaultLayout().setHorizontalAlignment(Element.ALIGN_CENTER);
+                datatable.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
                 datatable.addCell("No");
                 datatable.addCell("Yes");
                 datatable.addCell("No");
