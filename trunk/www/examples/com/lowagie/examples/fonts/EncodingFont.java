@@ -56,9 +56,9 @@ public class EncodingFont {
 						+ "\"\n"));
                 char tb[];
                 if (z == 0)
-                    tb = table_symbol;
+                    tb = SYMBOL_TABLE;
                 else
-                    tb = table_dingbats;
+                    tb = DINGBATS_TABLE;
                 BaseFont bf;
                 bf = BaseFont.createFont(file, file, true);
                 Font f = new Font(bf, 12);
@@ -99,7 +99,7 @@ public class EncodingFont {
         return s.substring(s.length() - 4);
     }
     
-	final static char table_symbol[] = {
+	final static char SYMBOL_TABLE[] = {
 	        ' ','!','\u2200','#','\u2203','%','&','\u220b','(',')','*','+',',','-','.','/',
 	        '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',
 	        '\u2245','\u0391','\u0392','\u03a7','\u0394','\u0395','\u03a6','\u0393','\u0397','\u0399','\u03d1','\u039a','\u039b','\u039c','\u039d','\u039f',
@@ -115,7 +115,7 @@ public class EncodingFont {
 	        '\u25ca','\u2329','\0','\0','\0','\u2211','\u239b','\u239c','\u239d','\u23a1','\u23a2','\u23a3','\u23a7','\u23a8','\u23a9','\u23aa',
 	        '\0','\u232a','\u222b','\u2320','\u23ae','\u2321','\u239e','\u239f','\u23a0','\u23a4','\u23a5','\u23a6','\u23ab','\u23ac','\u23ad','\0'
 	    };
-	    static char table_dingbats[] = {
+	    final static char DINGBATS_TABLE[] = {
 	        '\u0020','\u2701','\u2702','\u2703','\u2704','\u260e','\u2706','\u2707','\u2708','\u2709','\u261b','\u261e','\u270C','\u270D','\u270E','\u270F',
 	        '\u2710','\u2711','\u2712','\u2713','\u2714','\u2715','\u2716','\u2717','\u2718','\u2719','\u271A','\u271B','\u271C','\u271D','\u271E','\u271F',
 	        '\u2720','\u2721','\u2722','\u2723','\u2724','\u2725','\u2726','\u2727','\u2605','\u2729','\u272A','\u272B','\u272C','\u272D','\u272E','\u272F',
