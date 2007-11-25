@@ -46,7 +46,8 @@ public class HelloSystemOut {
 			// step 2:
 			// we create a writer that listens to the document
 			// and directs a PDF-stream to System.out (and a txt file)
-			PdfWriter.getInstance(document, System.out);
+			PdfWriter w = PdfWriter.getInstance(document, System.out);
+			w.setCloseStream(false); // System.out should not be closed
 			PdfWriter.getInstance(document,
 					new FileOutputStream("HelloWorld.txt"));
 
