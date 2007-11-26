@@ -171,10 +171,11 @@ public class JTable2Pdf extends JFrame {
 	 *            no arguments needed
 	 */
 	public static void main(String[] args) {
+        System.out.println("Printing a JTable");
         JTable2Pdf frame = new JTable2Pdf();
         frame.pack();
         frame.setVisible(true);
         frame.print();
-        frame.exit();
+        frame.dispose();
 	}
 }
