@@ -78,6 +78,5 @@ public class AwtImage {
         
         // step 5: we close the document
         document.close();
-        System.exit(0);
     }
 }
