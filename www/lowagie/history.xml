@@ -67,7 +67,7 @@ Removal of unnecessary space characters.</li>
 <li>The iText.jar is now signed with Bruno's personal CAcert certificate.</li>
 </ul>
 </li>
-<li>Changes made by /Mark
+<li>Changes made by Mark
 <ul>
 <li>Color fixes to the RtfParser by Howard Shank</li>
 <li>Added extra info for deprecated methods</li>
