@@ -19,7 +19,7 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>?</site:remark>
 <site:changelog>
-<ul>iText 2.0.7
+<ul>2007-11-28: iText 2.0.7
 <li>Changes made by Paulo
 <ul>
 <li>TiffImage: Deflate compression can also be identified by type 8.</li>
@@ -32,20 +32,28 @@
 <li>PdfGraphics2D: Keep the transform immutable in drawImage() (suggested on the mailing list by Mark Storer)</li>
 <li>PdfReader: Some producers don't have a document id with encrypted documents.</li>
 <li>Fix: PDF/A docs should have version 1.4</li>
+<li>Fix: Documents with PDF/A conformance must have the CIDset key in the font descriptor for Unicode TrueType fonts.</li>
+<li>Removed the duplicated bit reversal code for TIFF.</li>
 </ul>
 </li>
 <li>Changes made by Xavier
 <ul>
+<li>Javadoc updates</li>
 <li>Toolbox error dialog now has version number in title.
-
 Side effect: "java -jar iText.jar" is enough to get the version number.
 If the toolbox jar is present, the GUI can display the versions numbers
 using "Help->Versions". If the toolbox is not there, the iText version is in the dialog title.
 This may help with customer support queries. Also make sure the iText version and toolbox error are also displayed for headless mode.</li>
 <li>Code cleanup: e.g. serialVersionUID added to remove eclipse warning</li>
 <li>Bouncy Castle update to v138</li>
-<li>Added an ANT script to compile the examples</li>
 <li>ExtendedColor is now an abstract class</li>
+<li>Changed some names of constant to meet the Java naming conventions.</li>
+<li>Added junit tests for iText (the iText examples)</li>
+<li>Introduction of a jdiff task</li>
+<li>Added extra info for deprecated methods</li>
+<li>added @since tags to all new methods</li>
+<li>Reorganization of the ANT scripts</li>
+<li>Fully configurable signing</li>
 </ul>
 </li>
 <li>Changes made by Bruno
@@ -54,6 +62,15 @@ This may help with customer support queries. Also make sure the iText version an
 Removal of unnecessary space characters.</li>
 <li>Renamed a class: the Greek 'numbering' isn't really a 'numbering'; in analogy with the RomanNumberingFactory vs the RomanAlphabetFactory, it's better to talk about GreekAlphabetFactory.</li>
 <li>Added a number of convenience methods in PdfEncryptor as suggested by Bruno Waes</li>
+<li>Reorganization of the ANT scripts</li>
+<li>Added extra info for deprecated methods</li>
+<li>The iText.jar is now signed with Bruno's personal CAcert certificate.</li>
+</ul>
+</li>
+<li>Changes made by /Mark
+<ul>
+<li>Color fixes to the RtfParser by Howard Shank</li>
+<li>Added extra info for deprecated methods</li>
 </ul>
 </li>
 </ul>
