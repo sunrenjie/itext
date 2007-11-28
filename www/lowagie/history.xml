@@ -31,6 +31,8 @@
 <li>PdfGraphics2D: A null transform should draw at 0,0 (reported on the mailing list by Phil Cope Nov 6, 2007).</li>
 <li>PdfGraphics2D: Keep the transform immutable in drawImage() (suggested on the mailing list by Mark Storer)</li>
 <li>PdfReader: Some producers don't have a document id with encrypted documents.</li>
+<li>Fix: Invalid images don't throw an exception in setField()</li>
+<li>Fix: The non-breaking space was being incorrectly translated in pdfdocencoding.</li>
 <li>Fix: PDF/A docs should have version 1.4</li>
 <li>Fix: Documents with PDF/A conformance must have the CIDset key in the font descriptor for Unicode TrueType fonts.</li>
 <li>Removed the duplicated bit reversal code for TIFF.</li>
