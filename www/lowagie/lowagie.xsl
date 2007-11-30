@@ -27,27 +27,27 @@
 
 <xsl:template match="site:releasesrc">
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-src-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
-itext-src-<xsl:call-template name="site:releasenumber" />.tar.gz
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-src-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
+iText-src-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
 or
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-src-<xsl:call-template name="site:releasenumber" />.zip</xsl:attribute>
-itext-src-<xsl:call-template name="site:releasenumber" />.zip
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-src-<xsl:call-template name="site:releasenumber" />.zip</xsl:attribute>
+iText-src-<xsl:call-template name="site:releasenumber" />.zip
 </xsl:element>
 </xsl:template>
 
 <xsl:template match="site:releasejar">
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
-itext-<xsl:call-template name="site:releasenumber" />.jar
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
+iText-<xsl:call-template name="site:releasenumber" />.jar
 </xsl:element>
 </xsl:template>
 
 <xsl:template match="site:releasedocs">
 <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
-itext-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
+iText-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
 </xsl:template>
 
