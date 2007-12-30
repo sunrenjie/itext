@@ -54,6 +54,11 @@
 		<img src="http://www.prchecker.info/PR1_img.gif" alt="iText, the #1 Java-PDF library" border="0" /></a></div><br />
 		
 <script type="text/javascript"><![CDATA[<!--
+var uri = 'http://imp.tradedoubler.com/imp?type(js)pool(238100)a(1457679)' + new String (Math.random()).substring (2, 11);
+document.write('<sc'+'ript type="text/javascript" src="'+uri+'" charset="ISO-8859-1"></sc'+'ript>');
+//-->]]></script>
+<br />
+<script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
 google_ad_width = 120;
 google_ad_height = 600;
