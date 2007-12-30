@@ -142,7 +142,6 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	 * @return	the PDF object represented by this tree node.
 	 */
 	public PdfObject getPdfObject() {
-		System.err.println(object);
 		return object;
 	}
 
