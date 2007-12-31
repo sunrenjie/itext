@@ -28,12 +28,13 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 
+import com.lowagie.rups.controller.PdfReaderController;
 import com.lowagie.rups.model.ObjectLoader;
 import com.lowagie.rups.model.TreeNodeFactory;
-import com.lowagie.rups.view.TreeNavigationListener;
 import com.lowagie.rups.view.icons.IconTreeCellRenderer;
 import com.lowagie.rups.view.itext.treenodes.OutlineTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
+import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
 import com.lowagie.text.pdf.PdfName;
 
 /**
@@ -42,12 +43,13 @@ import com.lowagie.text.pdf.PdfName;
  */
 public class OutlineTree extends JTree implements TreeSelectionListener, Observer {
 
-	/** Nodes in the OutlineTree correspond with nodes in the main PdfTree. */
-	TreeNavigationListener tree = null;
+	/** Nodes in the FormTree correspond with nodes in the main PdfTree. */
+	protected PdfReaderController controller;
 	
 	/** Creates a new outline tree. */
-	public OutlineTree() {
+	public OutlineTree(PdfReaderController controller) {
 		super();
+		this.controller = controller;
 		setCellRenderer(new IconTreeCellRenderer());
 		setModel(new DefaultTreeModel(new OutlineTreeNode()));
 		addTreeSelectionListener(this);
@@ -58,18 +60,16 @@ public class OutlineTree extends JTree implements TreeSelectionListener, Observe
 	 */
 	public void update(Observable observable, Object obj) {
 		if (obj == null) {
-			tree = null;
 			setModel(new DefaultTreeModel(new OutlineTreeNode()));
 			repaint();
 			return;
 		}
-		if (observable instanceof TreeNavigationListener) {
-			tree = (TreeNavigationListener)observable;
-		}
 		if (obj instanceof ObjectLoader) {
 			ObjectLoader loader = (ObjectLoader)obj;
 			TreeNodeFactory factory = loader.getNodes();
-			PdfObjectTreeNode outline = tree.getOutlines();
+			PdfTrailerTreeNode trailer = controller.getPdfTree().getRoot();
+			PdfObjectTreeNode catalog = factory.getChildNode(trailer, PdfName.ROOT);
+			PdfObjectTreeNode outline = factory.getChildNode(catalog, PdfName.OUTLINES);
 			if (outline == null) {
 				return;
 			}
@@ -99,12 +99,12 @@ public class OutlineTree extends JTree implements TreeSelectionListener, Observe
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
 	public void valueChanged(TreeSelectionEvent evt) {
-		if (tree == null)
+		if (controller == null)
 			return;
 		OutlineTreeNode selectednode = (OutlineTreeNode)this.getLastSelectedPathComponent();
 		PdfObjectTreeNode node = selectednode.getCorrespondingPdfObjectNode();
 		if (node != null)
-			tree.selectNode(node);
+			controller.selectNode(node);
 	}
 
 	/** A serial version uid. */

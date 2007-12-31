@@ -30,9 +30,7 @@ import com.lowagie.rups.model.ObjectLoader;
 import com.lowagie.rups.model.PdfFile;
 import com.lowagie.rups.model.TreeNodeFactory;
 import com.lowagie.rups.view.PageNavigationListener;
-import com.lowagie.rups.view.PdfObjectListener;
 import com.lowagie.rups.view.RupsMenuBar;
-import com.lowagie.rups.view.TreeNavigationListener;
 import com.lowagie.rups.view.Utilities;
 import com.lowagie.rups.view.itext.FormTree;
 import com.lowagie.rups.view.itext.OutlineTree;
@@ -42,17 +40,14 @@ import com.lowagie.rups.view.itext.PdfTree;
 import com.lowagie.rups.view.itext.StreamTextArea;
 import com.lowagie.rups.view.itext.XRefTable;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
-import com.lowagie.rups.view.itext.treenodes.PdfPagesTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
 import com.lowagie.text.pdf.PRStream;
-import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfObject;
 
 /**
  * Controls the GUI components that get their content from iText's PdfReader.
  */
-public class PdfReaderController extends Observable
-	implements Observer, PdfObjectListener, TreeNavigationListener {
+public class PdfReaderController extends Observable implements Observer {
 
 	/** Treeview of the PDF file. */
 	protected PdfTree pdfTree;
@@ -75,25 +70,26 @@ public class PdfReaderController extends Observable
 	
 	/** The factory producing tree nodes. */
 	protected TreeNodeFactory nodes;
-	/** The root of the page tree. */
-	protected PdfPagesTreeNode pageTreeNode;
-	/** The root of the Outline tree. */
-	protected PdfObjectTreeNode outlineTreeNode;
-	/** The root of the Outline tree. */
-	protected PdfObjectTreeNode formTreeNode;
 	
+	/**
+	 * Constructs the PdfReaderController.
+	 * This is an Observable object to which all iText related GUI components
+	 * are added as Observers.
+	 * @param treeSelectionListener	when somebody selects a tree node, this listener listens to the event
+	 * @param pageNavigationListener	when somebody changes a page, this listener changes accordingly
+	 */
 	public PdfReaderController(TreeSelectionListener treeSelectionListener,
 			PageNavigationListener pageNavigationListener) {
 		pdfTree = new PdfTree();
 		pdfTree.addTreeSelectionListener(treeSelectionListener);
 		addObserver(pdfTree);
-		pages = new PagesTable(pageNavigationListener);
+		pages = new PagesTable(this, pageNavigationListener);
 		addObserver(pages);
-		outlines = new OutlineTree();
+		outlines = new OutlineTree(this);
 		addObserver(outlines);
-		form = new FormTree();
+		form = new FormTree(this);
 		addObserver(form);
-		xref = new XRefTable();
+		xref = new XRefTable(this);
 		addObserver(xref);
 		navigationTabs = new JTabbedPane();
 		navigationTabs.addTab("Pages", null, Utilities.getScrollPane(pages), "Pages");
@@ -108,10 +104,55 @@ public class PdfReaderController extends Observable
 		editorTabs.addTab("Stream", null, streamArea, "Stream");
 	}
 
+	/**
+	 * Getter for the PDF Tree.
+	 * @return the PdfTree object
+	 */
 	public PdfTree getPdfTree() {
 		return pdfTree;
 	}
+
+	/**
+	 * Getter for the tabs that allow you to navigate through
+	 * the PdfTree quickly (pages, form, outlines, xref table).
+	 * @return	a JTabbedPane
+	 */
+	public JTabbedPane getNavigationTabs() {
+		return navigationTabs;
+	}
+
+	/**
+	 * Getter for the panel that will show the contents
+	 * of a PDF Object (except for PdfStreams: only the
+	 * Stream Dictionary will be shown; the content stream
+	 * is shown in a StreamTextArea object).
+	 * @return	the PdfObjectPanel
+	 */
+	public PdfObjectPanel getObjectPanel() {
+		return objectPanel;
+	}
+
+	/**
+	 * Getter for the tabs with the editor windows
+	 * (to which the Console window will be added).
+	 */
+	public JTabbedPane getEditorTabs() {
+		return editorTabs;
+	}
+
+	/**
+	 * Getter for the object that holds the TextArea
+	 * with the content stream of a PdfStream object.
+	 * @return	a StreamTextArea
+	 */
+	public StreamTextArea getStreamArea() {
+		return streamArea;
+	}
 	
+	/**
+	 * Starts loading the PDF Objects in background.
+	 * @param file	the wrapper object that holds the PdfReader as member variable
+	 */
 	public void startObjectLoader(PdfFile file) {
 		setChanged();
 		notifyObservers();
@@ -120,6 +161,11 @@ public class PdfReaderController extends Observable
 	}
 
 	/**
+	 * The GUI components that show the internals of a PDF file,
+	 * can only be shown if all objects are loaded into the
+	 * IndirectObjectFactory using the ObjectLoader.
+	 * As soon as this is done, the GUI components are notified.
+	 * @param	obj	in this case the Object should be an ObjectLoader
 	 * @see java.util.Observable#notifyObservers(java.lang.Object)
 	 */
 	@Override
@@ -131,63 +177,48 @@ public class PdfReaderController extends Observable
 			root.setTrailer(loader.getReader().getTrailer());
 			root.setUserObject("PDF Object Tree");
 			nodes.expandNode(root);
-			PdfObjectTreeNode catalog = nodes.getChildNode(pdfTree.getRoot(), PdfName.ROOT);
-			pageTreeNode = (PdfPagesTreeNode)nodes.getChildNode(catalog, PdfName.PAGES);
-			outlineTreeNode = nodes.getChildNode(catalog, PdfName.OUTLINES);
-			formTreeNode = nodes.getChildNode(catalog, PdfName.ACROFORM);
 		}
 		super.notifyObservers(obj);
-		if (obj == null) {
-			pageTreeNode = null;
-			outlineTreeNode = null;
-			formTreeNode = null;
-		}
 	}
-
-	public PdfObjectTreeNode getForm() {
-		return formTreeNode;
-	}
-
-	public PdfObjectTreeNode getOutlines() {
-		return outlineTreeNode;
-	}
-
-	public PdfPagesTreeNode getPages() {
-		return pageTreeNode;
-	}
-
+	
+	/**
+	 * Selects a node in the PdfTree.
+	 * @param node a node in the PdfTree
+	 */
 	public void selectNode(PdfObjectTreeNode node) {
 		pdfTree.selectNode(node);
 	}
 
-	public void show(PdfObject object) {
+	/**
+	 * Selects a node in the PdfTree.
+	 * @param objectNumber a number of a node in the PdfTree
+	 */
+	public void selectNode(int objectNumber) {
+		selectNode(nodes.getNode(objectNumber));
+	}
+
+	/**
+	 * Renders the syntax of a PdfObject in the objectPanel.
+	 * If the object is a PDF Stream, then the stream is shown
+	 * in the streamArea too.
+	 */
+	public void render(PdfObject object) {
 		objectPanel.render(object);
 		streamArea.render(object);
 		if (object instanceof PRStream) {
 			editorTabs.setSelectedComponent(streamArea);
 		}
-	}
-
-	public JTabbedPane getNavigationTabs() {
-		return navigationTabs;
-	}
-
-	public TreeNodeFactory getNodes() {
-		return nodes;
-	}
-
-	public XRefTable getXref() {
-		return xref;
-	}
-
-	public void update(Observable observable, Object obj) {
-		if (RupsMenuBar.CLOSE.equals(obj)) {
-			setChanged();
-			notifyObservers(null);
+		else {
+			editorTabs.setSelectedIndex(editorTabs.getComponentCount() - 1);
 		}
 	}
 
-	public void setPageTableRow(int pageNumber) {
+	/**
+	 * Selects the row in the pageTable that corresponds with
+	 * a certain page number.
+	 * @param pageNumber the page number that needs to be selected
+	 */
+	public void gotoPage(int pageNumber) {
 		pageNumber--;
 		if (pages == null || pages.getSelectedRow() == pageNumber)
 			return;
@@ -195,15 +226,30 @@ public class PdfReaderController extends Observable
 			pages.setRowSelectionInterval(pageNumber, pageNumber);
 	}
 
-	public PdfObjectPanel getObjectPanel() {
-		return objectPanel;
-	}
-
-	public StreamTextArea getStreamArea() {
-		return streamArea;
-	}
-
-	public JTabbedPane getEditorTabs() {
-		return editorTabs;
+	/**
+	 * Forwards updates from the RupsController to the Observers of this class.
+	 * @param	observable	this should be the RupsController
+	 * @param	obj	the object that has to be forwarded to the observers of PdfReaderController
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	public void update(Observable observable, Object obj) {
+		if (RupsMenuBar.CLOSE.equals(obj)) {
+			setChanged();
+			notifyObservers(null);
+			nodes = null;
+		}
+		if (obj instanceof PdfObjectTreeNode) {
+			PdfObjectTreeNode node = (PdfObjectTreeNode)obj;
+			nodes.expandNode(node);
+			if (node.isRecursive()) {
+				pdfTree.selectNode(node.getAncestor());
+				return;
+			}
+			if (node.isIndirect()) {
+				xref.selectRowByReference(node.getNumber());
+				return;
+			}
+			render(node.getPdfObject());
+		}
 	}
 }

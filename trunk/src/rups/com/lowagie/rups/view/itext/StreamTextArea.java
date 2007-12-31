@@ -53,7 +53,8 @@ public class StreamTextArea extends JScrollPane implements Observer {
 	}
 	
 	/**
-	 * @see com.lowagie.rups.interfaces.PdfObjectListener#show(com.lowagie.text.pdf.PdfObject)
+	 * Renders the content stream of a PdfObject or empties the text area.
+	 * @param object	the object of which the content stream needs to be rendered
 	 */
 	public void render(PdfObject object) {
 		if (object instanceof PRStream) {

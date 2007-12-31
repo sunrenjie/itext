@@ -65,22 +65,19 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 	}
 	
 	/**
-	 * Getter for the FileChooserAction.
-	 * @return	the file chooser action to open a file.
-	 */
-	public FileChooserAction getFileChooserAction() {
-		return fileChooserAction;
-	}
-	
-	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(Observable observable, Object obj) {
 		if (OPEN.equals(obj)) {
 			enableItems(true);
+			return;
 		}
 		if (CLOSE.equals(obj)) {
 			enableItems(false);
+			return;
+		}
+		if (FILE_MENU.equals(obj)) {
+			fileChooserAction.actionPerformed(null);
 		}
 	}
 	
@@ -94,6 +91,7 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 	protected void addItem(JMenu menu, String caption, ActionListener action) {
 		JMenuItem item = new JMenuItem(caption);
 		item.addActionListener(action);
+		menu.add(item);
 		items.put(caption, item);
 	}
 	

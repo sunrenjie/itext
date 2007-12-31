@@ -28,14 +28,17 @@ import java.util.Observer;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 
+import com.lowagie.rups.controller.PdfReaderController;
 import com.lowagie.rups.model.ObjectLoader;
+import com.lowagie.rups.model.TreeNodeFactory;
 import com.lowagie.rups.view.PageNavigationListener;
-import com.lowagie.rups.view.TreeNavigationListener;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfPageTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfPagesTreeNode;
+import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
 import com.lowagie.rups.view.models.JTableAutoModel;
 import com.lowagie.rups.view.models.JTableAutoModelInterface;
+import com.lowagie.text.pdf.PdfName;
 import com.lowagie.text.pdf.PdfPageLabels;
 
 /**
@@ -46,16 +49,17 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 
 	/** A list with page nodes. */
 	protected ArrayList<PdfPageTreeNode> list = new ArrayList<PdfPageTreeNode>();
-	/** The tree that contains all the page nodes. */
-	protected TreeNavigationListener tree;
-	/** An object that listens to page changes. */
+	/** Nodes in the FormTree correspond with nodes in the main PdfTree. */
+	protected PdfReaderController controller;
+	/***/
 	protected PageNavigationListener listener;
 
 	/**
 	 * Constructs a PagesTable.
 	 * @param	listener	the page navigation listener.
 	 */
-	public PagesTable(PageNavigationListener listener) {
+	public PagesTable(PdfReaderController controller, PageNavigationListener listener) {
+		this.controller = controller;
 		this.listener = listener;
 	}
 	
@@ -64,19 +68,18 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 	 */
 	public void update(Observable observable, Object obj) {
 		if (obj == null) {
-			tree = null;
 			list = new ArrayList<PdfPageTreeNode>();
 			repaint();
 			return;
-		}
-		if (observable instanceof TreeNavigationListener) {
-			tree = (TreeNavigationListener)observable;
 		}
 		if (obj instanceof ObjectLoader) {
 			ObjectLoader loader = (ObjectLoader)obj;
 			String[] pagelabels = PdfPageLabels.getPageLabels(loader.getReader());
 			int i = 0;
-			PdfPagesTreeNode pages = tree.getPages();
+			TreeNodeFactory factory = loader.getNodes();
+			PdfTrailerTreeNode trailer = controller.getPdfTree().getRoot();
+			PdfObjectTreeNode catalog = factory.getChildNode(trailer, PdfName.ROOT);
+			PdfPagesTreeNode pages = (PdfPagesTreeNode)factory.getChildNode(catalog, PdfName.PAGES);
 			if (pages == null) {
 				return;
 			}
@@ -149,10 +152,13 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 	public void valueChanged(ListSelectionEvent evt) {
 		if (evt != null)
 			super.valueChanged(evt);
-		if (tree != null && getRowCount() > 0)
-			tree.selectNode(list.get(getSelectedRow()));
-		if (listener != null && getRowCount() > 0)
-			listener.gotoPage(getSelectedRow() + 1);
+		if (controller == null)
+			return;
+		if (getRowCount() > 0) {
+			controller.selectNode(list.get(getSelectedRow()));
+			if (listener != null)
+				listener.gotoPage(getSelectedRow() + 1);
+		}
 	}
 
 	/** A serial version UID. */

@@ -130,6 +130,8 @@ public class RupsController extends Observable
 		return masterComponent;
 	}
 
+	// Observable
+	
 	/**
 	 * @see java.util.Observable#notifyObservers(java.lang.Object)
 	 */
@@ -139,10 +141,10 @@ public class RupsController extends Observable
 			File file = ((FileChooserAction)obj).getFile();
 			try {
 				pdfFile = new PdfFile(file);
-				renderer.startPageLoader(pdfFile);
-				reader.startObjectLoader(pdfFile);
 				setChanged();
 				super.notifyObservers(RupsMenuBar.OPEN);
+				renderer.startPageLoader(pdfFile);
+				reader.startObjectLoader(pdfFile);
 			}
 			catch(IOException ioe) {
 				JOptionPane.showMessageDialog(masterComponent, ioe.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
@@ -160,33 +162,34 @@ public class RupsController extends Observable
 		}
 	}
 
+	// tree selection
+	
 	/**
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
 	public void valueChanged(TreeSelectionEvent evt) {
 		Object selectednode = reader.getPdfTree().getLastSelectedPathComponent();
 		if (selectednode instanceof PdfTrailerTreeNode) {
-			menuBar.getFileChooserAction().actionPerformed(null);
+			menuBar.update(this, RupsMenuBar.FILE_MENU);
+			return;
 		}
-		else if (selectednode instanceof PdfObjectTreeNode) {
-			PdfObjectTreeNode node = (PdfObjectTreeNode)selectednode;
-			reader.getNodes().expandNode(node);
-			if (node.isRecursive()) {
-				reader.getPdfTree().selectNode(node.getAncestor());
-			}
-			else if (node.isIndirect()) {
-				reader.getXref().selectRowByReference(node.getNumber());
-			}
-			else {
-				reader.show(node.getPdfObject());
-			}
+		if (selectednode instanceof PdfObjectTreeNode) {
+			reader.update(this, selectednode);
 		}
 	}
 
+	// page navigation
+	
+	/**
+	 * @see com.lowagie.rups.view.PageNavigationListener#getCurrentPageNumber()
+	 */
 	public int getCurrentPageNumber() {
 		return renderer.getCurrentPageNumber();
 	}
 
+	/**
+	 * @see com.lowagie.rups.view.PageNavigationListener#getTotalNumberOfPages()
+	 */
 	public int getTotalNumberOfPages() {
 		return renderer.getTotalNumberOfPages();
 	}
@@ -205,9 +208,12 @@ public class RupsController extends Observable
 		return gotoPage(getCurrentPageNumber() - 1);
 	}
 
+	/**
+	 * @see com.lowagie.rups.view.PageNavigationListener#gotoPage(int)
+	 */
 	public int gotoPage(int pageNumber) {
 		pageNumber = renderer.gotoPage(pageNumber);
-		reader.setPageTableRow(pageNumber);
+		reader.gotoPage(pageNumber);
 		return pageNumber;
 	}
 	

@@ -119,6 +119,9 @@ public class Console implements Observer {
 		if (RupsMenuBar.CLOSE.equals(obj)) {
 			textArea.setText("");
 		}
+		if (RupsMenuBar.OPEN.equals(obj)) {
+			textArea.setText("");
+		}
 	}
 	
     /**

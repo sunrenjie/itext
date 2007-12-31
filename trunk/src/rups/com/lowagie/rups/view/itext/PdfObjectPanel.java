@@ -90,9 +90,8 @@ public class PdfObjectPanel extends JPanel implements Observer {
 			layout.show(this, TEXT);
 			this.repaint();
 			text.repaint();
+			return;
 		}
-		if (text.getMouseListeners().length > 0)
-			text.removeMouseListener(text.getMouseListeners()[0]);
 		switch(object.type()) {
 		case PdfObject.DICTIONARY:
 		case PdfObject.STREAM:

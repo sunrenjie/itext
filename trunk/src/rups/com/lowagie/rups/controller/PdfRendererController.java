@@ -48,7 +48,10 @@ public class PdfRendererController extends JSplitPane
 	/** A Serial Version UID. */
 	private static final long serialVersionUID = 3270054619281094248L;
 
-	/** Constructs the Trapeze rendering component. */
+	/**
+	 * Constructs the rendering controller.
+	 * @param	listener 	a page navigation listener
+	 */
 	public PdfRendererController(PageNavigationListener listener) {
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setDividerLocation(33);
@@ -70,16 +73,9 @@ public class PdfRendererController extends JSplitPane
 	}
 	
 	/**
-	 * Sets the PDF file to null, clears the page panel and clear the
-	 * page number from the tool bar.
+	 * Shows a specific page in the page panel.
+	 * @param	pageNumber a number of a specific page.
 	 */
-	public void clear() {
-		pageLoader = null;
-		pagePanel.showPage(null);
-		toolbar.setPageNumber(-1);
-	}
-	
-	/** Shows a specific page in the page panel. */
 	protected int showPage(int pageNumber) {
 		if (pageLoader == null) {
 			return -1;
@@ -110,7 +106,7 @@ public class PdfRendererController extends JSplitPane
 	
 	/**
 	 * Shows a specific page.
-	 * @param	pageNumber	shows a specific page.
+	 * @param	pageNumber	the number of a specific page.
 	 */
 	public int gotoPage(int pageNumber) {
 		if (pageNumber == getCurrentPageNumber()) {
@@ -130,10 +126,20 @@ public class PdfRendererController extends JSplitPane
 		toolbar.setPageNumber(pageNumber);
 		return pageNumber;
 	}
-
+	
+	// Observer interface
+	
+	/**
+	 * Forwards updates from the RupsController to the Observers of this class.
+	 * @param	observable	this should be the RupsController
+	 * @param	obj	the object that has to be forwarded to the observers of PdfReaderController
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	public void update(Observable observable, Object obj) {
 		if (RupsMenuBar.CLOSE.equals(obj)) {
-			clear();
+			pageLoader = null;
+			pagePanel.showPage(null);
+			toolbar.setPageNumber(-1);
 		}
 	}
 }
