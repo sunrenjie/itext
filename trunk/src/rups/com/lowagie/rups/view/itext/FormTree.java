@@ -20,6 +20,7 @@
 
 package com.lowagie.rups.view.itext;
 
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Observable;
 import java.util.Observer;
@@ -29,9 +30,12 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 
+import org.dom4j.DocumentException;
+
 import com.lowagie.rups.controller.PdfReaderController;
 import com.lowagie.rups.model.ObjectLoader;
 import com.lowagie.rups.model.TreeNodeFactory;
+import com.lowagie.rups.model.XfaFile;
 import com.lowagie.rups.view.icons.IconTreeCellRenderer;
 import com.lowagie.rups.view.itext.treenodes.FormTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
@@ -49,6 +53,13 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	/** Nodes in the FormTree correspond with nodes in the main PdfTree. */
 	protected PdfReaderController controller;
 	
+	/** If the form is an XFA form, the XML file is stored in this object. */
+	protected XfaFile xfaFile;
+	/** Treeview of the XFA file. */
+	protected XfaTree xfaTree;
+	/** Textview of the XFA file. */
+	protected XfaTextArea xfaTextArea;
+	
 	/**
 	 * Creates a new FormTree.
 	 */
@@ -58,6 +69,8 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 		setCellRenderer(new IconTreeCellRenderer());
 		setModel(new DefaultTreeModel(new FormTreeNode()));
 		addTreeSelectionListener(this);
+		xfaTree = new XfaTree();
+		xfaTextArea = new XfaTextArea();
 	}
 
 	/**
@@ -68,6 +81,9 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	public void update(Observable observable, Object obj) {
 		if (obj == null) {
 			setModel(new DefaultTreeModel(new FormTreeNode()));
+			xfaFile = null;
+			xfaTree.clear();
+			xfaTextArea.clear();
 			repaint();
 			return;
 		}
@@ -94,6 +110,15 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 				node.setUserObject("XFA");
 				loadXfa(factory, node, xfa);
 				root.add(node);
+				try {
+					xfaFile = new XfaFile(node);
+					xfaTree.load(xfaFile);
+					xfaTextArea.load(xfaFile);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (DocumentException e) {
+					e.printStackTrace();
+				}
 			}
 			setModel(new DefaultTreeModel(root));
 		}
@@ -171,6 +196,14 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 			controller.selectNode(node);
 	}
 
+	public XfaTree getXfaTree() {
+		return xfaTree;
+	}
+	
+	public XfaTextArea getXfaTextArea() {
+		return xfaTextArea;
+	}
+	
 	/** A serial version UID. */
 	private static final long serialVersionUID = -3584003547303700407L;
 

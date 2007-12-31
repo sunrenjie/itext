@@ -20,19 +20,27 @@
 
 package com.lowagie.rups.view.itext.treenodes;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Enumeration;
+
+import com.lowagie.rups.io.OutputStreamResource;
+import com.lowagie.text.pdf.PRStream;
+import com.lowagie.text.pdf.PdfReader;
+
 /**
  * This is the root tree node for the different parts of the XFA resource; it's a child
  * of the root in the FormTree.
  * This resource can be one XDP stream (in which case this root will only have one child)
  * or different streams with individual packets comprising the XML Data Package.
  */
-public class XfaTreeNode extends FormTreeNode {
+public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 
-	/** A serial version UID. */
-	private static final long serialVersionUID = 2463297568233643790L;
-
+	/** Start sequence of an artificial boundary between XFA fragments added by RUPS */
 	public static final byte[] BOUNDARY_START = "<!--\nRUPS XFA individual packet: end of [".getBytes();
+	/** Middle sequence of an artificial boundary between XFA fragments added by RUPS */
 	public static final byte[] BOUNDARY_MIDDLE = "]; start of [".getBytes();
+	/** End sequence of an artificial boundary between XFA fragments added by RUPS */
 	public static final byte[] BOUNDARY_END = "]\n-->".getBytes();
 	
 	/**
@@ -42,6 +50,38 @@ public class XfaTreeNode extends FormTreeNode {
 	 */
 	public XfaTreeNode(PdfObjectTreeNode xfa) {
 		super(xfa);
+	}
+	
+	/**
+	 * Writes (part of) the XFA resource to an OutputStream.
+	 * If key is <code>null</code>, the complete resource is written;
+	 * if key refers to an individual package, this package only is
+	 * written to the OutputStream.
+	 * @param os	the OutputStream to which the XML is written.
+	 * @throws IOException	usual exception when there's a problem writing to an OutputStream
+	 */
+	public void writeTo(OutputStream os) throws IOException {
+		Enumeration children = this.children();
+		FormTreeNode node;
+		PRStream stream;
+		String key = null;
+		String tmp = null;
+		while (children.hasMoreElements()) {
+			node = (FormTreeNode) children.nextElement();
+			if (key != null) {
+				os.write(BOUNDARY_START);
+				os.write(key.getBytes());
+				os.write(BOUNDARY_MIDDLE);
+				tmp = (String)node.getUserObject();
+				os.write(tmp.getBytes());
+				os.write(BOUNDARY_END);
+			}
+			key = tmp;
+			stream = (PRStream)node.getCorrespondingPdfObjectNode().getPdfObject();
+			os.write(PdfReader.getStreamBytes(stream));
+		}
+		os.flush();
+		os.close();
 	}
 
 	/**
@@ -56,4 +96,8 @@ public class XfaTreeNode extends FormTreeNode {
 		node.setUserObject(key);
 		this.add(node);
 	}
+	
+	/** A serial version UID. */
+	private static final long serialVersionUID = 2463297568233643790L;
+
 }
