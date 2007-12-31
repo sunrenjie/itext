@@ -115,26 +115,35 @@ public class PdfFile {
 		}
 		// if the file is encrypted, make a temporary copy
 		if (permissions.isEncrypted()) {
-			if (directory == null) {
-				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				PdfStamper stamper = new PdfStamper(reader, baos);
-				stamper.close();
-				pdf = new RandomAccessFileOrArray(baos.toByteArray());
-			}
-			else {
-				File temp = File.createTempFile(filename.substring(0, filename.lastIndexOf(".pdf")) + "~", ".pdf", directory);
-				temp.deleteOnExit();
-				FileOutputStream fos = new FileOutputStream(temp);
-				PdfStamper stamper = new PdfStamper(reader, fos);
-				stamper.close();
-				pdf = new RandomAccessFileOrArray(temp.getAbsolutePath());
-			}
+			pdf = workAround();
 		}
 		// reading the file into SUN's PDFFile
 		pdf.reOpen();
-		PDFFile = new PDFFile(pdf.getNioByteBuffer());
+		try {
+			PDFFile = new PDFFile(pdf.getNioByteBuffer());
+		}
+		catch(IOException ioe) {
+			PDFFile = new PDFFile(workAround().getNioByteBuffer());
+		}
 		pdf.close();
 		
+	}
+	
+	protected RandomAccessFileOrArray workAround() throws DocumentException, IOException {
+		if (directory == null) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			PdfStamper stamper = new PdfStamper(reader, baos);
+			stamper.close();
+			return new RandomAccessFileOrArray(baos.toByteArray());
+		}
+		else {
+			File temp = File.createTempFile(filename.substring(0, filename.lastIndexOf(".pdf")) + "~", ".pdf", directory);
+			temp.deleteOnExit();
+			FileOutputStream fos = new FileOutputStream(temp);
+			PdfStamper stamper = new PdfStamper(reader, fos);
+			stamper.close();
+			return new RandomAccessFileOrArray(temp.getAbsolutePath());
+		}		
 	}
 
 	/**

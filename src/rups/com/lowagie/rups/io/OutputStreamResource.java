@@ -18,30 +18,20 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package com.lowagie.rups.view.icons;
+package com.lowagie.rups.io;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
- * Class that fetches the icons in com.lowagie.trapeze.icons.
+ * An object that implements this interface is a resource that
+ * can be written to an OutputStream.
  */
-public class IconFetcher {
+public interface OutputStreamResource {
 	/**
-	 * Gets an Icon with a specific name.
-	 * @param	filename	the filename of the Icon.
-	 * @return	an Icon
+	 * Writes a resource to an OutputStream.
+	 * @param os	the OutputStream to which the XML is written.
+	 * @throws IOException	usual exception when there's a problem writing to an OutputStream
 	 */
-	public static Icon getIcon(String filename) {
-		if (filename == null) {
-			return null;
-		}
-		try {
-			return new ImageIcon(IconFetcher.class.getResource(filename));
-		}
-		catch(Exception e) {
-			System.err.println("Can't find file: " + filename);
-			return null;
-		}
-	}
+	public void writeTo(OutputStream os) throws IOException;
 }
