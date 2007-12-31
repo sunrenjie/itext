@@ -29,12 +29,13 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 
+import com.lowagie.rups.controller.PdfReaderController;
 import com.lowagie.rups.model.ObjectLoader;
 import com.lowagie.rups.model.TreeNodeFactory;
-import com.lowagie.rups.view.TreeNavigationListener;
 import com.lowagie.rups.view.icons.IconTreeCellRenderer;
 import com.lowagie.rups.view.itext.treenodes.FormTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
+import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
 import com.lowagie.rups.view.itext.treenodes.XfaTreeNode;
 import com.lowagie.text.pdf.PdfName;
 
@@ -46,13 +47,14 @@ import com.lowagie.text.pdf.PdfName;
 public class FormTree extends JTree implements TreeSelectionListener, Observer {
 
 	/** Nodes in the FormTree correspond with nodes in the main PdfTree. */
-	protected TreeNavigationListener tree;
+	protected PdfReaderController controller;
 	
 	/**
 	 * Creates a new FormTree.
 	 */
-	public FormTree() {
+	public FormTree(PdfReaderController controller) {
 		super();
+		this.controller = controller;
 		setCellRenderer(new IconTreeCellRenderer());
 		setModel(new DefaultTreeModel(new FormTreeNode()));
 		addTreeSelectionListener(this);
@@ -65,23 +67,21 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	 */
 	public void update(Observable observable, Object obj) {
 		if (obj == null) {
-			tree = null;
 			setModel(new DefaultTreeModel(new FormTreeNode()));
 			repaint();
 			return;
 		}
-		if (observable instanceof TreeNavigationListener) {
-			tree = (TreeNavigationListener)observable;
-		}
 		if (obj instanceof ObjectLoader) {
-			PdfObjectTreeNode form = tree.getForm();
+			ObjectLoader loader = (ObjectLoader)obj;
+			TreeNodeFactory factory = loader.getNodes();
+			PdfTrailerTreeNode trailer = controller.getPdfTree().getRoot();
+			PdfObjectTreeNode catalog = factory.getChildNode(trailer, PdfName.ROOT);
+			PdfObjectTreeNode form = factory.getChildNode(catalog, PdfName.ACROFORM);
 			if (form == null) {
 				return;
 			}
-			FormTreeNode root = new FormTreeNode();
-			ObjectLoader loader = (ObjectLoader)obj;
-			TreeNodeFactory factory = loader.getNodes();
 			PdfObjectTreeNode fields = factory.getChildNode(form, PdfName.FIELDS);
+			FormTreeNode root = new FormTreeNode();
 			if (fields != null) {
 				FormTreeNode node = new FormTreeNode(fields);
 				node.setUserObject("Fields");
@@ -161,12 +161,14 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
 	public void valueChanged(TreeSelectionEvent evt) {
-		if (tree == null)
+		if (controller == null)
 			return;
 		FormTreeNode selectednode = (FormTreeNode)this.getLastSelectedPathComponent();
+		if (selectednode == null)
+			return;
 		PdfObjectTreeNode node = selectednode.getCorrespondingPdfObjectNode();
 		if (node != null)
-			tree.selectNode(node);
+			controller.selectNode(node);
 	}
 
 	/** A serial version UID. */

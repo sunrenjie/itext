@@ -30,7 +30,6 @@ import javax.swing.table.TableColumn;
 import com.lowagie.rups.controller.PdfReaderController;
 import com.lowagie.rups.model.IndirectObjectFactory;
 import com.lowagie.rups.model.ObjectLoader;
-import com.lowagie.rups.view.PdfObjectListener;
 import com.lowagie.rups.view.models.JTableAutoModel;
 import com.lowagie.rups.view.models.JTableAutoModelInterface;
 import com.lowagie.text.pdf.PdfNull;
@@ -44,11 +43,12 @@ public class XRefTable extends JTable implements JTableAutoModelInterface, Obser
 	/** The factory that can produce all the indirect objects. */
 	protected IndirectObjectFactory objects;
 	/** The renderer that will render an object when selected in the table. */
-	protected PdfObjectListener objectpanel;
+	protected PdfReaderController controller;
 	
 	/** Creates a JTable visualizing xref table. */
-	public XRefTable() {
+	public XRefTable(PdfReaderController controller) {
 		super();
+		this.controller = controller;
 	}
 	
 	/**
@@ -57,7 +57,6 @@ public class XRefTable extends JTable implements JTableAutoModelInterface, Obser
 	public void update(Observable observable, Object obj) {
 		if (obj == null) {
 			objects = null;
-			objectpanel = null;
 			repaint();
 			return;
 		}
@@ -65,7 +64,6 @@ public class XRefTable extends JTable implements JTableAutoModelInterface, Obser
 				&& obj instanceof ObjectLoader) {
 			ObjectLoader loader = (ObjectLoader)obj;
 			objects = loader.getObjects();
-			objectpanel = (PdfObjectListener)observable;
 			setModel(new JTableAutoModel(this));
 			TableColumn col= getColumnModel().getColumn(0);
 			col.setPreferredWidth(5);
@@ -164,8 +162,10 @@ public class XRefTable extends JTable implements JTableAutoModelInterface, Obser
 	public void valueChanged(ListSelectionEvent evt) {
 		if (evt != null)
 			super.valueChanged(evt);
-		if (objectpanel != null)
-			objectpanel.show(getObjectByRow(this.getSelectedRow()));
+		if (controller != null && objects != null) {
+			controller.render(getObjectByRow(this.getSelectedRow()));
+			controller.selectNode(getObjectReferenceByRow(getSelectedRow()));
+		}
 	}
 	
 	/** A serial version UID. */
