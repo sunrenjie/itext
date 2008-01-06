@@ -34,6 +34,9 @@ import com.lowagie.rups.controller.RupsController;
  */
 public class Rups {
 
+	/** The version String; this String may only be changed by Bruno Lowagie. */
+	public static String VERSION = "RUPS 0.0.1 (by lowagie.com)";
+	
 	// main method
 	/**
 	 * Main method of this PdfFrame class.
