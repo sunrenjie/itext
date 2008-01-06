@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.Box;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -41,6 +42,12 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 	public static final String OPEN = "Open";
 	/** Caption for "Close file". */
 	public static final String CLOSE = "Close";
+	/** Caption for the help menu. */
+	public static final String HELP_MENU = "Help";
+	/** Caption for "Help about". */
+	public static final String ABOUT = "About";
+	/** Caption for "Help versions". */
+	public static final String VERSIONS = "Versions";
 	
 	/** The Observable object. */
 	protected Observable observable;
@@ -57,10 +64,16 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 		this.observable = observable;
 		items = new HashMap<String, JMenuItem>();
 		fileChooserAction = new FileChooserAction(observable, "Open", PdfFilter.INSTANCE, false);
+		MessageAction message = new MessageAction();
 		JMenu file = new JMenu(FILE_MENU);
 		addItem(file, OPEN, fileChooserAction);
 		addItem(file, CLOSE, new FileCloseAction(observable));
 		add(file);
+        add(Box.createGlue());
+        JMenu help = new JMenu(HELP_MENU);
+        addItem(help, ABOUT, message);
+        addItem(help, VERSIONS, message);
+        add(help);
 		enableItems(false);
 	}
 	

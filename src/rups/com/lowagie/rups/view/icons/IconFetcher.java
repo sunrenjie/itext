@@ -20,6 +20,8 @@
 
 package com.lowagie.rups.view.icons;
 
+import java.util.HashMap;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -27,6 +29,10 @@ import javax.swing.ImageIcon;
  * Class that fetches the icons in com.lowagie.trapeze.icons.
  */
 public class IconFetcher {
+	
+	/** Cache with icons. */
+	protected static HashMap<String, Icon> cache = new HashMap<String, Icon>();
+	
 	/**
 	 * Gets an Icon with a specific name.
 	 * @param	filename	the filename of the Icon.
@@ -36,12 +42,17 @@ public class IconFetcher {
 		if (filename == null) {
 			return null;
 		}
-		try {
-			return new ImageIcon(IconFetcher.class.getResource(filename));
+		Icon icon = cache.get(filename);
+		if (icon == null) {
+			try {
+				icon = new ImageIcon(IconFetcher.class.getResource(filename));
+				cache.put(filename, icon);
+			}
+			catch(Exception e) {
+				System.err.println("Can't find file: " + filename);
+				return null;
+			}
 		}
-		catch(Exception e) {
-			System.err.println("Can't find file: " + filename);
-			return null;
-		}
+		return icon;
 	}
 }
