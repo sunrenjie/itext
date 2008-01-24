@@ -19,6 +19,69 @@
 <site:release number="V200" name="iText 2" date="unknown">
 <site:remark>?</site:remark>
 <site:changelog>
+<ul>2008-01-25: iText 2.0.8
+<li>Changes made by Paulo
+<ul>
+<li>Encrypted docs with wrong keys now fail fast.</li>
+<li>Extracts all the names from a font (Thimo Seitz).</li>
+<li>Metadata can be added to PDF and RTF at any time, not only before opening the document. HTML generation will still have the old limitation.</li>
+<li>PdfEncodings: the winansi encoding didn't process the char \u00a0.</li>
+<li>PdfGraphics2D: Add hyperlink capability when drawing a string in PDFGraphics2D object. The
+url is submitted using a RenderingHint. The renderhint is initialized with
+a HyperlinkOFF value, if a hyperlink should be added setRenderingHint with
+the url is called during paint of the link. After the link is painted
+setRenderingHint with null value should be called. The Hyperlink Rendering
+Hint is present at all times in PDFGraphics2D object, can be found by
+iterating all keys and using the toString function.</li>
+<li>TIFF images:<ul><li>Fix for invalid array sizes.</li><li>Some tiffs have a bogus value in the ROWSPERSTRIP tag.</li></ul></li>
+<li>PdfSmartCopy: PdfSmartCopy also compares the dictionary values up to a nested depth of 10;
+lifted the restriction to compare templates.</li>
+</ul></li>
+<li>Changes made by Xavier
+<ul>
+<li>Code cleanup: adding missing @since tags</li>
+<li>directory structure reorganization: core and swing subdirectories in src and test.</li>
+<li>ANT scripts: <ul>
+<li>Use of 2.0.8-SNAPSHOT in Document.java ITEXT_VERSION and in jdiff output</li>
+<li>more consistent use of ant property files.</li>
+<li>use jdk 1.4 api for javadoc links</li>
+<li>jdiff task was using older file in copy without overwrite arg</li>
+<li>itext.test.classpath property needs to be setup before calling javac</li>
+<li>ant delete target added</li>
+<li>new ant targets for rtf parser support: compile.rtf, jar.rtf and test.rtf</li>
+<li>javadoc commands use 'maxmemory' argument instead of '-J-Xmx'</li>
+<li>maven bundle updates: lower case names to match artifact and javadoc jar added</li>
+<li>added "jar" dependency for sign.jar to make sure latest changes are picked up</li>
+</ul></li>
+</ul></li>
+<li>Changes made by Mark
+<ul>
+<li>memory increased for javadoc task</li>
+<li>Preparation for the import of the new rtf parser code.</li>
+<li>First junit test for the RTF package. Also updated the test.xml so that the test.rtf depends on the jar.rtf.</li>
+<li>Fixed a bug with style numbering. The style number is now only set after the inheritance handled, so that the default styles are always added before any user styles.</li>
+</ul></li>
+<li>Changes made by Bruno
+<ul>
+<li>Added an extra constructor for List (suggestion by Alexis Pigeon)</li>
+<li>Introduction of the 'numberStyle' concept for Section titles (implemented by Bruno after a question on the list by Friedhelm Hellerhoff).</li>
+<li>Introduction of Element.isContent() and Element.isNestable() as suggested by Kris Raney.
+Indicates if an element contains real content and if it can be nested.</li>
+<li>Introduction of the LargeElement interface.
+Objects implementing this interface (PdfPTable, Table, Section and Chapter) are considered to be 'dangerous' in terms of memory consumption.
+The LargeElement interface offers a way to add the object to the document (multiple times) before all the content has been added to the large object.
+Every time the large object is added to the Document, part of the object's content is flushed.</li>
+<li>Solved a bug in the old Table class (actually in PdfTable) that occurred with repeating headers in very specific situations.</li>
+<li>Added a rewrite of RUPS (Reading / Updating PDF Syntax) to the project.
+This also involves adding new ANT scripts, a new JNLP and new jars:
+SUN's PDF Renderer and Dom4j (these jars are not needed for the core iText; only for RUPS).</li>
+<li>After a mail communication with Brian Burkhalter (SUN),
+the license notices for the classes derived from JAI code
+was updated.</li><li>The license notices for
+TIFFConstants were updated because the list of TIFF constants
+was originally made by Silicon Graphics.</li>
+</ul></li>
+</ul>
 <ul>2007-11-28: iText 2.0.7
 <li>Changes made by Paulo
 <ul>
