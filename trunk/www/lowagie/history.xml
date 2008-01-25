@@ -23,15 +23,15 @@
 <li>Changes made by Paulo
 <ul>
 <li>Encrypted docs with wrong keys now fail fast.</li>
-<li>Extracts all the names from a font (Thimo Seitz).</li>
-<li>Metadata can be added to PDF and RTF at any time, not only before opening the document. HTML generation will still have the old limitation.</li>
+<li>Functionality to extract all the names from a font (Thimo Seitz).</li>
+<li>Metadata can now be added to PDF and RTF at any time, not only before opening the document. HTML generation will still have the old limitation.</li>
 <li>PdfEncodings: the winansi encoding didn't process the char \u00a0.</li>
-<li>PdfGraphics2D: Add hyperlink capability when drawing a string in PDFGraphics2D object. The
+<li>PdfGraphics2D: addition of hyperlink capability when drawing a string in PDFGraphics2D object. The
 url is submitted using a RenderingHint. The renderhint is initialized with
 a HyperlinkOFF value, if a hyperlink should be added setRenderingHint with
 the url is called during paint of the link. After the link is painted
 setRenderingHint with null value should be called. The Hyperlink Rendering
-Hint is present at all times in PDFGraphics2D object, can be found by
+Hint is present at all times in PDFGraphics2D object; it can be found by
 iterating all keys and using the toString function.</li>
 <li>TIFF images:<ul><li>Fix for invalid array sizes.</li><li>Some tiffs have a bogus value in the ROWSPERSTRIP tag.</li></ul></li>
 <li>PdfSmartCopy: PdfSmartCopy also compares the dictionary values up to a nested depth of 10;
@@ -42,7 +42,7 @@ lifted the restriction to compare templates.</li>
 <li>Code cleanup: adding missing @since tags</li>
 <li>directory structure reorganization: core and swing subdirectories in src and test.</li>
 <li>ANT scripts: <ul>
-<li>Use of 2.0.8-SNAPSHOT in Document.java ITEXT_VERSION and in jdiff output</li>
+<li>Use of x.y.z-SNAPSHOT in Document.java ITEXT_VERSION and in jdiff output</li>
 <li>more consistent use of ant property files.</li>
 <li>use jdk 1.4 api for javadoc links</li>
 <li>jdiff task was using older file in copy without overwrite arg</li>
@@ -64,6 +64,8 @@ lifted the restriction to compare templates.</li>
 <li>Changes made by Bruno
 <ul>
 <li>Added an extra constructor for List (suggestion by Alexis Pigeon)</li>
+<li>Changed (package) private methods/variables into protected or even public on many places in PdfDocument.</li>
+<li>Introduction of BadPasswordException</li>
 <li>Introduction of the 'numberStyle' concept for Section titles (implemented by Bruno after a question on the list by Friedhelm Hellerhoff).</li>
 <li>Introduction of Element.isContent() and Element.isNestable() as suggested by Kris Raney.
 Indicates if an element contains real content and if it can be nested.</li>
