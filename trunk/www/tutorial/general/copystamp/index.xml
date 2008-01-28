@@ -85,7 +85,7 @@
 Or: <i>I have an existing PDF file and I want to underline every occurence of the word 'FREE'.</i>
 If this is what you need, you can stop reading. This just isn't possible with iText.
 iText can't convert a text in PDF to some other 'readable' document format such as
-RTF, WORD or even plain text. You can't ask iText for the occurrance of a certain word in a document
+RTF, WORD or even plain text. You can't ask iText for the occurrence of a certain word in a document
 or its position on a certain page.<br />
 This being said, let's see what iText can do. Depending on what you want to achieve,
 you are going to use one of the following objects to manipulate existing PDF documents:

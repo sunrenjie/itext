@@ -46,7 +46,7 @@ public class ProgressDialog extends JDialog {
 	
 	/**
 	 * Creates a Progress frame displaying a certain message
-	 * and a progressbar in indeterminate mode.
+	 * and a progress bar in indeterminate mode.
 	 * @param	the parent frame of this dialog (used to position the dialog)
 	 * @param	msg	the message that will be displayed.
 	 */

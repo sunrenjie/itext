@@ -66,7 +66,7 @@ public class PdfObjectPanel extends JPanel implements Observer {
 	}
 	
 	/**
-	 * Clear ths object panel.
+	 * Clear the object panel.
 	 */
 	public void clear() {
 		text.setText(null);
