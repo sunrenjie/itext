@@ -40,7 +40,7 @@ public class XfaFile implements OutputStreamResource {
 	protected Document xfaDocument;
 	
 	/**
-	 * Contstructs an XFA file from an OutputStreamResource.
+	 * Constructs an XFA file from an OutputStreamResource.
 	 * This resource can be an XML file or a node in a RUPS application.
 	 * @param	resource	the XFA resource
 	 * @throws IOException 

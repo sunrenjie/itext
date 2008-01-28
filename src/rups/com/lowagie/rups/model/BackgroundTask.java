@@ -25,7 +25,7 @@ import javax.swing.SwingUtilities;
 /**
  * Allows you to perform long lasting tasks in background.
  * If we ever move to Java 6, we should use the SwingWorker class
- * (included in the JDK) instead of this custum Event Dispatching
+ * (included in the JDK) instead of this custom Event Dispatching
  * code.
  */
 
