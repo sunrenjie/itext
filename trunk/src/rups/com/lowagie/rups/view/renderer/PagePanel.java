@@ -1,5 +1,5 @@
 /*
- * $Id:  $
+ * $Id$
  *
  * Copyright 2007 Bruno Lowagie.
  * Inspired by a demo shipped with SUN's PDF Renderer (released under the LGPL)

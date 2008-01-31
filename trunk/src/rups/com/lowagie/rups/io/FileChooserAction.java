@@ -1,5 +1,5 @@
 /*
- * $Id:  $
+ * $Id$
  *
  * Copyright 2007 Bruno Lowagie.
  *
