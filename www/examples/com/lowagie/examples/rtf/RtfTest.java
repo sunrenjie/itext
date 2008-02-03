@@ -39,7 +39,6 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.Section;
 import com.lowagie.text.Table;
-import com.lowagie.text.rtf.RtfWriter;
 import com.lowagie.text.rtf.RtfWriter2;
 import com.lowagie.text.rtf.field.RtfTableOfContents;
 import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
@@ -51,14 +50,14 @@ import com.lowagie.text.rtf.table.RtfCell;
 
 /**
  * This is a test suite in which all kinds of RTF functionality are tested
- * with RtfWriter and RtfWriter2.
+ * with the RtfWriter2.
  * 
  * @author Mark Hall
  */
 public class RtfTest {
 
     /**
-     * Creates 2 RTF files with the same content, but using different Writers.
+     * Creates 1 RTF file.
      * 
      * @param args no arguments needed
      */
@@ -70,7 +69,6 @@ public class RtfTest {
             Document doc = new Document();
             RtfWriter2 writer2 = RtfWriter2.getInstance(doc,
                     new FileOutputStream("testNew.rtf"));
-            RtfWriter.getInstance(doc, new FileOutputStream("testOld.rtf"));
 
             writer2.setAutogenerateTOCEntries(true);
 
