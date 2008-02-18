@@ -47,7 +47,7 @@ The release on this site is <site:releasenumber />.<br /><br />
 		<td class="small"><site:releasedocs /></td>
 	</tr>
 </table><br />
-Please consult the <a href="history.html">history overview</a> for more info.<br />
+Please consult the <a href="http://www.1t3xt.com/downloads/history.php">history overview</a> for more info.<br />
 Another option to get the source code is to download it from the <a href="svn.html">SVN repository</a>.
 There, you'll always find the most recent iText version, and even some branches to build your
 own jar for the older JDK 1.3 or newer JDKs such as JDK 1.5.
