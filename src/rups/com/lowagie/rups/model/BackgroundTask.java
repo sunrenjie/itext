@@ -71,8 +71,6 @@ public abstract class BackgroundTask {
 
     /**
      * Implement this class; the time-consuming task will go here.
-     *
-     * @return Object
      */
     public abstract void doTask();
 
