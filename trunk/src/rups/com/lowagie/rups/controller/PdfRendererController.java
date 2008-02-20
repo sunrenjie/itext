@@ -65,7 +65,7 @@ public class PdfRendererController extends JSplitPane
 	/**
 	 * Starts loading pages.
 	 * Shows page 1 of this file as soon as possible.
-	 * @param	PdfFile	the PdfFile that needs to be rendered
+	 * @param	file	the PdfFile that needs to be rendered
 	 */
 	public void startPageLoader(PdfFile file) {
 		this.pageLoader = new PageLoader(file.getPDFFile());

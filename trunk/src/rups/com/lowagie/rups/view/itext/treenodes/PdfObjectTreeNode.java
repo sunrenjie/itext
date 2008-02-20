@@ -115,7 +115,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	/**
 	 * Creates an instance of a tree node for an indirect object.
 	 * @param object	the PDF object represented by this tree node.
-	 * @param object	the xref number of the indirect object
+	 * @param number	the xref number of the indirect object
 	 * @return	a PdfObjectTreeNode
 	 */
 	public static PdfObjectTreeNode getInstance(PdfObject object, int number) {
