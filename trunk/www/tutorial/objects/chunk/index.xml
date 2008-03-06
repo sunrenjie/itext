@@ -336,7 +336,7 @@ ckNL.setHyphenation(autoNL);</pre>
 In the example, the same text (the introduction of Charles Dickens's epic Tale of Two Cities)
 is hyphenated once according to UK-hyphenation rules and once according to US-hyphenation rules.
 As you can see, there is a slight difference.<br />
-Important remark: you need the <site:download>itext-hyph-xml.jar</site:download> in your CLASSPATH
+Important remark: you need the <a href="http://sourceforge.net/project/downloading.php?groupname=itext&amp;filename=itext-hyph-xml.jar">itext-hyph-xml.jar</a> in your CLASSPATH
 if you want to use this functionality. In this jar, you'll find files like:
 <ul><li>en_GB.xml</li><li>en_US.xml</li><li>fr.xml</li><li>nl.xml</li></ul>
 These files contain all the hyphenation rules that are specific for a certain language
