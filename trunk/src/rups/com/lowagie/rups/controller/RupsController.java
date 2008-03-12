@@ -39,7 +39,6 @@ import com.lowagie.rups.model.PdfFile;
 import com.lowagie.rups.view.Console;
 import com.lowagie.rups.view.PageNavigationListener;
 import com.lowagie.rups.view.RupsMenuBar;
-import com.lowagie.rups.view.Utilities;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
 import com.lowagie.text.DocumentException;
@@ -107,13 +106,13 @@ public class RupsController extends Observable
 		viewers.setDividerLocation((int)(dimension.getWidth() * .35));
 		viewers.setDividerSize(1);
 		viewers.add(renderer, JSplitPane.RIGHT);
-		viewers.add(Utilities.getScrollPane(reader.getPdfTree()), JSplitPane.LEFT);
+		viewers.add(RupsController.getScrollPane(reader.getPdfTree()), JSplitPane.LEFT);
         
 		info.setDividerLocation((int) (dimension.getWidth() * .3));
 		info.setDividerSize(1);
 		info.add(reader.getObjectPanel(), JSplitPane.LEFT);
 		JTabbedPane editorPane = reader.getEditorTabs();
-		JScrollPane cons = Utilities.getScrollPane(console.getTextArea());
+		JScrollPane cons = RupsController.getScrollPane(console.getTextArea());
 		editorPane.addTab("Console", null, cons, "Console window (System.out/System.err)");
 		editorPane.setSelectedComponent(cons);
 		info.add(editorPane, JSplitPane.RIGHT);
@@ -229,5 +228,16 @@ public class RupsController extends Observable
 	 */
 	public int gotoLastPage() {
 		return gotoPage(getTotalNumberOfPages());
+	}
+
+	/**
+	 * Adds a component to a ScrollPane.
+	 * @param	component	the component that has to be scrollable
+	 * @return	a JScrollPane
+	 */
+	public static JScrollPane getScrollPane(Component component) {
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setViewportView(component);
+		return scrollpane;
 	}
 }
