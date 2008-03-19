@@ -158,9 +158,9 @@ public class RtfTest {
             doc.add(rtfTOC);
 
             Table table = new Table(3);
-            table.setSpaceInsideCell(2);
+            table.setPadding(2);
             table.setAlignment(Element.ALIGN_LEFT);
-            table.setSpaceBetweenCells(2);
+            table.setSpacing(2);
 
             Cell emptyCell = new Cell("");
 
