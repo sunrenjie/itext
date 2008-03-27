@@ -119,12 +119,12 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 				<h2><xsl:value-of select="site:metadata/site:title" /></h2>
 				<div id="content">
 					<div class="title">Introduction:</div>
-					<a href="http://itext.ugent.be/itext-in-action/"><img align="right" border="0" src="http://itext.ugent.be/img/lowagie_3d.jpg" /></a>
+					<a href="http://www.1t3xt.com/docs/book.php"><img align="right" border="0" src="http://www.1t3xt.com/img/book/lowagie_3d.jpg" /></a>
 					<blockquote>
 					<p><xsl:value-of select="site:intro" /></p>
 					<p>This tutorial is far from complete; for a more comprehensive
 					overview of iText's functionality, please buy the book
-					<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>.
+					<a href="http://www.1t3xt.com/docs/book.php">iText in Action</a>.
 					You can also download the first and third chapter for free from
 					<a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">http://manning.com/lowagie/</a>.</p>
 					</blockquote>
@@ -188,7 +188,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 	<xsl:template match="site:doc">
 		<xsl:element name="a">
-			<xsl:attribute name="href">http://itext.ugent.be/library/api/<xsl:value-of select="translate(@class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
+			<xsl:attribute name="href">http://www.1t3xt.info/api/<xsl:value-of select="translate(@class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>
 			<xsl:value-of select="." />
 		</xsl:element>
 	</xsl:template>
@@ -213,9 +213,9 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 	<xsl:template match="site:book">
 		<xsl:element name="p">
 			<xsl:element name="a">
-				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/</xsl:attribute>
+				<xsl:attribute name="href">http://www.1t3xt.com/docs/book.php</xsl:attribute>
 				<xsl:element name="img">
-					<xsl:attribute name="src">http://itext.ugent.be/img/lowagie_3d.jpg</xsl:attribute>
+					<xsl:attribute name="src">http://www.1t3xt.com/img/book/lowagie_3d.jpg</xsl:attribute>
 					<xsl:attribute name="border">0</xsl:attribute>
 					<xsl:attribute name="align">right</xsl:attribute>
 				</xsl:element>
@@ -227,7 +227,7 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 			If you want more recent examples or if you want to know more
 			about the theoretical background of	PDF and iText, please consult the book
 			<xsl:element name="a">
-				<xsl:attribute name="href">http://itext.ugent.be/itext-in-action/</xsl:attribute>
+				<xsl:attribute name="href">http://www.1t3xt.com/docs/book.php</xsl:attribute>
 				"iText in Action".
 			</xsl:element>
 			Note that the first and the third chapter of the book
