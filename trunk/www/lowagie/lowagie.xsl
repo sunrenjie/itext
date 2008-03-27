@@ -38,10 +38,20 @@ iText-src-<xsl:call-template name="site:releasenumber" />.zip
 </xsl:template>
 
 <xsl:template match="site:releasejar">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<ul>
+<li>iText core: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
 iText-<xsl:call-template name="site:releasenumber" />.jar
-</xsl:element>
+</xsl:element></li>
+<li>iText RTF: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-rtf-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
+iText-rtf-<xsl:call-template name="site:releasenumber" />.jar
+</xsl:element></li>
+<li>iText RUPS: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-rups-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
+iText-rups-<xsl:call-template name="site:releasenumber" />.jar
+</xsl:element></li>
+</ul>
 </xsl:template>
 
 <xsl:template match="site:releasedocs">
@@ -201,7 +211,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<a class="navigation" href="http://itext.ugent.be/library/faq.php">FAQ</a>
 		<br />
 		<a class="navigation" href="http://lists.sourceforge.net/lists/listinfo/itext-questions">Mailing List Registration</a>
-		<a class="navigation" href="http://itext.ugent.be/info/contact.php">Mailing List Archives</a>
+		<a class="navigation" href="http://www.1t3xt.com/about/contact.php">Mailing List Archives</a>
 	</div>
 </div>
 

@@ -19,9 +19,9 @@
 		<div id="side">
 		<div class="sidetitle">NEWS</div>
 		January 25, 2008, release of iText 2.0.8<br /><br />
-		Read more about <a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>, the first and only book about iText:<br />
-		<div align="center"><a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://itext.ugent.be/img/lowagie_3d.jpg" border="0" /></a></div>
-		Download <a href="http://itext.ugent.be/itext-in-action/#free">two free chapters</a>!
+		Read more about <a href="http://www.1t3xt.com/docs/book.php">iText in Action</a>, the first and only book about iText:<br />
+		<div align="center"><a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://www.1t3xt.com/img/book/lowagie_3d.jpg" border="0" /></a></div>
+		Download <a href="http://www.1t3xt.com/docs/book.php#free">two free chapters</a>!
 		Buy the <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">eBook</a>.<br /><br />
 		Try the iText <a href="http://itext.ugent.be/library/itext.jnlp">Java Web Start</a> application!<br/>
 		</div>
@@ -69,7 +69,7 @@
 		<a href="http://www.amazon.de/exec/obidos/redirect?link_code=ur2&amp;tag=itextafreejav-21&amp;camp=1638&amp;creative=6742&amp;path=http%3A%2F%2Fwww.amazon.de%2Fgp%2Fproduct%2F1932394796%2F%3Fsite-redirect=at" class="ext">Amazon.at</a><img src="http://www.assoc-amazon.de/e/ir?t=itextafreejav-21&amp;l=ur2&amp;o=3" alt="" style="border: medium none  ! important; margin: 0px ! important;" border="0" height="1" width="1" />,
 		<a href="http://www.amazon.fr/exec/obidos/redirect?link_code=ur2&amp;tag=itextafreej0b-21&amp;camp=1642&amp;creative=6746&amp;path=http%3A%2F%2Fwww.amazon.fr%2Fgp%2Fproduct%2F1932394796%2F" class="ext">Amazon.fr</a><img src="http://www.assoc-amazon.fr/e/ir?t=itextafreej0b-21&amp;l=ur2&amp;o=8" alt="" style="border: medium none  ! important; margin: 0px ! important;" border="0" height="1" width="1" />, and
 		<a href="http://www.amazon.co.jp/exec/obidos/redirect?link_code=ur2&amp;tag=ujiharkazuyas-22&amp;camp=247&amp;creative=1211&amp;path=ASIN%2F1932394796%2Fqid%3D1151942454%2Fsr%3D8-2%2Fref%3Dsr_8_xs_ap_i2_xgl14" class="ext">Amazon.co.jp</a><img src="http://www.assoc-amazon.jp/e/ir?t=ujiharkazuyas-22&amp;l=ur2&amp;o=9" alt="" style="border: medium none  ! important; margin: 0px ! important;" border="0" height="1" width="1" />.<br />
-		You can find an overview of the book reviews at <a href="http://itext.ugent.be/itext-in-action/#reviews">itext.ugent.be</a>.
+		You can find an overview of the book reviews at <a href="http://www.1t3xt.com/docs/book.php#reviews">1T3XT.com</a>.
 		<DIV CLASS="title">Technical Requirements</DIV>
 		If you want to use the iText classes you should be
 		acquainted with JAVA (TM) programming.<br />
@@ -88,14 +88,14 @@
 		<div class="title">Getting started with iText</div>
 		There are five places that are extremely important if you want to work with iText.<br />
 		<ol>
-		<li>The first is the <a href="http://itext.ugent.be/itext-in-action/">book page</a>.
+		<li>The first is the <a href="http://www.1t3xt.com/docs/book.php">book page</a>.
 		If you own the book, you get access to hundreds of examples, and you'll save
 		a lot of time finding your way in the library by using the book as your tutorial.</li>
 		<li>There's also a <a href="http://itextdocs.lowagie.com/tutorial/">free tutorial</a>
 		that was written before the book.
 		Not all functionality available in iText is explained, but it's a good place to start.
 		If you click on one of the features in the overview, you get some explanation and some examples
-		on how to use these features. There's also the <a href="http://itext.ugent.be/library/api/">Javadoc</a>
+		on how to use these features. There's also the <a href="http://www.1t3xt.info/api/">Javadoc</a>
 		pages for more detail on every method (again: not every method is documented, but we're working on it).</li>
 		<li>After the book was written, some special examples were compiled in the
 		<a href="http://www.lowagie.com/itextwiki/">iText Wiki</a>. They can also serve

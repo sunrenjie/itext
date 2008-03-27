@@ -15,16 +15,16 @@
 	<site:content>
 	<div>
 <div class="header">Documentation</div>
-<a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://itext.ugent.be/img/lowagie_3d.jpg" border="0" align="Left" /></a>
+<a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://www.1t3xt.com/img/book/lowagie_3d.jpg" border="0" align="Left" /></a>
 <div class="title">iText in Action</div>
 The first place to look for information about iText is the iText book:
-<a href="http://itext.ugent.be/itext-in-action/">iText in Action</a>,
+<a href="http://www.1t3xt.com/docs/book.php">iText in Action</a>,
 the first and only book about iText.<br />
-You can download <a href="http://itext.ugent.be/itext-in-action/#free">two free chapters</a> and/or
+You can download <a href="http://www.1t3xt.com/docs/book.php#free">two free chapters</a> and/or
 buy the eBook from <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">Manning Publications Co</a>.
 <div class="title">API documentation</div>
 With every new release, the API documentation is generated automatically, using the
-javadoc tool that comes with the JDK. You can consult the API <a href="http://itext.ugent.be/library/api/">online</a>
+javadoc tool that comes with the JDK. You can consult the API <a href="http://www.1t3xt.info/api/">online</a>
 or download a <a href="http://itextdocs.lowagie.com/downloads/docs.tar.gz">tar.gz</a> file with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
 If you own the book, you have access to hundreds of small standalone examples
@@ -39,7 +39,7 @@ iText has a very active mailing-list. If you don't want to
 rightaway, you can browse through the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list archives</a>
 before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>.<br />
 Of course you should always consult the <a href="http://itext.ugent.be/library/faq.php">FAQ</a>
-before you <a href="http://itext.ugent.be/info/contact.php">contact us</a>.<br />
+before you <a href="http://www.1t3xt.com/about/contact.php">contact us</a>.<br />
 If you do send a question to the list,
 try describing your problem as concrete as possible. We can't answer questions such as
 "Why doesn't iText work on my computer". Please keep in mind that it is really difficult
