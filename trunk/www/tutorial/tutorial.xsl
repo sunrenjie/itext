@@ -178,14 +178,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 
 <!-- links outside -->
 
-	<xsl:template match="site:src">
-		<xsl:param name="class" select="@class" />
-		<xsl:element name="a">
-			<xsl:attribute name="href">http://itext.ugent.be/library/src/<xsl:value-of select="translate($class, '.', '/')" />.java</xsl:attribute>
-			<xsl:value-of select="$class" />
-		</xsl:element>
-	</xsl:template>
-
 	<xsl:template match="site:doc">
 		<xsl:element name="a">
 			<xsl:attribute name="href">http://www.1t3xt.info/api/<xsl:value-of select="translate(@class, '.', '/')" />.html<xsl:if test="@target">#<xsl:value-of select="@target" /></xsl:if></xsl:attribute>

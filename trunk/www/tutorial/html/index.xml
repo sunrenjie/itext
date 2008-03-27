@@ -79,11 +79,11 @@ In order to make PDF generation more transparant (and to avoid that our
 developers should all be PDF experts), I rewrote rugPdf completely after
 our initial product were successfully brought into production.
 I created a plethora of high level objects, such as
-<site:src class="com.lowagie.text.Document" />,
-<site:src class="com.lowagie.text.Chunk" />,
-<site:src class="com.lowagie.text.Phrase" />,
-<site:src class="com.lowagie.text.Paragraph" />,
-<site:src class="com.lowagie.text.List" />,...<br />
+<site:doc class="com.lowagie.text.Document" />,
+<site:doc class="com.lowagie.text.Chunk" />,
+<site:doc class="com.lowagie.text.Phrase" />,
+<site:doc class="com.lowagie.text.Paragraph" />,
+<site:doc class="com.lowagie.text.List" />,...<br />
 These objects would be translated to PDF behind the screens:
 developers would no longer need to know anything about PDF syntax.
 However: for me it was very hard to debug the source code.
@@ -92,8 +92,8 @@ it wasn't always possible to retrieve the exact location where
 everything went wrong: just try reading half of a generated PDF
 file in a plain text editor and you will know why ;-)<br />
 So I had the idea to have two Writers listening to one document
-at the same time: <site:src class="com.lowagie.text.pdf.PdfWriter" />
-and <site:src class="com.lowagie.text.html.HtmlWriter" />.
+at the same time: <site:doc class="com.lowagie.text.pdf.PdfWriter" />
+and <site:doc class="com.lowagie.text.html.HtmlWriter" />.
 As the HTML format is less critical than PDF syntax,
 it was sufficient for me to take one look at the broken HTML file
 to see what high level object caused the Runtime error.<br />
@@ -113,7 +113,7 @@ useful.
 <div>
 We take the first example we made in <site:tutorial chapter="/general" section="5steps">PDF</site:tutorial>
 and <site:tutorial chapter="/rtf" section="rtfdocument">RTF</site:tutorial> and now we let the document
-listen to <site:src class="com.lowagie.text.html.HtmlWriter" />:
+listen to <site:doc class="com.lowagie.text.html.HtmlWriter" />:
 <site:source class="HelloHtml" />
 </div>
 	</site:section>

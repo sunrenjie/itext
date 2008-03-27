@@ -93,9 +93,9 @@ but in a PDF document file.<br />
 This example shows you the 5 basic steps you have to take for every
 new PDF document you are creating from scratch with iText:
 <ul>
-<li><b>Step 1:</b> Create an <site:doc class="com.lowagie.text.Document" target="constructor_summary">instance</site:doc> of <site:src class="com.lowagie.text.Document" />:
+<li><b>Step 1:</b> Create an <site:doc class="com.lowagie.text.Document" target="constructor_summary">instance</site:doc> of <site:doc class="com.lowagie.text.Document" />:
 <div class="commandline"></div>Document document = new Document();</li>
-<li><b>Step 2:</b> Create a Writer (for instance <site:src class="com.lowagie.text.pdf.PdfWriter" />) that listens to this document and writes the document to the OutputStream of your choice:
+<li><b>Step 2:</b> Create a Writer (for instance <site:doc class="com.lowagie.text.pdf.PdfWriter" />) that listens to this document and writes the document to the OutputStream of your choice:
 <div class="commandline">PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));</div></li>
 <li><b>Step 3:</b> Open the document:
 <div class="commandline">document.open();</div></li>
@@ -112,7 +112,7 @@ In the following sections, we will take a closer look into each step.
 	<site:section name="step1">
 		<site:sectiontitle>step 1: the Document object</site:sectiontitle>
 <div>
-Class <site:src class="com.lowagie.text.Document" /> has <site:doc class="com.lowagie.text.Document" target="constructor_summary">3 constructors</site:doc>:
+Class <site:doc class="com.lowagie.text.Document" /> has <site:doc class="com.lowagie.text.Document" target="constructor_summary">3 constructors</site:doc>:
 <pre class="commandline">public Document();
 public Document(Rectangle pageSize);
 public Document(Rectangle pageSize,
@@ -124,7 +124,7 @@ The first constructor calls the second one, with <site:doc class="com.lowagie.te
 The second constructor calls the third one, with 36 as value for each margin.<br /><br />
 <div class="subtitle">Pagesize</div>
 The default PageSize is DIN A4 (iText is a European library; A4 is the most common format overhere),
-but for your convenience class <site:src class="com.lowagie.text.PageSize" /> offers you a very complete list of standard PageSizes:
+but for your convenience class <site:doc class="com.lowagie.text.PageSize" /> offers you a very complete list of standard PageSizes:
 A0-A10, LEGAL, LETTER, HALFLETTER, _11x17, LEDGER, NOTE, B0-B5, ARCH_A-ARCH_E, FLSA and FLSE.
 <site:source class="DefaultPageSize" />
 Most these standard pageSizes are in PORTRAIT-format.
@@ -163,7 +163,7 @@ for the pagenumber, NOT the Document object.
 		<div>
 Once our <site:doc class="com.lowagie.text.Document">Document</site:doc> is created,
 we can create one or more instances of writers that listen to this document.
-All writers should be derived from the abstract class <site:src class="com.lowagie.text.DocWriter" />.
+All writers should be derived from the abstract class <site:doc class="com.lowagie.text.DocWriter" />.
 For the moment there are three kinds of writers supported:
 <dl>
 <dt><site:doc class="com.lowagie.text.pdf.PdfWriter" target="getInstance(com.lowagie.text.Document,%20java.io.OutputStream)">PdfWriter</site:doc></dt>
@@ -185,7 +185,7 @@ It may surprise you that there seems to be 'no object'. You probably expect some
 <div class="commandline">PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));</div>
 Actually there IS a writer object in both cases, but in simple applications you will never need it.<br />
 <br />
-The first parameter of the getInstance method is the <site:src class="com.lowagie.text.Document" /> object
+The first parameter of the getInstance method is the <site:doc class="com.lowagie.text.Document" /> object
 created in <a href="#step1">step 1</a>. The second parameter can be any java.io.OutputStream object.
 In this tutorial we always use a java.io.FileOutputStream, but you can also use
 a java.io.ByteArrayOutputStream to create PDF files in memory or a javax.servlet.ServletOutputStream
