@@ -78,7 +78,7 @@
     	    <dd>Whether to write additional styling information that is required to display scaled
     	      images correctly in Word 2000, Word 97 and Word for Mac. Defaults to
     	      <span class="commandline">false</span>. If you want images to be scaled correctly
-    	      in Word 2000, Word 97 and Word for Mac set this setting to <span class="commandline">false</span>.
+    	      in Word 2000, Word 97 and Word for Mac set this setting to <span class="commandline">true</span>.
     	      Must be <span class="commandline">false</span> for images to be displayed correctly
     	      in Word XP.</dd>
     	  </dl>
