@@ -114,12 +114,8 @@ document.close();
             <dd></dd>
             <dt style="font-weight: bold">Embedded fonts</dt>
             <dd></dd>
-            <dt style="font-weight: bold">Lists with non-bullet symbols</dt>
-            <dd>Support may be added on demand.</dd>
             <dt style="font-weight: bold">Table.setSpaceInsideCell and Table.setSpaceBetweenCells</dt>
             <dd></dd>
-            <dt style="font-weight: bold">Table.setSpaceBefore</dt>
-            <dd>Will be supported in the future.</dd>
             <dt style="font-weight: bold">Table.padding</dt>
             <dd></dd>
             <dt style="font-weight: bold">Watermarks</dt>
