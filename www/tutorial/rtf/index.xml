@@ -136,57 +136,6 @@ document.close();
         </div>
     </site:section>
     
-    <site:section name="transition">
-        <site:sectiontitle>Transitioning from the RtfWriter to the RtfWriter2</site:sectiontitle>
-        <div>
-          <b style="color: #ff0000;">IF YOU HAVEN'T TRANSITIONED YET, NOW IS THE TIME. THE RTFWRITER WILL BE REMOVED END OF 2007</b><br /><br />
-          The <site:doc class="com.lowagie.text.rtf.RtfWriter">RtfWriter</site:doc>
-          is the old RTF generating class. It has been deprecated and superceded by
-          the <site:doc class="com.lowagie.text.rtf.RtfWriter2">RtfWriter2</site:doc>
-          which is now the only class that should be used for RTF generation. The
-          RtfWriter is now only provided for backward compatability and will be removed
-          from the library by the end of 2007. The RtfWriter receives NO UPDATES.<br /><br />
-          Transitioning from the old RtfWriter to the new RtfWriter2 should by no problem
-          if you do not use any of the extensions provided for the old RtfWriter. If you
-          did use extensions for the old RtfWriter the following table shows which classes
-          provide the equivalent functionality in the new RtfWriter2:
-          <table>
-            <tr>
-		      <td>Old extensions</td>
-		      <td>New extensions</td>    
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.RtfFont">com.lowagie.text.rtf.RtfFont</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.style.RtfFont">com.lowagie.text.rtf.style.RtfFont</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowgaie.text.rtf.HeaderFooter">com.lowgaie.text.rtf.HeaderFooter</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.headerfooter.RtfHeaderFooter">com.lowagie.text.rtf.headerfooter.RtfHeaderFooter</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.HeaderFooters">com.lowagie.text.rtf.HeaderFooters</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup">com.lowagie.text.rtf.headerfooter.RtfHeaderFooterGroup</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.RtfPageNumber">com.lowagie.text.rtf.RtfPageNumber</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.field.RtfPageNumber">com.lowagie.text.rtf.field.RtfPageNumber</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.RtfTOC">com.lowagie.text.rtf.RtfTOC</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.field.RtfTableOfContents">com.lowagie.text.rtf.field.RtfTableOfContents</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.RtfTOCEntry">com.lowagie.text.rtf.RtfTOCEntry</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.field.RtfTOCEntry">com.lowagie.text.rtf.field.RtfTOCEntry</site:doc></td>
-            </tr>
-            <tr>
-		      <td><site:doc class="com.lowagie.text.rtf.RtfTableCell">com.lowagie.text.rtf.RtfTableCell</site:doc></td>
-		      <td><site:doc class="com.lowagie.text.rtf.table.RtfCell">com.lowagie.text.rtf.table.RtfCell</site:doc></td>
-            </tr>
-          </table>
-        </div>
-    </site:section>
-
 	</site:chapter>
 
 </site:page>
