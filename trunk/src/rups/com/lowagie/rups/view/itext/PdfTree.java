@@ -70,7 +70,6 @@ public class PdfTree extends JTree implements Observer {
 		}
 		setModel(new DefaultTreeModel(root));
 		repaint();
-		return;
 	}
 
 	/**

@@ -44,7 +44,7 @@ import javax.swing.text.StyleContext;
 public class Console implements Observer {
 
 	/** Single Console instance. */
-	public static Console console = null;
+	private static Console console = null;
 	
     /** Custom PrintStream. */
     PrintStream printStream;
@@ -101,7 +101,7 @@ public class Console implements Observer {
     /**
      * Console is a Singleton class: you can only get one Console.
      */
-    public static Console getInstance() {
+    public static synchronized Console getInstance() {
     	if (console == null) {
     		try {
 				console = new Console();
