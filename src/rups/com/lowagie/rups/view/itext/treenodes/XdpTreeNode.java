@@ -99,7 +99,7 @@ public class XdpTreeNode extends IconTreeNode {
 			buf.append(a.getName());
 			buf.append("=\"");
 			buf.append(a.getValue());
-			buf.append("\"");
+			buf.append('"');
 			return buf.toString();
 		}
 		if (node instanceof Text) {
@@ -110,7 +110,7 @@ public class XdpTreeNode extends IconTreeNode {
 			ProcessingInstruction pi = (ProcessingInstruction)node;
 			StringBuffer buf = new StringBuffer("<?");
 			buf.append(pi.getName());
-			buf.append(" ");
+			buf.append(' ');
 			buf.append(pi.getText());
 			buf.append("?>");
 			return buf.toString();

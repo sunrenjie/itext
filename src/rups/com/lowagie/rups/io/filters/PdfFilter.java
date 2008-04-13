@@ -11,7 +11,7 @@ import javax.swing.filechooser.FileFilter;
 public class PdfFilter extends FileFilter {
 
 	/** A public instance of the PdfFilter. */
-	public static PdfFilter INSTANCE = new PdfFilter();
+	public static final PdfFilter INSTANCE = new PdfFilter();
 	
     /**
      *
