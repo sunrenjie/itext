@@ -234,6 +234,7 @@ public class RupsController extends Observable
 	 * Adds a component to a ScrollPane.
 	 * @param	component	the component that has to be scrollable
 	 * @return	a JScrollPane
+	 * @since 2.1.0
 	 */
 	public static JScrollPane getScrollPane(Component component) {
 		JScrollPane scrollpane = new JScrollPane();
