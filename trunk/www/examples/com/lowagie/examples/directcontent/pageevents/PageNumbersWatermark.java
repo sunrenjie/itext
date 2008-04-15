@@ -188,7 +188,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
        tpl.beginText();
        tpl.setFontAndSize(helv, 12);
        tpl.setTextMatrix(0, 0);
-       tpl.showText("" + (writer.getPageNumber() - 1));
+       tpl.showText(Integer.toString(writer.getPageNumber() - 1));
        tpl.endText();
     }
 }
