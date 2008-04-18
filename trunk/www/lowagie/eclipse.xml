@@ -10,7 +10,7 @@
 		<site:amazonbooks>
 			<site:book asin="1932394796">iText in Action</site:book>
 		</site:amazonbooks>
-		<site:updated>$Date: 2006/05/22 11:00:29 $</site:updated>
+		<site:updated>$Date$</site:updated>
 	</site:metadata>
 	<site:content>
 	<div>
