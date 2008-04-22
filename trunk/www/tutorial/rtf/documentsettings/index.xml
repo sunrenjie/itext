@@ -81,6 +81,10 @@
     	      in Word 2000, Word 97 and Word for Mac set this setting to <span class="commandline">true</span>.
     	      Must be <span class="commandline">false</span> for images to be displayed correctly
     	      in Word XP.</dd>
+            <dt style="font-weight: bold;">imageWrittenAsBinary (Boolean)</dt>
+            <dd>This setting controls whether images are written as binary data in the RTF document, or are
+              hex encoded. Defaults to <span class="commandline">true</span> for document size reasons. Set to
+              <span class="commandline">false</span> if you want hex encoded image data.</dd>
     	  </dl>
     	  You access these generation settings by getting the <span class="commandline">RtfDocumentSettings</span>
     	  object from the <span class="commandline">RtfWriter2</span>.
