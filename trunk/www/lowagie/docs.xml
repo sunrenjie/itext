@@ -25,7 +25,7 @@ buy the eBook from <a href="http://www.manning.com/affiliate/idevaffiliate.php?i
 <div class="title">API documentation</div>
 With every new release, the API documentation is generated automatically, using the
 javadoc tool that comes with the JDK. You can consult the API <a href="http://www.1t3xt.info/api/">online</a>
-or download a <a href="http://itextdocs.lowagie.com/downloads/docs.tar.gz">tar.gz</a> file with all the API documentation.
+or download <site:releasedocs /> with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
 If you own the book, you have access to hundreds of small standalone examples
 that are organized per chapter at <a href="http://itext.ugent.be/itext-in-action/chapter.php">itext.ugent.be</a>
