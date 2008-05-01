@@ -53,7 +53,7 @@ public class ChapterSection {
             // step 2: we create a writer that listens to the document
             PdfWriter writer=PdfWriter.getInstance(document, new FileOutputStream("ChapterSection.pdf"));
             // step 3: we open the document
-            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OUTLINES);
             document.open();
             // step 4: we add content to the document
             // we define some fonts

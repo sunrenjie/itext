@@ -68,7 +68,7 @@ public class Bookmarks extends PdfPageEventHelper {
 			// step 2:
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Bookmarks.pdf"));
 			// step 3:
-            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
+            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OUTLINES);
 			document.open();
             // step 4: we grab the ContentByte and do some stuff with it
             writer.setPageEvent(new Bookmarks());
