@@ -47,7 +47,7 @@ public class PageLabels {
             // step 2:
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("PageLabels.pdf"));
             // step 3:
-            writer.setViewerPreferences(PdfWriter.PageModeUseThumbs);
+            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_THUMBS);
             document.open();
             // step 4:
             // we add some content
