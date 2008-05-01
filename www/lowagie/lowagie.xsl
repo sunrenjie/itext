@@ -26,12 +26,12 @@
 <!-- releaselinks to SourceForge -->
 
 <xsl:template match="site:releasesrc">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-src-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
 iText-src-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
 or
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-src-<xsl:call-template name="site:releasenumber" />.zip</xsl:attribute>
 iText-src-<xsl:call-template name="site:releasenumber" />.zip
 </xsl:element>
@@ -39,15 +39,15 @@ iText-src-<xsl:call-template name="site:releasenumber" />.zip
 
 <xsl:template match="site:releasejar">
 <ul>
-<li>iText core: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<li>iText core: <xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
 iText-<xsl:call-template name="site:releasenumber" />.jar
 </xsl:element></li>
-<li>iText RTF: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<li>iText RTF: <xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-rtf-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
 iText-rtf-<xsl:call-template name="site:releasenumber" />.jar
 </xsl:element></li>
-<li>iText RUPS: <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<li>iText RUPS: <xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-rups-<xsl:call-template name="site:releasenumber" />.jar</xsl:attribute>
 iText-rups-<xsl:call-template name="site:releasenumber" />.jar
 </xsl:element></li>
@@ -55,7 +55,7 @@ iText-rups-<xsl:call-template name="site:releasenumber" />.jar
 </xsl:template>
 
 <xsl:template match="site:releasedocs">
-<xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+<xsl:element name="a">
 <xsl:attribute name="href">http://prdownloads.sourceforge.net/itext/iText-docs-<xsl:call-template name="site:releasenumber" />.tar.gz</xsl:attribute>
 iText-docs-<xsl:call-template name="site:releasenumber" />.tar.gz
 </xsl:element>
