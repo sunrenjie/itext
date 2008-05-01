@@ -50,7 +50,7 @@ public class OrderedLayers {
 			PdfWriter writer = PdfWriter.getInstance(document,
 					new FileOutputStream("orderedlayers.pdf"));
 			writer.setPdfVersion(PdfWriter.VERSION_1_5);
-			writer.setViewerPreferences(PdfWriter.PageModeUseOC);
+			writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OC);
 			// step 3
 			document.open();
 			// step 4
