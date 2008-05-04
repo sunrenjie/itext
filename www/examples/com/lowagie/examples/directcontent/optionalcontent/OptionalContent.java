@@ -53,7 +53,7 @@ public class OptionalContent {
             // step 2: creation of the writer
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("optionalcontent.pdf"));
             writer.setPdfVersion(PdfWriter.VERSION_1_5);
-            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OC);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOC);
             // step 3: opening the document
             document.open();
             // step 4: content
