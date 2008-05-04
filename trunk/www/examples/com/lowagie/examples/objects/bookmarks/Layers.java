@@ -62,7 +62,7 @@ public class Layers {
 					new FileOutputStream("Layers.pdf"));
 			writer.setPdfVersion(PdfWriter.VERSION_1_5);
 			// step 3:
-			writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OC);
+			writer.setViewerPreferences(PdfWriter.PageModeUseOC);
 			document.open();
 			// step 4:
 			PdfContentByte cb = writer.getDirectContent();

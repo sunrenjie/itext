@@ -48,7 +48,7 @@ public class NestedLayers {
             // step 2
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("nestedlayers.pdf"));
             writer.setPdfVersion(PdfWriter.VERSION_1_5);
-            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OC);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOC);
             // step 3
             document.open();
             // step 4

@@ -55,7 +55,7 @@ public class OutlineActions {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("OutlineActions.pdf"));
             PdfWriter.getInstance(remote, new FileOutputStream("remote.pdf"));
             // step 3:
-            writer.setViewerPreferences(PdfWriter.PAGE_MODE_USE_OUTLINES);
+            writer.setViewerPreferences(PdfWriter.PageModeUseOutlines);
             document.open();
             remote.open();
             // step 4:
