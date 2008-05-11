@@ -32,7 +32,7 @@ import com.lowagie.text.rtf.RtfWriter2;
  * RTF document with iText.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class HelloWorld {
     /**

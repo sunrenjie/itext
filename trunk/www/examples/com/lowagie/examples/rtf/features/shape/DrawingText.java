@@ -34,7 +34,7 @@ import com.lowagie.text.rtf.graphic.RtfShapePosition;
  * This text cannot be styled.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class DrawingText {
     /**

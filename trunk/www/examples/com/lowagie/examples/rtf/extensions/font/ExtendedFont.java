@@ -36,7 +36,7 @@ import com.lowagie.text.rtf.style.RtfFont;
  * iText fonts.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  * @see com.lowagie.text.rtf.style.RtfFont
  */
 public class ExtendedFont {

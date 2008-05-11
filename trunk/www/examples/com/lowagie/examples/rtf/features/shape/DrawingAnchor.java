@@ -36,7 +36,7 @@ import com.lowagie.text.rtf.graphic.RtfShapePosition;
  * page to create a horizontal line.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class DrawingAnchor {
     /**
