@@ -38,7 +38,7 @@ import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
  * parts of the document.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class ChapterHeaderFooter {
     /**

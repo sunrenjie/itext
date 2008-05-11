@@ -38,7 +38,7 @@ import com.lowagie.text.rtf.style.RtfParagraphStyle;
  * to define table of contents entries and how to style them.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class TableOfContents {
     /**

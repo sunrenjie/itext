@@ -34,7 +34,7 @@ import com.lowagie.text.rtf.document.output.RtfDataCache;
  * properties are changed.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class DocumentSettings {
     /**

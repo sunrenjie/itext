@@ -36,7 +36,7 @@ import com.lowagie.text.rtf.style.RtfParagraphStyle;
  * that (if desired) inherit from existing stylesheets.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class ExtendingStylesheets {
     /**

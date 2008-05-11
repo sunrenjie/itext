@@ -34,7 +34,7 @@ import com.lowagie.text.rtf.direct.RtfDirectContent;
  * to add a soft linebreak to a Paragraph. 
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class SoftLineBreak {
     /**

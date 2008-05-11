@@ -37,7 +37,7 @@ import com.lowagie.text.rtf.headerfooter.RtfHeaderFooter;
  * total number of pages is updated.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class TotalPageNumber {
     /**

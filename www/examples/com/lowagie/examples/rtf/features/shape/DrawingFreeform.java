@@ -38,7 +38,7 @@ import com.lowagie.text.rtf.graphic.RtfShapeProperty;
  * creates a table shaped drawing object.
  * 
  * @version $Revision$
- * @author Mark Hall (mhall@edu.uni-klu.ac.at)
+ * @author Mark Hall (Mark.Hall@mail.room3b.eu)
  */
 public class DrawingFreeform {
     /**
