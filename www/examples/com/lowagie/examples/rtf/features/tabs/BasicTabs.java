@@ -1,6 +1,5 @@
 /*
  * $Id$
- * $Name$
  *
  * This code is free software. It may only be copied or modified
  * if you include the following copyright notice:
