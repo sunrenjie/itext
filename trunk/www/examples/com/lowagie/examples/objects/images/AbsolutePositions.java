@@ -1,6 +1,5 @@
 /*
  * $Id$
- * $Name$
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
