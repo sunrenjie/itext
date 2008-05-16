@@ -19,26 +19,31 @@
 		<site:example>
 			<site:java src="DrawingObjects" standalone="yes" />
 			<site:result>DrawingObjects.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with one simple shape</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DrawingAnchor" standalone="yes" />
 			<site:result>DrawingAnchor.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the use of different anchors for a drawing</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DrawingWrap" standalone="yes" />
 			<site:result>DrawingWrap.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the different text wrapping modes</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DrawingText" standalone="yes" />
 			<site:result>DrawingText.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with text contained in the drawing object</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="DrawingFreeform" standalone="yes" />
 			<site:result>DrawingFreeform.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the creation of a freeform shape</site:description>
 		</site:example>
 	</site:examples>

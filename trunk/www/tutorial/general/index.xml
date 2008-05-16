@@ -54,6 +54,7 @@
 			<site:result>HelloWorldPdf.pdf</site:result>
 			<site:result>HelloWorldRtf.rtf</site:result>
 			<site:result>HelloWorldHtml.html</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Writing to different writers at the same time; using pause() and resume()</site:description>
 		</site:example>
 		<site:example>

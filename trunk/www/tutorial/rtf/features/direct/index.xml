@@ -19,6 +19,7 @@
 		<site:example>
 			<site:java src="SoftLineBreak" standalone="yes" />
 			<site:result>SoftLineBreak.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the use of soft linebreaks</site:description>
 		</site:example>
 	</site:examples>

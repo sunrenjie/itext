@@ -19,6 +19,7 @@
 		<site:example>
 			<site:java src="ExtendedTableCell" standalone="yes" />
 			<site:result>ExtendedTableCell.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates an RTF document with a Table with specific borders per cell</site:description>
 		</site:example>
 	</site:examples>

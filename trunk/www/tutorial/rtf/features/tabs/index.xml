@@ -19,11 +19,13 @@
 		<site:example>
 			<site:java src="BasicTabs" standalone="yes" />
 			<site:result>BasicTabs.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the use of tab stops</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="TabGroups" standalone="yes" />
 			<site:result>TabGroups.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document using the tab group feature</site:description>
 		</site:example>
 	</site:examples>

@@ -19,16 +19,19 @@
 		<site:example>
 			<site:java src="BasicStylesheets" standalone="yes" />
 			<site:result>BasicStylesheets.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document demonstrating the use of paragraph stylesheets</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ChangingStylesheets" standalone="yes" />
 			<site:result>ChangingStylesheets.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with modified paragraph stylesheets</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ExtendingStylesheets" standalone="yes" />
 			<site:result>ExtendingStylesheets.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with new paragraph stylesheets</site:description>
 		</site:example>
 	</site:examples>

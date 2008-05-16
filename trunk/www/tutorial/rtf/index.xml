@@ -19,6 +19,7 @@
 		<site:example>
 			<site:java src="HelloWorld" standalone="yes" />
 			<site:result>HelloWorld.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a simple 'Hello World!' RTF file</site:description>
 		</site:example>
 	</site:examples>

@@ -36,6 +36,7 @@
 			<site:result>ExtraStyles.pdf</site:result>
 			<site:result>ExtraStyles.rtf</site:result>
 			<site:result>ExtraStyles.html</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Demonstrates how to underline or strike through text</site:description>
 		</site:example>
 		<site:example>

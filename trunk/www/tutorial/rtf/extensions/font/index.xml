@@ -19,11 +19,13 @@
 		<site:example>
 			<site:java src="ExtendedFont" standalone="yes" />
 			<site:result>ExtendedFont.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a simple document using the RtfFont class</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="ExtendedFontStyles" standalone="yes" />
 			<site:result>ExtendedFontStyles.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a simple document using the additional font styles in the RtfFont class</site:description>
 		</site:example>
 	</site:examples>
