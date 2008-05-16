@@ -25,6 +25,7 @@
 		<site:example>
 			<site:java src="HelloWorldServlet" standalone="no" webapp="ROOT" />
 			<site:extrajar>servlet.jar</site:extrajar>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a simple 'Hello World' file from a servlet (PDF, HTML or RTF)</site:description>
 			<site:path name="presentationtype=pdf">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=pdf</site:path>
 			<site:path name="presentationtype=html">http://blowagie.users.mcs2.netarray.com/servlet/HelloWorld?presentationtype=html</site:path>

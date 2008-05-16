@@ -19,6 +19,7 @@
 		<site:example>
 			<site:java src="TableOfContents" standalone="yes" />
 			<site:result>TableOfContents.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with a table of contents</site:description>
 		</site:example>
 	</site:examples>

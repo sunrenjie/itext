@@ -19,11 +19,13 @@
 		<site:example>
 			<site:java src="PageNumber" standalone="yes" />
 			<site:result>PageNumber.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with page numbers in the footer</site:description>
 		</site:example>
 		<site:example>
 			<site:java src="TotalPageNumber" standalone="yes" />
 			<site:result>TotalPageNumber.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a document with page numbers and total number of pages in the header</site:description>
 		</site:example>
 	</site:examples>

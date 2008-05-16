@@ -47,7 +47,7 @@ public class WidthHeight {
             document.open();
             
             // step 4: we add content to the document
-            BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            BaseFont bfComic = BaseFont.createFont("c:\\windows\\fonts\\comic.ttf", BaseFont.WINANSI, BaseFont.EMBEDDED);
             Font font = new Font(bfComic, 12);
             String text1 = "quick brown fox jumps";
             String text2 = " over ";

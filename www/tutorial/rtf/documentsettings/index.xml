@@ -19,6 +19,7 @@
 		<site:example>
 			<site:java src="DocumentSettings" standalone="yes" />
 			<site:result>DocumentSettings.rtf</site:result>
+			<site:extrajar>itext-rtf.jar</site:extrajar>
 			<site:description>Generates a simple document with modified document settings</site:description>
 		</site:example>
 	</site:examples>

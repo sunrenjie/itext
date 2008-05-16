@@ -34,6 +34,7 @@
 			<site:java src="TablePdfPTable" standalone="yes" />
 			<site:result>tableattributes.pdf</site:result>
 			<site:result>tableattributes.rtf</site:result>
+			<site:extrajar>iText-rtf.jar</site:extrajar>
 			<site:description>Generates a table with the TableAttributes object</site:description>
 		</site:example>
 		<site:example>
