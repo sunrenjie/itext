@@ -92,7 +92,7 @@ public class EncodingFont {
 	static String cst(char c) {
         if (c == 0)
             return "\u00a0";
-        String s = Integer.toHexString((int)c);
+        String s = Integer.toHexString(c);
         s = s.toUpperCase();
         s = "0000" + s;
         return s.substring(s.length() - 4);
