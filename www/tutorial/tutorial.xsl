@@ -52,11 +52,6 @@
 		
 		<div align="Center"><a href="http://www.prchecker.info/" target="_blank" title="iText, the #1 Java-PDF library">
 		<img src="http://www.prchecker.info/PR1_img.gif" alt="iText, the #1 Java-PDF library" border="0" /></a></div><br />
-		
-<script type="text/javascript"><![CDATA[<!--
-var uri = 'http://imp.tradedoubler.com/imp?type(js)pool(238100)a(1457679)' + new String (Math.random()).substring (2, 11);
-document.write('<sc'+'ript type="text/javascript" src="'+uri+'" charset="ISO-8859-1"></sc'+'ript>');
-//-->]]></script>
 <br />
 <script type="text/javascript"><![CDATA[<!--
 google_ad_client = "pub-0340380473790570";
@@ -431,16 +426,6 @@ document.write('<iframe src="http://rcm.amazon.com/e/cm?t=itisacatalofwebp&o=1&p
 							<xsl:attribute name="href">.<xsl:value-of select="$root" />/index.php#<xsl:value-of select="translate(substring($branch, 2), '/', '_')" /></xsl:attribute>
 							Table of Contents
 						</xsl:element>
-						<div align="Center" class="small">Best viewed with:<br />
-						<script type="text/javascript"><![CDATA[<!--
-google_ad_client = "pub-0340380473790570";
-google_ad_width = 180;
-google_ad_height = 60;
-google_ad_format = "180x60_as_rimg";
-google_cpa_choice = "CAAQyaj8zwEaCIwcWMzeycafKMu293M";
-//-->]]></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
 						<div class="sidetitle">Sections:</div>
 						<ul>
 							<xsl:for-each select="site:chapter/site:section">
