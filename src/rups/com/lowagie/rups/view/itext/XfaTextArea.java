@@ -18,7 +18,6 @@ public class XfaTextArea extends JScrollPane {
 	
 	/**
 	 * Constructs a StreamTextArea.
-	 * @throws IOException 
 	 */
 	public XfaTextArea() {
 		super();
