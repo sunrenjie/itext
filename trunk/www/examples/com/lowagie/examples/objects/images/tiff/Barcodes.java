@@ -32,7 +32,6 @@ import com.lowagie.text.pdf.BarcodeInter25;
 import com.lowagie.text.pdf.BarcodePostnet;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 /**
  * List with different Barcode types.
@@ -85,8 +84,6 @@ public class Barcodes {
             codePlanet.setCode("50201402356");
             codePlanet.setCodeType(Barcode.PLANET);
             Image imagePlanet = codePlanet.createImageWithBarcode(cb, null, null);
-            PdfTemplate tp = cb.createTemplate(0, 0);
-            PdfTemplate ean = codeEAN.createTemplateWithBarcode(cb, null, Color.blue);
             BarcodeEAN codeSUPP = new BarcodeEAN();
             codeSUPP.setCodeType(Barcode.SUPP5);
             codeSUPP.setCode("54995");
