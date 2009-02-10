@@ -15,21 +15,11 @@
 package com.lowagie.examples.forms;
 
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import com.lowagie.text.pdf.*;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import com.lowagie.text.pdf.PRAcroForm;
-import com.lowagie.text.pdf.PRIndirectReference;
-import com.lowagie.text.pdf.PdfArray;
-import com.lowagie.text.pdf.PdfDictionary;
-import com.lowagie.text.pdf.PdfLister;
-import com.lowagie.text.pdf.PdfName;
-import com.lowagie.text.pdf.PdfObject;
-import com.lowagie.text.pdf.PdfReader;
-import com.lowagie.text.pdf.PdfString;
 
 /**
  * Demonstrates the use of PageSize.
@@ -41,9 +31,9 @@ public class ListFields {
      * @param args no arguments needed here
      */
     public static void main(String[] args) {
-        
+
         System.out.println("Listfields");
-                
+
         try {
             PrintStream stream = new PrintStream(new FileOutputStream("listfields.txt"));
             stream.println("ListFields output file");
@@ -67,30 +57,27 @@ public class ListFields {
                 }
                 for (int page = 1; page <= reader.getNumberOfPages(); ++page) {
                     PdfDictionary dPage = reader.getPageN(page);
-                    PdfArray annots = (PdfArray)PdfReader.getPdfObject(dPage.get(PdfName.ANNOTS));
+                    PdfArray annots = dPage.getAsArray(PdfName.ANNOTS);
                     if (annots == null)
                         continue;
-                    ArrayList ali = annots.getArrayList();
-                    for (int annot = 0; annot < ali.size(); ++annot) {
-                        PdfObject refObj = (PdfObject)ali.get(annot);
-                        PRIndirectReference ref = null;
-                        PdfDictionary an = (PdfDictionary)PdfReader.getPdfObject(refObj);
-                        PdfName name = (PdfName)an.get(PdfName.SUBTYPE);
-                        if (name == null || !name.equals(PdfName.WIDGET))
+                    for (int annotIdx = 0; annotIdx < annots.size(); ++annotIdx) {
+                        PdfIndirectReference ref = annots.getAsIndirectObject(annotIdx);
+                        PdfDictionary annotDict = annots.getAsDict( annotIdx );
+                        PdfName subType = annotDict.getAsName(PdfName.SUBTYPE);
+                        if (subType == null || !subType.equals(PdfName.WIDGET))
                             continue;
-                        PdfArray rect = (PdfArray)an.get(PdfName.RECT);
+                        PdfArray rect = annotDict.getAsArray(PdfName.RECT);
                         String fName = "";
                         PRAcroForm.FieldInformation field = null;
-                        while (an != null) {
-                            PdfString tName = (PdfString)an.get(PdfName.T);
+                        while (annotDict != null) {
+                            PdfString tName = annotDict.getAsString(PdfName.T);
                             if (tName != null)
                                 fName = tName.toString() + "." + fName;
-                            if (refObj.type() == PdfObject.INDIRECT && field == null) {
-                                ref = (PRIndirectReference)refObj;
+                            if (ref != null) {
                                 field = (PRAcroForm.FieldInformation)refToField.get(new Integer(ref.getNumber()));
                             }
-                            refObj = an.get(PdfName.PARENT);
-                            an = (PdfDictionary)PdfReader.getPdfObject(refObj);
+                            ref = annotDict.getAsIndirectObject(PdfName.PARENT);
+                            annotDict = annotDict.getAsDict(PdfName.PARENT);
                         }
                         if (fName.endsWith("."))
                             fName = fName.substring(0, fName.length() - 1);
