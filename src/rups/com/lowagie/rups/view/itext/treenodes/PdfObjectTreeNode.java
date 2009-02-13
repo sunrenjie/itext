@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -36,7 +36,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 
 	/** the PDF object corresponding with this node. */
 	protected PdfObject object;
-	/** the key if the parent of this node is a dictionary. */
+    /** the key if the parent of this node is a dictionary. */
 	protected PdfName key = null;
 	/** if the object is indirect, the number of the PDF object. */
 	protected int number = -1;
@@ -52,7 +52,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 		this.object = object;
     	switch(object.type()) {
     	case PdfObject.INDIRECT:
-    		if (isRecursive())
+            if (isRecursive())
     			icon = IconFetcher.getIcon("ref_recursive.png");
     		else
     			icon = IconFetcher.getIcon("ref.png");
@@ -83,7 +83,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 			return;
     	}
 	}
-	
+
 	/**
 	 * Creates a tree node for a PDF object.
 	 * @param icon		the file with the icon
@@ -92,8 +92,8 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	protected PdfObjectTreeNode(String icon, PdfObject object) {
 		super(icon, getCaption(object));
 		this.object = object;
-	}
-	
+        }
+
 
 	/**
 	 * Creates an instance of a tree node for a PDF object.
@@ -111,7 +111,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 		}
 		return new PdfObjectTreeNode(object);
 	}
-	
+
 	/**
 	 * Creates an instance of a tree node for an indirect object.
 	 * @param object	the PDF object represented by this tree node.
@@ -136,13 +136,13 @@ public class PdfObjectTreeNode extends IconTreeNode {
 		node.key = key;
 		return node;
 	}
-	
+
 	/**
 	 * Getter for the PDF Object.
 	 * @return	the PDF object represented by this tree node.
 	 */
 	public PdfObject getPdfObject() {
-		return object;
+        return object;
 	}
 
 	/**
@@ -155,7 +155,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 		}
 		return number;
 	}
-	
+
 	/**
 	 * Tells you if the node contains an indirect reference.
 	 * @return	true if the object is an indirect reference
@@ -163,7 +163,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public boolean isIndirectReference() {
 		return object.type() == PdfObject.INDIRECT;
 	}
-	
+
 	/**
 	 * Tells you if the object is indirect.
 	 * @return	true for indirect objects; false for direct objects.
@@ -171,7 +171,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public boolean isIndirect() {
 		return isIndirectReference() || number > -1;
 	}
-	
+
 	/**
 	 * Tells you if the node contains an array.
 	 * @return	true if the object is a PdfArray
@@ -179,7 +179,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public boolean isArray() {
 		return object.isArray();
 	}
-	
+
 	/**
 	 * Checks if this node is a dictionary item with a specific key.
 	 * @param	key	the key of the node we're looking for
@@ -188,7 +188,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 		if (key == null) return false;
 		return key.equals(this.key);
 	}
-	
+
 	/**
 	 * Tells you if the node contains a dictionary.
 	 * @return	true if the object is a PdfDictionary
@@ -196,7 +196,7 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public boolean isDictionary() {
 		return object.isDictionary();
 	}
-	
+
 	/**
 	 * Tells you if the node contains a stream.
 	 * @return	true if the object is a PRStream
@@ -212,15 +212,15 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public void setRecursive(boolean recursive) {
 		this.recursive = recursive;
 	}
-	
-	/**
+
+    /**
 	 * Tells you if the object is a reference to a node higher up in the tree.
 	 * @return	true if the node is used recursively.
 	 */
 	public boolean isRecursive() {
 		return recursive;
 	}
-	
+
 	/**
 	 * Creates the caption for a PDF object.
 	 * @param object	the object for which a caption has to be created.
@@ -231,8 +231,11 @@ public class PdfObjectTreeNode extends IconTreeNode {
 			return "null";
 		switch (object.type()) {
 		case PdfObject.INDIRECT:
-			return "Indirect reference: " + object.toString();
-		case PdfObject.ARRAY:
+            {
+                String reffedCaption = getCaption( PdfReader.getPdfObject( object ) );
+                return object.toString() + " -> " + reffedCaption;
+            }
+        case PdfObject.ARRAY:
 			return "Array";
 		case PdfObject.STREAM:
 			return "Stream";
@@ -251,8 +254,13 @@ public class PdfObjectTreeNode extends IconTreeNode {
 	public static String getDictionaryEntryCaption(PdfDictionary dict, PdfName key) {
 		StringBuffer buf = new StringBuffer(key.toString());
 		buf.append(": ");
-		buf.append(dict.get(key).toString());
-		return buf.toString();
+        PdfObject valObj = dict.get(key);
+        if (valObj.isIndirect()) {
+            buf.append( getCaption( valObj ) );
+        } else {
+            buf.append(dict.get(key).toString());
+        }
+        return buf.toString();
 	}
 
 	/**
