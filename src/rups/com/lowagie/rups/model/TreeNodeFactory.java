@@ -91,7 +91,7 @@ public class TreeNodeFactory {
 			return;
 		case PdfObject.ARRAY:
 			PdfArray array = (PdfArray)object;
-			for (Iterator it = array.getArrayList().iterator(); it.hasNext(); ) {
+			for (Iterator it = array.listIterator(); it.hasNext(); ) {
 				leaf = PdfObjectTreeNode.getInstance((PdfObject)it.next());
 				addNodes(node, leaf);
 				expandNode(leaf);
