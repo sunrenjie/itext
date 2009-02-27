@@ -26,8 +26,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Generates a StudentCard as a form
- * @author blowagie
+ * Generates a StudentCard as a form, with Structure-based reading order.
+ * @author blowagie, mstorer
  */
 public class StudentCardFormStructure implements PdfPCellEvent {
 
@@ -70,7 +70,7 @@ public class StudentCardFormStructure implements PdfPCellEvent {
         try {
 
             // step 2:
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("studentcardformStructure.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("studentcardformStruct.pdf"));
 
             // step 2.5: set the writer to use structure tags.  This must be done
             // BEFORE we call document.open().
@@ -82,12 +82,11 @@ public class StudentCardFormStructure implements PdfPCellEvent {
             document.open();
 
             // step 4: Set up structure (AKA Marked Content)
-
             PdfStructureTreeRoot root = writer.getStructureTreeRoot();
 
             PdfStructureElement page = new PdfStructureElement( root, new PdfName( "Part") );
             page.put( PdfName.T, new PdfString("Page 1" ) );
-            // calling page.getMCID() will assign it one as needed.
+            // calling PdfStructureElement.getMCID() will assign it one as needed.
             root.setPagesMCID(1, page.getMCID() );
             PdfStructureElement curFldStruct = null;
 

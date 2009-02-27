@@ -14,7 +14,7 @@
 		<site:updated>$Date$</site:updated>
 		<site:author>Bruno Lowagie</site:author>
 	</site:metadata>
-	
+
 	<site:examples>
 		<site:example>
 			<site:java src="StudentCard" standalone="yes" />
@@ -26,6 +26,11 @@
 			<site:java src="StudentCardForm" standalone="yes" />
 			<site:result>studentcardform.pdf</site:result>
 			<site:description>Generates a studentcard as a form</site:description>
+		</site:example>
+		<site:example>
+			<site:java src="StudentCardFormStructure" standalone="yes" />
+			<site:result>studentcardformStruct.pdf</site:result>
+			<site:description>Generates a studentcard as a form, with reading order defined in Logical Structure</site:description>
 		</site:example>
 	</site:examples>
 	
