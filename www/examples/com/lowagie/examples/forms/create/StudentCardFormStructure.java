@@ -1,5 +1,5 @@
 /*
- * $Id: StudentCardForm.java 3373 2008-05-12 16:21:24Z xlv $
+ * $Id$
  *
  * This code is part of the 'iText Tutorial'.
  * You can find the complete tutorial at the following address:
