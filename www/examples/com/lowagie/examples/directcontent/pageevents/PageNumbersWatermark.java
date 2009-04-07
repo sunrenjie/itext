@@ -162,6 +162,7 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
             }
             cb.restoreState();
         }
+        cb.sanityCheck();
     }
     
     /**
@@ -189,5 +190,6 @@ public class PageNumbersWatermark extends PdfPageEventHelper {
        tpl.setTextMatrix(0, 0);
        tpl.showText(Integer.toString(writer.getPageNumber() - 1));
        tpl.endText();
+       tpl.sanityCheck();
     }
 }

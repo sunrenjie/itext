@@ -97,6 +97,7 @@ public class SpotColors {
             cb.lineTo(200f, 250f);
             cb.lineTo(400f, 150f);
             cb.fill();
+            // cb.sanityCheck is called during newPage().
             document.newPage();
             String text = "Some text to show";
             document.add(new Paragraph(text, new Font(Font.HELVETICA, 24, Font.NORMAL, new SpotColor(spc_cmyk))));
@@ -126,7 +127,10 @@ public class SpotColors {
             t.endText();
             t.rectangle(0, 0, 499, 499);
             t.stroke();
+            t.sanityCheck();
             cb.addTemplate(t, -1.0f, 0.00f, 0.00f, -1.0f, 550f, 550f);
+            
+            cb.sanityCheck();
         }
         catch(Exception de) {
             de.printStackTrace();

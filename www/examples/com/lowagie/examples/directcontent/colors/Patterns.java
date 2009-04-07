@@ -95,10 +95,12 @@ public class Patterns {
             p1.moveTo(0f, 0f);
             p1.lineTo(60f, 60f);
             p1.stroke();
+            p1.sanityCheck();
             
             // A pattern with an image and position
             p2.addImage(img, img.getScaledWidth(), 0f, 0f, img.getScaledHeight(), 0f, 0f);
             p2.setPatternMatrix(1f, 0f, 0f, 1f, 60f, 60f);
+            p2.sanityCheck();
             
             // See if we can apply the pattern color to chunk, phrase or paragraph
             PatternColor pat = new PatternColor(p);
@@ -161,6 +163,7 @@ public class Patterns {
             cb.setGrayStroke(0.0f);
             cb.circle(150f, 400f, 150f);
             cb.fillStroke();
+            cb.sanityCheck();
             
             // New page to place image in the pattern painter's canvas
             document.newPage();
@@ -191,6 +194,8 @@ public class Patterns {
             cb.setGrayStroke(0.0f);
             cb.circle(150f, 400f, 150f);
             cb.fillStroke();
+            
+            cb.sanityCheck();
         }
         catch(Exception e) {
             e.printStackTrace();

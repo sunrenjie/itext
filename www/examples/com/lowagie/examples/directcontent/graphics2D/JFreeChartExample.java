@@ -75,7 +75,9 @@ public class JFreeChartExample {
     		Rectangle2D r2d = new Rectangle2D.Double(0, 0, width, height);
     		chart.draw(g2d, r2d);
     		g2d.dispose();
+    		tp.sanityCheck();
     		cb.addTemplate(tp, 0, 0);
+    		cb.sanityCheck();
     	}
     	catch(DocumentException de) {
     		de.printStackTrace();

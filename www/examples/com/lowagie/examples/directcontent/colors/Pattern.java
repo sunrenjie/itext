@@ -57,11 +57,15 @@ public class Pattern {
             PdfPatternPainter pat = cb.createPattern(15, 15, null);
             pat.rectangle(5, 5, 5, 5);
             pat.fill();
+            pat.sanityCheck();
+            
             PdfSpotColor spc_cmyk = new PdfSpotColor("PANTONE 280 CV", 0.25f, new CMYKColor(0.9f, .2f, .3f, .1f));
             SpotColor spot = new SpotColor(spc_cmyk);
             tp.setPatternFill(pat, spot, .9f);
             tp.rectangle(0, 0, 400, 300);
             tp.fill();
+            tp.sanityCheck();
+            
             cb.addTemplate(tp, 50, 50);
             PdfPatternPainter pat2 = cb.createPattern(10, 10, null);
             pat2.setLineWidth(2);
@@ -91,6 +95,8 @@ public class Pattern {
             cb.setPatternFill(pat2, new GrayColor(0.9f));
             cb.rectangle(350, 400, 30, 40);
             cb.fillStroke();
+            
+            cb.sanityCheck();
         }
         catch (Exception de) {
             de.printStackTrace();

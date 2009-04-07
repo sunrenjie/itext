@@ -59,6 +59,8 @@ public class Shading {
             cb.paintShading(shading);
             cb.restoreState();
             
+            cb.sanityCheck();
+            
             document.close();
         }
         catch (Exception de) {

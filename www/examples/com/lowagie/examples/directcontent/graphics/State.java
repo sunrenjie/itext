@@ -69,6 +69,8 @@ public class State {
 			cb.restoreState();
 			cb.circle(260.0f, 500.0f, 50.0f);
 			cb.fill();
+			
+			cb.sanityCheck();
 		} catch (DocumentException de) {
 			System.err.println(de.getMessage());
 		} catch (IOException ioe) {

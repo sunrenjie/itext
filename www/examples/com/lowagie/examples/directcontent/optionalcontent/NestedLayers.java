@@ -72,6 +72,8 @@ public class NestedLayers {
             ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, p3, 50, 500, 0);
             cb.endLayer();
             cb.endLayer();
+            cb.sanityCheck();
+            
             PdfOCProperties p = writer.getOCProperties();
             PdfArray order = new PdfArray();
             order.add(l1.getRef());

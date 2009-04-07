@@ -64,9 +64,12 @@ public class Layers {
             cb.setRGBColorFill(0xFF, 0xFF, 0xFF);
             cb.circle(250.0f, 500.0f, 50.0f);
             cb.fill();
+            cb.sanityCheck();
+            
             cbu.setRGBColorFill(0xFF, 0x00, 0x00);
             cbu.circle(250.0f, 500.0f, 100.0f);
             cbu.fill();
+            cbu.sanityCheck();
             
         }
         catch(DocumentException de) {

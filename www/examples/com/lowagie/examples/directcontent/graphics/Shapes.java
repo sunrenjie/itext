@@ -80,6 +80,8 @@ public class Shapes {
             // the color of the triangle will be red instead of green
             cb.setRGBColorFillF(255f, 0f, 0f);
             cb.closePathFillStroke();
+            
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());
