@@ -84,6 +84,8 @@ public class Text {
             
             // we tell the contentByte, we've finished drawing text
             cb.endText();
+            
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

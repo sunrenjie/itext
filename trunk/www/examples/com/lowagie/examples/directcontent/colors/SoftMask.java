@@ -61,6 +61,7 @@ public class SoftMask {
             smask.makeMask();
             img.setImageMask(smask);
             cb.addImage(img);
+            cb.sanityCheck();
         }
         catch (Exception de) {
             de.printStackTrace();

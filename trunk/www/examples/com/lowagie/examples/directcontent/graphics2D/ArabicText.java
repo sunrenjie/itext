@@ -46,6 +46,7 @@ public class ArabicText {
             g2.setFont(font);
             g2.drawString(text1, 100, 100);
             g2.dispose();
+            cb.sanityCheck();
             // step 5
             document.close();
         }

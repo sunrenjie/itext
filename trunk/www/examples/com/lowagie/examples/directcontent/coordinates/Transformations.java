@@ -61,16 +61,19 @@ public class Transformations {
             template.lineTo(30, 80);
             template.closePath();
             template.stroke();
+            template.sanityCheck();
             
             // we add the template on different positions
             cb.addTemplate(template, 0, 0);
             cb.addTemplate(template, 0, 1, -1, 0, 200, 600);
             cb.addTemplate(template, .5f, 0, 0, .5f, 100, 400);
+            cb.sanityCheck();
             
             // we go to a new page
             document.newPage();
             cb.addTemplate(template, 0, 500);
             cb.addTemplate(template, 2, 0, -1, 2, 200, 300);
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

@@ -76,6 +76,8 @@ public class Automatic {
             cb.beginLayer(l4);
             ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, p4, 50, 450, 0);
             cb.endLayer();
+            cb.sanityCheck();
+            
             // step 5
             document.close();
         }

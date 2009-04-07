@@ -98,6 +98,7 @@ public class Groups {
             group.setIsolated(true);
             group.setKnockout(true);
             tp.setGroup(group);
+            tp.sanityCheck();
             cb.addTemplate(tp, gap, 500);
 
             
@@ -107,6 +108,7 @@ public class Groups {
             group.setIsolated(true);
             group.setKnockout(false);
             tp.setGroup(group);
+            tp.sanityCheck();
             cb.addTemplate(tp, 200 + 2 * gap, 500);
 
             
@@ -116,6 +118,7 @@ public class Groups {
             group.setIsolated(false);
             group.setKnockout(true);
             tp.setGroup(group);
+            tp.sanityCheck();
             cb.addTemplate(tp, gap, 500 - 200 - gap);
 
             
@@ -125,8 +128,10 @@ public class Groups {
             group.setIsolated(false);
             group.setKnockout(false);
             tp.setGroup(group);
+            tp.sanityCheck();
             cb.addTemplate(tp, 200 + 2 * gap, 500 - 200 - gap);
 
+            cb.sanityCheck();
         }
         catch (Exception de) {
             de.printStackTrace();

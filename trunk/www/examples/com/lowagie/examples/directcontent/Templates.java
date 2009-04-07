@@ -68,6 +68,7 @@ public class Templates {
             template.setTextMatrix(100, 100);
             template.showText("Text at the position 100,100 (relative to the template!)");
             template.endText();
+            template.sanityCheck();
             
             // we add the template on different positions
             cb.addTemplate(template, 0, 0);
@@ -78,6 +79,7 @@ public class Templates {
             document.newPage();
             cb.addTemplate(template, 0, 400);
             cb.addTemplate(template, 2, 0, 0, 2, -200, 400);
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

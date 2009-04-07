@@ -105,6 +105,8 @@ public class OptionalContent {
             PdfAction action = PdfAction.setOCGstate(state, true);
             Chunk ck = new Chunk("Click here to toggle the layers", new Font(Font.HELVETICA, 18, Font.NORMAL, Color.yellow)).setBackground(Color.blue).setAction(action);
             ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase(ck), 250, 400, 0);
+            cb.sanityCheck();
+            
             // step 5: closing the document
             document.close();
         }

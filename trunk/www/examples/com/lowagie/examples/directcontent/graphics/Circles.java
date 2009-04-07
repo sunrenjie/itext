@@ -57,6 +57,8 @@ public class Circles {
             cb.setRGBColorFill(0xFF, 0xFF, 0xFF);
             cb.circle(250.0f, 500.0f, 50.0f);
             cb.fill();
+            
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

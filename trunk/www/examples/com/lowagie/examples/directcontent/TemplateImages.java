@@ -63,6 +63,7 @@ public class TemplateImages {
             template.endText();
             template.setWidth(width);
             template.setHeight(size + 2);
+            template.sanityCheck();
             Image img = Image.getInstance(template);
             img.setRotationDegrees(90);
             Chunk ck = new Chunk(img, 0, 0);

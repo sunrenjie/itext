@@ -125,8 +125,9 @@ public class G2D {
             int width = metrics.stringWidth(pear);
             g2.drawString(pear, (w - width) / 2, 20);
             g2.dispose();
+            tp.sanityCheck(); // all the g2 content is written to tp, not cb
             cb.addTemplate(tp, 50, 400);
-            
+            cb.sanityCheck();
         }
         catch(DocumentException de) {
             System.err.println(de.getMessage());

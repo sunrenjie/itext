@@ -49,6 +49,7 @@ public class TransformImage {
             PdfContentByte cb = writer.getDirectContent();
             Image img = Image.getInstance("hitchcock.png");
             cb.addImage(img, 271, -50, -30, 550, 100, 100);
+            cb.sanityCheck();
    
         }
         catch(DocumentException de) {
