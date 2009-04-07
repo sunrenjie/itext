@@ -118,8 +118,7 @@ public class StudentCardFormStructure implements PdfPCellEvent {
             // reading order is defined by the order in which children are added to parents.
             // it has nothing to to with the MCIDs.
             curFldStruct = new PdfStructureElement(page, PdfName.FORM);
-            curFldStruct.put( PdfName.T, new PdfString("name" ) );
-            curFldStruct.getMCID();
+            curFldStruct.setStructTitle( "name" );
             name.setMarkedObject( curFldStruct );
 
             cell.setCellEvent(new StudentCardForm(name));
@@ -133,7 +132,6 @@ public class StudentCardFormStructure implements PdfPCellEvent {
 
             curFldStruct = new PdfStructureElement(page, PdfName.FORM);
             curFldStruct.put( PdfName.T, new PdfString( "date of birth" ) );
-            curFldStruct.getMCID();
             birthdate.setMarkedObject( curFldStruct );
             curFldStruct.setMarkedObject(birthdate.getIndRef(), null);
 
@@ -147,8 +145,7 @@ public class StudentCardFormStructure implements PdfPCellEvent {
             PdfFormField studyprogram = text.getTextField();
 
             curFldStruct = new PdfStructureElement(page, PdfName.FORM);
-            curFldStruct.put(PdfName.T, new PdfString("Study Program:"));
-            curFldStruct.getMCID();
+            curFldStruct.setStructTitle("Study Program:");
             studyprogram.setMarkedObject( curFldStruct );
 
             cell.setCellEvent(new StudentCardForm(studyprogram));
@@ -161,8 +158,7 @@ public class StudentCardFormStructure implements PdfPCellEvent {
             PdfFormField option = text.getTextField();
 
             curFldStruct = new PdfStructureElement( page, PdfName.FORM );
-            curFldStruct.put(PdfName.T, new PdfString("option"));
-            curFldStruct.getMCID();
+            curFldStruct.setStructTitle("option");
             option.setMarkedObject( curFldStruct );
 
             cell.setCellEvent(new StudentCardForm(option));
@@ -180,8 +176,7 @@ public class StudentCardFormStructure implements PdfPCellEvent {
             barcode.setFieldName("barcode");
 
             curFldStruct = new PdfStructureElement( page, PdfName.FORM );
-            curFldStruct.put(PdfName.T, new PdfString("barcode"));
-            curFldStruct.getMCID();
+            curFldStruct.setStructTitle("barcode");
             barcode.setMarkedObject( curFldStruct );
 
             cell.setCellEvent(new StudentCardForm(barcode));
