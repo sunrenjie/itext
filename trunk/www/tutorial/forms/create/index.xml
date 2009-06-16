@@ -27,11 +27,6 @@
 			<site:result>studentcardform.pdf</site:result>
 			<site:description>Generates a studentcard as a form</site:description>
 		</site:example>
-		<site:example>
-			<site:java src="StudentCardFormStructure" standalone="yes" />
-			<site:result>studentcardformStruct.pdf</site:result>
-			<site:description>Generates a studentcard as a form, with reading order defined in Logical Structure</site:description>
-		</site:example>
 	</site:examples>
 	
 	<site:chapter>
