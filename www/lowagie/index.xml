@@ -18,12 +18,12 @@
 		<div class="header">iText Homepage</div>
 		<div id="side">
 		<div class="sidetitle">NEWS</div>
-		June 16, 2009: release of iText 2.1.56<br /><br />
+		June 16, 2009: release of <a href="http://1t3xt.com/about/history.php?branch=history.21&node=216">iText 2.1.6</a><br /><br />
 		Read more about <a href="http://www.1t3xt.com/docs/book.php">iText in Action</a>, the first and only book about iText:<br />
 		<div align="center"><a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53"><img src="http://www.1t3xt.com/img/book/lowagie_3d.jpg" border="0" /></a></div>
 		Download <a href="http://www.1t3xt.com/docs/book.php#free">two free chapters</a>!
 		Buy the <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">eBook</a>.<br /><br />
-		Try the iText <a href="http://itext.ugent.be/library/itext.jnlp">Java Web Start</a> application!<br/>
+		Try the iText <a href="http://1t3xt.com/jnlp/toolbox.jnlp">Java Web Start</a> application!<br/>
 		</div>
 		<div class="title">Project description</div>
 		iText is a library that allows you to generate PDF files on the fly.<br />
