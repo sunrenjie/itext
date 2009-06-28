@@ -9,11 +9,4 @@
 		<site:keywords>PDF, JAVA, iText, links, Lowagie, Bruno</site:keywords>
 		<site:updated>$Date$</site:updated>
 	</site:metadata>
-	<site:content>
-	<div class="small" xmlns="http://www.w3.org/1999/xhtml">
-<div class="header">Links</div>
-<blockquote>The links have moved to <a href="http://itext.ugent.be/links/">http://itext.ugent.be/links/</a>.</blockquote>
-
-	</div>
-	</site:content>
 </site:page>

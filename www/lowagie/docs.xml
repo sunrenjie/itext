@@ -28,7 +28,7 @@ javadoc tool that comes with the JDK. You can consult the API <a href="http://ww
 or download <site:releasedocs /> with all the API documentation.
 <div class="title">Tutorial and Code Samples</div>
 If you own the book, you have access to hundreds of small standalone examples
-that are organized per chapter at <a href="http://itext.ugent.be/itext-in-action/chapter.php">itext.ugent.be</a>
+that are organized per chapter at <a href="http://1t3xt.info/examples">1T3XT.info</a>
 (note that you have to answer a magic question in order to see the examples).<br />
 If you don't own the book, you could turn to the free online tutorial (<a href="http://itext.sourceforge.net/tutorial/">iText by Example</a>)
 or try the examples presented in the <a href="http://www.lowagie.com/itextwiki/">iText Wiki</a>.
@@ -38,7 +38,7 @@ iText has a very active mailing-list. If you don't want to
 <a href="http://lists.sourceforge.net/lists/listinfo/itext-questions">register</a>
 rightaway, you can browse through the <a href="http://news.gmane.org/gmane.comp.java.lib.itext.general">mailing-list archives</a>
 before sending your question to <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@lists.sourceforge.net</a>.<br />
-Of course you should always consult the <a href="http://itext.ugent.be/library/faq.php">FAQ</a>
+Of course you should always consult the <a href="http://1t3xt.info/tutorials/faq.php">FAQ</a>
 before you <a href="http://www.1t3xt.com/about/contact.php">contact us</a>.<br />
 If you do send a question to the list,
 try describing your problem as concrete as possible. We can't answer questions such as

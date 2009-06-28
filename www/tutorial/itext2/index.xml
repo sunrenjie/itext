@@ -30,7 +30,7 @@ Note that the first and the third chapter of the book can be downloaded for free
 <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=223_53">http://manning.com/lowagie/</a><br />
 The book discusses most of the functionality that is available in iText 1.4.8, but all the source code that
 is printed in the book STILL WORKS in iText 2. Only a few changes were needed to make all the examples available
-on <a href="http://itext.ugent.be/itext-in-action/chapter.php">itext.ugent.be</a> (the support site for the book)
+on <a href="http://1t3xt.info/examples">1T3XT.info</a> (the support site for the book)
 were necessary. This iText 2 specific chapter in the free online tutorial will contain new examples that explain
 how to use the newly added functionality soon.
 		</div>
@@ -90,8 +90,6 @@ Note that you can download other versions of these jars for other JDKs from <a h
 <div class="subtitle">iText version / JDK version</div>
 This version of iText is compiled for use with JDK 1.4.
 It will also work for Java 5 and Java 6.
-However, if you need iText to work with earlier versions of the JDK,
-you should read <a href="http://itext.ugent.be/library/question.php?id=19">this FAQ entry</a>.
 </div>
 	</site:section>
 	<site:section name="functionality">
