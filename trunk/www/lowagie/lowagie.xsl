@@ -208,7 +208,7 @@ mailto: <a href="mailto:itext-questions@lists.sourceforge.net">itext-questions@l
 		<a class="navigation" href="svn.html">SVN Repository</a>
 		<a class="navigation" href="eclipse.html">Using Eclipse</a>
 		<a class="navigation" href="ant.html">ANT Scripts</a>
-		<a class="navigation" href="http://itext.ugent.be/library/faq.php">FAQ</a>
+		<a class="navigation" href="http://1t3xt.info/tutorials/faq.php">FAQ</a>
 		<br />
 		<a class="navigation" href="http://lists.sourceforge.net/lists/listinfo/itext-questions">Mailing List Registration</a>
 		<a class="navigation" href="http://www.1t3xt.com/about/contact.php">Mailing List Archives</a>
