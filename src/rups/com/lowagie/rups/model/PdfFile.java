@@ -20,9 +20,7 @@
 
 package com.lowagie.rups.model;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -31,9 +29,7 @@ import javax.swing.JPasswordField;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.exceptions.BadPasswordException;
 import com.lowagie.text.pdf.PdfReader;
-import com.lowagie.text.pdf.PdfStamper;
 import com.lowagie.text.pdf.RandomAccessFileOrArray;
-import com.sun.pdfview.PDFFile;
 
 /**
  * Wrapper for both iText's PdfReader (referring to a PDF file to read)
@@ -51,9 +47,6 @@ public class PdfFile {
 	
 	/** The PdfReader object. */
 	protected PdfReader reader = null;
-	
-	/** SUN's PDFFile object. */
-	protected PDFFile PDFFile = null;
 	
 	/** The file permissions */
 	protected Permissions permissions = null;
@@ -113,37 +106,6 @@ public class PdfFile {
 		    	throw new IOException("You need the owner password of this file to open it in iText Trapeze.");
 		    }
 		}
-		// if the file is encrypted, make a temporary copy
-		if (permissions.isEncrypted()) {
-			pdf = workAround();
-		}
-		// reading the file into SUN's PDFFile
-		pdf.reOpen();
-		try {
-			PDFFile = new PDFFile(pdf.getNioByteBuffer());
-		}
-		catch(IOException ioe) {
-			PDFFile = new PDFFile(workAround().getNioByteBuffer());
-		}
-		pdf.close();
-		
-	}
-	
-	protected RandomAccessFileOrArray workAround() throws DocumentException, IOException {
-		if (directory == null) {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			PdfStamper stamper = new PdfStamper(reader, baos);
-			stamper.close();
-			return new RandomAccessFileOrArray(baos.toByteArray());
-		}
-		else {
-			File temp = File.createTempFile(filename.substring(0, filename.lastIndexOf(".pdf")) + "~", ".pdf", directory);
-			temp.deleteOnExit();
-			FileOutputStream fos = new FileOutputStream(temp);
-			PdfStamper stamper = new PdfStamper(reader, fos);
-			stamper.close();
-			return new RandomAccessFileOrArray(temp.getAbsolutePath());
-		}		
 	}
 
 	/**
@@ -152,22 +114,5 @@ public class PdfFile {
 	 */
 	public PdfReader getPdfReader() {
 		return reader;
-	}
-	
-	/**
-	 * Gets the total number of pages in the document.
-	 * @return	the total number of pages
-	 */
-	public int getNumberOfPages() {
-		if (reader == null) return 0;
-		return reader.getNumberOfPages();
-	}
-
-	/**
-	 * Getter for SUN's PDFFile object (for the renderer)
-	 * @return	a PDFFile object
-	 */
-	public PDFFile getPDFFile() {
-		return PDFFile;
 	}
 }

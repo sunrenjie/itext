@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: PageNavigationListener.java 4031 2009-07-23 11:09:59Z blowagie $
  *
  * Copyright 2007 Bruno Lowagie.
  *
@@ -25,13 +25,8 @@ package com.lowagie.rups.view;
  * to page navigation features; keys that are pressed, buttons that
  * are pushed,...
  */
-public interface PageNavigationListener {
+public interface PageSelectionListener {
 
-	/**
-	 * Returns the total number of pages in a document.
-	 * @return	the total number of pages in a document.
-	 */
-	public int getNumberOfPages();
 	/**
 	 * Goes to a specific page number in a document.
 	 * @param	pageNumber
