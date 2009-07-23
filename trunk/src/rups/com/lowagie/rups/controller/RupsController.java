@@ -37,7 +37,7 @@ import com.lowagie.rups.io.FileChooserAction;
 import com.lowagie.rups.io.FileCloseAction;
 import com.lowagie.rups.model.PdfFile;
 import com.lowagie.rups.view.Console;
-import com.lowagie.rups.view.PageNavigationListener;
+import com.lowagie.rups.view.PageSelectionListener;
 import com.lowagie.rups.view.RupsMenuBar;
 import com.lowagie.rups.view.itext.treenodes.PdfObjectTreeNode;
 import com.lowagie.rups.view.itext.treenodes.PdfTrailerTreeNode;
@@ -48,13 +48,15 @@ import com.lowagie.text.DocumentException;
  * the RUPS application: the menu bar, the panels,...
  */
 public class RupsController extends Observable
-	implements TreeSelectionListener, PageNavigationListener {
+	implements TreeSelectionListener, PageSelectionListener {
 	
 	// member variables
 	
-	/* file */
+	/* file and controller */
 	/** The Pdf file that is currently open in the application. */
 	protected PdfFile pdfFile;
+	/** Object with the GUI components for iText. */
+	protected PdfReaderController readerController;
 
 	/* main components */
 	/** The JMenuBar for the RUPS application. */
@@ -62,12 +64,10 @@ public class RupsController extends Observable
 	/** Contains all other components: the page panel, the outline tree, etc. */
 	protected JSplitPane masterComponent;
 	
-	/** Object with the GUI components for iText. */
-	protected PdfReaderController reader;
 	
 	// constructor
 	/**
-	 * Constructs the GUI components of the Trapeze application.
+	 * Constructs the GUI components of the RUPS application.
 	 */
 	public RupsController(Dimension dimension) {
 		// creating components and controllers
@@ -75,8 +75,8 @@ public class RupsController extends Observable
         addObserver(menuBar);
 		Console console = Console.getInstance();
 		addObserver(console);
-		reader = new PdfReaderController(this, this);
-		addObserver(reader);
+		readerController = new PdfReaderController(this, this);
+		addObserver(readerController);
 
         // creating the master component
 		masterComponent = new JSplitPane();
@@ -92,14 +92,14 @@ public class RupsController extends Observable
 		content.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
 		content.setDividerLocation((int)(dimension.getWidth() * .6));
 		content.setDividerSize(1);
-        content.add(RupsController.getScrollPane(reader.getPdfTree()), JSplitPane.LEFT);
-		content.add(reader.getNavigationTabs(), JSplitPane.RIGHT);
+        content.add(new JScrollPane(readerController.getPdfTree()), JSplitPane.LEFT);
+		content.add(readerController.getNavigationTabs(), JSplitPane.RIGHT);
         
 		info.setDividerLocation((int) (dimension.getWidth() * .3));
 		info.setDividerSize(1);
-		info.add(reader.getObjectPanel(), JSplitPane.LEFT);
-		JTabbedPane editorPane = reader.getEditorTabs();
-		JScrollPane cons = RupsController.getScrollPane(console.getTextArea());
+		info.add(readerController.getObjectPanel(), JSplitPane.LEFT);
+		JTabbedPane editorPane = readerController.getEditorTabs();
+		JScrollPane cons = new JScrollPane(console.getTextArea());
 		editorPane.addTab("Console", null, cons, "Console window (System.out/System.err)");
 		editorPane.setSelectedComponent(cons);
 		info.add(editorPane, JSplitPane.RIGHT);
@@ -129,7 +129,7 @@ public class RupsController extends Observable
 				pdfFile = new PdfFile(file);
 				setChanged();
 				super.notifyObservers(RupsMenuBar.OPEN);
-				reader.startObjectLoader(pdfFile);
+				readerController.startObjectLoader(pdfFile);
 			}
 			catch(IOException ioe) {
 				JOptionPane.showMessageDialog(masterComponent, ioe.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
@@ -153,51 +153,23 @@ public class RupsController extends Observable
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
 	public void valueChanged(TreeSelectionEvent evt) {
-		Object selectednode = reader.getPdfTree().getLastSelectedPathComponent();
+		Object selectednode = readerController.getPdfTree().getLastSelectedPathComponent();
 		if (selectednode instanceof PdfTrailerTreeNode) {
 			menuBar.update(this, RupsMenuBar.FILE_MENU);
 			return;
 		}
 		if (selectednode instanceof PdfObjectTreeNode) {
-			reader.update(this, selectednode);
+			readerController.update(this, selectednode);
 		}
 	}
 
 	// page navigation
 
 	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#getTotalNumberOfPages()
-	 */
-	public int getNumberOfPages() {
-		if (pdfFile == null)
-			return 0;
-		return pdfFile.getNumberOfPages();
-	}
-	
-	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#gotoFirstPage()
-	 */
-	public int gotoFirstPage() {
-		return gotoPage(1);
-	}
-
-	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#gotoPage(int)
+	 * @see com.lowagie.rups.view.PageSelectionListener#gotoPage(int)
 	 */
 	public int gotoPage(int pageNumber) {
-		reader.gotoPage(pageNumber);
+		readerController.gotoPage(pageNumber);
 		return pageNumber;
-	}
-
-	/**
-	 * Adds a component to a ScrollPane.
-	 * @param	component	the component that has to be scrollable
-	 * @return	a JScrollPane
-	 * @since 2.1.0
-	 */
-	public static JScrollPane getScrollPane(Component component) {
-		JScrollPane scrollpane = new JScrollPane();
-		scrollpane.setViewportView(component);
-		return scrollpane;
 	}
 }
