@@ -153,6 +153,15 @@ public class PdfFile {
 	public PdfReader getPdfReader() {
 		return reader;
 	}
+	
+	/**
+	 * Gets the total number of pages in the document.
+	 * @return	the total number of pages
+	 */
+	public int getNumberOfPages() {
+		if (reader == null) return 0;
+		return reader.getNumberOfPages();
+	}
 
 	/**
 	 * Getter for SUN's PDFFile object (for the renderer)

@@ -47,7 +47,7 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 	/** Caption for "Help about". */
 	public static final String ABOUT = "About";
 	/** Caption for "Help versions". */
-	public static final String VERSIONS = "Versions";
+	public static final String VERSION = "Version";
 	
 	/** The Observable object. */
 	protected Observable observable;
@@ -72,7 +72,7 @@ public class RupsMenuBar extends JMenuBar implements Observer {
         add(Box.createGlue());
         JMenu help = new JMenu(HELP_MENU);
         addItem(help, ABOUT, message);
-        addItem(help, VERSIONS, message);
+        addItem(help, VERSION, message);
         add(help);
 		enableItems(false);
 	}

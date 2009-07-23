@@ -31,25 +31,7 @@ public interface PageNavigationListener {
 	 * Returns the total number of pages in a document.
 	 * @return	the total number of pages in a document.
 	 */
-	public int getTotalNumberOfPages();
-	/**
-	 * Returns the current page number of a document.
-	 * @return	the current page number.
-	 */
-	public int getCurrentPageNumber();
-	/**
-	 * Goes to the first page in a document.
-	 * @return	the resulting page number.
-	 * 		Can be different from 1 if the document is null
-	 */
-	public int gotoFirstPage();
-	/**
-	 * Goes to the previous page in a document.
-	 * @return	the resulting page number.
-	 * 		Can be different from (current page - 1) if the document is null
-	 * 		or the current page = 1.
-	 */
-	public int gotoPreviousPage();
+	public int getNumberOfPages();
 	/**
 	 * Goes to a specific page number in a document.
 	 * @param	pageNumber
@@ -57,17 +39,4 @@ public interface PageNavigationListener {
 	 * 		Can be different from pageNumber if pageNumber doesn't exist.
 	 */
 	public int gotoPage(int pageNumber);
-	/**
-	 * Goes to the previous page in a document.
-	 * @return	the resulting page number.
-	 * 		Can be different from (current page + 1) if the document is null
-	 * 		or the current page equals the total number of pages.
-	 */
-	public int gotoNextPage();
-	/**
-	 * Goes to the last page in a document.
-	 * @return	the resulting page number.
-	 * 		Can be different from the total number of pages if the document is null
-	 */
-	public int gotoLastPage();
 }
