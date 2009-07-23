@@ -45,7 +45,7 @@ import com.lowagie.text.DocumentException;
 
 /**
  * This class controls all the GUI components that are shown in
- * the Trapeze application: the menu bar, the panels,...
+ * the RUPS application: the menu bar, the panels,...
  */
 public class RupsController extends Observable
 	implements TreeSelectionListener, PageNavigationListener {
@@ -57,14 +57,11 @@ public class RupsController extends Observable
 	protected PdfFile pdfFile;
 
 	/* main components */
-	/** The JMenuBar for the Trapeze application. */
+	/** The JMenuBar for the RUPS application. */
 	protected RupsMenuBar menuBar;
 	/** Contains all other components: the page panel, the outline tree, etc. */
 	protected JSplitPane masterComponent;
 	
-	/* Other controllers */
-	/** Object with the GUI components for SUN's PDF Renderer. */
-	protected PdfRendererController renderer;
 	/** Object with the GUI components for iText. */
 	protected PdfReaderController reader;
 	
@@ -78,8 +75,6 @@ public class RupsController extends Observable
         addObserver(menuBar);
 		Console console = Console.getInstance();
 		addObserver(console);
-		renderer = new PdfRendererController(this);
-		addObserver(renderer);
 		reader = new PdfReaderController(this, this);
 		addObserver(reader);
 
@@ -95,18 +90,10 @@ public class RupsController extends Observable
 		masterComponent.add(info, JSplitPane.BOTTOM);
 		
 		content.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		content.setDividerLocation((int)(dimension.getWidth() * .75));
+		content.setDividerLocation((int)(dimension.getWidth() * .6));
 		content.setDividerSize(1);
-		
-		JSplitPane viewers = new JSplitPane();
-        content.add(viewers, JSplitPane.LEFT);
+        content.add(RupsController.getScrollPane(reader.getPdfTree()), JSplitPane.LEFT);
 		content.add(reader.getNavigationTabs(), JSplitPane.RIGHT);
-
-		viewers.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-		viewers.setDividerLocation((int)(dimension.getWidth() * .35));
-		viewers.setDividerSize(1);
-		viewers.add(renderer, JSplitPane.RIGHT);
-		viewers.add(RupsController.getScrollPane(reader.getPdfTree()), JSplitPane.LEFT);
         
 		info.setDividerLocation((int) (dimension.getWidth() * .3));
 		info.setDividerSize(1);
@@ -142,7 +129,6 @@ public class RupsController extends Observable
 				pdfFile = new PdfFile(file);
 				setChanged();
 				super.notifyObservers(RupsMenuBar.OPEN);
-				renderer.startPageLoader(pdfFile);
 				reader.startObjectLoader(pdfFile);
 			}
 			catch(IOException ioe) {
@@ -178,19 +164,14 @@ public class RupsController extends Observable
 	}
 
 	// page navigation
-	
-	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#getCurrentPageNumber()
-	 */
-	public int getCurrentPageNumber() {
-		return renderer.getCurrentPageNumber();
-	}
 
 	/**
 	 * @see com.lowagie.rups.view.PageNavigationListener#getTotalNumberOfPages()
 	 */
-	public int getTotalNumberOfPages() {
-		return renderer.getTotalNumberOfPages();
+	public int getNumberOfPages() {
+		if (pdfFile == null)
+			return 0;
+		return pdfFile.getNumberOfPages();
 	}
 	
 	/**
@@ -201,33 +182,11 @@ public class RupsController extends Observable
 	}
 
 	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#gotoPreviousPage()
-	 */
-	public int gotoPreviousPage() {
-		return gotoPage(getCurrentPageNumber() - 1);
-	}
-
-	/**
 	 * @see com.lowagie.rups.view.PageNavigationListener#gotoPage(int)
 	 */
 	public int gotoPage(int pageNumber) {
-		pageNumber = renderer.gotoPage(pageNumber);
 		reader.gotoPage(pageNumber);
 		return pageNumber;
-	}
-	
-	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#gotoNextPage()
-	 */
-	public int gotoNextPage() {
-		return gotoPage(getCurrentPageNumber() + 1);
-	}
-
-	/**
-	 * @see com.lowagie.rups.view.PageNavigationListener#gotoLastPage()
-	 */
-	public int gotoLastPage() {
-		return gotoPage(getTotalNumberOfPages());
 	}
 
 	/**
