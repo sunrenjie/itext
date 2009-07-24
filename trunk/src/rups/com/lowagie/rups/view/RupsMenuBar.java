@@ -46,7 +46,10 @@ public class RupsMenuBar extends JMenuBar implements Observer {
 	public static final String HELP_MENU = "Help";
 	/** Caption for "Help about". */
 	public static final String ABOUT = "About";
-	/** Caption for "Help versions". */
+	/**
+	 * Caption for "Help versions".
+	 * @since iText 5.0.0 (renamed from VERSIONS)
+	 */
 	public static final String VERSION = "Version";
 	
 	/** The Observable object. */
