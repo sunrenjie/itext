@@ -55,7 +55,10 @@ public class RupsController extends Observable
 	/* file and controller */
 	/** The Pdf file that is currently open in the application. */
 	protected PdfFile pdfFile;
-	/** Object with the GUI components for iText. */
+	/**
+	 * Object with the GUI components for iText.
+	 * @since	iText 5.0.0 (renamed from reader which was confusing because reader is normally used for a PdfReader instance)
+	 */
 	protected PdfReaderController readerController;
 
 	/* main components */
