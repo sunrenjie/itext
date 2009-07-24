@@ -25,7 +25,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import com.lowagie.rups.Rups;
 import com.lowagie.text.Document;
 
 public class MessageAction implements ActionListener {
