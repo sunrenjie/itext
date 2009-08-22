@@ -76,7 +76,7 @@ public class PdfReaderController extends Observable implements Observer {
 	 * This is an Observable object to which all iText related GUI components
 	 * are added as Observers.
 	 * @param treeSelectionListener	when somebody selects a tree node, this listener listens to the event
-	 * @param pageNavigationListener	when somebody changes a page, this listener changes accordingly
+	 * @param pageSelectionListener	when somebody changes a page, this listener changes accordingly
 	 */
 	public PdfReaderController(TreeSelectionListener treeSelectionListener,
 			PageSelectionListener pageSelectionListener) {
