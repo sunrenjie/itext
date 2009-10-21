@@ -59,8 +59,8 @@ public class Pattern {
             pat.fill();
             pat.sanityCheck();
             
-            PdfSpotColor spc_cmyk = new PdfSpotColor("PANTONE 280 CV", 0.25f, new CMYKColor(0.9f, .2f, .3f, .1f));
-            SpotColor spot = new SpotColor(spc_cmyk);
+            PdfSpotColor spc_cmyk = new PdfSpotColor("PANTONE 280 CV", new CMYKColor(0.9f, .2f, .3f, .1f));
+            SpotColor spot = new SpotColor(spc_cmyk, 0.25f);
             tp.setPatternFill(pat, spot, .9f);
             tp.rectangle(0, 0, 400, 300);
             tp.fill();
