@@ -17,16 +17,11 @@ package com.lowagie.examples.forms;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.PdfAnnotation;
-import com.lowagie.text.pdf.PdfAppearance;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfFormField;
-import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.*;
 
 /**
  * Generates an Acroform with a List
@@ -47,26 +42,28 @@ public class FormList {
         try {
             
             // step 2:
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("list.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("d:\\listExamples\\listboxes.pdf"));
             
             // step 3: we open the document
             document.open();
             
             // step 4:
-            PdfContentByte cb = writer.getDirectContent();
-            cb.moveTo(0, 0);
-            String options[] = {"Red", "Green", "Blue"};
-            PdfFormField field = PdfFormField.createList(writer, options, 0);
-            PdfAppearance app = cb.createAppearance(80, 60);
-            app.rectangle(1, 1, 78, 58);
-            app.setGrayFill(0.8f);
-            app.fill();
-            app.resetGrayFill();
-            field.setAppearance(PdfAnnotation.APPEARANCE_NORMAL, app);
-            field.setWidget(new Rectangle(100, 700, 180, 760), PdfAnnotation.HIGHLIGHT_OUTLINE);
-            field.setFieldName("AList");
-            field.setValueAsString("Red");
-            writer.addAnnotation(field);
+            TextField fldDef = new TextField( writer, new Rectangle(100, 700, 180, 760), "AList" );
+            String options[] = {"Red", "Green", "Blue", "White", "Cyan", "Yellow", "Magenta", "Black"};
+            fldDef.setChoices( options );
+
+            // you must turn on multiselect before making multiple selections or they will be discarded.
+            fldDef.setOptions( TextField.MULTISELECT );
+
+            ArrayList<Integer> selections = new ArrayList<Integer>( 3 );
+            selections.add( 1 );
+            selections.add( 3 );
+            selections.add( 5 );
+            fldDef.setChoiceSelections( selections ); // index into chioces
+            
+            PdfFormField field = fldDef.getListField();
+            writer.addAnnotation( field );
+
             
         }
         catch(DocumentException de) {
@@ -78,5 +75,6 @@ public class FormList {
         
         // step 5: we close the document
         document.close();
+        
     }
 }
