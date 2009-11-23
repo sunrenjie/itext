@@ -55,10 +55,10 @@ public class FormList {
             // you must turn on multiselect before making multiple selections or they will be discarded.
             fldDef.setOptions( TextField.MULTISELECT );
 
-            ArrayList<Integer> selections = new ArrayList<Integer>( 3 );
-            selections.add( 1 );
-            selections.add( 3 );
-            selections.add( 5 );
+            ArrayList selections = new ArrayList( 3 );
+            selections.add( new Integer( 1 ) );
+            selections.add( new Integer( 3 ) );
+            selections.add( new Integer( 5 ) );
             fldDef.setChoiceSelections( selections ); // index into chioces
             
             PdfFormField field = fldDef.getListField();
