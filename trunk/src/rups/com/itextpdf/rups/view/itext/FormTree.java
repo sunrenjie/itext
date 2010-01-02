@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -46,20 +46,20 @@ import com.itextpdf.text.pdf.PdfName;
 /**
  * A JTree visualizing information about the Interactive Form of the
  * PDF file (if any). Normally shows a tree view of the field hierarchy
- * and individual XDP packets. 
+ * and individual XDP packets.
  */
 public class FormTree extends JTree implements TreeSelectionListener, Observer {
 
 	/** Nodes in the FormTree correspond with nodes in the main PdfTree. */
 	protected PdfReaderController controller;
-	
+
 	/** If the form is an XFA form, the XML file is stored in this object. */
 	protected XfaFile xfaFile;
 	/** Treeview of the XFA file. */
 	protected XfaTree xfaTree;
 	/** Textview of the XFA file. */
 	protected XfaTextArea xfaTextArea;
-	
+
 	/**
 	 * Creates a new FormTree.
 	 */
@@ -130,7 +130,8 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	 * @param	form_node	the parent node in the form tree
 	 * @param	object_node	the object node that will be used to create a child node
 	 */
-	private void loadFields(TreeNodeFactory factory, FormTreeNode form_node, PdfObjectTreeNode object_node) {
+    @SuppressWarnings("unchecked")
+    private void loadFields(TreeNodeFactory factory, FormTreeNode form_node, PdfObjectTreeNode object_node) {
 		if (object_node == null)
 			return;
 		factory.expandNode(object_node);
@@ -138,9 +139,9 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 			loadFields(factory, form_node, (PdfObjectTreeNode)object_node.getFirstChild());
 		}
 		else if (object_node.isArray()) {
-			Enumeration children = object_node.children();
+			Enumeration<PdfObjectTreeNode> children = object_node.children();
 			while (children.hasMoreElements()) {
-				loadFields(factory, form_node, (PdfObjectTreeNode)children.nextElement());
+				loadFields(factory, form_node, children.nextElement());
 			}
 		}
 		else if (object_node.isDictionary()) {
@@ -156,7 +157,8 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	 * @param	form_node	the parent node in the form tree
 	 * @param	object_node	the object node that will be used to create a child node
 	 */
-	private void loadXfa(TreeNodeFactory factory, XfaTreeNode form_node, PdfObjectTreeNode object_node) {
+    @SuppressWarnings("unchecked")
+    private void loadXfa(TreeNodeFactory factory, XfaTreeNode form_node, PdfObjectTreeNode object_node) {
 		if (object_node == null)
 			return;
 		factory.expandNode(object_node);
@@ -164,12 +166,12 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 			loadXfa(factory, form_node, (PdfObjectTreeNode)object_node.getFirstChild());
 		}
 		else if (object_node.isArray()) {
-			Enumeration children = object_node.children();
+			Enumeration<PdfObjectTreeNode> children = object_node.children();
 			PdfObjectTreeNode key;
 			PdfObjectTreeNode value;
 			while (children.hasMoreElements()) {
-				key = (PdfObjectTreeNode)children.nextElement();
-				value = (PdfObjectTreeNode)children.nextElement();
+				key = children.nextElement();
+				value = children.nextElement();
 				if (value.isIndirectReference()) {
 					factory.expandNode(value);
 					value = (PdfObjectTreeNode)value.getFirstChild();
@@ -199,11 +201,11 @@ public class FormTree extends JTree implements TreeSelectionListener, Observer {
 	public XfaTree getXfaTree() {
 		return xfaTree;
 	}
-	
+
 	public XfaTextArea getXfaTextArea() {
 		return xfaTextArea;
 	}
-	
+
 	/** A serial version UID. */
 	private static final long serialVersionUID = -3584003547303700407L;
 
