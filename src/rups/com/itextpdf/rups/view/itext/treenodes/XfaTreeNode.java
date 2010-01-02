@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -42,7 +42,7 @@ public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 	public static final byte[] BOUNDARY_MIDDLE = "]; start of [".getBytes();
 	/** End sequence of an artificial boundary between XFA fragments added by RUPS */
 	public static final byte[] BOUNDARY_END = "]\n-->".getBytes();
-	
+
 	/**
 	 * Creates the root node of the XFA tree.
 	 * This will be a child of the FormTree root node.
@@ -51,7 +51,7 @@ public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 	public XfaTreeNode(PdfObjectTreeNode xfa) {
 		super(xfa);
 	}
-	
+
 	/**
 	 * Writes (part of) the XFA resource to an OutputStream.
 	 * If key is <code>null</code>, the complete resource is written;
@@ -60,14 +60,15 @@ public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 	 * @param os	the OutputStream to which the XML is written.
 	 * @throws IOException	usual exception when there's a problem writing to an OutputStream
 	 */
-	public void writeTo(OutputStream os) throws IOException {
-		Enumeration children = this.children();
+	@SuppressWarnings("unchecked")
+        public void writeTo(OutputStream os) throws IOException {
+		Enumeration<FormTreeNode> children = this.children();
 		FormTreeNode node;
 		PRStream stream;
 		String key = null;
 		String tmp = null;
 		while (children.hasMoreElements()) {
-			node = (FormTreeNode) children.nextElement();
+			node = children.nextElement();
 			if (key != null) {
 				os.write(BOUNDARY_START);
 				os.write(key.getBytes());
@@ -87,7 +88,7 @@ public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 	/**
 	 * Adds a child node to the XFA root.
 	 * The child node either corresponds with the complete XDP stream
-	 * (if the XFA root only has one child) or with individual packet. 
+	 * (if the XFA root only has one child) or with individual packet.
 	 * @param key	the name of the packet
 	 * @param value	the corresponding stream node in the PdfTree
 	 */
@@ -96,7 +97,7 @@ public class XfaTreeNode extends FormTreeNode implements OutputStreamResource {
 		node.setUserObject(key);
 		this.add(node);
 	}
-	
+
 	/** A serial version UID. */
 	private static final long serialVersionUID = 2463297568233643790L;
 

@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -21,7 +21,6 @@
 package com.itextpdf.rups.view.models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -46,10 +45,10 @@ public class DictionaryTableModel extends AbstractTableModel {
 	 */
 	public DictionaryTableModel(PdfDictionary dictionary) {
 		this.dictionary = dictionary;
-		for (Iterator i = dictionary.getKeys().iterator(); i.hasNext(); )
-			this.keys.add((PdfName) i.next());
+		for (PdfName n : dictionary.getKeys())
+			this.keys.add(n);
 	}
-	
+
 	/**
 	 * @see javax.swing.table.TableModel#getColumnCount()
 	 */
@@ -81,7 +80,8 @@ public class DictionaryTableModel extends AbstractTableModel {
 	/**
 	 * @see javax.swing.table.AbstractTableModel#getColumnName(int)
 	 */
-	public String getColumnName(int columnIndex) {
+	@Override
+    public String getColumnName(int columnIndex) {
 		switch (columnIndex) {
 		case 0:
 			return "Key";

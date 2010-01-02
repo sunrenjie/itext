@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -42,7 +42,7 @@ public class TreeNodeFactory {
 	protected IndirectObjectFactory objects;
 	/** An list containing the nodes of every indirect object. */
 	protected ArrayList<PdfObjectTreeNode> nodes = new ArrayList<PdfObjectTreeNode>();
-	
+
 	/**
 	 * Creates a factory that can produce TreeNode objects
 	 * corresponding with PDF objects.
@@ -55,7 +55,7 @@ public class TreeNodeFactory {
 			nodes.add(PdfObjectTreeNode.getInstance(PdfNull.PDFNULL, ref));
 		}
 	}
-	
+
 	/**
 	 * Gets a TreeNode for an indirect objects.
 	 * @param ref	the reference number of the indirect object.
@@ -70,7 +70,7 @@ public class TreeNodeFactory {
 		}
 		return node;
 	}
-	
+
 	/**
 	 * Creates the Child TreeNode objects for a PDF object TreeNode.
 	 * @param node	the parent node
@@ -91,8 +91,8 @@ public class TreeNodeFactory {
 			return;
 		case PdfObject.ARRAY:
 			PdfArray array = (PdfArray)object;
-			for (Iterator it = array.listIterator(); it.hasNext(); ) {
-				leaf = PdfObjectTreeNode.getInstance((PdfObject)it.next());
+			for (Iterator<PdfObject> it = array.listIterator(); it.hasNext(); ) {
+				leaf = PdfObjectTreeNode.getInstance(it.next());
 				addNodes(node, leaf);
 				expandNode(leaf);
 			}
@@ -100,25 +100,26 @@ public class TreeNodeFactory {
 		case PdfObject.DICTIONARY:
 		case PdfObject.STREAM:
 			PdfDictionary dict = (PdfDictionary)object;
-			for (Iterator it = dict.getKeys().iterator(); it.hasNext(); ) {
-				leaf = PdfObjectTreeNode.getInstance(dict, (PdfName)it.next());
+			for (PdfName element : dict.getKeys()) {
+				leaf = PdfObjectTreeNode.getInstance(dict, element);
 				addNodes(node, leaf);
 				expandNode(leaf);
 			}
 			return;
 		}
 	}
-	
+
 	/**
 	 * Finds a specific child of dictionary node.
 	 * @param	node	the node with a dictionary among its children
 	 * @param	key		the key of the item corresponding with the node we need
 	 */
-	public PdfObjectTreeNode getChildNode(PdfObjectTreeNode node, PdfName key) {
-		Enumeration children = node.breadthFirstEnumeration();
+	@SuppressWarnings("unchecked")
+        public PdfObjectTreeNode getChildNode(PdfObjectTreeNode node, PdfName key) {
+		Enumeration<PdfObjectTreeNode> children = node.breadthFirstEnumeration();
 		PdfObjectTreeNode child;
 		while (children.hasMoreElements()) {
-			child = (PdfObjectTreeNode)children.nextElement();
+			child = children.nextElement();
 			if (child.isDictionaryNode(key)) {
 				if (child.isIndirectReference()) {
 					expandNode(child);
@@ -130,7 +131,7 @@ public class TreeNodeFactory {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Tries adding a child node to a parent node without
 	 * throwing an exception. Normally, if the child node is already

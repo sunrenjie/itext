@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -62,11 +62,12 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 		this.controller = controller;
 		this.listener = listener;
 	}
-	
+
 	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	public void update(Observable observable, Object obj) {
+    @SuppressWarnings("unchecked")
+    public void update(Observable observable, Object obj) {
 		if (obj == null) {
 			list = new ArrayList<PdfPageTreeNode>();
 			repaint();
@@ -83,11 +84,11 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 			if (pages == null) {
 				return;
 			}
-			Enumeration p = pages.depthFirstEnumeration();
+			Enumeration<PdfObjectTreeNode> p = pages.depthFirstEnumeration();
 			PdfObjectTreeNode  child;
 			StringBuffer buf;
 			while (p.hasMoreElements()) {
-				child = (PdfObjectTreeNode)p.nextElement();
+				child = p.nextElement();
 				if (child instanceof PdfPageTreeNode) {
 					buf = new StringBuffer("Page ");
 					buf.append(++i);
@@ -103,24 +104,27 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 		}
 		setModel(new JTableAutoModel(this));
 	}
-	
+
 	/**
 	 * @see javax.swing.JTable#getColumnCount()
 	 */
-	public int getColumnCount() {
+	@Override
+    public int getColumnCount() {
 		return 2;
 	}
-	
+
 	/**
 	 * @see javax.swing.JTable#getRowCount()
 	 */
-	public int getRowCount() {
+	@Override
+    public int getRowCount() {
 		return list.size();
 	}
 
     /**
      * @see javax.swing.JTable#getValueAt(int, int)
      */
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
     	if (getRowCount() == 0) return null;
 		switch (columnIndex) {
@@ -134,7 +138,8 @@ public class PagesTable extends JTable implements JTableAutoModelInterface, Obse
 	/**
 	 * @see javax.swing.JTable#getColumnName(int)
 	 */
-	public String getColumnName(int columnIndex) {
+	@Override
+    public String getColumnName(int columnIndex) {
 		switch (columnIndex) {
 		case 0:
 			return "Object";
