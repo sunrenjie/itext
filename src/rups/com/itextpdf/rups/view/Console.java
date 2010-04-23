@@ -76,7 +76,7 @@ public class Console implements Observer {
     private Console() throws IOException {
     	// Set up Custom
     	piCustom = new PipedInputStream();
-    	poCustom = new PipedOutputStream();
+    	poCustom = new PipedOutputStream(piCustom);
         printStream = new PrintStream(poCustom);
     	
         // Set up System.out
