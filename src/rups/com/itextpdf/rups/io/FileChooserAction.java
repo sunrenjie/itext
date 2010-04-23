@@ -43,6 +43,8 @@ public class FileChooserAction extends AbstractAction {
 	/** The file that was chosen. */
 	protected File file;
 	
+	private File lastSelectedFolder;
+	
 	/**
 	 * Creates a new file chooser action.
 	 * @param observable	the object waiting for you to select file
@@ -69,6 +71,9 @@ public class FileChooserAction extends AbstractAction {
 	 */
 	public void actionPerformed(ActionEvent evt) {
 		JFileChooser fc = new JFileChooser();
+		fc.setCurrentDirectory(lastSelectedFolder);
+		fc.setSelectedFile(file);
+		
 		if (filter != null) {
 			fc.setFileFilter(filter);
 		}
@@ -81,6 +86,7 @@ public class FileChooserAction extends AbstractAction {
 		}
 		if (okCancel == JFileChooser.APPROVE_OPTION) {
 			file = fc.getSelectedFile();
+			lastSelectedFolder = fc.getCurrentDirectory();
 			observable.notifyObservers(this);
 		}
 	}
