@@ -24,6 +24,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import com.itextpdf.rups.controller.RupsController;
 
@@ -39,7 +40,13 @@ public class Rups {
 	 * @param	args	no arguments needed
 	 */
 	public static void main(String[] args) {
-		startApplication();
+		SwingUtilities.invokeLater(
+		        new Runnable(){
+		            public void run() {
+		                startApplication();
+		            }
+		        }
+		        );
 	}
 	
 	// methods
