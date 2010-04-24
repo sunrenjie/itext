@@ -74,7 +74,9 @@ public class OutlineTree extends JTree implements TreeSelectionListener, Observe
 				return;
 			}
 			OutlineTreeNode root = new OutlineTreeNode();
-			loadOutline(factory, root, factory.getChildNode(outline, PdfName.FIRST));
+			PdfObjectTreeNode first = factory.getChildNode(outline, PdfName.FIRST);
+			if (first != null)
+			    loadOutline(factory, root, first);
 			setModel(new DefaultTreeModel(root));
 		}
 	}
