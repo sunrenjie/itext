@@ -119,6 +119,7 @@ public class PdfFile {
 	/**
 	 * Getter for the filename
 	 * @return the original filename
+	 * @sinece 5.0.3
 	 */
 	public String getFilename(){
 	    return filename;

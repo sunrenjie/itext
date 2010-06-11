@@ -75,6 +75,11 @@ public class ObjectLoader extends BackgroundTask {
 		return nodes;
 	}
 	
+	/**
+	 * getter for a human readable name representing this loader
+	 * @return the human readable name
+	 * @since 5.0.3
+	 */
 	public String getLoaderName(){
 	    return loaderName;
 	}
