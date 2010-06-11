@@ -159,7 +159,7 @@ public class PdfReaderController extends Observable implements Observer {
 		setChanged();
 		notifyObservers();
 		setChanged();
-		new ObjectLoader(this, file.getPdfReader());
+		new ObjectLoader(this, file.getPdfReader(), file.getFilename());
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class PdfReaderController extends Observable implements Observer {
 			nodes = loader.getNodes();
 			PdfTrailerTreeNode root = pdfTree.getRoot();
 			root.setTrailer(loader.getReader().getTrailer());
-			root.setUserObject("PDF Object Tree");
+			root.setUserObject("PDF Object Tree (" + loader.getLoaderName() + ")");
 			nodes.expandNode(root);
 		}
 		super.notifyObservers(obj);
