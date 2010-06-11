@@ -115,4 +115,12 @@ public class PdfFile {
 	public PdfReader getPdfReader() {
 		return reader;
 	}
+	
+	/**
+	 * Getter for the filename
+	 * @return the original filename
+	 */
+	public String getFilename(){
+	    return filename;
+	}
 }

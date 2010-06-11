@@ -36,15 +36,18 @@ public class ObjectLoader extends BackgroundTask {
 	protected IndirectObjectFactory objects;
 	/** The factory that can provide tree nodes. */
 	protected TreeNodeFactory nodes;
+	/** a human readable name for this loaded */
+	private String loaderName;
 	
 	/**
 	 * Creates a new ObjectLoader.
 	 * @param	observable	the object that will forward the changes.
 	 * @param	reader		the PdfReader from which the objects will be read.
 	 */
-	public ObjectLoader(Observable observable, PdfReader reader) {
+	public ObjectLoader(Observable observable, PdfReader reader, String loaderName) {
 		this.observable = observable;
 		this.reader = reader;
+		this.loaderName = loaderName;
 		start();
 	}
 	
@@ -70,6 +73,10 @@ public class ObjectLoader extends BackgroundTask {
 	 */
 	public TreeNodeFactory getNodes() {
 		return nodes;
+	}
+	
+	public String getLoaderName(){
+	    return loaderName;
 	}
 	
 	/**
