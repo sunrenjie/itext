@@ -95,7 +95,7 @@ public class PdfReaderController extends Observable implements Observer {
 		navigationTabs.addTab("Pages", null, new JScrollPane(pages), "Pages");
 		navigationTabs.addTab("Outlines", null, new JScrollPane(outlines), "Outlines (Bookmarks)");
 		navigationTabs.addTab("Form", null, new JScrollPane(form), "Interactive Form");
-		navigationTabs.addTab("XFA", null, form.getXfaTree(), "Tree view of the XFA form");
+		navigationTabs.addTab("XFA", null, new JScrollPane(form.getXfaTree()), "Tree view of the XFA form");
 		navigationTabs.addTab("XRef", null, new JScrollPane(xref), "Cross-reference table");
 		objectPanel = new PdfObjectPanel();
 		addObserver(objectPanel);
