@@ -113,7 +113,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.itextpdf</groupId>
-			<artifactId>itext-core</artifactId>
+			<artifactId>itextpdf</artifactId>
 			<version>5.0.7-SNAPSHOT</version>
 			<type>jar</type>
 			<scope>compile</scope>
