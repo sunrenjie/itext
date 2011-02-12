@@ -132,6 +132,7 @@
 				<plugins>
 					<plugin>
 						<!-- see http://alakai.org/reference/plugins/launch4j-plugin-usage.html -->
+						<!-- see http://launch4j.sourceforge.net/docs.html for more config options -->
 						<groupId>org.bluestemsoftware.open.maven.plugin</groupId>
 						<artifactId>launch4j-plugin</artifactId>
 						<version>1.5.0.0</version>
@@ -148,6 +149,7 @@
 									<outfile>target/Rups.exe</outfile>
 									<jar>target/itext-rups-${project.version}-jar-with-dependencies.jar</jar>
 									<errTitle>Rups</errTitle>
+									<icon>config/logo.ico</icon>
 									<classPath>
 										<mainClass>com.itextpdf.rups.Rups</mainClass>
 										<addDependencies>true</addDependencies>
