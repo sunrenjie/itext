@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -49,9 +49,9 @@ import com.itextpdf.text.DocumentException;
  */
 public class RupsController extends Observable
 	implements TreeSelectionListener, PageSelectionListener {
-	
+
 	// member variables
-	
+
 	/* file and controller */
 	/** The Pdf file that is currently open in the application. */
 	protected PdfFile pdfFile;
@@ -66,8 +66,8 @@ public class RupsController extends Observable
 	protected RupsMenuBar menuBar;
 	/** Contains all other components: the page panel, the outline tree, etc. */
 	protected JSplitPane masterComponent;
-	
-	
+
+
 	// constructor
 	/**
 	 * Constructs the GUI components of the RUPS application.
@@ -86,18 +86,18 @@ public class RupsController extends Observable
 		masterComponent.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		masterComponent.setDividerLocation((int)(dimension.getHeight() * .70));
 		masterComponent.setDividerSize(2);
-		
+
 		JSplitPane content = new JSplitPane();
 		masterComponent.add(content, JSplitPane.TOP);
 		JSplitPane info = new JSplitPane();
 		masterComponent.add(info, JSplitPane.BOTTOM);
-		
+
 		content.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
 		content.setDividerLocation((int)(dimension.getWidth() * .6));
 		content.setDividerSize(1);
         content.add(new JScrollPane(readerController.getPdfTree()), JSplitPane.LEFT);
 		content.add(readerController.getNavigationTabs(), JSplitPane.RIGHT);
-        
+
 		info.setDividerLocation((int) (dimension.getWidth() * .3));
 		info.setDividerSize(1);
 		info.add(readerController.getObjectPanel(), JSplitPane.LEFT);
@@ -106,21 +106,28 @@ public class RupsController extends Observable
 		editorPane.addTab("Console", null, cons, "Console window (System.out/System.err)");
 		editorPane.setSelectedComponent(cons);
 		info.add(editorPane, JSplitPane.RIGHT);
-		
+
 	}
 
+	/**
+	 *
+	 */
+	public RupsController(Dimension dimension, File f) {
+		this(dimension);
+		loadFile(f);
+	}
 	/** Getter for the menubar. */
 	public RupsMenuBar getMenuBar() {
 		return menuBar;
 	}
-	
+
 	/** Getter for the master component. */
 	public Component getMasterComponent() {
 		return masterComponent;
 	}
 
 	// Observable
-	
+
 	/**
 	 * @see java.util.Observable#notifyObservers(java.lang.Object)
 	 */
@@ -128,18 +135,7 @@ public class RupsController extends Observable
 	public void notifyObservers(Object obj) {
 		if (obj instanceof FileChooserAction) {
 			File file = ((FileChooserAction)obj).getFile();
-			try {
-				pdfFile = new PdfFile(file);
-				setChanged();
-				super.notifyObservers(RupsMenuBar.OPEN);
-				readerController.startObjectLoader(pdfFile);
-			}
-			catch(IOException ioe) {
-				JOptionPane.showMessageDialog(masterComponent, ioe.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
-			}
-			catch (DocumentException de) {
-				JOptionPane.showMessageDialog(masterComponent, de.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
-			}
+			loadFile(file);
 			return;
 		}
 		if (obj instanceof FileCloseAction) {
@@ -150,8 +146,26 @@ public class RupsController extends Observable
 		}
 	}
 
+	/**
+	 * @param file
+	 */
+	public void loadFile(File file) {
+		try {
+			pdfFile = new PdfFile(file);
+			setChanged();
+			super.notifyObservers(RupsMenuBar.OPEN);
+			readerController.startObjectLoader(pdfFile);
+		}
+		catch(IOException ioe) {
+			JOptionPane.showMessageDialog(masterComponent, ioe.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
+		}
+		catch (DocumentException de) {
+			JOptionPane.showMessageDialog(masterComponent, de.getMessage(), "Dialog", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
 	// tree selection
-	
+
 	/**
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
