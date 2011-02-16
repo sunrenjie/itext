@@ -147,7 +147,7 @@ public class RupsController extends Observable
 	}
 
 	/**
-	 * @param file
+	 * @param file the file to load
 	 */
 	public void loadFile(File file) {
 		try {
