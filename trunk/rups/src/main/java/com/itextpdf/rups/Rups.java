@@ -25,7 +25,6 @@ import java.awt.Toolkit;
 import java.io.File;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import com.itextpdf.rups.controller.RupsController;
@@ -63,6 +62,7 @@ public class Rups {
 
     /**
      * Initializes the main components of the Rups application.
+     * @param f a file that should be opened on launch
      */
     public static void startApplication(File f) {
     	// creates a JFrame
