@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<project name="iText" default="info" basedir=".">
+	<target name="info">
+	<echo>The source has been "mavenized". Please look for the source in the folders "itext" and "rups".</echo>
+	</target>
+</project>
