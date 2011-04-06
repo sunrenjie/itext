@@ -129,7 +129,7 @@ public class MeasureGeospatial extends Measure {
 	/**
 	 * An array of numbers that shall be taken pairwise to define points in a 2D
 	 * unit square. The unit square is mapped to the rectangular bounds of the
-	 * {@link ViewPort}, image XObject, or forms XObject that contains the
+	 * {@link Viewport}, image XObject, or forms XObject that contains the
 	 * measure dictionary. This array shall contain the same number of number
 	 * pairs as the GPTS array; each number pair is the unit square object
 	 * position corresponding to the geospatial position in the GPTS array.
