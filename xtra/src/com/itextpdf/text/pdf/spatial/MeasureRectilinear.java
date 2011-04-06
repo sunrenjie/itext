@@ -85,7 +85,7 @@ public class MeasureRectilinear extends Measure {
 	 * that axis.<br />
 	 * The directions of the x and y axes are in the measuring coordinate system
 	 * and are independent of the page rotation. These directions shall be
-	 * determined by the BBox of the containing {@link ViewPort}
+	 * determined by the BBox of the containing {@link Viewport}
 	 * 
 	 * @param x
 	 */
@@ -165,7 +165,7 @@ public class MeasureRectilinear extends Measure {
 	 * An array of two numbers that shall specify the origin of the measurement
 	 * coordinate system in default user space coordinates. The directions by
 	 * which x and y increase in value from this origin shall be determined by
-	 * {@link ViewPort#setBBox(com.itextpdf.text.Rectangle)} entry.<br />
+	 * {@link Viewport#setBBox(com.itextpdf.text.Rectangle)} entry.<br />
 	 * Default value: the first coordinate pair (lower-left corner) of the
 	 * rectangle specified by the viewport’s BBox entry.
 	 * 

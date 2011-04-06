@@ -53,12 +53,12 @@ import com.itextpdf.text.pdf.PdfString;
  * A ViewPort dictionary.
  * @since 5.1.0
  */
-public class ViewPort extends PdfDictionary {
+public class Viewport extends PdfDictionary {
 	
 	/**
 	 * Creates a ViewPort dictionary.
 	 */
-	public ViewPort() {
+	public Viewport() {
 		super(PdfName.VIEWPORT);
 	}
 
