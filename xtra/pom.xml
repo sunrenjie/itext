@@ -52,7 +52,6 @@
 			</plugin>
 		</plugins>
 		<sourceDirectory>src</sourceDirectory>
-		<outputDirectory>target</outputDirectory>
 	</build>
 	<!-- Profiles - default, release -->
 	<profiles>
