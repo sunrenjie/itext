@@ -6,9 +6,8 @@
 		<groupId>com.itextpdf</groupId>
 		<version>1.0.0</version>
 	</parent>
-	<groupId>com.itextpdf.tool</groupId>
 	<artifactId>itext-pdfa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>5.3.1-SNAPSHOT</version>
 	<name>iText ISO-19005 Module</name>
 	<description>iText ISO-19005 Module</description>
 	<build>

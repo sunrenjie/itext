@@ -1,5 +1,5 @@
 /*
- * $Id: PdfATtfUnicodeWriter.java 322 2012-07-23 09:58:41Z bruno $
+ * $Id$
  *
  * This file is part of the iText (R) project.
  * Copyright (c) 1998-2012 1T3XT BVBA
