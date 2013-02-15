@@ -112,7 +112,7 @@ public class PdfAStamperImp extends PdfStamperImp {
     protected TtfUnicodeWriter getTtfUnicodeWriter() {
         if (ttfUnicodeWriter == null)
             ttfUnicodeWriter = new PdfATtfUnicodeWriter(this);
-        return null;
+        return ttfUnicodeWriter;
     }
 
     /**
