@@ -34,10 +34,10 @@ public class PdfAFileStructureTest {
 
         byte[] bytes = baos.toByteArray();
         Assert.assertEquals(bytes[0], '%');
-        Assert.assertTrue(bytes[1] > 127);
-        Assert.assertTrue(bytes[2] > 127);
-        Assert.assertTrue(bytes[3] > 127);
-        Assert.assertTrue(bytes[4] > 127);
+        Assert.assertTrue(bytes[10] < 0);
+        Assert.assertTrue(bytes[11] < 0);
+        Assert.assertTrue(bytes[12] < 0);
+        Assert.assertTrue(bytes[13] < 0);
     }
 
     /*
