@@ -111,7 +111,7 @@ public class MCParser {
      * @param page a page dictionary
      * @throws IOException
      */
-    public void parse(PdfDictionary page) throws IOException {
+    public void parse(PdfDictionary page, boolean finalPage) throws IOException {
     	baos = new ByteArrayOutputStream();
     	PdfDictionary resources = page.getAsDict(PdfName.RESOURCES);
     	xobjects = resources.getAsDict(PdfName.XOBJECT);
@@ -127,6 +127,12 @@ public class MCParser {
         while (ps.parse(operands).size() > 0){
             PdfLiteral operator = (PdfLiteral)operands.get(operands.size() - 1);
             processOperator(operator, operands);
+        }
+        if (finalPage) {
+        	LOGGER.info(String.format("There are %d items left for processing", items.size()));
+        	for (StructureItem item : items) {
+        		convertToXObject(item);
+        	}
         }
         baos.flush();
         baos.close();
@@ -172,7 +178,7 @@ public class MCParser {
     	switch (item.process(mcid.intValue())) {
     	case 0 :
     		items.remove(0);
-    		LOGGER.info("Discovered an object reference.");
+    		LOGGER.info(String.format("Discovered %s as an object referencev", item.getObj()));
     		convertToXObject(item);
     		dealWithMcid(mcid);
     		return;
@@ -212,6 +218,7 @@ public class MCParser {
     		return;
     	item.getObjr().put(PdfName.OBJ, xobjr);
     	PdfName xobj = new PdfName("XObj" + structParent.intValue());
+    	LOGGER.info("Creating XObject with name " + xobj);
     	xobjects.put(xobj, xobjr);
     	PdfArray array = dict.getAsArray(PdfName.RECT);
     	Rectangle rect = new Rectangle(
