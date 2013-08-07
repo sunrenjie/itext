@@ -81,6 +81,9 @@ public class MCParser {
 	/** Constant used for the default operator. */
     public static final String DEFAULTOPERATOR = "DefaultOperator";
     
+    /** A new line operator */
+    public static final PdfLiteral TSTAR = new PdfLiteral("T*");
+    
     /** The OutputStream of this worker object. */
     protected static ByteArrayOutputStream baos;
 
@@ -93,8 +96,14 @@ public class MCParser {
     /** Did we postpone writing a BT operator? */
     protected boolean btWrite = false;
     
+    /** Did we postpone writing a BT operator? */
+    protected boolean etExtra = false;
+    
     /** Are we inside a BT/ET sequence? */
     protected boolean inText = false;
+    
+    /** A buffer containing text state. */
+    protected StringBuffer text;
     
     /**
      * Creates an MCParser object.
@@ -158,8 +167,12 @@ public class MCParser {
      * @param inText	true if we're inside.
      */
     protected void setInText(boolean inText) {
-    	if (inText)
+    	if (inText) {
+    		text = new StringBuffer();
     		btWrite = true;
+    	}
+    	else
+    		etExtra = false;
     	this.inText = inText;
     }
     
@@ -178,7 +191,7 @@ public class MCParser {
     	switch (item.process(mcid.intValue())) {
     	case 0 :
     		items.remove(0);
-    		LOGGER.info(String.format("Discovered %s as an object referencev", item.getObj()));
+    		LOGGER.info(String.format("Discovered %s as an object reference", item.getObj()));
     		convertToXObject(item);
     		dealWithMcid(mcid);
     		return;
@@ -225,8 +238,11 @@ public class MCParser {
     			array.getAsNumber(0).floatValue(), array.getAsNumber(1).floatValue(),
     			array.getAsNumber(2).floatValue(), array.getAsNumber(3).floatValue());
     	rect.normalize();
-    	if (inText && !btWrite)
+    	if (inText && !btWrite) {
+    		LOGGER.debug("Introducing extra ET");
     		baos.write("ET\n".getBytes());
+    		etExtra = true;
+    	}
     	baos.write("q 1 0 0 1 ".getBytes());
     	baos.write(String.valueOf(rect.getLeft()).getBytes());
     	baos.write(" ".getBytes());
@@ -250,6 +266,19 @@ public class MCParser {
 			printsp(o);
 		}
 		println(operator);
+    }
+    
+    /**
+     * Adds an operator and its operands (if any) to baos.
+     * @param operator	the operator
+     * @param operands	its operands
+     * @throws IOException
+     */
+    protected void printTextOperator(PdfLiteral operator, List<PdfObject> operands) throws IOException{
+    	for (PdfObject obj : operands)
+    		text.append(obj).append(" ");
+    	text.append("\n");
+    	printOperator(operator, operands);
     }
     
     /**
@@ -278,8 +307,15 @@ public class MCParser {
      * Checks if a BT operator is waiting to be added.
      */
     protected void checkBT() throws IOException {
-    	if (btWrite)
+    	if (btWrite) {
+    		LOGGER.debug("BT written");
     		baos.write("BT ".getBytes());
+    		if (etExtra) {
+    			baos.write(text.toString().getBytes());
+    			etExtra = false;
+    			text = new StringBuffer();
+    		}
+    	}
     	btWrite = false;
     }
     
@@ -297,6 +333,15 @@ public class MCParser {
     	operators.put("BT", beginText);
     	PdfOperator endText = new EndTextOperator();
     	operators.put("ET", endText);
+    	PdfOperator textPos = new TextPositioningOperator();
+    	operators.put("Td", textPos);
+    	operators.put("TD", textPos);
+    	operators.put("Tm", textPos);
+    	operators.put("T*", textPos);
+    	operators.put("Tf", textPos);
+    	PdfOperator textNL = new TextNewLineOperator();
+    	operators.put("'", textNL);
+    	operators.put("\"", textNL);
     }
     
     /**
@@ -358,6 +403,7 @@ public class MCParser {
 		 */
 		public void process(MCParser parser, PdfLiteral operator,
 				List<PdfObject> operands) throws IOException {
+			LOGGER.debug("BT: begin text on hold");
 			parser.setInText(true);
 		}
     	
@@ -373,8 +419,41 @@ public class MCParser {
 		 */
 		public void process(MCParser parser, PdfLiteral operator,
 				List<PdfObject> operands) throws IOException {
+			LOGGER.debug("ET: end text block");
 			parser.setInText(false);
 			parser.printOperator(operator, operands);
+		}
+    	
+    }
+    
+    /**
+     * Class that knows how to the ET operators.
+     */
+    private static class TextPositioningOperator implements PdfOperator {
+
+		/**
+		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+		 */
+		public void process(MCParser parser, PdfLiteral operator,
+				List<PdfObject> operands) throws IOException {
+			parser.printTextOperator(operator, operands);
+		}
+    	
+    }
+    
+    /**
+     * Class that knows how to the ET operators.
+     */
+    private static class TextNewLineOperator implements PdfOperator {
+
+		/**
+		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+		 */
+		public void process(MCParser parser, PdfLiteral operator,
+				List<PdfObject> operands) throws IOException {
+			List<PdfObject> list = new ArrayList<PdfObject>();
+			list.add(TSTAR);
+			parser.printTextOperator(MCParser.TSTAR, list);
 		}
     	
     }
