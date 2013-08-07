@@ -338,7 +338,14 @@ public class MCParser {
     	operators.put("TD", textPos);
     	operators.put("Tm", textPos);
     	operators.put("T*", textPos);
-    	operators.put("Tf", textPos);
+    	PdfOperator textState = new TextStateOperator();
+    	operators.put("Tc", textState);
+    	operators.put("Tw", textState);
+    	operators.put("Tz", textState);
+    	operators.put("TL", textState);
+    	operators.put("Tf", textState);
+    	operators.put("Tr", textState);
+    	operators.put("Ts", textState);
     	PdfOperator textNL = new TextNewLineOperator();
     	operators.put("'", textNL);
     	operators.put("\"", textNL);
@@ -430,6 +437,21 @@ public class MCParser {
      * Class that knows how to the ET operators.
      */
     private static class TextPositioningOperator implements PdfOperator {
+
+		/**
+		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+		 */
+		public void process(MCParser parser, PdfLiteral operator,
+				List<PdfObject> operands) throws IOException {
+			parser.printTextOperator(operator, operands);
+		}
+    	
+    }
+    
+    /**
+     * Class that knows how to the ET operators.
+     */
+    private static class TextStateOperator implements PdfOperator {
 
 		/**
 		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
