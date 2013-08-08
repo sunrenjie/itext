@@ -134,6 +134,12 @@ public class StructureItems extends ArrayList<StructureItem> {
 	public int processMCID(PdfNumber structParents, StructureItem item) {
 		PdfObject object = parentTree.get(structParents.intValue());
 		PdfArray array = (PdfArray)PdfReader.getPdfObject(object);
+		for (int i = 0; i < array.size(); i++) {
+			if (array.getDirectObject(i).isNull()) {
+				array.add(i, item.getRef());
+				return i;
+			}
+		}
 		array.add(item.getRef());
 		return array.size() - 1;
 	}
