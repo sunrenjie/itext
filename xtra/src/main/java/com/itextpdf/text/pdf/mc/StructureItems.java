@@ -188,7 +188,12 @@ public class StructureItems extends ArrayList<StructureItem> {
 			throw new DocumentException(MessageLocalization.getComposedMessage("can.t.read.document.structure"));
 		PdfObject object = parentTree.get(structParents.intValue());
 		PdfArray array = (PdfArray)PdfReader.getPdfObject(object);
-		// TODO: We could try reusing null values in the array
+		for (int i = 0; i < array.size(); i++) {
+			if (array.getAsIndirectObject(i) == null) {
+				array.set(i, ref);
+				return i;
+			}
+		}
 		array.add(ref);
 		return array.size() - 1;
 	}
