@@ -136,14 +136,14 @@ public class StructureItems extends ArrayList<StructureItem> {
 		StructureItem item;
 		switch(object.type()) {
 		case PdfObject.NUMBER:
-			item = new StructureMCID((PdfNumber) object);
+			item = new StructureMCID(structElem.getAsIndirectObject(PdfName.PG), (PdfNumber) object);
 			add(item);
 			LOGGER.info("Added " + item);
 			break;
 		case PdfObject.ARRAY:
 			PdfArray array = (PdfArray)object;
 			for (int i = 0; i < array.size(); i++) {
-				addStructureItem(null, array.getAsIndirectObject(i), array.getDirectObject(i));
+				addStructureItem(structElem, array.getAsIndirectObject(i), array.getDirectObject(i));
 			}
 			break;
 		case PdfObject.DICTIONARY:

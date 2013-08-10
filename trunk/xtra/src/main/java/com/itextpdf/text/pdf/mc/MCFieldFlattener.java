@@ -77,8 +77,7 @@ public class MCFieldFlattener {
 		for (int i = 1; i <= n; i++) {
 			reader.setPageContent(i, reader.getPageContent(i));
 			page = reader.getPageN(i);
-			page.remove(PdfName.ANNOTS);
-			parser.parse(page, reader.getPageOrigRef(i), i == n);
+			parser.parse(page, reader.getPageOrigRef(i));
 		}
 		reader.removeUnusedObjects();
 		PdfStamper stamper = new PdfStamper(reader, os);

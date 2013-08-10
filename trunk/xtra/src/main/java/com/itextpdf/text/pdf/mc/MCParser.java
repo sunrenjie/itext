@@ -118,6 +118,9 @@ public class MCParser {
     /** the XObject dictionary of the page that is being processed. */
     protected PdfDictionary xobjects;
     
+    /** the annotations of the page that is being processed. */
+    protected PdfArray annots;
+    
     /** the StructParents of the page that is being processed. */
     protected PdfNumber structParents;
     
@@ -153,13 +156,16 @@ public class MCParser {
      * @throws IOException
      * @throws DocumentException 
      */
-    public void parse(PdfDictionary page, PdfIndirectReference pageref, boolean finalPage) throws IOException, DocumentException {
+    public void parse(PdfDictionary page, PdfIndirectReference pageref) throws IOException, DocumentException {
     	LOGGER.info("Parsing page with reference " + pageref);
     	this.pageref = pageref;
     	baos = new ByteArrayOutputStream();
     	structParents = page.getAsNumber(PdfName.STRUCTPARENTS);
     	if (structParents == null)
     		throw new DocumentException(MessageLocalization.getComposedMessage("can.t.read.document.structure"));
+    	annots = page.getAsArray(PdfName.ANNOTS);
+    	if (annots == null)
+    		annots = new PdfArray();
     	PdfDictionary resources = page.getAsDict(PdfName.RESOURCES);
     	xobjects = resources.getAsDict(PdfName.XOBJECT);
     	if (xobjects == null) {
@@ -175,13 +181,14 @@ public class MCParser {
             PdfLiteral operator = (PdfLiteral)operands.get(operands.size() - 1);
             processOperator(operator, operands);
         }
-        if (finalPage) {
-        	LOGGER.info(String.format("There are %d items left for processing", items.size()));
-        	for (StructureItem item : items) {
-        		if (item instanceof StructureObject)
-        			convertToXObject((StructureObject)item);
+        while (items.size() > 0 && items.get(0).getPageref() == pageref.getNumber()) {
+        	StructureItem item = items.get(0);
+        	if (item instanceof StructureObject) {
+        		convertToXObject((StructureObject)item);
+        		items.remove(0);
         	}
         }
+        LOGGER.info(String.format("There are %d items left for processing", items.size()));
         baos.flush();
         baos.close();
         stream.setData(baos.toByteArray());
@@ -218,6 +225,22 @@ public class MCParser {
     }
     
     /**
+     * When an XObject with a StructParent is encountered,
+     * we want to remove it from the stack.
+     * @param xobj	the name of an XObject
+     */
+    protected void dealWithXObj(PdfName xobj) {
+    	PdfDictionary dict = xobjects.getAsStream(xobj);
+    	PdfNumber structParent = dict.getAsNumber(PdfName.STRUCTPARENT);
+    	LOGGER.info(String.format("Encountered StructParent %s in content", structParent));
+    	if (structParent == null)
+    		return;
+    	StructureItem item = items.get(0);
+    	if (item.checkStructParent(pageref.getNumber(), structParent.intValue()) == 1)
+    		items.remove(0);
+    }
+    
+    /**
      * When an MCID is encountered, the parser will check the list
      * structure items and turn an annotation into an XObject if
      * necessary.
@@ -228,15 +251,15 @@ public class MCParser {
     protected void dealWithMcid(PdfNumber mcid) throws IOException, DocumentException {
     	if (mcid == null)
     		return;
-    	LOGGER.info(String.format("Encountered MCID %s in content", mcid));
     	StructureItem item = items.get(0);
-    	switch (item.checkMCID(mcid.intValue())) {
+    	LOGGER.info(String.format("Encountered MCID %s in content, comparing with %s", mcid, item));
+    	switch (item.checkMCID(pageref.getNumber(), mcid.intValue())) {
     	case 0 :
     		StructureObject obj = (StructureObject)item;
-    		items.remove(0);
-    		LOGGER.info(String.format("Discovered %s as an object reference", obj.getObj()));
     		convertToXObject(obj);
-    		dealWithMcid(mcid);
+    		LOGGER.info("Removed structure item from stack.");
+    		items.remove(0);
+			dealWithMcid(mcid);
     		return;
     	case 1 :
     		LOGGER.info("Removed structure item from stack.");
@@ -247,7 +270,7 @@ public class MCParser {
     		int check;
     		for (int i = 1; i < items.size(); i++) {
     			item = items.get(i);
-    			check = item.checkMCID(mcid.intValue());
+    			check = item.checkMCID(pageref.getNumber(), mcid.intValue());
     			switch (check) {
     			case 1:
     	    		LOGGER.info("Removed structure item from stack.");
@@ -286,6 +309,13 @@ public class MCParser {
     	PdfIndirectReference xobjr = ap.getAsIndirectObject(PdfName.N);
     	if (xobjr == null)
     		return;
+    	for (int i = 0; i < annots.size(); i++) {
+    		PdfIndirectReference annotref = annots.getAsIndirectObject(i);
+    		if (item.getObjRef().getNumber() == annotref.getNumber()) {
+    			annots.remove(i);
+    			break;
+    		}
+    	}
     	// replacing the attribute entry by a PrintField attribute
     	PdfDictionary attribute = new PdfDictionary();
     	attribute.put(PdfName.O, PdfName.PRINTFIELD);
@@ -434,6 +464,8 @@ public class MCParser {
     	operators.put(DEFAULTOPERATOR, new CopyContentOperator());
     	PdfOperator markedContent = new BeginMarkedContentDictionaryOperator();
     	operators.put("BDC", markedContent);
+    	PdfOperator doOperator = new DoOperator();
+    	operators.put("Do", doOperator);
     	PdfOperator beginText = new BeginTextOperator();
     	operators.put("BT", beginText);
     	PdfOperator endText = new EndTextOperator();
@@ -496,14 +528,26 @@ public class MCParser {
 		 */
     	public void process(MCParser parser, PdfLiteral operator,
     			List<PdfObject> operands) throws IOException, DocumentException {
-    		if ("BDC".equals(operator.toString())) {
-    			if (operands.get(1).isDictionary()) {
-    				PdfDictionary dict = (PdfDictionary)operands.get(1);
-    				parser.dealWithMcid(dict.getAsNumber(PdfName.MCID));
-    			}
+    		if (operands.get(1).isDictionary()) {
+    			PdfDictionary dict = (PdfDictionary)operands.get(1);
+    			parser.dealWithMcid(dict.getAsNumber(PdfName.MCID));
     		}
 			parser.printOperator(operator, operands);
     	}
+    }
+    
+    /**
+     * Class that knows how to process Do operators.
+     */
+    private static class DoOperator implements PdfOperator {
+
+		public void process(MCParser parser, PdfLiteral operator,
+				List<PdfObject> operands) throws DocumentException, IOException {
+			if (operands.get(0).isName())
+				parser.dealWithXObj((PdfName)operands.get(0));
+			parser.printOperator(operator, operands);
+		}
+    	
     }
     
     /**
