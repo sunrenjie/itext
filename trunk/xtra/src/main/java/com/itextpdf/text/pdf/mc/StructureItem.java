@@ -44,7 +44,7 @@
 package com.itextpdf.text.pdf.mc;
 
 /**
- * The StructureItem interface is implemented by StructureMCID and StructureObject.
+ * The abstract StructureItem class is extended by StructureMCID and StructureObject.
  */
 public abstract class StructureItem {
 	
@@ -65,7 +65,7 @@ public abstract class StructureItem {
 	 * @param mcid		the MCID that needs to be checked
 	 * @return  0 in case there's no MCID (in case of a StructureObject),
 	 * 		    1 in case the MCID matches,
-	 * 		   -1 in case there's no match. This shouldn't happen, but... not all forms are correctly tagged
+	 * 		   -1 in case there's no match.
 	 */
 	public int checkMCID(int pageref, int mcid) {
 		return 0;

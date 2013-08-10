@@ -105,7 +105,7 @@ public class StructureObject extends StructureItem {
 	 * dictionary will be returned.
 	 * @return the object referred to by OBJR as a dictionary
 	 */
-	public PdfDictionary getObj() {
+	public PdfDictionary getObjAsDict() {
 		if (obj.isDictionary())
 			return (PdfDictionary)obj;
 		return null;

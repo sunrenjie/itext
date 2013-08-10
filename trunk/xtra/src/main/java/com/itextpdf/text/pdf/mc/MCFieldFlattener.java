@@ -70,16 +70,22 @@ public class MCFieldFlattener {
 	public void process(PdfReader reader, OutputStream os) throws IOException, DocumentException {
 		int n = reader.getNumberOfPages();
 		PdfDictionary catalog = reader.getCatalog();
+		// flattening means: remove AcroForm
 		catalog.remove(PdfName.ACROFORM);
+		// read the structure and create a parser
 		StructureItems items = new StructureItems(reader);
 		MCParser parser = new MCParser(items);
+		// loop over all pages
 		PdfDictionary page;
 		for (int i = 1; i <= n; i++) {
+			// make one stream of a content stream array
 			reader.setPageContent(i, reader.getPageContent(i));
+			// parse page
 			page = reader.getPageN(i);
 			parser.parse(page, reader.getPageOrigRef(i));
 		}
 		reader.removeUnusedObjects();
+		// create flattened file
 		PdfStamper stamper = new PdfStamper(reader, os);
 		items.writeParentTree(stamper.getWriter());
 		stamper.close();
