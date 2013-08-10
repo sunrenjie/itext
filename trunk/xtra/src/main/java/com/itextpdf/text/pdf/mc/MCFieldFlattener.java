@@ -56,7 +56,10 @@ import com.itextpdf.text.pdf.PdfStamper;
  * Removes all interactivity from an AcroForm, maintaining the
  * structure tree.
  * 
- * DISCLAIMER: Use this class only if the form is properly tagged.
+ * DISCLAIMER:
+ * - Use this class only if the form is properly tagged.
+ * - This class won't work with pages in which the CTM is changed
+ * - This class may not work for form fields with more than one widget annotation
  */
 public class MCFieldFlattener {
 

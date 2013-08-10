@@ -77,11 +77,6 @@ import com.itextpdf.text.pdf.RandomAccessFileOrArray;
  * This class will parse page content streams and add Do operators
  * in a marked-content sequence for every field that needs to be
  * flattened.
- * 
- * DISCLAIMER:
- * - This won't work with documents that have marked-content sequences inside XObjects
- * - This won't work with pages in which the CTM is changed
- * - This won't work for form fields with more than one widget annotation
  */
 public class MCParser {
 	
