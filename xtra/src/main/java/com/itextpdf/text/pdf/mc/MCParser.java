@@ -103,26 +103,26 @@ public class MCParser {
     
 	/** A map with all supported operators operators (PDF syntax). */
     protected Map<String, PdfOperator> operators = null;
-    
-    /** The OutputStream of this worker object. */
-    protected ByteArrayOutputStream baos;
 
     /** The list with structure items. */
     protected StructureItems items;
     
     // properties of the page that is being processed
     
+    /** The contents of the new content stream of the page. */
+    protected ByteArrayOutputStream baos;
+    
     /** The reference to the page dictionary */
     protected PdfIndirectReference pageref;
-    
-    /** the XObject dictionary of the page that is being processed. */
-    protected PdfDictionary xobjects;
     
     /** the annotations of the page that is being processed. */
     protected PdfArray annots;
     
     /** the StructParents of the page that is being processed. */
     protected PdfNumber structParents;
+    
+    /** the XObject dictionary of the page that is being processed. */
+    protected PdfDictionary xobjects;
     
     // Keeping track of text state
     
@@ -148,6 +148,40 @@ public class MCParser {
     }
     
     /**
+     * Populates the operators variable.
+     */
+    protected void populateOperators() {
+    	if (operators != null)
+    		return;
+    	operators = new HashMap<String, PdfOperator>();
+    	operators.put(DEFAULTOPERATOR, new CopyContentOperator());
+    	PdfOperator markedContent = new BeginMarkedContentDictionaryOperator();
+    	operators.put("BDC", markedContent);
+    	PdfOperator doOperator = new DoOperator();
+    	operators.put("Do", doOperator);
+    	PdfOperator beginText = new BeginTextOperator();
+    	operators.put("BT", beginText);
+    	PdfOperator endText = new EndTextOperator();
+    	operators.put("ET", endText);
+    	PdfOperator textPos = new TextPositioningOperator();
+    	operators.put("Td", textPos);
+    	operators.put("TD", textPos);
+    	operators.put("Tm", textPos);
+    	operators.put("T*", textPos);
+    	PdfOperator textState = new TextStateOperator();
+    	operators.put("Tc", textState);
+    	operators.put("Tw", textState);
+    	operators.put("Tz", textState);
+    	operators.put("TL", textState);
+    	operators.put("Tf", textState);
+    	operators.put("Tr", textState);
+    	operators.put("Ts", textState);
+    	PdfOperator textNL = new TextNewLineOperator();
+    	operators.put("'", textNL);
+    	operators.put("\"", textNL);
+    }
+    
+    /**
      * Parses the content of a page, inserting the normal (/N) appearances (/AP)
      * of annotations into the content stream as Form XObjects.
      * @param page		a page dictionary
@@ -158,8 +192,9 @@ public class MCParser {
      */
     public void parse(PdfDictionary page, PdfIndirectReference pageref) throws IOException, DocumentException {
     	LOGGER.info("Parsing page with reference " + pageref);
-    	this.pageref = pageref;
+    	// initializing member variables
     	baos = new ByteArrayOutputStream();
+    	this.pageref = pageref;
     	structParents = page.getAsNumber(PdfName.STRUCTPARENTS);
     	if (structParents == null)
     		throw new DocumentException(MessageLocalization.getComposedMessage("can.t.read.document.structure"));
@@ -172,6 +207,7 @@ public class MCParser {
     		xobjects = new PdfDictionary();
     		resources.put(PdfName.XOBJECT, xobjects);
     	}
+    	// parsing the content stream of the page
 		PRStream stream = (PRStream)page.getAsStream(PdfName.CONTENTS);
 		byte[] contentBytes = PdfReader.getStreamBytes(stream);
         PRTokeniser tokeniser = new PRTokeniser(new RandomAccessFileOrArray(RASFACTORY.createSource(contentBytes)));
@@ -181,6 +217,7 @@ public class MCParser {
             PdfLiteral operator = (PdfLiteral)operands.get(operands.size() - 1);
             processOperator(operator, operands);
         }
+        // dealing with orphans
         while (items.size() > 0 && items.get(0).getPageref() == pageref.getNumber()) {
         	StructureItem item = items.get(0);
         	if (item instanceof StructureObject) {
@@ -188,40 +225,12 @@ public class MCParser {
         		items.remove(0);
         	}
         }
-        LOGGER.info(String.format("There are %d items left for processing", items.size()));
+        // replacing the content stream
         baos.flush();
         baos.close();
         stream.setData(baos.toByteArray());
-    }
-    
-    /**
-     * Processes an operator, for instance: write the operator and its operands to baos.
-     * @param operator	the operator
-     * @param operands	the operator's operands
-     * @throws IOException
-     * @throws DocumentException 
-     */
-    protected void processOperator(PdfLiteral operator, List<PdfObject> operands) throws IOException, DocumentException {
-        PdfOperator op = operators.get(operator.toString());
-        if (op == null)
-            op = operators.get(DEFAULTOPERATOR);
-        op.process(this, operator, operands);
-    }
-    
-    /**
-     * Informs the parser that we're inside or outside a text object.
-     * Also sets a parameter indicating that BT needs to be written.
-     * @param inText	true if we're inside.
-     */
-    protected void setInText(boolean inText) {
-    	if (inText) {
-    		text = new StringBuffer();
-    		btWrite = true;
-    	}
-    	else {
-    		etExtra = false;
-    	}
-    	this.inText = inText;
+        // showing how many items are left
+        LOGGER.info(String.format("There are %d items left for processing", items.size()));
     }
     
     /**
@@ -267,6 +276,7 @@ public class MCParser {
     		return;
     	default:
     		LOGGER.warn("MCID not found! There's probably an error in your form!");
+    		// hack to deal with MCIDs that are added in the wrong order
     		int check;
     		for (int i = 1; i < items.size(); i++) {
     			item = items.get(i);
@@ -294,7 +304,7 @@ public class MCParser {
     	PdfDictionary structElem = item.getStructElem();
     	if (structElem == null)
     		return;
-    	PdfDictionary dict = item.getObj();
+    	PdfDictionary dict = item.getObjAsDict();
     	if (dict == null || !dict.checkType(PdfName.ANNOT))
     		return;
     	PdfDictionary ap = dict.getAsDict(PdfName.AP);
@@ -309,6 +319,7 @@ public class MCParser {
     	PdfIndirectReference xobjr = ap.getAsIndirectObject(PdfName.N);
     	if (xobjr == null)
     		return;
+    	// remove the annotation from the page
     	for (int i = 0; i < annots.size(); i++) {
     		PdfIndirectReference annotref = annots.getAsIndirectObject(i);
     		if (item.getObjRef().getNumber() == annotref.getNumber()) {
@@ -316,7 +327,7 @@ public class MCParser {
     			break;
     		}
     	}
-    	// replacing the attribute entry by a PrintField attribute
+    	// replace the existing attributes by a PrintField attribute
     	PdfDictionary attribute = new PdfDictionary();
     	attribute.put(PdfName.O, PdfName.PRINTFIELD);
     	PdfString description = dict.getAsString(PdfName.TU);
@@ -350,8 +361,9 @@ public class MCParser {
     	int mcid = items.processMCID(structParents, item.getRef());
 		LOGGER.info("Using MCID " + mcid);
     	structElem.put(PdfName.K, new PdfNumber(mcid));
-    	//item.getObjr().put(PdfName.OBJ, xobjr);
+    	// removing the annotation from the parent tree
     	items.removeFromParentTree(structParent);
+    	// Adding the XObject to the page
     	PdfName xobj = new PdfName("XObj" + structParent.intValue());
     	LOGGER.info("Creating XObject with name " + xobj);
     	xobjects.put(xobj, xobjr);
@@ -387,6 +399,22 @@ public class MCParser {
     	// if we were inside a text block, we've introduced an ET, so we'll need to write a BT
     	if (inText)
     		btWrite = true;
+    }
+    
+    // Operator actions
+    
+    /**
+     * Processes an operator, for instance: write the operator and its operands to baos.
+     * @param operator	the operator
+     * @param operands	the operator's operands
+     * @throws IOException
+     * @throws DocumentException 
+     */
+    protected void processOperator(PdfLiteral operator, List<PdfObject> operands) throws IOException, DocumentException {
+        PdfOperator op = operators.get(operator.toString());
+        if (op == null)
+            op = operators.get(DEFAULTOPERATOR);
+        op.process(this, operator, operands);
     }
     
     /**
@@ -455,38 +483,22 @@ public class MCParser {
     }
     
     /**
-     * Populates the operators variable.
+     * Informs the parser that we're inside or outside a text object.
+     * Also sets a parameter indicating that BT needs to be written.
+     * @param inText	true if we're inside.
      */
-    protected void populateOperators() {
-    	if (operators != null)
-    		return;
-    	operators = new HashMap<String, PdfOperator>();
-    	operators.put(DEFAULTOPERATOR, new CopyContentOperator());
-    	PdfOperator markedContent = new BeginMarkedContentDictionaryOperator();
-    	operators.put("BDC", markedContent);
-    	PdfOperator doOperator = new DoOperator();
-    	operators.put("Do", doOperator);
-    	PdfOperator beginText = new BeginTextOperator();
-    	operators.put("BT", beginText);
-    	PdfOperator endText = new EndTextOperator();
-    	operators.put("ET", endText);
-    	PdfOperator textPos = new TextPositioningOperator();
-    	operators.put("Td", textPos);
-    	operators.put("TD", textPos);
-    	operators.put("Tm", textPos);
-    	operators.put("T*", textPos);
-    	PdfOperator textState = new TextStateOperator();
-    	operators.put("Tc", textState);
-    	operators.put("Tw", textState);
-    	operators.put("Tz", textState);
-    	operators.put("TL", textState);
-    	operators.put("Tf", textState);
-    	operators.put("Tr", textState);
-    	operators.put("Ts", textState);
-    	PdfOperator textNL = new TextNewLineOperator();
-    	operators.put("'", textNL);
-    	operators.put("\"", textNL);
+    protected void setInText(boolean inText) {
+    	if (inText) {
+    		text = new StringBuffer();
+    		btWrite = true;
+    	}
+    	else {
+    		etExtra = false;
+    	}
+    	this.inText = inText;
     }
+    
+    // Operator interface and implementing classes
     
     /**
      * PDF Operator interface.
@@ -509,7 +521,7 @@ public class MCParser {
     private static class CopyContentOperator implements PdfOperator{
     	
 		/**
-		 * @see com.itextpdf.text.pdf.ocg.OCGParser.PdfOperator#process(com.itextpdf.text.pdf.ocg.OCGParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
 		 */
 		public void process(MCParser parser,
 				PdfLiteral operator, List<PdfObject> operands) throws IOException {
@@ -522,10 +534,9 @@ public class MCParser {
      */
     private static class BeginMarkedContentDictionaryOperator implements PdfOperator {
 
-		/**
-		 * @throws DocumentException 
-		 * @see com.itextpdf.text.pdf.ocg.OCGParser.PdfOperator#process(com.itextpdf.text.pdf.ocg.OCGParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
-		 */
+    	/**
+    	 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+    	 */
     	public void process(MCParser parser, PdfLiteral operator,
     			List<PdfObject> operands) throws IOException, DocumentException {
     		if (operands.get(1).isDictionary()) {
@@ -541,8 +552,11 @@ public class MCParser {
      */
     private static class DoOperator implements PdfOperator {
 
+		/**
+		 * @see com.itextpdf.text.pdf.mc.MCParser.PdfOperator#process(com.itextpdf.text.pdf.mc.MCParser, com.itextpdf.text.pdf.PdfLiteral, java.util.List)
+		 */
 		public void process(MCParser parser, PdfLiteral operator,
-				List<PdfObject> operands) throws DocumentException, IOException {
+				List<PdfObject> operands) throws IOException {
 			if (operands.get(0).isName())
 				parser.dealWithXObj((PdfName)operands.get(0));
 			parser.printOperator(operator, operands);
@@ -599,7 +613,7 @@ public class MCParser {
     }
     
     /**
-     * Class that knows how to the ET operators.
+     * Class that knows how to the text state operators.
      */
     private static class TextStateOperator implements PdfOperator {
 
@@ -614,7 +628,7 @@ public class MCParser {
     }
     
     /**
-     * Class that knows how to the ET operators.
+     * Class that knows how to the text state operators that result in a newline.
      */
     private static class TextNewLineOperator implements PdfOperator {
 

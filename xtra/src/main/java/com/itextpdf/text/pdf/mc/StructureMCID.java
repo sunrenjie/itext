@@ -50,7 +50,7 @@ import com.itextpdf.text.pdf.PdfNumber;
 
 /**
  * Object that stores an item that is part of the document structure.
- * It can refer to a Marked Content sequence in a page or an object
+ * It can refer to a marked-content sequence in a page or an object
  * reference (in this case the subclass StructureObject is used).
  */
 public class StructureMCID extends StructureItem {

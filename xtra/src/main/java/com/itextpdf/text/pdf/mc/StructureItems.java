@@ -88,37 +88,39 @@ public class StructureItems extends ArrayList<StructureItem> {
 		structTreeRoot = catalog.getAsDict(PdfName.STRUCTTREEROOT);
 		if (structTreeRoot == null)
 			throw new DocumentException(MessageLocalization.getComposedMessage("can.t.read.document.structure"));
+		// Storing the parent tree
 		parentTree = PdfNumberTree.readTree(structTreeRoot.getAsDict(PdfName.PARENTTREE));
 		structTreeRoot.remove(PdfName.STRUCTPARENTS);
+		// Examining the StructTreeRoot
 		PdfObject object = structTreeRoot.getDirectObject(PdfName.K);
 		if (object == null)
 			return;
 		switch(object.type()) {
 		case PdfObject.DICTIONARY:
 			LOGGER.info("StructTreeRoot refers to dictionary");
-			addStructureItems((PdfDictionary)object, structTreeRoot.getAsIndirectObject(PdfName.K));
+			processStructElems((PdfDictionary)object, structTreeRoot.getAsIndirectObject(PdfName.K));
 			break;
 		case PdfObject.ARRAY:
 			LOGGER.info("StructTreeRoot refers to array");
 			PdfArray array = (PdfArray) object;
 			for (int i = 0; i < array.size(); i++) {
-				addStructureItems(array.getAsDict(i), array.getAsIndirectObject(i));
+				processStructElems(array.getAsDict(i), array.getAsIndirectObject(i));
 			}
 			break;
 		}
 	}
 	
 	/**
-	 * Looks at a StructElem dictionary, and processes its kids.
+	 * Looks at a StructElem dictionary, and processes it.
 	 * @param dict	the StructElem dictionary that needs to be examined
 	 * @param ref	the reference to the StructElem dictionary
 	 * @throws DocumentException
 	 */
-	protected void addStructureItems(PdfDictionary structElem, PdfIndirectReference ref) {
+	protected void processStructElems(PdfDictionary structElem, PdfIndirectReference ref) {
 		LOGGER.info(String.format("addStructureItems(%s, %s)", structElem, ref));
 		if (structElem == null)
 			return;
-		addStructureItem(structElem, ref, structElem.getDirectObject(PdfName.K));
+		processStructElemKids(structElem, ref, structElem.getDirectObject(PdfName.K));
 	}
 	
 	/**
@@ -129,7 +131,7 @@ public class StructureItems extends ArrayList<StructureItem> {
 	 * @param ref			the reference to the StructElem dictionary
 	 * @param object		the kids object
 	 */
-	protected void addStructureItem(PdfDictionary structElem, PdfIndirectReference ref, PdfObject object) {
+	protected void processStructElemKids(PdfDictionary structElem, PdfIndirectReference ref, PdfObject object) {
 		LOGGER.info(String.format("addStructureItem(%s, %s, %s)", structElem, ref, object));
 		if (object == null)
 			return;
@@ -143,7 +145,7 @@ public class StructureItems extends ArrayList<StructureItem> {
 		case PdfObject.ARRAY:
 			PdfArray array = (PdfArray)object;
 			for (int i = 0; i < array.size(); i++) {
-				addStructureItem(structElem, array.getAsIndirectObject(i), array.getDirectObject(i));
+				processStructElemKids(structElem, array.getAsIndirectObject(i), array.getDirectObject(i));
 			}
 			break;
 		case PdfObject.DICTIONARY:
@@ -158,7 +160,7 @@ public class StructureItems extends ArrayList<StructureItem> {
 				LOGGER.info("Added " + item);
 			}
 			else {
-				addStructureItems(dict, ref);
+				processStructElems(dict, ref);
 			}
 		}
 	}
