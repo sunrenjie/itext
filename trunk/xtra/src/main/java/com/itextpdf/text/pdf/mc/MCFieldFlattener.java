@@ -72,6 +72,7 @@ public class MCFieldFlattener {
 	 */
 	public void process(PdfReader reader, OutputStream os) throws IOException, DocumentException {
 		int n = reader.getNumberOfPages();
+		// getting the root dictionary
 		PdfDictionary catalog = reader.getCatalog();
 		// flattening means: remove AcroForm
 		catalog.remove(PdfName.ACROFORM);
