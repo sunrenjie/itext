@@ -57,6 +57,11 @@ public class PdfA2Checker extends PdfAChecker {
             PdfGState.BM_MULTIPLY, PdfGState.BM_SCREEN, PdfGState.BM_OVERLAY, PdfGState.BM_DARKEN, PdfGState.BM_LIGHTEN, PdfGState.BM_COLORDODGE,
             PdfGState.BM_COLORBURN, PdfGState.BM_HARDLIGHT, PdfGState.BM_SOFTLIGHT, PdfGState.BM_DIFFERENCE, PdfGState.BM_EXCLUSION}));
 
+    static final int maxPageSize = 14400;
+    static final int minPageSize = 3;
+
+    protected int gsStackDepth = 0;
+
     PdfA2Checker(PdfAConformanceLevel conformanceLevel) {
         super(conformanceLevel);
     }
@@ -177,12 +182,53 @@ public class PdfA2Checker extends PdfAChecker {
 
     @Override
     protected void checkTrailer(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfWriter.PdfTrailer) {
+            PdfWriter.PdfTrailer trailer = (PdfWriter.PdfTrailer) obj1;
+            if (trailer.get(PdfName.ENCRYPT) != null) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("keyword.encrypt.shall.not.be.used.in.the.trailer.dictionary"));
+            }
+        }
     }
 
     @Override
     protected void checkStream(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfStream) {
+            PdfStream stream = (PdfStream) obj1;
+            if (stream.contains(PdfName.F) || stream.contains(PdfName.FFILTER) || stream.contains(PdfName.FDECODEPARMS)) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("stream.object.dictionary.shall.not.contain.the.f.ffilter.or.fdecodeparams.keys"));
+            }
+
+            PdfObject filter = stream.getDirectObject(PdfName.FILTER);
+            if (filter instanceof PdfName) {
+                if (filter.equals(PdfName.LZWDECODE))
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("lzwdecode.filter.is.not.permitted"));
+                if (filter.equals(PdfName.CRYPT)) {
+                    PdfDictionary decodeParams = stream.getAsDict(PdfName.DECODEPARMS);
+                    if (decodeParams != null) {
+                        PdfString cryptFilterName = decodeParams.getAsString(PdfName.NAME);
+                        if (cryptFilterName != null && !cryptFilterName.equals(PdfName.IDENTITY)) {
+                            throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("not.identity.crypt.filter.is.not.permitted"));
+                        }
+                    }
+                }
+            } else if (filter instanceof PdfArray) {
+                for (int i = 0; i < ((PdfArray) filter).size(); i++) {
+                    PdfName f = ((PdfArray) filter).getAsName(i);
+                    if (f.equals(PdfName.LZWDECODE))
+                        throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("lzwdecode.filter.is.not.permitted"));
+                    if (f.equals(PdfName.CRYPT)) {
+                        PdfArray decodeParams = stream.getAsArray(PdfName.DECODEPARMS);
+                        if (decodeParams != null && i < decodeParams.size()) {
+                            PdfDictionary decodeParam = decodeParams.getAsDict(i);
+                            PdfString cryptFilterName = decodeParam.getAsString(PdfName.NAME);
+                            if (cryptFilterName != null && !cryptFilterName.equals(PdfName.IDENTITY)) {
+                                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("not.identity.crypt.filter.is.not.permitted"));
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -192,12 +238,45 @@ public class PdfA2Checker extends PdfAChecker {
 
     @Override
     protected void checkPdfObject(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfNumber) {
+            PdfNumber number = (PdfNumber) obj1;
+            if (Math.abs(number.doubleValue()) > PdfA1Checker.maxRealValue && number.toString().contains(".")) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("real.number.is.out.of.range"));
+            }
+        } else if (obj1 instanceof PdfString) {
+            PdfString string = (PdfString) obj1;
+            if (string.getBytes().length > PdfA1Checker.maxStringLength) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("pdf.string.is.too.long"));
+            }
+        } else if (obj1 instanceof PdfArray) {
+            PdfArray array = (PdfArray) obj1;
+            if (array.size() > PdfA1Checker.maxArrayLength) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("pdf.array.is.out.of.bounds"));
+            }
+        } else if (obj1 instanceof PdfPage) {
+            PdfName[] boxNames = new PdfName[] {PdfName.MEDIABOX, PdfName.CROPBOX, PdfName.TRIMBOX, PdfName.ARTBOX, PdfName.BLEEDBOX};
+            for (PdfName boxName: boxNames) {
+                PdfObject box = ((PdfPage)obj1).getDirectObject(boxName);
+                if (box instanceof PdfRectangle) {
+                    float width = ((PdfRectangle)box).width();
+                    float height = ((PdfRectangle)box).height();
+                    if (width < minPageSize || width > maxPageSize || height < minPageSize || height > maxPageSize)
+                        throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("the.page.less.3.units.nor.greater.14400.in.either.direction"));
+                }
+            }
+        }
     }
 
     @Override
     protected void checkCanvas(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof String) {
+            if ("q".equals(obj1)) {
+                if (++gsStackDepth > PdfA1Checker.maxGsStackDepth)
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("graphics.state.stack.depth.is.greater.than.28"));
+            } else if ("Q".equals(obj1)) {
+                gsStackDepth--;
+            }
+        }
     }
 
     @Override
