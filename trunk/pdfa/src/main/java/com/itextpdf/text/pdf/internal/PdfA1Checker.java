@@ -63,7 +63,7 @@ public class PdfA1Checker extends PdfAChecker {
             PdfName.FIRSTPAGE, PdfName.LASTPAGE));
     static private HashSet<PdfName> restrictedActions = new HashSet<PdfName>(Arrays.asList(PdfName.LAUNCH, PdfName.SOUND,
             PdfName.MOVIE, PdfName.RESETFORM, PdfName.IMPORTDATA, PdfName.JAVASCRIPT));
-    static private HashSet<PdfName> contentAnnotations = new HashSet<PdfName>(Arrays.asList(PdfName.TEXT, PdfName.LINK, PdfName.FREETEXT,
+    static public final HashSet<PdfName> contentAnnotations = new HashSet<PdfName>(Arrays.asList(PdfName.TEXT, PdfName.LINK, PdfName.FREETEXT,
             PdfName.LINE, PdfName.SQUARE, PdfName.CIRCLE, PdfName.STAMP, PdfName.INK, PdfName.POPUP, PdfName.WIDGET));
     static public final double maxRealValue = 32767;
     static public final int maxStringLength = 65535;
@@ -127,6 +127,9 @@ public class PdfA1Checker extends PdfAChecker {
             throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("1.value.of.intent.key.is.not.allowed", intent.toString()));
         }
     }
+
+    @Override
+    protected void checkInlineImage(PdfWriter writer, int key, Object obj1) {}
 
     @Override
     protected void checkGState(PdfWriter writer, int key, Object obj1) {
@@ -327,6 +330,9 @@ public class PdfA1Checker extends PdfAChecker {
             PdfFormField field = (PdfFormField) obj1;
             if (!field.contains(PdfName.SUBTYPE))
                 return;
+            if (field.contains(PdfName.AA) || field.contains(PdfName.A)) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("widget.annotation.dictionary.or.field.dictionary.shall.not.include.a.or.aa.entry"));
+            }
         }
         if (obj1 instanceof PdfAnnotation) {
             PdfAnnotation annot = (PdfAnnotation) obj1;
