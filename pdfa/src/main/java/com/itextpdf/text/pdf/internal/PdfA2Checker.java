@@ -43,10 +43,12 @@
  */
 package com.itextpdf.text.pdf.internal;
 
+import com.itextpdf.text.ExceptionConverter;
 import com.itextpdf.text.Jpeg2000;
 import com.itextpdf.text.error_messages.MessageLocalization;
 import com.itextpdf.text.pdf.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -68,7 +70,27 @@ public class PdfA2Checker extends PdfAChecker {
 
     @Override
     protected void checkFont(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        BaseFont bf = (BaseFont) obj1;
+        if (bf.getFontType() == BaseFont.FONT_TYPE_DOCUMENT) {
+            PdfStream prs = null;
+            PdfDictionary fontDictionary = ((DocumentFont) bf).getFontDictionary();
+            PdfDictionary fontDescriptor = fontDictionary.getAsDict(PdfName.FONTDESCRIPTOR);
+            if (fontDescriptor != null) {
+                prs = fontDescriptor.getAsStream(PdfName.FONTFILE);
+                if (prs == null) {
+                    prs = fontDescriptor.getAsStream(PdfName.FONTFILE2);
+                }
+                if (prs == null) {
+                    prs = fontDescriptor.getAsStream(PdfName.FONTFILE3);
+                }
+            }
+            if (prs == null) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("all.the.fonts.must.be.embedded.this.one.isn.t.1", ((BaseFont) obj1).getPostscriptFontName()));
+            }
+        } else {
+            if (!bf.isEmbedded())
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("all.the.fonts.must.be.embedded.this.one.isn.t.1", ((BaseFont) obj1).getPostscriptFontName()));
+        }
     }
 
     @Override
@@ -83,6 +105,13 @@ public class PdfA2Checker extends PdfAChecker {
     @Override
     protected void checkImage(PdfWriter writer, int key, Object obj1) {
         PdfImage pdfImage = (PdfImage) obj1;
+        if (pdfImage.contains(PdfName.OPI)) {
+            throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("an.image.dictionary.shall.not.contain.opi.key"));
+        }
+        PdfBoolean interpolate = pdfImage.getAsBoolean(PdfName.INTERPOLATE);
+        if (interpolate != null && interpolate.booleanValue()) {
+            throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("the.value.of.interpolate.key.shall.not.be.true"));
+        }
         if (pdfImage != null && (pdfImage.getImage() instanceof Jpeg2000)) {
             Jpeg2000 jpeg2000 = (Jpeg2000) pdfImage.getImage();
             if (!jpeg2000.isJp2()) {
@@ -122,6 +151,33 @@ public class PdfA2Checker extends PdfAChecker {
                     }
                 }
 
+            }
+        }
+    }
+
+    @Override
+    protected void checkInlineImage(PdfWriter writer, int key, Object obj1) {
+        PdfImage pdfImage = (PdfImage) obj1;
+        PdfBoolean interpolate = pdfImage.getAsBoolean(PdfName.INTERPOLATE);
+        if (interpolate != null && interpolate.booleanValue()) {
+            throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("the.value.of.interpolate.key.shall.not.be.true"));
+        }
+
+        PdfObject filter = pdfImage.getDirectObject(PdfName.FILTER);
+        if (filter instanceof PdfName) {
+            if (filter.equals(PdfName.LZWDECODE))
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("lzwdecode.filter.is.not.permitted"));
+            if (filter.equals(PdfName.CRYPT)) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("crypt.filter.is.not.permitted.inline.image"));
+            }
+        } else if (filter instanceof PdfArray) {
+            for (int i = 0; i < ((PdfArray) filter).size(); i++) {
+                PdfName f = ((PdfArray) filter).getAsName(i);
+                if (f.equals(PdfName.LZWDECODE))
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("lzwdecode.filter.is.not.permitted"));
+                if (f.equals(PdfName.CRYPT)) {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("crypt.filter.is.not.permitted.inline.image"));
+                }
             }
         }
     }
@@ -228,6 +284,19 @@ public class PdfA2Checker extends PdfAChecker {
                     }
                 }
             }
+
+            if (PdfName.FORM.equals(stream.getAsName(PdfName.SUBTYPE))) {
+                if (stream.contains(PdfName.OPI)) {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("a.form.xobject.dictionary.shall.not.contain.opi.key"));
+                }
+                if (stream.contains(PdfName.PS)) {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("a.form.xobject..dictionary.shall.not.contain.ps.key"));
+                }
+            }
+
+            if (PdfName.PS.equals(stream.getAsName(PdfName.SUBTYPE))) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("postscript.xobjects.are.not.allowed"));
+            }
         }
     }
 
@@ -253,6 +322,23 @@ public class PdfA2Checker extends PdfAChecker {
             if (array.size() > PdfA1Checker.maxArrayLength) {
                 throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("pdf.array.is.out.of.bounds"));
             }
+        }  else if (obj1 instanceof PdfDictionary) {
+            PdfDictionary dictionary = (PdfDictionary) obj1;
+            if (PdfName.CATALOG.equals(dictionary.getAsName(PdfName.TYPE))) {
+                if (dictionary.contains(PdfName.AA)) {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("the.document.catalog.dictionary.shall.not.include.an.aa.entry"));
+                }
+                if (checkStructure(conformanceLevel)) {
+                    PdfDictionary markInfo = dictionary.getAsDict(PdfName.MARKINFO);
+                    if (markInfo == null || markInfo.getAsBoolean(PdfName.MARKED) == null || markInfo.getAsBoolean(PdfName.MARKED).booleanValue() == false) {
+                        throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("document.catalog.dictionary.shall.include.a.markinfo.dictionary.whose.entry.marked.shall.have.a.value.of.true"));
+                    }
+                    if (!dictionary.contains(PdfName.LANG)) {
+                        throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("document.catalog.dictionary.should.contain.lang.entry"));
+                    }
+                }
+
+            }
         } else if (obj1 instanceof PdfPage) {
             PdfName[] boxNames = new PdfName[] {PdfName.MEDIABOX, PdfName.CROPBOX, PdfName.TRIMBOX, PdfName.ARTBOX, PdfName.BLEEDBOX};
             for (PdfName boxName: boxNames) {
@@ -263,6 +349,9 @@ public class PdfA2Checker extends PdfAChecker {
                     if (width < minPageSize || width > maxPageSize || height < minPageSize || height > maxPageSize)
                         throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("the.page.less.3.units.nor.greater.14400.in.either.direction"));
                 }
+            }
+            if (((PdfPage)obj1).contains(PdfName.AA)) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("page.dictionary.shall.not.include.aa.entry"));
             }
         }
     }
@@ -286,7 +375,27 @@ public class PdfA2Checker extends PdfAChecker {
 
     @Override
     protected void checkAnnotation(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfFormField) {
+            PdfFormField field = (PdfFormField) obj1;
+            if (!field.contains(PdfName.SUBTYPE))
+                return;
+            if (field.contains(PdfName.AA) || field.contains(PdfName.A)) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("widget.annotation.dictionary.or.field.dictionary.shall.not.include.a.or.aa.entry"));
+            }
+        }
+        if (obj1 instanceof PdfAnnotation) {
+            PdfAnnotation annot = (PdfAnnotation) obj1;
+            PdfObject subtype = annot.get(PdfName.SUBTYPE);
+            if (PdfName.WIDGET.equals(annot.getAsName(PdfName.SUBTYPE)) && (annot.contains(PdfName.AA) || annot.contains(PdfName.A))) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("widget.annotation.dictionary.or.field.dictionary.shall.not.include.a.or.aa.entry"));
+            }
+
+            if (checkStructure(conformanceLevel)) {
+                if (PdfA1Checker.contentAnnotations.contains(subtype) && !annot.contains(PdfName.CONTENTS)) {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("annotation.of.type.1.should.have.contents.key", subtype.toString()));
+                }
+            }
+        }
     }
 
     @Override
@@ -296,12 +405,29 @@ public class PdfA2Checker extends PdfAChecker {
 
     @Override
     protected void checkForm(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfAcroForm) {
+            PdfAcroForm form = (PdfAcroForm) obj1;
+            PdfBoolean needAppearances = form.getAsBoolean(PdfName.NEEDAPPEARANCES);
+            if (needAppearances != null && needAppearances.booleanValue()) {
+                throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("needappearances.flag.of.the.interactive.form.dictionary.shall.either.not.be.present.or.shall.be.false"));
+            }
+        }
     }
 
     @Override
     protected void checkStructElem(PdfWriter writer, int key, Object obj1) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (obj1 instanceof PdfStructureElement) {
+            PdfStructureElement structElem = (PdfStructureElement) obj1;
+            PdfName role = structElem.getStructureType();
+            if (PdfName.FIGURE.equals(role) || PdfName.FORMULA.equals(role) || PdfName.FORM.equals(role)) {
+                PdfObject o = structElem.getAttribute(PdfName.ALT);
+                if (o instanceof PdfString && o.toString().length() > 0) {
+
+                } else {
+                    throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("alt.entry.should.specify.alternate.description.for.1.element", role.toString()));
+                }
+            }
+        }
     }
 
     private void fillOrderRecursively(PdfArray orderArray, HashSet<PdfObject> order) {
