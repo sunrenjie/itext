@@ -265,7 +265,7 @@ public class PdfA1Checker extends PdfAChecker {
 
             }
             if (PdfName.PAGE.equals(type)) {
-                if (((PdfPage)obj1).contains(PdfName.AA)) {
+                if (dictionary.contains(PdfName.AA)) {
                     throw new PdfAConformanceException(obj1, MessageLocalization.getComposedMessage("page.dictionary.shall.not.include.aa.entry"));
                 }
             }
