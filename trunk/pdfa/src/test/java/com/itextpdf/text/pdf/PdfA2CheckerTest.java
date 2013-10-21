@@ -452,8 +452,8 @@ public class PdfA2CheckerTest {
         document.add(new Paragraph("Hello World", font));
         document.close();
 
-        PdfReader reader = new PdfReader("./target/colorCheckTest3.pdf");
-        PdfAStamper stamper = new PdfAStamper(reader, new FileOutputStream("./target/colorCheckTest3_updating_failed.pdf"), PdfAConformanceLevel.PDF_A_2B);
+        PdfReader reader = new PdfReader("./target/pdfa2ColorCheckTest4.pdf");
+        PdfAStamper stamper = new PdfAStamper(reader, new FileOutputStream("./target/pdfa2ColorCheckTest4_updating_failed.pdf"), PdfAConformanceLevel.PDF_A_2B);
         boolean exceptionThrown = false;
         try {
             icc = ICC_Profile.getInstance(new FileInputStream("./src/test/resources/com/itextpdf/text/pdf/sRGB Color Space Profile.icm"));
