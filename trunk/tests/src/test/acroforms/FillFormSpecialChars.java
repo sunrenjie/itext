@@ -6,14 +6,12 @@
  */
 package test.acroforms;
 
-import java.lang.reflect.Method;
-
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.PdfReader;
 import org.junit.Assert;
-import test.TestSandbox;
+import test.ManipulationTest;
 
-public class FillFormSpecialChars extends TestSandbox {
+public class FillFormSpecialChars extends ManipulationTest {
 
 	@Override
 	public void setup() {
