@@ -1,4 +1,4 @@
-package sandbox;
+package test;
 
 import com.itextpdf.testutils.CompareTool;
 import com.itextpdf.testutils.ITextTest;
@@ -26,7 +26,7 @@ public abstract class SandboxTest extends ITextTest {
 
     @Override
     protected void comparePdf(String outPdf, String cmpPdf) throws Exception {
-        if (cmpPdf == null || cmpPdf.length() == 0) return;
+    	if (cmpPdf == null || cmpPdf.length() == 0) return;
         CompareTool compareTool = new CompareTool(outPdf, cmpPdf);
         String outPath = "./target/" + new File(outPdf).getParent();
         new File(outPath).mkdirs();

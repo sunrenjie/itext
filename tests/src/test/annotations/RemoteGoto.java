@@ -4,7 +4,7 @@
  * 
  * Creating a link from one PDF to another
  */
-package sandbox.annotations;
+package test.annotations;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfAction;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.junit.Before;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class RemoteGoto extends SandboxTest {
 

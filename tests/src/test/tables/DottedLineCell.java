@@ -1,4 +1,4 @@
-package sandbox.tables;
+package test.tables;
 
 import java.io.FileOutputStream;
 
@@ -9,7 +9,7 @@ import com.itextpdf.text.pdf.PdfPCellEvent;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPTableEvent;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class DottedLineCell extends SandboxTest {
 

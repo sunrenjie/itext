@@ -4,7 +4,7 @@
  * 
  * Some text displayed using a Small Caps font.
  */
-package sandbox.fonts;
+package test.fonts;
 
 import java.io.FileOutputStream;
 
@@ -13,7 +13,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class SmallCapsExample extends SandboxTest {
 

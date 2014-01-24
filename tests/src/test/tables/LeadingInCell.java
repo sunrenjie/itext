@@ -4,7 +4,7 @@
  * 
  * Cell in composite mode, containing different paragraphs with a different leading.
  */
-package sandbox.tables;
+package test.tables;
 
 import java.io.FileOutputStream;
 
@@ -12,7 +12,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class LeadingInCell extends SandboxTest {
 

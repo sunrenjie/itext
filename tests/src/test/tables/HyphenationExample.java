@@ -4,7 +4,7 @@
  * 
  * We create a table with and we add a word that needs to be hyphenated.
  */
-package sandbox.tables;
+package test.tables;
 
 import java.io.FileOutputStream;
 
@@ -14,7 +14,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.hyphenation.Hyphenation;
 import com.itextpdf.text.pdf.hyphenation.Hyphenator;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class HyphenationExample extends SandboxTest {
 

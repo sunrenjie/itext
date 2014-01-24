@@ -4,7 +4,7 @@
  * 
  * Doing some font math to vertically fit a piece of text inside a rectangle.
  */
-package sandbox.objects;
+package test.objects;
 
 import java.io.FileOutputStream;
 
@@ -13,7 +13,7 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class FitTextInRectangle extends SandboxTest {
 
