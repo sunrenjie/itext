@@ -20,7 +20,7 @@ public abstract class GenericTest {
     private final static Logger LOGGER = LoggerFactory.getLogger(GenericTest.class.getName());
 
     /** The class file for the example we're going to test. */
-	private Class<?> klass;
+	protected Class<?> klass;
 	/** An error message */
     private String errorMessage;
     /** A prefix that is part of the error message. */

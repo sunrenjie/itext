@@ -1,5 +1,7 @@
 package test.annotations;
 
+import java.lang.reflect.Method;
+
 import org.junit.Test;
 
 import test.GenericTest;
@@ -28,7 +30,8 @@ public class RemoteGoToPage extends GenericTest {
         // Getting the source PDF file
         String src = getSrc();
 
-        createPdf(src);
+    	Method method = klass.getDeclaredMethod("createPdf2", String.class);
+    	method.invoke(klass.getConstructor().newInstance(), src);
         createPdf(dest);
         
         // Do some further tests on the PDF
