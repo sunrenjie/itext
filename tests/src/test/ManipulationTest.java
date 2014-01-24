@@ -14,9 +14,9 @@ import com.itextpdf.testutils.CompareTool;
 import com.itextpdf.text.log.Logger;
 import com.itextpdf.text.log.LoggerFactory;
 
-public abstract class TestSandbox {
+public abstract class ManipulationTest {
 	
-    private final static Logger LOGGER = LoggerFactory.getLogger(TestSandbox.class.getName());
+    private final static Logger LOGGER = LoggerFactory.getLogger(ManipulationTest.class.getName());
 
 	protected Class<?> klass;
     private String errorMessage;
