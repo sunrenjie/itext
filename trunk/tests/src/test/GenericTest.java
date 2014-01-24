@@ -63,7 +63,7 @@ public abstract class GenericTest {
         String src = getSrc();
         // if there is none, just create a PDF
         if (src == null || src.length() == 0) {
-        	createPdf(src);
+        	createPdf(dest);
         }
         // if there is one, manipulate the PDF
         else {
