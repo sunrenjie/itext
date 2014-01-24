@@ -1,63 +1,16 @@
 package test.images;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import test.GenericTest;
 
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.*;
-import test.SandboxTest;
+public class LargeImage2  extends GenericTest {
 
-public class LargeImage2  extends SandboxTest {
-
-    String inputPdf =  "./resources/pdfs/large_image.pdf";
-
-    @Override
-    protected String getOutPdf() {
-        return "./results/images/large_image2.pdf";
-    }
+	@Override
+	public void setup() {
+		setKlass("sandbox.images.LargeImage1");
+	}
 
     @Override
     protected String getCmpPdf() {
-        return "./resources/results/images/cmp_large_image2.pdf";
-    }
-
-    @Override
-    public void makePdf(String outPdf) throws Exception {
-        PdfReader reader = new PdfReader(inputPdf);
-        // The width and the height of a PDF page may not exceed 14400 user units:
-        Rectangle rect = reader.getPageSize(1);
-        if (rect.getWidth() < 14400 && rect.getHeight() < 14400) {
-            System.out.println("The size of the PDF document is withing the accepted limits");
-            System.exit(0);
-        }
-        // We assume that there's a single large picture on the first page
-        PdfDictionary page = reader.getPageN(1);
-        PdfDictionary resources = page.getAsDict(PdfName.RESOURCES);
-        PdfDictionary xobjects = resources.getAsDict(PdfName.XOBJECT);
-        PdfName imgName = xobjects.getKeys().iterator().next();
-        Image img = Image.getInstance((PRIndirectReference)xobjects.getAsIndirectObject(imgName));
-        img.scaleToFit(14400, 14400);
-        img.setAbsolutePosition(0, 0);
-        // We create a temporary file that will reuse the image
-        File tmp = File.createTempFile("large_image", ".pdf", new File("./results/images"));
-        tmp.deleteOnExit();
-        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(tmp));
-        // We create a new first page and add the image
-        stamper.insertPage(1, new Rectangle(img.getScaledWidth(), img.getScaledHeight()));
-        stamper.getOverContent(1).addImage(img);
-        stamper.close();
-        reader.close();
-        // We create a new file that only contains the new first page
-        reader = new PdfReader(tmp.getAbsolutePath());
-        reader.selectPages("1");
-        stamper = new PdfStamper(reader, new FileOutputStream(outPdf));
-        stamper.close();
-        reader.close();
-    }
-
-    public static void main(String[] args) throws Exception {
-        SandboxTest test = new LargeImage2();
-        test.makePdf();
+        return "./results/images/cmp_large_image2.pdf";
     }
 }
