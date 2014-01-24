@@ -7,9 +7,9 @@
  */
 package test.annotations;
 
-import test.ManipulationTest;
+import test.GenericTest;
 
-public class RenameDestinations extends ManipulationTest {
+public class RenameDestinations extends GenericTest {
 
 	@Override
 	public void setup() {

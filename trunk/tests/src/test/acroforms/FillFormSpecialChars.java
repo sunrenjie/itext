@@ -9,9 +9,9 @@ package test.acroforms;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.PdfReader;
 import org.junit.Assert;
-import test.ManipulationTest;
+import test.GenericTest;
 
-public class FillFormSpecialChars extends ManipulationTest {
+public class FillFormSpecialChars extends GenericTest {
 
 	@Override
 	public void setup() {

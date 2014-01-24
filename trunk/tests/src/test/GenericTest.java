@@ -14,9 +14,9 @@ import com.itextpdf.testutils.CompareTool;
 import com.itextpdf.text.log.Logger;
 import com.itextpdf.text.log.LoggerFactory;
 
-public abstract class ManipulationTest {
+public abstract class GenericTest {
 	
-    private final static Logger LOGGER = LoggerFactory.getLogger(ManipulationTest.class.getName());
+    private final static Logger LOGGER = LoggerFactory.getLogger(GenericTest.class.getName());
 
 	protected Class<?> klass;
     private String errorMessage;
@@ -37,40 +37,62 @@ public abstract class ManipulationTest {
     @Test(timeout = 60000)
     public void test() throws Exception {
         LOGGER.info("Starting test.");
-        String outPdf = getDest();
-        if (outPdf == null || outPdf.length() == 0)
+        String dest= getDest();
+        if (dest == null || dest.length() == 0)
             throw new OperationsException("outPdf cannot be empty!");
-        makePdf();
-        assertPdf(outPdf);
-        comparePdf(outPdf, getCmpPdf());
+        String src = getSrc();
+        if (src == null || src.length() == 0) {
+        	createPdf(src);
+        }
+        else {
+        	manipulatePdf(src, dest);
+        }
+        assertPdf(dest);
+        comparePdf(dest, getCmpPdf());
         LOGGER.info("Test complete.");
     }
     
-	protected void makePdf() throws Exception {
+	protected void createPdf(String dest) throws Exception {
+        LOGGER.info("Creating PDF.");
+    	Method method = klass.getDeclaredMethod("createPdf", String.class);
+    	method.invoke(klass.getConstructor().newInstance(), dest);
+	}
+    
+	protected void manipulatePdf(String src, String dest) throws Exception {
+        LOGGER.info("Manipulating PDF.");
     	Method method = klass.getDeclaredMethod("manipulatePdf", String.class, String.class);
-    	method.invoke(klass.getConstructor().newInstance(), getDest(), getSrc());
+    	method.invoke(klass.getConstructor().newInstance(), src, dest);
 	}
 	
-	protected String getSrc() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+	protected String getSrc() {
 		return getStringField("SRC");
 	}
 	
-	protected String getDest() throws SecurityException, IllegalArgumentException, NoSuchFieldException, IllegalAccessException {
-		return getStringField("DEST");
+	protected String getDest() {
+		String dest = getStringField("DEST");
+		if (dest != null) {
+			File file = new File(dest);
+			file.getParentFile().mkdirs();
+		}
+		return dest;
 	}
 	
-	protected String getStringField(String name) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-    	Field field = klass.getField(name);
-    	if (field == null)
-    		return null;
-    	Object obj = field.get(null);
-    	if (obj == null || ! (obj instanceof String))
-    		return null;
-		return (String)obj;
+	protected String getStringField(String name) {
+		try {
+			Field field = klass.getField(name);
+			if (field == null)
+				return null;
+			Object obj = field.get(null);
+			if (obj == null || ! (obj instanceof String))
+				return null;
+			return (String)obj;
+		}
+		catch(Exception e) {
+			return null;
+		}
 	}
 
     protected void comparePdf(String outPdf, String cmpPdf) throws Exception {
-    	System.out.println("Compare");
     	if (cmpPdf == null || cmpPdf.length() == 0) return;
         CompareTool compareTool = new CompareTool(outPdf, cmpPdf);
         String outPath = "./target/" + new File(outPdf).getParent();
