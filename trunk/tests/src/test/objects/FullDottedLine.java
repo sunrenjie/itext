@@ -6,41 +6,18 @@
  */
 package test.objects;
 
-import java.io.FileOutputStream;
+import test.GenericTest;
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.draw.DottedLineSeparator;
-import test.SandboxTest;
+public class FullDottedLine extends GenericTest {
 
-public class FullDottedLine extends SandboxTest {
-
-    @Override
-    protected String getOutPdf() {
-        return "./results/objects/full_dotted_line.pdf";
-    }
-
+	@Override
+	public void setup() {
+		setKlass("sandbox.objects.FullDottedLine");
+	}
+	
     @Override
     protected String getCmpPdf() {
-        return "./resources/results/objects/cmp_full_dotted_line.pdf";
+        return "./results/objects/cmp_full_dotted_line.pdf";
     }
 
-    @Override
-    public void makePdf(String outPdf) throws Exception {
-            Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(outPdf));
-            document.open();
-            document.add(new Paragraph("Before dotted line"));
-            DottedLineSeparator separator = new DottedLineSeparator();
-            separator.setPercentage(59500f / 523f);
-            Chunk linebreak = new Chunk(separator);
-            document.add(linebreak);
-            document.add(new Paragraph("After dotted line"));
-            document.close();
-    }
-
-    public static void main(String[] args) throws Exception {
-        SandboxTest test = new FullDottedLine();
-        test.makePdf();
-    }
 }

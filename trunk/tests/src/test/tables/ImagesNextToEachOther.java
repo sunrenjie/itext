@@ -7,48 +7,16 @@
  */
 package test.tables;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import test.GenericTest;
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-import test.SandboxTest;
+public class ImagesNextToEachOther extends GenericTest {
 
-public class ImagesNextToEachOther extends SandboxTest {
-
-    @Override
-    protected String getOutPdf() {
-        return "./results/tables/images_next_to_each_other.pdf";
-    }
-
+	@Override
+	public void setup() {
+		setKlass("sandbox.tables.ImagesNextToEachOther");
+	}
     @Override
     protected String getCmpPdf() {
-        return "./resources/results/tables/cmp_images_next_to_each_other.pdf";
-    }
-
-    @Override
-    public void makePdf(String outPdf) throws Exception {
-        Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(outPdf));
-        document.open();
-        PdfPTable table = new PdfPTable(2);
-        table.setWidthPercentage(100);
-        table.addCell(createImageCell("./resources/images/javaone2013.jpg"));
-        table.addCell(createImageCell("./resources/images/berlin2013.jpg"));
-        document.add(table);
-        document.close();
-    }
-
-    public PdfPCell createImageCell(String path) throws DocumentException, IOException {
-        Image img = Image.getInstance(path);
-        PdfPCell cell = new PdfPCell(img, true);
-        return cell;
-    }
-
-    public static void main(String[] args) throws Exception {
-        SandboxTest test = new ImagesNextToEachOther();
-        test.makePdf();
+        return "./results/tables/cmp_images_next_to_each_other.pdf";
     }
 }
