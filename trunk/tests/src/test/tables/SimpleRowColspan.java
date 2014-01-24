@@ -4,7 +4,7 @@
  * 
  * We create a table using rowspan and colspan.
  */
-package sandbox.tables;
+package test.tables;
 
 import java.io.FileOutputStream;
 
@@ -13,7 +13,7 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class SimpleRowColspan extends SandboxTest {
 

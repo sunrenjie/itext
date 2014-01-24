@@ -4,7 +4,7 @@
  * 
  * We create a Chunk and add a background color.
  */
-package sandbox.objects;
+package test.objects;
 
 import java.io.FileOutputStream;
 
@@ -15,7 +15,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class ChunkBackground extends SandboxTest {
 

@@ -5,7 +5,7 @@
  * We create a table with two columns and two cells.
  * This way, we can add two images next to each other.
  */
-package sandbox.tables;
+package test.tables;
 
 import java.io.FileOutputStream;
 
@@ -13,7 +13,7 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class FullPageTable extends SandboxTest {
 

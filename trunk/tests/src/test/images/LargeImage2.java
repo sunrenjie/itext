@@ -1,4 +1,4 @@
-package sandbox.images;
+package test.images;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.*;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class LargeImage2  extends SandboxTest {
 

@@ -4,14 +4,14 @@
  * 
  * We create a Chunk and add a background color.
  */
-package sandbox.objects;
+package test.objects;
 
 import java.io.FileOutputStream;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
-import sandbox.SandboxTest;
+import test.SandboxTest;
 
 public class FullDottedLine extends SandboxTest {
 
