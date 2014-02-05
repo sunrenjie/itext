@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: GenericTest.java 6208 2014-02-05 14:43:21Z blowagie $
  *
  * This file is part of the iText (R) project.
  * Copyright (c) 1998-2014 iText Group NV
@@ -42,7 +42,7 @@
  * For more information, please contact iText Software Corp. at this
  * address: sales@itextpdf.com
  */
-package com.itextpdf.testutils;
+package test;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -54,6 +54,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.itextpdf.testutils.CompareTool;
 import com.itextpdf.text.log.Logger;
 import com.itextpdf.text.log.LoggerFactory;
 
