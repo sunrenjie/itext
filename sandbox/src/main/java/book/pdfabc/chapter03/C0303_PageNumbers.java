@@ -7,7 +7,7 @@ import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfReader;
 
 public class C0303_PageNumbers {
-	public static final String SRC = "resources/pdfs/primes.pdf";
+    public static final String SRC = "resources/pdfs/primes.pdf";
 	
     public static void main(String[] args) throws IOException {
         PdfReader reader = new PdfReader(SRC);

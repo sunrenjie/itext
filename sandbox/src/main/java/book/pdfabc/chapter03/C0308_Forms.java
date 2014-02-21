@@ -8,10 +8,10 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.XfaForm;
 
 public class C0308_Forms {
-	public static final String SRC1 = "resources/pdfs/pages.pdf";
-	public static final String SRC2 = "resources/pdfs/datasheet.pdf";
-	public static final String SRC3 = "resources/pdfs/xfa_movies.pdf";
-	public static final String SRC4 = "resources/pdfs/xfa_movie.pdf";
+    public static final String SRC1 = "resources/pdfs/pages.pdf";
+    public static final String SRC2 = "resources/pdfs/datasheet.pdf";
+    public static final String SRC3 = "resources/pdfs/xfa_movies.pdf";
+    public static final String SRC4 = "resources/pdfs/xfa_movie.pdf";
     
     public static void main(String[] args) throws IOException {
         inspectForm(new File(SRC1));

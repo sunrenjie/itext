@@ -13,7 +13,7 @@ import com.itextpdf.text.pdf.PdfString;
 
 public class C0301_TrailerInfo {
 	
-	public static final String SRC = "resources/pdfs/primes.pdf";
+    public static final String SRC = "resources/pdfs/primes.pdf";
 
     public static void main(String[] args) throws IOException {
         PdfReader reader = new PdfReader(SRC);
