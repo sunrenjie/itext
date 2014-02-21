@@ -13,7 +13,7 @@ import com.itextpdf.text.pdf.SimpleBookmark;
 import com.itextpdf.text.pdf.SimpleNamedDestination;
 
 public class C0307_DestinationsOutlines {
-	public static final String SRC = "resources/pdfs/primes.pdf";
+    public static final String SRC = "resources/pdfs/primes.pdf";
 
     public static void main(String[] args) throws IOException {
         PdfReader reader = new PdfReader(SRC);

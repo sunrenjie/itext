@@ -8,7 +8,7 @@ import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfReader;
 
 public class C0305_PageBoundaries {
-	public static final String SRC = "resources/pdfs/pages.pdf";
+    public static final String SRC = "resources/pdfs/pages.pdf";
 
     public static void main(String[] args) throws IOException {
         PdfReader reader = new PdfReader(SRC);
