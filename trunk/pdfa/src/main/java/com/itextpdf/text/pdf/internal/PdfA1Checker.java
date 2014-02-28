@@ -301,7 +301,7 @@ public class PdfA1Checker extends PdfAChecker {
                 boolean pdfa1OutputIntentFound = false;
                 if (outputIntents != null && outputIntents.size() > 0) {
                     for (int i = 0; i < outputIntents.size(); i++) {
-                        PdfDictionary outputIntentDictionary = outputIntents.getAsDict(i);
+                        PdfDictionary outputIntentDictionary = getDirectDictionary(outputIntents.getPdfObject(i));
                         if (outputIntentDictionary == null)
                             continue;
                         PdfName gts = outputIntentDictionary.getAsName(PdfName.S);
