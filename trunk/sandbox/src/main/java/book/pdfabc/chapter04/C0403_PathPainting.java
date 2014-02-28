@@ -93,7 +93,7 @@ public class C0403_PathPainting {
         canvas.closePathEoFillStroke();
         // close path and stroke
         triangles3(canvas);
-        canvas.closePathEoFillStroke();;
+        canvas.closePathEoFillStroke();
         // new page
         document.newPage();
         canvas.setColorFill(new GrayColor(0.7f));
@@ -159,7 +159,6 @@ public class C0403_PathPainting {
         canvas.lineTo(115, 720);
         canvas.lineTo(65, 700);
     }
-    
     protected void triangles2(PdfContentByte canvas) {
         canvas.moveTo(200, 760);
         canvas.lineTo(300, 720);
