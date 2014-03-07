@@ -38,7 +38,7 @@ public class C0404_DeviceColor {
         colorRectangle(canvas, new BaseColor(0x00, 0x00, 0x00), 36, 770, 36, 36);
         colorRectangle(canvas, new BaseColor(0x00, 0x00, 0xFF), 90, 770, 36, 36);
         colorRectangle(canvas, new BaseColor(0x00, 0xFF, 0x00), 144, 770, 36, 36);
-        colorRectangle(canvas, new BaseColor(0xFF, 0x00, 0x00), 198, 770, 36, 36);
+        colorRectangle(canvas, new BaseColor(255, 0, 0), 198, 770, 36, 36);
         colorRectangle(canvas, new BaseColor(0f, 1f, 1f), 252, 770, 36, 36);
         colorRectangle(canvas, new BaseColor(1f, 0f, 1f), 306, 770, 36, 36);
         colorRectangle(canvas, new BaseColor(1f, 1f, 0f), 360, 770, 36, 36);
