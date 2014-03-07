@@ -16,7 +16,7 @@ import com.itextpdf.text.pdf.PdfPatternPainter;
 import com.itextpdf.text.pdf.PdfWriter;
 
 @WrapToTest
-public class C0405_PatternColor {
+public class C0406_PatternColor {
 
     /** An image that will be used for a pattern color. */
     public static final String IMG = "resources/images/bulb.gif";
@@ -25,7 +25,7 @@ public class C0405_PatternColor {
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0405_PatternColor().createPdf(DEST);
+        new C0406_PatternColor().createPdf(DEST);
     }
 
     public void createPdf(String dest) throws IOException, DocumentException {

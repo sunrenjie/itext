@@ -17,14 +17,14 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.SpotColor;
 
 @WrapToTest
-public class C0406_SeparationColor {
+public class C0405_SeparationColor {
 
     public static final String DEST = "results/pdfabc/chapter04/separation_color.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0406_SeparationColor().createPdf(DEST);
+        new C0405_SeparationColor().createPdf(DEST);
     }
 
     public void createPdf(String dest) throws IOException, DocumentException {
