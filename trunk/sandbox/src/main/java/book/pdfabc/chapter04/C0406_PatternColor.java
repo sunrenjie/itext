@@ -68,7 +68,10 @@ public class C0406_PatternColor {
         PdfPatternPainter img_pattern
             = canvas.createPattern(20, 20, 20, 20);
         img_pattern.addImage(img);
-        img_pattern.setPatternMatrix(-0.5f, 0f, 0f, 0.5f, 0f, 0f);
+        double d45 = -Math.PI / 4;
+        img_pattern.setPatternMatrix(
+            (float)Math.cos(d45), (float)Math.sin(d45),
+            -(float)Math.sin(d45), (float)Math.cos(d45), 0f, 0f);
     
         colorRectangle(canvas, new PatternColor(square), 36, 696, 126, 126);
         colorRectangle(canvas, new PatternColor(ellipse), 180, 696, 126, 126);
