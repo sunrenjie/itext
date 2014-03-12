@@ -37,7 +37,7 @@ public class C0405_SeparationColor {
         // step 4
         PdfContentByte canvas = writer.getDirectContent();
         PdfSpotColor psc_g = new PdfSpotColor(
-                "iTextSpotColorGray", new GrayColor(0.9f));
+            "iTextSpotColorGray", new GrayColor(0.9f));
         PdfSpotColor psc_rgb = new PdfSpotColor(
             "iTextSpotColorRGB", new BaseColor(0x64, 0x95, 0xed));
         PdfSpotColor psc_cmyk = new PdfSpotColor(
