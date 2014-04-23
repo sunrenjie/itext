@@ -10,14 +10,14 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class C0408_GraphicsState {
+public class C0409_GraphicsState {
 
     public static final String DEST = "results/pdfabc/chapter04/graphics_state.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0408_GraphicsState().createPdf(DEST);
+        new C0409_GraphicsState().createPdf(DEST);
     }
 
     public void createPdf(String dest) throws IOException, DocumentException {
