@@ -31,13 +31,16 @@ public class C0410_GraphicsState {
         PdfContentByte canvas = writer.getDirectContent();
         triangle(canvas, 50);
         canvas.saveState();
+        canvas.concatCTM(1, 0, 0, 1, 0, 15);
         canvas.setColorFill(BaseColor.GRAY);
         triangle(canvas, 90);
         canvas.saveState();
-        canvas.setColorStroke(BaseColor.RED);
+        canvas.concatCTM(1, 0, 0, 1, 0, -30);
+        canvas.setColorFill(BaseColor.CYAN);
         triangle(canvas, 130);
         canvas.saveState();
-        canvas.setColorFill(BaseColor.CYAN);
+        canvas.concatCTM(1, 0, 0, 1, 0, 15);
+        canvas.setColorStroke(BaseColor.RED);
         triangle(canvas, 170);
         canvas.restoreState();
         triangle(canvas, 210);
