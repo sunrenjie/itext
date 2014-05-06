@@ -35,20 +35,20 @@ public class C0409_CoordinateSystem {
         triangle(canvas);
         canvas.concatCTM(0, -1, -1, 0, 150, 150);
         triangle(canvas);
-        canvas.concatCTM(0.5f, 0, 0, 0.5f, 100, 0);
+        canvas.concatCTM(0.5f, 0, 0, 0.3f, 100, 0);
         triangle(canvas);
-        canvas.concatCTM(3, 0, 0.4f, 2, -150, -150);
+        canvas.concatCTM(3, 0.2f, 0.4f, 2, -150, -150);
         triangle(canvas);
         document.newPage();
         canvas.setColorFill(BaseColor.GRAY);
         triangle(canvas);
         canvas.concatCTM(1, 0, 0, 1, 100, 40);
         triangle(canvas);
-        canvas.concatCTM(0.5f, 0, 0, 0.5f, 100, 0);
+        canvas.concatCTM(0.5f, 0, 0, 0.3f, 100, 0);
         triangle(canvas);
         canvas.concatCTM(0, -1, -1, 0, 150, 150);
         triangle(canvas);
-        canvas.concatCTM(3, 0, 0.4f, 2, -150, -150);
+        canvas.concatCTM(3, 0.2f, 0.4f, 2, -150, -150);
         triangle(canvas);
         // step 5
         document.close();
