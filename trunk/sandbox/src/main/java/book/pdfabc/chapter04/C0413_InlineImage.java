@@ -10,14 +10,14 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class C0411_InlineImage {
+public class C0413_InlineImage {
     public static final String IMG = "resources/images/bulb.gif";
     public static final String DEST = "results/pdfabc/chapter04/inline_image.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0411_InlineImage().createPdf(DEST);
+        new C0413_InlineImage().createPdf(DEST);
     }
 
     public void createPdf(String dest) throws IOException, DocumentException {
