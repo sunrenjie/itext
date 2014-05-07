@@ -36,11 +36,12 @@ public class C0410_GraphicsState {
         triangle(canvas, 90);
         canvas.saveState();
         canvas.concatCTM(1, 0, 0, 1, 0, -30);
+        canvas.setColorStroke(BaseColor.RED);
         canvas.setColorFill(BaseColor.CYAN);
         triangle(canvas, 130);
         canvas.saveState();
+        canvas.setLineDash(6, 3);
         canvas.concatCTM(1, 0, 0, 1, 0, 15);
-        canvas.setColorStroke(BaseColor.RED);
         triangle(canvas, 170);
         canvas.restoreState();
         triangle(canvas, 210);
