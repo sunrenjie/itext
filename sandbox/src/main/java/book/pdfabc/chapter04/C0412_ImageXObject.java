@@ -10,14 +10,14 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class C0413_InlineImage {
+public class C0412_ImageXObject {
     public static final String IMG = "resources/images/bulb.gif";
-    public static final String DEST = "results/pdfabc/chapter04/inline_image.pdf";
+    public static final String DEST = "results/pdfabc/chapter04/image_xobject.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0413_InlineImage().createPdf(DEST);
+        new C0412_ImageXObject().createPdf(DEST);
     }
 
     public void createPdf(String dest) throws IOException, DocumentException {
@@ -30,9 +30,9 @@ public class C0413_InlineImage {
         // step 4
         PdfContentByte canvas = writer.getDirectContent();
         Image img = Image.getInstance(IMG);
-        canvas.addImage(img, 20, 0, 0, 20, 36, 786, true);
-        canvas.addImage(img, 20, 0, 0, 20, 56, 786, true);
-        canvas.addImage(img, 20, 0, 0, 20, 76, 786, true);
+        canvas.addImage(img, 20, 0, 0, 20, 36, 786);
+        canvas.addImage(img, 20, 0, 0, 20, 56, 786);
+        canvas.addImage(img, 20, 0, 0, 20, 76, 786);
         // step 5
         document.close();
     }
