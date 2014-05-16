@@ -40,10 +40,8 @@ public class C0414_GraphicsStateDict {
         dashPattern.add(dashArray);
         dashPattern.add(new PdfNumber(0));
         gs.put(new PdfName("D"), dashPattern);
-        canvas.saveState();
         canvas.setGState(gs);
         triangle(canvas);
-        canvas.restoreState();
         document.newPage();
         triangle(canvas);
         document.newPage();
