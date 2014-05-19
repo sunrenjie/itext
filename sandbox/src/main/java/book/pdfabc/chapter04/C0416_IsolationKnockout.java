@@ -46,11 +46,11 @@ public class C0416_IsolationKnockout {
         backdrop.rectangle(0, 0, 200, 200);
         backdrop.fillStroke();
         
-        float gap = (document.getPageSize().getWidth() - 400) / 3;
-        cb.addTemplate(backdrop, gap, 500);
-        cb.addTemplate(backdrop, 200 + 2 * gap, 500);
-        cb.addTemplate(backdrop, gap, 500 - 200 - gap);
-        cb.addTemplate(backdrop, 200 + 2 * gap, 500 - 200 - gap);
+        float gap = (document.getPageSize().getWidth() - 400) / 10;
+        cb.addTemplate(backdrop, 50 + gap, 500);
+        cb.addTemplate(backdrop, 250 + 2 * gap, 500);
+        cb.addTemplate(backdrop, 50 + gap, 500 - 200 - gap);
+        cb.addTemplate(backdrop, 250 + 2 * gap, 500 - 200 - gap);
         
         PdfTemplate tp;
         PdfTransparencyGroup group;
@@ -61,7 +61,7 @@ public class C0416_IsolationKnockout {
         group.setIsolated(true);
         group.setKnockout(true);
         tp.setGroup(group);
-        cb.addTemplate(tp, gap, 500);
+        cb.addTemplate(tp, 50 + gap, 500);
 
         tp = cb.createTemplate(200, 200);
         pictureCircles(0, 0, tp);
@@ -69,7 +69,7 @@ public class C0416_IsolationKnockout {
         group.setIsolated(true);
         group.setKnockout(false);
         tp.setGroup(group);
-        cb.addTemplate(tp, 200 + 2 * gap, 500);
+        cb.addTemplate(tp, 250 + 2 * gap, 500);
 
         tp = cb.createTemplate(200, 200);
         pictureCircles(0, 0, tp);
@@ -77,7 +77,7 @@ public class C0416_IsolationKnockout {
         group.setIsolated(false);
         group.setKnockout(true);
         tp.setGroup(group);
-        cb.addTemplate(tp, gap, 500 - 200 - gap);
+        cb.addTemplate(tp, 50 + gap, 500 - 200 - gap);
 
         tp = cb.createTemplate(200, 200);
         pictureCircles(0, 0, tp);
@@ -85,7 +85,7 @@ public class C0416_IsolationKnockout {
         group.setIsolated(false);
         group.setKnockout(false);
         tp.setGroup(group);
-        cb.addTemplate(tp, 200 + 2 * gap, 500 - 200 - gap);
+        cb.addTemplate(tp, 250 + 2 * gap, 500 - 200 - gap);
         
         document.close();
     }
