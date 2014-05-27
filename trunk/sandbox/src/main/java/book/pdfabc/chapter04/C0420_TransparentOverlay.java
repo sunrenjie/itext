@@ -54,7 +54,7 @@ public class C0420_TransparentOverlay {
         // Create a transparent PdfTemplate
         PdfTemplate t2 = writer.getDirectContent().createTemplate(850, 600);
         PdfTransparencyGroup transGroup = new PdfTransparencyGroup();
-        transGroup.put( PdfName.CS, PdfName.DEVICEGRAY);
+        transGroup.put(PdfName.CS, PdfName.DEVICEGRAY);
         transGroup.setIsolated(true);
         transGroup.setKnockout(false);
         t2.setGroup(transGroup);
@@ -78,7 +78,7 @@ public class C0420_TransparentOverlay {
         maskDict.put(PdfName.S, new PdfName("Luminosity"));
         maskDict.put(new PdfName("G"), t2.getIndirectReference());
         PdfGState gState = new PdfGState();
-        gState.put(PdfName.SMASK, maskDict );
+        gState.put(PdfName.SMASK, maskDict);
         canvas.setGState(gState);
         
         canvas.addTemplate(t2, 0, 0);
