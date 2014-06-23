@@ -16,14 +16,14 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class TextStateOperators {
+public class C0501_TextState {
 
     public static final String DEST = "results/pdfabc/chapter05/text_state_1.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new TextStateOperators().createPdf(DEST);
+        new C0501_TextState().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException, DocumentException {
