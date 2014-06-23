@@ -11,7 +11,7 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfTextArray;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class TextPositioningShowing {
+public class C0502_TextState {
 
 
     public static final String DEST = "results/pdfabc/chapter05/text_state_2.pdf";
@@ -19,7 +19,7 @@ public class TextPositioningShowing {
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new TextPositioningShowing().createPdf(DEST);
+        new C0502_TextState().createPdf(DEST);
     }
     
     public void createPdf(String dest) throws IOException, DocumentException {
