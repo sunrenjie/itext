@@ -82,7 +82,7 @@ public class C0606_Zugferd {
                 AFRelationshipValue.Alternative, parameters);
         PdfArray array = new PdfArray();
         array.add(fileSpec.getReference());
-        writer.getExtraCatalog().put(PdfName.AFRELATIONSHIP, array);
+        writer.getExtraCatalog().put(PdfName.AF, array);
 
         document.close();
     }
