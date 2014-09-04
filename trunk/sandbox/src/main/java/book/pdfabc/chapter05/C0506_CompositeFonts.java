@@ -9,18 +9,18 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class C0504_SimpleFonts {
+public class C0506_CompositeFonts {
     
-    public static final String DEST = "results/pdfabc/chapter05/fonts_simple.pdf";
+    public static final String DEST = "results/pdfabc/chapter05/fonts_composite.pdf";
 
     public static final String TYPE1 = "resources/fonts/cmr10.afm";
     public static final String OT_T1 = "resources/fonts/Puritan2.otf";
     public static final String OT_TT = "resources/fonts/OpenSans-Regular.ttf";
-    
+
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new C0504_SimpleFonts().createPdf(DEST);
+        new C0506_CompositeFonts().createPdf(DEST);
     }
         
     public void createPdf(String dest) throws IOException, DocumentException {
@@ -37,19 +37,13 @@ public class C0504_SimpleFonts {
         canvas.moveText(36, 806);
         canvas.setLeading(16);
     	BaseFont bf;
-        bf = BaseFont.createFont(BaseFont.COURIER, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
-        canvas.setFontAndSize(bf, 12);
-        canvas.newlineShowText("No country for old men");
-        bf = BaseFont.createFont(TYPE1, BaseFont.WINANSI, BaseFont.EMBEDDED);
-        canvas.setFontAndSize(bf, 12);
-        canvas.newlineShowText("Inception");
-        bf = BaseFont.createFont(OT_T1, BaseFont.CP1250, BaseFont.EMBEDDED);
+        bf = BaseFont.createFont(OT_T1, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         canvas.setFontAndSize(bf, 12);
         canvas.newlineShowText("Nikogar\u0161nja zemlja");
-        bf = BaseFont.createFont(OT_TT, "CP1253", BaseFont.EMBEDDED);
+        bf = BaseFont.createFont(OT_TT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         canvas.setFontAndSize(bf, 12);
         canvas.newlineShowText("\u039d\u03cd\u03c6\u03b5\u03c2");
-        bf = BaseFont.createFont(OT_TT, "CP1251", BaseFont.EMBEDDED);
+        bf = BaseFont.createFont(OT_TT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         canvas.setFontAndSize(bf, 12);
         canvas.newlineShowText("\u042f \u043b\u044e\u0431\u043b\u044e \u0442\u0435\u0431\u044f");
         canvas.endText();
