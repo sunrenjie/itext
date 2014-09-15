@@ -13,7 +13,6 @@ public class C0506_CompositeFonts {
     
     public static final String DEST = "results/pdfabc/chapter05/fonts_composite.pdf";
 
-    public static final String TYPE1 = "resources/fonts/cmr10.afm";
     public static final String OT_T1 = "resources/fonts/Puritan2.otf";
     public static final String OT_TT = "resources/fonts/OpenSans-Regular.ttf";
 
