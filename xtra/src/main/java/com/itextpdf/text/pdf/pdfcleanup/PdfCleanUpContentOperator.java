@@ -5,10 +5,9 @@ import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.pdf.parser.ContentOperator;
 import com.itextpdf.text.pdf.parser.PdfContentStreamProcessor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.*;
 
 public class PdfCleanUpContentOperator implements ContentOperator {
 
@@ -110,7 +109,7 @@ public class PdfCleanUpContentOperator implements ContentOperator {
         if (!disableOutput) {
             int index = 0;
             for (PdfObject o : operands) {
-                o.toPdf(canvas.getPdfWriter(), canvas.getInternalBuffer());
+                toPdf(o, canvas.getPdfWriter(), canvas.getInternalBuffer());
                 canvas.getInternalBuffer().append(operands.size() > ++index ? (byte) ' ' : (byte) '\n');
             }
         }
@@ -123,6 +122,28 @@ public class PdfCleanUpContentOperator implements ContentOperator {
                 return false;
         }
         return true;
+    }
+
+    //Overriding standard PdfObject.toPdf because we need sorted PdfDictionaries.
+    static private void toPdf(PdfObject object, PdfWriter writer, OutputStream os) throws IOException {
+        if (object instanceof PdfDictionary) {
+            os.write('<');
+            os.write('<');
+            List<PdfName> keys = new ArrayList<PdfName>(((PdfDictionary)object).getKeys());
+            Collections.sort(keys);
+            for (PdfName key : keys) {
+                toPdf(key, writer, os);
+                PdfObject value = ((PdfDictionary)object).get(key);
+                int type = value.type();
+                if (type != PdfObject.ARRAY && type != PdfObject.DICTIONARY && type != PdfObject.NAME && type != PdfObject.STRING)
+                    os.write(' ');
+                toPdf(value, writer, os);
+            }
+            os.write('>');
+            os.write('>');
+        } else {
+            object.toPdf(writer, os);
+        }
     }
 
 }
