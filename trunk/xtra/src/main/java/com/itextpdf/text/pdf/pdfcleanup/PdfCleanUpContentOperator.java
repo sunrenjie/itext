@@ -121,6 +121,8 @@ public class PdfCleanUpContentOperator implements ContentOperator {
             canvas.getInternalBuffer().append(TJ);
             cleanUpStrategy.getContext().getCharSpacing().toPdf(canvas.getPdfWriter(), canvas.getInternalBuffer());
             canvas.getInternalBuffer().append(Tc);
+        } else if ("\"".equals(operator.toString())) {
+            cleanUpStrategy.getContext().setCharSpacing((PdfNumber) operands.get(1));
         }
         if (!disableOutput) {
             int index = 0;
