@@ -46,10 +46,8 @@ package com.itextpdf.text.xml.xmp;
 
 import com.itextpdf.text.pdf.PdfAConformanceLevel;
 import com.itextpdf.text.pdf.PdfDictionary;
-import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.xmp.*;
-import com.itextpdf.xmp.options.PropertyOptions;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -210,19 +208,6 @@ public class PdfAXmpWriter extends XmpWriter {
             addRdfDescription(conformanceLevel);
         } catch (XMPException xmpExc) {
             throw new IOException(xmpExc.getMessage());
-        }
-    }
-
-    protected void updateAuthorInfo(Map<String, String> info) { }
-    protected void updateAuthorInfo(PdfDictionary info) { }
-    public void addDocInfoProperty(Object key, String value) throws XMPException {
-        if (key instanceof String)
-            key = new PdfName((String) key);
-        if (PdfName.AUTHOR.equals(key)) {
-            xmpMeta.appendArrayItem(XMPConst.NS_DC, DublinCoreProperties.CREATOR, new PropertyOptions(PropertyOptions.ARRAY_ORDERED), value, null);
-        }
-        else {
-            super.addDocInfoProperty(key, value);
         }
     }
     
