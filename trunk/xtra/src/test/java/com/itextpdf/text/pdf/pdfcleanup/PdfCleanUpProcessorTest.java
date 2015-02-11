@@ -45,7 +45,6 @@ public class PdfCleanUpProcessorTest {
 
         List<PdfCleanUpLocation> cleanUpLocations2 = Arrays.asList(new PdfCleanUpLocation(1, new Rectangle(97f, 405f, 480f, 445f), BaseColor.GRAY));
         List<PdfCleanUpLocation> cleanUpLocations3 = Arrays.asList(new PdfCleanUpLocation(1, new Rectangle(97f, 605f, 480f, 645f), BaseColor.GRAY));
-        List<PdfCleanUpLocation> cleanUpLocations4 = Arrays.asList(new PdfCleanUpLocation(1, new Rectangle(97f, 405f, 480f, 445f), BaseColor.GRAY));
 
         return Arrays.asList(new Object[][] {{"page229.pdf", "page229_01.pdf", "cmp_page229_01.pdf", cleanUpLocations1},
                                              {"page229-modified-Tc-Tw.pdf", "page229-modified-Tc-Tw.pdf", "cmp_page229-modified-Tc-Tw.pdf", cleanUpLocations1},
@@ -59,8 +58,8 @@ public class PdfCleanUpProcessorTest {
                                              {"simpleImmediate.pdf", "simpleImmediate.pdf", "cmp_simpleImmediate.pdf", cleanUpLocations2},
                                              {"simpleImmediate-tm.pdf", "simpleImmediate-tm.pdf", "cmp_simpleImmediate-tm.pdf", cleanUpLocations2},
                                              {"multiUseIndirect.pdf", "multiUseIndirect.pdf", "cmp_multiUseIndirect.pdf", cleanUpLocations3},
-                                             {"multiUseImage.pdf", "multiUseImage.pdf", "cmp_multiUseImage.pdf", cleanUpLocations4},
-                                             {"smaskImage.pdf", "smaskImage.pdf", "cmp_smaskImage.pdf", cleanUpLocations4}});
+                                             {"multiUseImage.pdf", "multiUseImage.pdf", "cmp_multiUseImage.pdf", cleanUpLocations2},
+                                             {"smaskImage.pdf", "smaskImage.pdf", "cmp_smaskImage.pdf", cleanUpLocations2}});
     }
 
     @Test
