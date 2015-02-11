@@ -2,7 +2,6 @@ package com.itextpdf.text.pdf.pdfcleanup;
 
 import com.itextpdf.testutils.CompareTool;
 import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfReader;
@@ -15,7 +14,9 @@ import org.junit.runners.Parameterized;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 @RunWith(Parameterized.class)
 public class PdfCleanUpProcessorTest {
@@ -70,7 +71,12 @@ public class PdfCleanUpProcessorTest {
     }
 
     private void cleanUp(String input, String output, List<PdfCleanUpLocation> cleanUpLocations) throws IOException, DocumentException {
-        new File(output).getParentFile().mkdirs();
+        File outDir = new File(OUTPUT_PATH);
+
+        if (!outDir.exists()) {
+            outDir.mkdirs();
+        }
+
         PdfReader reader = new PdfReader(input);
         FileOutputStream fos = new FileOutputStream(output);
         PdfStamper stamper = new PdfStamper(reader, fos);
